@@ -147,7 +147,8 @@ def generate_readme():
                 display_name = file_id
             prob_link = meta["source"] or auto_generate_link(full_path)
             name_md = f"[{display_name}]({prob_link})" if prob_link else display_name
-            sol_md = f"[Code]({full_path.replace('\\', '/')})"
+            safe_path = full_path.replace('\\', '/').replace(' ', '%20')
+            sol_md = f"[Code]({safe_path})"
             if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
             table += f"| {i} | {name_md} | {meta['tags']} | {meta['complexity']} | {sol_md} |\n"
             total_problems += 1

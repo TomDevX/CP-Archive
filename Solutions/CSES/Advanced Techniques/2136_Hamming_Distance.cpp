@@ -6,7 +6,7 @@
  *    source: https://cses.fi/problemset/task/2136
  *    submission: 
  * ----------------------------------------------------------
- *    tags: 
+ *    tags: bit
  *    complexity: O(n^2)
  *    note: A^B will eliminate the same bit and keep the different bits, so that we can use popcount to count each pair of string after turning them into int
  **/
