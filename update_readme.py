@@ -8,17 +8,14 @@ README_FILE = 'README.md'
 HEADER_FILE = 'HEADER.md'
 
 def format_display_name(name):
-    """Làm đẹp tên folder/file: '03_dynamic_programming' -> 'Dynamic Programming'"""
+    """Làm đẹp tên folder/file"""
     parts = name.split('_')
     if parts[0].isdigit():
         parts = parts[1:]
     return " ".join(parts).replace('-', ' ').title()
 
 def extract_metadata(file_path):
-    """
-    Trích xuất metadata từ 15 dòng đầu của file C++.
-    Cấu trúc: title, source, submission, algorithm.
-    """
+    """Trích xuất metadata từ 15 dòng đầu: title, source, submission, algorithm."""
     meta = {"source": None, "submission": None, "algorithm": "N/A", "title": None}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -26,7 +23,6 @@ def extract_metadata(file_path):
                 line = f.readline()
                 if not line: break
                 line_lower = line.lower()
-                
                 if "title:" in line_lower:
                     meta["title"] = line.split("title:")[1].replace('**/', '').replace('*', '').strip()
                 elif "source:" in line_lower:
@@ -42,7 +38,7 @@ def extract_metadata(file_path):
     return meta
 
 def auto_generate_link(file_path):
-    """Tự động tạo link dựa trên tên folder (OJ) và tên file (ID)"""
+    """Tự động tạo link OJ dựa trên folder"""
     path_parts = file_path.replace('\\', '/').split('/')
     filename = path_parts[-1].replace('.cpp', '')
     oj_name = ""
@@ -77,56 +73,55 @@ def generate_readme():
     root_dirs = sorted([d for d in os.listdir('.') if os.path.isdir(d) and d not in EXCLUDE_DIRS])
 
     for root_dir in root_dirs:
-        category_header = f"## 📂 {format_display_name(root_dir)}\n"
-        subfolder_content = ""
-
+        category_main_header = f"## 📂 {format_display_name(root_dir)}\n"
+        folder_data = []
         for root, dirs, files in os.walk(root_dir):
-            dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS])
-            cpp_files_in_folder = [f for f in files if f.endswith('.cpp')]
-            if not cpp_files_in_folder: continue
+            dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
+            cpp_files = [f for f in files if f.endswith('.cpp')]
+            if cpp_files:
+                folder_data.append((root, cpp_files))
 
-            relative_path = os.path.relpath(root, root_dir)
-            header = category_header if relative_path == "." else f"### 📁 {format_display_name(relative_path)}\n"
-
+        folder_data.sort(key=lambda x: x[0].lower())
+        sub_sections = ""
+        for path, files in folder_data:
+            relative_path = os.path.relpath(path, root_dir)
+            header = category_main_header if relative_path == "." else f"### 📁 {format_display_name(relative_path)}\n"
             problem_list = []
-            for file in cpp_files_in_folder:
-                full_path = os.path.join(root, file)
+            for file in files:
+                full_path = os.path.join(path, file)
                 meta = extract_metadata(full_path)
-                
                 display_name = meta["title"] if meta["title"] else format_display_name(file.replace('.cpp', ''))
                 prob_link = meta["source"] or auto_generate_link(full_path)
-                
                 problem_list.append({
-                    "name": display_name,
-                    "link": prob_link,
-                    "submission": meta["submission"],
-                    "algo": meta["algorithm"],
-                    "path": full_path.replace('\\', '/')
+                    "name": display_name, "link": prob_link, "submission": meta["submission"],
+                    "algo": meta["algorithm"], "path": full_path.replace('\\', '/')
                 })
-
             problem_list.sort(key=lambda x: x["name"].lower())
-
-            # Điều chỉnh tiêu đề bảng: Đưa Submission vào chung cột hoặc riêng tùy ý
-            # Ở đây tôi giữ cấu trúc gọn: Tên bài (Link) | Algorithm | Solution (Code + Submission)
-            table = "| # | Problem Name | Algorithm | Solution |\n"
-            table += "| :--- | :--- | :--- | :--- |\n"
+            table = "| # | Problem Name | Algorithm | Solution |\n| :--- | :--- | :--- | :--- |\n"
             for i, p in enumerate(problem_list, 1):
                 name_display = f"[{p['name']}]({p['link']})" if p['link'] else p['name']
-                # Đổi Verify thành Submission theo yêu cầu
-                submission_link = f" \| [Submission]({p['submission']})" if p['submission'] else ""
-                table += f"| {i} | {name_display} | `{p['algo']}` | [Code]({p['path']}){submission_link} |\n"
+                sub_link = f" \| [Submission]({p['submission']})" if p['submission'] else ""
+                table += f"| {i} | {name_display} | `{p['algo']}` | [Code]({p['path']}){sub_link} |\n"
                 total_problems += 1
-            
-            subfolder_content += header + table + "\n"
-        main_content += subfolder_content
+            sub_sections += header + table + "\n"
+        main_content += sub_sections
 
-    # Cập nhật dòng Last Update theo yêu cầu
-    now = datetime.datetime.now().strftime("%a %b %d %Y")
-    stats = f"### 📊 Repository Stats\n- **Total Problems:** {total_problems}\n- **Last Update:** {now}\n\n"
+    # --- ĐỊNH DẠNG THEO CODEFORCES (CONTEST STYLE) ---
+    # Feb/05/2026 12:30 (UTC+7)
+    now = datetime.datetime.now()
+    cf_time_format = now.strftime("%b/%d/%Y %H:%M")
+    
+    # Tạo link tự động chuyển đổi múi giờ cho người xem
+    # Dùng trang 'Time.is' với tọa độ chính xác của bạn
+    time_convert_link = f"https://time.is/{now.strftime('%H%M')}_05_Feb_2026_in_ICT"
+
+    stats = f"### 📊 Repository Stats\n"
+    stats += f"- **Total Problems:** {total_problems}\n"
+    stats += f"- **Last Update:** [{cf_time_format} (UTC+7)]({time_convert_link})\n\n"
     
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content + stats + main_content)
-    print(f"✅ Success! README updated with {total_problems} problems.")
+    print(f"✅ README Updated: {cf_time_format} (UTC+7)")
 
 if __name__ == "__main__":
     generate_readme()
