@@ -195,7 +195,7 @@ def generate_readme():
     
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content + stats + toc_content + "\n---\n" + main_content)
-    print(f"✅ README Tinh gọn thành công (Bỏ qua folder mẹ 'solutions')."
+    print(f"✅ README Tinh gọn thành công (Bỏ qua folder mẹ 'solutions').")
 
 if __name__ == "__main__":
     generate_readme()
