@@ -28,9 +28,13 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 
 ---
 ### 📊 Repository Stats
-- **Total Problems:** 75
-![Last Update](https://img.shields.io/badge/Last_Update-Feb_05,_2026_--_12:43_(GMT+7)-blue?style=flat-square&logo=github)
 
+- **Total Problems:** 75
+- **Current Timezone:** Ho Chi Minh City (GMT+7)
+
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05,_2026_--_12:48_(GMT+7)-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?iso=20260205T1248&p1=166&msg=Last+Update+from+HCM)
+
+---
 ### 📁 Codeforces
 | # | Problem Name | Algorithm | Solution |
 | :--- | :--- | :--- | :--- |
@@ -110,7 +114,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ### 📁 Cses/03 Dynamic Programming
 | # | Problem Name | Algorithm | Solution |
 | :--- | :--- | :--- | :--- |
-| 1 | [Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming` | [Code](Solutions/CSES/03_Dynamic_Programming/2413_Counting_Towers.cpp) \| [Submission](https://cses.fi/problemset/result/16155651/) |
+| 1 | [Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming, AdHoc` | [Code](Solutions/CSES/03_Dynamic_Programming/2413_Counting_Towers.cpp) \| [Submission](https://cses.fi/problemset/result/16155651/) |
 
 ## 📂 Templates
 | # | Problem Name | Algorithm | Solution |
