@@ -4,7 +4,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 
 ## 🎯 Current Objectives
 ### 🔴 High-Level Goals (Long-term)
-- [ ] **Second Prize** - Vietnam National Olympiad in Informatics (HSGQG)
+- [ ] **Second Prize** - Vietnam National Olympiad in Informatics (VOI)
 - [ ] **Second Prize** - Tin Học Trẻ National (Category C1)
 
 ### 🟡 Current Priority
@@ -18,3 +18,8 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 - `/Algorithms`: Optimized C++ templates for reusable algorithmic blocks (Graph, Math, DP, etc.).
 - `/Solutions`: Problem-solving log categorized by platforms (Codeforces, CSES, VNOI).
 - `/Templates`: Standard boilerplate code for high-speed contest environments.
+
+## 🛠️ Technical Stack
+- **Language:** C++14 (Standard for VOI)
+- **Environment:** macOS (Darwin)
+- **Compiler:** Clang / G++ (GCC)

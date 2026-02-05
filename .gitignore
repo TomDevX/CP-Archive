@@ -1,6 +1,8 @@
 # Temporary scratchpads
 main.cpp
 test*.cpp
+*temp.cpp
+*tmp.cpp
 
 # OS generated files
 .DS_Store
@@ -10,8 +12,13 @@ Thumbs.db
 # Compiled binaries (Nên chặn để Repo sạch hơn)
 *.exe
 *.app
+*.bin
+*.drawio
+*.excalidraw
+*.idb
 
 # IDE/Editor specific files 
 .vscode/
 .idea/
+.cph/
 *.swp
