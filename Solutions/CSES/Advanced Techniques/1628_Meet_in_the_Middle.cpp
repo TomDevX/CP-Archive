@@ -7,7 +7,7 @@
  *    submission: https://cses.fi/paste/39bb411c336d08d8f6c8f1/
  * ----------------------------------------------------------
  *    tags: Dynamic Programming, Implementation, Optimization
- *    complexity: O(2^{\frac{n}{2}}*log{\frac{n}{2}} + 2^{\frac{n}{2}}*log{\frac{n}{2}})
+ *    complexity: O(2^{\frac{n}{2}}*log({\frac{n}{2}}) + 2^{\frac{n}{2}}*log({\frac{n}{2}}))
  *    note: 
  *    1. We can divide our array into two halves, and then bitmask on the first half to find all the possible sums, we call every sum in this subset is A
  *    2. For the second half, we can do the same bitmask, call every sum in this second subset B, but now we find if the x-B is available in the first half? => x-B = A
