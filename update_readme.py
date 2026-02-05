@@ -21,6 +21,7 @@ def get_last_commit_time():
         return datetime.now(timezone(timedelta(hours=7)))
 
 def format_display_name(name):
+    # Giữ nguyên logic cũ của bạn nhưng xử lý sạch hơn
     parts = name.split('_')
     if parts[0].isdigit():
         parts = parts[1:]
@@ -101,12 +102,12 @@ def generate_readme():
     root_dirs = sorted([d for d in os.listdir('.') if os.path.isdir(d) and d not in EXCLUDE_DIRS], key=natural_sort_key)
 
     for root_dir in root_dirs:
-        # Cấu trúc TOC cấp 1 cho folder lớn
-        root_title = format_display_name(root_dir)
+        # 1. Xử lý Thư mục cha (Root Folder)
+        root_title = format_display_name(root_dir).upper() if root_dir.lower() == 'cses' else format_display_name(root_dir)
         root_anchor = root_title.lower().replace(" ", "-")
         toc_content += f"* [📂 {root_title}](#-{root_anchor})\n"
-        
         main_content += f"## 📂 {root_title}\n"
+        
         folder_data = []
         for root, dirs, files in os.walk(root_dir):
             dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
@@ -117,11 +118,10 @@ def generate_readme():
         for path, files in folder_data:
             relative_path = os.path.relpath(path, root_dir)
             if relative_path != ".":
-                # Cấu trúc TOC cấp 2 cho folder con
+                # 2. Xử lý Thư mục con (Sub Folder) - Thụt lề trong TOC
                 sub_title = format_display_name(relative_path)
                 sub_anchor = sub_title.lower().replace(" ", "-")
                 toc_content += f"  * [📁 {sub_title}](#-{sub_anchor})\n"
-                
                 main_content += f"### 📁 {sub_title}\n"
             
             problem_list = []
@@ -129,11 +129,18 @@ def generate_readme():
                 full_path = os.path.join(path, file)
                 meta = extract_metadata(full_path)
                 
-                # Trích xuất ID từ tên file (phần trước dấu gạch dưới đầu tiên)
-                file_id = file.split('_')[0].upper() if '_' in file else file.replace('.cpp', '').upper()
-                # Tên hiển thị bài tập
-                pure_name = meta["title"] if meta["title"] else format_display_name(file.replace('.cpp', ''))
-                display_name = f"{file_id} - {pure_name}"
+                filename_no_ext = file.replace('.cpp', '')
+                file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
+                
+                # Logic: Nếu có title meta thì dùng ID - Title, nếu không thì chỉ dùng ID (hoặc format từ filename)
+                if meta["title"]:
+                    display_name = f"{file_id} - {meta['title']}"
+                else:
+                    # Nếu không có title meta, kiểm tra xem tên file có phần "Name" sau dấu "_" không
+                    if '_' in filename_no_ext:
+                        display_name = f"{file_id} - {format_display_name(filename_no_ext)}"
+                    else:
+                        display_name = file_id # Trường hợp chỉ có ID như 123A.cpp
                 
                 prob_link = meta["source"] or auto_generate_link(full_path)
                 problem_list.append({
@@ -152,11 +159,11 @@ def generate_readme():
                 total_problems += 1
             main_content += table + "\n"
 
+    # Phần Badge và Stats giữ nguyên logic gốc của bạn
     push_time = get_last_commit_time()
     iso_string = push_time.strftime("%Y%m%dT%H%M")
     time_str = push_time.strftime("%b %d, %Y - %H:%M (GMT+7)")
     badge_msg = f"{time_str}_🖱️_[CLICK_TO_CONVERT]".replace("-", "--").replace(" ", "_")
-    
     badge_url = f"https://img.shields.io/badge/Last_Update-{badge_msg}-0078d4?style=for-the-badge&logo=github"
     time_link = f"https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso={iso_string}&p1={CITY_ID}"
 
@@ -167,9 +174,8 @@ def generate_readme():
     stats += f"---\n"
     
     with open(README_FILE, 'w', encoding='utf-8') as f:
-        # Ghi theo thứ tự: Header -> Stats -> TOC -> Nội dung chính
         f.write(content + stats + toc_content + "\n---\n" + main_content)
-    print(f"✅ README Updated with TOC and ID-Name (City ID: {CITY_ID})")
+    print(f"✅ README Updated (City ID: {CITY_ID})")
 
 if __name__ == "__main__":
     generate_readme()
