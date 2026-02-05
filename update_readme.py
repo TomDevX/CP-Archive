@@ -1,11 +1,24 @@
 import os
 import re
+import subprocess
 from datetime import datetime, timedelta, timezone
 
 # --- CONFIGURATION ---
 EXCLUDE_DIRS = {'.git', '.github', '.assets', 'venv', '__pycache__'}
 README_FILE = 'README.md'
 HEADER_FILE = 'HEADER.md'
+CITY_ID = 218  # Ho Chi Minh City (GMT+7)
+
+def get_last_commit_time():
+    """Lấy thời gian của commit cuối cùng từ Git. Nếu lỗi, trả về giờ hiện tại."""
+    try:
+        # Lấy Unix timestamp của commit cuối cùng (%at)
+        timestamp = subprocess.check_output(['git', 'log', '-1', '--format=%at']).decode('utf-8').strip()
+        tz_hcm = timezone(timedelta(hours=7))
+        return datetime.fromtimestamp(int(timestamp), tz=tz_hcm)
+    except Exception:
+        # Nếu chưa có commit nào hoặc không phải repo git, dùng giờ hiện tại
+        return datetime.now(timezone(timedelta(hours=7)))
 
 def format_display_name(name):
     """Làm đẹp tên folder/file"""
@@ -15,7 +28,7 @@ def format_display_name(name):
     return " ".join(parts).replace('-', ' ').title()
 
 def extract_metadata(file_path):
-    """Trích xuất metadata và xử lý nhiều thuật toán ngăn cách bởi dấu phẩy."""
+    """Trích xuất metadata và xử lý nhiều thuật toán."""
     meta = {"source": None, "submission": None, "algorithm": "N/A", "title": None}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -33,7 +46,6 @@ def extract_metadata(file_path):
                     match = re.search(r'(https?://[^\s]+)', line)
                     if match: meta["submission"] = match.group(1)
                 elif "algorithm:" in line_lower:
-                    # Tách các thuật toán bởi dấu phẩy và làm sạch khoảng trắng
                     raw_algo = line.split("algorithm:")[1].replace('**/', '').replace('*', '').strip()
                     algos = [f"`{a.strip()}`" for a in raw_algo.split(',') if a.strip()]
                     meta["algorithm"] = ", ".join(algos)
@@ -110,34 +122,28 @@ def generate_readme():
             sub_sections += header + table + "\n"
         main_content += sub_sections
 
-    # --- CẤU HÌNH THỜI GIAN VÀ LINK CHUYỂN ĐỔI ---
-    tz_hcm = timezone(timedelta(hours=7))
-    now = datetime.now(tz_hcm)
+    # --- CẤU HÌNH THỜI GIAN DỰA TRÊN COMMIT CUỐI CÙNG ---
+    push_time = get_last_commit_time()
     
-    # 1. Tạo Badge URL (Shields.io)
-    time_badge = now.strftime("%b_%d,_%Y_--_%H:%M_(GMT+7)")
+    # Badge (Shields.io)
+    time_badge = push_time.strftime("%b_%d,_%Y_--_%H:%M_(GMT+7)")
     badge_url = f"https://img.shields.io/badge/Last_Update-{time_badge}-0078d4?style=for-the-badge&logo=github"
 
-    # 2. Tạo Link chuyển đổi (ISO 8601 + p1=166 cho HCM)
-    iso_string = now.strftime("%Y%m%dT%H%M")
-    time_link = f"https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso={iso_string}&p1=166"
+    # Link chuyển đổi (Dùng p1=166 cho Hồ Chí Minh)
+    iso_string = push_time.strftime("%Y%m%dT%H%M")
+    time_link = f"https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso={iso_string}&p1={CITY_ID}"
 
-    # --- TỔNG HỢP PHẦN STATS ---
+    # --- TỔNG HỢP STATS ---
     stats = f"### 📊 Repository Stats\n\n"
     stats += f"- **Total Problems:** {total_problems}\n"
     stats += f"- **Origin Timezone:** Ho Chi Minh City (GMT+7)\n\n"
-    
-    # Hiển thị Badge kèm Link và Tooltip
     stats += f"[![Last Update]({badge_url})]({time_link} \"Click to convert to your local time\")\n\n"
-    
-    # Thêm ghi chú nhỏ để hướng dẫn người dùng click
     stats += f"<sub>*Can't see your time? [Click here to convert]({time_link})*</sub>\n\n"
-    
     stats += f"---\n"
     
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content + stats + main_content)
-    print(f"✅ README Updated: {now.strftime('%H:%M')} (GMT+7)")
+    print(f"✅ README Updated with Commit Time: {push_time.strftime('%H:%M')} (GMT+7)")
 
 if __name__ == "__main__":
     generate_readme()
