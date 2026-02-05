@@ -99,7 +99,7 @@ def generate_readme():
     main_content = ""
     toc_content = "## 📌 Table of Contents\n\n"
     
-    root_dir = "solutions"
+    root_dir = "Solutions"
     if not os.path.isdir(root_dir):
         print(f"⚠️ Thư mục '{root_dir}' không tồn tại.")
         return
