@@ -4,7 +4,7 @@
  *    country: Vietnam - VNM
  *    title:
  *    source: 
- *    submission: https://cses.fi/problemset/result/16155651/
+ *    submission: https://cses.fi/paste/67df7ff1543072a9f68403/
  * ----------------------------------------------------------
  *    algorithm: Dynamic Programming, AdHoc
  *    complexity: O(n)
