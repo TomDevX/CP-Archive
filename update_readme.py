@@ -7,7 +7,17 @@ from datetime import datetime, timedelta, timezone
 EXCLUDE_DIRS = {'.git', '.github', '.assets', 'venv', '__pycache__'}
 README_FILE = 'README.md'
 HEADER_FILE = 'HEADER.md'
+
+# ĐÍNH CHÍNH: 218 là Hồ Chí Minh (Vietnam)
 CITY_ID = 218 
+
+def natural_sort_key(s):
+    """
+    Hỗ trợ sort tự nhiên: '2.cpp' sẽ đứng trước '10.cpp'
+    Tách chuỗi thành list gồm số (int) và chữ (str).
+    """
+    return [int(text) if text.isdigit() else text.lower()
+            for text in re.split('([0-9]+)', s)]
 
 def get_last_commit_time():
     """Lấy Unix timestamp của commit cuối cùng từ Git."""
@@ -79,7 +89,7 @@ def generate_readme():
 
     total_problems = 0
     main_content = ""
-    root_dirs = sorted([d for d in os.listdir('.') if os.path.isdir(d) and d not in EXCLUDE_DIRS])
+    root_dirs = sorted([d for d in os.listdir('.') if os.path.isdir(d) and d not in EXCLUDE_DIRS], key=natural_sort_key)
 
     for root_dir in root_dirs:
         category_main_header = f"## 📂 {format_display_name(root_dir)}\n"
@@ -89,11 +99,13 @@ def generate_readme():
             cpp_files = [f for f in files if f.endswith('.cpp')]
             if cpp_files: folder_data.append((root, cpp_files))
 
-        folder_data.sort(key=lambda x: x[0].lower())
+        # Sort folder và file theo logic tự nhiên (ID số)
+        folder_data.sort(key=lambda x: natural_sort_key(x[0]))
         sub_sections = ""
         for path, files in folder_data:
             relative_path = os.path.relpath(path, root_dir)
             header = category_main_header if relative_path == "." else f"### 📁 {format_display_name(relative_path)}\n"
+            
             problem_list = []
             for file in files:
                 full_path = os.path.join(path, file)
@@ -102,9 +114,13 @@ def generate_readme():
                 prob_link = meta["source"] or auto_generate_link(full_path)
                 problem_list.append({
                     "name": display_name, "link": prob_link, "submission": meta["submission"],
-                    "algo": meta["algorithm"], "path": full_path.replace('\\', '/')
+                    "algo": meta["algorithm"], "path": full_path.replace('\\', '/'),
+                    "raw_filename": file # Để dùng cho sorting
                 })
-            problem_list.sort(key=lambda x: x["name"].lower())
+            
+            # SORTING THEO ID (Sử dụng filename gốc để chính xác nhất)
+            problem_list.sort(key=lambda x: natural_sort_key(x["raw_filename"]))
+
             table = "| # | Problem Name | Algorithm | Solution |\n| :--- | :--- | :--- | :--- |\n"
             for i, p in enumerate(problem_list, 1):
                 name_display = f"[{p['name']}]({p['link']})" if p['link'] else p['name']
@@ -118,10 +134,9 @@ def generate_readme():
     push_time = get_last_commit_time()
     iso_string = push_time.strftime("%Y%m%dT%H%M")
     
-    # 1. Tạo Message Badge rõ ràng hơn: Thêm icon chuột và gợi ý Click
-    # Shields.io URL: Khoảng trắng thay bằng _, dấu gạch ngang thay bằng --
+    # Badge: Thêm Icon CLICK và hiệu ứng Hover
     time_str = push_time.strftime("%b %d, %Y - %H:%M (GMT+7)")
-    badge_msg = f"{time_str} 🖱️ [Click to Convert]".replace("-", "--").replace(" ", "_")
+    badge_msg = f"{time_str}_🖱️_[CLICK_TO_CONVERT]".replace("-", "--").replace(" ", "_")
     
     badge_url = f"https://img.shields.io/badge/Last_Update-{badge_msg}-0078d4?style=for-the-badge&logo=github"
     time_link = f"https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso={iso_string}&p1={CITY_ID}"
@@ -131,17 +146,13 @@ def generate_readme():
     stats += f"- **Total Problems:** {total_problems}\n"
     stats += f"- **Origin Timezone:** Ho Chi Minh City (GMT+7)\n\n"
     
-    # Badge kèm Tooltip khi hover chuột
-    stats += f"[![Last Update]({badge_url})]({time_link} \"Click here to see this time in your local timezone\")\n\n"
-    
-    # Dòng ghi chú tinh tế với icon chỉ tay 👈
-    stats += f"👈 <sub>*Click the badge above to convert to your timezone.*</sub>\n\n"
-    
+    stats += f"[![Last Update]({badge_url})]({time_link} \"🖱️ Click to convert to your timezone\")\n\n"
+    stats += f"**TIP:** *Click the badge above to see when this was updated in your time.* 🌍\n\n"
     stats += f"---\n"
     
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content + stats + main_content)
-    print(f"✅ README Updated (Source: Commit Time {push_time.strftime('%H:%M')}, City ID: {CITY_ID})")
+    print(f"✅ README Updated (Push Time: {push_time.strftime('%H:%M')}, City ID: {CITY_ID})")
 
 if __name__ == "__main__":
     generate_readme()
