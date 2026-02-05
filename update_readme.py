@@ -7,15 +7,16 @@ from datetime import datetime, timedelta, timezone
 EXCLUDE_DIRS = {'.git', '.github', '.assets', 'venv', '__pycache__'}
 README_FILE = 'README.md'
 HEADER_FILE = 'HEADER.md'
-CITY_ID = 218  # Đã chuẩn hóa: 218 là Hồ Chí Minh (GMT+7)
+# Đã cập nhật theo đính chính của Tom: 218 = HCM
+CITY_ID = 218 
 
 def natural_sort_key(s):
-    """Sort tự nhiên để bài 2 đứng trước bài 10."""
+    """Sắp xếp tự nhiên để xét cả giá trị số và độ dài (bài 2 đứng trước bài 10)."""
     return [int(text) if text.isdigit() else text.lower()
             for text in re.split('([0-9]+)', s)]
 
 def get_last_commit_time():
-    """Lấy thời gian của lần commit/push cuối cùng."""
+    """Lấy thời gian của commit cuối cùng từ Git."""
     try:
         timestamp = subprocess.check_output(['git', 'log', '-1', '--format=%at']).decode('utf-8').strip()
         tz_hcm = timezone(timedelta(hours=7))
@@ -31,47 +32,63 @@ def format_display_name(name):
     return " ".join(parts).replace('-', ' ').title()
 
 def extract_metadata(file_path):
-    """Bóc tách metadata dựa trên Header mới của Tom."""
+    """
+    Bóc tách metadata linh hoạt: không phụ thuộc vào số dòng.
+    Quét toàn bộ khối comment /** ... **/
+    """
     meta = {"source": None, "submission": None, "algorithm": "N/A", "complexity": "N/A", "title": None}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
-            # Đọc 25 dòng đầu để đảm bảo bao phủ hết block comment mới
-            for _ in range(25):
-                line = f.readline()
-                if not line or "**/" in line: break
+            in_header = False
+            for line in f:
+                line_strip = line.strip()
                 
-                line_clean = line.strip().replace('*', '').strip()
-                line_lower = line_clean.lower()
+                # Bắt đầu khối header
+                if line_strip.startswith("/**"):
+                    in_header = True
+                    continue
                 
-                if line_lower.startswith("title:"):
-                    val = line_clean[6:].strip()
-                    if val: meta["title"] = val
-                elif line_lower.startswith("source:"):
-                    match = re.search(r'(https?://[^\s]+)', line_clean)
-                    if match: meta["source"] = match.group(1)
-                elif line_lower.startswith("submission:"):
-                    match = re.search(r'(https?://[^\s]+)', line_clean)
-                    if match: meta["submission"] = match.group(1)
-                elif line_lower.startswith("algorithm:"):
-                    val = line_clean[10:].strip()
-                    if val:
-                        algos = [f"`{a.strip()}`" for a in val.split(',') if a.strip()]
-                        meta["algorithm"] = ", ".join(algos)
-                elif line_lower.startswith("complexity:"):
-                    val = line_clean[11:].strip()
-                    if val: meta["complexity"] = f"`{val}`"
-    except: pass
+                # Kết thúc khối header
+                if "**/ " in line_strip or line_strip.endswith("**/"):
+                    break
+                
+                if in_header:
+                    # Loại bỏ dấu '*' và khoảng trắng thừa
+                    clean_line = line_strip.lstrip('*').strip()
+                    lower_line = clean_line.lower()
+                    
+                    if lower_line.startswith("title:"):
+                        val = clean_line[6:].strip()
+                        if val: meta["title"] = val
+                    elif lower_line.startswith("source:"):
+                        match = re.search(r'(https?://[^\s]+)', clean_line)
+                        if match: meta["source"] = match.group(1)
+                    elif lower_line.startswith("submission:"):
+                        match = re.search(r'(https?://[^\s]+)', clean_line)
+                        if match: meta["submission"] = match.group(1)
+                    elif lower_line.startswith("algorithm:"):
+                        val = clean_line[10:].strip()
+                        if val:
+                            algos = [f"`{a.strip()}`" for a in val.split(',') if a.strip()]
+                            meta["algorithm"] = ", ".join(algos)
+                    elif lower_line.startswith("complexity:"):
+                        val = clean_line[11:].strip()
+                        if val: 
+                            # Sử dụng LaTeX cho độ phức tạp thời gian
+                            meta["complexity"] = f"${val}$"
+    except Exception as e:
+        print(f"⚠️ Error parsing {file_path}: {e}")
     return meta
 
 def auto_generate_link(file_path):
-    """Fallback link nếu header thiếu source."""
+    """Tạo link OJ tự động dựa trên cấu trúc thư mục."""
     path_parts = file_path.replace('\\', '/').split('/')
     filename = path_parts[-1].replace('.cpp', '')
     for part in reversed(path_parts[:-1]):
         up = part.upper()
         if "CSES" in up:
-            id_m = re.search(r'(\d+)', filename)
-            return f"https://cses.fi/problemset/task/{id_m.group(1)}" if id_m else None
+            m = re.search(r'(\d+)', filename)
+            return f"https://cses.fi/problemset/task/{m.group(1)}" if m else None
         if "VNOI" in up: return f"https://oj.vnoi.info/problem/{filename.lower()}"
     return None
 
@@ -98,17 +115,19 @@ def generate_readme():
         folder_data.sort(key=lambda x: natural_sort_key(x[0]))
         for path, files in folder_data:
             rel = os.path.relpath(path, root_dir)
-            if rel != ".": main_body += f"### 📁 {format_display_name(rel)}\n"
+            if rel != ".": 
+                main_body += f"### 📁 {format_display_name(rel)}\n"
             
             problem_list = []
             for file in files:
-                meta = extract_metadata(os.path.join(path, file))
+                full_path = os.path.join(path, file)
+                meta = extract_metadata(full_path)
                 name = meta["title"] if meta["title"] else format_display_name(file.replace('.cpp', ''))
-                link = meta["source"] or auto_generate_link(os.path.join(path, file))
+                link = meta["source"] or auto_generate_link(full_path)
                 problem_list.append({
                     "name": name, "link": link, "sub": meta["submission"],
                     "algo": meta["algorithm"], "comp": meta["complexity"], 
-                    "path": os.path.join(path, file).replace('\\', '/'), "raw": file
+                    "path": full_path.replace('\\', '/'), "raw": file
                 })
             
             problem_list.sort(key=lambda x: natural_sort_key(x["raw"]))
@@ -124,13 +143,12 @@ def generate_readme():
     # --- TIME & STATS ---
     push_time = get_last_commit_time()
     iso_time = push_time.strftime("%Y%m%dT%H%M")
-    badge_msg = f"{push_time.strftime('%b %d, %Y - %H:%M')} (GMT+7)_🖱️_[CLICK]".replace("-", "--").replace(" ", "_")
+    badge_msg = f"{push_time.strftime('%b %d, %Y - %H:%M')} (GMT+7)_🖱️_[CLICK TO CONVERT]".replace("-", "--").replace(" ", "_")
     badge_url = f"https://img.shields.io/badge/Last_Update-{badge_msg}-0078d4?style=for-the-badge&logo=github"
     time_link = f"https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso={iso_time}&p1={CITY_ID}"
 
     stats = f"### 📊 Repository Stats\n\n- **Total Problems:** {total_problems}\n- **Origin Timezone:** Ho Chi Minh City (GMT+7)\n\n"
     stats += f"[![Last Update]({badge_url})]({time_link} \"Click to convert timezone\")\n\n"
-    stats += f"**TIP:** *Click the badge to see the update time in your local zone.* 🌍\n\n---\n"
     
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(header_content + stats + main_body)
