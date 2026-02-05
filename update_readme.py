@@ -60,7 +60,11 @@ def extract_metadata(file_path):
                     elif lower_line.startswith("complexity:"):
                         val = clean_line[11:].strip()
                         if val:
-                            meta["complexity"] = f"${val.replace('O', '\\mathcal{O}')}$"
+                            if any(p in val for p in ["\\mathcal{O}", "\\Theta", "\\Omega"]):
+                                meta["complexity"] = f"${val}$"
+                            else:
+                                inner = re.sub(r'^[Oo]\s*\((.*)\)$', r'\1', val).strip()
+                                meta["complexity"] = f"$\\mathcal{{O}}({inner})$"
     except Exception: pass
     return meta
 
@@ -138,7 +142,7 @@ def generate_readme():
     badge_url = f"https://img.shields.io/badge/Last_Update-{badge_msg}-0078d4?style=for-the-badge&logo=github"
     time_link = f"https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso={iso_string}&p1={CITY_ID}"
 
-    stats = f"### 📊 Repository Stats $\\mathcal{{O}}$\n\n"
+    stats = f"### 📊 Repository Stats\n\n"
     stats += f"- **Total Problems:** {total_problems}\n"
     stats += f"- **Origin Timezone:** Ho Chi Minh City (GMT+7)\n\n"
     stats += f"[![Last Update]({badge_url})]({time_link} \"🖱️ CLICK TO CONVERT\")\n\n"
