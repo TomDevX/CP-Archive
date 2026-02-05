@@ -1,14 +1,14 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-06 00:43:51
+ *    created: 2026-02-06 00:45:43
  *    country: Vietnam - VNM
- *    title: 
- *    source: 
+ *    title: Sum Square Difference
+ *    source: https://projecteuler.net/problem=6
  *    submission: 
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Level 0
+ *    complexity: O(1)
+ *    note: Use normal math formulas. By the way, there's a fun fact that (1+2+...+n)^2 = 1^3 + 2^3 + 3^3 + ... + n^3
  **/
 
 #include <iostream>
@@ -59,5 +59,6 @@ int main(){
     fastio;
     setup();
 
-    
+    ull n = 100;
+    cout << (n*(n+1)>>1)*(n*(n+1)>>1) - (n*(n+1)*(2*n+1))/6;
 }

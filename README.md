@@ -29,10 +29,10 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ---
 ### 📊 Repository Stats
 
-- **Total Problems:** 77
+- **Total Problems:** 78
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_06%2C_2026_--_00%3A10_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260206T0010&p1=218 "🖱️ CLICK TO CONVERT")
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_06%2C_2026_--_00%3A51_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260206T0051&p1=218 "🖱️ CLICK TO CONVERT")
 
 ---
 ## 📌 Table of Contents
@@ -42,6 +42,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
   * [📂 Advanced Techniques](#-advanced-techniques)
   * [📂 Dynamic Programming](#-dynamic-programming)
   * [📂 Graph](#-graph)
+* [📂 Project Euler](#-project-euler)
 * [📂 VNOI](#-vnoi)
 
 ---
@@ -136,6 +137,11 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 | # | Problem Name | Tags | Complexity | Solution |
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1192 - Counting Rooms](https://cses.fi/problemset/task/1192/) | `BFS`, `flood fill` | $\mathcal{O}(V+E)$ | [Code](Solutions/CSES/Graph/1192_Counting_Rooms.cpp) \| [Sub](https://cses.fi/paste/96f91e45fb63bc5dd6975e/) |
+
+## 📂 Project Euler
+| # | Problem Name | Tags | Complexity | Solution |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | [6 - Sum Square Difference](https://projecteuler.net/problem=6) | `Level 0` | $\mathcal{O}(1)$ | [Code](Solutions/Project%20Euler/6.cpp) |
 
 ## 📂 VNOI
 | # | Problem Name | Tags | Complexity | Solution |

@@ -6,7 +6,7 @@
 # Compiled binaries (Nên chặn để Repo sạch hơn)
 *.exe
 *.app
-*.bin
+*.bin   
 *.idb
 
 *
