@@ -6,9 +6,9 @@
  *    source: 
  *    submission: 
  * ----------------------------------------------------------
- *    algorithm:
- *    complexity:
- *    note:
+ *    algorithm: 
+ *    complexity: 
+ *    note: 
  **/
 
 #include <iostream>
