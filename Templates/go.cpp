@@ -1,8 +1,13 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-05 11:58:30
+ *    created: 2026-02-05 12:14:05
  *    country: Vietnam - VNM
  *    source: 
+ *    submission: 
+ * ----------------------------------------------------------
+ *    algorithm:
+ *    complexity:
+ *    note:
  **/
 
 #include <iostream>
