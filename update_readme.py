@@ -21,10 +21,17 @@ def get_last_commit_time():
         return datetime.now(timezone(timedelta(hours=7)))
 
 def format_display_name(name):
+    if not name: return ""
     parts = name.split('_')
     if parts[0].isdigit():
         parts = parts[1:]
     return " ".join(parts).replace('-', ' ').title()
+
+def create_slug(text):
+    """Tạo anchor link chuẩn cho GitHub"""
+    slug = text.lower().replace(" ", "-")
+    slug = re.sub(r'[^\w\-]', '', slug)
+    return slug
 
 def extract_metadata(file_path):
     meta = {"source": None, "submission": None, "algorithm": "N/A", "complexity": "N/A", "title": None}
@@ -94,72 +101,77 @@ def generate_readme():
     
     root_dirs = sorted([d for d in os.listdir('.') if os.path.isdir(d) and d not in EXCLUDE_DIRS], key=natural_sort_key)
 
+    # Tập hợp các thư mục đã thêm vào TOC để tránh trùng lặp khi duyệt đệ quy
+    added_to_toc = set()
+
     for root_dir in root_dirs:
         is_sol_dir = root_dir.lower() == "solutions"
-        root_title = format_display_name(root_dir)
-        root_anchor = root_title.lower().replace(" ", "-")
-        toc_content += f"* [📂 {root_title}](#-{root_anchor})\n"
-        main_content += f"## 📂 {root_title}\n"
         
-        folder_data = []
+        # --- Xử lý TOC đa cấp ---
         for root, dirs, files in os.walk(root_dir):
-            dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
+            dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
             
-            # Logic lọc file theo yêu cầu mới của Tom
-            if is_sol_dir:
-                # Chỉ lấy file .cpp
-                relevant_files = [f for f in files if f.endswith('.cpp')]
-            else:
-                # Lấy file có extension (ví dụ: .pdf, .txt, .md, .py...)
-                relevant_files = [f for f in files if os.path.splitext(f)[1]]
-                
-            if relevant_files: folder_data.append((root, relevant_files))
+            # Tách các thành phần của đường dẫn để xử lý thụt lề
+            parts = os.path.relpath(root, '.').split(os.sep)
+            for i in range(len(parts)):
+                current_path = os.path.join(*parts[:i+1])
+                if current_path not in added_to_toc:
+                    depth = i
+                    indent = "  " * depth
+                    title = format_display_name(parts[i])
+                    # Fix riêng cho CSES để in hoa
+                    if parts[i].lower() == "cses": title = "CSES"
+                    
+                    toc_content += f"{indent}* [📂 {title}](#-{create_slug(title)})\n"
+                    added_to_toc.add(current_path)
 
-        folder_data.sort(key=lambda x: natural_sort_key(x[0]))
-        for path, files in folder_data:
-            relative_path = os.path.relpath(path, root_dir)
-            if relative_path != ".":
-                sub_title = format_display_name(relative_path)
-                sub_anchor = sub_title.lower().replace(" ", "-")
-                toc_content += f"  * [📁 {sub_title}](#-{sub_anchor})\n"
-                main_content += f"### 📁 {sub_title}\n"
-            
-            files.sort(key=natural_sort_key)
-            
-            if is_sol_dir:
+        # --- Xử lý Nội dung chính ---
+        main_content += f"## 📂 {format_display_name(root_dir)}\n"
+        
+        if is_sol_dir:
+            folder_data = []
+            for root, dirs, files in os.walk(root_dir):
+                dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
+                cpp_files = [f for f in files if f.endswith('.cpp')]
+                if cpp_files:
+                    folder_data.append((root, cpp_files))
+
+            folder_data.sort(key=lambda x: natural_sort_key(x[0]))
+            for path, files in folder_data:
+                relative_path = os.path.relpath(path, root_dir)
+                if relative_path != ".":
+                    sub_title = format_display_name(os.path.basename(path))
+                    main_content += f"### 📁 {sub_title}\n"
+                
+                files.sort(key=natural_sort_key)
                 table = "| # | Problem Name | Algorithm | Complexity | Solution |\n| :--- | :--- | :--- | :--- | :--- |\n"
                 for i, file in enumerate(files, 1):
                     full_path = os.path.join(path, file)
                     meta = extract_metadata(full_path)
-                    
                     filename_no_ext = file.replace('.cpp', '')
-                    file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
                     
+                    # Logic ID - Name thông minh
+                    file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
                     if meta["title"]:
                         display_name = f"{file_id} - {meta['title']}"
                     elif '_' in filename_no_ext:
                         display_name = f"{file_id} - {format_display_name(filename_no_ext)}"
                     else:
-                        display_name = file_id
-                    
+                        display_name = file_id # Codeforces thường chỉ có ID
+
                     prob_link = meta["source"] or auto_generate_link(full_path)
                     name_md = f"[{display_name}]({prob_link})" if prob_link else display_name
                     sol_md = f"[Code]({full_path.replace('\\', '/')})"
-                    
-                    # FIX: Dùng double backslash '\\|' để tránh SyntaxWarning
                     if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
                     
                     table += f"| {i} | {name_md} | {meta['algorithm']} | {meta['complexity']} | {sol_md} |\n"
                     total_problems += 1
-            else:
-                table = "| File Name | Source |\n| :--- | :--- |\n"
-                for file in files:
-                    full_path = os.path.join(path, file).replace('\\', '/')
-                    display_name = os.path.splitext(file)[0]
-                    table += f"| {display_name} | [Link]({full_path}) |\n"
+                main_content += table + "\n"
+        else:
+            # Nếu không phải solutions, chỉ để Header trống hoặc thông báo nhẹ
+            main_content += "_Danh sách file trong thư mục này được ẩn để tối ưu README._\n\n"
 
-            main_content += table + "\n"
-
+    # Stats & Badges
     push_time = get_last_commit_time()
     iso_string = push_time.strftime("%Y%m%dT%H%M")
     time_str = push_time.strftime("%b %d, %Y - %H:%M (GMT+7)")
