@@ -29,10 +29,10 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ---
 ### 📊 Repository Stats
 
-- **Total Problems:** 76
+- **Total Problems:** 74
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05,_2026_--_16:40_(GMT+7)_🖱️_[CLICK_TO_CONVERT]-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1640&p1=218 "🖱️ CLICK TO CONVERT")
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05,_2026_--_16:44_(GMT+7)_🖱️_[CLICK_TO_CONVERT]-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1644&p1=218 "🖱️ CLICK TO CONVERT")
 
 ---
 ## 📌 Table of Contents
@@ -43,9 +43,14 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
   * [📁 Cses/03 Dynamic Programming](#-cses/03-dynamic-programming)
   * [📁 Vnoi](#-vnoi)
 * [📂 Templates](#-templates)
+  * [📁 Bits](#-bits)
 
 ---
 ## 📂 Algorithms
+| File Name | Source |
+| :--- | :--- |
+| .gitkeep | [Link](Algorithms/.gitkeep) |
+
 ## 📂 Solutions
 ### 📁 Codeforces
 | # | Problem Name | Algorithm | Complexity | Solution |
@@ -134,8 +139,14 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 | 1 | [LIQ - Dãy con tăng dài nhất (bản dễ)](https://oj.vnoi.info/problem/liq) | `Dynamic Programming`, `Binary Search` | $\mathcal{O}(n\log{n})$ | [Code](Solutions/VNOI/liq.cpp) \| [Sub](https://oj.vnoi.info/src/10967418) |
 
 ## 📂 Templates
-| # | Problem Name | Algorithm | Complexity | Solution |
-| :--- | :--- | :--- | :--- | :--- |
-| 1 | GENERATE - Generate Test | N/A | N/A | [Code](Templates/generate_test.cpp) |
-| 2 | GO | N/A | N/A | [Code](Templates/go.cpp) |
+| File Name | Source |
+| :--- | :--- |
+| debuggingz | [Link](Templates/debuggingz.h) |
+| generate_test | [Link](Templates/generate_test.cpp) |
+| go | [Link](Templates/go.cpp) |
+
+### 📁 Bits
+| File Name | Source |
+| :--- | :--- |
+| stdc++ | [Link](Templates/bits/stdc++.h) |
 

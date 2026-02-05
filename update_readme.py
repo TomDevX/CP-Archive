@@ -27,6 +27,7 @@ def format_display_name(name):
     return " ".join(parts).replace('-', ' ').title()
 
 def extract_metadata(file_path):
+    # Lưu ý tên key ở đây: "algorithm" và "complexity"
     meta = {"source": None, "submission": None, "algorithm": "N/A", "complexity": "N/A", "title": None}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -104,7 +105,6 @@ def generate_readme():
         folder_data = []
         for root, dirs, files in os.walk(root_dir):
             dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
-            # Lấy tất cả các file, không chỉ .cpp cho các folder ngoài solutions
             relevant_files = [f for f in files if (is_sol_dir and f.endswith('.cpp')) or (not is_sol_dir)]
             if relevant_files: folder_data.append((root, relevant_files))
 
@@ -120,7 +120,6 @@ def generate_readme():
             files.sort(key=natural_sort_key)
             
             if is_sol_dir:
-                # Table chuẩn Competitive Programming cho thư mục solutions
                 table = "| # | Problem Name | Algorithm | Complexity | Solution |\n| :--- | :--- | :--- | :--- | :--- |\n"
                 for i, file in enumerate(files, 1):
                     full_path = os.path.join(path, file)
@@ -139,12 +138,12 @@ def generate_readme():
                     prob_link = meta["source"] or auto_generate_link(full_path)
                     name_md = f"[{display_name}]({prob_link})" if prob_link else display_name
                     sol_md = f"[Code]({full_path.replace('\\', '/')})"
-                    if meta["submission"]: sol_md += f" \| [Sub]({meta['submission']})"
+                    if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
                     
-                    table += f"| {i} | {name_md} | {meta['algo']} | {meta['comp']} | {sol_md} |\n"
+                    # FIX: Sửa lại đúng tên key 'algorithm' và 'complexity'
+                    table += f"| {i} | {name_md} | {meta['algorithm']} | {meta['complexity']} | {sol_md} |\n"
                     total_problems += 1
             else:
-                # Table đơn giản cho các thư mục khác
                 table = "| File Name | Source |\n| :--- | :--- |\n"
                 for file in files:
                     full_path = os.path.join(path, file).replace('\\', '/')
