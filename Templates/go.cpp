@@ -1,7 +1,8 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-05 10:56:52
+ *    created: 2026-02-05 11:58:30
  *    country: Vietnam - VNM
+ *    source: 
  **/
 
 #include <iostream>
@@ -47,7 +48,7 @@ void setup(){
 // ----------------------- [ FUNCTIONS ] -----------------------
 
 
-// ----------------------- [ MAIN ] ----------------------- 
+// ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
