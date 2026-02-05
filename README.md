@@ -32,19 +32,19 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 - **Total Problems:** 75
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05,_2026-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1733&p1=218 "🖱️ CLICK TO CONVERT")
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05,_2026_--_17:36-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1736&p1=218 "🖱️ CLICK TO CONVERT")
 
 ---
 ## 📌 Table of Contents
 
-* [📂 Codeforces](#-codeforces)
+* [📂 CODEFORCES](#-codeforces)
 * [📂 CSES](#-cses)
   * [📂 Dynamic Programming](#-dynamic-programming)
   * [📂 Graph](#-graph)
-* [📂 Vnoi](#-vnoi)
+* [📂 VNOI](#-vnoi)
 
 ---
-## 📂 Codeforces
+## 📂 CODEFORCES
 | # | Problem Name | Algorithm | Complexity | Solution |
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1A](https://codeforces.com/contest/1/problem/A) | N/A | N/A | [Code](Solutions/Codeforces/1A.cpp) |
@@ -130,7 +130,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1192 - Counting Rooms](https://cses.fi/problemset/task/1192/) | `BFS`, `flood fill` | $\mathcal{O}(V+E)$ | [Code](Solutions/CSES/04_Graph/1192_Counting_Rooms.cpp) \| [Sub](https://cses.fi/paste/96f91e45fb63bc5dd6975e/) |
 
-## 📂 Vnoi
+## 📂 VNOI
 | # | Problem Name | Algorithm | Complexity | Solution |
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | [LIQ - Dãy con tăng dài nhất (bản dễ)](https://oj.vnoi.info/problem/liq) | `Dynamic Programming`, `Binary Search` | $\mathcal{O}(n\log{n})$ | [Code](Solutions/VNOI/liq.cpp) \| [Sub](https://oj.vnoi.info/src/10967418) |
