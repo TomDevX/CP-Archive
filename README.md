@@ -34,7 +34,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ### 📁 Cses/03 Dynamic Programming
 | # | Problem Name | Algorithm | Solution |
 | :--- | :--- | :--- | :--- |
-| 1 | [Counting Towers](https://cses.fi/problemset/task/2413) | `N/A` | [Code](Solutions/CSES/03_Dynamic_Programming/2413_Counting_Towers.cpp) |
+| 1 | [Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming` | [Code](Solutions/CSES/03_Dynamic_Programming/2413_Counting_Towers.cpp) \| [Verify](https://cses.fi/problemset/result/16155651/) |
 
 ### 📁 Codeforces
 | # | Problem Name | Algorithm | Solution |
