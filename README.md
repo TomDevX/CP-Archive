@@ -29,14 +29,11 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ---
 ### 📊 Repository Stats
 
-- **Total Problems:** 75
+- **Total Problems:** 76
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05,_2026_--_13:10_(GMT+7)_🖱️_[CLICK]-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1310&p1=218 "Click to convert timezone")
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05,_2026_--_13:16_(GMT+7)_🖱️_[CLICK_TO_CONVERT]-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1316&p1=218 "Click to convert timezone")
 
-**TIP:** *Click the badge to see the update time in your local zone.* 🌍
-
----
 ## 📂 Algorithms
 ## 📂 Solutions
 ### 📁 Codeforces
@@ -118,7 +115,12 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ### 📁 Cses/03 Dynamic Programming
 | # | Problem Name | Algorithm | Complexity | Solution |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | [Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | `O(n)` | [Code](Solutions/CSES/03_Dynamic_Programming/2413_Counting_Towers.cpp) \| [Sub](https://cses.fi/problemset/result/16155651/) |
+| 1 | [Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | $O(n)$ | [Code](Solutions/CSES/03_Dynamic_Programming/2413_Counting_Towers.cpp) \| [Sub](https://cses.fi/problemset/result/16155651/) |
+
+### 📁 Vnoi
+| # | Problem Name | Algorithm | Complexity | Solution |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | [Dãy con tăng dài nhất (bản dễ)](https://oj.vnoi.info/problem/liq) | `Dynamic Programming`, `Binary Search` | $O(n\logn)$ | [Code](Solutions/VNOI/liq.cpp) \| [Sub](https://oj.vnoi.info/src/10967418) |
 
 ## 📂 Templates
 | # | Problem Name | Algorithm | Complexity | Solution |
