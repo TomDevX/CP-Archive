@@ -1,6 +1,7 @@
 # OS generated files
 .DS_Store
 *.dSYM/
+**/.DS_Store
 
 # Compiled binaries (Nên chặn để Repo sạch hơn)
 *.exe
