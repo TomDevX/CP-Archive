@@ -15,7 +15,7 @@ def format_display_name(name):
     return " ".join(parts).replace('-', ' ').title()
 
 def extract_metadata(file_path):
-    """Trích xuất metadata từ 15 dòng đầu: title, source, submission, algorithm."""
+    """Trích xuất metadata: title, source, submission, algorithm."""
     meta = {"source": None, "submission": None, "algorithm": "N/A", "title": None}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -106,22 +106,26 @@ def generate_readme():
             sub_sections += header + table + "\n"
         main_content += sub_sections
 
-    # --- ĐỊNH DẠNG THEO CODEFORCES (CONTEST STYLE) ---
-    # Feb/05/2026 12:30 (UTC+7)
+    # --- CẤU HÌNH DÒNG THỜI GIAN VÀ LINK DYNAMIC ---
     now = datetime.datetime.now()
-    cf_time_format = now.strftime("%b/%d/%Y %H:%M")
+    # Định dạng: Feb/05/2026 12:35
+    cf_style_time = now.strftime("%b/%d/%Y %H:%M")
     
-    # Tạo link tự động chuyển đổi múi giờ cho người xem
-    # Dùng trang 'Time.is' với tọa độ chính xác của bạn
-    time_convert_link = f"https://time.is/{now.strftime('%H%M')}_05_Feb_2026_in_ICT"
+    # Tạo link dynamic cho timeanddate.com
+    # p1=166 đại diện cho Ho Chi Minh City/Hanoi
+    time_link = (
+        f"https://www.timeanddate.com/worldclock/fixedtime.html?"
+        f"day={now.day}&month={now.month}&year={now.year}&"
+        f"hour={now.hour}&min={now.minute}&sec=0&p1=166"
+    )
 
     stats = f"### 📊 Repository Stats\n"
     stats += f"- **Total Problems:** {total_problems}\n"
-    stats += f"- **Last Update:** [{cf_time_format} (UTC+7)]({time_convert_link})\n\n"
+    stats += f"- **Last Update:** [{cf_style_time} UTC+7]({time_link})\n\n"
     
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content + stats + main_content)
-    print(f"✅ README Updated: {cf_time_format} (UTC+7)")
+    print(f"✅ README Updated: {cf_style_time} (UTC+7)")
 
 if __name__ == "__main__":
     generate_readme()
