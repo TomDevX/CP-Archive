@@ -1,0 +1,19 @@
+# Temporary scratchpads
+main.cpp
+test*.cpp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+.AppleDouble
+.LSOverride
+*.dSYM/
+
+# Compiled binaries (Nên chặn để Repo sạch hơn)
+*.exe
+*.app
+
+# IDE/Editor specific files
+.vscode/
+.idea/
+*.swp
