@@ -13,15 +13,16 @@ def natural_sort_key(s):
             for text in re.split('([0-9]+)', s)]
 
 def get_last_commit_time():
-    try:
-        timestamp = subprocess.check_output(['git', 'log', '-1', '--format=%at']).decode('utf-8').strip()
-        tz_hcm = timezone(timedelta(hours=7))
-        return datetime.fromtimestamp(int(timestamp), tz=tz_hcm)
-    except Exception:
-        return datetime.now(timezone(timedelta(hours=7)))
+    # Lấy giờ hiện tại hệ thống để Badge luôn cập nhật khi chạy local
+    tz_hcm = timezone(timedelta(hours=7))
+    return datetime.now(tz=tz_hcm)
 
-def format_display_name(name):
+def format_display_name(name, is_oj=False):
+    """Tổng quát hóa: In hoa toàn bộ nếu là OJ, ngược lại format chuẩn Title Case"""
     if not name: return ""
+    if is_oj:
+        return name.upper()
+    
     parts = name.split('_')
     if parts[0].isdigit():
         parts = parts[1:]
@@ -99,35 +100,32 @@ def generate_readme():
     main_content = ""
     toc_content = "## 📌 Table of Contents\n\n"
     
-    root_dir = "Solutions"
+    root_dir = "Solutions" # Đảm bảo đúng Case với folder của bạn
     if not os.path.isdir(root_dir):
         print(f"⚠️ Thư mục '{root_dir}' không tồn tại.")
         return
 
-    # --- 1. Tạo TOC (Bỏ folder Solutions, bắt đầu từ cấp con) ---
+    # --- 1. Tạo TOC Đệ quy ---
     added_to_toc = set()
     for root, dirs, files in os.walk(root_dir):
         dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
-        
-        # Lấy đường dẫn tương đối so với 'solutions'
         rel_path = os.path.relpath(root, root_dir)
-        if rel_path == ".":
-            continue # Bỏ qua chính folder 'solutions' trong TOC
+        if rel_path == ".": continue
             
         parts = rel_path.split(os.sep)
         for i in range(len(parts)):
-            # Đường dẫn đầy đủ để kiểm tra trùng lặp
             current_path = os.path.join(root_dir, *parts[:i+1])
             if current_path not in added_to_toc:
-                depth = i # Độ sâu bắt đầu từ 0 cho các con của solutions
+                depth = i
                 indent = "  " * depth
-                raw_name = parts[i]
+                # Nếu i == 0 thì đây là folder OJ (CSES, Codeforces, VNOI...)
+                is_oj_folder = (i == 0)
+                title = format_display_name(parts[i], is_oj=is_oj_folder)
                 
-                title = "CSES" if raw_name.lower() == "cses" else format_display_name(raw_name)
                 toc_content += f"{indent}* [📂 {title}](#-{create_slug(title)})\n"
                 added_to_toc.add(current_path)
 
-    # --- 2. Tạo Nội Dung Chính ---
+    # --- 2. Tạo Nội dung chính ---
     folder_data = []
     for root, dirs, files in os.walk(root_dir):
         dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
@@ -140,15 +138,16 @@ def generate_readme():
     for path, files in folder_data:
         rel_path_from_sol = os.path.relpath(path, root_dir)
         
-        # Nếu là thư mục con trực tiếp của solutions -> Dùng Header H2 (##)
-        # Nếu sâu hơn -> Dùng Header H3 (###)
+        # Logic phân cấp Header
         if rel_path_from_sol == ".":
-            # Trường hợp có file .cpp nằm ngay trong solutions (thường ít có)
-            main_content += f"## 📂 Solutions\n"
+            main_content += f"## 📂 {format_display_name(root_dir)}\n"
         else:
             base_name = os.path.basename(path)
-            title = "CSES" if base_name.lower() == "cses" else format_display_name(base_name)
-            if os.path.dirname(rel_path_from_sol) == "":
+            # OJ folder là folder không có thư mục cha bên trong 'Solutions'
+            is_oj_folder = (os.path.dirname(rel_path_from_sol) == "")
+            title = format_display_name(base_name, is_oj=is_oj_folder)
+            
+            if is_oj_folder:
                 main_content += f"## 📂 {title}\n"
             else:
                 main_content += f"### 📁 {title}\n"
@@ -184,7 +183,9 @@ def generate_readme():
     # --- 3. Badge & Stats ---
     push_time = get_last_commit_time()
     iso_string = push_time.strftime("%Y%m%dT%H%M")
-    badge_url = f"https://img.shields.io/badge/Last_Update-{push_time.strftime('%b_%d,_%Y')}-0078d4?style=for-the-badge&logo=github"
+    # Thêm Giờ:Phút để Tom thấy thay đổi ngay khi chạy Local
+    time_str = push_time.strftime("%b %d, %Y - %H:%M") 
+    badge_url = f"https://img.shields.io/badge/Last_Update-{time_str.replace(' ', '_').replace('-', '--')}-0078d4?style=for-the-badge&logo=github"
     time_link = f"https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso={iso_string}&p1={CITY_ID}"
 
     stats = f"### 📊 Repository Stats\n\n"
@@ -195,7 +196,7 @@ def generate_readme():
     
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content + stats + toc_content + "\n---\n" + main_content)
-    print(f"✅ README Tinh gọn thành công (Bỏ qua folder mẹ 'solutions').")
+    print(f"✅ README Updated (City ID: {CITY_ID})")
 
 if __name__ == "__main__":
     generate_readme()
