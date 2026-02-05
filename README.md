@@ -29,10 +29,10 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ---
 ### 📊 Repository Stats
 
-- **Total Problems:** 74
+- **Total Problems:** 75
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05,_2026_--_16:52_(GMT+7)_🖱️_[CLICK_TO_CONVERT]-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1652&p1=218 "🖱️ CLICK TO CONVERT")
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05,_2026_--_16:57_(GMT+7)_🖱️_[CLICK_TO_CONVERT]-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1657&p1=218 "🖱️ CLICK TO CONVERT")
 
 ---
 ## 📌 Table of Contents
@@ -41,6 +41,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 * [📂 Solutions](#-solutions)
   * [📁 Codeforces](#-codeforces)
   * [📁 Cses/03 Dynamic Programming](#-cses/03-dynamic-programming)
+  * [📁 Cses/04 Graph](#-cses/04-graph)
   * [📁 Vnoi](#-vnoi)
 * [📂 Templates](#-templates)
   * [📁 Bits](#-bits)
@@ -128,6 +129,11 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 | # | Problem Name | Algorithm | Complexity | Solution |
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | [2413 - Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | $\mathcal{O}(n)$ | [Code](Solutions/CSES/03_Dynamic_Programming/2413_Counting_Towers.cpp) \| [Sub](https://cses.fi/paste/67df7ff1543072a9f68403/) |
+
+### 📁 Cses/04 Graph
+| # | Problem Name | Algorithm | Complexity | Solution |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | [1192 - Counting Rooms](https://cses.fi/problemset/task/1192/) | `BFS`, `flood fill` | $\mathcal{O}(V+E)$ | [Code](Solutions/CSES/04_Graph/1192_Counting_Rooms.cpp) \| [Sub](https://cses.fi/paste/96f91e45fb63bc5dd6975e/) |
 
 ### 📁 Vnoi
 | # | Problem Name | Algorithm | Complexity | Solution |
