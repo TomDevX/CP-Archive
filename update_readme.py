@@ -7,28 +7,26 @@ from datetime import datetime, timedelta, timezone
 EXCLUDE_DIRS = {'.git', '.github', '.assets', 'venv', '__pycache__'}
 README_FILE = 'README.md'
 HEADER_FILE = 'HEADER.md'
-CITY_ID = 218  # Ho Chi Minh City (GMT+7)
+CITY_ID = 218 
 
 def get_last_commit_time():
-    """Lấy thời gian của commit cuối cùng từ Git. Nếu lỗi, trả về giờ hiện tại."""
+    """Lấy Unix timestamp của commit cuối cùng từ Git."""
     try:
-        # Lấy Unix timestamp của commit cuối cùng (%at)
         timestamp = subprocess.check_output(['git', 'log', '-1', '--format=%at']).decode('utf-8').strip()
         tz_hcm = timezone(timedelta(hours=7))
         return datetime.fromtimestamp(int(timestamp), tz=tz_hcm)
     except Exception:
-        # Nếu chưa có commit nào hoặc không phải repo git, dùng giờ hiện tại
         return datetime.now(timezone(timedelta(hours=7)))
 
 def format_display_name(name):
-    """Làm đẹp tên folder/file"""
+    """Làm đẹp tên folder/file."""
     parts = name.split('_')
     if parts[0].isdigit():
         parts = parts[1:]
     return " ".join(parts).replace('-', ' ').title()
 
 def extract_metadata(file_path):
-    """Trích xuất metadata và xử lý nhiều thuật toán."""
+    """Trích xuất metadata: title, source, submission, algorithm."""
     meta = {"source": None, "submission": None, "algorithm": "N/A", "title": None}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -36,7 +34,6 @@ def extract_metadata(file_path):
                 line = f.readline()
                 if not line: break
                 line_lower = line.lower()
-                
                 if "title:" in line_lower:
                     meta["title"] = line.split("title:")[1].replace('**/', '').replace('*', '').strip()
                 elif "source:" in line_lower:
@@ -49,12 +46,11 @@ def extract_metadata(file_path):
                     raw_algo = line.split("algorithm:")[1].replace('**/', '').replace('*', '').strip()
                     algos = [f"`{a.strip()}`" for a in raw_algo.split(',') if a.strip()]
                     meta["algorithm"] = ", ".join(algos)
-    except:
-        pass
+    except: pass
     return meta
 
 def auto_generate_link(file_path):
-    """Tự động tạo link OJ dựa trên folder"""
+    """Tự động tạo link OJ dựa trên folder."""
     path_parts = file_path.replace('\\', '/').split('/')
     filename = path_parts[-1].replace('.cpp', '')
     oj_name = ""
@@ -64,17 +60,14 @@ def auto_generate_link(file_path):
             oj_name = upper_part
             break
     if not oj_name: return None
-    
     if "CSES" in oj_name:
         id_match = re.search(r'(\d+)', filename)
         return f"https://cses.fi/problemset/task/{id_match.group(1)}" if id_match else None
     if "CODEFORCES" in oj_name or "CF" in oj_name:
         cf_match = re.search(r'(\d+)\s*[_-]?\s*([A-Z]\d?)', filename.upper())
         return f"https://codeforces.com/contest/{cf_match.group(1)}/problem/{cf_match.group(2)}" if cf_match else None
-    if "VNOI" in oj_name:
-        return f"https://oj.vnoi.info/problem/{filename.lower()}"
-    if "LEETCODE" in oj_name:
-        return f"https://leetcode.com/problems/{filename.lower().replace('_', '-')}/"
+    if "VNOI" in oj_name: return f"https://oj.vnoi.info/problem/{filename.lower()}"
+    if "LEETCODE" in oj_name: return f"https://leetcode.com/problems/{filename.lower().replace('_', '-')}/"
     return None
 
 def generate_readme():
@@ -94,8 +87,7 @@ def generate_readme():
         for root, dirs, files in os.walk(root_dir):
             dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
             cpp_files = [f for f in files if f.endswith('.cpp')]
-            if cpp_files:
-                folder_data.append((root, cpp_files))
+            if cpp_files: folder_data.append((root, cpp_files))
 
         folder_data.sort(key=lambda x: x[0].lower())
         sub_sections = ""
@@ -122,28 +114,34 @@ def generate_readme():
             sub_sections += header + table + "\n"
         main_content += sub_sections
 
-    # --- CẤU HÌNH THỜI GIAN DỰA TRÊN COMMIT CUỐI CÙNG ---
+    # --- CẤU HÌNH THỜI GIAN THEO PUSH (GMT+7) ---
     push_time = get_last_commit_time()
-    
-    # Badge (Shields.io)
-    time_badge = push_time.strftime("%b_%d,_%Y_--_%H:%M_(GMT+7)")
-    badge_url = f"https://img.shields.io/badge/Last_Update-{time_badge}-0078d4?style=for-the-badge&logo=github"
-
-    # Link chuyển đổi (Dùng p1=166 cho Hồ Chí Minh)
     iso_string = push_time.strftime("%Y%m%dT%H%M")
+    
+    # 1. Tạo Message Badge rõ ràng hơn: Thêm icon chuột và gợi ý Click
+    # Shields.io URL: Khoảng trắng thay bằng _, dấu gạch ngang thay bằng --
+    time_str = push_time.strftime("%b %d, %Y - %H:%M (GMT+7)")
+    badge_msg = f"{time_str} 🖱️ [Click to Convert]".replace("-", "--").replace(" ", "_")
+    
+    badge_url = f"https://img.shields.io/badge/Last_Update-{badge_msg}-0078d4?style=for-the-badge&logo=github"
     time_link = f"https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso={iso_string}&p1={CITY_ID}"
 
     # --- TỔNG HỢP STATS ---
     stats = f"### 📊 Repository Stats\n\n"
     stats += f"- **Total Problems:** {total_problems}\n"
     stats += f"- **Origin Timezone:** Ho Chi Minh City (GMT+7)\n\n"
-    stats += f"[![Last Update]({badge_url})]({time_link} \"Click to convert to your local time\")\n\n"
-    stats += f"<sub>*Can't see your time? [Click here to convert]({time_link})*</sub>\n\n"
+    
+    # Badge kèm Tooltip khi hover chuột
+    stats += f"[![Last Update]({badge_url})]({time_link} \"Click here to see this time in your local timezone\")\n\n"
+    
+    # Dòng ghi chú tinh tế với icon chỉ tay 👈
+    stats += f"👈 <sub>*Click the badge above to convert to your timezone.*</sub>\n\n"
+    
     stats += f"---\n"
     
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content + stats + main_content)
-    print(f"✅ README Updated with Commit Time: {push_time.strftime('%H:%M')} (GMT+7)")
+    print(f"✅ README Updated (Source: Commit Time {push_time.strftime('%H:%M')}, City ID: {CITY_ID})")
 
 if __name__ == "__main__":
     generate_readme()
