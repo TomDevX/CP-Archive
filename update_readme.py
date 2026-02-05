@@ -110,14 +110,14 @@ def generate_readme():
     tz_hcm = timezone(timedelta(hours=7))
     now = datetime.now(tz_hcm)
     
-    # Định dạng theo phong cách Codeforces: Feb/05/2026 12:35
+    # Định dạng hiển thị văn bản
     cf_style_time = now.strftime("%b/%d/%Y %H:%M")
     
-    # Tạo link dynamic cho timeanddate.com (p1=166 là mã vùng Việt Nam)
+    # Link Timeanddate sử dụng ISO 8601 & p1=166 (HCM City)
+    iso_string = now.strftime("%Y%m%dT%H%M")
     time_link = (
         f"https://www.timeanddate.com/worldclock/fixedtime.html?"
-        f"day={now.day}&month={now.month}&year={now.year}&"
-        f"hour={now.hour}&min={now.minute}&sec=0&p1=166"
+        f"msg=Last+Update+GMT%2B7&iso={iso_string}&p1=166"
     )
 
     stats = f"### 📊 Repository Stats\n"
