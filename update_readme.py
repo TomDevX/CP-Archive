@@ -13,8 +13,12 @@ def natural_sort_key(s):
             for text in re.split('([0-9]+)', s)]
 
 def get_last_commit_time():
-    tz_hcm = timezone(timedelta(hours=7))
-    return datetime.now(tz=tz_hcm)
+    try:
+        timestamp = subprocess.check_output(['git', 'log', '-1', '--format=%at']).decode('utf-8').strip()
+        tz_hcm = timezone(timedelta(hours=7))
+        return datetime.fromtimestamp(int(timestamp), tz=tz_hcm)
+    except Exception:
+        return datetime.now(timezone(timedelta(hours=7)))
 
 def format_display_name(name):
     if not name: return ""
