@@ -27,12 +27,12 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 > "Code clean, think deep."
 
 ---
-### 📊 Repository Stats
+### 📊 Repository Stats $\mathcalO$
 
 - **Total Problems:** 76
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05,_2026_--_13:51_(GMT+7)_🖱️_[CLICK_TO_CONVERT]-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1351&p1=218 "🖱️ CLICK TO CONVERT")
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05,_2026_--_13:53_(GMT+7)_🖱️_[CLICK_TO_CONVERT]-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1353&p1=218 "🖱️ CLICK TO CONVERT")
 
 ---
 ## 📂 Algorithms
