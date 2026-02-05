@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-05 20:09:39
+ *    created: 2026-02-05 20:56:48
  *    country: Vietnam - VNM
  *    title: 
  *    source: 
@@ -15,6 +15,7 @@
 #include <vector>
 #include <cstdio>
 #include <utility>
+#include <string>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n';
@@ -49,7 +50,7 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+int n,m;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -59,7 +60,10 @@ int main(){
     fastio;
     setup();
 
-    int n;
-    cin >> n;
+    cin >> n >> m;
+    string s;
+    cin >> s;
+    s = '#' + s;
+
     
 }

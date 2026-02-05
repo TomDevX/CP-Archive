@@ -29,10 +29,10 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ---
 ### 📊 Repository Stats
 
-- **Total Problems:** 76
+- **Total Problems:** 77
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05%2C_2026_--_18%3A36_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1836&p1=218 "🖱️ CLICK TO CONVERT")
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05%2C_2026_--_23%3A51_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T2351&p1=218 "🖱️ CLICK TO CONVERT")
 
 ---
 ## 📌 Table of Contents
@@ -124,7 +124,8 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ### 📁 Advanced Techniques
 | # | Problem Name | Tags | Complexity | Solution |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | [2136 - Hamming Distance](https://cses.fi/problemset/task/2136) | `bit` | $\mathcal{O}(n^2)$ | [Code](Solutions/CSES/Advanced%20Techniques/2136_Hamming_Distance.cpp) \| [Sub](https://cses.fi/paste/9254599d71bb5d60f6b997/) |
+| 1 | [1628 - Meet in the Middle](https://cses.fi/problemset/task/1628/) | `Dynamic Programming`, `Implementation`, `Optimization` | $\mathcal{O}(2^{\frac{n}{2}}*log{\frac{n}{2}} + 2^{\frac{n}{2}}*log{\frac{n}{2}})$ | [Code](Solutions/CSES/Advanced%20Techniques/1628_Meet_in_the_Middle.cpp) \| [Sub](https://cses.fi/paste/39bb411c336d08d8f6c8f1/) |
+| 2 | [2136 - Hamming Distance](https://cses.fi/problemset/task/2136) | `bit` | $\mathcal{O}(n^2)$ | [Code](Solutions/CSES/Advanced%20Techniques/2136_Hamming_Distance.cpp) \| [Sub](https://cses.fi/paste/9254599d71bb5d60f6b997/) |
 
 ### 📁 Dynamic Programming
 | # | Problem Name | Tags | Complexity | Solution |

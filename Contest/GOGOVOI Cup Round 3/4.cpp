@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-05 20:09:39
+ *    created: 2026-02-05 22:46:02
  *    country: Vietnam - VNM
  *    title: 
  *    source: 
@@ -15,6 +15,7 @@
 #include <vector>
 #include <cstdio>
 #include <utility>
+#include <algorithm>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n';
@@ -49,7 +50,9 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+int n,m;
+bool a[302][302];
+int dp[302][302];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -59,7 +62,27 @@ int main(){
     fastio;
     setup();
 
-    int n;
-    cin >> n;
-    
+    cin >> n >> m;
+    int q = n*m;
+    int ans = 0;
+    while(q--){
+        int x,y;
+        cin >> x >> y;
+        a[x][y] = 1;
+
+        bool changed = true;
+        for(int i = x; i <= n && changed; i++){
+            changed = false;
+            for(int j = y; j <= m; j++){
+                int v = (a[i][j] ? min({dp[i-1][j], dp[i][j-1], dp[i-1][j-1]}) + 1 : 0);
+        
+                if (dp[i][j] != v) {
+                    dp[i][j] = v;
+                    ans = max(ans, dp[i][j]);
+                    changed = true;
+                }
+            }
+        }
+        cout << ans << '\n';
+    }
 }
