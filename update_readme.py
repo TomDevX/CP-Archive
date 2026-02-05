@@ -106,27 +106,24 @@ def generate_readme():
             sub_sections += header + table + "\n"
         main_content += sub_sections
 
-    # --- CẤU HÌNH THỜI GIAN THEO MÚI GIỜ HỒ CHÍ MINH (GMT+7) ---
+    # --- CẤU HÌNH SHIELDS.IO BADGE (GMT+7) ---
     tz_hcm = timezone(timedelta(hours=7))
     now = datetime.now(tz_hcm)
     
-    # Định dạng hiển thị văn bản
-    cf_style_time = now.strftime("%b/%d/%Y %H:%M")
+    # Tạo chuỗi thời gian hiển thị: "Feb 05, 2026 - 12:42 (GMT+7)"
+    time_display = now.strftime("%b %d, %Y - %H:%M (GMT+7)")
     
-    # Link Timeanddate sử dụng ISO 8601 & p1=166 (HCM City)
-    iso_string = now.strftime("%Y%m%dT%H%M")
-    time_link = (
-        f"https://www.timeanddate.com/worldclock/fixedtime.html?"
-        f"msg=Last+Update+GMT%2B7&iso={iso_string}&p1=166"
-    )
+    # Xử lý chuỗi cho URL Shields.io (Thay '-' thành '--', ' ' thành '_')
+    badge_msg = time_display.replace("-", "--").replace(" ", "_")
+    badge_url = f"https://img.shields.io/badge/Last_Update-{badge_msg}-blue?style=flat-square&logo=github"
 
     stats = f"### 📊 Repository Stats\n"
     stats += f"- **Total Problems:** {total_problems}\n"
-    stats += f"- **Last Update:** [{cf_style_time} UTC+7]({time_link})\n\n"
+    stats += f"![Last Update]({badge_url})\n\n"
     
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content + stats + main_content)
-    print(f"✅ README Updated: {cf_style_time} (UTC+7)")
+    print(f"✅ README Updated with Badge: {time_display}")
 
 if __name__ == "__main__":
     generate_readme()
