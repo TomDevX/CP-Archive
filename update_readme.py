@@ -13,13 +13,17 @@ def natural_sort_key(s):
             for text in re.split('([0-9]+)', s)]
 
 def get_last_commit_time():
-    # Lấy giờ hiện tại hệ thống
     tz_hcm = timezone(timedelta(hours=7))
     return datetime.now(tz=tz_hcm)
 
-def format_display_name(name):
-    # Trả về chính xác tên folder trên máy (giữ nguyên hoa/thường)
-    return name
+def format_display_name(name, is_oj=False):
+    if not name: return ""
+    if is_oj:
+        return name
+    parts = name.split('_')
+    if parts[0].isdigit():
+        parts = parts[1:]
+    return " ".join(parts).replace('-', ' ').title()
 
 def create_slug(text):
     slug = text.lower().replace(" ", "-")
@@ -88,107 +92,76 @@ def generate_readme():
             content = f.read() + "\n\n---\n"
     else:
         content = "# 🏆 Competitive Programming Repository\n\n"
-
     total_problems = 0
     main_content = ""
     toc_content = "## 📌 Table of Contents\n\n"
-    
     root_dir = "Solutions"
     if not os.path.isdir(root_dir):
-        print(f"⚠️ Thư mục '{root_dir}' không tồn tại.")
         return
-
     added_to_toc = set()
     for root, dirs, files in os.walk(root_dir):
         dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
         rel_path = os.path.relpath(root, root_dir)
         if rel_path == ".": continue
-            
         parts = rel_path.split(os.sep)
         for i in range(len(parts)):
             current_path = os.path.join(root_dir, *parts[:i+1])
             if current_path not in added_to_toc:
                 depth = i
                 indent = "  " * depth
-                title = format_display_name(parts[i])
+                title = format_display_name(parts[i], is_oj=(i == 0))
                 toc_content += f"{indent}* [📂 {title}](#-{create_slug(title)})\n"
                 added_to_toc.add(current_path)
-
     folder_data = []
     for root, dirs, files in os.walk(root_dir):
         dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
         cpp_files = [f for f in files if f.endswith('.cpp')]
         if cpp_files:
             folder_data.append((root, cpp_files))
-
     folder_data.sort(key=lambda x: natural_sort_key(x[0]))
-    
     for path, files in folder_data:
         rel_path_from_sol = os.path.relpath(path, root_dir)
-        
         if rel_path_from_sol == ".":
-            main_content += f"## 📂 {format_display_name(root_dir)}\n"
+            main_content += f"## 📂 {root_dir}\n"
         else:
             base_name = os.path.basename(path)
-            title = format_display_name(base_name)
-            if os.path.dirname(rel_path_from_sol) == "":
+            is_oj_folder = (os.path.dirname(rel_path_from_sol) == "")
+            title = format_display_name(base_name, is_oj=is_oj_folder)
+            if is_oj_folder:
                 main_content += f"## 📂 {title}\n"
             else:
                 main_content += f"### 📁 {title}\n"
-        
         files.sort(key=natural_sort_key)
         table = "| # | Problem Name | Algorithm | Complexity | Solution |\n| :--- | :--- | :--- | :--- | :--- |\n"
-        
         for i, file in enumerate(files, 1):
             full_path = os.path.join(path, file)
             meta = extract_metadata(full_path)
             filename_no_ext = file.replace('.cpp', '')
             file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
-            
             if meta["title"]:
                 display_name = f"{file_id} - {meta['title']}"
             elif '_' in filename_no_ext:
-                # Tạm thời vẫn format tên bài tập để tránh dính extension hoặc underscore rác
-                parts_name = filename_no_ext.split('_')[1:]
-                display_name = f"{file_id} - {' '.join(parts_name).title()}"
+                prob_name_parts = filename_no_ext.split('_')[1:]
+                display_name = f"{file_id} - {' '.join(prob_name_parts).title()}"
             else:
                 display_name = file_id
-
             prob_link = meta["source"] or auto_generate_link(full_path)
             name_md = f"[{display_name}]({prob_link})" if prob_link else display_name
             sol_md = f"[Code]({full_path.replace('\\', '/')})"
             if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
-            
             table += f"| {i} | {name_md} | {meta['algorithm']} | {meta['complexity']} | {sol_md} |\n"
             total_problems += 1
-        
         main_content += table + "\n"
-
-    # --- 3. Badge & Stats (GMT+7 & Mã hóa URL) ---
     push_time = get_last_commit_time()
     iso_string = push_time.strftime("%Y%m%dT%H%M")
-    
-    # Thêm GMT+7 vào text
     time_str = push_time.strftime("%b %d, %Y - %H:%M (GMT+7)")
-    
-    # Mã hóa cho URL Shields.io
-    # - %3A là dấu :
-    # - %20 là khoảng trắng
-    # - %2C là dấu ,
-    clean_time = time_str.replace("-", "--").replace(" ", "_").replace(":", "%3A").replace(",", "%2C")
-    
-    badge_url = f"https://img.shields.io/badge/Last_Update-{clean_time}-0078d4?style=for-the-badge&logo=github"
+    badge_time = (time_str.replace("-", "--").replace(" ", "_").replace(":", "%3A")
+                          .replace(",", "%2C").replace("(", "%28").replace(")", "%29"))
+    badge_url = f"https://img.shields.io/badge/Last_Update-{badge_time}-0078d4?style=for-the-badge&logo=github"
     time_link = f"https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso={iso_string}&p1={CITY_ID}"
-
-    stats = f"### 📊 Repository Stats\n\n"
-    stats += f"- **Total Problems:** {total_problems}\n"
-    stats += f"- **Origin Timezone:** Ho Chi Minh City (GMT+7)\n\n"
-    stats += f"[![Last Update]({badge_url})]({time_link} \"🖱️ CLICK TO CONVERT\")\n\n"
-    stats += f"---\n"
-    
+    stats = f"### 📊 Repository Stats\n\n- **Total Problems:** {total_problems}\n- **Origin Timezone:** Ho Chi Minh City (GMT+7)\n\n[![Last Update]({badge_url})]({time_link} \"🖱️ CLICK TO CONVERT\")\n\n---\n"
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content + stats + toc_content + "\n---\n" + main_content)
-    print(f"✅ README Updated (City ID: {CITY_ID} | GMT+7)")
 
 if __name__ == "__main__":
     generate_readme()

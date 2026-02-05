@@ -32,15 +32,15 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 - **Total Problems:** 75
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05%2C_2026_--_17%3A38_(GMT+7)-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1738&p1=218 "🖱️ CLICK TO CONVERT")
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05%2C_2026_--_17%3A47_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1747&p1=218 "🖱️ CLICK TO CONVERT")
 
 ---
 ## 📌 Table of Contents
 
 * [📂 Codeforces](#-codeforces)
 * [📂 CSES](#-cses)
-  * [📂 03_Dynamic_Programming](#-03_dynamic_programming)
-  * [📂 04_Graph](#-04_graph)
+  * [📂 Dynamic Programming](#-dynamic-programming)
+  * [📂 Graph](#-graph)
 * [📂 VNOI](#-vnoi)
 
 ---
@@ -120,12 +120,12 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 | 71 | [1997A](https://codeforces.com/contest/1997/problem/A) | N/A | N/A | [Code](Solutions/Codeforces/1997A.cpp) |
 | 72 | [1997B](https://codeforces.com/contest/1997/problem/B) | N/A | N/A | [Code](Solutions/Codeforces/1997B.cpp) |
 
-### 📁 03_Dynamic_Programming
+### 📁 Dynamic Programming
 | # | Problem Name | Algorithm | Complexity | Solution |
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | [2413 - Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | $\mathcal{O}(n)$ | [Code](Solutions/CSES/03_Dynamic_Programming/2413_Counting_Towers.cpp) \| [Sub](https://cses.fi/paste/67df7ff1543072a9f68403/) |
 
-### 📁 04_Graph
+### 📁 Graph
 | # | Problem Name | Algorithm | Complexity | Solution |
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1192 - Counting Rooms](https://cses.fi/problemset/task/1192/) | `BFS`, `flood fill` | $\mathcal{O}(V+E)$ | [Code](Solutions/CSES/04_Graph/1192_Counting_Rooms.cpp) \| [Sub](https://cses.fi/paste/96f91e45fb63bc5dd6975e/) |
