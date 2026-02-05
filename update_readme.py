@@ -57,7 +57,7 @@ def extract_metadata(file_path):
                         if val:
                             algos = [f"`{a.strip()}`" for a in val.split(',') if a.strip()]
                             meta["algorithm"] = ", ".join(algos)
-                    elif i == 9 and lower_line.startswith("complexity:"):
+                    elif lower_line.startswith("complexity:"):
                         val = clean_line[11:].strip()
                         if val:
                             meta["complexity"] = f"${val.replace('O', '\\mathcal{O}')}$"
