@@ -29,12 +29,12 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ---
 ### 📊 Repository Stats
 - **Total Problems:** 75
-- **Last Sync:** Thu Feb 05 2026
+- **Last Update:** Thu Feb 05 2026
 
 ### 📁 Cses/03 Dynamic Programming
 | # | Problem Name | Algorithm | Solution |
 | :--- | :--- | :--- | :--- |
-| 1 | [Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming` | [Code](Solutions/CSES/03_Dynamic_Programming/2413_Counting_Towers.cpp) \| [Verify](https://cses.fi/problemset/result/16155651/) |
+| 1 | [Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming` | [Code](Solutions/CSES/03_Dynamic_Programming/2413_Counting_Towers.cpp) \| [Submission](https://cses.fi/problemset/result/16155651/) |
 
 ### 📁 Codeforces
 | # | Problem Name | Algorithm | Solution |
@@ -116,5 +116,5 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 | # | Problem Name | Algorithm | Solution |
 | :--- | :--- | :--- | :--- |
 | 1 | Generate Test | `N/A` | [Code](Templates/generate_test.cpp) |
-| 2 | Go | `N/A` | [Code](Templates/go.cpp) |
+| 2 | Go | `` | [Code](Templates/go.cpp) |
 
