@@ -31,7 +31,7 @@ def extract_metadata(file_path):
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             in_header = False
-            for line in f:
+            for i, line in enumerate(f):
                 line_strip = line.strip()
                 if line_strip.startswith("/**"):
                     in_header = True
@@ -57,16 +57,10 @@ def extract_metadata(file_path):
                         if val:
                             algos = [f"`{a.strip()}`" for a in val.split(',') if a.strip()]
                             meta["algorithm"] = ", ".join(algos)
-                    elif lower_line.startswith("complexity:"):
+                    elif i == 9 and lower_line.startswith("complexity:"):
                         val = clean_line[11:].strip()
                         if val:
-                            if any(p in val for p in ["\\mathcal{O}", "\\Theta", "\\Omega"]):
-                                meta["complexity"] = f"${val}$"
-                            else:
-                                inner = re.search(r'[Oo]\s*\((.*)\)', val)
-                                if inner:
-                                    val = inner.group(1)
-                                meta["complexity"] = f"$\\mathcal{{O}}({val})$"
+                            meta["complexity"] = f"${val.replace('O', '\\mathcal{O}')}$"
     except Exception: pass
     return meta
 
