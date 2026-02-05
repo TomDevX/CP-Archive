@@ -96,10 +96,17 @@ def generate_readme():
 
     total_problems = 0
     main_content = ""
+    toc_content = "## 📌 Table of Contents\n\n"
+    
     root_dirs = sorted([d for d in os.listdir('.') if os.path.isdir(d) and d not in EXCLUDE_DIRS], key=natural_sort_key)
 
     for root_dir in root_dirs:
-        main_content += f"## 📂 {format_display_name(root_dir)}\n"
+        folder_title = format_display_name(root_dir)
+        # Tạo TOC entry cho thư mục gốc
+        anchor = folder_title.lower().replace(" ", "-")
+        toc_content += f"* [📂 {folder_title}](#-{anchor})\n"
+        
+        main_content += f"## 📂 {folder_title}\n"
         folder_data = []
         for root, dirs, files in os.walk(root_dir):
             dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
@@ -110,7 +117,8 @@ def generate_readme():
         for path, files in folder_data:
             relative_path = os.path.relpath(path, root_dir)
             if relative_path != ".":
-                main_content += f"### 📁 {format_display_name(relative_path)}\n"
+                sub_folder_title = format_display_name(relative_path)
+                main_content += f"### 📁 {sub_folder_title}\n"
             
             problem_list = []
             for file in files:
@@ -127,13 +135,16 @@ def generate_readme():
             problem_list.sort(key=lambda x: natural_sort_key(x["raw_file"]))
             table = "| # | Problem Name | Algorithm | Complexity | Solution |\n| :--- | :--- | :--- | :--- | :--- |\n"
             for i, p in enumerate(problem_list, 1):
-                name_md = f"[{p['name']}]({p['link']})" if p['link'] else p['name']
+                # Áp dụng định dạng ID - Name
+                id_name = f"{i} - {p['name']}"
+                name_md = f"[{id_name}]({p['link']})" if p['link'] else id_name
                 sol_md = f"[Code]({p['path']})"
                 if p['submission']: sol_md += f" \| [Sub]({p['submission']})"
                 table += f"| {i} | {name_md} | {p['algo']} | {p['comp']} | {sol_md} |\n"
                 total_problems += 1
             main_content += table + "\n"
 
+    # Hoàn thiện phần Stats
     push_time = get_last_commit_time()
     iso_string = push_time.strftime("%Y%m%dT%H%M")
     time_str = push_time.strftime("%b %d, %Y - %H:%M (GMT+7)")
@@ -149,8 +160,9 @@ def generate_readme():
     stats += f"---\n"
     
     with open(README_FILE, 'w', encoding='utf-8') as f:
-        f.write(content + stats + main_content)
-    print(f"✅ README Updated (City ID: {CITY_ID})")
+        # Thứ tự: Header -> Stats -> TOC -> Nội dung chính
+        f.write(content + stats + toc_content + "\n---\n" + main_content)
+    print(f"✅ README Updated with TOC and ID-Name format (City ID: {CITY_ID})")
 
 if __name__ == "__main__":
     generate_readme()
