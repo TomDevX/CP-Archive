@@ -32,9 +32,9 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 - **Total Problems:** 75
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05,_2026_--_12:52_(GMT+7)-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1252&p1=166 "Click to convert to your local time")
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05,_2026_--_13:00_(GMT+7)-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1300&p1=218 "Click to convert to your local time")
 
-<sub>*Can't see your time? [Click here to convert](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1252&p1=166)*</sub>
+<sub>*Can't see your time? [Click here to convert](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1300&p1=218)*</sub>
 
 ---
 ### 📁 Codeforces
