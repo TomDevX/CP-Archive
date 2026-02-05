@@ -4,7 +4,7 @@
  *    country: Vietnam - VNM
  *    title: Hamming Distance
  *    source: https://cses.fi/problemset/task/2136
- *    submission: 
+ *    submission: https://cses.fi/paste/9254599d71bb5d60f6b997/
  * ----------------------------------------------------------
  *    tags: bit
  *    complexity: O(n^2)
@@ -15,6 +15,8 @@
 #include <vector>
 #include <cstdio>
 #include <utility>
+#include <string>
+#include <algorithm>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n';
@@ -59,5 +61,26 @@ int main(){
     fastio;
     setup();
 
-    
+    int n,k;
+    cin >> n >> k;
+    vector<string> a(n+1);
+    for(int i = 1; i <= n; i++){
+        cin >> a[i];
+    }
+
+    vi b(n+1);
+    for(int i = 1; i <= n; i++){
+        for(int j = 0; j < k; j++){
+            if(a[i][j] == '1') b[i] += (1 << j);
+        }
+    }
+
+    int cnt = 1e9;
+    for(int i = 2; i <= n; i++){
+        for(int j = 1; j < i; j++){
+            cnt = min(cnt,__builtin_popcount(b[i]^b[j]));
+        }
+    }
+
+    cout << cnt;
 }
