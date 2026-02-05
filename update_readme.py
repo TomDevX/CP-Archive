@@ -28,7 +28,6 @@ def format_display_name(name):
     return " ".join(parts).replace('-', ' ').title()
 
 def create_slug(text):
-    """Tạo anchor link chuẩn để nhảy đến Header trên GitHub"""
     slug = text.lower().replace(" ", "-")
     slug = re.sub(r'[^\w\-]', '', slug)
     return slug
@@ -100,34 +99,35 @@ def generate_readme():
     main_content = ""
     toc_content = "## 📌 Table of Contents\n\n"
     
-    # CHỈ XÉT THƯ MỤC SOLUTIONS
     root_dir = "solutions"
     if not os.path.isdir(root_dir):
         print(f"⚠️ Thư mục '{root_dir}' không tồn tại.")
         return
 
-    # --- 1. Tạo TOC Đệ Quy (Sửa lỗi dính liền folder) ---
+    # --- 1. Tạo TOC (Bỏ folder Solutions, bắt đầu từ cấp con) ---
     added_to_toc = set()
     for root, dirs, files in os.walk(root_dir):
         dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
         
-        # Tách path để tính độ sâu và indent
-        rel_path = os.path.relpath(root, '.')
+        # Lấy đường dẫn tương đối so với 'solutions'
+        rel_path = os.path.relpath(root, root_dir)
+        if rel_path == ".":
+            continue # Bỏ qua chính folder 'solutions' trong TOC
+            
         parts = rel_path.split(os.sep)
-        
         for i in range(len(parts)):
-            current_path = os.path.join(*parts[:i+1])
+            # Đường dẫn đầy đủ để kiểm tra trùng lặp
+            current_path = os.path.join(root_dir, *parts[:i+1])
             if current_path not in added_to_toc:
-                depth = i
+                depth = i # Độ sâu bắt đầu từ 0 cho các con của solutions
                 indent = "  " * depth
                 raw_name = parts[i]
                 
-                # Format tên hiển thị trong TOC
                 title = "CSES" if raw_name.lower() == "cses" else format_display_name(raw_name)
                 toc_content += f"{indent}* [📂 {title}](#-{create_slug(title)})\n"
                 added_to_toc.add(current_path)
 
-    # --- 2. Tạo Nội Dung Chính (Bảng bài tập) ---
+    # --- 2. Tạo Nội Dung Chính ---
     folder_data = []
     for root, dirs, files in os.walk(root_dir):
         dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
@@ -138,13 +138,20 @@ def generate_readme():
     folder_data.sort(key=lambda x: natural_sort_key(x[0]))
     
     for path, files in folder_data:
-        # Header cho từng folder
         rel_path_from_sol = os.path.relpath(path, root_dir)
+        
+        # Nếu là thư mục con trực tiếp của solutions -> Dùng Header H2 (##)
+        # Nếu sâu hơn -> Dùng Header H3 (###)
         if rel_path_from_sol == ".":
-            main_content += f"## 📂 {format_display_name(root_dir)}\n"
+            # Trường hợp có file .cpp nằm ngay trong solutions (thường ít có)
+            main_content += f"## 📂 Solutions\n"
         else:
-            sub_title = format_display_name(os.path.basename(path))
-            main_content += f"### 📁 {sub_title}\n"
+            base_name = os.path.basename(path)
+            title = "CSES" if base_name.lower() == "cses" else format_display_name(base_name)
+            if os.path.dirname(rel_path_from_sol) == "":
+                main_content += f"## 📂 {title}\n"
+            else:
+                main_content += f"### 📁 {title}\n"
         
         files.sort(key=natural_sort_key)
         table = "| # | Problem Name | Algorithm | Complexity | Solution |\n| :--- | :--- | :--- | :--- | :--- |\n"
@@ -154,7 +161,6 @@ def generate_readme():
             meta = extract_metadata(full_path)
             filename_no_ext = file.replace('.cpp', '')
             
-            # Logic ID - Name: Chỉ thêm ID nếu có Title hoặc tên file dài
             file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
             
             if meta["title"]:
@@ -162,13 +168,12 @@ def generate_readme():
             elif '_' in filename_no_ext:
                 display_name = f"{file_id} - {format_display_name(filename_no_ext)}"
             else:
-                display_name = file_id # Trường hợp chỉ có ID (Codeforces)
+                display_name = file_id
 
             prob_link = meta["source"] or auto_generate_link(full_path)
             name_md = f"[{display_name}]({prob_link})" if prob_link else display_name
             sol_md = f"[Code]({full_path.replace('\\', '/')})"
             
-            # Sửa SyntaxWarning lỗi \|
             if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
             
             table += f"| {i} | {name_md} | {meta['algorithm']} | {meta['complexity']} | {sol_md} |\n"
@@ -179,9 +184,7 @@ def generate_readme():
     # --- 3. Badge & Stats ---
     push_time = get_last_commit_time()
     iso_string = push_time.strftime("%Y%m%dT%H%M")
-    time_str = push_time.strftime("%b %d, %Y - %H:%M (GMT+7)")
-    badge_msg = f"{time_str}_🖱️_[CLICK_TO_CONVERT]".replace("-", "--").replace(" ", "_")
-    badge_url = f"https://img.shields.io/badge/Last_Update-{badge_msg}-0078d4?style=for-the-badge&logo=github"
+    badge_url = f"https://img.shields.io/badge/Last_Update-{push_time.strftime('%b_%d,_%Y')}-0078d4?style=for-the-badge&logo=github"
     time_link = f"https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso={iso_string}&p1={CITY_ID}"
 
     stats = f"### 📊 Repository Stats\n\n"
@@ -192,7 +195,7 @@ def generate_readme():
     
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content + stats + toc_content + "\n---\n" + main_content)
-    print(f"✅ README Updated (Only solutions folder, City ID: {CITY_ID})")
+    print(f"✅ README Tinh gọn thành công (Bỏ qua folder mẹ 'solutions').")
 
 if __name__ == "__main__":
     generate_readme()
