@@ -32,7 +32,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 - **Total Problems:** 76
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05%2C_2026_--_18%3A03_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1803&p1=218 "🖱️ CLICK TO CONVERT")
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05%2C_2026_--_18%3A11_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1811&p1=218 "🖱️ CLICK TO CONVERT")
 
 ---
 ## 📌 Table of Contents
@@ -124,7 +124,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ### 📁 Advanced Techniques
 | # | Problem Name | Tags | Complexity | Solution |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | [2136 - Hamming Distance](https://cses.fi/problemset/task/2136) | `bit` | $\mathcal{O}(n^2)$ | [Code](Solutions/CSES/Advanced%20Techniques/2136_Hamming_Distance.cpp) |
+| 1 | [2136 - Hamming Distance](https://cses.fi/problemset/task/2136) | `bit` | $\mathcal{O}(n^2)$ | [Code](Solutions/CSES/Advanced%20Techniques/2136_Hamming_Distance.cpp) \| [Sub](https://cses.fi/paste/9254599d71bb5d60f6b997/) |
 
 ### 📁 Dynamic Programming
 | # | Problem Name | Tags | Complexity | Solution |
