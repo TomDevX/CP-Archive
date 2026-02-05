@@ -32,7 +32,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 - **Total Problems:** 76
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05,_2026_--_13:49_(GMT+7)_🖱️_[CLICK_TO_CONVERT]-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1349&p1=218 "🖱️ CLICK TO CONVERT")
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05,_2026_--_13:50_(GMT+7)_🖱️_[CLICK_TO_CONVERT]-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1350&p1=218 "🖱️ CLICK TO CONVERT")
 
 ---
 ## 📂 Algorithms
@@ -116,16 +116,16 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ### 📁 Cses/03 Dynamic Programming
 | # | Problem Name | Algorithm | Complexity | Solution |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | [Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | $\mathcal{O}(n)$ | [Code](Solutions/CSES/03_Dynamic_Programming/2413_Counting_Towers.cpp) \| [Sub](https://cses.fi/paste/67df7ff1543072a9f68403/) |
+| 1 | [Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | $: \mathcal{O}(n)$ | [Code](Solutions/CSES/03_Dynamic_Programming/2413_Counting_Towers.cpp) \| [Sub](https://cses.fi/paste/67df7ff1543072a9f68403/) |
 
 ### 📁 Vnoi
 | # | Problem Name | Algorithm | Complexity | Solution |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | [Dãy con tăng dài nhất (bản dễ)](https://oj.vnoi.info/problem/liq) | `Dynamic Programming`, `Binary Search` | $\mathcal{O}(n\log{n})$ | [Code](Solutions/VNOI/liq.cpp) \| [Sub](https://oj.vnoi.info/src/10967418) |
+| 1 | [Dãy con tăng dài nhất (bản dễ)](https://oj.vnoi.info/problem/liq) | `Dynamic Programming`, `Binary Search` | $: \mathcal{O}(n\log{n})$ | [Code](Solutions/VNOI/liq.cpp) \| [Sub](https://oj.vnoi.info/src/10967418) |
 
 ## 📂 Templates
 | # | Problem Name | Algorithm | Complexity | Solution |
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | Generate Test | N/A | N/A | [Code](Templates/generate_test.cpp) |
-| 2 | Go | N/A | N/A | [Code](Templates/go.cpp) |
+| 2 | Go | N/A | $:$ | [Code](Templates/go.cpp) |
 
