@@ -69,13 +69,13 @@ def extract_metadata(file_path):
                     elif lower_line.startswith("complexity:"):
                         val = clean_line[11:].strip()
                         if val:
-                            # 1. Nếu bạn đã dùng LaTeX chuyên sâu (Theta, Omega, mathcal) thì giữ nguyên
+                            # LOGIC MỚI: Ép về \mathcal{O} chuẩn học thuật
+                            # Nếu bạn đã dùng \Theta, \Omega hoặc \mathcal{O} rồi thì giữ nguyên
                             if any(p in val for p in ["\\mathcal{O}", "\\Theta", "\\Omega"]):
                                 meta["complexity"] = f"${val}$"
-                            # 2. Nếu bạn gõ O(n) hoặc chỉ n, tự động ép về \mathcal{O}
                             else:
-                                # Xóa chữ O( và ) nếu có để lấy nội dung bên trong
-                                inner = re.sub(r'^[Oo]\((.*)\)$', r'\1', val)
+                                # Loại bỏ O(...) hoặc o(...) nếu bạn lỡ tay gõ vào file .cpp
+                                inner = re.sub(r'^[Oo]\s*\((.*)\)$', r'\1', val)
                                 meta["complexity"] = f"$\\mathcal{{O}}({inner})$"
     except Exception: pass
     return meta
