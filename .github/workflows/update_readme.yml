@@ -1,29 +1,29 @@
-name: Update README
+name: Update README Automatically
 
 on:
   push:
     branches:
-      - main  # Chạy mỗi khi push lên nhánh main
+      - main  # Chạy khi bạn push vào branch main
 
 jobs:
-  update-readme:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.x'
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
 
-    - name: Run update script
-      run: python update_readme.py
+      - name: Run update script
+        run: python update_readme.py
 
-    - name: Commit and push changes
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git add README.md
-        git commit -m "Auto-update README with new solutions" || exit 0
-        git push
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md
+          git diff --quiet && git diff --staged --quiet || (git commit -m "docs: tự động cập nhật README [bot]" && git push)
