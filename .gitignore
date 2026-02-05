@@ -8,6 +8,10 @@
 *.bin
 *.idb
 
+*
+!*.*
+!*/
+
 # IDE/Editor specific files 
 .vscode/
 .idea/
