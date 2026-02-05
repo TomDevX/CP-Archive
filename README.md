@@ -32,22 +32,25 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 - **Total Problems:** 75
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05,_2026_--_16:57_(GMT+7)_🖱️_[CLICK_TO_CONVERT]-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1657&p1=218 "🖱️ CLICK TO CONVERT")
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05,_2026_--_17:00_(GMT+7)_🖱️_[CLICK_TO_CONVERT]-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1700&p1=218 "🖱️ CLICK TO CONVERT")
 
 ---
 ## 📌 Table of Contents
 
 * [📂 Algorithms](#-algorithms)
 * [📂 Solutions](#-solutions)
-  * [📁 Codeforces](#-codeforces)
-  * [📁 Cses/03 Dynamic Programming](#-cses/03-dynamic-programming)
-  * [📁 Cses/04 Graph](#-cses/04-graph)
-  * [📁 Vnoi](#-vnoi)
+  * [📂 Codeforces](#-codeforces)
+  * [📂 CSES](#-cses)
+    * [📂 Dynamic Programming](#-dynamic-programming)
+    * [📂 Graph](#-graph)
+  * [📂 Vnoi](#-vnoi)
 * [📂 Templates](#-templates)
-  * [📁 Bits](#-bits)
+  * [📂 Bits](#-bits)
 
 ---
 ## 📂 Algorithms
+_Danh sách file trong thư mục này được ẩn để tối ưu README._
+
 ## 📂 Solutions
 ### 📁 Codeforces
 | # | Problem Name | Algorithm | Complexity | Solution |
@@ -125,12 +128,12 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 | 71 | [1997A](https://codeforces.com/contest/1997/problem/A) | N/A | N/A | [Code](Solutions/Codeforces/1997A.cpp) |
 | 72 | [1997B](https://codeforces.com/contest/1997/problem/B) | N/A | N/A | [Code](Solutions/Codeforces/1997B.cpp) |
 
-### 📁 Cses/03 Dynamic Programming
+### 📁 Dynamic Programming
 | # | Problem Name | Algorithm | Complexity | Solution |
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | [2413 - Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | $\mathcal{O}(n)$ | [Code](Solutions/CSES/03_Dynamic_Programming/2413_Counting_Towers.cpp) \| [Sub](https://cses.fi/paste/67df7ff1543072a9f68403/) |
 
-### 📁 Cses/04 Graph
+### 📁 Graph
 | # | Problem Name | Algorithm | Complexity | Solution |
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1192 - Counting Rooms](https://cses.fi/problemset/task/1192/) | `BFS`, `flood fill` | $\mathcal{O}(V+E)$ | [Code](Solutions/CSES/04_Graph/1192_Counting_Rooms.cpp) \| [Sub](https://cses.fi/paste/96f91e45fb63bc5dd6975e/) |
@@ -141,14 +144,5 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 | 1 | [LIQ - Dãy con tăng dài nhất (bản dễ)](https://oj.vnoi.info/problem/liq) | `Dynamic Programming`, `Binary Search` | $\mathcal{O}(n\log{n})$ | [Code](Solutions/VNOI/liq.cpp) \| [Sub](https://oj.vnoi.info/src/10967418) |
 
 ## 📂 Templates
-| File Name | Source |
-| :--- | :--- |
-| debuggingz | [Link](Templates/debuggingz.h) |
-| generate_test | [Link](Templates/generate_test.cpp) |
-| go | [Link](Templates/go.cpp) |
-
-### 📁 Bits
-| File Name | Source |
-| :--- | :--- |
-| stdc++ | [Link](Templates/bits/stdc++.h) |
+_Danh sách file trong thư mục này được ẩn để tối ưu README._
 
