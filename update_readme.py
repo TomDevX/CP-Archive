@@ -101,12 +101,12 @@ def generate_readme():
     root_dirs = sorted([d for d in os.listdir('.') if os.path.isdir(d) and d not in EXCLUDE_DIRS], key=natural_sort_key)
 
     for root_dir in root_dirs:
-        folder_title = format_display_name(root_dir)
-        # Tạo TOC entry cho thư mục gốc
-        anchor = folder_title.lower().replace(" ", "-")
-        toc_content += f"* [📂 {folder_title}](#-{anchor})\n"
+        # Cấu trúc TOC cấp 1 cho folder lớn
+        root_title = format_display_name(root_dir)
+        root_anchor = root_title.lower().replace(" ", "-")
+        toc_content += f"* [📂 {root_title}](#-{root_anchor})\n"
         
-        main_content += f"## 📂 {folder_title}\n"
+        main_content += f"## 📂 {root_title}\n"
         folder_data = []
         for root, dirs, files in os.walk(root_dir):
             dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
@@ -117,14 +117,24 @@ def generate_readme():
         for path, files in folder_data:
             relative_path = os.path.relpath(path, root_dir)
             if relative_path != ".":
-                sub_folder_title = format_display_name(relative_path)
-                main_content += f"### 📁 {sub_folder_title}\n"
+                # Cấu trúc TOC cấp 2 cho folder con
+                sub_title = format_display_name(relative_path)
+                sub_anchor = sub_title.lower().replace(" ", "-")
+                toc_content += f"  * [📁 {sub_title}](#-{sub_anchor})\n"
+                
+                main_content += f"### 📁 {sub_title}\n"
             
             problem_list = []
             for file in files:
                 full_path = os.path.join(path, file)
                 meta = extract_metadata(full_path)
-                display_name = meta["title"] if meta["title"] else format_display_name(file.replace('.cpp', ''))
+                
+                # Trích xuất ID từ tên file (phần trước dấu gạch dưới đầu tiên)
+                file_id = file.split('_')[0].upper() if '_' in file else file.replace('.cpp', '').upper()
+                # Tên hiển thị bài tập
+                pure_name = meta["title"] if meta["title"] else format_display_name(file.replace('.cpp', ''))
+                display_name = f"{file_id} - {pure_name}"
+                
                 prob_link = meta["source"] or auto_generate_link(full_path)
                 problem_list.append({
                     "name": display_name, "link": prob_link, "submission": meta["submission"],
@@ -135,16 +145,13 @@ def generate_readme():
             problem_list.sort(key=lambda x: natural_sort_key(x["raw_file"]))
             table = "| # | Problem Name | Algorithm | Complexity | Solution |\n| :--- | :--- | :--- | :--- | :--- |\n"
             for i, p in enumerate(problem_list, 1):
-                # Áp dụng định dạng ID - Name
-                id_name = f"{i} - {p['name']}"
-                name_md = f"[{id_name}]({p['link']})" if p['link'] else id_name
+                name_md = f"[{p['name']}]({p['link']})" if p['link'] else p['name']
                 sol_md = f"[Code]({p['path']})"
                 if p['submission']: sol_md += f" \| [Sub]({p['submission']})"
                 table += f"| {i} | {name_md} | {p['algo']} | {p['comp']} | {sol_md} |\n"
                 total_problems += 1
             main_content += table + "\n"
 
-    # Hoàn thiện phần Stats
     push_time = get_last_commit_time()
     iso_string = push_time.strftime("%Y%m%dT%H%M")
     time_str = push_time.strftime("%b %d, %Y - %H:%M (GMT+7)")
@@ -160,9 +167,9 @@ def generate_readme():
     stats += f"---\n"
     
     with open(README_FILE, 'w', encoding='utf-8') as f:
-        # Thứ tự: Header -> Stats -> TOC -> Nội dung chính
+        # Ghi theo thứ tự: Header -> Stats -> TOC -> Nội dung chính
         f.write(content + stats + toc_content + "\n---\n" + main_content)
-    print(f"✅ README Updated with TOC and ID-Name format (City ID: {CITY_ID})")
+    print(f"✅ README Updated with TOC and ID-Name (City ID: {CITY_ID})")
 
 if __name__ == "__main__":
     generate_readme()
