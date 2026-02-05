@@ -1,6 +1,6 @@
 import os
 import re
-import datetime
+from datetime import datetime, timedelta, timezone
 
 # --- CONFIGURATION ---
 EXCLUDE_DIRS = {'.git', '.github', '.assets', 'venv', '__pycache__'}
@@ -106,13 +106,14 @@ def generate_readme():
             sub_sections += header + table + "\n"
         main_content += sub_sections
 
-    # --- CẤU HÌNH DÒNG THỜI GIAN VÀ LINK DYNAMIC ---
-    now = datetime.datetime.now()
-    # Định dạng: Feb/05/2026 12:35
+    # --- CẤU HÌNH THỜI GIAN THEO MÚI GIỜ HỒ CHÍ MINH (GMT+7) ---
+    tz_hcm = timezone(timedelta(hours=7))
+    now = datetime.now(tz_hcm)
+    
+    # Định dạng theo phong cách Codeforces: Feb/05/2026 12:35
     cf_style_time = now.strftime("%b/%d/%Y %H:%M")
     
-    # Tạo link dynamic cho timeanddate.com
-    # p1=166 đại diện cho Ho Chi Minh City/Hanoi
+    # Tạo link dynamic cho timeanddate.com (p1=166 là mã vùng Việt Nam)
     time_link = (
         f"https://www.timeanddate.com/worldclock/fixedtime.html?"
         f"day={now.day}&month={now.month}&year={now.year}&"
