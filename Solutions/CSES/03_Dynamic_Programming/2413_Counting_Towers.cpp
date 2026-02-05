@@ -5,7 +5,7 @@
  *    source: 
  *    submission: https://cses.fi/problemset/result/16155651/
  * ----------------------------------------------------------
- *    algorithm: Dynamic Programming
+ *    algorithm: Dynamic Programming, AdHoc
  *    complexity: O(n)
  *    note: We can divide each floor into these 6 types (check below), each type can go with other different types so we have to handle those cases
  **/

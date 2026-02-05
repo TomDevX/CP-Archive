@@ -15,7 +15,7 @@ def format_display_name(name):
     return " ".join(parts).replace('-', ' ').title()
 
 def extract_metadata(file_path):
-    """Trích xuất metadata: title, source, submission, algorithm."""
+    """Trích xuất metadata và xử lý nhiều thuật toán ngăn cách bởi dấu phẩy."""
     meta = {"source": None, "submission": None, "algorithm": "N/A", "title": None}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -23,6 +23,7 @@ def extract_metadata(file_path):
                 line = f.readline()
                 if not line: break
                 line_lower = line.lower()
+                
                 if "title:" in line_lower:
                     meta["title"] = line.split("title:")[1].replace('**/', '').replace('*', '').strip()
                 elif "source:" in line_lower:
@@ -32,7 +33,10 @@ def extract_metadata(file_path):
                     match = re.search(r'(https?://[^\s]+)', line)
                     if match: meta["submission"] = match.group(1)
                 elif "algorithm:" in line_lower:
-                    meta["algorithm"] = line.split("algorithm:")[1].replace('**/', '').replace('*', '').strip()
+                    # Tách các thuật toán bởi dấu phẩy và làm sạch
+                    raw_algo = line.split("algorithm:")[1].replace('**/', '').replace('*', '').strip()
+                    algos = [a.strip() for a in raw_algo.split(',')]
+                    meta["algorithm"] = ", ".join(algos) # Nối lại bằng ", " để hiển thị
     except:
         pass
     return meta
@@ -106,24 +110,28 @@ def generate_readme():
             sub_sections += header + table + "\n"
         main_content += sub_sections
 
-    # --- CẤU HÌNH SHIELDS.IO BADGE (GMT+7) ---
+    # --- XỬ LÝ THỜI GIAN (GMT+7) ---
     tz_hcm = timezone(timedelta(hours=7))
     now = datetime.now(tz_hcm)
     
-    # Tạo chuỗi thời gian hiển thị: "Feb 05, 2026 - 12:42 (GMT+7)"
-    time_display = now.strftime("%b %d, %Y - %H:%M (GMT+7)")
-    
-    # Xử lý chuỗi cho URL Shields.io (Thay '-' thành '--', ' ' thành '_')
-    badge_msg = time_display.replace("-", "--").replace(" ", "_")
-    badge_url = f"https://img.shields.io/badge/Last_Update-{badge_msg}-blue?style=flat-square&logo=github"
+    # Định dạng Badge
+    time_badge = now.strftime("%b_%d,_%Y_--_%H:%M_(GMT+7)")
+    badge_url = f"https://img.shields.io/badge/Last_Update-{time_badge}-0078d4?style=for-the-badge&logo=github"
 
-    stats = f"### 📊 Repository Stats\n"
+    # Định dạng Link (ISO 8601 + p1=166 để cố định giờ gốc là HCM)
+    iso_string = now.strftime("%Y%m%dT%H%M")
+    time_link = f"https://www.timeanddate.com/worldclock/fixedtime.html?iso={iso_string}&p1=166&msg=Last+Update+from+HCM"
+
+    # --- THỐNG KÊ (STATS) ---
+    stats = f"### 📊 Repository Stats\n\n"
     stats += f"- **Total Problems:** {total_problems}\n"
-    stats += f"![Last Update]({badge_url})\n\n"
+    stats += f"- **Current Timezone:** Ho Chi Minh City (GMT+7)\n\n"
+    stats += f"[![Last Update]({badge_url})]({time_link})\n\n" # Badge xuống dòng riêng biệt
+    stats += f"---\n"
     
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content + stats + main_content)
-    print(f"✅ README Updated with Badge: {time_display}")
+    print(f"✅ README Updated: {now.strftime('%H:%M')} (GMT+7)")
 
 if __name__ == "__main__":
     generate_readme()
