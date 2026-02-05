@@ -6,65 +6,75 @@ README_FILE = 'README.md'
 HEADER_FILE = 'HEADER.md'
 
 def format_display_name(name):
-    """
-    Cleans folder/file names. 
-    Example: '01_dynamic_programming' -> 'Dynamic Programming'
-    """
-    # Remove leading numbers and underscores
+    """Cleans folder/file names for professional display."""
     parts = name.split('_')
     if parts[0].isdigit():
         parts = parts[1:]
     return " ".join(parts).replace('-', ' ').title()
 
 def generate_readme():
-    # 1. Start with the static Header
+    # 1. Start with HEADER.md content
     if os.path.exists(HEADER_FILE):
         with open(HEADER_FILE, 'r', encoding='utf-8') as f:
             content = f.read() + "\n\n---\n"
     else:
         content = "# 🏆 Competitive Programming Repository\n\n"
 
-    # 2. Scan for folders (Categories)
-    dirs = sorted([d for d in os.listdir('.') if os.path.isdir(d) and d not in EXCLUDE_DIRS])
+    # 2. Get all directories at root
+    root_dirs = sorted([d for d in os.listdir('.') if os.path.isdir(d) and d not in EXCLUDE_DIRS])
     
     total_problems = 0
-    sections_html = ""
+    sections_content = ""
 
-    for folder in dirs:
-        # Get all .cpp files in this folder
-        files = sorted([f for f in os.listdir(folder) if f.endswith('.cpp')])
+    for root_dir in root_dirs:
+        # We will store all .cpp files found in this root folder and its subfolders
+        cpp_files = []
         
-        if not files:
+        # Recursive scan
+        for root, dirs, files in os.walk(root_dir):
+            # Skip excluded directories in recursion
+            dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
+            
+            for file in files:
+                if file.endswith('.cpp'):
+                    file_path = os.path.join(root, file)
+                    # Create a readable name including subfolder info if needed
+                    # Example: Solutions/CSES/WeirdAlgo.cpp -> CSES: Weird Algo
+                    sub_path = os.path.relpath(root, root_dir)
+                    display_name = format_display_name(file.replace('.cpp', ''))
+                    
+                    if sub_path != ".":
+                        display_name = f"[{format_display_name(sub_path)}] {display_name}"
+                    
+                    cpp_files.append((display_name, file_path))
+
+        if not cpp_files:
             continue
             
-        category_name = format_display_name(folder)
-        sections_html += f"## 📂 {category_name}\n"
-        sections_html += "| # | Problem Name | Code Link |\n"
-        sections_html += "| :--- | :--- | :--- |\n"
+        # Sort files by name
+        cpp_files.sort()
+            
+        category_name = format_display_name(root_dir)
+        sections_content += f"## 📂 {category_name}\n"
+        sections_content += "| # | Problem / Topic | Link |\n"
+        sections_content += "| :--- | :--- | :--- |\n"
         
-        for i, file in enumerate(files, 1):
-            # Clean file name: 'CSES_1068_WeirdAlgo.cpp' -> 'Weird Algo'
-            # Or if it's just 'WeirdAlgo.cpp' -> 'Weird Algo'
-            clean_file = file.replace('.cpp', '')
-            display_file = format_display_name(clean_file)
-            
-            path = f"./{folder}/{file}".replace('\\', '/')
-            sections_html += f"| {i} | {display_file} | [View Solution]({path}) |\n"
-            total_files_in_cat = i
-            
-        total_problems += total_files_in_cat
-        sections_html += "\n"
+        for i, (name, path) in enumerate(cpp_files, 1):
+            url_path = path.replace('\\', '/')
+            sections_content += f"| {i} | {name} | [View Source]({url_path}) |\n"
+            total_problems += 1
+        sections_content += "\n"
 
-    # 3. Add a Stats Dashboard
-    stats = f"### 📊 Repository Stats\n- **Total Problems Solved:** {total_problems}\n- **Last Updated:** {os.popen('date').read().strip()}\n\n"
+    # 3. Stats Dashboard
+    import datetime
+    now = datetime.datetime.now().strftime("%a %b %d %Y")
+    stats = f"### 📊 Repository Stats\n- **Total Items:** {total_problems}\n- **Last Sync:** {now}\n\n"
     
-    final_output = content + stats + sections_html
-
-    # 4. Write to README.md
+    # 4. Save
     with open(README_FILE, 'w', encoding='utf-8') as f:
-        f.write(final_output)
+        f.write(content + stats + sections_content)
     
-    print(f"✅ README.md updated successfully with {total_problems} problems.")
+    print(f"✅ Success! Found {total_problems} items across all directories.")
 
 if __name__ == "__main__":
     generate_readme()
