@@ -3,20 +3,16 @@ import re
 import subprocess
 from datetime import datetime, timedelta, timezone
 
-# --- CONFIGURATION ---
 EXCLUDE_DIRS = {'.git', '.github', '.assets', 'venv', '__pycache__'}
 README_FILE = 'README.md'
 HEADER_FILE = 'HEADER.md'
-# ĐÍNH CHÍNH CHUẨN: 218 là Hồ Chí Minh (Vietnam)
 CITY_ID = 218 
 
 def natural_sort_key(s):
-    """Hỗ trợ sort tự nhiên: '2.cpp' đứng trước '10.cpp'."""
     return [int(text) if text.isdigit() else text.lower()
             for text in re.split('([0-9]+)', s)]
 
 def get_last_commit_time():
-    """Lấy Unix timestamp của commit cuối cùng từ Git."""
     try:
         timestamp = subprocess.check_output(['git', 'log', '-1', '--format=%at']).decode('utf-8').strip()
         tz_hcm = timezone(timedelta(hours=7))
@@ -25,17 +21,12 @@ def get_last_commit_time():
         return datetime.now(timezone(timedelta(hours=7)))
 
 def format_display_name(name):
-    """Làm đẹp tên folder/file."""
     parts = name.split('_')
     if parts[0].isdigit():
         parts = parts[1:]
     return " ".join(parts).replace('-', ' ').title()
 
 def extract_metadata(file_path):
-    """
-    Trích xuất metadata linh hoạt: Quét toàn bộ khối comment /** ... **/ 
-    Hỗ trợ LaTeX cho complexity.
-    """
     meta = {"source": None, "submission": None, "algorithm": "N/A", "complexity": "N/A", "title": None}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -69,37 +60,31 @@ def extract_metadata(file_path):
                     elif lower_line.startswith("complexity:"):
                         val = clean_line[11:].strip()
                         if val:
-                            # LOGIC MỚI: Ép về \mathcal{O} chuẩn học thuật
-                            # Nếu bạn đã dùng \Theta, \Omega hoặc \mathcal{O} rồi thì giữ nguyên
                             if any(p in val for p in ["\\mathcal{O}", "\\Theta", "\\Omega"]):
                                 meta["complexity"] = f"${val}$"
                             else:
-                                # Loại bỏ O(...) hoặc o(...) nếu bạn lỡ tay gõ vào file .cpp
-                                inner = re.sub(r'^[Oo]\s*\((.*)\)$', r'\1', val)
-                                meta["complexity"] = f"$\\mathcal{{O}}({inner})$"
+                                inner = re.search(r'[Oo]\s*\((.*)\)', val)
+                                if inner:
+                                    val = inner.group(1)
+                                meta["complexity"] = f"$\\mathcal{{O}}({val})$"
     except Exception: pass
     return meta
 
 def auto_generate_link(file_path):
-    """Tự động tạo link OJ dựa trên folder (CF, CSES, VNOI, LeetCode)."""
     path_parts = file_path.replace('\\', '/').split('/')
     filename = path_parts[-1].replace('.cpp', '').upper()
     
     for part in reversed(path_parts[:-1]):
         up = part.upper()
-        # Codeforces logic
         if "CODEFORCES" in up or "CF" in up:
             cf_match = re.search(r'(\d+)\s*[_-]?\s*([A-Z]\d?)', filename)
             if cf_match:
                 return f"https://codeforces.com/contest/{cf_match.group(1)}/problem/{cf_match.group(2)}"
-        # CSES logic
         if "CSES" in up:
             m = re.search(r'(\d+)', filename)
             if m: return f"https://cses.fi/problemset/task/{m.group(1)}"
-        # VNOI logic
         if "VNOI" in up:
             return f"https://oj.vnoi.info/problem/{filename.lower()}"
-        # LeetCode logic
         if "LEETCODE" in up:
             return f"https://leetcode.com/problems/{filename.lower().replace('_', '-')}/"
     return None
@@ -142,7 +127,6 @@ def generate_readme():
                 })
             
             problem_list.sort(key=lambda x: natural_sort_key(x["raw_file"]))
-            # Thêm cột Complexity vào bảng
             table = "| # | Problem Name | Algorithm | Complexity | Solution |\n| :--- | :--- | :--- | :--- | :--- |\n"
             for i, p in enumerate(problem_list, 1):
                 name_md = f"[{p['name']}]({p['link']})" if p['link'] else p['name']
@@ -152,7 +136,6 @@ def generate_readme():
                 total_problems += 1
             main_content += table + "\n"
 
-    # --- TIME & STATS (CITY_ID 218) ---
     push_time = get_last_commit_time()
     iso_string = push_time.strftime("%Y%m%dT%H%M")
     time_str = push_time.strftime("%b %d, %Y - %H:%M (GMT+7)")
@@ -169,7 +152,7 @@ def generate_readme():
     
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content + stats + main_content)
-    print(f"✅ README Updated (Source: Commit Time {push_time.strftime('%H:%M')}, City ID: {CITY_ID})")
+    print(f"✅ README Updated (City ID: {CITY_ID})")
 
 if __name__ == "__main__":
     generate_readme()
