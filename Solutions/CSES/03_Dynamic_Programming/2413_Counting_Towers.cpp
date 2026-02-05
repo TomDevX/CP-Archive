@@ -2,7 +2,12 @@
  *    author: TomDev - Tran Hoang Quan
  *    created: 2026-02-04 14:51:29
  *    country: Vietnam - VNM
- *    source:
+ *    source: 
+ *    submission: https://cses.fi/problemset/result/16155651/
+ * ----------------------------------------------------------
+ *    algorithm: Dynamic Programming
+ *    complexity: O(n)
+ *    note: We can divide each floor into these 6 types (check below), each type can go with other different types so we have to handle those cases
  **/
  
 #include <iostream>
@@ -52,7 +57,6 @@ ll add(ll a, ll b){
     return (a+b)%MOD;
 }
 
-// We can divide each floor into these 6 types, each type can go with other different types so we have to handle those cases
 //                                  
 // │                    │     #    │            │          │         
 // │                    │     #    │            │          │         
