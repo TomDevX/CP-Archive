@@ -47,10 +47,6 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 
 ---
 ## 📂 Algorithms
-| File Name | Source |
-| :--- | :--- |
-| .gitkeep | [Link](Algorithms/.gitkeep) |
-
 ## 📂 Solutions
 ### 📁 Codeforces
 | # | Problem Name | Algorithm | Complexity | Solution |

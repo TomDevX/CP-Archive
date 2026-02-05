@@ -27,7 +27,6 @@ def format_display_name(name):
     return " ".join(parts).replace('-', ' ').title()
 
 def extract_metadata(file_path):
-    # Lưu ý tên key ở đây: "algorithm" và "complexity"
     meta = {"source": None, "submission": None, "algorithm": "N/A", "complexity": "N/A", "title": None}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -105,7 +104,15 @@ def generate_readme():
         folder_data = []
         for root, dirs, files in os.walk(root_dir):
             dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
-            relevant_files = [f for f in files if (is_sol_dir and f.endswith('.cpp')) or (not is_sol_dir)]
+            
+            # Logic lọc file theo yêu cầu mới của Tom
+            if is_sol_dir:
+                # Chỉ lấy file .cpp
+                relevant_files = [f for f in files if f.endswith('.cpp')]
+            else:
+                # Lấy file có extension (ví dụ: .pdf, .txt, .md, .py...)
+                relevant_files = [f for f in files if os.path.splitext(f)[1]]
+                
             if relevant_files: folder_data.append((root, relevant_files))
 
         folder_data.sort(key=lambda x: natural_sort_key(x[0]))
@@ -138,9 +145,10 @@ def generate_readme():
                     prob_link = meta["source"] or auto_generate_link(full_path)
                     name_md = f"[{display_name}]({prob_link})" if prob_link else display_name
                     sol_md = f"[Code]({full_path.replace('\\', '/')})"
+                    
+                    # FIX: Dùng double backslash '\\|' để tránh SyntaxWarning
                     if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
                     
-                    # FIX: Sửa lại đúng tên key 'algorithm' và 'complexity'
                     table += f"| {i} | {name_md} | {meta['algorithm']} | {meta['complexity']} | {sol_md} |\n"
                     total_problems += 1
             else:
@@ -152,7 +160,6 @@ def generate_readme():
 
             main_content += table + "\n"
 
-    # Stats & Badges
     push_time = get_last_commit_time()
     iso_string = push_time.strftime("%Y%m%dT%H%M")
     time_str = push_time.strftime("%b %d, %Y - %H:%M (GMT+7)")
