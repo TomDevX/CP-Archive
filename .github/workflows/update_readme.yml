@@ -3,7 +3,11 @@ name: Update README Automatically
 on:
   push:
     branches:
-      - main  # Chạy khi bạn push vào branch main
+      - main
+
+# Thêm khối này để cấp quyền ghi vào repo
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -12,6 +16,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          # Đảm bảo fetch đủ lịch sử để thực hiện commit
+          fetch-depth: 0 
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -21,9 +28,10 @@ jobs:
       - name: Run update script
         run: python update_readme.py
 
-      - name: Commit and push if changed
+      - name: Commit and push
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add README.md
-          git diff --quiet && git diff --staged --quiet || (git commit -m "docs: tự động cập nhật README [bot]" && git push)
+          # Tránh lỗi nếu không có thay đổi gì mới
+          git diff --quiet && git diff --staged --quiet || (git commit -m "docs: automated README update [bot]" && git push)
