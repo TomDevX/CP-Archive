@@ -29,23 +29,24 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ---
 ### 📊 Repository Stats
 
-- **Total Problems:** 75
+- **Total Problems:** 76
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05%2C_2026_--_17%3A52_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1752&p1=218 "🖱️ CLICK TO CONVERT")
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_05%2C_2026_--_18%3A01_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260205T1801&p1=218 "🖱️ CLICK TO CONVERT")
 
 ---
 ## 📌 Table of Contents
 
 * [📂 Codeforces](#-codeforces)
 * [📂 CSES](#-cses)
+  * [📂 Advanced Techniques](#-advanced-techniques)
   * [📂 Dynamic Programming](#-dynamic-programming)
   * [📂 Graph](#-graph)
 * [📂 VNOI](#-vnoi)
 
 ---
 ## 📂 Codeforces
-| # | Problem Name | Algorithm | Complexity | Solution |
+| # | Problem Name | Tags | Complexity | Solution |
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1A](https://codeforces.com/contest/1/problem/A) | N/A | N/A | [Code](Solutions/Codeforces/1A.cpp) |
 | 2 | [32B](https://codeforces.com/contest/32/problem/B) | N/A | N/A | [Code](Solutions/Codeforces/32B.cpp) |
@@ -120,18 +121,23 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 | 71 | [1997A](https://codeforces.com/contest/1997/problem/A) | N/A | N/A | [Code](Solutions/Codeforces/1997A.cpp) |
 | 72 | [1997B](https://codeforces.com/contest/1997/problem/B) | N/A | N/A | [Code](Solutions/Codeforces/1997B.cpp) |
 
-### 📁 Dynamic Programming
-| # | Problem Name | Algorithm | Complexity | Solution |
+### 📁 Advanced Techniques
+| # | Problem Name | Tags | Complexity | Solution |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | [2413 - Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | $\mathcal{O}(n)$ | [Code](Solutions/CSES/03_Dynamic_Programming/2413_Counting_Towers.cpp) \| [Sub](https://cses.fi/paste/67df7ff1543072a9f68403/) |
+| 1 | [2136 - Hamming Distance](https://cses.fi/problemset/task/2136) | N/A | $\mathcal{O}(n^2)$ | [Code](Solutions/CSES/Advanced Techniques/2136_Hamming_Distance.cpp) |
+
+### 📁 Dynamic Programming
+| # | Problem Name | Tags | Complexity | Solution |
+| :--- | :--- | :--- | :--- | :--- |
+| 1 | [2413 - Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | $\mathcal{O}(n)$ | [Code](Solutions/CSES/Dynamic Programming/2413_Counting_Towers.cpp) \| [Sub](https://cses.fi/paste/67df7ff1543072a9f68403/) |
 
 ### 📁 Graph
-| # | Problem Name | Algorithm | Complexity | Solution |
+| # | Problem Name | Tags | Complexity | Solution |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | [1192 - Counting Rooms](https://cses.fi/problemset/task/1192/) | `BFS`, `flood fill` | $\mathcal{O}(V+E)$ | [Code](Solutions/CSES/04_Graph/1192_Counting_Rooms.cpp) \| [Sub](https://cses.fi/paste/96f91e45fb63bc5dd6975e/) |
+| 1 | [1192 - Counting Rooms](https://cses.fi/problemset/task/1192/) | `BFS`, `flood fill` | $\mathcal{O}(V+E)$ | [Code](Solutions/CSES/Graph/1192_Counting_Rooms.cpp) \| [Sub](https://cses.fi/paste/96f91e45fb63bc5dd6975e/) |
 
 ## 📂 VNOI
-| # | Problem Name | Algorithm | Complexity | Solution |
+| # | Problem Name | Tags | Complexity | Solution |
 | :--- | :--- | :--- | :--- | :--- |
-| 1 | [LIQ - Dãy con tăng dài nhất (bản dễ)](https://oj.vnoi.info/problem/liq) | `Dynamic Programming`, `Binary Search` | $\mathcal{O}(n\log{n})$ | [Code](Solutions/VNOI/liq.cpp) \| [Sub](https://oj.vnoi.info/src/10967418) |
+| 1 | [LIQ - Dãy con tăng dài nhất (bản dễ)](https://oj.vnoi.info/problem/liq) | N/A | $\mathcal{O}(n\log{n})$ | [Code](Solutions/VNOI/liq.cpp) \| [Sub](https://oj.vnoi.info/src/10967418) |
 
