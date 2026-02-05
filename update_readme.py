@@ -31,7 +31,7 @@ def create_slug(text):
     return slug
 
 def extract_metadata(file_path):
-    meta = {"source": None, "submission": None, "algorithm": "N/A", "complexity": "N/A", "title": None}
+    meta = {"source": None, "submission": None, "tags": "N/A", "complexity": "N/A", "title": None}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             in_header = False
@@ -54,11 +54,11 @@ def extract_metadata(file_path):
                     elif lower_line.startswith("submission:"):
                         match = re.search(r'(https?://[^\s]+)', clean_line)
                         if match: meta["submission"] = match.group(1)
-                    elif lower_line.startswith("algorithm:"):
-                        val = clean_line[10:].strip()
+                    elif lower_line.startswith("tags:"):
+                        val = clean_line[5:].strip()
                         if val:
-                            algos = [f"`{a.strip()}`" for a in val.split(',') if a.strip()]
-                            meta["algorithm"] = ", ".join(algos)
+                            tags = [f"`{t.strip()}`" for t in val.split(',') if t.strip()]
+                            meta["tags"] = ", ".join(tags)
                     elif lower_line.startswith("complexity:"):
                         val = clean_line[11:].strip()
                         if val:
@@ -132,7 +132,7 @@ def generate_readme():
             else:
                 main_content += f"### 📁 {title}\n"
         files.sort(key=natural_sort_key)
-        table = "| # | Problem Name | Algorithm | Complexity | Solution |\n| :--- | :--- | :--- | :--- | :--- |\n"
+        table = "| # | Problem Name | Tags | Complexity | Solution |\n| :--- | :--- | :--- | :--- | :--- |\n"
         for i, file in enumerate(files, 1):
             full_path = os.path.join(path, file)
             meta = extract_metadata(full_path)
@@ -149,7 +149,7 @@ def generate_readme():
             name_md = f"[{display_name}]({prob_link})" if prob_link else display_name
             sol_md = f"[Code]({full_path.replace('\\', '/')})"
             if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
-            table += f"| {i} | {name_md} | {meta['algorithm']} | {meta['complexity']} | {sol_md} |\n"
+            table += f"| {i} | {name_md} | {meta['tags']} | {meta['complexity']} | {sol_md} |\n"
             total_problems += 1
         main_content += table + "\n"
     push_time = get_last_commit_time()

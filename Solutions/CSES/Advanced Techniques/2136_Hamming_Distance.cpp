@@ -1,14 +1,14 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-05 17:59:12
+ *    created: 2026-02-05 17:56:59
  *    country: Vietnam - VNM
- *    title: 
- *    source: 
+ *    title: Hamming Distance
+ *    source: https://cses.fi/problemset/task/2136
  *    submission: 
  * ----------------------------------------------------------
  *    tags: 
- *    complexity: 
- *    note: 
+ *    complexity: O(n^2)
+ *    note: A^B will eliminate the same bit and keep the different bits, so that we can use popcount to count each pair of string after turning them into int
  **/
 
 #include <iostream>

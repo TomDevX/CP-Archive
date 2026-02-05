@@ -6,7 +6,7 @@
  *    source: https://cses.fi/problemset/task/1192/
  *    submission: https://cses.fi/paste/96f91e45fb63bc5dd6975e/
  * ----------------------------------------------------------
- *    algorithm: BFS, flood fill
+ *    tags: BFS, flood fill
  *    complexity: O(V+E)
  *    note: 
  **/
