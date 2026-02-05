@@ -13,20 +13,13 @@ def natural_sort_key(s):
             for text in re.split('([0-9]+)', s)]
 
 def get_last_commit_time():
-    # Lấy giờ hiện tại hệ thống để Badge luôn cập nhật khi chạy local
+    # Lấy giờ hiện tại hệ thống
     tz_hcm = timezone(timedelta(hours=7))
     return datetime.now(tz=tz_hcm)
 
-def format_display_name(name, is_oj=False):
-    """Tổng quát hóa: In hoa toàn bộ nếu là OJ, ngược lại format chuẩn Title Case"""
-    if not name: return ""
-    if is_oj:
-        return name.upper()
-    
-    parts = name.split('_')
-    if parts[0].isdigit():
-        parts = parts[1:]
-    return " ".join(parts).replace('-', ' ').title()
+def format_display_name(name):
+    # Trả về chính xác tên folder trên máy (giữ nguyên hoa/thường)
+    return name
 
 def create_slug(text):
     slug = text.lower().replace(" ", "-")
@@ -100,12 +93,11 @@ def generate_readme():
     main_content = ""
     toc_content = "## 📌 Table of Contents\n\n"
     
-    root_dir = "Solutions" # Đảm bảo đúng Case với folder của bạn
+    root_dir = "Solutions"
     if not os.path.isdir(root_dir):
         print(f"⚠️ Thư mục '{root_dir}' không tồn tại.")
         return
 
-    # --- 1. Tạo TOC Đệ quy ---
     added_to_toc = set()
     for root, dirs, files in os.walk(root_dir):
         dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
@@ -118,14 +110,10 @@ def generate_readme():
             if current_path not in added_to_toc:
                 depth = i
                 indent = "  " * depth
-                # Nếu i == 0 thì đây là folder OJ (CSES, Codeforces, VNOI...)
-                is_oj_folder = (i == 0)
-                title = format_display_name(parts[i], is_oj=is_oj_folder)
-                
+                title = format_display_name(parts[i])
                 toc_content += f"{indent}* [📂 {title}](#-{create_slug(title)})\n"
                 added_to_toc.add(current_path)
 
-    # --- 2. Tạo Nội dung chính ---
     folder_data = []
     for root, dirs, files in os.walk(root_dir):
         dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
@@ -138,16 +126,12 @@ def generate_readme():
     for path, files in folder_data:
         rel_path_from_sol = os.path.relpath(path, root_dir)
         
-        # Logic phân cấp Header
         if rel_path_from_sol == ".":
             main_content += f"## 📂 {format_display_name(root_dir)}\n"
         else:
             base_name = os.path.basename(path)
-            # OJ folder là folder không có thư mục cha bên trong 'Solutions'
-            is_oj_folder = (os.path.dirname(rel_path_from_sol) == "")
-            title = format_display_name(base_name, is_oj=is_oj_folder)
-            
-            if is_oj_folder:
+            title = format_display_name(base_name)
+            if os.path.dirname(rel_path_from_sol) == "":
                 main_content += f"## 📂 {title}\n"
             else:
                 main_content += f"### 📁 {title}\n"
@@ -159,20 +143,20 @@ def generate_readme():
             full_path = os.path.join(path, file)
             meta = extract_metadata(full_path)
             filename_no_ext = file.replace('.cpp', '')
-            
             file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
             
             if meta["title"]:
                 display_name = f"{file_id} - {meta['title']}"
             elif '_' in filename_no_ext:
-                display_name = f"{file_id} - {format_display_name(filename_no_ext)}"
+                # Tạm thời vẫn format tên bài tập để tránh dính extension hoặc underscore rác
+                parts_name = filename_no_ext.split('_')[1:]
+                display_name = f"{file_id} - {' '.join(parts_name).title()}"
             else:
                 display_name = file_id
 
             prob_link = meta["source"] or auto_generate_link(full_path)
             name_md = f"[{display_name}]({prob_link})" if prob_link else display_name
             sol_md = f"[Code]({full_path.replace('\\', '/')})"
-            
             if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
             
             table += f"| {i} | {name_md} | {meta['algorithm']} | {meta['complexity']} | {sol_md} |\n"
@@ -180,12 +164,20 @@ def generate_readme():
         
         main_content += table + "\n"
 
-    # --- 3. Badge & Stats ---
+    # --- 3. Badge & Stats (GMT+7 & Mã hóa URL) ---
     push_time = get_last_commit_time()
     iso_string = push_time.strftime("%Y%m%dT%H%M")
-    # Thêm Giờ:Phút để Tom thấy thay đổi ngay khi chạy Local
-    time_str = push_time.strftime("%b %d, %Y - %H:%M") 
-    badge_url = f"https://img.shields.io/badge/Last_Update-{time_str.replace(' ', '_').replace('-', '--')}-0078d4?style=for-the-badge&logo=github"
+    
+    # Thêm GMT+7 vào text
+    time_str = push_time.strftime("%b %d, %Y - %H:%M (GMT+7)")
+    
+    # Mã hóa cho URL Shields.io
+    # - %3A là dấu :
+    # - %20 là khoảng trắng
+    # - %2C là dấu ,
+    clean_time = time_str.replace("-", "--").replace(" ", "_").replace(":", "%3A").replace(",", "%2C")
+    
+    badge_url = f"https://img.shields.io/badge/Last_Update-{clean_time}-0078d4?style=for-the-badge&logo=github"
     time_link = f"https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso={iso_string}&p1={CITY_ID}"
 
     stats = f"### 📊 Repository Stats\n\n"
@@ -196,7 +188,7 @@ def generate_readme():
     
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content + stats + toc_content + "\n---\n" + main_content)
-    print(f"✅ README Updated (City ID: {CITY_ID})")
+    print(f"✅ README Updated (City ID: {CITY_ID} | GMT+7)")
 
 if __name__ == "__main__":
     generate_readme()
