@@ -67,16 +67,16 @@ def extract_metadata(file_path):
                             algos = [f"`{a.strip()}`" for a in val.split(',') if a.strip()]
                             meta["algorithm"] = ", ".join(algos)
                     elif lower_line.startswith("complexity:"):
-                    val = clean_line[11:].strip()
-                    if val:
-                        # 1. Nếu bạn đã dùng LaTeX chuyên sâu (Theta, Omega, mathcal) thì giữ nguyên
-                        if any(p in val for p in ["\\mathcal{O}", "\\Theta", "\\Omega"]):
-                            meta["complexity"] = f"${val}$"
-                        # 2. Nếu bạn gõ O(n) hoặc chỉ n, tự động ép về \mathcal{O}
-                        else:
-                            # Xóa chữ O( và ) nếu có để lấy nội dung bên trong
-                            inner = re.sub(r'^[Oo]\((.*)\)$', r'\1', val)
-                            meta["complexity"] = f"$\\mathcal{{O}}({inner})$"
+                        val = clean_line[11:].strip()
+                        if val:
+                            # 1. Nếu bạn đã dùng LaTeX chuyên sâu (Theta, Omega, mathcal) thì giữ nguyên
+                            if any(p in val for p in ["\\mathcal{O}", "\\Theta", "\\Omega"]):
+                                meta["complexity"] = f"${val}$"
+                            # 2. Nếu bạn gõ O(n) hoặc chỉ n, tự động ép về \mathcal{O}
+                            else:
+                                # Xóa chữ O( và ) nếu có để lấy nội dung bên trong
+                                inner = re.sub(r'^[Oo]\((.*)\)$', r'\1', val)
+                                meta["complexity"] = f"$\\mathcal{{O}}({inner})$"
     except Exception: pass
     return meta
 
