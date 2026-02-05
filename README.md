@@ -29,7 +29,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ---
 ### 📊 Repository Stats
 - **Total Problems:** 75
-- **Last Update:** [Feb/05/2026 05:32 (UTC+7)](https://time.is/0532_05_Feb_2026_in_ICT)
+- **Last Update:** [Feb/05/2026 05:36 UTC+7](https://www.timeanddate.com/worldclock/fixedtime.html?day=5&month=2&year=2026&hour=5&min=36&sec=0&p1=166)
 
 ### 📁 Codeforces
 | # | Problem Name | Algorithm | Solution |
