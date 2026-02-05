@@ -7,7 +7,7 @@
  *    submission: https://oj.vnoi.info/src/10967418
  * ----------------------------------------------------------
  *    algorithm: Dynamic Programming, Binary Search
- *    complexity: O(n\log{n})
+ *    complexity: \mathcal{O}(n\log{n})
  *    note:
  **/
 
