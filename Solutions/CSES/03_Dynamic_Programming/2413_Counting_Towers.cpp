@@ -2,6 +2,7 @@
  *    author: TomDev - Tran Hoang Quan
  *    created: 2026-02-04 14:51:29
  *    country: Vietnam - VNM
+ *    title:
  *    source: 
  *    submission: https://cses.fi/problemset/result/16155651/
  * ----------------------------------------------------------
