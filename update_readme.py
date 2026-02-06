@@ -31,7 +31,6 @@ def create_slug(text):
     return slug
 
 def extract_metadata(file_path):
-    # Khởi tạo meta với từ khóa "date" để dùng cho bảng
     meta = {"source": None, "submission": None, "tags": "N/A", "complexity": "N/A", "title": None, "date": "N/A"}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -44,7 +43,6 @@ def extract_metadata(file_path):
                 if "**/ " in line_strip or line_strip.endswith("**/"):
                     break
                 if in_header:
-                    # Loại bỏ dấu * ở đầu dòng và khoảng trắng thừa
                     clean_line = line_strip.lstrip('*').strip()
                     lower_line = clean_line.lower()
                     
@@ -55,9 +53,19 @@ def extract_metadata(file_path):
                         match = re.search(r'(https?://[^\s]+)', clean_line)
                         if match: meta["source"] = match.group(1)
                     elif lower_line.startswith("created:"):
-                        # Cắt lấy YYYY-MM-DD từ chuỗi "created: 2026-02-06 08:07:32"
+                        # Trích xuất YYYY-MM-DD từ "2026-02-06 08:07:32"
                         val = clean_line[8:].strip()
-                        if val: meta["date"] = val.split(' ')[0] 
+                        if val:
+                            raw_date = val.split(' ')[0] 
+                            try:
+                                # Chuyển đổi sang định dạng Month Day, Year
+                                dt = datetime.strptime(raw_date, "%Y-%m-%d")
+                                # %B: Month, %d: Day, %Y: Year
+                                # lstrip("0") để chuyển "06" thành "6" cho đúng yêu cầu "Day (number)"
+                                day = dt.strftime("%d").lstrip("0")
+                                meta["date"] = dt.strftime(f"%B {day}, %Y")
+                            except ValueError:
+                                meta["date"] = raw_date
                     elif lower_line.startswith("submission:"):
                         match = re.search(r'(https?://[^\s]+)', clean_line)
                         if match: meta["submission"] = match.group(1)
@@ -69,11 +77,9 @@ def extract_metadata(file_path):
                     elif lower_line.startswith("complexity:"):
                         val = clean_line[11:].strip()
                         if val:
-                            # Kiểm tra nếu đã có ký hiệu LaTeX
                             if any(p in val for p in ["\\mathcal{O}", "\\Theta", "\\Omega"]):
                                 meta["complexity"] = f"${val}$"
                             else:
-                                # Tự động bọc LaTeX nếu chỉ nhập O(N)
                                 inner = re.sub(r'^[Oo]\s*\((.*)\)$', r'\1', val).strip()
                                 meta["complexity"] = f"$\\mathcal{{O}}({inner})$"
     except Exception: pass
@@ -142,7 +148,6 @@ def generate_readme():
                 main_content += f"### 📁 {title}\n"
         files.sort(key=natural_sort_key)
         
-        # Bảng với cột Date
         table = "| # | Problem Name | Tags | Complexity | Date | Solution |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n"
         
         for i, file in enumerate(files, 1):
