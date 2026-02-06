@@ -7,7 +7,7 @@
  *    submission: https://oj.vnoi.info/submission/11662085
  * ----------------------------------------------------------
  *    tags: constructive
- *    complexity: O(9^21)
+ *    complexity: O(9^{21})
  *    note: I make a random valid sudoku board to increase the rate of getting a higher point and also do some little optimization so that it can do faster
 **/
 

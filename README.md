@@ -148,5 +148,5 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 | # | Problem Name | Tags | Complexity | Date | Solution |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [LIQ - Dãy con tăng dài nhất (bản dễ)](https://oj.vnoi.info/problem/liq) | N/A | $\mathcal{O}(n\log{n})$ | Nov 22, 2025 | [Code](Solutions/VNOI/liq.cpp) \| [Sub](https://oj.vnoi.info/src/10967418) |
-| 2 | [VMSUDOKU - VM 14 Bài 19 - Sudoku](https://oj.vnoi.info/problem/vmsudoku) | `constructive` | $\mathcal{O}(9^21)$ | Feb 6, 2026 | [Code](Solutions/VNOI/vmsudoku.cpp) \| [Sub](https://oj.vnoi.info/submission/11662085) |
+| 2 | [VMSUDOKU - VM 14 Bài 19 - Sudoku](https://oj.vnoi.info/problem/vmsudoku) | `constructive` | $\mathcal{O}(9^{21})$ | Feb 6, 2026 | [Code](Solutions/VNOI/vmsudoku.cpp) \| [Sub](https://oj.vnoi.info/submission/11662085) |
 
