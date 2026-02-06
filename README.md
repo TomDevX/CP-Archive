@@ -29,10 +29,10 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ---
 ### 📊 Repository Stats
 
-- **Total Problems:** 79
+- **Total Problems:** 80
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_06%2C_2026_--_16%3A19_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260206T1619&p1=218 "🖱️ CLICK TO CONVERT")
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_06%2C_2026_--_22%3A26_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260206T2226&p1=218 "🖱️ CLICK TO CONVERT")
 
 ---
 ## 📌 Table of Contents
@@ -148,4 +148,5 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 | # | Problem Name | Tags | Complexity | Date | Solution |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [LIQ - Dãy con tăng dài nhất (bản dễ)](https://oj.vnoi.info/problem/liq) | N/A | $\mathcal{O}(n\log{n})$ | Nov 22, 2025 | [Code](Solutions/VNOI/liq.cpp) \| [Sub](https://oj.vnoi.info/src/10967418) |
+| 2 | [VMSUDOKU - VM 14 Bài 19 - Sudoku](https://oj.vnoi.info/problem/vmsudoku) | `constructive` | $\mathcal{O}(9^21)$ | Feb 6, 2026 | [Code](Solutions/VNOI/vmsudoku.cpp) \| [Sub](https://oj.vnoi.info/submission/11662085) |
 
