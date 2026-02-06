@@ -6,7 +6,7 @@
  *    source: https://projecteuler.net/problem=7
  *    submission: 
  * ----------------------------------------------------------
- *    tags: 
+ *    tags: Level 0
  *    complexity: O(n\log{\log{n}})
  *    note: Use normal sieve with a vector of primes
 **/
