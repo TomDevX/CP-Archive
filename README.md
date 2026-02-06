@@ -32,7 +32,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 - **Total Problems:** 78
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_06%2C_2026_--_15%3A54_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260206T1554&p1=218 "🖱️ CLICK TO CONVERT")
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_06%2C_2026_--_15%3A55_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260206T1555&p1=218 "🖱️ CLICK TO CONVERT")
 
 ---
 ## 📌 Table of Contents
@@ -125,26 +125,26 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ### 📁 Advanced Techniques
 | # | Problem Name | Tags | Complexity | Date | Solution |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [1628 - Meet in the Middle](https://cses.fi/problemset/task/1628/) | `Dynamic Programming`, `Implementation`, `Optimization` | $\mathcal{O}(2^{\frac{n}{2}}*log({\frac{n}{2}}) + 2^{\frac{n}{2}}*log({\frac{n}{2}}))$ | N/A | [Code](Solutions/CSES/Advanced%20Techniques/1628_Meet_in_the_Middle.cpp) \| [Sub](https://cses.fi/paste/39bb411c336d08d8f6c8f1/) |
-| 2 | [2136 - Hamming Distance](https://cses.fi/problemset/task/2136) | `bit` | $\mathcal{O}(n^2)$ | N/A | [Code](Solutions/CSES/Advanced%20Techniques/2136_Hamming_Distance.cpp) \| [Sub](https://cses.fi/paste/9254599d71bb5d60f6b997/) |
+| 1 | [1628 - Meet in the Middle](https://cses.fi/problemset/task/1628/) | `Dynamic Programming`, `Implementation`, `Optimization` | $\mathcal{O}(2^{\frac{n}{2}}*log({\frac{n}{2}}) + 2^{\frac{n}{2}}*log({\frac{n}{2}}))$ | 2026-02-05 | [Code](Solutions/CSES/Advanced%20Techniques/1628_Meet_in_the_Middle.cpp) \| [Sub](https://cses.fi/paste/39bb411c336d08d8f6c8f1/) |
+| 2 | [2136 - Hamming Distance](https://cses.fi/problemset/task/2136) | `bit` | $\mathcal{O}(n^2)$ | 2026-02-05 | [Code](Solutions/CSES/Advanced%20Techniques/2136_Hamming_Distance.cpp) \| [Sub](https://cses.fi/paste/9254599d71bb5d60f6b997/) |
 
 ### 📁 Dynamic Programming
 | # | Problem Name | Tags | Complexity | Date | Solution |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [2413 - Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | $\mathcal{O}(n)$ | N/A | [Code](Solutions/CSES/Dynamic%20Programming/2413_Counting_Towers.cpp) \| [Sub](https://cses.fi/paste/67df7ff1543072a9f68403/) |
+| 1 | [2413 - Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | $\mathcal{O}(n)$ | 2026-02-04 | [Code](Solutions/CSES/Dynamic%20Programming/2413_Counting_Towers.cpp) \| [Sub](https://cses.fi/paste/67df7ff1543072a9f68403/) |
 
 ### 📁 Graph
 | # | Problem Name | Tags | Complexity | Date | Solution |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [1192 - Counting Rooms](https://cses.fi/problemset/task/1192/) | `BFS`, `flood fill` | $\mathcal{O}(V+E)$ | N/A | [Code](Solutions/CSES/Graph/1192_Counting_Rooms.cpp) \| [Sub](https://cses.fi/paste/96f91e45fb63bc5dd6975e/) |
+| 1 | [1192 - Counting Rooms](https://cses.fi/problemset/task/1192/) | `BFS`, `flood fill` | $\mathcal{O}(V+E)$ | 2025-08-09 | [Code](Solutions/CSES/Graph/1192_Counting_Rooms.cpp) \| [Sub](https://cses.fi/paste/96f91e45fb63bc5dd6975e/) |
 
 ## 📂 Project Euler
 | # | Problem Name | Tags | Complexity | Date | Solution |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [6 - Sum Square Difference](https://projecteuler.net/problem=6) | `Level 0` | $\mathcal{O}(1)$ | N/A | [Code](Solutions/Project%20Euler/6.cpp) |
+| 1 | [6 - Sum Square Difference](https://projecteuler.net/problem=6) | `Level 0` | $\mathcal{O}(1)$ | 2026-02-06 | [Code](Solutions/Project%20Euler/6.cpp) |
 
 ## 📂 VNOI
 | # | Problem Name | Tags | Complexity | Date | Solution |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [LIQ - Dãy con tăng dài nhất (bản dễ)](https://oj.vnoi.info/problem/liq) | N/A | $\mathcal{O}(n\log{n})$ | N/A | [Code](Solutions/VNOI/liq.cpp) \| [Sub](https://oj.vnoi.info/src/10967418) |
+| 1 | [LIQ - Dãy con tăng dài nhất (bản dễ)](https://oj.vnoi.info/problem/liq) | N/A | $\mathcal{O}(n\log{n})$ | 2025-11-22 | [Code](Solutions/VNOI/liq.cpp) \| [Sub](https://oj.vnoi.info/src/10967418) |
 
