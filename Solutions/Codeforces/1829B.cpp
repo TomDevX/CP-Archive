@@ -2,19 +2,20 @@
  *    author: TomDev - Tran Hoang Quan
  *    created: 2026-02-06 16:07:12
  *    country: Vietnam - VNM
- *    title: 
- *    source: 
- *    submission: https://codeforces.com/problemset/submission/1829/361678709
+ *    title: Blank Space
+ *    source: https://codeforces.com/problemset/problem/1829/B
+ *    submission: https://codeforces.com/problemset/submission/1829/361679553
  * ----------------------------------------------------------
- *    tags: Adhoc
- *    complexity: O(n)
- *    note: 
+ *    tags: implementation
+ *    complexity: O(t*n)
+ *    note: Just do what the problem tell you to do
  **/
 
 #include <iostream>
 #include <vector>
 #include <cstdio>
 #include <utility>
+#include <algorithm>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n';
@@ -59,5 +60,22 @@ int main(){
     fastio;
     setup();
 
-    
+    int tc;
+    cin >> tc;
+    while(tc--){
+        int n;
+        cin >> n;
+
+        int cnt = 0, ans = 0;
+        int x;
+        for(int i = 1; i <= n; i++){
+            cin >> x;
+            if(x == 0) cnt++;
+            else{
+                ans = max(ans,cnt);
+                cnt = 0;
+            }
+        }
+        cout << max(ans,cnt) << '\n';
+    }
 }

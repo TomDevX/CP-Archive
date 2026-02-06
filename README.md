@@ -32,7 +32,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 - **Total Problems:** 79
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_06%2C_2026_--_16%3A09_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260206T1609&p1=218 "🖱️ CLICK TO CONVERT")
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_06%2C_2026_--_16%3A15_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260206T1615&p1=218 "🖱️ CLICK TO CONVERT")
 
 ---
 ## 📌 Table of Contents
@@ -114,7 +114,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 | 63 | [1692A](https://codeforces.com/contest/1692/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1692A.cpp) |
 | 64 | [1703A](https://codeforces.com/contest/1703/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1703A.cpp) |
 | 65 | [1742A](https://codeforces.com/contest/1742/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1742A.cpp) |
-| 66 | [1829B](https://codeforces.com/contest/1829/problem/B) | `Adhoc` | $\mathcal{O}(n)$ | Feb 6, 2026 | [Code](Solutions/Codeforces/1829B.cpp) \| [Sub](https://codeforces.com/problemset/submission/1829/361678709) |
+| 66 | [1829B - Blank Space](https://codeforces.com/problemset/problem/1829/B) | `implementation` | $\mathcal{O}(t*n)$ | Feb 6, 2026 | [Code](Solutions/Codeforces/1829B.cpp) \| [Sub](https://codeforces.com/problemset/submission/1829/361679553) |
 | 67 | [1987A](https://codeforces.com/contest/1987/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1987A.cpp) |
 | 68 | [1996A](https://codeforces.com/contest/1996/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1996A.cpp) |
 | 69 | [1996B](https://codeforces.com/contest/1996/problem/B) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1996B.cpp) |
