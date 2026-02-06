@@ -51,12 +51,6 @@ using vii = vector<vector<int>>;
 using vll = vector<long long>;
 using vlll = vector<vector<long long>>;
 
-void setup(){
-    if(!fopen("NAME.INP", "r")) return;
-    freopen("NAME.INP", "r", stdin);
-    freopen("NAME.OUT", "w", stdout);
-}
-
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 vii a(10,vi(10));
 int hang[10], cot[10], block[10];
@@ -172,16 +166,18 @@ void backtrack(int x, int y){
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
-    setup();
     init();
     
     backtrack(1,1);
-
-    // for(int i = 1; i <= 9; i++){
-    //     for(int j = 1; j <= 9; j++){
-    //         cout << res[i][j];
-    //     }
-    //     cout << '\n';
-    // }
-    // dbg(ans,1);
 }
+
+// current best:
+// 825461739
+// 346279185
+// 719853624
+// 287146593
+// 193785462
+// 564392871
+// 438527916
+// 651938247
+// 972614358
