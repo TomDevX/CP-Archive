@@ -58,12 +58,11 @@ def extract_metadata(file_path):
                         if val:
                             raw_date = val.split(' ')[0] 
                             try:
-                                # Chuyển đổi sang định dạng Month Day, Year
                                 dt = datetime.strptime(raw_date, "%Y-%m-%d")
-                                # %B: Month, %d: Day, %Y: Year
-                                # lstrip("0") để chuyển "06" thành "6" cho đúng yêu cầu "Day (number)"
+                                # %b: Tên tháng viết tắt 3 chữ cái (e.g., Feb)
+                                # lstrip("0"): Bỏ số 0 đứng trước ngày
                                 day = dt.strftime("%d").lstrip("0")
-                                meta["date"] = dt.strftime(f"%B {day}, %Y")
+                                meta["date"] = dt.strftime(f"%b {day}, %Y")
                             except ValueError:
                                 meta["date"] = raw_date
                     elif lower_line.startswith("submission:"):
