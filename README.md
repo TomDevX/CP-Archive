@@ -29,10 +29,10 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ---
 ### 📊 Repository Stats
 
-- **Total Problems:** 80
+- **Total Problems:** 81
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_06%2C_2026_--_22%3A45_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260206T2245&p1=218 "🖱️ CLICK TO CONVERT")
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_06%2C_2026_--_23%3A50_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260206T2350&p1=218 "🖱️ CLICK TO CONVERT")
 
 ---
 ## 📌 Table of Contents
@@ -143,6 +143,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 | # | Problem Name | Tags | Complexity | Date | Solution |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [6 - Sum Square Difference](https://projecteuler.net/problem=6) | `Level 0` | $\mathcal{O}(1)$ | Feb 6, 2026 | [Code](Solutions/Project%20Euler/6.cpp) |
+| 2 | [7 - 10 001st Prime](https://projecteuler.net/problem=7) | N/A | $\mathcal{O}(n\log{\log{n}})$ | Feb 6, 2026 | [Code](Solutions/Project%20Euler/7.cpp) |
 
 ## 📂 [VNOI](https://oj.vnoi.info/)
 | # | Problem Name | Tags | Complexity | Date | Solution |
