@@ -31,7 +31,8 @@ def create_slug(text):
     return slug
 
 def extract_metadata(file_path):
-    meta = {"source": None, "submission": None, "tags": "N/A", "complexity": "N/A", "title": None}
+    # Thêm "date" vào dictionary mặc định
+    meta = {"source": None, "submission": None, "tags": "N/A", "complexity": "N/A", "title": None, "date": "N/A"}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             in_header = False
@@ -51,6 +52,9 @@ def extract_metadata(file_path):
                     elif lower_line.startswith("source:"):
                         match = re.search(r'(https?://[^\s]+)', clean_line)
                         if match: meta["source"] = match.group(1)
+                    elif lower_line.startswith("date:"): # Thêm logic bắt ngày tháng
+                        val = clean_line[5:].strip()
+                        if val: meta["date"] = val
                     elif lower_line.startswith("submission:"):
                         match = re.search(r'(https?://[^\s]+)', clean_line)
                         if match: meta["submission"] = match.group(1)
@@ -132,7 +136,10 @@ def generate_readme():
             else:
                 main_content += f"### 📁 {title}\n"
         files.sort(key=natural_sort_key)
-        table = "| # | Problem Name | Tags | Complexity | Solution |\n| :--- | :--- | :--- | :--- | :--- |\n"
+        
+        # Thêm cột "Date" vào header của bảng
+        table = "| # | Problem Name | Tags | Complexity | Date | Solution |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n"
+        
         for i, file in enumerate(files, 1):
             full_path = os.path.join(path, file)
             meta = extract_metadata(full_path)
@@ -150,7 +157,9 @@ def generate_readme():
             safe_path = full_path.replace('\\', '/').replace(' ', '%20')
             sol_md = f"[Code]({safe_path})"
             if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
-            table += f"| {i} | {name_md} | {meta['tags']} | {meta['complexity']} | {sol_md} |\n"
+            
+            # Thêm meta["date"] vào hàng dữ liệu
+            table += f"| {i} | {name_md} | {meta['tags']} | {meta['complexity']} | {meta['date']} | {sol_md} |\n"
             total_problems += 1
         main_content += table + "\n"
     push_time = get_last_commit_time()
