@@ -32,7 +32,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 - **Total Problems:** 79
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_06%2C_2026_--_16%3A15_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260206T1615&p1=218 "🖱️ CLICK TO CONVERT")
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_06%2C_2026_--_16%3A19_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260206T1619&p1=218 "🖱️ CLICK TO CONVERT")
 
 ---
 ## 📌 Table of Contents
@@ -139,12 +139,12 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1192 - Counting Rooms](https://cses.fi/problemset/task/1192/) | `BFS`, `flood fill` | $\mathcal{O}(V+E)$ | Aug 9, 2025 | [Code](Solutions/CSES/Graph/1192_Counting_Rooms.cpp) \| [Sub](https://cses.fi/paste/96f91e45fb63bc5dd6975e/) |
 
-## 📂 Project Euler
+## 📂 [Project Euler](https://projecteuler.net/about)
 | # | Problem Name | Tags | Complexity | Date | Solution |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [6 - Sum Square Difference](https://projecteuler.net/problem=6) | `Level 0` | $\mathcal{O}(1)$ | Feb 6, 2026 | [Code](Solutions/Project%20Euler/6.cpp) |
 
-## 📂 VNOI
+## 📂 [VNOI](https://oj.vnoi.info/)
 | # | Problem Name | Tags | Complexity | Date | Solution |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [LIQ - Dãy con tăng dài nhất (bản dễ)](https://oj.vnoi.info/problem/liq) | N/A | $\mathcal{O}(n\log{n})$ | Nov 22, 2025 | [Code](Solutions/VNOI/liq.cpp) \| [Sub](https://oj.vnoi.info/src/10967418) |
