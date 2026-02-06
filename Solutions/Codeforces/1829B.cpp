@@ -4,10 +4,10 @@
  *    country: Vietnam - VNM
  *    title: 
  *    source: 
- *    submission: 
+ *    submission: https://codeforces.com/problemset/submission/1829/361678709
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
+ *    tags: Adhoc
+ *    complexity: O(n)
  *    note: 
  **/
 
