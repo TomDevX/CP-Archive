@@ -16,6 +16,27 @@ def get_last_commit_time():
     tz_hcm = timezone(timedelta(hours=7))
     return datetime.now(tz=tz_hcm)
 
+# Hàm mới để đọc link từ file trong folder
+def get_oj_link_from_file(folder_path):
+    # Bạn có thể thêm các định dạng file khác vào list này
+    link_files = ['link.txt', 'oj.txt', 'source.url']
+    for file_name in link_files:
+        file_path = os.path.join(folder_path, file_name)
+        if os.path.exists(file_path):
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read().strip()
+                    # Nếu là file .url (Windows shortcut), ta cần regex để lấy URL
+                    if file_name.endswith('.url'):
+                        match = re.search(r'URL=(https?://[^\s]+)', content)
+                        if match: return match.group(1)
+                    # Nếu là file txt thường, lấy luôn nội dung dòng đầu
+                    if content.startswith('http'):
+                        return content.split('\n')[0].strip()
+            except Exception:
+                pass
+    return None
+
 def format_display_name(name, is_oj=False):
     if not name: return ""
     if is_oj:
@@ -53,14 +74,11 @@ def extract_metadata(file_path):
                         match = re.search(r'(https?://[^\s]+)', clean_line)
                         if match: meta["source"] = match.group(1)
                     elif lower_line.startswith("created:"):
-                        # Trích xuất YYYY-MM-DD từ "2026-02-06 08:07:32"
                         val = clean_line[8:].strip()
                         if val:
                             raw_date = val.split(' ')[0] 
                             try:
                                 dt = datetime.strptime(raw_date, "%Y-%m-%d")
-                                # %b: Tên tháng viết tắt 3 chữ cái (e.g., Feb)
-                                # lstrip("0"): Bỏ số 0 đứng trước ngày
                                 day = dt.strftime("%d").lstrip("0")
                                 meta["date"] = dt.strftime(f"%b {day}, %Y")
                             except ValueError:
@@ -126,6 +144,7 @@ def generate_readme():
                 title = format_display_name(parts[i], is_oj=(i == 0))
                 toc_content += f"{indent}* [📂 {title}](#-{create_slug(title)})\n"
                 added_to_toc.add(current_path)
+    
     folder_data = []
     for root, dirs, files in os.walk(root_dir):
         dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
@@ -133,6 +152,7 @@ def generate_readme():
         if cpp_files:
             folder_data.append((root, cpp_files))
     folder_data.sort(key=lambda x: natural_sort_key(x[0]))
+
     for path, files in folder_data:
         rel_path_from_sol = os.path.relpath(path, root_dir)
         if rel_path_from_sol == ".":
@@ -141,14 +161,19 @@ def generate_readme():
             base_name = os.path.basename(path)
             is_oj_folder = (os.path.dirname(rel_path_from_sol) == "")
             title = format_display_name(base_name, is_oj=is_oj_folder)
+            
+            # Logic: Tìm link OJ từ file config trong folder
             if is_oj_folder:
-                main_content += f"## 📂 {title}\n"
+                oj_url = get_oj_link_from_file(path)
+                if oj_url:
+                    main_content += f"## 📂 [{title}]({oj_url})\n"
+                else:
+                    main_content += f"## 📂 {title}\n"
             else:
                 main_content += f"### 📁 {title}\n"
+                
         files.sort(key=natural_sort_key)
-        
         table = "| # | Problem Name | Tags | Complexity | Date | Solution |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n"
-        
         for i, file in enumerate(files, 1):
             full_path = os.path.join(path, file)
             meta = extract_metadata(full_path)
@@ -166,10 +191,11 @@ def generate_readme():
             safe_path = full_path.replace('\\', '/').replace(' ', '%20')
             sol_md = f"[Code]({safe_path})"
             if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
-            
             table += f"| {i} | {name_md} | {meta['tags']} | {meta['complexity']} | {meta['date']} | {sol_md} |\n"
             total_problems += 1
         main_content += table + "\n"
+        
+    # Phần Stats và Badge giữ nguyên...
     push_time = get_last_commit_time()
     iso_string = push_time.strftime("%Y%m%dT%H%M")
     time_str = push_time.strftime("%b %d, %Y - %H:%M (GMT+7)")
