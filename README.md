@@ -29,10 +29,10 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ---
 ### 📊 Repository Stats
 
-- **Total Problems:** 81
+- **Total Problems:** 82
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_06%2C_2026_--_23%3A51_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260206T2351&p1=218 "🖱️ CLICK TO CONVERT")
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_08%2C_2026_--_22%3A09_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260208T2209&p1=218 "🖱️ CLICK TO CONVERT")
 
 ---
 ## 📌 Table of Contents
@@ -44,6 +44,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
   * [📂 Graph](#-graph)
 * [📂 Project Euler](#-project-euler)
 * [📂 VNOI](#-vnoi)
+  * [📂 .Cph](#-cph)
 
 ---
 ## 📂 [Codeforces](https://codeforces.com/)
@@ -150,4 +151,5 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [LIQ - Dãy con tăng dài nhất (bản dễ)](https://oj.vnoi.info/problem/liq) | N/A | $\mathcal{O}(n\log{n})$ | Nov 22, 2025 | [Code](Solutions/VNOI/liq.cpp) \| [Sub](https://oj.vnoi.info/src/10967418) |
 | 2 | [VMSUDOKU - VM 14 Bài 19 - Sudoku](https://oj.vnoi.info/problem/vmsudoku) | `constructive` | $\mathcal{O}(9^{21})$ | Feb 6, 2026 | [Code](Solutions/VNOI/vmsudoku.cpp) \| [Sub](https://oj.vnoi.info/submission/11662085) |
+| 3 | [VR - Lis Path](https://oj.vnoi.info/problem/vr_dst_lispath) | `Dynamic Programming`, `Tree` | $\mathcal{O}(n\log{n})$ | Feb 8, 2026 | [Code](Solutions/VNOI/vr_dst_lispath.cpp) \| [Sub](https://oj.vnoi.info/submission/11673982) |
 
