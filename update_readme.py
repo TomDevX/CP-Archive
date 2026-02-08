@@ -16,9 +16,7 @@ def get_last_commit_time():
     tz_hcm = timezone(timedelta(hours=7))
     return datetime.now(tz=tz_hcm)
 
-# Hàm mới để đọc link từ file trong folder
 def get_oj_link_from_file(folder_path):
-    # Bạn có thể thêm các định dạng file khác vào list này
     link_files = ['link.txt', 'oj.txt', 'source.url']
     for file_name in link_files:
         file_path = os.path.join(folder_path, file_name)
@@ -26,11 +24,9 @@ def get_oj_link_from_file(folder_path):
             try:
                 with open(file_path, 'r', encoding='utf-8') as f:
                     content = f.read().strip()
-                    # Nếu là file .url (Windows shortcut), ta cần regex để lấy URL
                     if file_name.endswith('.url'):
                         match = re.search(r'URL=(https?://[^\s]+)', content)
                         if match: return match.group(1)
-                    # Nếu là file txt thường, lấy luôn nội dung dòng đầu
                     if content.startswith('http'):
                         return content.split('\n')[0].strip()
             except Exception:
@@ -39,8 +35,7 @@ def get_oj_link_from_file(folder_path):
 
 def format_display_name(name, is_oj=False):
     if not name: return ""
-    if is_oj:
-        return name
+    if is_oj: return name
     parts = name.split('_')
     if parts[0].isdigit():
         parts = parts[1:]
@@ -66,7 +61,6 @@ def extract_metadata(file_path):
                 if in_header:
                     clean_line = line_strip.lstrip('*').strip()
                     lower_line = clean_line.lower()
-                    
                     if lower_line.startswith("title:"):
                         val = clean_line[6:].strip()
                         if val: meta["title"] = val
@@ -114,8 +108,6 @@ def auto_generate_link(file_path):
             m = re.search(r'(\d+)', filename)
             if m: return f"https://cses.fi/problemset/task/{m.group(1)}"
         if "VNOI" in up: return f"https://oj.vnoi.info/problem/{filename.lower()}"
-        if "LEETCODE" in up:
-            return f"https://leetcode.com/problems/{filename.lower().replace('_', '-')}/"
     return None
 
 def generate_readme():
@@ -124,33 +116,32 @@ def generate_readme():
             content = f.read() + "\n\n---\n"
     else:
         content = "# 🏆 Competitive Programming Repository\n\n"
+    
     total_problems = 0
     main_content = ""
     toc_content = "## 📌 Table of Contents\n\n"
     root_dir = "Solutions"
-    if not os.path.isdir(root_dir):
-        return
-    added_to_toc = set()
-    for root, dirs, files in os.walk(root_dir):
-        dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
-        rel_path = os.path.relpath(root, root_dir)
-        if rel_path == ".": continue
-        parts = rel_path.split(os.sep)
-        for i in range(len(parts)):
-            current_path = os.path.join(root_dir, *parts[:i+1])
-            if current_path not in added_to_toc:
-                depth = i
-                indent = "  " * depth
-                title = format_display_name(parts[i], is_oj=(i == 0))
-                toc_content += f"{indent}* [📂 {title}](#-{create_slug(title)})\n"
-                added_to_toc.add(current_path)
+    if not os.path.isdir(root_dir): return
     
+    added_to_toc = set()
     folder_data = []
     for root, dirs, files in os.walk(root_dir):
         dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
         cpp_files = [f for f in files if f.endswith('.cpp')]
         if cpp_files:
             folder_data.append((root, cpp_files))
+        
+        # Build TOC
+        rel_path = os.path.relpath(root, root_dir)
+        if rel_path == ".": continue
+        parts = rel_path.split(os.sep)
+        for i in range(len(parts)):
+            current_path = os.path.join(root_dir, *parts[:i+1])
+            if current_path not in added_to_toc:
+                title = format_display_name(parts[i], is_oj=(i == 0))
+                toc_content += f"{'  '*i}* [📂 {title}](#-{create_slug(title)})\n"
+                added_to_toc.add(current_path)
+
     folder_data.sort(key=lambda x: natural_sort_key(x[0]))
 
     for path, files in folder_data:
@@ -161,16 +152,8 @@ def generate_readme():
             base_name = os.path.basename(path)
             is_oj_folder = (os.path.dirname(rel_path_from_sol) == "")
             title = format_display_name(base_name, is_oj=is_oj_folder)
-            
-            # Logic: Tìm link OJ từ file config trong folder
-            if is_oj_folder:
-                oj_url = get_oj_link_from_file(path)
-                if oj_url:
-                    main_content += f"## 📂 [{title}]({oj_url})\n"
-                else:
-                    main_content += f"## 📂 {title}\n"
-            else:
-                main_content += f"### 📁 {title}\n"
+            oj_url = get_oj_link_from_file(path) if is_oj_folder else None
+            main_content += f"## 📂 [{title}]({oj_url})\n" if oj_url else f"## 📂 {title}\n" if is_oj_folder else f"### 📁 {title}\n"
                 
         files.sort(key=natural_sort_key)
         table = "| # | Problem Name | Tags | Complexity | Date | Solution |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n"
@@ -178,14 +161,17 @@ def generate_readme():
             full_path = os.path.join(path, file)
             meta = extract_metadata(full_path)
             filename_no_ext = file.replace('.cpp', '')
-            file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
-            if meta["title"]:
-                display_name = f"{file_id} - {meta['title']}"
-            elif '_' in filename_no_ext:
-                prob_name_parts = filename_no_ext.split('_')[1:]
-                display_name = f"{file_id} - {' '.join(prob_name_parts).title()}"
+            
+            # --- FIX: LOGIC TÁCH ID TẠI DẤU GẠCH DƯỚI CUỐI CÙNG ---
+            if '_' in filename_no_ext:
+                parts = filename_no_ext.rsplit('_', 1)
+                file_id = parts[0].upper()
+                name_part = parts[1].replace('-', ' ').title()
+                display_name = f"{file_id} - {meta['title'] if meta['title'] else name_part}"
             else:
-                display_name = file_id
+                file_id = filename_no_ext.upper()
+                display_name = meta["title"] if meta["title"] else file_id
+            
             prob_link = meta["source"] or auto_generate_link(full_path)
             name_md = f"[{display_name}]({prob_link})" if prob_link else display_name
             safe_path = full_path.replace('\\', '/').replace(' ', '%20')
@@ -195,15 +181,11 @@ def generate_readme():
             total_problems += 1
         main_content += table + "\n"
         
-    # Phần Stats và Badge giữ nguyên...
     push_time = get_last_commit_time()
-    iso_string = push_time.strftime("%Y%m%dT%H%M")
-    time_str = push_time.strftime("%b %d, %Y - %H:%M (GMT+7)")
-    badge_time = (time_str.replace("-", "--").replace(" ", "_").replace(":", "%3A")
-                          .replace(",", "%2C").replace("(", "%28").replace(")", "%29"))
+    badge_time = push_time.strftime("%b %d, %Y - %H:%M (GMT+7)").replace("-", "--").replace(" ", "_").replace(":", "%3A").replace(",", "%2C")
     badge_url = f"https://img.shields.io/badge/Last_Update-{badge_time}-0078d4?style=for-the-badge&logo=github"
-    time_link = f"https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso={iso_string}&p1={CITY_ID}"
-    stats = f"### 📊 Repository Stats\n\n- **Total Problems:** {total_problems}\n- **Origin Timezone:** Ho Chi Minh City (GMT+7)\n\n[![Last Update]({badge_url})]({time_link} \"🖱️ CLICK TO CONVERT\")\n\n---\n"
+    stats = f"### 📊 Repository Stats\n\n- **Total Problems:** {total_problems}\n- **Origin Timezone:** Ho Chi Minh City (GMT+7)\n\n[![Last Update]({badge_url})](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Updated&iso={push_time.strftime('%Y%m%dT%H%M')}&p1={CITY_ID})\n\n---\n"
+    
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content + stats + toc_content + "\n---\n" + main_content)
 

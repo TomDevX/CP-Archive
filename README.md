@@ -32,7 +32,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 - **Total Problems:** 82
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_08%2C_2026_--_22%3A10_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260208T2210&p1=218 "🖱️ CLICK TO CONVERT")
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_08%2C_2026_--_22%3A16_(GMT+7)-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Updated&iso=20260208T2216&p1=218)
 
 ---
 ## 📌 Table of Contents
@@ -115,7 +115,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 | 63 | [1692A](https://codeforces.com/contest/1692/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1692A.cpp) |
 | 64 | [1703A](https://codeforces.com/contest/1703/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1703A.cpp) |
 | 65 | [1742A](https://codeforces.com/contest/1742/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1742A.cpp) |
-| 66 | [1829B - Blank Space](https://codeforces.com/problemset/problem/1829/B) | `implementation` | $\mathcal{O}(t*n)$ | Feb 6, 2026 | [Code](Solutions/Codeforces/1829B.cpp) \| [Sub](https://codeforces.com/problemset/submission/1829/361679553) |
+| 66 | [Blank Space](https://codeforces.com/problemset/problem/1829/B) | `implementation` | $\mathcal{O}(t*n)$ | Feb 6, 2026 | [Code](Solutions/Codeforces/1829B.cpp) \| [Sub](https://codeforces.com/problemset/submission/1829/361679553) |
 | 67 | [1987A](https://codeforces.com/contest/1987/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1987A.cpp) |
 | 68 | [1996A](https://codeforces.com/contest/1996/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1996A.cpp) |
 | 69 | [1996B](https://codeforces.com/contest/1996/problem/B) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1996B.cpp) |
@@ -127,29 +127,29 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ### 📁 Advanced Techniques
 | # | Problem Name | Tags | Complexity | Date | Solution |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [1628 - Meet in the Middle](https://cses.fi/problemset/task/1628/) | `Dynamic Programming`, `Implementation`, `Optimization` | $\mathcal{O}(2^{\frac{n}{2}}*log({\frac{n}{2}}) + 2^{\frac{n}{2}}*log({\frac{n}{2}}))$ | Feb 5, 2026 | [Code](Solutions/CSES/Advanced%20Techniques/1628_Meet_in_the_Middle.cpp) \| [Sub](https://cses.fi/paste/39bb411c336d08d8f6c8f1/) |
-| 2 | [2136 - Hamming Distance](https://cses.fi/problemset/task/2136) | `bit` | $\mathcal{O}(n^2)$ | Feb 5, 2026 | [Code](Solutions/CSES/Advanced%20Techniques/2136_Hamming_Distance.cpp) \| [Sub](https://cses.fi/paste/9254599d71bb5d60f6b997/) |
+| 1 | [1628_MEET_IN_THE - Meet in the Middle](https://cses.fi/problemset/task/1628/) | `Dynamic Programming`, `Implementation`, `Optimization` | $\mathcal{O}(2^{\frac{n}{2}}*log({\frac{n}{2}}) + 2^{\frac{n}{2}}*log({\frac{n}{2}}))$ | Feb 5, 2026 | [Code](Solutions/CSES/Advanced%20Techniques/1628_Meet_in_the_Middle.cpp) \| [Sub](https://cses.fi/paste/39bb411c336d08d8f6c8f1/) |
+| 2 | [2136_HAMMING - Hamming Distance](https://cses.fi/problemset/task/2136) | `bit` | $\mathcal{O}(n^2)$ | Feb 5, 2026 | [Code](Solutions/CSES/Advanced%20Techniques/2136_Hamming_Distance.cpp) \| [Sub](https://cses.fi/paste/9254599d71bb5d60f6b997/) |
 
 ### 📁 Dynamic Programming
 | # | Problem Name | Tags | Complexity | Date | Solution |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [2413 - Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | $\mathcal{O}(n)$ | Feb 4, 2026 | [Code](Solutions/CSES/Dynamic%20Programming/2413_Counting_Towers.cpp) \| [Sub](https://cses.fi/paste/67df7ff1543072a9f68403/) |
+| 1 | [2413_COUNTING - Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | $\mathcal{O}(n)$ | Feb 4, 2026 | [Code](Solutions/CSES/Dynamic%20Programming/2413_Counting_Towers.cpp) \| [Sub](https://cses.fi/paste/67df7ff1543072a9f68403/) |
 
 ### 📁 Graph
 | # | Problem Name | Tags | Complexity | Date | Solution |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [1192 - Counting Rooms](https://cses.fi/problemset/task/1192/) | `BFS`, `flood fill` | $\mathcal{O}(V+E)$ | Aug 9, 2025 | [Code](Solutions/CSES/Graph/1192_Counting_Rooms.cpp) \| [Sub](https://cses.fi/paste/96f91e45fb63bc5dd6975e/) |
+| 1 | [1192_COUNTING - Counting Rooms](https://cses.fi/problemset/task/1192/) | `BFS`, `flood fill` | $\mathcal{O}(V+E)$ | Aug 9, 2025 | [Code](Solutions/CSES/Graph/1192_Counting_Rooms.cpp) \| [Sub](https://cses.fi/paste/96f91e45fb63bc5dd6975e/) |
 
 ## 📂 [Project Euler](https://projecteuler.net/about)
 | # | Problem Name | Tags | Complexity | Date | Solution |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [6 - Sum Square Difference](https://projecteuler.net/problem=6) | `Level 0` | $\mathcal{O}(1)$ | Feb 6, 2026 | [Code](Solutions/Project%20Euler/6.cpp) |
-| 2 | [7 - 10 001st Prime](https://projecteuler.net/problem=7) | `Level 0` | $\mathcal{O}(n\log{\log{n}})$ | Feb 6, 2026 | [Code](Solutions/Project%20Euler/7.cpp) |
+| 1 | [Sum Square Difference](https://projecteuler.net/problem=6) | `Level 0` | $\mathcal{O}(1)$ | Feb 6, 2026 | [Code](Solutions/Project%20Euler/6.cpp) |
+| 2 | [10 001st Prime](https://projecteuler.net/problem=7) | `Level 0` | $\mathcal{O}(n\log{\log{n}})$ | Feb 6, 2026 | [Code](Solutions/Project%20Euler/7.cpp) |
 
 ## 📂 [VNOI](https://oj.vnoi.info/)
 | # | Problem Name | Tags | Complexity | Date | Solution |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [LIQ - Dãy con tăng dài nhất (bản dễ)](https://oj.vnoi.info/problem/liq) | N/A | $\mathcal{O}(n\log{n})$ | Nov 22, 2025 | [Code](Solutions/VNOI/liq.cpp) \| [Sub](https://oj.vnoi.info/src/10967418) |
-| 2 | [VMSUDOKU - VM 14 Bài 19 - Sudoku](https://oj.vnoi.info/problem/vmsudoku) | `constructive` | $\mathcal{O}(9^{21})$ | Feb 6, 2026 | [Code](Solutions/VNOI/vmsudoku.cpp) \| [Sub](https://oj.vnoi.info/submission/11662085) |
-| 3 | [VR-DST-LISPATH - Lis Path](https://oj.vnoi.info/problem/vr_dst_lispath) | `Dynamic Programming`, `Tree` | $\mathcal{O}(n\log{n})$ | Feb 8, 2026 | [Code](Solutions/VNOI/vr-dst-lispath.cpp) \| [Sub](https://oj.vnoi.info/submission/11673982) |
+| 1 | [Dãy con tăng dài nhất (bản dễ)](https://oj.vnoi.info/problem/liq) | N/A | $\mathcal{O}(n\log{n})$ | Nov 22, 2025 | [Code](Solutions/VNOI/liq.cpp) \| [Sub](https://oj.vnoi.info/src/10967418) |
+| 2 | [VM 14 Bài 19 - Sudoku](https://oj.vnoi.info/problem/vmsudoku) | `constructive` | $\mathcal{O}(9^{21})$ | Feb 6, 2026 | [Code](Solutions/VNOI/vmsudoku.cpp) \| [Sub](https://oj.vnoi.info/submission/11662085) |
+| 3 | [VR_DST - Lis Path](https://oj.vnoi.info/problem/vr_dst_lispath) | `Dynamic Programming`, `Tree` | $\mathcal{O}(n\log{n})$ | Feb 8, 2026 | [Code](Solutions/VNOI/vr_dst_lispath.cpp) \| [Sub](https://oj.vnoi.info/submission/11673982) |
 
