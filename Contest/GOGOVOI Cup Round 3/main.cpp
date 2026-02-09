@@ -59,5 +59,5 @@ int main(){
     fastio;
     setup();
 
-    
+    cout << "execution completed";
 }
