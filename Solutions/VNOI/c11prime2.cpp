@@ -7,7 +7,7 @@
  *    submission: https://oj.vnoi.info/submission/11679434
  * ----------------------------------------------------------
  *    tags: Number theory
- *    complexity: O(60*\log{10^{9}}*12*\log^3{n})
+ *    complexity: O(60*\log{10^9}*12*\log^3{n})
  *    note: We iterate through all possible exponent (in this case 1 -> 60 is good for 10^18), and then binary search to find the base, then use Miller Rabin to check if it is prime. We only need to bin search from 1 -> 1e9 because sqrt(1e18) = 1e9 (because due to the problem states that the exponent must > 1 so that means 1e9^2 is the maximum prime factor)
 **/
 
