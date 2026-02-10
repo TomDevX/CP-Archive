@@ -133,10 +133,10 @@ def auto_generate_link(file_path):
     return None
 
 def generate_readme():
-    # Label Header từ code cũ (Đã bỏ HEADER.md theo yêu cầu)
-    content = "# 🏆 Competitive Programming Repository\n\n"
+    # Label Header từ code cũ
+    content = "# 🏆 Competitive Programming Library\n\n"
     
-    unique_problems = {} # Để đếm trùng bài tập dựa trên source
+    unique_problems = {} # Để khử trùng dựa trên source URL
     main_content = ""
     toc_content = "## 📌 Table of Contents\n\n"
     
@@ -187,7 +187,7 @@ def generate_readme():
             full_path = os.path.join(path, file)
             meta = extract_metadata(full_path)
             
-            # Khử trùng bài tập: Ưu tiên trạng thái cao nhất (AC)
+            # Logic đếm trùng bài tập (deduplication)
             prob_id = meta["source"] if meta["source"] else full_path
             current_status = meta["status"]
             if prob_id not in unique_problems or STATUS_MAP[current_status]['prio'] > STATUS_MAP[unique_problems[prob_id]]['prio']:
@@ -221,16 +221,14 @@ def generate_readme():
     # URL cho các badges
     badge_url = f"https://img.shields.io/badge/Last_Update-{badge_time}-0078d4?style=for-the-badge&logo=github"
     time_link = f"https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso={iso_string}&p1={CITY_ID}"
-    
-    # Feature mới: Badge mục tiêu Progress
     progress_badge = f"https://img.shields.io/badge/Progress-{total_ac}/{total_problems_count}-4c1?style=for-the-badge&logo=target"
     
     stats = f"### 📊 Repository Stats\n\n"
-    stats += f"![Progress]({progress_badge})\n\n" # Hiển thị badge Progress đầu tiên
+    # Đưa Last Update lên nằm kế bên Progress
+    stats += f"![Progress]({progress_badge}) [![Last Update]({badge_url})]({time_link} \"🖱️ CLICK TO CONVERT\")\n\n"
     stats += f"- **Total Problems:** {total_problems_count}\n"
     stats += f"- **Accepted:** {total_ac}\n"
-    stats += f"- **Origin Timezone:** Ho Chi Minh City (GMT+7)\n\n"
-    stats += f"[![Last Update]({badge_url})]({time_link} \"🖱️ CLICK TO CONVERT\")\n\n---\n"
+    stats += f"- **Origin Timezone:** Ho Chi Minh City (GMT+7)\n\n---\n"
     
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content + stats + toc_content + "\n---\n" + main_content)

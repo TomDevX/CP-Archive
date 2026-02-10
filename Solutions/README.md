@@ -1,14 +1,12 @@
-# 🏆 Competitive Programming Repository
+# 🏆 Competitive Programming Library
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-89/89-4c1?style=for-the-badge&logo=target)
+![Progress](https://img.shields.io/badge/Progress-89/89-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_11%2C_2026_--_02%3A07_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260211T0207&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 89
 - **Accepted:** 89
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
-
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_11%2C_2026_--_02%3A05_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260211T0205&p1=218 "🖱️ CLICK TO CONVERT")
 
 ---
 ## 📌 Table of Contents
