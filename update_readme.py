@@ -8,6 +8,15 @@ README_FILE = 'README.md'
 HEADER_FILE = 'HEADER.md'
 CITY_ID = 218 
 
+# Cấu hình màu sắc và tên đầy đủ cho Status
+STATUS_MAP = {
+    "AC": {"full": "Accepted", "color": "brightgreen"},
+    "WA": {"full": "Wrong Answer", "color": "red"},
+    "TLE": {"full": "Time Limit Exceeded", "color": "orange"},
+    "WIP": {"full": "Work In Progress", "color": "blue"},
+    "PENDING": {"full": "Pending", "color": "lightgrey"}
+}
+
 def natural_sort_key(s):
     return [int(text) if text.isdigit() else text.lower()
             for text in re.split('([0-9]+)', s)]
@@ -16,9 +25,7 @@ def get_last_commit_time():
     tz_hcm = timezone(timedelta(hours=7))
     return datetime.now(tz=tz_hcm)
 
-# Hàm mới để đọc link từ file trong folder
 def get_oj_link_from_file(folder_path):
-    # Bạn có thể thêm các định dạng file khác vào list này
     link_files = ['link.txt', 'oj.txt', 'source.url']
     for file_name in link_files:
         file_path = os.path.join(folder_path, file_name)
@@ -26,11 +33,9 @@ def get_oj_link_from_file(folder_path):
             try:
                 with open(file_path, 'r', encoding='utf-8') as f:
                     content = f.read().strip()
-                    # Nếu là file .url (Windows shortcut), ta cần regex để lấy URL
                     if file_name.endswith('.url'):
                         match = re.search(r'URL=(https?://[^\s]+)', content)
                         if match: return match.group(1)
-                    # Nếu là file txt thường, lấy luôn nội dung dòng đầu
                     if content.startswith('http'):
                         return content.split('\n')[0].strip()
             except Exception:
@@ -52,7 +57,8 @@ def create_slug(text):
     return slug
 
 def extract_metadata(file_path):
-    meta = {"source": None, "submission": None, "tags": "N/A", "complexity": "N/A", "title": None, "date": "N/A"}
+    # Khởi tạo mặc định status là WIP
+    meta = {"source": None, "submission": None, "tags": "N/A", "complexity": "N/A", "title": None, "date": "N/A", "status": "WIP"}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             in_header = False
@@ -70,6 +76,9 @@ def extract_metadata(file_path):
                     if lower_line.startswith("title:"):
                         val = clean_line[6:].strip()
                         if val: meta["title"] = val
+                    elif lower_line.startswith("status:"):
+                        val = clean_line[7:].strip().upper()
+                        if val: meta["status"] = val
                     elif lower_line.startswith("source:"):
                         match = re.search(r'(https?://[^\s]+)', clean_line)
                         if match: meta["source"] = match.group(1)
@@ -102,6 +111,14 @@ def extract_metadata(file_path):
     except Exception: pass
     return meta
 
+def get_status_badge(status_code):
+    status_info = STATUS_MAP.get(status_code, {"full": status_code, "color": "lightgrey"})
+    full_name = status_info["full"]
+    color = status_info["color"]
+    # Thay thế dấu cách bằng %20 để URL badge không bị lỗi
+    url_name = full_name.replace(" ", "%20")
+    return f"![{full_name}](https://img.shields.io/badge/-{url_name}-{color}?style=flat-square)"
+
 def auto_generate_link(file_path):
     path_parts = file_path.replace('\\', '/').split('/')
     filename = path_parts[-1].replace('.cpp', '').upper()
@@ -114,8 +131,6 @@ def auto_generate_link(file_path):
             m = re.search(r'(\d+)', filename)
             if m: return f"https://cses.fi/problemset/task/{m.group(1)}"
         if "VNOI" in up: return f"https://oj.vnoi.info/problem/{filename.lower()}"
-        if "LEETCODE" in up:
-            return f"https://leetcode.com/problems/{filename.lower().replace('_', '-')}/"
     return None
 
 def generate_readme():
@@ -124,12 +139,14 @@ def generate_readme():
             content = f.read() + "\n\n---\n"
     else:
         content = "# 🏆 Competitive Programming Repository\n\n"
+    
     total_problems = 0
     main_content = ""
     toc_content = "## 📌 Table of Contents\n\n"
     root_dir = "Solutions"
     if not os.path.isdir(root_dir):
         return
+
     added_to_toc = set()
     for root, dirs, files in os.walk(root_dir):
         dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
@@ -162,7 +179,6 @@ def generate_readme():
             is_oj_folder = (os.path.dirname(rel_path_from_sol) == "")
             title = format_display_name(base_name, is_oj=is_oj_folder)
             
-            # Logic: Tìm link OJ từ file config trong folder
             if is_oj_folder:
                 oj_url = get_oj_link_from_file(path)
                 if oj_url:
@@ -173,10 +189,15 @@ def generate_readme():
                 main_content += f"### 📁 {title}\n"
                 
         files.sort(key=natural_sort_key)
-        table = "| # | Problem Name | Tags | Complexity | Date | Solution |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n"
+        # THÊM CỘT STATUS VÀO ĐÂY
+        table = "| # | Status | Problem Name | Tags | Complexity | Date | Solution |\n| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
         for i, file in enumerate(files, 1):
             full_path = os.path.join(path, file)
             meta = extract_metadata(full_path)
+            
+            # Xử lý Status Badge
+            status_badge = get_status_badge(meta["status"])
+            
             filename_no_ext = file.replace('.cpp', '')
             file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
             if meta["title"]:
@@ -186,16 +207,18 @@ def generate_readme():
                 display_name = f"{file_id} - {' '.join(prob_name_parts).title()}"
             else:
                 display_name = file_id
+            
             prob_link = meta["source"] or auto_generate_link(full_path)
             name_md = f"[{display_name}]({prob_link})" if prob_link else display_name
             safe_path = full_path.replace('\\', '/').replace(' ', '%20')
             sol_md = f"[Code]({safe_path})"
             if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
-            table += f"| {i} | {name_md} | {meta['tags']} | {meta['complexity']} | {meta['date']} | {sol_md} |\n"
+            
+            # Cập nhật dòng table row
+            table += f"| {i} | {status_badge} | {name_md} | {meta['tags']} | {meta['complexity']} | {meta['date']} | {sol_md} |\n"
             total_problems += 1
         main_content += table + "\n"
         
-    # Phần Stats và Badge giữ nguyên...
     push_time = get_last_commit_time()
     iso_string = push_time.strftime("%Y%m%dT%H%M")
     time_str = push_time.strftime("%b %d, %Y - %H:%M (GMT+7)")
