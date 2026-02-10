@@ -31,11 +31,11 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 
 ![Progress](https://img.shields.io/badge/Progress-89/89-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_11,_2026-0078d4?style=for-the-badge&logo=github)
 
-- **Unique Problems:** 89
-- **Accepted (Best Effort):** 89
+- **Total Problems:** 89
+- **Accepted:** 89
 
 #### 💡 Quick Legend
-> **AC**: Accepted | **WA**: Wrong Answer | **TLE**: Time Limit Exceeded | **WIP**: Work In Progress
+> **AC**: Accepted | **WA**: Wrong Answer | **TLE**: Time Limit Exceeded | **WIP**: Work In Progress | **PENDING**: Pending
 
 ---
 ## 📌 Table of Contents
