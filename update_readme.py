@@ -8,13 +8,13 @@ README_FILE = 'README.md'
 HEADER_FILE = 'HEADER.md'
 CITY_ID = 218 
 
-# Cấu hình màu sắc chuẩn (Sử dụng tên màu hoặc mã Hex ổn định)
+# Cấu hình màu sắc chuẩn
 STATUS_MAP = {
-    "AC": {"full": "Accepted", "color": "4c1"},        # Màu xanh lá chuẩn Codeforces
-    "WA": {"full": "Wrong Answer", "color": "e05d44"},  # Màu đỏ
-    "TLE": {"full": "Time Limit Exceeded", "color": "dfb317"}, # Màu cam/vàng
-    "WIP": {"full": "Work In Progress", "color": "007ec6"},     # Màu xanh dương
-    "PENDING": {"full": "Pending", "color": "9f9f9f"}   # Màu xám
+    "AC": {"full": "Accepted", "color": "4c1"},        
+    "WA": {"full": "Wrong Answer", "color": "e05d44"},  
+    "TLE": {"full": "Time Limit Exceeded", "color": "dfb317"}, 
+    "WIP": {"full": "Work In Progress", "color": "007ec6"},     
+    "PENDING": {"full": "Pending", "color": "9f9f9f"}   
 }
 
 def natural_sort_key(s):
@@ -113,16 +113,15 @@ def extract_metadata(file_path):
     return meta
 
 def get_status_badge(status_code):
-    """Sử dụng format static/v1 để đảm bảo Badge không bị lỗi render trên GitHub."""
+    """Xóa bỏ label 'Status' để Badge gọn gàng hơn."""
     status_info = STATUS_MAP.get(status_code, STATUS_MAP["AC"])
     full_name = status_info["full"]
     color = status_info["color"]
     
-    # Mã hóa các ký tự đặc biệt để an toàn cho URL
     encoded_msg = full_name.replace(" ", "%20")
     
-    # Cấu trúc URL Query Parameter (Resilient Format)
-    badge_url = f"https://img.shields.io/static/v1?label=Status&message={encoded_msg}&color={color}&style=flat-square"
+    # CHỈNH SỬA TẠI ĐÂY: label= rỗng để bỏ tiền tố 'Status'
+    badge_url = f"https://img.shields.io/static/v1?label=&message={encoded_msg}&color={color}&style=flat-square"
     return f"![{full_name}]({badge_url})"
 
 def auto_generate_link(file_path):
