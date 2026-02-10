@@ -1,15 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-10 23:38:45
+ *    created: 2026-02-11 00:37:27
  *    country: Vietnam - VNM
+ * ----------------------------------------------------------
  *    title: 
  *    source: 
  *    submission: 
+ *    status: WIP
  * ----------------------------------------------------------
  *    tags: 
  *    complexity: 
  *    note: 
- *    status: WIP
 **/
 
 #include <iostream>
