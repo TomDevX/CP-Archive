@@ -2,9 +2,10 @@ import os
 import re
 from datetime import datetime, timedelta, timezone
 
-# --- CONFIGURATION ---
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+README_FILE = os.path.join(BASE_DIR, 'README.md')
+root_dir = BASE_DIR
 EXCLUDE_DIRS = {'.git', '.github', '.assets', 'venv', '__pycache__', '.cph'}
-README_FILE = 'README.md'
 CITY_ID = 218 
 
 STATUS_MAP = {
