@@ -1,20 +1,17 @@
 import os
 import re
-import subprocess
 from datetime import datetime, timedelta, timezone
 
-# Script resides inside Solutions/, so we ignore itself and standard rác folders
+# --- CONFIGURATION ---
 EXCLUDE_DIRS = {'.git', '.github', '.assets', 'venv', '__pycache__', '.cph'}
 README_FILE = 'README.md'
-CITY_ID = 218
+CITY_ID = 218 
 
-# Configuration with Priority and English Labels
-# Priority: AC (4) > TLE (3) > WA (2) > WIP (1)
 STATUS_MAP = {
     "AC": {"full": "Accepted", "color": "4c1", "prio": 4},        
     "WA": {"full": "Wrong Answer", "color": "e05d44", "prio": 2},  
     "TLE": {"full": "Time Limit Exceeded", "color": "dfb317", "prio": 3}, 
-    "WIP": {"full": "Work In Progress", "color": "007ec6", "prio": 1}
+    "WIP": {"full": "Work In Progress", "color": "007ec6", "prio": 1},     
 }
 
 def natural_sort_key(s):
@@ -54,12 +51,12 @@ def create_slug(text):
     return slug
 
 def extract_metadata(file_path):
-    # Preserving your exact header parsing logic
+    # Giữ nguyên logic tìm từ khóa (không đổi phần hiện tại)
     meta = {"source": None, "submission": None, "tags": "N/A", "complexity": "N/A", "title": None, "date": "N/A", "status": "AC"}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             in_header = False
-            for i, line in enumerate(f):
+            for line in f:
                 line_strip = line.strip()
                 if line_strip.startswith("/**"):
                     in_header = True
@@ -75,23 +72,19 @@ def extract_metadata(file_path):
                         if val: meta["title"] = val
                     elif lower_line.startswith("status:"):
                         val = clean_line[7:].strip().upper()
-                        if "IN PROGRESS" in val or "WIP" in val:
-                            meta["status"] = "WIP"
-                        elif val in STATUS_MAP:
-                            meta["status"] = val
+                        if "IN PROGRESS" in val or "WIP" in val: meta["status"] = "WIP"
+                        elif val in STATUS_MAP: meta["status"] = val
                     elif lower_line.startswith("source:"):
                         match = re.search(r'(https?://[^\s]+)', clean_line)
                         if match: meta["source"] = match.group(1)
                     elif lower_line.startswith("created:"):
                         val = clean_line[8:].strip()
                         if val:
-                            raw_date = val.split(' ')[0]
                             try:
-                                dt = datetime.strptime(raw_date, "%Y-%m-%d")
+                                dt = datetime.strptime(val.split(' ')[0], "%Y-%m-%d")
                                 day = dt.strftime("%d").lstrip("0")
                                 meta["date"] = dt.strftime(f"%b {day}, %Y")
-                            except ValueError:
-                                meta["date"] = raw_date
+                            except: meta["date"] = val
                     elif lower_line.startswith("submission:"):
                         match = re.search(r'(https?://[^\s]+)', clean_line)
                         if match: meta["submission"] = match.group(1)
@@ -112,24 +105,36 @@ def extract_metadata(file_path):
     return meta
 
 def get_status_badge(status_code):
-    # Using short code (AC/WA) with padding to fill the cell [cite: 2026-01-04]
     status_info = STATUS_MAP.get(status_code, STATUS_MAP["AC"])
-    color = status_info["color"]
     padded_msg = f"%20%20%20{status_code}%20%20%20"
-    badge_url = f"https://img.shields.io/static/v1?label=&message={padded_msg}&color={color}&style=for-the-badge"
+    badge_url = f"https://img.shields.io/static/v1?label=&message={padded_msg}&color={status_info['color']}&style=for-the-badge"
     return f"![{status_code}]({badge_url})"
 
+def auto_generate_link(file_path):
+    path_parts = file_path.replace('\\', '/').split('/')
+    filename = path_parts[-1].replace('.cpp', '').upper()
+    for part in reversed(path_parts[:-1]):
+        up = part.upper()
+        if "CODEFORCES" in up or "CF" in up:
+            cf_match = re.search(r'(\d+)\s*[_-]?\s*([A-Z]\d?)', filename)
+            if cf_match: return f"https://codeforces.com/contest/{cf_match.group(1)}/problem/{cf_match.group(2)}"
+        if "CSES" in up:
+            m = re.search(r'(\d+)', filename)
+            if m: return f"https://cses.fi/problemset/task/{m.group(1)}"
+        if "VNOI" in up: return f"https://oj.vnoi.info/problem/{filename.lower()}"
+        if "LEETCODE" in up:
+            return f"https://leetcode.com/problems/{filename.lower().replace('_', '-')}/"
+    return None
+
 def generate_readme():
-    header_text = "# 📚 Detailed Problem Solving Log\n\n"
-    header_text += "[⬅️ Back to Home](../README.md)\n\n"
-    header_text += "This log aggregates all solutions categorized by platform. Duplicates are counted only once in stats.\n\n---\n"
+    # Label Header từ code cũ
+    content = "# 🏆 Competitive Programming Repository\n\n"
     
-    # root_dir is current directory (.) because script is inside Solutions/
     root_dir = "."
-    unique_problems = {} # Used for deduplication and best-status tracking
+    unique_problems = {}
     main_content = ""
     toc_content = "## 📌 Table of Contents\n\n"
-
+    
     folder_data = []
     for root, dirs, files in os.walk(root_dir):
         dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
@@ -138,63 +143,91 @@ def generate_readme():
             folder_data.append((root, cpp_files))
     folder_data.sort(key=lambda x: natural_sort_key(x[0]))
 
+    # Table of Contents phân cấp
     added_to_toc = set()
-    for path, files in folder_data:
+    for path, _ in folder_data:
         rel_path = os.path.relpath(path, root_dir)
         if rel_path == ".": continue
-        
-        folder_name = os.path.basename(path).replace('_', ' ').title()
-        is_oj = (os.path.dirname(rel_path) == "")
-        
-        if path not in added_to_toc:
-            indent = "" if is_oj else "  "
-            toc_content += f"{indent}* [📂 {folder_name}](#-{folder_name.lower().replace(' ', '-')})\n"
-            added_to_toc.add(path)
+        parts = rel_path.split(os.sep)
+        for i in range(len(parts)):
+            current_path = os.path.join(root_dir, *parts[:i+1])
+            if current_path not in added_to_toc:
+                depth = i
+                indent = "  " * depth
+                title = format_display_name(parts[i], is_oj=(i == 0))
+                toc_content += f"{indent}* [📂 {title}](#-{create_slug(title)})\n"
+                added_to_toc.add(current_path)
 
-        main_content += f"## 📂 {folder_name}\n" if is_oj else f"### 📁 {folder_name}\n"
+    for path, files in folder_data:
+        rel_path = os.path.relpath(path, root_dir)
+        base_name = os.path.basename(path)
+        is_oj_folder = (os.path.dirname(rel_path) == "")
+        title = format_display_name(base_name, is_oj=is_oj_folder)
+        
+        # Link OJ folder từ file config
+        oj_url = get_oj_link_from_file(path) if is_oj_folder else None
+        if oj_url:
+            main_content += f"## 📂 [{title}]({oj_url})\n"
+        else:
+            main_content += f"## 📂 {title}\n" if is_oj_folder else f"### 📁 {title}\n"
         
         files.sort(key=natural_sort_key)
-        table = "| # | Problem | Tags | Complexity | Date | Solution | Status |\n| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
+        # Label Problem Name từ code cũ
+        table = "| # | Problem Name | Tags | Complexity | Date | Solution | Status |\n| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
+        
         for i, file in enumerate(files, 1):
             full_path = os.path.join(path, file)
             meta = extract_metadata(full_path)
             
-            # Logic: Track the best status for each unique problem [cite: 2026-01-15, 2026-01-04]
-            prob_id = meta["source"] if meta["source"] else full_path
+            # Logic unique problems (vẫn giữ tính năng hiện đại này)
+            prob_id = meta["source"] or full_path
             current_status = meta["status"]
-            
-            if prob_id not in unique_problems:
+            if prob_id not in unique_problems or STATUS_MAP[current_status]['prio'] > STATUS_MAP[unique_problems[prob_id]]['prio']:
                 unique_problems[prob_id] = current_status
-            else:
-                new_prio = STATUS_MAP.get(current_status, {}).get("prio", 0)
-                old_prio = STATUS_MAP.get(unique_problems[prob_id], {}).get("prio", 0)
-                if new_prio > old_prio:
-                    unique_problems[prob_id] = current_status
             
-            name = meta['title'] or file
-            # Relative path from Solutions/README.md
-            sol_link = full_path.replace('./', '').replace('\\', '/').replace(' ', '%20')
+            # Formatting Display Name
+            filename_no_ext = file.replace('.cpp', '')
+            file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
+            if meta["title"]:
+                display_name = f"{file_id} - {meta['title']}"
+            elif '_' in filename_no_ext:
+                prob_name_parts = filename_no_ext.split('_')[1:]
+                display_name = f"{file_id} - {' '.join(prob_name_parts).title()}"
+            else:
+                display_name = file_id
+
+            prob_link = meta["source"] or auto_generate_link(full_path)
+            name_md = f"[{display_name}]({prob_link})" if prob_link else display_name
+            
+            sol_link = full_path.replace('\\', '/').replace(' ', '%20').replace('./', '')
             sol_md = f"[Code]({sol_link})"
             if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
             
-            table += f"| {i} | {name} | {meta['tags']} | {meta['complexity']} | {meta['date']} | {sol_md} | {get_status_badge(meta['status'])} |\n"
+            table += f"| {i} | {name_md} | {meta['tags']} | {meta['complexity']} | {meta['date']} | {sol_md} | {get_status_badge(meta['status'])} |\n"
         main_content += table + "\n"
 
-    # Statistics based on unique problems
-    total_problems = len(unique_problems)
+    # Repository Stats với các labels cũ
+    total_problems_count = len(unique_problems)
     total_ac = list(unique_problems.values()).count("AC")
     
-    badge_time = get_last_commit_time().strftime("%b_%d,_%Y")
-    update_badge = f"https://img.shields.io/badge/Last_Update-{badge_time}-0078d4?style=for-the-badge&logo=github"
-    progress_badge = f"https://img.shields.io/badge/Progress-{total_ac}/{total_problems}-4c1?style=for-the-badge&logo=target"
+    push_time = get_last_commit_time()
+    iso_string = push_time.strftime("%Y%m%dT%H%M")
+    time_str = push_time.strftime("%b %d, %Y - %H:%M (GMT+7)")
+    badge_time = (time_str.replace("-", "--").replace(" ", "_").replace(":", "%3A")
+                          .replace(",", "%2C").replace("(", "%28").replace(")", "%29"))
     
-    stats = f"### 📊 Solving Stats\n\n![Progress]({progress_badge}) ![Last Update]({update_badge})\n\n"
-    stats += f"- **Unique Problems Solved:** {total_problems}\n- **Accepted (Best Effort):** {total_ac}\n\n"
+    badge_url = f"https://img.shields.io/badge/Last_Update-{badge_time}-0078d4?style=for-the-badge&logo=github"
+    time_link = f"https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso={iso_string}&p1={CITY_ID}"
     
-    legend = "#### 💡 Quick Legend\n> " + " | ".join([f"**{k}**: {v['full']}" for k, v in STATUS_MAP.items()]) + "\n\n---\n"
-
+    stats = f"### 📊 Repository Stats\n\n"
+    # Đổi Unique Problems -> Total Problems theo yêu cầu
+    stats += f"- **Total Problems:** {total_problems_count}\n"
+    stats += f"- **Accepted (Best Effort):** {total_ac}\n"
+    stats += f"- **Origin Timezone:** Ho Chi Minh City (GMT+7)\n\n"
+    stats += f"[![Last Update]({badge_url})]({time_link} \"🖱️ CLICK TO CONVERT\")\n\n---\n"
+    
     with open(README_FILE, 'w', encoding='utf-8') as f:
-        f.write(header_text + stats + legend + toc_content + "\n---\n" + main_content)
+        f.write(content + stats + toc_content + "\n---\n" + main_content)
 
 if __name__ == "__main__":
     generate_readme()
