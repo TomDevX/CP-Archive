@@ -29,10 +29,11 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ---
 ### 📊 Repository Stats
 
-- **Total Problems:** 90
-- **Origin Timezone:** Ho Chi Minh City (GMT+7)
+![Progress](https://img.shields.io/badge/Progress-89/90-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_10%2C_2026_--_23%3A55_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260210T2355&p1=218 "🖱️ CLICK TO CONVERT")
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_10%2C_2026_--_23%3A54_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260210T2354&p1=218 "🖱️ CLICK TO CONVERT")
+- **Total Problems:** 90
+- **Accepted:** 89
+- **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 ---
 ## 📌 Table of Contents

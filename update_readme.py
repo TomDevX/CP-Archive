@@ -55,7 +55,6 @@ def create_slug(text):
     return slug
 
 def extract_metadata(file_path):
-    # Mặc định AC nếu không có status
     meta = {"source": None, "submission": None, "tags": "N/A", "complexity": "N/A", "title": None, "date": "N/A", "status": "AC"}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -113,14 +112,11 @@ def extract_metadata(file_path):
     return meta
 
 def get_status_badge(status_code):
-    """Xóa bỏ label 'Status' để Badge gọn gàng hơn."""
     status_info = STATUS_MAP.get(status_code, STATUS_MAP["AC"])
     full_name = status_info["full"]
     color = status_info["color"]
-    
     encoded_msg = full_name.replace(" ", "%20")
-    
-    # CHỈNH SỬA TẠI ĐÂY: label= rỗng để bỏ tiền tố 'Status'
+    # Đã bỏ label để chỉ hiện khối màu
     badge_url = f"https://img.shields.io/static/v1?label=&message={encoded_msg}&color={color}&style=flat-square"
     return f"![{full_name}]({badge_url})"
 
@@ -146,6 +142,7 @@ def generate_readme():
         content = "# 🏆 Competitive Programming Repository\n\n"
     
     total_problems = 0
+    total_ac = 0 # Biến đếm số bài Accepted
     main_content = ""
     toc_content = "## 📌 Table of Contents\n\n"
     root_dir = "Solutions"
@@ -195,9 +192,12 @@ def generate_readme():
             meta = extract_metadata(full_path)
             status_badge = get_status_badge(meta["status"])
             
+            # Cập nhật số lượng bài AC
+            if meta["status"] == "AC":
+                total_ac += 1
+            
             filename_no_ext = file.replace('.cpp', '')
             file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
-            
             if meta["title"]:
                 display_name = f"{file_id} - {meta['title']}"
             elif '_' in filename_no_ext:
@@ -221,9 +221,24 @@ def generate_readme():
     time_str = push_time.strftime("%b %d, %Y - %H:%M (GMT+7)")
     badge_time = (time_str.replace("-", "--").replace(" ", "_").replace(":", "%3A")
                           .replace(",", "%2C").replace("(", "%28").replace(")", "%29"))
-    badge_url = f"https://img.shields.io/badge/Last_Update-{badge_time}-0078d4?style=for-the-badge&logo=github"
+    
+    # Badge Thời gian cập nhật
+    update_badge = f"https://img.shields.io/badge/Last_Update-{badge_time}-0078d4?style=for-the-badge&logo=github"
+    
+    # TẠO BADGE TIẾN ĐỘ (Progress Badge)
+    progress_val = f"{total_ac}/{total_problems}"
+    progress_badge = f"https://img.shields.io/badge/Progress-{progress_val}-4c1?style=for-the-badge&logo=target"
+    
     time_link = f"https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso={iso_string}&p1={CITY_ID}"
-    stats = f"### 📊 Repository Stats\n\n- **Total Problems:** {total_problems}\n- **Origin Timezone:** Ho Chi Minh City (GMT+7)\n\n[![Last Update]({badge_url})]({time_link} \"🖱️ CLICK TO CONVERT\")\n\n---\n"
+    
+    # Cập nhật phần Stats hiển thị Badge Tiến độ
+    stats = f"### 📊 Repository Stats\n\n"
+    stats += f"![Progress]({progress_badge}) "
+    stats += f"[![Last Update]({update_badge})]({time_link} \"🖱️ CLICK TO CONVERT\")\n\n"
+    stats += f"- **Total Problems:** {total_problems}\n"
+    stats += f"- **Accepted:** {total_ac}\n"
+    stats += f"- **Origin Timezone:** Ho Chi Minh City (GMT+7)\n\n---\n"
+    
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content + stats + toc_content + "\n---\n" + main_content)
 
