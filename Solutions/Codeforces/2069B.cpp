@@ -15,6 +15,7 @@
 #include <vector>
 #include <cstdio>
 #include <utility>
+#include <bitset>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n';
@@ -49,15 +50,51 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+const int X[4] = {0,0,1,-1};
+const int Y[4] = {-1,1,0,0};
+const int N = 2*490001;
+int n,m;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-
+bool check(int x, int y){
+    return x >= 1 && x <= n && y >= 1 && y <= m;
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
-
     
+    int tc;
+    cin >> tc;
+    while(tc--){
+        cin >> n >> m;
+        vii a(n+1,vi(m+1));
+        bitset<N> vis;
+
+        for(int i = 1; i <= n; i++){
+            for(int j = 1; j <= m; j++){
+                cin >> a[i][j];
+            }
+        }
+
+        bool rekt = false;
+        
+        for(int i = 1; i <= n; i++){
+            for(int j = 1; j <= m; j++){
+                vis[a[i][j]] = 1;
+                for(int k = 0; k < 4; k++){
+                    int x = i + X[k];
+                    int y = j + Y[k];
+                    if(!check(x,y)) continue;
+                    if(a[x][y] != a[i][j]) continue;
+                    
+                    vis[n*m + a[x][y]] = 1;
+                    rekt = true;
+                }
+            }
+        }
+
+        cout << vis.count()-1-rekt << '\n';
+    }
 }
