@@ -9,7 +9,7 @@
  *    tags: greedy
  *    complexity: O(t\*n\*m)
  *    note: With greedy, we know that when we want to transform a value into another value, we only need to process 2 times maximum, because we only need to change those cells, and their side-sharing cells
- *    status: WIP
+ *    status: WA
  **/
 
 #include <iostream>
