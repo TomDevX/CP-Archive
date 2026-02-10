@@ -112,12 +112,15 @@ def extract_metadata(file_path):
     return meta
 
 def get_status_badge(status_code):
+    """Sử dụng style 'for-the-badge' để Badge trông to và lấp đầy ô hơn."""
     status_info = STATUS_MAP.get(status_code, STATUS_MAP["AC"])
     full_name = status_info["full"]
     color = status_info["color"]
+    
     encoded_msg = full_name.replace(" ", "%20")
-    # Đã bỏ label để chỉ hiện khối màu
-    badge_url = f"https://img.shields.io/static/v1?label=&message={encoded_msg}&color={color}&style=flat-square"
+    
+    # CHỈNH SỬA: Thay đổi style thành 'for-the-badge'
+    badge_url = f"https://img.shields.io/static/v1?label=&message={encoded_msg}&color={color}&style=for-the-badge"
     return f"![{full_name}]({badge_url})"
 
 def auto_generate_link(file_path):
