@@ -113,16 +113,14 @@ def extract_metadata(file_path):
     return meta
 
 def get_status_badge(status_code):
-    """Thêm khoảng trắng để Badge to ra, tạo cảm giác 'fill' ô trong bảng."""
+    """Sử dụng style 'for-the-badge' để Badge trông to và lấp đầy ô hơn."""
     status_info = STATUS_MAP.get(status_code, STATUS_MAP["AC"])
     full_name = status_info["full"]
     color = status_info["color"]
     
-    # THỦ THUẬT: Thêm 4-6 khoảng trắng (%20) vào hai đầu để kéo dài Badge
-    # Bạn có thể điều chỉnh số lượng %20 cho đến khi vừa ý
-    padded_msg = f"%20%20%20{full_name}%20%20%20"
+    encoded_msg = full_name.replace(" ", "%20")
     
-    badge_url = f"https://img.shields.io/static/v1?label=&message={padded_msg}&color={color}&style=for-the-badge"
+    badge_url = f"https://img.shields.io/static/v1?label=&message={encoded_msg}&color={color}&style=for-the-badge"
     return f"![{full_name}]({badge_url})"
 
 def auto_generate_link(file_path):
