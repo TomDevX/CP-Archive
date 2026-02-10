@@ -8,9 +8,9 @@ README_FILE = 'README.md'
 HEADER_FILE = 'HEADER.md'
 CITY_ID = 218 
 
-# Cấu hình màu sắc và tên đầy đủ cho Status
+# Cấu hình chuẩn cho Shields.io
 STATUS_MAP = {
-    "AC": {"full": "Accepted", "color": "brightgreen"},
+    "AC": {"full": "Accepted", "color": "green"},
     "WA": {"full": "Wrong Answer", "color": "red"},
     "TLE": {"full": "Time Limit Exceeded", "color": "orange"},
     "WIP": {"full": "Work In Progress", "color": "blue"},
@@ -44,11 +44,9 @@ def get_oj_link_from_file(folder_path):
 
 def format_display_name(name, is_oj=False):
     if not name: return ""
-    if is_oj:
-        return name
+    if is_oj: return name
     parts = name.split('_')
-    if parts[0].isdigit():
-        parts = parts[1:]
+    if parts[0].isdigit(): parts = parts[1:]
     return " ".join(parts).replace('-', ' ').title()
 
 def create_slug(text):
@@ -57,7 +55,7 @@ def create_slug(text):
     return slug
 
 def extract_metadata(file_path):
-    # THAY ĐỔI: Mặc định status là AC nếu không tìm thấy trong header
+    # MẶC ĐỊNH LÀ AC NẾU KHÔNG CÓ STATUS
     meta = {"source": None, "submission": None, "tags": "N/A", "complexity": "N/A", "title": None, "date": "N/A", "status": "AC"}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -78,7 +76,11 @@ def extract_metadata(file_path):
                         if val: meta["title"] = val
                     elif lower_line.startswith("status:"):
                         val = clean_line[7:].strip().upper()
-                        if val: meta["status"] = val
+                        # Nếu ghi "IN PROGRESS" thì tự chuyển về WIP cho đúng map
+                        if "IN PROGRESS" in val or "WIP" in val:
+                            meta["status"] = "WIP"
+                        elif val in STATUS_MAP:
+                            meta["status"] = val
                     elif lower_line.startswith("source:"):
                         match = re.search(r'(https?://[^\s]+)', clean_line)
                         if match: meta["source"] = match.group(1)
@@ -112,11 +114,15 @@ def extract_metadata(file_path):
     return meta
 
 def get_status_badge(status_code):
-    status_info = STATUS_MAP.get(status_code, {"full": status_code, "color": "lightgrey"})
+    # Lấy thông tin từ map, mặc định vẫn là AC nếu code lạ
+    status_info = STATUS_MAP.get(status_code, STATUS_MAP["AC"])
     full_name = status_info["full"]
     color = status_info["color"]
-    url_name = full_name.replace(" ", "%20")
-    return f"![{full_name}](https://img.shields.io/badge/-{url_name}-{color}?style=flat-square)"
+    
+    # Shields.io format: label-message-color
+    # Thay dấu cách bằng dấu gạch dưới để URL an toàn hơn
+    safe_message = full_name.replace(" ", "_")
+    return f"![{full_name}](https://img.shields.io/badge/Status-{safe_message}-{color}?style=flat-square)"
 
 def auto_generate_link(file_path):
     path_parts = file_path.replace('\\', '/').split('/')
@@ -143,8 +149,7 @@ def generate_readme():
     main_content = ""
     toc_content = "## 📌 Table of Contents\n\n"
     root_dir = "Solutions"
-    if not os.path.isdir(root_dir):
-        return
+    if not os.path.isdir(root_dir): return
 
     added_to_toc = set()
     for root, dirs, files in os.walk(root_dir):
@@ -180,23 +185,21 @@ def generate_readme():
             
             if is_oj_folder:
                 oj_url = get_oj_link_from_file(path)
-                if oj_url:
-                    main_content += f"## 📂 [{title}]({oj_url})\n"
-                else:
-                    main_content += f"## 📂 {title}\n"
+                main_content += f"## 📂 [{title}]({oj_url})\n" if oj_url else f"## 📂 {title}\n"
             else:
                 main_content += f"### 📁 {title}\n"
                 
         files.sort(key=natural_sort_key)
+        # Status cột cuối cùng
         table = "| # | Problem Name | Tags | Complexity | Date | Solution | Status |\n| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
         for i, file in enumerate(files, 1):
             full_path = os.path.join(path, file)
             meta = extract_metadata(full_path)
-            
             status_badge = get_status_badge(meta["status"])
             
             filename_no_ext = file.replace('.cpp', '')
             file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
+            
             if meta["title"]:
                 display_name = f"{file_id} - {meta['title']}"
             elif '_' in filename_no_ext:
