@@ -8,13 +8,13 @@ README_FILE = 'README.md'
 HEADER_FILE = 'HEADER.md'
 CITY_ID = 218 
 
-# Cấu hình chuẩn cho Shields.io
+# Cấu hình màu sắc chuẩn (Sử dụng tên màu hoặc mã Hex ổn định)
 STATUS_MAP = {
-    "AC": {"full": "Accepted", "color": "green"},
-    "WA": {"full": "Wrong Answer", "color": "red"},
-    "TLE": {"full": "Time Limit Exceeded", "color": "orange"},
-    "WIP": {"full": "Work In Progress", "color": "blue"},
-    "PENDING": {"full": "Pending", "color": "lightgrey"}
+    "AC": {"full": "Accepted", "color": "4c1"},        # Màu xanh lá chuẩn Codeforces
+    "WA": {"full": "Wrong Answer", "color": "e05d44"},  # Màu đỏ
+    "TLE": {"full": "Time Limit Exceeded", "color": "dfb317"}, # Màu cam/vàng
+    "WIP": {"full": "Work In Progress", "color": "007ec6"},     # Màu xanh dương
+    "PENDING": {"full": "Pending", "color": "9f9f9f"}   # Màu xám
 }
 
 def natural_sort_key(s):
@@ -55,7 +55,7 @@ def create_slug(text):
     return slug
 
 def extract_metadata(file_path):
-    # MẶC ĐỊNH LÀ AC NẾU KHÔNG CÓ STATUS
+    # Mặc định AC nếu không có status
     meta = {"source": None, "submission": None, "tags": "N/A", "complexity": "N/A", "title": None, "date": "N/A", "status": "AC"}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -76,7 +76,6 @@ def extract_metadata(file_path):
                         if val: meta["title"] = val
                     elif lower_line.startswith("status:"):
                         val = clean_line[7:].strip().upper()
-                        # Nếu ghi "IN PROGRESS" thì tự chuyển về WIP cho đúng map
                         if "IN PROGRESS" in val or "WIP" in val:
                             meta["status"] = "WIP"
                         elif val in STATUS_MAP:
@@ -114,15 +113,17 @@ def extract_metadata(file_path):
     return meta
 
 def get_status_badge(status_code):
-    # Lấy thông tin từ map, mặc định vẫn là AC nếu code lạ
+    """Sử dụng format static/v1 để đảm bảo Badge không bị lỗi render trên GitHub."""
     status_info = STATUS_MAP.get(status_code, STATUS_MAP["AC"])
     full_name = status_info["full"]
     color = status_info["color"]
     
-    # Shields.io format: label-message-color
-    # Thay dấu cách bằng dấu gạch dưới để URL an toàn hơn
-    safe_message = full_name.replace(" ", "_")
-    return f"![{full_name}](https://img.shields.io/badge/Status-{safe_message}-{color}?style=flat-square)"
+    # Mã hóa các ký tự đặc biệt để an toàn cho URL
+    encoded_msg = full_name.replace(" ", "%20")
+    
+    # Cấu trúc URL Query Parameter (Resilient Format)
+    badge_url = f"https://img.shields.io/static/v1?label=Status&message={encoded_msg}&color={color}&style=flat-square"
+    return f"![{full_name}]({badge_url})"
 
 def auto_generate_link(file_path):
     path_parts = file_path.replace('\\', '/').split('/')
@@ -182,7 +183,6 @@ def generate_readme():
             base_name = os.path.basename(path)
             is_oj_folder = (os.path.dirname(rel_path_from_sol) == "")
             title = format_display_name(base_name, is_oj=is_oj_folder)
-            
             if is_oj_folder:
                 oj_url = get_oj_link_from_file(path)
                 main_content += f"## 📂 [{title}]({oj_url})\n" if oj_url else f"## 📂 {title}\n"
@@ -190,7 +190,6 @@ def generate_readme():
                 main_content += f"### 📁 {title}\n"
                 
         files.sort(key=natural_sort_key)
-        # Status cột cuối cùng
         table = "| # | Problem Name | Tags | Complexity | Date | Solution | Status |\n| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
         for i, file in enumerate(files, 1):
             full_path = os.path.join(path, file)
