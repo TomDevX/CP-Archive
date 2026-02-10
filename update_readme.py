@@ -57,8 +57,8 @@ def create_slug(text):
     return slug
 
 def extract_metadata(file_path):
-    # Khởi tạo mặc định status là WIP
-    meta = {"source": None, "submission": None, "tags": "N/A", "complexity": "N/A", "title": None, "date": "N/A", "status": "WIP"}
+    # THAY ĐỔI: Mặc định status là AC nếu không tìm thấy trong header
+    meta = {"source": None, "submission": None, "tags": "N/A", "complexity": "N/A", "title": None, "date": "N/A", "status": "AC"}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             in_header = False
@@ -115,7 +115,6 @@ def get_status_badge(status_code):
     status_info = STATUS_MAP.get(status_code, {"full": status_code, "color": "lightgrey"})
     full_name = status_info["full"]
     color = status_info["color"]
-    # Thay thế dấu cách bằng %20 để URL badge không bị lỗi
     url_name = full_name.replace(" ", "%20")
     return f"![{full_name}](https://img.shields.io/badge/-{url_name}-{color}?style=flat-square)"
 
@@ -189,13 +188,11 @@ def generate_readme():
                 main_content += f"### 📁 {title}\n"
                 
         files.sort(key=natural_sort_key)
-        # THÊM CỘT STATUS VÀO ĐÂY
-        table = "| # | Status | Problem Name | Tags | Complexity | Date | Solution |\n| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
+        table = "| # | Problem Name | Tags | Complexity | Date | Solution | Status |\n| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
         for i, file in enumerate(files, 1):
             full_path = os.path.join(path, file)
             meta = extract_metadata(full_path)
             
-            # Xử lý Status Badge
             status_badge = get_status_badge(meta["status"])
             
             filename_no_ext = file.replace('.cpp', '')
@@ -214,8 +211,7 @@ def generate_readme():
             sol_md = f"[Code]({safe_path})"
             if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
             
-            # Cập nhật dòng table row
-            table += f"| {i} | {status_badge} | {name_md} | {meta['tags']} | {meta['complexity']} | {meta['date']} | {sol_md} |\n"
+            table += f"| {i} | {name_md} | {meta['tags']} | {meta['complexity']} | {meta['date']} | {sol_md} | {status_badge} |\n"
             total_problems += 1
         main_content += table + "\n"
         

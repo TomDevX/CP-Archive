@@ -32,7 +32,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 - **Total Problems:** 90
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_10%2C_2026_--_23%3A41_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260210T2341&p1=218 "🖱️ CLICK TO CONVERT")
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_10%2C_2026_--_23%3A47_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260210T2347&p1=218 "🖱️ CLICK TO CONVERT")
 
 ---
 ## 📌 Table of Contents
@@ -50,120 +50,120 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 
 ---
 ## 📂 [Codeforces](https://codeforces.com/)
-| # | Status | Problem Name | Tags | Complexity | Date | Solution |
+| # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1A](https://codeforces.com/contest/1/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1A.cpp) |
-| 2 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [32B](https://codeforces.com/contest/32/problem/B) | N/A | N/A | N/A | [Code](Solutions/Codeforces/32B.cpp) |
-| 3 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [41A](https://codeforces.com/contest/41/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/41A.cpp) |
-| 4 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [50A](https://codeforces.com/contest/50/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/50A.cpp) |
-| 5 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [59A](https://codeforces.com/contest/59/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/59A.cpp) |
-| 6 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [61A](https://codeforces.com/contest/61/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/61A.cpp) |
-| 7 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [110A](https://codeforces.com/contest/110/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/110A.cpp) |
-| 8 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [112A](https://codeforces.com/contest/112/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/112A.cpp) |
-| 9 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [116A](https://codeforces.com/contest/116/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/116A.cpp) |
-| 10 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [136A](https://codeforces.com/contest/136/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/136A.cpp) |
-| 11 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [141A](https://codeforces.com/contest/141/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/141A.cpp) |
-| 12 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [144A](https://codeforces.com/contest/144/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/144A.cpp) |
-| 13 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [148A](https://codeforces.com/contest/148/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/148A.cpp) |
-| 14 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [151A](https://codeforces.com/contest/151/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/151A.cpp) |
-| 15 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [155A](https://codeforces.com/contest/155/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/155A.cpp) |
-| 16 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [158A](https://codeforces.com/contest/158/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/158A.cpp) |
-| 17 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [200B](https://codeforces.com/contest/200/problem/B) | N/A | N/A | N/A | [Code](Solutions/Codeforces/200B.cpp) |
-| 18 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [228A](https://codeforces.com/contest/228/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/228A.cpp) |
-| 19 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [236A](https://codeforces.com/contest/236/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/236A.cpp) |
-| 20 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [263A](https://codeforces.com/contest/263/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/263A.cpp) |
-| 21 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [266A](https://codeforces.com/contest/266/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/266A.cpp) |
-| 22 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [266B](https://codeforces.com/contest/266/problem/B) | N/A | N/A | N/A | [Code](Solutions/Codeforces/266B.cpp) |
-| 23 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [268A](https://codeforces.com/contest/268/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/268A.cpp) |
-| 24 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [271A](https://codeforces.com/contest/271/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/271A.cpp) |
-| 25 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [281A](https://codeforces.com/contest/281/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/281A.cpp) |
-| 26 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [282A](https://codeforces.com/contest/282/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/282A.cpp) |
-| 27 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [339A](https://codeforces.com/contest/339/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/339A.cpp) |
-| 28 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [344A](https://codeforces.com/contest/344/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/344A.cpp) |
-| 29 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [381A](https://codeforces.com/contest/381/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/381A.cpp) |
-| 30 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [427A](https://codeforces.com/contest/427/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/427A.cpp) |
-| 31 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [443A](https://codeforces.com/contest/443/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/443A.cpp) |
-| 32 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [467A](https://codeforces.com/contest/467/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/467A.cpp) |
-| 33 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [469A](https://codeforces.com/contest/469/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/469A.cpp) |
-| 34 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [486A](https://codeforces.com/contest/486/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/486A.cpp) |
-| 35 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [510A](https://codeforces.com/contest/510/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/510A.cpp) |
-| 36 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [520A](https://codeforces.com/contest/520/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/520A.cpp) |
-| 37 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [546A](https://codeforces.com/contest/546/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/546A.cpp) |
-| 38 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [581A](https://codeforces.com/contest/581/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/581A.cpp) |
-| 39 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [617A](https://codeforces.com/contest/617/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/617A.cpp) |
-| 40 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [630A](https://codeforces.com/contest/630/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/630A.cpp) |
-| 41 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [677A](https://codeforces.com/contest/677/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/677A.cpp) |
-| 42 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [705A](https://codeforces.com/contest/705/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/705A.cpp) |
-| 43 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [723A](https://codeforces.com/contest/723/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/723A.cpp) |
-| 44 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [732A](https://codeforces.com/contest/732/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/732A.cpp) |
-| 45 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [734A](https://codeforces.com/contest/734/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/734A.cpp) |
-| 46 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [750A](https://codeforces.com/contest/750/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/750A.cpp) |
-| 47 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [758A](https://codeforces.com/contest/758/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/758A.cpp) |
-| 48 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [785A](https://codeforces.com/contest/785/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/785A.cpp) |
-| 49 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [791A](https://codeforces.com/contest/791/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/791A.cpp) |
-| 50 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [977A](https://codeforces.com/contest/977/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/977A.cpp) |
-| 51 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [996A](https://codeforces.com/contest/996/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/996A.cpp) |
-| 52 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1030A](https://codeforces.com/contest/1030/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1030A.cpp) |
-| 53 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1154A](https://codeforces.com/contest/1154/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1154A.cpp) |
-| 54 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1328A](https://codeforces.com/contest/1328/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1328A.cpp) |
-| 55 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1335A](https://codeforces.com/contest/1335/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1335A.cpp) |
-| 56 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1352A](https://codeforces.com/contest/1352/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1352A.cpp) |
-| 57 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1399A](https://codeforces.com/contest/1399/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1399A.cpp) |
-| 58 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1409A](https://codeforces.com/contest/1409/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1409A.cpp) |
-| 59 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1504A](https://codeforces.com/contest/1504/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1504A.cpp) |
-| 60 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1512A](https://codeforces.com/contest/1512/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1512A.cpp) |
-| 61 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1669A](https://codeforces.com/contest/1669/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1669A.cpp) |
-| 62 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1676A](https://codeforces.com/contest/1676/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1676A.cpp) |
-| 63 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1692A](https://codeforces.com/contest/1692/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1692A.cpp) |
-| 64 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1703A](https://codeforces.com/contest/1703/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1703A.cpp) |
-| 65 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1742A](https://codeforces.com/contest/1742/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1742A.cpp) |
-| 66 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1829B - Blank Space](https://codeforces.com/problemset/problem/1829/B) | `implementation` | $\mathcal{O}(t*n)$ | Feb 6, 2026 | [Code](Solutions/Codeforces/1829B.cpp) \| [Sub](https://codeforces.com/problemset/submission/1829/361679553) |
-| 67 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1906A - Easy as ABC](https://codeforces.com/problemset/problem/1906/A) | `Brute Force` | $\mathcal{O}(3^6)$ | Feb 10, 2026 | [Code](Solutions/Codeforces/1906A.cpp) \| [Sub](https://codeforces.com/problemset/submission/1906/362212391) |
-| 68 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1928C - Physical Education Lesson](https://codeforces.com/problemset/problem/1928/C) | N/A | N/A | Feb 10, 2026 | [Code](Solutions/Codeforces/1928C.cpp) |
-| 69 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1987A](https://codeforces.com/contest/1987/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1987A.cpp) |
-| 70 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1996A](https://codeforces.com/contest/1996/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1996A.cpp) |
-| 71 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1996B](https://codeforces.com/contest/1996/problem/B) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1996B.cpp) |
-| 72 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1996C](https://codeforces.com/contest/1996/problem/C) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1996C.cpp) |
-| 73 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1996D](https://codeforces.com/contest/1996/problem/D) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1996D.cpp) |
-| 74 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1997A](https://codeforces.com/contest/1997/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1997A.cpp) |
-| 75 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1997B](https://codeforces.com/contest/1997/problem/B) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1997B.cpp) |
-| 76 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [2069B - Set of Strangers](https://codeforces.com/problemset/problem/2069/B) | `greedy` | $\mathcal{O}(t\*n\*m)$ | Feb 10, 2026 | [Code](Solutions/Codeforces/2069B.cpp) \| [Sub](https://codeforces.com/problemset/submission/2069/362299991) |
-| 77 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [2084C - You Soared Afar With Grace](https://codeforces.com/problemset/problem/2084/C) | N/A | N/A | Feb 10, 2026 | [Code](Solutions/Codeforces/2084C.cpp) |
+| 1 | [1A](https://codeforces.com/contest/1/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 2 | [32B](https://codeforces.com/contest/32/problem/B) | N/A | N/A | N/A | [Code](Solutions/Codeforces/32B.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 3 | [41A](https://codeforces.com/contest/41/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/41A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 4 | [50A](https://codeforces.com/contest/50/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/50A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 5 | [59A](https://codeforces.com/contest/59/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/59A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 6 | [61A](https://codeforces.com/contest/61/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/61A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 7 | [110A](https://codeforces.com/contest/110/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/110A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 8 | [112A](https://codeforces.com/contest/112/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/112A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 9 | [116A](https://codeforces.com/contest/116/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/116A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 10 | [136A](https://codeforces.com/contest/136/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/136A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 11 | [141A](https://codeforces.com/contest/141/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/141A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 12 | [144A](https://codeforces.com/contest/144/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/144A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 13 | [148A](https://codeforces.com/contest/148/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/148A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 14 | [151A](https://codeforces.com/contest/151/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/151A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 15 | [155A](https://codeforces.com/contest/155/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/155A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 16 | [158A](https://codeforces.com/contest/158/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/158A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 17 | [200B](https://codeforces.com/contest/200/problem/B) | N/A | N/A | N/A | [Code](Solutions/Codeforces/200B.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 18 | [228A](https://codeforces.com/contest/228/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/228A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 19 | [236A](https://codeforces.com/contest/236/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/236A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 20 | [263A](https://codeforces.com/contest/263/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/263A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 21 | [266A](https://codeforces.com/contest/266/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/266A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 22 | [266B](https://codeforces.com/contest/266/problem/B) | N/A | N/A | N/A | [Code](Solutions/Codeforces/266B.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 23 | [268A](https://codeforces.com/contest/268/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/268A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 24 | [271A](https://codeforces.com/contest/271/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/271A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 25 | [281A](https://codeforces.com/contest/281/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/281A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 26 | [282A](https://codeforces.com/contest/282/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/282A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 27 | [339A](https://codeforces.com/contest/339/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/339A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 28 | [344A](https://codeforces.com/contest/344/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/344A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 29 | [381A](https://codeforces.com/contest/381/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/381A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 30 | [427A](https://codeforces.com/contest/427/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/427A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 31 | [443A](https://codeforces.com/contest/443/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/443A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 32 | [467A](https://codeforces.com/contest/467/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/467A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 33 | [469A](https://codeforces.com/contest/469/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/469A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 34 | [486A](https://codeforces.com/contest/486/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/486A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 35 | [510A](https://codeforces.com/contest/510/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/510A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 36 | [520A](https://codeforces.com/contest/520/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/520A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 37 | [546A](https://codeforces.com/contest/546/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/546A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 38 | [581A](https://codeforces.com/contest/581/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/581A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 39 | [617A](https://codeforces.com/contest/617/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/617A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 40 | [630A](https://codeforces.com/contest/630/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/630A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 41 | [677A](https://codeforces.com/contest/677/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/677A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 42 | [705A](https://codeforces.com/contest/705/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/705A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 43 | [723A](https://codeforces.com/contest/723/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/723A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 44 | [732A](https://codeforces.com/contest/732/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/732A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 45 | [734A](https://codeforces.com/contest/734/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/734A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 46 | [750A](https://codeforces.com/contest/750/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/750A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 47 | [758A](https://codeforces.com/contest/758/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/758A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 48 | [785A](https://codeforces.com/contest/785/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/785A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 49 | [791A](https://codeforces.com/contest/791/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/791A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 50 | [977A](https://codeforces.com/contest/977/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/977A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 51 | [996A](https://codeforces.com/contest/996/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/996A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 52 | [1030A](https://codeforces.com/contest/1030/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1030A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 53 | [1154A](https://codeforces.com/contest/1154/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1154A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 54 | [1328A](https://codeforces.com/contest/1328/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1328A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 55 | [1335A](https://codeforces.com/contest/1335/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1335A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 56 | [1352A](https://codeforces.com/contest/1352/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1352A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 57 | [1399A](https://codeforces.com/contest/1399/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1399A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 58 | [1409A](https://codeforces.com/contest/1409/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1409A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 59 | [1504A](https://codeforces.com/contest/1504/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1504A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 60 | [1512A](https://codeforces.com/contest/1512/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1512A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 61 | [1669A](https://codeforces.com/contest/1669/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1669A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 62 | [1676A](https://codeforces.com/contest/1676/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1676A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 63 | [1692A](https://codeforces.com/contest/1692/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1692A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 64 | [1703A](https://codeforces.com/contest/1703/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1703A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 65 | [1742A](https://codeforces.com/contest/1742/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1742A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 66 | [1829B - Blank Space](https://codeforces.com/problemset/problem/1829/B) | `implementation` | $\mathcal{O}(t*n)$ | Feb 6, 2026 | [Code](Solutions/Codeforces/1829B.cpp) \| [Sub](https://codeforces.com/problemset/submission/1829/361679553) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 67 | [1906A - Easy as ABC](https://codeforces.com/problemset/problem/1906/A) | `Brute Force` | $\mathcal{O}(3^6)$ | Feb 10, 2026 | [Code](Solutions/Codeforces/1906A.cpp) \| [Sub](https://codeforces.com/problemset/submission/1906/362212391) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 68 | [1928C - Physical Education Lesson](https://codeforces.com/problemset/problem/1928/C) | N/A | N/A | Feb 10, 2026 | [Code](Solutions/Codeforces/1928C.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 69 | [1987A](https://codeforces.com/contest/1987/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1987A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 70 | [1996A](https://codeforces.com/contest/1996/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1996A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 71 | [1996B](https://codeforces.com/contest/1996/problem/B) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1996B.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 72 | [1996C](https://codeforces.com/contest/1996/problem/C) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1996C.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 73 | [1996D](https://codeforces.com/contest/1996/problem/D) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1996D.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 74 | [1997A](https://codeforces.com/contest/1997/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1997A.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 75 | [1997B](https://codeforces.com/contest/1997/problem/B) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1997B.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 76 | [2069B - Set of Strangers](https://codeforces.com/problemset/problem/2069/B) | `greedy` | $\mathcal{O}(t\*n\*m)$ | Feb 10, 2026 | [Code](Solutions/Codeforces/2069B.cpp) \| [Sub](https://codeforces.com/problemset/submission/2069/362299991) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 77 | [2084C - You Soared Afar With Grace](https://codeforces.com/problemset/problem/2084/C) | N/A | N/A | Feb 10, 2026 | [Code](Solutions/Codeforces/2084C.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
 
 ### 📁 Advanced Techniques
-| # | Status | Problem Name | Tags | Complexity | Date | Solution |
+| # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1628 - Meet in the Middle](https://cses.fi/problemset/task/1628/) | `Dynamic Programming`, `Implementation`, `Optimization` | $\mathcal{O}(2^{\frac{n}{2}}*log({\frac{n}{2}}) + 2^{\frac{n}{2}}*log({\frac{n}{2}}))$ | Feb 5, 2026 | [Code](Solutions/CSES/Advanced%20Techniques/1628_Meet_in_the_Middle.cpp) \| [Sub](https://cses.fi/paste/39bb411c336d08d8f6c8f1/) |
-| 2 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [2136 - Hamming Distance](https://cses.fi/problemset/task/2136) | `bit` | $\mathcal{O}(n^2)$ | Feb 5, 2026 | [Code](Solutions/CSES/Advanced%20Techniques/2136_Hamming_Distance.cpp) \| [Sub](https://cses.fi/paste/9254599d71bb5d60f6b997/) |
+| 1 | [1628 - Meet in the Middle](https://cses.fi/problemset/task/1628/) | `Dynamic Programming`, `Implementation`, `Optimization` | $\mathcal{O}(2^{\frac{n}{2}}*log({\frac{n}{2}}) + 2^{\frac{n}{2}}*log({\frac{n}{2}}))$ | Feb 5, 2026 | [Code](Solutions/CSES/Advanced%20Techniques/1628_Meet_in_the_Middle.cpp) \| [Sub](https://cses.fi/paste/39bb411c336d08d8f6c8f1/) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 2 | [2136 - Hamming Distance](https://cses.fi/problemset/task/2136) | `bit` | $\mathcal{O}(n^2)$ | Feb 5, 2026 | [Code](Solutions/CSES/Advanced%20Techniques/2136_Hamming_Distance.cpp) \| [Sub](https://cses.fi/paste/9254599d71bb5d60f6b997/) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
 
 ### 📁 Dynamic Programming
-| # | Status | Problem Name | Tags | Complexity | Date | Solution |
+| # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [2413 - Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | $\mathcal{O}(n)$ | Feb 4, 2026 | [Code](Solutions/CSES/Dynamic%20Programming/2413_Counting_Towers.cpp) \| [Sub](https://cses.fi/paste/67df7ff1543072a9f68403/) |
+| 1 | [2413 - Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | $\mathcal{O}(n)$ | Feb 4, 2026 | [Code](Solutions/CSES/Dynamic%20Programming/2413_Counting_Towers.cpp) \| [Sub](https://cses.fi/paste/67df7ff1543072a9f68403/) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
 
 ### 📁 Graph
-| # | Status | Problem Name | Tags | Complexity | Date | Solution |
+| # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [1192 - Counting Rooms](https://cses.fi/problemset/task/1192/) | `BFS`, `flood fill` | $\mathcal{O}(V+E)$ | Aug 9, 2025 | [Code](Solutions/CSES/Graph/1192_Counting_Rooms.cpp) \| [Sub](https://cses.fi/paste/96f91e45fb63bc5dd6975e/) |
+| 1 | [1192 - Counting Rooms](https://cses.fi/problemset/task/1192/) | `BFS`, `flood fill` | $\mathcal{O}(V+E)$ | Aug 9, 2025 | [Code](Solutions/CSES/Graph/1192_Counting_Rooms.cpp) \| [Sub](https://cses.fi/paste/96f91e45fb63bc5dd6975e/) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
 
 ### 📁 Sorting And Searching
-| # | Status | Problem Name | Tags | Complexity | Date | Solution |
+| # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [2216 - Collecting Numbers](https://cses.fi/problemset/task/2216) | `Implementation` | $\mathcal{O}(n)$ | Feb 10, 2026 | [Code](Solutions/CSES/Sorting%20and%20Searching/2216.cpp) \| [Sub](https://cses.fi/problemset/result/16218047/) |
-| 2 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [2217 - Collecting Numbers II](https://cses.fi/problemset/task/2217) | `Adhoc` | $\mathcal{O}(n + m)$ | Feb 10, 2026 | [Code](Solutions/CSES/Sorting%20and%20Searching/2217.cpp) \| [Sub](https://cses.fi/problemset/result/16218382/) |
+| 1 | [2216 - Collecting Numbers](https://cses.fi/problemset/task/2216) | `Implementation` | $\mathcal{O}(n)$ | Feb 10, 2026 | [Code](Solutions/CSES/Sorting%20and%20Searching/2216.cpp) \| [Sub](https://cses.fi/problemset/result/16218047/) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 2 | [2217 - Collecting Numbers II](https://cses.fi/problemset/task/2217) | `Adhoc` | $\mathcal{O}(n + m)$ | Feb 10, 2026 | [Code](Solutions/CSES/Sorting%20and%20Searching/2217.cpp) \| [Sub](https://cses.fi/problemset/result/16218382/) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
 
 ## 📂 [Project Euler](https://projecteuler.net/about)
-| # | Status | Problem Name | Tags | Complexity | Date | Solution |
+| # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [6 - Sum Square Difference](https://projecteuler.net/problem=6) | `Level 0` | $\mathcal{O}(1)$ | Feb 6, 2026 | [Code](Solutions/Project%20Euler/6.cpp) |
-| 2 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [7 - 10 001st Prime](https://projecteuler.net/problem=7) | `Level 0` | $\mathcal{O}(n\log{\log{n}})$ | Feb 6, 2026 | [Code](Solutions/Project%20Euler/7.cpp) |
+| 1 | [6 - Sum Square Difference](https://projecteuler.net/problem=6) | `Level 0` | $\mathcal{O}(1)$ | Feb 6, 2026 | [Code](Solutions/Project%20Euler/6.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 2 | [7 - 10 001st Prime](https://projecteuler.net/problem=7) | `Level 0` | $\mathcal{O}(n\log{\log{n}})$ | Feb 6, 2026 | [Code](Solutions/Project%20Euler/7.cpp) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
 
 ## 📂 [VNOI](https://oj.vnoi.info/)
-| # | Status | Problem Name | Tags | Complexity | Date | Solution |
+| # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [C11PRIME1 - Số nguyên tố 1](https://oj.vnoi.info/problem/c11prime) | `Number Theory` | $\mathcal{O}(n^{1/4})$ | Feb 9, 2026 | [Code](Solutions/VNOI/c11prime1.cpp) \| [Sub](https://oj.vnoi.info/submission/11678299) |
-| 2 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [C11PRIME2 - Số nguyên tố 2](https://oj.vnoi.info/problem/c11prime) | `Number Theory` | $\mathcal{O}(60\*\log{10^9}\*12\*\log^3{n})$ | Feb 9, 2026 | [Code](Solutions/VNOI/c11prime2.cpp) \| [Sub](https://oj.vnoi.info/submission/11679434) |
-| 3 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [LIQ - Dãy con tăng dài nhất (bản dễ)](https://oj.vnoi.info/problem/liq) | N/A | $\mathcal{O}(n\log{n})$ | Nov 22, 2025 | [Code](Solutions/VNOI/liq.cpp) \| [Sub](https://oj.vnoi.info/src/10967418) |
-| 4 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [VMSUDOKU - VM 14 Bài 19 - Sudoku](https://oj.vnoi.info/problem/vmsudoku) | `constructive` | $\mathcal{O}(9^{21})$ | Feb 6, 2026 | [Code](Solutions/VNOI/vmsudoku.cpp) \| [Sub](https://oj.vnoi.info/submission/11662085) |
-| 5 | ![Work In Progress](https://img.shields.io/badge/-Work%20In%20Progress-blue?style=flat-square) | [VR-DST-LISPATH - Lis Path](https://oj.vnoi.info/problem/vr_dst_lispath) | `Dynamic Programming`, `Tree` | $\mathcal{O}(n\log{n})$ | Feb 8, 2026 | [Code](Solutions/VNOI/vr-dst-lispath.cpp) \| [Sub](https://oj.vnoi.info/submission/11673982) |
+| 1 | [C11PRIME1 - Số nguyên tố 1](https://oj.vnoi.info/problem/c11prime) | `Number Theory` | $\mathcal{O}(n^{1/4})$ | Feb 9, 2026 | [Code](Solutions/VNOI/c11prime1.cpp) \| [Sub](https://oj.vnoi.info/submission/11678299) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 2 | [C11PRIME2 - Số nguyên tố 2](https://oj.vnoi.info/problem/c11prime) | `Number Theory` | $\mathcal{O}(60\*\log{10^9}\*12\*\log^3{n})$ | Feb 9, 2026 | [Code](Solutions/VNOI/c11prime2.cpp) \| [Sub](https://oj.vnoi.info/submission/11679434) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 3 | [LIQ - Dãy con tăng dài nhất (bản dễ)](https://oj.vnoi.info/problem/liq) | N/A | $\mathcal{O}(n\log{n})$ | Nov 22, 2025 | [Code](Solutions/VNOI/liq.cpp) \| [Sub](https://oj.vnoi.info/src/10967418) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 4 | [VMSUDOKU - VM 14 Bài 19 - Sudoku](https://oj.vnoi.info/problem/vmsudoku) | `constructive` | $\mathcal{O}(9^{21})$ | Feb 6, 2026 | [Code](Solutions/VNOI/vmsudoku.cpp) \| [Sub](https://oj.vnoi.info/submission/11662085) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
+| 5 | [VR-DST-LISPATH - Lis Path](https://oj.vnoi.info/problem/vr_dst_lispath) | `Dynamic Programming`, `Tree` | $\mathcal{O}(n\log{n})$ | Feb 8, 2026 | [Code](Solutions/VNOI/vr-dst-lispath.cpp) \| [Sub](https://oj.vnoi.info/submission/11673982) | ![Accepted](https://img.shields.io/badge/-Accepted-brightgreen?style=flat-square) |
 
