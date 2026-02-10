@@ -17,4 +17,5 @@
 .vscode/
 .idea/
 .cph/
+.cph
 *.swp
