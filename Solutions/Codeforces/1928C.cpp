@@ -1,9 +1,9 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-10 11:04:54
+ *    created: 2026-02-10 11:26:36
  *    country: Vietnam - VNM
- *    title: 
- *    source: 
+ *    title: Physical Education Lesson
+ *    source: https://codeforces.com/problemset/problem/1928/C
  *    submission: 
  * ----------------------------------------------------------
  *    tags: 

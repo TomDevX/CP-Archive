@@ -1,9 +1,9 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-10 11:04:54
+ *    created: 2026-02-10 11:26:09
  *    country: Vietnam - VNM
- *    title: 
- *    source: 
+ *    title: You Soared Afar With Grace
+ *    source: https://codeforces.com/problemset/problem/2084/C
  *    submission: 
  * ----------------------------------------------------------
  *    tags: 

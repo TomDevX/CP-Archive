@@ -1,9 +1,9 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-10 11:04:54
+ *    created: 2026-02-10 11:25:37
  *    country: Vietnam - VNM
- *    title: 
- *    source: 
+ *    title: Set of Strangers
+ *    source: https://codeforces.com/problemset/problem/2069/B
  *    submission: 
  * ----------------------------------------------------------
  *    tags: 
