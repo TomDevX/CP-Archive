@@ -6,7 +6,7 @@
  *    title: Set of Strangers
  *    source: https://codeforces.com/problemset/problem/2069/B
  *    submission: https://codeforces.com/problemset/submission/2069/362299991
- *    status: WA
+ *    status: AC
  * ----------------------------------------------------------
  *    tags: greedy
  *    complexity: O(t\*n\*m)

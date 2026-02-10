@@ -2,12 +2,16 @@ import os
 import re
 from datetime import datetime, timedelta, timezone
 
+# --- CONFIGURATION ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 README_FILE = os.path.join(BASE_DIR, 'README.md')
-root_dir = BASE_DIR
+# Duyệt từ thư mục Solutions như bản cũ
+root_dir = os.path.join(BASE_DIR, 'Solutions') if os.path.isdir(os.path.join(BASE_DIR, 'Solutions')) else BASE_DIR
+
 EXCLUDE_DIRS = {'.git', '.github', '.assets', 'venv', '__pycache__', '.cph'}
 CITY_ID = 218 
 
+# Labels cũ & Priority để xử lý trùng bài
 STATUS_MAP = {
     "AC": {"full": "Accepted", "color": "4c1", "prio": 4},        
     "WA": {"full": "Wrong Answer", "color": "e05d44", "prio": 2},  
@@ -15,6 +19,7 @@ STATUS_MAP = {
     "WIP": {"full": "Work In Progress", "color": "007ec6", "prio": 1},     
 }
 
+# --- HELPERS ---
 def natural_sort_key(s):
     return [int(text) if text.isdigit() else text.lower()
             for text in re.split('([0-9]+)', s)]
@@ -52,7 +57,7 @@ def create_slug(text):
     return slug
 
 def extract_metadata(file_path):
-    # Giữ nguyên logic tìm từ khóa (không đổi phần hiện tại)
+    # Duyệt header chuyên nghiệp (quét từ khóa linh hoạt)
     meta = {"source": None, "submission": None, "tags": "N/A", "complexity": "N/A", "title": None, "date": "N/A", "status": "AC"}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -128,86 +133,82 @@ def auto_generate_link(file_path):
     return None
 
 def generate_readme():
-    # Label Header từ code cũ
+    # Label Header từ code cũ (Đã bỏ HEADER.md theo yêu cầu)
     content = "# 🏆 Competitive Programming Repository\n\n"
     
-    root_dir = "."
-    unique_problems = {}
+    unique_problems = {} # Để đếm trùng bài tập dựa trên source
     main_content = ""
     toc_content = "## 📌 Table of Contents\n\n"
     
+    if not os.path.isdir(root_dir):
+        return
+
+    # Duyệt, lọc và sort folder giống code cũ
     folder_data = []
+    added_to_toc = set()
+
     for root, dirs, files in os.walk(root_dir):
         dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
+        rel_path = os.path.relpath(root, root_dir)
+        
+        if rel_path != ".":
+            parts = rel_path.split(os.sep)
+            for i in range(len(parts)):
+                current_path = os.path.join(root_dir, *parts[:i+1])
+                if current_path not in added_to_toc:
+                    depth = i
+                    indent = "  " * depth
+                    title = format_display_name(parts[i], is_oj=(i == 0))
+                    toc_content += f"{indent}* [📂 {title}](#-{create_slug(title)})\n"
+                    added_to_toc.add(current_path)
+
         cpp_files = [f for f in files if f.endswith('.cpp')]
         if cpp_files:
             folder_data.append((root, cpp_files))
+
     folder_data.sort(key=lambda x: natural_sort_key(x[0]))
 
-    # Table of Contents phân cấp
-    added_to_toc = set()
-    for path, _ in folder_data:
-        rel_path = os.path.relpath(path, root_dir)
-        if rel_path == ".": continue
-        parts = rel_path.split(os.sep)
-        for i in range(len(parts)):
-            current_path = os.path.join(root_dir, *parts[:i+1])
-            if current_path not in added_to_toc:
-                depth = i
-                indent = "  " * depth
-                title = format_display_name(parts[i], is_oj=(i == 0))
-                toc_content += f"{indent}* [📂 {title}](#-{create_slug(title)})\n"
-                added_to_toc.add(current_path)
-
     for path, files in folder_data:
-        rel_path = os.path.relpath(path, root_dir)
+        rel_path_from_sol = os.path.relpath(path, root_dir)
         base_name = os.path.basename(path)
-        is_oj_folder = (os.path.dirname(rel_path) == "")
+        is_oj_folder = (os.path.dirname(rel_path_from_sol) == "")
         title = format_display_name(base_name, is_oj=is_oj_folder)
         
-        # Link OJ folder từ file config
-        oj_url = get_oj_link_from_file(path) if is_oj_folder else None
-        if oj_url:
-            main_content += f"## 📂 [{title}]({oj_url})\n"
+        if is_oj_folder:
+            oj_url = get_oj_link_from_file(path)
+            main_content += f"## 📂 [{title}]({oj_url})\n" if oj_url else f"## 📂 {title}\n"
         else:
-            main_content += f"## 📂 {title}\n" if is_oj_folder else f"### 📁 {title}\n"
+            main_content += f"### 📁 {title}\n"
         
         files.sort(key=natural_sort_key)
-        # Label Problem Name từ code cũ
         table = "| # | Problem Name | Tags | Complexity | Date | Solution | Status |\n| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
         
         for i, file in enumerate(files, 1):
             full_path = os.path.join(path, file)
             meta = extract_metadata(full_path)
             
-            # Logic unique problems (vẫn giữ tính năng hiện đại này)
-            prob_id = meta["source"] or full_path
+            # Khử trùng bài tập: Ưu tiên trạng thái cao nhất (AC)
+            prob_id = meta["source"] if meta["source"] else full_path
             current_status = meta["status"]
             if prob_id not in unique_problems or STATUS_MAP[current_status]['prio'] > STATUS_MAP[unique_problems[prob_id]]['prio']:
                 unique_problems[prob_id] = current_status
             
-            # Formatting Display Name
             filename_no_ext = file.replace('.cpp', '')
             file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
-            if meta["title"]:
-                display_name = f"{file_id} - {meta['title']}"
-            elif '_' in filename_no_ext:
-                prob_name_parts = filename_no_ext.split('_')[1:]
-                display_name = f"{file_id} - {' '.join(prob_name_parts).title()}"
-            else:
-                display_name = file_id
-
+            
+            display_name = f"{file_id} - {meta['title']}" if meta["title"] else format_display_name(file)
             prob_link = meta["source"] or auto_generate_link(full_path)
             name_md = f"[{display_name}]({prob_link})" if prob_link else display_name
             
-            sol_link = full_path.replace('\\', '/').replace(' ', '%20').replace('./', '')
-            sol_md = f"[Code]({sol_link})"
+            rel_sol_path = os.path.relpath(full_path, BASE_DIR).replace('\\', '/').replace(' ', '%20')
+            sol_md = f"[Code]({rel_sol_path})"
             if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
             
             table += f"| {i} | {name_md} | {meta['tags']} | {meta['complexity']} | {meta['date']} | {sol_md} | {get_status_badge(meta['status'])} |\n"
+                
         main_content += table + "\n"
-
-    # Repository Stats với các labels cũ
+        
+    # --- STATS SECTION ---
     total_problems_count = len(unique_problems)
     total_ac = list(unique_problems.values()).count("AC")
     
@@ -217,13 +218,17 @@ def generate_readme():
     badge_time = (time_str.replace("-", "--").replace(" ", "_").replace(":", "%3A")
                           .replace(",", "%2C").replace("(", "%28").replace(")", "%29"))
     
+    # URL cho các badges
     badge_url = f"https://img.shields.io/badge/Last_Update-{badge_time}-0078d4?style=for-the-badge&logo=github"
     time_link = f"https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso={iso_string}&p1={CITY_ID}"
     
+    # Feature mới: Badge mục tiêu Progress
+    progress_badge = f"https://img.shields.io/badge/Progress-{total_ac}/{total_problems_count}-4c1?style=for-the-badge&logo=target"
+    
     stats = f"### 📊 Repository Stats\n\n"
-    # Đổi Unique Problems -> Total Problems theo yêu cầu
+    stats += f"![Progress]({progress_badge})\n\n" # Hiển thị badge Progress đầu tiên
     stats += f"- **Total Problems:** {total_problems_count}\n"
-    stats += f"- **Accepted (Best Effort):** {total_ac}\n"
+    stats += f"- **Accepted:** {total_ac}\n"
     stats += f"- **Origin Timezone:** Ho Chi Minh City (GMT+7)\n\n"
     stats += f"[![Last Update]({badge_url})]({time_link} \"🖱️ CLICK TO CONVERT\")\n\n---\n"
     
