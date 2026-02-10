@@ -5,7 +5,7 @@ from datetime import datetime, timedelta, timezone
 # --- CONFIGURATION ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 README_FILE = os.path.join(BASE_DIR, 'README.md')
-# Duyệt từ thư mục Solutions như bản cũ
+# Duyệt từ thư mục Solutions hoặc thư mục hiện tại
 root_dir = os.path.join(BASE_DIR, 'Solutions') if os.path.isdir(os.path.join(BASE_DIR, 'Solutions')) else BASE_DIR
 
 EXCLUDE_DIRS = {'.git', '.github', '.assets', 'venv', '__pycache__', '.cph'}
@@ -47,6 +47,7 @@ def get_oj_link_from_file(folder_path):
 def format_display_name(name, is_oj=False):
     if not name: return ""
     if is_oj: return name
+    # Xử lý chuỗi đã bỏ extension
     parts = name.split('_')
     if parts[0].isdigit(): parts = parts[1:]
     return " ".join(parts).replace('-', ' ').title()
@@ -57,7 +58,7 @@ def create_slug(text):
     return slug
 
 def extract_metadata(file_path):
-    # Duyệt header chuyên nghiệp (quét từ khóa linh hoạt)
+    # Duyệt header chuyên nghiệp (quét từ khóa)
     meta = {"source": None, "submission": None, "tags": "N/A", "complexity": "N/A", "title": None, "date": "N/A", "status": "AC"}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -133,17 +134,16 @@ def auto_generate_link(file_path):
     return None
 
 def generate_readme():
-    # Label Header từ code cũ
-    content = "# 🏆 Competitive Programming Library\n\n"
+    content = "# 🏆 Competitive Programming Repository\n\n"
     
-    unique_problems = {} # Để khử trùng dựa trên source URL
+    unique_problems = {}
     main_content = ""
     toc_content = "## 📌 Table of Contents\n\n"
     
     if not os.path.isdir(root_dir):
         return
 
-    # Duyệt, lọc và sort folder giống code cũ
+    # Duyệt, lọc và sort folder
     folder_data = []
     added_to_toc = set()
 
@@ -187,16 +187,22 @@ def generate_readme():
             full_path = os.path.join(path, file)
             meta = extract_metadata(full_path)
             
-            # Logic đếm trùng bài tập (deduplication)
+            # Khử trùng bài tập
             prob_id = meta["source"] if meta["source"] else full_path
             current_status = meta["status"]
             if prob_id not in unique_problems or STATUS_MAP[current_status]['prio'] > STATUS_MAP[unique_problems[prob_id]]['prio']:
                 unique_problems[prob_id] = current_status
             
+            # --- FIX: Loại bỏ extension .cpp trước khi xử lý tên bài tập ---
             filename_no_ext = file.replace('.cpp', '')
             file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
             
-            display_name = f"{file_id} - {meta['title']}" if meta["title"] else format_display_name(file)
+            if meta["title"]:
+                display_name = f"{file_id} - {meta['title']}"
+            else:
+                # Sử dụng filename_no_ext thay vì file để tránh đuôi .cpp
+                display_name = format_display_name(filename_no_ext) 
+            
             prob_link = meta["source"] or auto_generate_link(full_path)
             name_md = f"[{display_name}]({prob_link})" if prob_link else display_name
             
@@ -218,13 +224,11 @@ def generate_readme():
     badge_time = (time_str.replace("-", "--").replace(" ", "_").replace(":", "%3A")
                           .replace(",", "%2C").replace("(", "%28").replace(")", "%29"))
     
-    # URL cho các badges
     badge_url = f"https://img.shields.io/badge/Last_Update-{badge_time}-0078d4?style=for-the-badge&logo=github"
     time_link = f"https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso={iso_string}&p1={CITY_ID}"
     progress_badge = f"https://img.shields.io/badge/Progress-{total_ac}/{total_problems_count}-4c1?style=for-the-badge&logo=target"
     
     stats = f"### 📊 Repository Stats\n\n"
-    # Đưa Last Update lên nằm kế bên Progress
     stats += f"![Progress]({progress_badge}) [![Last Update]({badge_url})]({time_link} \"🖱️ CLICK TO CONVERT\")\n\n"
     stats += f"- **Total Problems:** {total_problems_count}\n"
     stats += f"- **Accepted:** {total_ac}\n"
