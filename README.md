@@ -32,7 +32,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 - **Total Problems:** 90
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-[![Last Update](https://img.shields.io/badge/Last_Update-Feb_10%2C_2026_--_23%3A20_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260210T2320&p1=218 "🖱️ CLICK TO CONVERT")
+[![Last Update](https://img.shields.io/badge/Last_Update-Feb_10%2C_2026_--_23%3A29_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260210T2329&p1=218 "🖱️ CLICK TO CONVERT")
 
 ---
 ## 📌 Table of Contents
@@ -127,7 +127,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 | 73 | [1996D](https://codeforces.com/contest/1996/problem/D) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1996D.cpp) |
 | 74 | [1997A](https://codeforces.com/contest/1997/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1997A.cpp) |
 | 75 | [1997B](https://codeforces.com/contest/1997/problem/B) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1997B.cpp) |
-| 76 | [2069B - Set of Strangers](https://codeforces.com/problemset/problem/2069/B) | N/A | N/A | Feb 10, 2026 | [Code](Solutions/Codeforces/2069B.cpp) |
+| 76 | [2069B - Set of Strangers](https://codeforces.com/problemset/problem/2069/B) | `greedy` | $\mathcal{O}(t\*n\*m)$ | Feb 10, 2026 | [Code](Solutions/Codeforces/2069B.cpp) \| [Sub](https://codeforces.com/problemset/submission/2069/362299991) |
 | 77 | [2084C - You Soared Afar With Grace](https://codeforces.com/problemset/problem/2084/C) | N/A | N/A | Feb 10, 2026 | [Code](Solutions/Codeforces/2084C.cpp) |
 
 ### 📁 Advanced Techniques
