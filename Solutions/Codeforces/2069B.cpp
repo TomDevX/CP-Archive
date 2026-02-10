@@ -2,14 +2,14 @@
  *    author: TomDev - Tran Hoang Quan
  *    created: 2026-02-10 11:25:37
  *    country: Vietnam - VNM
+ * ----------------------------------------------------------
  *    title: Set of Strangers
  *    source: https://codeforces.com/problemset/problem/2069/B
  *    submission: https://codeforces.com/problemset/submission/2069/362299991
- * ----------------------------------------------------------
  *    tags: greedy
  *    complexity: O(t\*n\*m)
- *    note: With greedy, we know that when we want to transform a value into another value, we only need to process 2 times maximum, because we only need to change those cells, and their side-sharing cells
  *    status: AC
+ *    note: With greedy, we know that when we want to transform a value into another value, we only need to process 2 times maximum, because we only need to change those cells, and their side-sharing cells
  **/
 
 #include <iostream>
