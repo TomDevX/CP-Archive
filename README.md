@@ -29,10 +29,10 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ---
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-88/90-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_11%2C_2026_--_01%3A06_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260211T0106&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-89/90-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_11%2C_2026_--_01%3A06_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260211T0106&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 90
-- **Accepted:** 88
+- **Accepted:** 89
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 ---
@@ -126,7 +126,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 | 73 | [1996D](https://codeforces.com/contest/1996/problem/D) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1996D.cpp) | ![Accepted](https://img.shields.io/static/v1?label=&message=Accepted&color=4c1&style=for-the-badge) |
 | 74 | [1997A](https://codeforces.com/contest/1997/problem/A) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1997A.cpp) | ![Accepted](https://img.shields.io/static/v1?label=&message=Accepted&color=4c1&style=for-the-badge) |
 | 75 | [1997B](https://codeforces.com/contest/1997/problem/B) | N/A | N/A | N/A | [Code](Solutions/Codeforces/1997B.cpp) | ![Accepted](https://img.shields.io/static/v1?label=&message=Accepted&color=4c1&style=for-the-badge) |
-| 76 | [2069B - Set of Strangers](https://codeforces.com/problemset/problem/2069/B) | `greedy` | $\mathcal{O}(t\*n\*m)$ | Feb 10, 2026 | [Code](Solutions/Codeforces/2069B.cpp) \| [Sub](https://codeforces.com/problemset/submission/2069/362299991) | ![Time Limit Exceeded](https://img.shields.io/static/v1?label=&message=Time%20Limit%20Exceeded&color=dfb317&style=for-the-badge) |
+| 76 | [2069B - Set of Strangers](https://codeforces.com/problemset/problem/2069/B) | `greedy` | $\mathcal{O}(t\*n\*m)$ | Feb 10, 2026 | [Code](Solutions/Codeforces/2069B.cpp) \| [Sub](https://codeforces.com/problemset/submission/2069/362299991) | ![Accepted](https://img.shields.io/static/v1?label=&message=Accepted&color=4c1&style=for-the-badge) |
 | 77 | [2084C - You Soared Afar With Grace](https://codeforces.com/problemset/problem/2084/C) | N/A | N/A | Feb 10, 2026 | [Code](Solutions/Codeforces/2084C.cpp) | ![Accepted](https://img.shields.io/static/v1?label=&message=Accepted&color=4c1&style=for-the-badge) |
 
 ### 📁 Advanced Techniques
