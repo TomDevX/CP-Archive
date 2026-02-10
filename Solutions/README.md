@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-89/89-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_11%2C_2026_--_02%3A09_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260211T0209&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-87/89-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_11%2C_2026_--_02%3A12_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260211T0212&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 89
-- **Accepted:** 89
+- **Accepted:** 87
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 ---
@@ -91,7 +91,7 @@
 | 65 | [1742A](https://codeforces.com/contest/1742/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1742A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 66 | [1829B - Blank Space](https://codeforces.com/problemset/problem/1829/B) | `implementation` | $\mathcal{O}(t*n)$ | Feb 6, 2026 | [Code](Codeforces/1829B.cpp) \| [Sub](https://codeforces.com/problemset/submission/1829/361679553) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 67 | [1906A - Easy as ABC](https://codeforces.com/problemset/problem/1906/A) | `Brute Force` | $\mathcal{O}(3^6)$ | Feb 10, 2026 | [Code](Codeforces/1906A.cpp) \| [Sub](https://codeforces.com/problemset/submission/1906/362212391) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 68 | [1928C - Physical Education Lesson](https://codeforces.com/problemset/problem/1928/C) | N/A | N/A | Feb 10, 2026 | [Code](Codeforces/1928C.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 68 | [1928C - Physical Education Lesson](https://codeforces.com/problemset/problem/1928/C) | N/A | N/A | Feb 10, 2026 | [Code](Codeforces/1928C.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 69 | [1987A](https://codeforces.com/contest/1987/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1987A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 70 | [1996A](https://codeforces.com/contest/1996/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1996A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 71 | [1996B](https://codeforces.com/contest/1996/problem/B) | N/A | N/A | N/A | [Code](Codeforces/1996B.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -100,7 +100,7 @@
 | 74 | [1997A](https://codeforces.com/contest/1997/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1997A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 75 | [1997B](https://codeforces.com/contest/1997/problem/B) | N/A | N/A | N/A | [Code](Codeforces/1997B.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 76 | [2069B - Set of Strangers](https://codeforces.com/problemset/problem/2069/B) | `greedy` | $\mathcal{O}(t\*n\*m)$ | Feb 10, 2026 | [Code](Codeforces/2069B.cpp) \| [Sub](https://codeforces.com/problemset/submission/2069/362299991) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 77 | [2084C - You Soared Afar With Grace](https://codeforces.com/problemset/problem/2084/C) | N/A | N/A | Feb 10, 2026 | [Code](Codeforces/2084C.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 77 | [2084C - You Soared Afar With Grace](https://codeforces.com/problemset/problem/2084/C) | N/A | N/A | Feb 10, 2026 | [Code](Codeforces/2084C.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
 ### 📁 Advanced Techniques
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
