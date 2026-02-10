@@ -6,9 +6,10 @@
  *    title: Set of Strangers
  *    source: https://codeforces.com/problemset/problem/2069/B
  *    submission: https://codeforces.com/problemset/submission/2069/362299991
+ *    status: AC
+ * ----------------------------------------------------------
  *    tags: greedy
  *    complexity: O(t\*n\*m)
- *    status: AC
  *    note: With greedy, we know that when we want to transform a value into another value, we only need to process 2 times maximum, because we only need to change those cells, and their side-sharing cells
  **/
 

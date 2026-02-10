@@ -2,9 +2,11 @@
  *    author: TomDev - Tran Hoang Quan
  *    created: 2026-02-09 15:36:58
  *    country: Vietnam - VNM
+ * ----------------------------------------------------------
  *    title: Số nguyên tố 1
  *    source: https://oj.vnoi.info/problem/c11prime
  *    submission: https://oj.vnoi.info/submission/11678299
+ *    status: TLE
  * ----------------------------------------------------------
  *    tags: Number Theory
  *    complexity: O(n^{1/4})
