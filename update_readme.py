@@ -3,7 +3,8 @@ import re
 import subprocess
 from datetime import datetime, timedelta, timezone
 
-EXCLUDE_DIRS = {'.git', '.github', '.assets', 'venv', '__pycache__'}
+# THAY ĐỔI: Thêm '.cph' vào danh sách loại trừ
+EXCLUDE_DIRS = {'.git', '.github', '.assets', 'venv', '__pycache__', '.cph'}
 README_FILE = 'README.md'
 HEADER_FILE = 'HEADER.md'
 CITY_ID = 218 
@@ -119,7 +120,6 @@ def get_status_badge(status_code):
     
     encoded_msg = full_name.replace(" ", "%20")
     
-    # CHỈNH SỬA: Thay đổi style thành 'for-the-badge'
     badge_url = f"https://img.shields.io/static/v1?label=&message={encoded_msg}&color={color}&style=for-the-badge"
     return f"![{full_name}]({badge_url})"
 
@@ -145,7 +145,7 @@ def generate_readme():
         content = "# 🏆 Competitive Programming Repository\n\n"
     
     total_problems = 0
-    total_ac = 0 # Biến đếm số bài Accepted
+    total_ac = 0 
     main_content = ""
     toc_content = "## 📌 Table of Contents\n\n"
     root_dir = "Solutions"
@@ -153,6 +153,7 @@ def generate_readme():
 
     added_to_toc = set()
     for root, dirs, files in os.walk(root_dir):
+        # Bộ lọc directories đã bao gồm .cph
         dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
         rel_path = os.path.relpath(root, root_dir)
         if rel_path == ".": continue
@@ -168,6 +169,7 @@ def generate_readme():
     
     folder_data = []
     for root, dirs, files in os.walk(root_dir):
+        # Bộ lọc directories đã bao gồm .cph
         dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
         cpp_files = [f for f in files if f.endswith('.cpp')]
         if cpp_files:
@@ -195,7 +197,6 @@ def generate_readme():
             meta = extract_metadata(full_path)
             status_badge = get_status_badge(meta["status"])
             
-            # Cập nhật số lượng bài AC
             if meta["status"] == "AC":
                 total_ac += 1
             
@@ -225,16 +226,12 @@ def generate_readme():
     badge_time = (time_str.replace("-", "--").replace(" ", "_").replace(":", "%3A")
                           .replace(",", "%2C").replace("(", "%28").replace(")", "%29"))
     
-    # Badge Thời gian cập nhật
     update_badge = f"https://img.shields.io/badge/Last_Update-{badge_time}-0078d4?style=for-the-badge&logo=github"
-    
-    # TẠO BADGE TIẾN ĐỘ (Progress Badge)
     progress_val = f"{total_ac}/{total_problems}"
     progress_badge = f"https://img.shields.io/badge/Progress-{progress_val}-4c1?style=for-the-badge&logo=target"
     
     time_link = f"https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso={iso_string}&p1={CITY_ID}"
     
-    # Cập nhật phần Stats hiển thị Badge Tiến độ
     stats = f"### 📊 Repository Stats\n\n"
     stats += f"![Progress]({progress_badge}) "
     stats += f"[![Last Update]({update_badge})]({time_link} \"🖱️ CLICK TO CONVERT\")\n\n"

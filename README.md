@@ -29,7 +29,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ---
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-90/90-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_11%2C_2026_--_00%3A39_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260211T0039&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-90/90-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_11%2C_2026_--_01%3A03_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260211T0103&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 90
 - **Accepted:** 90
@@ -39,7 +39,6 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ## 📌 Table of Contents
 
 * [📂 Codeforces](#-codeforces)
-  * [📂 .Cph](#-cph)
 * [📂 CSES](#-cses)
   * [📂 Advanced Techniques](#-advanced-techniques)
   * [📂 Dynamic Programming](#-dynamic-programming)
@@ -47,7 +46,6 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
   * [📂 Sorting And Searching](#-sorting-and-searching)
 * [📂 Project Euler](#-project-euler)
 * [📂 VNOI](#-vnoi)
-  * [📂 .Cph](#-cph)
 
 ---
 ## 📂 [Codeforces](https://codeforces.com/)
