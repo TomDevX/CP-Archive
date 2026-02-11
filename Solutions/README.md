@@ -2,9 +2,9 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-87/89-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_11%2C_2026_--_02%3A12_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260211T0212&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-87/91-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_11%2C_2026_--_15%3A26_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260211T1526&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 89
+- **Total Problems:** 91
 - **Accepted:** 87
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
@@ -16,6 +16,7 @@
   * [📂 Advanced Techniques](#-advanced-techniques)
   * [📂 Dynamic Programming](#-dynamic-programming)
   * [📂 Graph](#-graph)
+  * [📂 Sliding Windơows Problem](#-sliding-windơows-problem)
   * [📂 Sorting And Searching](#-sorting-and-searching)
 * [📂 Project Euler](#-project-euler)
 * [📂 VNOI](#-vnoi)
@@ -111,12 +112,18 @@
 ### 📁 Dynamic Programming
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | $\mathcal{O}(n)$ | Feb 4, 2026 | [Code](CSES/Dynamic%20Programming/2413_Counting_Towers.cpp) \| [Sub](https://cses.fi/paste/67df7ff1543072a9f68403/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | [1744 - Rectangle Cutting](https://cses.fi/problemset/task/1744) | N/A | N/A | Feb 11, 2026 | [Code](CSES/Dynamic%20Programming/1744.cpp) | ![WA](https://img.shields.io/static/v1?label=&message=%20%20%20WA%20%20%20&color=e05d44&style=for-the-badge) |
+| 2 | [](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | $\mathcal{O}(n)$ | Feb 4, 2026 | [Code](CSES/Dynamic%20Programming/2413.cpp) \| [Sub](https://cses.fi/paste/67df7ff1543072a9f68403/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ### 📁 Graph
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1192 - Counting Rooms](https://cses.fi/problemset/task/1192/) | `BFS`, `flood fill` | $\mathcal{O}(V+E)$ | Aug 9, 2025 | [Code](CSES/Graph/1192_Counting_Rooms.cpp) \| [Sub](https://cses.fi/paste/96f91e45fb63bc5dd6975e/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+
+### 📁 Sliding Windơows Problem
+| # | Problem Name | Tags | Complexity | Date | Solution | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | [3220 - Sliding Window Sum](https://cses.fi/problemset/task/3220) | N/A | N/A | Feb 11, 2026 | [Code](CSES/Sliding%20Windơows%20Problem/3220.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
 ### 📁 Sorting And Searching
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
