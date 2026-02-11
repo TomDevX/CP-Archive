@@ -5,18 +5,19 @@
  * ----------------------------------------------------------
  *    title: Rectangle Cutting
  *    source: https://cses.fi/problemset/task/1744
- *    submission: 
- *    status: WA
+ *    submission: https://cses.fi/problemset/result/16234536/
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Dynamic Programming
+ *    complexity: O(n\*m\*m + n\*n\*m)
+ *    note: Let dp[i][j] is the minimum moves to cut the (1,1) -> (i,j) rectangle into squares. dp[i][j] is affected by its possible horizontal and vertical cuts. 
 **/
 
 #include <iostream>
 #include <vector>
 #include <cstdio>
 #include <utility>
+#include <algorithm>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n';
@@ -75,10 +76,15 @@ int main(){
         for(int j = 2; j <= m; j++){
             if(i == j) continue;
             
-            if(i > j){
-                dp[i][j] = dp[i-j][j] + 1;
+            dp[i][j] = 1e9;
+            int &cur = dp[i][j];
+            for(int k = 1; k < i; k++){
+                cur = min(cur,dp[k][j] + dp[i-k][j]);
             }
-            else dp[i][j] = dp[i][j-i] + 1;
+            for(int k = 1; k < j; k++){
+                cur = min(cur,dp[i][k] + dp[i][j-k]);
+            }
+            cur++;
         }
     }
 
