@@ -9,7 +9,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Dynamic Programming
- *    complexity: O(n\*m\*m + n\*n\*m)
+ *    complexity: O(n\*m\*(n+m))
  *    note: Let dp[i][j] is the minimum moves to cut the (1,1) -> (i,j) rectangle into squares. dp[i][j] is affected by its possible horizontal and vertical cuts. 
 **/
 
