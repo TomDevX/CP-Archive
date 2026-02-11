@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-89/93-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_12%2C_2026_--_00%3A21_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260212T0021&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-90/93-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_12%2C_2026_--_01%3A37_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260212T0137&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 93
-- **Accepted:** 89
+- **Accepted:** 90
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 ---
@@ -115,7 +115,7 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1744 - Rectangle Cutting](https://cses.fi/problemset/task/1744) | `Dynamic Programming` | $\mathcal{O}(n\*m\*(n+m))$ | Feb 11, 2026 | [Code](CSES/Dynamic%20Programming/1744.cpp) \| [Sub](https://cses.fi/problemset/result/16234536/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [2413 - Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | $\mathcal{O}(n)$ | Feb 4, 2026 | [Code](CSES/Dynamic%20Programming/2413.cpp) \| [Sub](https://cses.fi/paste/67df7ff1543072a9f68403/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 3 | [3359 - Minimal Grid Path](https://cses.fi/problemset/task/3359) | N/A | N/A | Feb 11, 2026 | [Code](CSES/Dynamic%20Programming/3359.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 3 | [3359 - Minimal Grid Path](https://cses.fi/problemset/task/3359) | `Dynamic Programming` | $\mathcal{O}(n*m)$ | Feb 11, 2026 | [Code](CSES/Dynamic%20Programming/3359.cpp) \| [Sub](https://cses.fi/problemset/result/16238561/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ### 📁 Graph
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |

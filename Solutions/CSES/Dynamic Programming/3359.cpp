@@ -5,19 +5,19 @@
  * ----------------------------------------------------------
  *    title: Minimal Grid Path
  *    source: https://cses.fi/problemset/task/3359
- *    submission: 
- *    status: WIP
+ *    submission: https://cses.fi/problemset/result/16238561/
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Dynamic Programming
+ *    complexity: O(n*m)
+ *    note: Classical DP Grid but we use bottom-up approach, we need to mark if that cell is visited to prevent extra iterations. We also greedy that we get the current character smaller = whole string smaller
 **/
-
+ 
 #include <iostream>
 #include <vector>
 #include <cstdio>
 #include <utility>
-#include <queue>
+#include <bitset>
 #include <algorithm>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
@@ -25,9 +25,9 @@
 #else
     #define dbg(x,i)
 #endif
-
+ 
 using namespace std;
-
+ 
 #define all(x,bonus) (x).begin()+(bonus),(x).end()
 #define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
 #define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
@@ -45,68 +45,62 @@ using vi = vector<int>;
 using vii = vector<vector<int>>;
 using vll = vector<long long>;
 using vlll = vector<vector<long long>>;
-
+ 
 void setup(){
     if(!fopen("NAME.INP", "r")) return;
     freopen("NAME.INP", "r", stdin);
     freopen("NAME.OUT", "w", stdout);
 }
-
+ 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 int n;
 const int N = 3002;
 char a[N][N];
-const int X[2] = {0,1};
-const int Y[2] = {1,0};
+bitset<N> vis[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 bool check(int x, int y){
     return x >= 1 && x <= n && y >= 1 && y <= n;
 }
-
+ 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
-
+ 
     cin >> n;
-
+ 
     for(int i = 1; i <= n; i++){
         for(int j = 1; j <= n; j++){
             cin >> a[i][j];
         }
     }
     cout << a[1][1];
-
-    queue<pii> qu;
-    qu.push({1,1});
-    int level = 1;
-    while(!qu.empty()){
-        int x = qu.front().fi, y = qu.front().se;
-        qu.pop();
-
+ 
+    vector<pii> cur;
+    cur.eb(1,1);
+    vis[1][1] = 1;
+ 
+    while(!cur.empty()){
+        vector<pii> nxt;
+ 
         char minn = 'Z' + 1;
-        for(int k = 0; k < 2; k++){
-            int newx = x + X[k];
-            int newy = y + Y[k];
-            if(!check(newx,newy)) continue;
-
-            minn = min(minn,a[newx][newy]);
+        for(pii p : cur){
+            int x = p.fi, y = p.se;
+            if(x + 1 <= n && !vis[x+1][y]) minn = min(minn, a[x+1][y]);
+            if(y + 1 <= n && !vis[x][y+1]) minn = min(minn, a[x][y+1]);
         }
+ 
+        if(minn == 'Z' + 1){
+            return 0;
+        }
+        cout << minn;
         
-        int cur_level = x+y;
-        if(cur_level > level){
-            level = cur_level;
-            cout << minn;
+        for(pii p : cur){
+            int x = p.fi, y = p.se;
+            if(x + 1 <= n && !vis[x+1][y] && a[x+1][y] == minn) nxt.eb(x+1,y), vis[x+1][y] = 1;
+            if(y + 1 <= n && !vis[x][y+1] && a[x][y+1] == minn) nxt.eb(x,y+1), vis[x][y+1] = 1;
         }
-
-        for(int k = 0; k < 2; k++){
-            int newx = x + X[k];
-            int newy = y + Y[k];
-            if(!check(newx,newy) || a[newx][newy] != minn) continue;
-
-            qu.push({newx,newy});
-        }
+        cur = nxt;
     }
-    cout << a[n][n];
 }
