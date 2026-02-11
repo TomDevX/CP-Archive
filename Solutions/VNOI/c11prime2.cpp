@@ -2,7 +2,7 @@
  *    author: TomDev - Tran Hoang Quan
  *    created: 2026-02-09 22:35:26
  *    country: Vietnam - VNM
- *    title: Số nguyên tố 2
+ *    title: Số nguyên tố (#2 Approach)
  *    source: https://oj.vnoi.info/problem/c11prime
  *    submission: https://oj.vnoi.info/submission/11679434
  * ----------------------------------------------------------
