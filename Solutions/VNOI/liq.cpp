@@ -7,7 +7,7 @@
  *    submission: https://oj.vnoi.info/src/10967418
  * ----------------------------------------------------------
  *    algorithm: Dynamic Programming, Binary Search
- *    complexity: O(n\log{n})
+ *    complexity: O(n \log n)
  *    note:
  **/
 
@@ -16,9 +16,7 @@
 #include <algorithm>
 #include <cmath>
 #include <cstdio>
-#include <utility>
 #include <cstring>
-#include <bitset>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n';

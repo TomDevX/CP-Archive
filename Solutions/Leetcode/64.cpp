@@ -9,7 +9,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Dynamic Programming
- *    complexity: O(n*m)
+ *    complexity: O(n \cdot m)
  *    note: Classical Grid path DP
 **/
 

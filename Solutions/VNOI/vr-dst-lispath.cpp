@@ -7,7 +7,7 @@
  *    submission: https://oj.vnoi.info/submission/11673982
  * ----------------------------------------------------------
  *    tags: Dynamic Programming, Tree
- *    complexity: O(n\log{n})
+ *    complexity: O(n \log n)
  *    note: We DFS on the tree normally and DP to get LIS normally, but we need to store the old value at that lis position on each vertex so we can do the recursive 
 **/
 

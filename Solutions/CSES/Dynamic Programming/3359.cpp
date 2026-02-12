@@ -9,7 +9,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Dynamic Programming
- *    complexity: O(n*m)
+ *    complexity: O(n* \cdot m)
  *    note: Classical DP Grid but we use bottom-up approach, we need to mark if that cell is visited to prevent extra iterations. We also greedy that we get the current character smaller = whole string smaller
 **/
  

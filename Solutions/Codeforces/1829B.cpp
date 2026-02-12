@@ -7,7 +7,7 @@
  *    submission: https://codeforces.com/problemset/submission/1829/361679553
  * ----------------------------------------------------------
  *    tags: implementation
- *    complexity: O(t*n)
+ *    complexity: O(t \cdot n)
  *    note: Just do what the problem tell you to do
  **/
 
