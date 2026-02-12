@@ -53,12 +53,13 @@ def format_display_name(name, is_oj=False):
     return " ".join(parts).replace('-', ' ').title()
 
 def create_slug(text):
-    slug = text.lower().replace(" ", "-")
+    # Loại bỏ phần đếm số (n) ở cuối nếu có để tạo slug chính xác cho link
+    base_text = re.sub(r'\s\(\d+\)$', '', text)
+    slug = base_text.lower().replace(" ", "-")
     slug = re.sub(r'[^\w\-]', '', slug)
     return slug
 
 def extract_metadata(file_path):
-    # Duyệt header chuyên nghiệp (quét từ khóa)
     meta = {"source": None, "submission": None, "tags": "N/A", "complexity": "N/A", "title": None, "date": "N/A", "status": "AC"}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -133,6 +134,24 @@ def auto_generate_link(file_path):
             return f"https://leetcode.com/problems/{filename.lower().replace('_', '-')}/"
     return None
 
+def count_problems_recursive(directory):
+    """Đếm số file .cpp trong thư mục và các thư mục con."""
+    counts = {}
+    for root, dirs, files in os.walk(directory):
+        # Loại bỏ các thư mục không mong muốn để tránh đếm sai
+        dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
+        
+        cpp_count = len([f for f in files if f.endswith('.cpp')])
+        
+        # Cộng dồn cho thư mục hiện tại và tất cả các thư mục cha cho đến root_dir
+        curr = root
+        while True:
+            counts[curr] = counts.get(curr, 0) + cpp_count
+            if curr == directory:
+                break
+            curr = os.path.dirname(curr)
+    return counts
+
 def generate_readme():
     content = "# 🏆 Competitive Programming Repository\n\n"
     
@@ -143,7 +162,10 @@ def generate_readme():
     if not os.path.isdir(root_dir):
         return
 
-    # Duyệt, lọc và sort folder
+    # Bước 1: Đếm số lượng bài tập trước
+    folder_counts = count_problems_recursive(root_dir)
+
+    # Bước 2: Duyệt, lọc và tạo nội dung
     folder_data = []
     added_to_toc = set()
 
@@ -158,8 +180,14 @@ def generate_readme():
                 if current_path not in added_to_toc:
                     depth = i
                     indent = "  " * depth
-                    title = format_display_name(parts[i], is_oj=(i == 0))
-                    toc_content += f"{indent}* [📂 {title}](#-{create_slug(title)})\n"
+                    raw_title = parts[i]
+                    display_title = format_display_name(raw_title, is_oj=(i == 0))
+                    
+                    # Lấy số lượng bài tập từ folder_counts
+                    count = folder_counts.get(current_path, 0)
+                    title_with_count = f"{display_title} ({count})"
+                    
+                    toc_content += f"{indent}* [📂 {title_with_count}](#-{create_slug(display_title)})\n"
                     added_to_toc.add(current_path)
 
         cpp_files = [f for f in files if f.endswith('.cpp')]
@@ -187,20 +215,17 @@ def generate_readme():
             full_path = os.path.join(path, file)
             meta = extract_metadata(full_path)
             
-            # Khử trùng bài tập
             prob_id = meta["source"] if meta["source"] else full_path
             current_status = meta["status"]
             if prob_id not in unique_problems or STATUS_MAP[current_status]['prio'] > STATUS_MAP[unique_problems[prob_id]]['prio']:
                 unique_problems[prob_id] = current_status
             
-            # --- FIX: Loại bỏ extension .cpp trước khi xử lý tên bài tập ---
             filename_no_ext = file.replace('.cpp', '')
             file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
             
             if meta["title"]:
                 display_name = f"{file_id} - {meta['title']}"
             else:
-                # Sử dụng filename_no_ext thay vì file để tránh đuôi .cpp
                 display_name = format_display_name(filename_no_ext) 
             
             prob_link = meta["source"] or auto_generate_link(full_path)

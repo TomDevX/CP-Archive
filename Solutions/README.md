@@ -2,7 +2,7 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-91/95-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_12%2C_2026_--_15%3A50_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260212T1550&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-91/95-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_12%2C_2026_--_15%3A52_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260212T1552&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 95
 - **Accepted:** 91
@@ -11,17 +11,17 @@
 ---
 ## 📌 Table of Contents
 
-* [📂 Codeforces](#-codeforces)
-* [📂 CSES](#-cses)
-  * [📂 Advanced Techniques](#-advanced-techniques)
-  * [📂 Dynamic Programming](#-dynamic-programming)
-  * [📂 Graph](#-graph)
-  * [📂 Sliding Windơows Problem](#-sliding-windơows-problem)
-  * [📂 Sorting And Searching](#-sorting-and-searching)
-* [📂 Leetcode](#-leetcode)
-* [📂 MarisaOJ](#-marisaoj)
-* [📂 Project Euler](#-project-euler)
-* [📂 VNOI](#-vnoi)
+* [📂 Codeforces (77)](#-codeforces)
+* [📂 CSES (10)](#-cses)
+  * [📂 Advanced Techniques (2)](#-advanced-techniques)
+  * [📂 Dynamic Programming (4)](#-dynamic-programming)
+  * [📂 Graph (1)](#-graph)
+  * [📂 Sliding Windơows Problem (1)](#-sliding-windơows-problem)
+  * [📂 Sorting And Searching (2)](#-sorting-and-searching)
+* [📂 Leetcode (1)](#-leetcode)
+* [📂 MarisaOJ (1)](#-marisaoj)
+* [📂 Project Euler (2)](#-project-euler)
+* [📂 VNOI (5)](#-vnoi)
 
 ---
 ## 📂 [Codeforces](https://codeforces.com/)
