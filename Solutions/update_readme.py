@@ -1,5 +1,7 @@
 import os
 import re
+import sys
+import subprocess
 from datetime import datetime, timedelta, timezone
 
 # --- CONFIGURATION ---
@@ -137,7 +139,6 @@ def count_problems_recursive(directory):
     """Đếm số bài tập DUY NHẤT trong thư mục và các thư mục con."""
     folder_unique_ids = {} # {path: set(prob_ids)}
     
-    # Duyệt để lấy thông tin problem id của từng file
     for root, dirs, files in os.walk(directory):
         dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
         
@@ -146,11 +147,9 @@ def count_problems_recursive(directory):
                 full_path = os.path.join(root, file)
                 meta = extract_metadata(full_path)
                 
-                # Logic xác định bài tập duy nhất giống như phần Stats
                 prob_link = meta["source"] or auto_generate_link(full_path)
                 prob_id = prob_link if prob_link else full_path
                 
-                # Cộng dồn cho thư mục hiện tại và tất cả các thư mục cha
                 curr = root
                 while True:
                     if curr not in folder_unique_ids:
@@ -161,10 +160,43 @@ def count_problems_recursive(directory):
                         break
                     curr = os.path.dirname(curr)
                     
-    # Chuyển đổi từ set sang độ dài (số lượng bài duy nhất)
     return {path: len(s) for path, s in folder_unique_ids.items()}
 
+def run_sub_scripts():
+    """Tìm và thực thi các file update_readme.py trong các thư mục con."""
+    current_script_path = os.path.abspath(__file__)
+    print(f"🔍 Đang quét tìm script con tại: {BASE_DIR}")
+    
+    found_any = False
+    for root, dirs, files in os.walk(BASE_DIR):
+        # Loại bỏ các thư mục không cần thiết để tăng tốc độ quét
+        dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
+        
+        if "update_readme.py" in files:
+            script_path = os.path.abspath(os.path.join(root, "update_readme.py"))
+            
+            # Không tự chạy chính nó để tránh đệ quy vô tận
+            if script_path != current_script_path:
+                found_any = True
+                print(f"🚀 [SUB-SCRIPT] Phát hiện: {script_path}")
+                try:
+                    # Sử dụng sys.executable để dùng đúng bản python đang chạy
+                    # cwd=root giúp script con hoạt động đúng trong folder của nó
+                    subprocess.run([sys.executable, script_path], cwd=root, check=True)
+                    print(f"✅ [SUB-SCRIPT] Hoàn thành: {os.path.relpath(script_path, BASE_DIR)}")
+                except subprocess.CalledProcessError as e:
+                    print(f"❌ [SUB-SCRIPT] Lỗi khi chạy {script_path}: {e}")
+                except Exception as e:
+                    print(f"⚠️ [SUB-SCRIPT] Lỗi không xác định: {e}")
+    
+    if not found_any:
+        print("ℹ️ Không tìm thấy script con nào khác.")
+
 def generate_readme():
+    # Thực hiện chạy các script con trước
+    run_sub_scripts()
+    
+    print("\n📝 Đang tổng hợp nội dung README chính...")
     content = "# 🏆 Competitive Programming Repository\n\n"
     
     unique_problems = {}
@@ -172,6 +204,7 @@ def generate_readme():
     toc_content = "## 📌 Table of Contents\n\n"
     
     if not os.path.isdir(root_dir):
+        print(f"❌ Thư mục nguồn {root_dir} không tồn tại.")
         return
 
     # Bước 1: Đếm số lượng bài tập (đã khử trùng)
@@ -195,11 +228,9 @@ def generate_readme():
                     raw_title = parts[i]
                     display_title = format_display_name(raw_title, is_oj=(i == 0))
                     
-                    # Lấy số lượng bài tập từ folder_counts
                     count = folder_counts.get(current_path, 0)
                     title_with_count = f"{display_title} ({count})"
                     
-                    # Anchor link dựa trên tiêu đề chứa count để khớp với header bên dưới
                     toc_content += f"{indent}* [📂 {title_with_count}](#-{create_slug(title_with_count)})\n"
                     added_to_toc.add(current_path)
 
@@ -215,7 +246,6 @@ def generate_readme():
         is_oj_folder = (os.path.dirname(rel_path_from_sol) == "")
         title = format_display_name(base_name, is_oj=is_oj_folder)
         
-        # Lấy count bài duy nhất cho folder hiện tại
         count = folder_counts.get(path, 0)
         title_with_count = f"{title} ({count})"
         
@@ -232,7 +262,6 @@ def generate_readme():
             full_path = os.path.join(path, file)
             meta = extract_metadata(full_path)
             
-            # Khử trùng bài tập cho stats tổng quát
             prob_link = meta["source"] or auto_generate_link(full_path)
             prob_id = prob_link if prob_link else full_path
             
@@ -280,6 +309,7 @@ def generate_readme():
     
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content + stats + toc_content + "\n---\n" + main_content)
+    print("\n✅ Hoàn tất cập nhật toàn bộ hệ thống README!")
 
 if __name__ == "__main__":
     generate_readme()

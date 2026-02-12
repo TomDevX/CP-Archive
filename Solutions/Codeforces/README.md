@@ -2,18 +2,17 @@
 
 ### 📊 Codeforces Stats
 
-![Progress](https://img.shields.io/badge/Progress-75/77-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_12%2C_2026_--_15%3A58_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260212T1558&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-75/77-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_12%2C_2026_--_16%3A06_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
-- **Problems in this category:** 77
-- **Solved:** 75
-- **Origin Timezone:** Ho Chi Minh City (GMT+7)
+- **Total Unique Problems:** 77
+- **Solved (AC):** 75
 
 ---
 ## 📌 Table of Contents
 
 
 ---
-## 📂 [Codeforces (77)](https://codeforces.com/)
+## 📂 Codeforces (77)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1A](https://codeforces.com/contest/1/problem/A) | N/A | N/A | N/A | [Code](1A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
