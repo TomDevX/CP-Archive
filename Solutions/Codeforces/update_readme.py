@@ -1,17 +1,18 @@
 import os
 import re
+import subprocess
 from datetime import datetime, timedelta, timezone
 
-# --- CONFIGURATION (LOCAL VERSION) ---
-# Tự động lấy thư mục nơi file script đang đứng làm gốc
+# --- CONFIGURATION ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 README_FILE = os.path.join(BASE_DIR, 'README.md')
-# Với bản con, root_dir chính là thư mục hiện tại
-root_dir = BASE_DIR
+# Duyệt từ thư mục Solutions hoặc thư mục hiện tại
+root_dir = os.path.join(BASE_DIR, 'Solutions') if os.path.isdir(os.path.join(BASE_DIR, 'Solutions')) else BASE_DIR
 
 EXCLUDE_DIRS = {'.git', '.github', '.assets', 'venv', '__pycache__', '.cph'}
-CITY_ID = 218 # Ho Chi Minh City
+CITY_ID = 218 
 
+# Labels cũ & Priority để xử lý trùng bài
 STATUS_MAP = {
     "AC": {"full": "Accepted", "color": "4c1", "prio": 4},        
     "WA": {"full": "Wrong Answer", "color": "e05d44", "prio": 2},  
@@ -44,14 +45,16 @@ def get_oj_link_from_file(folder_path):
             except Exception: pass
     return None
 
-def format_display_name(name, is_root=False):
+def format_display_name(name, is_oj=False):
     if not name: return ""
-    # Nếu là thư mục gốc của folder con này, lấy tên thư mục đó làm tiêu đề
+    if is_oj: return name
+    # Xử lý chuỗi đã bỏ extension
     parts = name.split('_')
     if parts[0].isdigit(): parts = parts[1:]
     return " ".join(parts).replace('-', ' ').title()
 
 def create_slug(text):
+    """Tạo slug chuẩn GitHub để link nội bộ hoạt động."""
     slug = text.lower().replace(" ", "-")
     slug = re.sub(r'[^\w\-]', '', slug)
     return slug
@@ -132,47 +135,81 @@ def auto_generate_link(file_path):
     return None
 
 def count_problems_recursive(directory):
-    folder_unique_ids = {} 
+    """Đếm số bài tập DUY NHẤT trong thư mục và các thư mục con."""
+    folder_unique_ids = {} # {path: set(prob_ids)}
+    
     for root, dirs, files in os.walk(directory):
         dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
+        
         for file in files:
             if file.endswith('.cpp'):
                 full_path = os.path.join(root, file)
                 meta = extract_metadata(full_path)
+                
                 prob_link = meta["source"] or auto_generate_link(full_path)
                 prob_id = prob_link if prob_link else full_path
+                
                 curr = root
                 while True:
                     if curr not in folder_unique_ids:
                         folder_unique_ids[curr] = set()
                     folder_unique_ids[curr].add(prob_id)
-                    if curr == directory: break
+                    
+                    if curr == directory:
+                        break
                     curr = os.path.dirname(curr)
+                    
     return {path: len(s) for path, s in folder_unique_ids.items()}
 
-def generate_readme():
-    current_folder_name = os.path.basename(BASE_DIR)
-    display_folder_name = format_display_name(current_folder_name)
+def run_sub_scripts():
+    """Tìm và thực thi các file update_readme.py trong các thư mục con."""
+    current_script_path = os.path.abspath(__file__)
+    print("🔍 Đang tìm kiếm script con...")
     
-    content = f"# 📁 {display_folder_name} Solutions\n\n"
+    for root, dirs, files in os.walk(BASE_DIR):
+        # Loại bỏ các thư mục không cần thiết để tăng tốc độ quét
+        dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
+        
+        if "update_readme.py" in files:
+            script_path = os.path.abspath(os.path.join(root, "update_readme.py"))
+            
+            # Không tự chạy chính nó để tránh đệ quy vô tận
+            if script_path != current_script_path:
+                print(f"🚀 Đang chạy script: {script_path}")
+                try:
+                    # Chạy script với working directory là thư mục chứa script đó
+                    subprocess.run(["python", script_path], cwd=root, check=True)
+                except subprocess.CalledProcessError as e:
+                    print(f"❌ Lỗi khi chạy {script_path}: {e}")
+                except Exception as e:
+                    print(f"⚠️ Lỗi không xác định tại {script_path}: {e}")
+
+def generate_readme():
+    # Thực hiện chạy các script con trước
+    run_sub_scripts()
+    
+    print("📝 Đang khởi tạo nội dung README tổng...")
+    content = "# 🏆 Competitive Programming Repository\n\n"
     
     unique_problems = {}
     main_content = ""
     toc_content = "## 📌 Table of Contents\n\n"
     
-    if not os.path.isdir(root_dir): return
+    if not os.path.isdir(root_dir):
+        print(f"❌ Thư mục nguồn {root_dir} không tồn tại.")
+        return
 
+    # Bước 1: Đếm số lượng bài tập (đã khử trùng)
     folder_counts = count_problems_recursive(root_dir)
 
+    # Bước 2: Duyệt, lọc và tạo nội dung
     folder_data = []
     added_to_toc = set()
 
-    # Xử lý TOC và cấu trúc
     for root, dirs, files in os.walk(root_dir):
         dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
         rel_path = os.path.relpath(root, root_dir)
         
-        # Thêm mục lục cho các thư mục con bên trong folder này (nếu có)
         if rel_path != ".":
             parts = rel_path.split(os.sep)
             for i in range(len(parts)):
@@ -181,10 +218,12 @@ def generate_readme():
                     depth = i
                     indent = "  " * depth
                     raw_title = parts[i]
-                    display_title = format_display_name(raw_title)
+                    display_title = format_display_name(raw_title, is_oj=(i == 0))
+                    
                     count = folder_counts.get(current_path, 0)
                     title_with_count = f"{display_title} ({count})"
-                    toc_content += f"{indent}* [📁 {title_with_count}](#-{create_slug(title_with_count)})\n"
+                    
+                    toc_content += f"{indent}* [📂 {title_with_count}](#-{create_slug(title_with_count)})\n"
                     added_to_toc.add(current_path)
 
         cpp_files = [f for f in files if f.endswith('.cpp')]
@@ -194,15 +233,15 @@ def generate_readme():
     folder_data.sort(key=lambda x: natural_sort_key(x[0]))
 
     for path, files in folder_data:
-        rel_path_local = os.path.relpath(path, root_dir)
+        rel_path_from_sol = os.path.relpath(path, root_dir)
         base_name = os.path.basename(path)
+        is_oj_folder = (os.path.dirname(rel_path_from_sol) == "")
+        title = format_display_name(base_name, is_oj=is_oj_folder)
         
-        title = format_display_name(base_name)
         count = folder_counts.get(path, 0)
         title_with_count = f"{title} ({count})"
         
-        # Nếu là thư mục gốc của script này
-        if rel_path_local == ".":
+        if is_oj_folder:
             oj_url = get_oj_link_from_file(path)
             main_content += f"## 📂 [{title_with_count}]({oj_url})\n" if oj_url else f"## 📂 {title_with_count}\n"
         else:
@@ -225,10 +264,13 @@ def generate_readme():
             filename_no_ext = file.replace('.cpp', '')
             file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
             
-            display_name = f"{file_id} - {meta['title']}" if meta["title"] else format_display_name(filename_no_ext) 
+            if meta["title"]:
+                display_name = f"{file_id} - {meta['title']}"
+            else:
+                display_name = format_display_name(filename_no_ext) 
+            
             name_md = f"[{display_name}]({prob_link})" if prob_link else display_name
             
-            # Link Solution tương đối so với file README hiện tại
             rel_sol_path = os.path.relpath(full_path, BASE_DIR).replace('\\', '/').replace(' ', '%20')
             sol_md = f"[Code]({rel_sol_path})"
             if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
@@ -251,14 +293,15 @@ def generate_readme():
     time_link = f"https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso={iso_string}&p1={CITY_ID}"
     progress_badge = f"https://img.shields.io/badge/Progress-{total_ac}/{total_problems_count}-4c1?style=for-the-badge&logo=target"
     
-    stats = f"### 📊 {display_folder_name} Stats\n\n"
+    stats = f"### 📊 Repository Stats\n\n"
     stats += f"![Progress]({progress_badge}) [![Last Update]({badge_url})]({time_link} \"🖱️ CLICK TO CONVERT\")\n\n"
-    stats += f"- **Problems in this category:** {total_problems_count}\n"
-    stats += f"- **Solved:** {total_ac}\n"
+    stats += f"- **Total Problems:** {total_problems_count}\n"
+    stats += f"- **Accepted:** {total_ac}\n"
     stats += f"- **Origin Timezone:** Ho Chi Minh City (GMT+7)\n\n---\n"
     
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content + stats + toc_content + "\n---\n" + main_content)
+    print("✅ Cập nhật README thành công!")
 
 if __name__ == "__main__":
     generate_readme()
