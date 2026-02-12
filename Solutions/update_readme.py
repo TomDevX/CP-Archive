@@ -134,22 +134,35 @@ def auto_generate_link(file_path):
     return None
 
 def count_problems_recursive(directory):
-    """Đếm số file .cpp trong thư mục và các thư mục con."""
-    counts = {}
+    """Đếm số bài tập DUY NHẤT trong thư mục và các thư mục con."""
+    folder_unique_ids = {} # {path: set(prob_ids)}
+    
+    # Duyệt để lấy thông tin problem id của từng file
     for root, dirs, files in os.walk(directory):
-        # Loại bỏ các thư mục không mong muốn để tránh đếm sai
         dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
         
-        cpp_count = len([f for f in files if f.endswith('.cpp')])
-        
-        # Cộng dồn cho thư mục hiện tại và tất cả các thư mục cha cho đến root_dir
-        curr = root
-        while True:
-            counts[curr] = counts.get(curr, 0) + cpp_count
-            if curr == directory:
-                break
-            curr = os.path.dirname(curr)
-    return counts
+        for file in files:
+            if file.endswith('.cpp'):
+                full_path = os.path.join(root, file)
+                meta = extract_metadata(full_path)
+                
+                # Logic xác định bài tập duy nhất giống như phần Stats
+                prob_link = meta["source"] or auto_generate_link(full_path)
+                prob_id = prob_link if prob_link else full_path
+                
+                # Cộng dồn cho thư mục hiện tại và tất cả các thư mục cha
+                curr = root
+                while True:
+                    if curr not in folder_unique_ids:
+                        folder_unique_ids[curr] = set()
+                    folder_unique_ids[curr].add(prob_id)
+                    
+                    if curr == directory:
+                        break
+                    curr = os.path.dirname(curr)
+                    
+    # Chuyển đổi từ set sang độ dài (số lượng bài duy nhất)
+    return {path: len(s) for path, s in folder_unique_ids.items()}
 
 def generate_readme():
     content = "# 🏆 Competitive Programming Repository\n\n"
@@ -161,7 +174,7 @@ def generate_readme():
     if not os.path.isdir(root_dir):
         return
 
-    # Bước 1: Đếm số lượng bài tập trước
+    # Bước 1: Đếm số lượng bài tập (đã khử trùng)
     folder_counts = count_problems_recursive(root_dir)
 
     # Bước 2: Duyệt, lọc và tạo nội dung
@@ -186,7 +199,7 @@ def generate_readme():
                     count = folder_counts.get(current_path, 0)
                     title_with_count = f"{display_title} ({count})"
                     
-                    # Quan trọng: Link phải trỏ đến slug chứa cả số lượng bài tập
+                    # Anchor link dựa trên tiêu đề chứa count để khớp với header bên dưới
                     toc_content += f"{indent}* [📂 {title_with_count}](#-{create_slug(title_with_count)})\n"
                     added_to_toc.add(current_path)
 
@@ -202,16 +215,14 @@ def generate_readme():
         is_oj_folder = (os.path.dirname(rel_path_from_sol) == "")
         title = format_display_name(base_name, is_oj=is_oj_folder)
         
-        # Lấy count cho folder hiện tại
+        # Lấy count bài duy nhất cho folder hiện tại
         count = folder_counts.get(path, 0)
         title_with_count = f"{title} ({count})"
         
         if is_oj_folder:
             oj_url = get_oj_link_from_file(path)
-            # Thêm count vào header ##
             main_content += f"## 📂 [{title_with_count}]({oj_url})\n" if oj_url else f"## 📂 {title_with_count}\n"
         else:
-            # Thêm count vào header ###
             main_content += f"### 📁 {title_with_count}\n"
         
         files.sort(key=natural_sort_key)
@@ -221,7 +232,10 @@ def generate_readme():
             full_path = os.path.join(path, file)
             meta = extract_metadata(full_path)
             
-            prob_id = meta["source"] if meta["source"] else full_path
+            # Khử trùng bài tập cho stats tổng quát
+            prob_link = meta["source"] or auto_generate_link(full_path)
+            prob_id = prob_link if prob_link else full_path
+            
             current_status = meta["status"]
             if prob_id not in unique_problems or STATUS_MAP[current_status]['prio'] > STATUS_MAP[unique_problems[prob_id]]['prio']:
                 unique_problems[prob_id] = current_status
@@ -234,7 +248,6 @@ def generate_readme():
             else:
                 display_name = format_display_name(filename_no_ext) 
             
-            prob_link = meta["source"] or auto_generate_link(full_path)
             name_md = f"[{display_name}]({prob_link})" if prob_link else display_name
             
             rel_sol_path = os.path.relpath(full_path, BASE_DIR).replace('\\', '/').replace(' ', '%20')
