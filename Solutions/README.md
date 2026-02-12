@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-90/93-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_12%2C_2026_--_01%3A37_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260212T0137&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-91/95-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_12%2C_2026_--_13%3A57_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260212T1357&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 93
-- **Accepted:** 90
+- **Total Problems:** 95
+- **Accepted:** 91
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 ---
@@ -19,6 +19,7 @@
   * [📂 Sliding Windơows Problem](#-sliding-windơows-problem)
   * [📂 Sorting And Searching](#-sorting-and-searching)
 * [📂 Leetcode](#-leetcode)
+* [📂 MarisaOJ](#-marisaoj)
 * [📂 Project Euler](#-project-euler)
 * [📂 VNOI](#-vnoi)
 
@@ -115,7 +116,8 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1744 - Rectangle Cutting](https://cses.fi/problemset/task/1744) | `Dynamic Programming` | $\mathcal{O}(n\*m\*(n+m))$ | Feb 11, 2026 | [Code](CSES/Dynamic%20Programming/1744.cpp) \| [Sub](https://cses.fi/problemset/result/16234536/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [2413 - Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | $\mathcal{O}(n)$ | Feb 4, 2026 | [Code](CSES/Dynamic%20Programming/2413.cpp) \| [Sub](https://cses.fi/paste/67df7ff1543072a9f68403/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 3 | [3359 - Minimal Grid Path](https://cses.fi/problemset/task/3359) | `Dynamic Programming` | $\mathcal{O}(n*m)$ | Feb 11, 2026 | [Code](CSES/Dynamic%20Programming/3359.cpp) \| [Sub](https://cses.fi/problemset/result/16238561/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 3 | [3314 - Mountain Range](https://cses.fi/problemset/task/3314) | N/A | N/A | Feb 12, 2026 | [Code](CSES/Dynamic%20Programming/3314.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 4 | [3359 - Minimal Grid Path](https://cses.fi/problemset/task/3359) | `Dynamic Programming` | $\mathcal{O}(n*m)$ | Feb 11, 2026 | [Code](CSES/Dynamic%20Programming/3359.cpp) \| [Sub](https://cses.fi/problemset/result/16238561/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ### 📁 Graph
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
@@ -133,10 +135,15 @@
 | 1 | [2216 - Collecting Numbers](https://cses.fi/problemset/task/2216) | `Implementation` | $\mathcal{O}(n)$ | Feb 10, 2026 | [Code](CSES/Sorting%20and%20Searching/2216.cpp) \| [Sub](https://cses.fi/problemset/result/16218047/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [2217 - Collecting Numbers II](https://cses.fi/problemset/task/2217) | `Adhoc` | $\mathcal{O}(n + m)$ | Feb 10, 2026 | [Code](CSES/Sorting%20and%20Searching/2217.cpp) \| [Sub](https://cses.fi/problemset/result/16218382/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-## 📂 Leetcode
+## 📂 [Leetcode](https://leetcode.com/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [64 - Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum) | `Dynamic Programming` | $\mathcal{O}(n*m)$ | Feb 12, 2026 | [Code](Leetcode/64.cpp) \| [Sub](https://leetcode.com/problems/minimum-path-sum/submissions/1916094804) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+
+## 📂 [MarisaOJ](https://marisaoj.com/)
+| # | Problem Name | Tags | Complexity | Date | Solution | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | [130 - DSU](https://marisaoj.com/problem/130) | `DSU` | $\mathcal{O}(n + q \cdot \alpha{n})$ | Feb 12, 2026 | [Code](MarisaOJ/130.cpp) \| [Sub](https://marisaoj.com/submission/1081451) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [Project Euler](https://projecteuler.net/about)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
