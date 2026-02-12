@@ -7,13 +7,11 @@ from datetime import datetime, timedelta, timezone
 # --- CONFIGURATION ---
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 README_FILE = os.path.join(BASE_DIR, 'README.md')
-# Duyệt từ thư mục Solutions hoặc thư mục hiện tại
 root_dir = os.path.join(BASE_DIR, 'Solutions') if os.path.isdir(os.path.join(BASE_DIR, 'Solutions')) else BASE_DIR
 
 EXCLUDE_DIRS = {'.git', '.github', '.assets', 'venv', '__pycache__', '.cph'}
 CITY_ID = 218 
 
-# Labels cũ & Priority để xử lý trùng bài
 STATUS_MAP = {
     "AC": {"full": "Accepted", "color": "4c1", "prio": 4},        
     "WA": {"full": "Wrong Answer", "color": "e05d44", "prio": 2},  
@@ -49,13 +47,11 @@ def get_oj_link_from_file(folder_path):
 def format_display_name(name, is_oj=False):
     if not name: return ""
     if is_oj: return name
-    # Xử lý chuỗi đã bỏ extension
     parts = name.split('_')
     if parts[0].isdigit(): parts = parts[1:]
     return " ".join(parts).replace('-', ' ').title()
 
 def create_slug(text):
-    """Tạo slug chuẩn GitHub để link nội bộ hoạt động."""
     slug = text.lower().replace(" ", "-")
     slug = re.sub(r'[^\w\-]', '', slug)
     return slug
@@ -136,7 +132,7 @@ def auto_generate_link(file_path):
     return None
 
 def count_problems_recursive(directory):
-    """Đếm số bài tập DUY NHẤT trong thư mục và các thư mục con."""
+    """Count unique problems recursively."""
     folder_unique_ids = {} # {path: set(prob_ids)}
     
     for root, dirs, files in os.walk(directory):
@@ -163,29 +159,26 @@ def count_problems_recursive(directory):
     return {path: len(s) for path, s in folder_unique_ids.items()}
 
 def run_sub_scripts():
-    """Chỉ tìm và thực thi file update_readme_child.py trong thư mục Solutions."""
+    """Execute update_readme_child.py if it exists in the root_dir."""
     target_script = "update_readme_child.py"
-    # root_dir đã được định nghĩa là folder Solutions (nếu có)
     script_path = os.path.join(root_dir, target_script)
     
     if os.path.exists(script_path):
-        print(f"🚀 [SUB-SCRIPT] Phát hiện script con tại: {script_path}")
+        print(f"🚀 [SUB-SCRIPT] Child script detected at: {script_path}")
         try:
-            # Chạy script trong context của folder Solutions
             subprocess.run([sys.executable, target_script], cwd=root_dir, check=True)
-            print(f"✅ [SUB-SCRIPT] Hoàn thành: {target_script}")
+            print(f"✅ [SUB-SCRIPT] Completed: {target_script}")
         except subprocess.CalledProcessError as e:
-            print(f"❌ [SUB-SCRIPT] Lỗi khi chạy {target_script}: {e}")
+            print(f"❌ [SUB-SCRIPT] Error running {target_script}: {e}")
         except Exception as e:
-            print(f"⚠️ [SUB-SCRIPT] Lỗi không xác định: {e}")
+            print(f"⚠️ [SUB-SCRIPT] Unknown error: {e}")
     else:
-        print(f"ℹ️ Không tìm thấy {target_script} trong {root_dir}. Bỏ qua.")
+        print(f"ℹ️ Child script {target_script} not found in {root_dir}. Skipping.")
 
 def generate_readme():
-    # Thực hiện chạy script con duy nhất tại Solutions trước
     run_sub_scripts()
     
-    print("\n📝 Đang tổng hợp nội dung README chính...")
+    print("\n📝 Aggregating main README content...")
     content = "# 🏆 Competitive Programming Solutions\n\n"
     
     unique_problems = {}
@@ -193,13 +186,13 @@ def generate_readme():
     toc_content = "## 📌 Table of Contents\n\n"
     
     if not os.path.isdir(root_dir):
-        print(f"❌ Thư mục nguồn {root_dir} không tồn tại.")
+        print(f"❌ Source directory {root_dir} does not exist.")
         return
 
-    # Bước 1: Đếm số lượng bài tập (đã khử trùng)
+    # Step 1: Count unique problems
     folder_counts = count_problems_recursive(root_dir)
 
-    # Bước 2: Duyệt, lọc và tạo nội dung
+    # Step 2: Traverse, filter, and generate content
     folder_data = []
     added_to_toc = set()
 
@@ -298,7 +291,7 @@ def generate_readme():
     
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content + stats + toc_content + "\n---\n" + main_content)
-    print("\n✅ Hoàn tất cập nhật toàn bộ hệ thống README!")
+    print("\n✅ README system update complete!")
 
 if __name__ == "__main__":
     generate_readme()

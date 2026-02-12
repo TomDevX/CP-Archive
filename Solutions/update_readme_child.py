@@ -3,8 +3,8 @@ import re
 from datetime import datetime, timedelta, timezone
 
 # --- CONFIGURATION ---
-# Script này nên được đặt ở thư mục Solutions
-# Nó sẽ quét qua mọi folder con và tạo README cho từng cái
+# This script should be placed in the Solutions directory.
+# It scans every sub-folder and creates a README for each.
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 EXCLUDE_DIRS = {'.git', '.github', '.assets', 'venv', '__pycache__', '.cph'}
@@ -27,7 +27,7 @@ def get_last_commit_time():
     return datetime.now(tz=tz_hcm)
 
 def format_display_name(name):
-    """Giữ nguyên chính xác tên thư mục theo yêu cầu."""
+    """Keep the exact folder name as requested."""
     return name
 
 def create_slug(text):
@@ -109,9 +109,7 @@ def auto_generate_link(file_path):
     return None
 
 def count_problems_in_subtree(directory):
-    """Đếm số bài tập duy nhất trong một cây thư mục cụ thể."""
-    unique_ids = set()
-    ac_count = 0
+    """Count unique problems in a specific directory tree."""
     problem_statuses = {} # {id: status}
 
     for root, dirs, files in os.walk(directory):
@@ -132,15 +130,14 @@ def count_problems_in_subtree(directory):
     return total, ac
 
 def generate_single_readme(target_dir):
-    """Tạo README.md cho một thư mục cụ thể."""
+    """Generate README.md for a specific directory."""
     folder_name = os.path.basename(target_dir)
-    # Nếu là thư mục gốc chạy script, lấy tên folder đó luôn
     if not folder_name: folder_name = "Solutions" 
     
     readme_path = os.path.join(target_dir, 'README.md')
     
     total_problems, total_ac = count_problems_in_subtree(target_dir)
-    if total_problems == 0: return # Không có bài thì không tạo README
+    if total_problems == 0: return # Do not create README if no problems found
 
     content = f"# 📁 {format_display_name(folder_name)} Solutions\n\n"
     
@@ -174,15 +171,14 @@ def generate_single_readme(target_dir):
         rel_path = os.path.relpath(path, target_dir)
         display_name = format_display_name(os.path.basename(path))
         
-        # Đếm số bài trong folder này để làm TOC
         this_folder_total, _ = count_problems_in_subtree(path)
         title_with_count = f"{display_name} ({this_folder_total})"
         
-        # Indent cho TOC dựa trên độ sâu
+        # TOC indentation based on depth
         depth = 0 if rel_path == "." else rel_path.count(os.sep) + 1
         toc_content += f"{'  ' * depth}* [📁 {title_with_count}](#-{create_slug(title_with_count)})\n"
         
-        # Header cho Table
+        # Header for Table
         if rel_path == ".":
             main_tables += f"## 📂 {title_with_count}\n"
         else:
@@ -200,7 +196,6 @@ def generate_single_readme(target_dir):
             prob_title = f"{file_id} - {meta['title']}" if meta["title"] else format_display_name(filename_no_ext)
             
             name_md = f"[{prob_title}]({prob_link})" if prob_link else prob_title
-            # Link code tương đối so với file README này
             rel_code_path = os.path.relpath(full_path, target_dir).replace('\\', '/').replace(' ', '%20')
             sol_md = f"[Code]({rel_code_path})"
             if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
@@ -214,12 +209,9 @@ def generate_single_readme(target_dir):
     print(f"Generated: {readme_path}")
 
 def main():
-    # Duyệt qua mọi thư mục con trong BASE_DIR
+    # Traverse all sub-directories in BASE_DIR
     for root, dirs, files in os.walk(BASE_DIR):
-        # Loại bỏ các folder không mong muốn khỏi quá trình duyệt
         dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
-        
-        # Tạo README cho thư mục hiện tại (root)
         generate_single_readme(root)
 
 if __name__ == "__main__":
