@@ -2,7 +2,7 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-91/95-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_12%2C_2026_--_15%3A52_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260212T1552&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-91/95-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_12%2C_2026_--_15%3A54_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260212T1554&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 95
 - **Accepted:** 91
@@ -11,20 +11,20 @@
 ---
 ## 📌 Table of Contents
 
-* [📂 Codeforces (77)](#-codeforces)
-* [📂 CSES (10)](#-cses)
-  * [📂 Advanced Techniques (2)](#-advanced-techniques)
-  * [📂 Dynamic Programming (4)](#-dynamic-programming)
-  * [📂 Graph (1)](#-graph)
-  * [📂 Sliding Windơows Problem (1)](#-sliding-windơows-problem)
-  * [📂 Sorting And Searching (2)](#-sorting-and-searching)
-* [📂 Leetcode (1)](#-leetcode)
-* [📂 MarisaOJ (1)](#-marisaoj)
-* [📂 Project Euler (2)](#-project-euler)
-* [📂 VNOI (5)](#-vnoi)
+* [📂 Codeforces (77)](#-codeforces-77)
+* [📂 CSES (10)](#-cses-10)
+  * [📂 Advanced Techniques (2)](#-advanced-techniques-2)
+  * [📂 Dynamic Programming (4)](#-dynamic-programming-4)
+  * [📂 Graph (1)](#-graph-1)
+  * [📂 Sliding Windơows Problem (1)](#-sliding-windơows-problem-1)
+  * [📂 Sorting And Searching (2)](#-sorting-and-searching-2)
+* [📂 Leetcode (1)](#-leetcode-1)
+* [📂 MarisaOJ (1)](#-marisaoj-1)
+* [📂 Project Euler (2)](#-project-euler-2)
+* [📂 VNOI (5)](#-vnoi-5)
 
 ---
-## 📂 [Codeforces](https://codeforces.com/)
+## 📂 [Codeforces (77)](https://codeforces.com/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1A](https://codeforces.com/contest/1/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -105,13 +105,13 @@
 | 76 | [2069B - Set of Strangers](https://codeforces.com/problemset/problem/2069/B) | `greedy` | $\mathcal{O}(t \cdot n \cdot m)$ | Feb 10, 2026 | [Code](Codeforces/2069B.cpp) \| [Sub](https://codeforces.com/problemset/submission/2069/362299991) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 77 | [2084C - You Soared Afar With Grace](https://codeforces.com/problemset/problem/2084/C) | N/A | N/A | Feb 10, 2026 | [Code](Codeforces/2084C.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
-### 📁 Advanced Techniques
+### 📁 Advanced Techniques (2)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1628 - Meet in the Middle](https://cses.fi/problemset/task/1628/) | `Dynamic Programming`, `Implementation`, `Optimization` | $\mathcal{O}(2^{\frac{n}{2}} \cdot \log(\frac{n}{2}) + 2^{\frac{n}{2}} \cdot \log(\frac{n}{2}))$ | Feb 5, 2026 | [Code](CSES/Advanced%20Techniques/1628.cpp) \| [Sub](https://cses.fi/paste/39bb411c336d08d8f6c8f1/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [2136 - Hamming Distance](https://cses.fi/problemset/task/2136) | `bit` | $\mathcal{O}(n^2)$ | Feb 5, 2026 | [Code](CSES/Advanced%20Techniques/2136.cpp) \| [Sub](https://cses.fi/paste/9254599d71bb5d60f6b997/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-### 📁 Dynamic Programming
+### 📁 Dynamic Programming (4)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1744 - Rectangle Cutting](https://cses.fi/problemset/task/1744) | `Dynamic Programming` | $\mathcal{O}(n \cdot m \cdot (n+m))$ | Feb 11, 2026 | [Code](CSES/Dynamic%20Programming/1744.cpp) \| [Sub](https://cses.fi/problemset/result/16234536/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -119,39 +119,39 @@
 | 3 | [3314 - Mountain Range](https://cses.fi/problemset/task/3314) | N/A | N/A | Feb 12, 2026 | [Code](CSES/Dynamic%20Programming/3314.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 4 | [3359 - Minimal Grid Path](https://cses.fi/problemset/task/3359) | `Dynamic Programming` | $\mathcal{O}(n \cdot m)$ | Feb 11, 2026 | [Code](CSES/Dynamic%20Programming/3359.cpp) \| [Sub](https://cses.fi/problemset/result/16238561/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-### 📁 Graph
+### 📁 Graph (1)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1192 - Counting Rooms](https://cses.fi/problemset/task/1192/) | `BFS`, `flood fill` | $\mathcal{O}(V+E)$ | Aug 9, 2025 | [Code](CSES/Graph/1192_Counting_Rooms.cpp) \| [Sub](https://cses.fi/paste/96f91e45fb63bc5dd6975e/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-### 📁 Sliding Windơows Problem
+### 📁 Sliding Windơows Problem (1)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [3220 - Sliding Window Sum](https://cses.fi/problemset/task/3220) | N/A | N/A | Feb 11, 2026 | [Code](CSES/Sliding%20Windơows%20Problem/3220.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
-### 📁 Sorting And Searching
+### 📁 Sorting And Searching (2)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [2216 - Collecting Numbers](https://cses.fi/problemset/task/2216) | `Implementation` | $\mathcal{O}(n)$ | Feb 10, 2026 | [Code](CSES/Sorting%20and%20Searching/2216.cpp) \| [Sub](https://cses.fi/problemset/result/16218047/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [2217 - Collecting Numbers II](https://cses.fi/problemset/task/2217) | `Adhoc` | $\mathcal{O}(n + m)$ | Feb 10, 2026 | [Code](CSES/Sorting%20and%20Searching/2217.cpp) \| [Sub](https://cses.fi/problemset/result/16218382/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-## 📂 [Leetcode](https://leetcode.com/)
+## 📂 [Leetcode (1)](https://leetcode.com/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [64 - Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum) | `Dynamic Programming` | $\mathcal{O}(n \cdot m)$ | Feb 12, 2026 | [Code](Leetcode/64.cpp) \| [Sub](https://leetcode.com/problems/minimum-path-sum/submissions/1916094804) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-## 📂 [MarisaOJ](https://marisaoj.com/)
+## 📂 [MarisaOJ (1)](https://marisaoj.com/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [130 - DSU](https://marisaoj.com/problem/130) | `DSU` | $\mathcal{O}(n + q \cdot \alpha{(n)})$ | Feb 12, 2026 | [Code](MarisaOJ/130.cpp) \| [Sub](https://marisaoj.com/submission/1081451) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-## 📂 [Project Euler](https://projecteuler.net/about)
+## 📂 [Project Euler (2)](https://projecteuler.net/about)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [6 - Sum Square Difference](https://projecteuler.net/problem=6) | `Level 0` | $\mathcal{O}(1)$ | Feb 6, 2026 | [Code](Project%20Euler/6.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [7 - 10 001st Prime](https://projecteuler.net/problem=7) | `Level 0` | $\mathcal{O}(n \log \log n)$ | Feb 6, 2026 | [Code](Project%20Euler/7.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-## 📂 [VNOI](https://oj.vnoi.info/)
+## 📂 [VNOI (5)](https://oj.vnoi.info/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [C11PRIME1 - Số nguyên tố (#1 Approach)](https://oj.vnoi.info/problem/c11prime) | `Number Theory` | $\mathcal{O}(n^{1/4})$ | Feb 9, 2026 | [Code](VNOI/c11prime1.cpp) \| [Sub](https://oj.vnoi.info/submission/11678299) | ![TLE](https://img.shields.io/static/v1?label=&message=%20%20%20TLE%20%20%20&color=dfb317&style=for-the-badge) |

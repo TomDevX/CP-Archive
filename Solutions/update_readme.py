@@ -53,9 +53,8 @@ def format_display_name(name, is_oj=False):
     return " ".join(parts).replace('-', ' ').title()
 
 def create_slug(text):
-    # Loại bỏ phần đếm số (n) ở cuối nếu có để tạo slug chính xác cho link
-    base_text = re.sub(r'\s\(\d+\)$', '', text)
-    slug = base_text.lower().replace(" ", "-")
+    """Tạo slug chuẩn GitHub để link nội bộ hoạt động."""
+    slug = text.lower().replace(" ", "-")
     slug = re.sub(r'[^\w\-]', '', slug)
     return slug
 
@@ -187,7 +186,8 @@ def generate_readme():
                     count = folder_counts.get(current_path, 0)
                     title_with_count = f"{display_title} ({count})"
                     
-                    toc_content += f"{indent}* [📂 {title_with_count}](#-{create_slug(display_title)})\n"
+                    # Quan trọng: Link phải trỏ đến slug chứa cả số lượng bài tập
+                    toc_content += f"{indent}* [📂 {title_with_count}](#-{create_slug(title_with_count)})\n"
                     added_to_toc.add(current_path)
 
         cpp_files = [f for f in files if f.endswith('.cpp')]
@@ -202,11 +202,17 @@ def generate_readme():
         is_oj_folder = (os.path.dirname(rel_path_from_sol) == "")
         title = format_display_name(base_name, is_oj=is_oj_folder)
         
+        # Lấy count cho folder hiện tại
+        count = folder_counts.get(path, 0)
+        title_with_count = f"{title} ({count})"
+        
         if is_oj_folder:
             oj_url = get_oj_link_from_file(path)
-            main_content += f"## 📂 [{title}]({oj_url})\n" if oj_url else f"## 📂 {title}\n"
+            # Thêm count vào header ##
+            main_content += f"## 📂 [{title_with_count}]({oj_url})\n" if oj_url else f"## 📂 {title_with_count}\n"
         else:
-            main_content += f"### 📁 {title}\n"
+            # Thêm count vào header ###
+            main_content += f"### 📁 {title_with_count}\n"
         
         files.sort(key=natural_sort_key)
         table = "| # | Problem Name | Tags | Complexity | Date | Solution | Status |\n| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
