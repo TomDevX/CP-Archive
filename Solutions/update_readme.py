@@ -163,37 +163,26 @@ def count_problems_recursive(directory):
     return {path: len(s) for path, s in folder_unique_ids.items()}
 
 def run_sub_scripts():
-    """Tìm và thực thi các file update_readme.py trong các thư mục con."""
-    current_script_path = os.path.abspath(__file__)
-    print(f"🔍 Đang quét tìm script con tại: {BASE_DIR}")
+    """Chỉ tìm và thực thi file update_readme_child.py trong thư mục Solutions."""
+    target_script = "update_readme_child.py"
+    # root_dir đã được định nghĩa là folder Solutions (nếu có)
+    script_path = os.path.join(root_dir, target_script)
     
-    found_any = False
-    for root, dirs, files in os.walk(BASE_DIR):
-        # Loại bỏ các thư mục không cần thiết để tăng tốc độ quét
-        dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
-        
-        if "update_readme.py" in files:
-            script_path = os.path.abspath(os.path.join(root, "update_readme.py"))
-            
-            # Không tự chạy chính nó để tránh đệ quy vô tận
-            if script_path != current_script_path:
-                found_any = True
-                print(f"🚀 [SUB-SCRIPT] Phát hiện: {script_path}")
-                try:
-                    # Sử dụng sys.executable để dùng đúng bản python đang chạy
-                    # cwd=root giúp script con hoạt động đúng trong folder của nó
-                    subprocess.run([sys.executable, script_path], cwd=root, check=True)
-                    print(f"✅ [SUB-SCRIPT] Hoàn thành: {os.path.relpath(script_path, BASE_DIR)}")
-                except subprocess.CalledProcessError as e:
-                    print(f"❌ [SUB-SCRIPT] Lỗi khi chạy {script_path}: {e}")
-                except Exception as e:
-                    print(f"⚠️ [SUB-SCRIPT] Lỗi không xác định: {e}")
-    
-    if not found_any:
-        print("ℹ️ Không tìm thấy script con nào khác.")
+    if os.path.exists(script_path):
+        print(f"🚀 [SUB-SCRIPT] Phát hiện script con tại: {script_path}")
+        try:
+            # Chạy script trong context của folder Solutions
+            subprocess.run([sys.executable, target_script], cwd=root_dir, check=True)
+            print(f"✅ [SUB-SCRIPT] Hoàn thành: {target_script}")
+        except subprocess.CalledProcessError as e:
+            print(f"❌ [SUB-SCRIPT] Lỗi khi chạy {target_script}: {e}")
+        except Exception as e:
+            print(f"⚠️ [SUB-SCRIPT] Lỗi không xác định: {e}")
+    else:
+        print(f"ℹ️ Không tìm thấy {target_script} trong {root_dir}. Bỏ qua.")
 
 def generate_readme():
-    # Thực hiện chạy các script con trước
+    # Thực hiện chạy script con duy nhất tại Solutions trước
     run_sub_scripts()
     
     print("\n📝 Đang tổng hợp nội dung README chính...")

@@ -1,8 +1,8 @@
-# 📁 Vnoi Solutions
+# 📁 VNOI Solutions
 
-### 📊 Vnoi Stats
+### 📊 VNOI Stats
 
-![Progress](https://img.shields.io/badge/Progress-4/4-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_12%2C_2026_--_16%3A09_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-4/4-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_12%2C_2026_--_16%3A18_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 4
 - **Solved (AC):** 4
@@ -10,9 +10,10 @@
 ---
 ## 📌 Table of Contents
 
+* [📁 VNOI (4)](#-vnoi-4)
 
 ---
-## 📂 Vnoi (4)
+## 📂 VNOI (4)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [C11PRIME1 - Số nguyên tố (#1 Approach)](https://oj.vnoi.info/problem/c11prime) | `Number Theory` | $\mathcal{O}(n^{1/4})$ | Feb 9, 2026 | [Code](c11prime1.cpp) \| [Sub](https://oj.vnoi.info/submission/11678299) | ![TLE](https://img.shields.io/static/v1?label=&message=%20%20%20TLE%20%20%20&color=dfb317&style=for-the-badge) |

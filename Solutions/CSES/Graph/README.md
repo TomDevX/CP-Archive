@@ -1,6 +1,6 @@
-# 📁 MarisaOJ Solutions
+# 📁 Graph Solutions
 
-### 📊 MarisaOJ Stats
+### 📊 Graph Stats
 
 ![Progress](https://img.shields.io/badge/Progress-1/1-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_12%2C_2026_--_16%3A18_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
@@ -10,11 +10,11 @@
 ---
 ## 📌 Table of Contents
 
-* [📁 MarisaOJ (1)](#-marisaoj-1)
+* [📁 Graph (1)](#-graph-1)
 
 ---
-## 📂 MarisaOJ (1)
+## 📂 Graph (1)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [130 - DSU](https://marisaoj.com/problem/130) | `DSU` | $\mathcal{O}(n + q \cdot \alpha{(n)})$ | Feb 12, 2026 | [Code](130.cpp) \| [Sub](https://marisaoj.com/submission/1081451) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | [1192 - Counting Rooms](https://cses.fi/problemset/task/1192/) | `BFS`, `flood fill` | $\mathcal{O}(V+E)$ | Aug 9, 2025 | [Code](1192_Counting_Rooms.cpp) \| [Sub](https://cses.fi/paste/96f91e45fb63bc5dd6975e/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 

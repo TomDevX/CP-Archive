@@ -3,11 +3,9 @@ import re
 from datetime import datetime, timedelta, timezone
 
 # --- CONFIGURATION ---
-# Script tự động nhận diện thư mục hiện tại làm gốc
+# Script này nên được đặt ở thư mục Solutions
+# Nó sẽ quét qua mọi folder con và tạo README cho từng cái
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-README_FILE = os.path.join(BASE_DIR, 'README.md')
-# Duyệt trực tiếp từ thư mục hiện tại
-root_dir = BASE_DIR
 
 EXCLUDE_DIRS = {'.git', '.github', '.assets', 'venv', '__pycache__', '.cph'}
 CITY_ID = 218 # Ho Chi Minh City
@@ -29,7 +27,7 @@ def get_last_commit_time():
     return datetime.now(tz=tz_hcm)
 
 def format_display_name(name):
-    """Giữ nguyên tên gốc của thư mục/file theo yêu cầu."""
+    """Giữ nguyên chính xác tên thư mục theo yêu cầu."""
     return name
 
 def create_slug(text):
@@ -110,8 +108,12 @@ def auto_generate_link(file_path):
         if "VNOI" in up: return f"https://oj.vnoi.info/problem/{filename.lower()}"
     return None
 
-def count_problems_recursive(directory):
-    folder_unique_ids = {} 
+def count_problems_in_subtree(directory):
+    """Đếm số bài tập duy nhất trong một cây thư mục cụ thể."""
+    unique_ids = set()
+    ac_count = 0
+    problem_statuses = {} # {id: status}
+
     for root, dirs, files in os.walk(directory):
         dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
         for file in files:
@@ -120,98 +122,29 @@ def count_problems_recursive(directory):
                 meta = extract_metadata(full_path)
                 prob_link = meta["source"] or auto_generate_link(full_path)
                 prob_id = prob_link if prob_link else full_path
-                curr = root
-                while True:
-                    if curr not in folder_unique_ids:
-                        folder_unique_ids[curr] = set()
-                    folder_unique_ids[curr].add(prob_id)
-                    if curr == directory: break
-                    curr = os.path.dirname(curr)
-    return {path: len(s) for path, s in folder_unique_ids.items()}
-
-def generate_readme():
-    # Lấy tên thư mục hiện tại chính xác
-    current_folder_name = os.path.basename(BASE_DIR)
-    display_folder_name = format_display_name(current_folder_name)
-    
-    # Tiêu đề chính dựa theo tên folder
-    content = f"# 📁 {display_folder_name} Solutions\n\n"
-    
-    unique_problems = {}
-    main_content = ""
-    toc_content = "## 📌 Table of Contents\n\n"
-    
-    if not os.path.isdir(root_dir): return
-
-    folder_counts = count_problems_recursive(root_dir)
-    folder_data = []
-    added_to_toc = set()
-
-    for root, dirs, files in os.walk(root_dir):
-        dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
-        rel_path = os.path.relpath(root, root_dir)
-        
-        if rel_path != ".":
-            parts = rel_path.split(os.sep)
-            for i in range(len(parts)):
-                current_path = os.path.join(root_dir, *parts[:i+1])
-                if current_path not in added_to_toc:
-                    depth = i
-                    indent = "  " * depth
-                    raw_title = parts[i]
-                    display_title = format_display_name(raw_title)
-                    count = folder_counts.get(current_path, 0)
-                    title_with_count = f"{display_title} ({count})"
-                    toc_content += f"{indent}* [📁 {title_with_count}](#-{create_slug(title_with_count)})\n"
-                    added_to_toc.add(current_path)
-
-        cpp_files = [f for f in files if f.endswith('.cpp')]
-        if cpp_files:
-            folder_data.append((root, cpp_files))
-
-    folder_data.sort(key=lambda x: natural_sort_key(x[0]))
-
-    for path, files in folder_data:
-        rel_path_local = os.path.relpath(path, root_dir)
-        base_name = os.path.basename(path)
-        
-        title = format_display_name(base_name)
-        count = folder_counts.get(path, 0)
-        title_with_count = f"{title} ({count})"
-        
-        if rel_path_local == ".":
-            main_content += f"## 📂 {title_with_count}\n"
-        else:
-            main_content += f"### 📁 {title_with_count}\n"
-        
-        files.sort(key=natural_sort_key)
-        table = "| # | Problem Name | Tags | Complexity | Date | Solution | Status |\n| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
-        
-        for i, file in enumerate(files, 1):
-            full_path = os.path.join(path, file)
-            meta = extract_metadata(full_path)
-            prob_link = meta["source"] or auto_generate_link(full_path)
-            prob_id = prob_link if prob_link else full_path
-            
-            if prob_id not in unique_problems or STATUS_MAP[meta["status"]]['prio'] > STATUS_MAP[unique_problems[prob_id]]['prio']:
-                unique_problems[prob_id] = meta["status"]
-            
-            filename_no_ext = file.replace('.cpp', '')
-            file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
-            display_name = f"{file_id} - {meta['title']}" if meta["title"] else format_display_name(filename_no_ext) 
-            
-            name_md = f"[{display_name}]({prob_link})" if prob_link else display_name
-            rel_sol_path = os.path.relpath(full_path, BASE_DIR).replace('\\', '/').replace(' ', '%20')
-            sol_md = f"[Code]({rel_sol_path})"
-            if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
-            
-            table += f"| {i} | {name_md} | {meta['tags']} | {meta['complexity']} | {meta['date']} | {sol_md} | {get_status_badge(meta['status'])} |\n"
                 
-        main_content += table + "\n"
-        
-    # --- STATS SECTION ---
-    total_problems = len(unique_problems)
-    total_ac = list(unique_problems.values()).count("AC")
+                status = meta["status"]
+                if prob_id not in problem_statuses or STATUS_MAP[status]['prio'] > STATUS_MAP[problem_statuses[prob_id]]['prio']:
+                    problem_statuses[prob_id] = status
+    
+    total = len(problem_statuses)
+    ac = list(problem_statuses.values()).count("AC")
+    return total, ac
+
+def generate_single_readme(target_dir):
+    """Tạo README.md cho một thư mục cụ thể."""
+    folder_name = os.path.basename(target_dir)
+    # Nếu là thư mục gốc chạy script, lấy tên folder đó luôn
+    if not folder_name: folder_name = "Solutions" 
+    
+    readme_path = os.path.join(target_dir, 'README.md')
+    
+    total_problems, total_ac = count_problems_in_subtree(target_dir)
+    if total_problems == 0: return # Không có bài thì không tạo README
+
+    content = f"# 📁 {format_display_name(folder_name)} Solutions\n\n"
+    
+    # --- STATS ---
     push_time = get_last_commit_time()
     time_str = push_time.strftime("%b %d, %Y - %H:%M (GMT+7)")
     badge_time = time_str.replace("-", "--").replace(" ", "_").replace(":", "%3A").replace(",", "%2C")
@@ -219,13 +152,75 @@ def generate_readme():
     badge_url = f"https://img.shields.io/badge/Last_Update-{badge_time}-0078d4?style=for-the-badge&logo=github"
     progress_badge = f"https://img.shields.io/badge/Progress-{total_ac}/{total_problems}-4c1?style=for-the-badge&logo=target"
     
-    stats = f"### 📊 {display_folder_name} Stats\n\n"
+    stats = f"### 📊 {format_display_name(folder_name)} Stats\n\n"
     stats += f"![Progress]({progress_badge}) ![Last Update]({badge_url})\n\n"
     stats += f"- **Total Unique Problems:** {total_problems}\n"
     stats += f"- **Solved (AC):** {total_ac}\n\n---\n"
     
-    with open(README_FILE, 'w', encoding='utf-8') as f:
-        f.write(content + stats + toc_content + "\n---\n" + main_content)
+    # --- TOC & CONTENT ---
+    toc_content = "## 📌 Table of Contents\n\n"
+    main_tables = ""
+    
+    folder_data = []
+    for root, dirs, files in os.walk(target_dir):
+        dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
+        cpp_files = [f for f in files if f.endswith('.cpp')]
+        if cpp_files:
+            folder_data.append((root, cpp_files))
+            
+    folder_data.sort(key=lambda x: natural_sort_key(x[0]))
+    
+    for i, (path, files) in enumerate(folder_data):
+        rel_path = os.path.relpath(path, target_dir)
+        display_name = format_display_name(os.path.basename(path))
+        
+        # Đếm số bài trong folder này để làm TOC
+        this_folder_total, _ = count_problems_in_subtree(path)
+        title_with_count = f"{display_name} ({this_folder_total})"
+        
+        # Indent cho TOC dựa trên độ sâu
+        depth = 0 if rel_path == "." else rel_path.count(os.sep) + 1
+        toc_content += f"{'  ' * depth}* [📁 {title_with_count}](#-{create_slug(title_with_count)})\n"
+        
+        # Header cho Table
+        if rel_path == ".":
+            main_tables += f"## 📂 {title_with_count}\n"
+        else:
+            main_tables += f"{'#' * (depth + 2)} 📁 {title_with_count}\n"
+            
+        table = "| # | Problem Name | Tags | Complexity | Date | Solution | Status |\n| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
+        files.sort(key=natural_sort_key)
+        for idx, file in enumerate(files, 1):
+            full_path = os.path.join(path, file)
+            meta = extract_metadata(full_path)
+            prob_link = meta["source"] or auto_generate_link(full_path)
+            
+            filename_no_ext = file.replace('.cpp', '')
+            file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
+            prob_title = f"{file_id} - {meta['title']}" if meta["title"] else format_display_name(filename_no_ext)
+            
+            name_md = f"[{prob_title}]({prob_link})" if prob_link else prob_title
+            # Link code tương đối so với file README này
+            rel_code_path = os.path.relpath(full_path, target_dir).replace('\\', '/').replace(' ', '%20')
+            sol_md = f"[Code]({rel_code_path})"
+            if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
+            
+            table += f"| {idx} | {name_md} | {meta['tags']} | {meta['complexity']} | {meta['date']} | {sol_md} | {get_status_badge(meta['status'])} |\n"
+        
+        main_tables += table + "\n"
+
+    with open(readme_path, 'w', encoding='utf-8') as f:
+        f.write(content + stats + toc_content + "\n---\n" + main_tables)
+    print(f"Generated: {readme_path}")
+
+def main():
+    # Duyệt qua mọi thư mục con trong BASE_DIR
+    for root, dirs, files in os.walk(BASE_DIR):
+        # Loại bỏ các folder không mong muốn khỏi quá trình duyệt
+        dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
+        
+        # Tạo README cho thư mục hiện tại (root)
+        generate_single_readme(root)
 
 if __name__ == "__main__":
-    generate_readme()
+    main()

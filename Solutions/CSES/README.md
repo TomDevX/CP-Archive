@@ -2,7 +2,7 @@
 
 ### 📊 CSES Stats
 
-![Progress](https://img.shields.io/badge/Progress-8/10-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_12%2C_2026_--_16%3A09_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-8/10-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_12%2C_2026_--_16%3A18_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 10
 - **Solved (AC):** 8
@@ -10,11 +10,11 @@
 ---
 ## 📌 Table of Contents
 
-* [📁 Advanced Techniques (2)](#-advanced-techniques-2)
-* [📁 Dynamic Programming (4)](#-dynamic-programming-4)
-* [📁 Graph (1)](#-graph-1)
-* [📁 Sliding Windơows Problem (1)](#-sliding-windơows-problem-1)
-* [📁 Sorting and Searching (2)](#-sorting-and-searching-2)
+  * [📁 Advanced Techniques (2)](#-advanced-techniques-2)
+  * [📁 Dynamic Programming (4)](#-dynamic-programming-4)
+  * [📁 Graph (1)](#-graph-1)
+  * [📁 Sliding Windơows Problem (1)](#-sliding-windơows-problem-1)
+  * [📁 Sorting and Searching (2)](#-sorting-and-searching-2)
 
 ---
 ### 📁 Advanced Techniques (2)
