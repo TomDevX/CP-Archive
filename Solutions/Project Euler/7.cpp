@@ -7,7 +7,7 @@
  *    submission: 
  * ----------------------------------------------------------
  *    tags: Level 0
- *    complexity: O(n\log{\log{n}})
+ *    complexity: O(n \log \log n)
  *    note: Use normal sieve with a vector of primes
 **/
 
