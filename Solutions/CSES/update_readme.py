@@ -29,11 +29,8 @@ def get_last_commit_time():
     return datetime.now(tz=tz_hcm)
 
 def format_display_name(name):
-    if not name: return ""
-    # Loại bỏ tiền tố số nếu có (e.g., 01_Array -> Array)
-    parts = name.split('_')
-    if parts[0].isdigit(): parts = parts[1:]
-    return " ".join(parts).replace('-', ' ').title()
+    """Giữ nguyên tên gốc của thư mục/file theo yêu cầu."""
+    return name
 
 def create_slug(text):
     slug = text.lower().replace(" ", "-")
@@ -133,7 +130,7 @@ def count_problems_recursive(directory):
     return {path: len(s) for path, s in folder_unique_ids.items()}
 
 def generate_readme():
-    # Lấy tên thư mục hiện tại
+    # Lấy tên thư mục hiện tại chính xác
     current_folder_name = os.path.basename(BASE_DIR)
     display_folder_name = format_display_name(current_folder_name)
     

@@ -1,8 +1,8 @@
-# 📁 Cses Solutions
+# 📁 CSES Solutions
 
-### 📊 Cses Stats
+### 📊 CSES Stats
 
-![Progress](https://img.shields.io/badge/Progress-8/10-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_12%2C_2026_--_16%3A07_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-8/10-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_12%2C_2026_--_16%3A09_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 10
 - **Solved (AC):** 8
@@ -14,7 +14,7 @@
 * [📁 Dynamic Programming (4)](#-dynamic-programming-4)
 * [📁 Graph (1)](#-graph-1)
 * [📁 Sliding Windơows Problem (1)](#-sliding-windơows-problem-1)
-* [📁 Sorting And Searching (2)](#-sorting-and-searching-2)
+* [📁 Sorting and Searching (2)](#-sorting-and-searching-2)
 
 ---
 ### 📁 Advanced Techniques (2)
@@ -41,7 +41,7 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [3220 - Sliding Window Sum](https://cses.fi/problemset/task/3220) | N/A | N/A | Feb 11, 2026 | [Code](Sliding%20Windơows%20Problem/3220.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
-### 📁 Sorting And Searching (2)
+### 📁 Sorting and Searching (2)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [2216 - Collecting Numbers](https://cses.fi/problemset/task/2216) | `Implementation` | $\mathcal{O}(n)$ | Feb 10, 2026 | [Code](Sorting%20and%20Searching/2216.cpp) \| [Sub](https://cses.fi/problemset/result/16218047/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
