@@ -9,7 +9,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: DSU
- *    complexity: O(n + q \cdot \alpha{n}) 
+ *    complexity: O(n + q \cdot \alpha{(n)}) 
  *    note: 
 **/
 

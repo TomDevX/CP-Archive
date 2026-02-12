@@ -2,7 +2,7 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-91/95-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_12%2C_2026_--_13%3A57_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260212T1357&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-91/95-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_12%2C_2026_--_13%3A58_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260212T1358&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 95
 - **Accepted:** 91
@@ -143,7 +143,7 @@
 ## 📂 [MarisaOJ](https://marisaoj.com/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [130 - DSU](https://marisaoj.com/problem/130) | `DSU` | $\mathcal{O}(n + q \cdot \alpha{n})$ | Feb 12, 2026 | [Code](MarisaOJ/130.cpp) \| [Sub](https://marisaoj.com/submission/1081451) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | [130 - DSU](https://marisaoj.com/problem/130) | `DSU` | $\mathcal{O}(n + q \cdot \alpha{(n)})$ | Feb 12, 2026 | [Code](MarisaOJ/130.cpp) \| [Sub](https://marisaoj.com/submission/1081451) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [Project Euler](https://projecteuler.net/about)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
