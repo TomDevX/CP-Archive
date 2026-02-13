@@ -8,7 +8,7 @@
  *    submission: https://cses.fi/problemset/result/16251418/
  *    status: AC
  * ----------------------------------------------------------
- *    tags: Dynamic Programming
+ *    tags: Dynamic Programming, Range Query
  *    complexity: O(n \log n)
  *    note: We use coordinate compression to compress the value of the elements to below 2e5. Let dp[i] = the number of LIS from 1 -> n, the formula of DP is dp[i] = sum(dp[1 -> i-1]) + 1. Because we can connect the current element with any previous smaller value and we have a LIS with only the current element.
 **/
