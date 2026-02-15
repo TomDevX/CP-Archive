@@ -1,14 +1,14 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-10 11:26:09
+ *    created: 2026-02-15 10:56:39
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: You Soared Afar With Grace
- *    source: https://codeforces.com/problemset/problem/2084/C
+ *    title: Elevator Rides
+ *    source: https://cses.fi/problemset/task/1653
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
- *    tags: 
+ *    tags: Dynamic Programming
  *    complexity: 
  *    note: 
 **/
@@ -17,6 +17,7 @@
 #include <vector>
 #include <cstdio>
 #include <utility>
+#include <algorithm>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n';
@@ -42,7 +43,7 @@ using pii = pair<int,int>;
 using vi = vector<int>;
 using vii = vector<vector<int>>;
 using vll = vector<long long>;
-using vlll = vector<vector<long long>>;
+using vvll = vector<vector<long long>>;
 
 void setup(){
     if(!fopen("NAME.INP", "r")) return;
@@ -61,40 +62,30 @@ int main(){
     fastio;
     setup();
 
-    int tc;
-    cin >> tc;
-    while(tc--){
-        int n;
-        cin >> n;
-        vi a(n+1),b(n+1), pos(n+1);
-        int cnt = 0;
-        for(int i = 1; i <= n; i++){
-            cin >> a[i];
-            pos[a[i]] = i;
-        }
+    int n, s;
+    cin >> n>> s;
 
-        bool check = true;
-        for(int i = 1; i <= n; i++){
-            cin >> b[i];
-            if(b[i] == pos[b[i]]){
-                cnt++;
-                if(cnt == 2){
-                    check = false;
-                }
-            }
-            b[i] = pos[b[i]];
-            pos[b[i]] = i;
-        }
-        if(!check){
-            cout << -1 << '\n';
-            continue;
-        }
+    vi a(n+1);
+    for(int i = 1; i <= n; i++) cin >> a[i];
+    sort(all(a,1));
+    dbg(a,1);
+    int ans = 0;
 
-        int ans = 0;
-        for(int i = n; i >= 1; i--){
-            if(b[i] != n-i+1){
-                swap(i,pos[b[i]]);x
-            }
+    while(sz(a) > 1){
+        int sum = s;
+        int cur = sz(a)-1;
+        sum -= a[cur];
+        a.erase(a.begin()+cur);
+
+        int it = upper_bound(all(a,1), sum) - a.begin() - 1;
+        // dbg(sum,it);
+        while(it > 0 && sum - a[it] >= 0){
+            sum -= a[it];
+            a.erase(a.begin()+it);
+            it = upper_bound(all(a,1), sum) - a.begin() - 1;
         }
+        // dbg(a,1);
+        ans++;  
     }
+    cout << ans;
 }
