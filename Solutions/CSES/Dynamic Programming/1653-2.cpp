@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-16 11:04:13
+ *    created: 2026-02-16 2026-02-16 11:48:10
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: Elevator Rides (Approach 1)
+ *    title: Elevator Rides (Approach 2)
  *    source: https://cses.fi/problemset/task/1653/
  *    submission: https://cses.fi/problemset/result/16280676/
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Dynamic Programming, Bitmask
  *    complexity: O(n \cdot 2^n)
- *    note: With any greedy method, we cant know that which is the correct element that we should choose, so that should give us a WA. So with bitmask, the mask on the DP will store the index of served passengers (1 = served, 0 = untouched). The DP will save {number of rides, weight used} as a pair.
+ *    note: Same as approach 1 but instead of getting child mask, we update the parent masks from the child
 **/
 
 #include <iostream>
@@ -61,28 +61,32 @@ int main(){
     fastio;
     setup();
 
-    int n, s;
+    int n,s;
     cin >> n >> s;
 
     vi a(n+1);
     for(int i = 1; i <= n; i++) cin >> a[i];
-    
-    vector<pii> dp(1<<n);
+
+    vector<pii> dp(1 << n);
+    for(int i = 1; i < (1 << n); i++){
+        dp[i] = {1e9,1e9};
+    }
     dp[0] = {0,0};
 
-    for(int mask = 1; mask < (1 << n); mask++){
-        dp[mask] = {1e9,1e9};
-        for(int submask = mask; submask; submask &= (submask - 1)){ // iterate through every bit 1
-            int j = __builtin_ctz(submask) + 1; // get the last index 1-based
-            int child = mask & ~((submask & -submask)); // turn off the bit at index j 1-based
+    for(int mask = 0; mask < (1 << n)-1; mask++){
+        for(int j = 0; j < n; j++){
+            if(!(mask >> j & 1)){
+                int i = j+1;
+                int par = mask | (1 << j);
 
-            pii stats = (dp[child].se + a[j] <= s ? make_pair(dp[child].fi,dp[child].se + a[j]) : make_pair(dp[child].fi + 1, a[j])); // chaging status formula
-            
-            if(dp[mask].fi > stats.fi || (dp[mask].fi == stats.fi && dp[mask].se > stats.se)){
-                dp[mask] = stats; // if the child is more optimized, we use it
+                pii stats = (dp[mask].se + a[i] <= s ? make_pair(dp[mask].fi, dp[mask].se + a[i]) : make_pair(dp[mask].fi + 1, a[i]));
+
+                if(stats.fi < dp[par].fi || (stats.fi == dp[par].fi && stats.se < dp[par].se)){
+                    dp[par] = stats;
+                }
             }
         }
     }
 
-    cout << dp[(1 << n) - 1].fi + (dp[(1<<n) - 1].se > 0); // if there is still weight, it means that we need 1 more ride
+    cout << dp[(1 << n) - 1].fi + (dp[(1 << n) - 1].se > 0);
 }

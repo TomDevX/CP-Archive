@@ -2,7 +2,7 @@
 
 ### 📊 VNOI Stats
 
-![Progress](https://img.shields.io/badge/Progress-4/4-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_15%2C_2026_--_13%3A17_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-4/4-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_16%2C_2026_--_11%3A58_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 4
 - **Solved (AC):** 4
