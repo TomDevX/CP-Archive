@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-10 11:26:09
+ *    created: 2026-02-17 12:30:46
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: You Soared Afar With Grace
@@ -40,9 +40,9 @@ using pld = pair<long double,long double>;
 using ull = unsigned long long;
 using pii = pair<int,int>;
 using vi = vector<int>;
-using vii = vector<vector<int>>;
+using vvi = vector<vector<int>>;
 using vll = vector<long long>;
-using vlll = vector<vector<long long>>;
+using vvll = vector<vector<long long>>;
 
 void setup(){
     if(!fopen("NAME.INP", "r")) return;
@@ -66,35 +66,50 @@ int main(){
     while(tc--){
         int n;
         cin >> n;
-        vi a(n+1),b(n+1), pos(n+1);
-        int cnt = 0;
+        vi a(n+1), b(n+1), pos(n+1);
+
         for(int i = 1; i <= n; i++){
             cin >> a[i];
             pos[a[i]] = i;
         }
+        for(int i = 1; i <= n; i++) cin >> b[i];
 
+        int cnt = 0;
         bool check = true;
         for(int i = 1; i <= n; i++){
-            cin >> b[i];
-            if(b[i] == pos[b[i]]){
+            if(a[i] == b[i]){
                 cnt++;
-                if(cnt == 2){
+                if(cnt > 1){
                     check = false;
+                    break;
                 }
             }
-            b[i] = pos[b[i]];
-            pos[b[i]] = i;
         }
+
         if(!check){
             cout << -1 << '\n';
             continue;
         }
 
-        int ans = 0;
-        for(int i = n; i >= 1; i--){
-            if(b[i] != n-i+1){
-                swap(i,pos[b[i]]);x
+        for(int i = 1; i <= n; i++){
+            b[i] = pos[b[i]];
+        }
+        for(int i = 1; i <= n; i++){
+            pos[b[i]] = i;
+        }
+
+        vector<pii> poss;
+        for(int i = 1; i <= n; i++){
+            if(b[i] != a[i]){
+                poss.eb(pos[b[i]],pos[a[i]]);
+                swap(b[pos[b[i]]], b[pos[a[i]]]);
+                swap(pos[b[i]], pos[a[i]]);
             }
+        }
+
+        cout << sz(poss) << '\n';
+        for(int i = 0; i < sz(poss); i++){
+            cout << poss[i].fi << ' ' << poss[i].se << '\n';
         }
     }
 }
