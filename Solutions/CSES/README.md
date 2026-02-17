@@ -2,17 +2,17 @@
 
 ### 📊 CSES Stats
 
-![Progress](https://img.shields.io/badge/Progress-13/15-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_17%2C_2026_--_23%3A09_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-14/16-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_18%2C_2026_--_00%3A06_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
-- **Total Unique Problems:** 15
-- **Solved (AC):** 13
+- **Total Unique Problems:** 16
+- **Solved (AC):** 14
 
 ---
 ## 📌 Table of Contents
 
   * [📁 Advanced Techniques (2)](#-advanced-techniques-2)
   * [📁 Dynamic Programming (8)](#-dynamic-programming-8)
-  * [📁 Graph (2)](#-graph-2)
+  * [📁 Graph (3)](#-graph-3)
   * [📁 Sliding Windơows Problem (1)](#-sliding-windơows-problem-1)
   * [📁 Sorting and Searching (2)](#-sorting-and-searching-2)
 
@@ -36,11 +36,12 @@
 | 8 | [3314 - Mountain Range](https://cses.fi/problemset/task/3314) | N/A | N/A | Feb 12, 2026 | [Code](Dynamic%20Programming/3314.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 9 | [3359 - Minimal Grid Path](https://cses.fi/problemset/task/3359) | `Dynamic Programming` | $\mathcal{O}(n \cdot m)$ | Feb 11, 2026 | [Code](Dynamic%20Programming/3359.cpp) \| [Sub](https://cses.fi/problemset/result/16238561/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-### 📁 Graph (2)
+### 📁 Graph (3)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1192 - Counting Rooms](https://cses.fi/problemset/task/1192/) | `BFS`, `flood fill` | $\mathcal{O}(V+E)$ | Aug 9, 2025 | [Code](Graph/1192_Counting_Rooms.cpp) \| [Sub](https://cses.fi/paste/96f91e45fb63bc5dd6975e/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [1668 - Building Teams](https://cses.fi/problemset/task/1668) | `Graph` | $\mathcal{O}(V + E)$ | Feb 17, 2026 | [Code](Graph/1668.cpp) \| [Sub](https://cses.fi/problemset/result/16295973/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 3 | [1669 - Round Trip](https://cses.fi/problemset/task/1669) | `Graph` | $\mathcal{O}(V+E)$ | Feb 17, 2026 | [Code](Graph/1669.cpp) \| [Sub](https://cses.fi/problemset/result/16296787/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ### 📁 Sliding Windơows Problem (1)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
