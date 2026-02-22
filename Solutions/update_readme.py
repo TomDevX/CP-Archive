@@ -287,8 +287,8 @@ def generate_readme():
     stats += f"![Progress]({progress_badge}) [![Last Update]({badge_url})]({time_link} \"🖱️ CLICK TO CONVERT\")\n\n"
     stats += f"- **Total Problems:** {total_problems_count}\n"
     stats += f"- **Accepted:** {total_ac}\n"
-    stats += f"- **Origin Timezone:** Ho Chi Minh City (GMT+7)\n\n---\n"
-    stats += f"*Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*"
+    stats += f"- **Origin Timezone:** Ho Chi Minh City (GMT+7)\n"
+    stats += f"*Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*\n---\n"
     
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content + stats + toc_content + "\n---\n" + main_content)
