@@ -8,7 +8,7 @@
 - **Accepted:** 103
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
-*Tips: Press `ctrl + f` on **Windows** or `cmd + f` on **MacOS** to search problem by ID or Name*
+*Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
 ---
 ## 📌 Table of Contents
 
