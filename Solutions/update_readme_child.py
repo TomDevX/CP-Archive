@@ -153,7 +153,7 @@ def generate_single_readme(target_dir):
     stats += f"![Progress]({progress_badge}) ![Last Update]({badge_url})\n\n"
     stats += f"- **Total Unique Problems:** {total_problems}\n"
     stats += f"- **Solved (AC):** {total_ac}\n"
-    stats += f"*Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*\n---\n"
+    stats += f"> *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*\n---\n"
     
     # --- TOC & CONTENT ---
     toc_content = "## 📌 Table of Contents\n\n"

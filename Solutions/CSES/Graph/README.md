@@ -6,7 +6,7 @@
 
 - **Total Unique Problems:** 3
 - **Solved (AC):** 3
-*Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
+> *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
 ---
 ## 📌 Table of Contents
 
