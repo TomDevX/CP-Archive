@@ -2,14 +2,14 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-103/109-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_22%2C_2026_--_21%3A47_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260222T2147&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-103/109-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_22%2C_2026_--_21%3A56_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260222T2156&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 109
 - **Accepted:** 103
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 ---
-## 📌 Table of Contents
+*Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*## 📌 Table of Contents
 
 * [📂 Codeforces (78)](#-codeforces-78)
 * [📂 CSES (19)](#-cses-19)
