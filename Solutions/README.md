@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-101/107-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_21%2C_2026_--_22%3A46_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260221T2246&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-103/109-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_22%2C_2026_--_21%3A47_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260222T2147&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 107
-- **Accepted:** 101
+- **Total Problems:** 109
+- **Accepted:** 103
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 ---
@@ -21,7 +21,7 @@
   * [📂 Sorting And Searching (3)](#-sorting-and-searching-3)
 * [📂 IUHCoder (2)](#-iuhcoder-2)
 * [📂 Leetcode (1)](#-leetcode-1)
-* [📂 MarisaOJ (1)](#-marisaoj-1)
+* [📂 MarisaOJ (3)](#-marisaoj-3)
 * [📂 Project Euler (2)](#-project-euler-2)
 * [📂 VNOI (4)](#-vnoi-4)
 
@@ -163,10 +163,12 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [64 - Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum) | `Dynamic Programming` | $\mathcal{O}(n \cdot m)$ | Feb 12, 2026 | [Code](Leetcode/64.cpp) \| [Sub](https://leetcode.com/problems/minimum-path-sum/submissions/1916094804) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-## 📂 [MarisaOJ (1)](https://marisaoj.com/)
+## 📂 [MarisaOJ (3)](https://marisaoj.com/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [130 - DSU](https://marisaoj.com/problem/130) | `DSU` | $\mathcal{O}(n + q \cdot \alpha{(n)})$ | Feb 12, 2026 | [Code](MarisaOJ/130.cpp) \| [Sub](https://marisaoj.com/submission/1081451) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | [74 - Brewing potion](https://account.marisaoj.com/problem/74) | `Greedy`, `Two Pointers` | $\mathcal{O}(n \log n)$ | Feb 22, 2026 | [Code](MarisaOJ/74.cpp) \| [Sub](https://account.marisaoj.com/submission/1094298) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 2 | [130 - DSU](https://marisaoj.com/problem/130) | `DSU` | $\mathcal{O}(n + q \cdot \alpha{(n)})$ | Feb 12, 2026 | [Code](MarisaOJ/130.cpp) \| [Sub](https://marisaoj.com/submission/1081451) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 3 | [556 - Cucumber](https://account.marisaoj.com/problem/556) | `Greedy` | $\mathcal{O}(n \log n)$ | Feb 22, 2026 | [Code](MarisaOJ/556.cpp) \| [Sub](https://account.marisaoj.com/submission/1094391) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [Project Euler (2)](https://projecteuler.net/about)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
