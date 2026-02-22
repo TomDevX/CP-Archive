@@ -1,10 +1,12 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-10 11:04:54
+ *    created: 2026-02-21 23:52:56
  *    country: Vietnam - VNM
+ * ----------------------------------------------------------
  *    title: 
  *    source: 
  *    submission: 
+ *    status: WIP
  * ----------------------------------------------------------
  *    tags: 
  *    complexity: 
@@ -38,9 +40,9 @@ using pld = pair<long double,long double>;
 using ull = unsigned long long;
 using pii = pair<int,int>;
 using vi = vector<int>;
-using vii = vector<vector<int>>;
+using vvi = vector<vector<int>>;
 using vll = vector<long long>;
-using vlll = vector<vector<long long>>;
+using vvll = vector<vector<long long>>;
 
 void setup(){
     if(!fopen("NAME.INP", "r")) return;
