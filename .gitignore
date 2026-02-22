@@ -11,7 +11,7 @@
 *.app
 *.bin   
 *.idb
-*.prop
+*.prob
 
 
 # IDE/Editor specific files 
