@@ -43,7 +43,6 @@ def create_slug(text):
     return slug
 
 def extract_metadata(file_path):
-    """Trích xuất thông tin và chuyển đường dẫn nội bộ thành đường dẫn TUYỆT ĐỐI."""
     meta = {"source": None, "submission": None, "tags": "N/A", "complexity": "N/A", "title": None, "date": "N/A", "status": "AC"}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -67,17 +66,18 @@ def extract_metadata(file_path):
                         if any(x in val for x in ["IN PROGRESS", "WIP"]): meta["status"] = "WIP"
                         elif val in STATUS_MAP: meta["status"] = val
                     elif lower_line.startswith("source:"):
-                        val = clean_line[7:].strip()
+                        val = clean_line[7:].strip().replace('%20', ' ') # Chuyển %20 về dấu cách để Python đọc được
                         if val:
                             if val.startswith("http"):
                                 meta["source"] = val
                             else:
-                                # Chuyển thành đường dẫn tuyệt đối để dễ tính toán sau này
+                                # Chuyển về tuyệt đối để tính toán chính xác sau này
                                 clean_val = val.lstrip('./')
                                 meta["source"] = os.path.abspath(os.path.join(os.path.dirname(file_path), clean_val))
                     elif lower_line.startswith("submission:"):
                         val = clean_line[11:].strip()
-                        if val: meta["submission"] = val if val.startswith("http") else val.replace(' ', '%20')
+                        if val: meta["submission"] = val # Giữ nguyên URL hoặc path
+                    # ... (các phần khác giữ nguyên) ...
                     elif lower_line.startswith("created:"):
                         val = clean_line[8:].strip()
                         if val:
@@ -143,36 +143,44 @@ def count_problems_in_subtree(directory):
     return total, ac
 
 def generate_single_readme(target_dir):
-    """Generate README.md for a specific directory."""
+    """Tạo README.md cho một thư mục cụ thể và đảm bảo link luôn đúng."""
     folder_name = os.path.basename(target_dir)
-    if not folder_name: folder_name = "Solutions" 
+    # Nếu là thư mục gốc của script, đặt tên là Solutions
+    if not folder_name or folder_name == "Solutions": 
+        folder_name = "Solutions" 
     
     readme_path = os.path.join(target_dir, 'README.md')
-    
     total_problems, total_ac = count_problems_in_subtree(target_dir)
-    if total_problems == 0: return # Do not create README if no problems found
-
-    content = f"# 📁 {format_display_name(folder_name)} Solutions\n\n"
     
-    # --- STATS ---
+    # Không tạo README nếu thư mục không chứa bài tập nào
+    if total_problems == 0: 
+        return 
+
+    content = f"# 📁 {folder_name} Solutions\n\n"
+    
+    # --- PHẦN THỐNG KÊ (STATS) ---
     push_time = get_last_commit_time()
     time_str = push_time.strftime("%b %d, %Y - %H:%M (GMT+7)")
+    # Encode thời gian cho Shield.io badge
     badge_time = time_str.replace("-", "--").replace(" ", "_").replace(":", "%3A").replace(",", "%2C")
     
     badge_url = f"https://img.shields.io/badge/Last_Update-{badge_time}-0078d4?style=for-the-badge&logo=github"
     progress_badge = f"https://img.shields.io/badge/Progress-{total_ac}/{total_problems}-4c1?style=for-the-badge&logo=target"
     
-    stats = f"### 📊 {format_display_name(folder_name)} Stats\n\n"
+    stats = f"### 📊 {folder_name} Stats\n\n"
     stats += f"![Progress]({progress_badge}) ![Last Update]({badge_url})\n\n"
     stats += f"- **Total Unique Problems:** {total_problems}\n"
     stats += f"- **Solved (AC):** {total_ac}\n\n"
-    stats += f"> *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*\n---\n"
+    # Format Tips dưới dạng Blockquote cho chuyên nghiệp
+    stats += f"> 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.\n\n"
+    stats += "---\n"
     
-    # --- TOC & CONTENT ---
+    # --- PHẦN MỤC LỤC (TOC) & NỘI DUNG CHÍNH ---
     toc_content = "## 📌 Table of Contents\n\n"
     main_tables = ""
-    
     folder_data = []
+    
+    # Quét các folder con để lấy dữ liệu bài tập
     for root, dirs, files in os.walk(target_dir):
         dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
         cpp_files = [f for f in files if f.endswith('.cpp')]
@@ -181,49 +189,68 @@ def generate_single_readme(target_dir):
             
     folder_data.sort(key=lambda x: natural_sort_key(x[0]))
     
-    for i, (path, files) in enumerate(folder_data):
+    for path, files in folder_data:
         rel_path = os.path.relpath(path, target_dir)
-        display_name = format_display_name(os.path.basename(path))
-        
+        display_name = os.path.basename(path)
         this_folder_total, _ = count_problems_in_subtree(path)
         title_with_count = f"{display_name} ({this_folder_total})"
         
-        # TOC indentation based on depth
+        # Xây dựng Mục lục (TOC) với độ thụt lề dựa trên độ sâu thư mục
         depth = 0 if rel_path == "." else rel_path.count(os.sep) + 1
         toc_content += f"{'  ' * depth}* [📁 {title_with_count}](#-{create_slug(title_with_count)})\n"
         
-        # Header for Table
+        # Tạo tiêu đề cho từng bảng bài tập
         if rel_path == ".":
             main_tables += f"## 📂 {title_with_count}\n"
         else:
             main_tables += f"{'#' * (depth + 2)} 📁 {title_with_count}\n"
             
-        table = "| # | Problem Name | Tags | Complexity | Date | Solution | Status |\n| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
+        table = "| # | Problem Name | Tags | Complexity | Date | Solution | Status |\n"
+        table += "| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
+        
         files.sort(key=natural_sort_key)
         for idx, file in enumerate(files, 1):
             full_path = os.path.join(path, file)
             meta = extract_metadata(full_path)
-            prob_link = meta["source"] or auto_generate_link(full_path)
             
+            # 1. XỬ LÝ LINK BÀI TẬP (SOURCE)
+            # Link có thể là URL hoặc path tuyệt đối (từ hàm extract_metadata đã fix)
+            prob_link = meta["source"] or auto_generate_link(full_path)
+            if prob_link:
+                if not str(prob_link).startswith("http"):
+                    # Tính toán đường dẫn tương đối từ file README hiện tại đến file PDF
+                    prob_link = os.path.relpath(prob_link, target_dir).replace('\\', '/')
+                # Encode khoảng trắng sau khi đã có đường dẫn tương đối chuẩn
+                prob_link = str(prob_link).replace(' ', '%20')
+            
+            # 2. XỬ LÝ TÊN HIỂN THỊ
             filename_no_ext = file.replace('.cpp', '')
             file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
-            prob_title = f"{file_id} - {meta['title']}" if meta["title"] else format_display_name(filename_no_ext)
-            
+            prob_title = f"{file_id} - {meta['title']}" if meta["title"] else filename_no_ext
             name_md = f"[{prob_title}]({prob_link})" if prob_link else prob_title
+            
+            # 3. XỬ LÝ LINK CODE (File .cpp)
+            # Link code luôn tương đối so với file README này
             rel_code_path = os.path.relpath(full_path, target_dir).replace('\\', '/').replace(' ', '%20')
             sol_md = f"[Code]({rel_code_path})"
-            if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
+            
+            # 4. XỬ LÝ LINK SUBMISSION
+            if meta["submission"]:
+                sub_link = meta["submission"]
+                if not str(sub_link).startswith("http"):
+                    sub_link = os.path.relpath(sub_link, target_dir).replace('\\', '/').replace(' ', '%20')
+                sol_md += f" \\| [Sub]({sub_link})"
             
             table += f"| {idx} | {name_md} | {meta['tags']} | {meta['complexity']} | {meta['date']} | {sol_md} | {get_status_badge(meta['status'])} |\n"
         
         main_tables += table + "\n"
 
+    # Ghi toàn bộ nội dung vào file README.md
     with open(readme_path, 'w', encoding='utf-8') as f:
         f.write(content + stats + toc_content + "\n---\n" + main_tables)
-    print(f"Generated: {readme_path}")
+    print(f"✅ Generated: {readme_path}")
 
 def main():
-    # Traverse all sub-directories in BASE_DIR
     for root, dirs, files in os.walk(BASE_DIR):
         dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
         generate_single_readme(root)

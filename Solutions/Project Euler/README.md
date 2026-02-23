@@ -2,12 +2,13 @@
 
 ### 📊 Project Euler Stats
 
-![Progress](https://img.shields.io/badge/Progress-2/2-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_23%2C_2026_--_10%3A29_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-2/2-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_23%2C_2026_--_10%3A39_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 2
 - **Solved (AC):** 2
 
-> *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
+> 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
+
 ---
 ## 📌 Table of Contents
 
