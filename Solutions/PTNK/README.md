@@ -1,6 +1,6 @@
-# 📁 Range Queries Solutions
+# 📁 PTNK Solutions
 
-### 📊 Range Queries Stats
+### 📊 PTNK Stats
 
 ![Progress](https://img.shields.io/badge/Progress-0/1-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_23%2C_2026_--_10%3A00_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
@@ -10,11 +10,11 @@
 ---
 ## 📌 Table of Contents
 
-* [📁 Range Queries (1)](#-range-queries-1)
+  * [📁 Grade 10 (1)](#-grade-10-1)
 
 ---
-## 📂 Range Queries (1)
+### 📁 Grade 10 (1)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [1143 - Hotel Queries](https://cses.fi/problemset/task/1143) | N/A | N/A | Feb 18, 2026 | [Code](1143.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 1 | JOB - JOB | N/A | N/A | Feb 23, 2026 | [Code](Grade%2010/JOB.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 

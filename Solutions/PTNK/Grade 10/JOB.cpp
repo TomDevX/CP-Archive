@@ -4,7 +4,7 @@
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: JOB
- *    source: ./Solutions/PTNK/Grade 10/BT_20260223.pdf
+ *    source: ./Solutions/PTNK/Grade%2010/BT_20260223.pdf
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
