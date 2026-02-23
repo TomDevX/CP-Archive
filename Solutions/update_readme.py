@@ -36,12 +36,19 @@ def get_oj_link_from_file(folder_path):
             try:
                 with open(file_path, 'r', encoding='utf-8') as f:
                     content = f.read().strip()
+                    
+                    # Xử lý định dạng file .url (Internet Shortcut)
                     if file_name.endswith('.url'):
-                        match = re.search(r'URL=(https?://[^\s]+)', content)
-                        if match: return match.group(1)
-                    if content.startswith('http'):
+                        # Cập nhật regex để bắt cả http và các đường dẫn tương đối/tuyệt đối
+                        match = re.search(r'URL=(https?://[^\s]+|\./[^\s]+)', content)
+                        if match: 
+                            return match.group(1)
+                    
+                    # Kiểm tra nếu nội dung bắt đầu bằng http hoặc ./
+                    if content.startswith(('http', './')):
                         return content.split('\n')[0].strip()
-            except Exception: pass
+            except Exception: 
+                pass
     return None
 
 def format_display_name(name, is_oj=False):

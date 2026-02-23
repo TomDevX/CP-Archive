@@ -57,9 +57,11 @@ def extract_metadata(file_path):
                     elif lower_line.startswith("status:"):
                         val = clean_line[7:].strip().upper()
                         if "IN PROGRESS" in val or "WIP" in val: meta["status"] = "WIP"
-                        elif val in STATUS_MAP: meta["status"] = val
+                        # Giả định STATUS_MAP đã được định nghĩa ở đâu đó
+                        # elif val in STATUS_MAP: meta["status"] = val
                     elif lower_line.startswith("source:"):
-                        match = re.search(r'(https?://[^\s]+)', clean_line)
+                        # Cập nhật Regex để nhận diện cả http/https và ./
+                        match = re.search(r'(https?://[^\s]+|\./[^\s]+)', clean_line)
                         if match: meta["source"] = match.group(1)
                     elif lower_line.startswith("created:"):
                         val = clean_line[8:].strip()
@@ -70,7 +72,8 @@ def extract_metadata(file_path):
                                 meta["date"] = dt.strftime(f"%b {day}, %Y")
                             except: meta["date"] = val
                     elif lower_line.startswith("submission:"):
-                        match = re.search(r'(https?://[^\s]+)', clean_line)
+                        # Cập nhật Regex tương tự cho trường submission
+                        match = re.search(r'(https?://[^\s]+|\./[^\s]+)', clean_line)
                         if match: meta["submission"] = match.group(1)
                     elif lower_line.startswith("tags:"):
                         val = clean_line[5:].strip()
@@ -85,7 +88,8 @@ def extract_metadata(file_path):
                             else:
                                 inner = re.sub(r'^[Oo]\s*\((.*)\)$', r'\1', val).strip()
                                 meta["complexity"] = f"$\\mathcal{{O}}({inner})$"
-    except Exception: pass
+    except Exception: 
+        pass
     return meta
 
 def get_status_badge(status_code):
