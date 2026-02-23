@@ -2,10 +2,11 @@
 
 ### 📊 CSES Stats
 
-![Progress](https://img.shields.io/badge/Progress-18/21-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_23%2C_2026_--_10%3A15_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-18/21-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_23%2C_2026_--_10%3A21_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 21
 - **Solved (AC):** 18
+
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
 ---
 ## 📌 Table of Contents

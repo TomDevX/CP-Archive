@@ -72,6 +72,7 @@ def create_slug(text):
     return slug
 
 def extract_metadata(file_path):
+    # BASE_DIR là thư mục gốc chứa README.md
     meta = {"source": None, "submission": None, "tags": "N/A", "complexity": "N/A", "title": None, "date": "N/A", "status": "AC"}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -95,15 +96,27 @@ def extract_metadata(file_path):
                         if any(x in val for x in ["IN PROGRESS", "WIP"]): meta["status"] = "WIP"
                         elif val in STATUS_MAP: meta["status"] = val
                     
-                    # --- PHẦN SỬA ĐỔI SOURCE ---
+                    # --- FIX: TỰ ĐỘNG CHUYỂN VỀ ĐƯỜNG DẪN GỐC ---
                     elif lower_line.startswith("source:"):
-                        val = clean_line[7:].strip().replace(' ', '%20') # Lấy tất cả và encode dấu cách
-                        if val: meta["source"] = val
+                        val = clean_line[7:].strip()
+                        if val:
+                            if val.startswith("http"):
+                                meta["source"] = val
+                            else:
+                                # Loại bỏ ./ nếu lỡ tay viết
+                                clean_val = val.lstrip('./')
+                                # Lấy đường dẫn tuyệt đối của file PDF dựa trên vị trí file .cpp
+                                abs_source = os.path.abspath(os.path.join(os.path.dirname(file_path), clean_val))
+                                # Chuyển về đường dẫn tương đối so với thư mục gốc (BASE_DIR)
+                                rel_to_root = os.path.relpath(abs_source, BASE_DIR).replace('\\', '/')
+                                meta["source"] = rel_to_root.replace(' ', '%20')
                     
                     elif lower_line.startswith("submission:"):
-                        val = clean_line[11:].strip().replace(' ', '%20') # Tương tự cho submission
-                        if val: meta["submission"] = val
-                    # ---------------------------
+                        val = clean_line[11:].strip()
+                        if val:
+                            if val.startswith("http"): meta["submission"] = val
+                            else: meta["submission"] = val.replace(' ', '%20')
+                    # --------------------------------------------
 
                     elif lower_line.startswith("created:"):
                         val = clean_line[8:].strip()
