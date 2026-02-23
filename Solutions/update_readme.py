@@ -30,25 +30,36 @@ def get_last_commit_time():
 
 def get_oj_link_from_file(folder_path):
     link_files = ['link.txt', 'oj.txt', 'source.url']
+    
+    # 1. Kiểm tra các file link phụ như cũ
     for file_name in link_files:
         file_path = os.path.join(folder_path, file_name)
         if os.path.exists(file_path):
             try:
                 with open(file_path, 'r', encoding='utf-8') as f:
                     content = f.read().strip()
-                    
-                    # Xử lý định dạng file .url (Internet Shortcut)
                     if file_name.endswith('.url'):
-                        # Cập nhật regex để bắt cả http và các đường dẫn tương đối/tuyệt đối
                         match = re.search(r'URL=(https?://[^\s]+|\./[^\s]+)', content)
-                        if match: 
-                            return match.group(1)
-                    
-                    # Kiểm tra nếu nội dung bắt đầu bằng http hoặc ./
+                        if match: return match.group(1)
                     if content.startswith(('http', './')):
                         return content.split('\n')[0].strip()
-            except Exception: 
-                pass
+            except Exception: pass
+
+    # 2. BỔ SUNG: Quét trực tiếp header trong các file .cpp ở folder này
+    try:
+        for file_name in os.listdir(folder_path):
+            if file_name.endswith('.cpp'):
+                file_path = os.path.join(folder_path, file_name)
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    # Chỉ đọc 20 dòng đầu để tiết kiệm hiệu năng
+                    header_content = "".join([next(f) for _ in range(20) if f])
+                    # Regex tìm source: hỗ trợ cả link http và đường dẫn file cục bộ
+                    # Dùng [^\s\*] để dừng lại khi gặp khoảng trắng hoặc dấu sao kết thúc comment
+                    source_match = re.search(r'source:\s+([^\s\*]+)', header_content)
+                    if source_match:
+                        return source_match.group(1).strip()
+    except Exception: pass
+    
     return None
 
 def format_display_name(name, is_oj=False):

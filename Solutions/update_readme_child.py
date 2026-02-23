@@ -56,13 +56,11 @@ def extract_metadata(file_path):
                         if val: meta["title"] = val
                     elif lower_line.startswith("status:"):
                         val = clean_line[7:].strip().upper()
-                        if "IN PROGRESS" in val or "WIP" in val: meta["status"] = "WIP"
-                        # Giả định STATUS_MAP đã được định nghĩa ở đâu đó
-                        # elif val in STATUS_MAP: meta["status"] = val
+                        if any(x in val for x in ["IN PROGRESS", "WIP"]): meta["status"] = "WIP"
                     elif lower_line.startswith("source:"):
-                        # Cập nhật Regex để nhận diện cả http/https và ./
-                        match = re.search(r'(https?://[^\s]+|\./[^\s]+)', clean_line)
-                        if match: meta["source"] = match.group(1)
+                        # Sửa Regex: Cho phép nhận diện %20 và các ký tự đường dẫn cho đến hết dòng
+                        match = re.search(r'(https?://[^\s\*]+|\./[^\s\*]+)', clean_line)
+                        if match: meta["source"] = match.group(1).strip()
                     elif lower_line.startswith("created:"):
                         val = clean_line[8:].strip()
                         if val:
@@ -72,9 +70,9 @@ def extract_metadata(file_path):
                                 meta["date"] = dt.strftime(f"%b {day}, %Y")
                             except: meta["date"] = val
                     elif lower_line.startswith("submission:"):
-                        # Cập nhật Regex tương tự cho trường submission
-                        match = re.search(r'(https?://[^\s]+|\./[^\s]+)', clean_line)
-                        if match: meta["submission"] = match.group(1)
+                        # Cập nhật tương tự cho trường submission
+                        match = re.search(r'(https?://[^\s\*]+|\./[^\s\*]+)', clean_line)
+                        if match: meta["submission"] = match.group(1).strip()
                     elif lower_line.startswith("tags:"):
                         val = clean_line[5:].strip()
                         if val:
