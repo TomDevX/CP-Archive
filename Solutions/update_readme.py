@@ -98,8 +98,9 @@ def extract_metadata(file_path):
                         if "IN PROGRESS" in val or "WIP" in val: meta["status"] = "WIP"
                         elif val in STATUS_MAP: meta["status"] = val
                     elif lower_line.startswith("source:"):
-                        match = re.search(r'(https?://[^\s]+)', clean_line)
-                        if match: meta["source"] = match.group(1)
+                        # FIX: Nhận diện cả http, ./ và không dừng lại ở %20
+                        match = re.search(r'(https?://[^\s\*]+|\./[^\s\*]+)', clean_line)
+                        if match: meta["source"] = match.group(1).strip()
                     elif lower_line.startswith("created:"):
                         val = clean_line[8:].strip()
                         if val:
@@ -109,8 +110,9 @@ def extract_metadata(file_path):
                                 meta["date"] = dt.strftime(f"%b {day}, %Y")
                             except: meta["date"] = val
                     elif lower_line.startswith("submission:"):
-                        match = re.search(r'(https?://[^\s]+)', clean_line)
-                        if match: meta["submission"] = match.group(1)
+                        # FIX: Tương tự cho phần submission
+                        match = re.search(r'(https?://[^\s\*]+|\./[^\s\*]+)', clean_line)
+                        if match: meta["submission"] = match.group(1).strip()
                     elif lower_line.startswith("tags:"):
                         val = clean_line[5:].strip()
                         if val:
@@ -124,7 +126,8 @@ def extract_metadata(file_path):
                             else:
                                 inner = re.sub(r'^[Oo]\s*\((.*)\)$', r'\1', val).strip()
                                 meta["complexity"] = f"$\\mathcal{{O}}({inner})$"
-    except Exception: pass
+    except Exception: 
+        pass
     return meta
 
 def get_status_badge(status_code):
@@ -305,7 +308,7 @@ def generate_readme():
     stats += f"![Progress]({progress_badge}) [![Last Update]({badge_url})]({time_link} \"🖱️ CLICK TO CONVERT\")\n\n"
     stats += f"- **Total Problems:** {total_problems_count}\n"
     stats += f"- **Accepted:** {total_ac}\n"
-    stats += f"- **Origin Timezone:** Ho Chi Minh City (GMT+7)\n"
+    stats += f"- **Origin Timezone:** Ho Chi Minh City (GMT+7)\n\n"
     stats += f"> *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*\n---\n"
     
     with open(README_FILE, 'w', encoding='utf-8') as f:

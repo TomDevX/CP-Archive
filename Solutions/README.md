@@ -2,11 +2,12 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-105/113-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_23%2C_2026_--_10%3A09_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260223T1009&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-105/113-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_23%2C_2026_--_10%3A11_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260223T1011&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 113
 - **Accepted:** 105
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
+
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
 ---
 ## 📌 Table of Contents
@@ -189,7 +190,7 @@
 ### 📁 Grade 10 (1)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | JOB - JOB | N/A | N/A | Feb 23, 2026 | [Code](PTNK/Grade%2010/JOB.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 1 | [JOB - JOB](./Solutions/PTNK/Grade%2010/BT_20260223.pdf) | N/A | N/A | Feb 23, 2026 | [Code](PTNK/Grade%2010/JOB.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
 ## 📂 [VNOI (4)](https://oj.vnoi.info/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
