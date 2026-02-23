@@ -2,7 +2,7 @@
 
 ### 📊 Codeforces Stats
 
-![Progress](https://img.shields.io/badge/Progress-76/78-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_23%2C_2026_--_10%3A22_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-76/78-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_23%2C_2026_--_10%3A29_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 78
 - **Solved (AC):** 76
@@ -82,7 +82,7 @@
 | 63 | [1692A](https://codeforces.com/contest/1692/problem/A) | N/A | N/A | N/A | [Code](1692A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 64 | [1703A](https://codeforces.com/contest/1703/problem/A) | N/A | N/A | N/A | [Code](1703A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 65 | [1742A](https://codeforces.com/contest/1742/problem/A) | N/A | N/A | N/A | [Code](1742A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 66 | [1829B - Blank Space](https://codeforces.com/problemset/problem/1829/B) | `implementation` | $\mathcal{O}(t \cdot n)$ | Feb 6, 2026 | [Code](1829B.cpp) \| [Sub](https://codeforces.com/problemset/submission/1829/361679553) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 66 | [1829B - Blank Space](https://codeforces.com/problemset/problem/1829/B) | `implementation` | $\mathcal{O}(t \cdot n)$ | Feb 06, 2026 | [Code](1829B.cpp) \| [Sub](https://codeforces.com/problemset/submission/1829/361679553) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 67 | [1850A - To My Critics](https://codeforces.com/problemset/problem/1850/A) | `Implementation` | $\mathcal{O}(t)$ | Feb 21, 2026 | [Code](1850A.cpp) \| [Sub](https://codeforces.com/problemset/submission/1850/363881834) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 68 | [1906A - Easy as ABC](https://codeforces.com/problemset/problem/1906/A) | `Brute Force` | $\mathcal{O}(3^6)$ | Feb 10, 2026 | [Code](1906A.cpp) \| [Sub](https://codeforces.com/problemset/submission/1906/362212391) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 69 | [1928C - Physical Education Lesson](https://codeforces.com/problemset/problem/1928/C) | N/A | N/A | Feb 10, 2026 | [Code](1928C.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |

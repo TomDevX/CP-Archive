@@ -10,6 +10,13 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 EXCLUDE_DIRS = {'.git', '.github', '.assets', 'venv', '__pycache__', '.cph'}
 CITY_ID = 218 # Ho Chi Minh City
 
+# Vì script nằm trong folder 'Solutions', nên Gốc là thư mục cha của nó
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+REPO_ROOT = os.path.dirname(SCRIPT_DIR) 
+README_FILE = os.path.join(REPO_ROOT, 'README.md')
+# Thư mục để quét vẫn là SCRIPT_DIR (vì script đang ở trong 'Solutions')
+root_dir = SCRIPT_DIR
+
 STATUS_MAP = {
     "AC": {"full": "Accepted", "color": "4c1", "prio": 4},        
     "WA": {"full": "Wrong Answer", "color": "e05d44", "prio": 2},  
@@ -36,7 +43,7 @@ def create_slug(text):
     return slug
 
 def extract_metadata(file_path):
-    # BASE_DIR là thư mục gốc chứa README.md
+    """Trích xuất thông tin và chuyển đường dẫn nội bộ thành đường dẫn TUYỆT ĐỐI."""
     meta = {"source": None, "submission": None, "tags": "N/A", "complexity": "N/A", "title": None, "date": "N/A", "status": "AC"}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -59,36 +66,24 @@ def extract_metadata(file_path):
                         val = clean_line[7:].strip().upper()
                         if any(x in val for x in ["IN PROGRESS", "WIP"]): meta["status"] = "WIP"
                         elif val in STATUS_MAP: meta["status"] = val
-                    
-                    # --- FIX: TỰ ĐỘNG CHUYỂN VỀ ĐƯỜNG DẪN GỐC ---
                     elif lower_line.startswith("source:"):
                         val = clean_line[7:].strip()
                         if val:
                             if val.startswith("http"):
                                 meta["source"] = val
                             else:
-                                # Loại bỏ ./ nếu lỡ tay viết
+                                # Chuyển thành đường dẫn tuyệt đối để dễ tính toán sau này
                                 clean_val = val.lstrip('./')
-                                # Lấy đường dẫn tuyệt đối của file PDF dựa trên vị trí file .cpp
-                                abs_source = os.path.abspath(os.path.join(os.path.dirname(file_path), clean_val))
-                                # Chuyển về đường dẫn tương đối so với thư mục gốc (BASE_DIR)
-                                rel_to_root = os.path.relpath(abs_source, BASE_DIR).replace('\\', '/')
-                                meta["source"] = rel_to_root.replace(' ', '%20')
-                    
+                                meta["source"] = os.path.abspath(os.path.join(os.path.dirname(file_path), clean_val))
                     elif lower_line.startswith("submission:"):
                         val = clean_line[11:].strip()
-                        if val:
-                            if val.startswith("http"): meta["submission"] = val
-                            else: meta["submission"] = val.replace(' ', '%20')
-                    # --------------------------------------------
-
+                        if val: meta["submission"] = val if val.startswith("http") else val.replace(' ', '%20')
                     elif lower_line.startswith("created:"):
                         val = clean_line[8:].strip()
                         if val:
                             try:
                                 dt = datetime.strptime(val.split(' ')[0], "%Y-%m-%d")
-                                day = dt.strftime("%d").lstrip("0")
-                                meta["date"] = dt.strftime(f"%b {day}, %Y")
+                                meta["date"] = dt.strftime("%b %d, %Y")
                             except: meta["date"] = val
                     elif lower_line.startswith("tags:"):
                         val = clean_line[5:].strip()

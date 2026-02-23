@@ -2,7 +2,7 @@
 
 ### 📊 Dynamic Programming Stats
 
-![Progress](https://img.shields.io/badge/Progress-8/9-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_23%2C_2026_--_10%3A22_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-8/9-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_23%2C_2026_--_10%3A29_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 9
 - **Solved (AC):** 8
@@ -24,7 +24,7 @@
 | 5 | [1748 - Increasing Subsequence II](https://cses.fi/problemset/task/1748) | `Dynamic Programming`, `Range Query` | $\mathcal{O}(n \log n)$ | Feb 13, 2026 | [Code](1748.cpp) \| [Sub](https://cses.fi/problemset/result/16251418/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 6 | [2181 - Counting Tilings](https://cses.fi/problemset/task/2181) | `DP on Broken Profile` | $\mathcal{O}(n \cdot m \cdot 2^n)$ | Feb 17, 2026 | [Code](2181.cpp) \| [Sub](https://cses.fi/problemset/result/16290752/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 7 | [2220 - Counting Numbers](https://cses.fi/problemset/task/2220) | `DP Digit` | $\mathcal{O}(digit(n) \cdot 9 \cdot 2 \cdot 2 \cdot 9)$ | Feb 18, 2026 | [Code](2220.cpp) \| [Sub](https://cses.fi/problemset/result/16314439/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 8 | [2413 - Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | $\mathcal{O}(n)$ | Feb 4, 2026 | [Code](2413.cpp) \| [Sub](https://cses.fi/paste/67df7ff1543072a9f68403/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 8 | [2413 - Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | $\mathcal{O}(n)$ | Feb 04, 2026 | [Code](2413.cpp) \| [Sub](https://cses.fi/paste/67df7ff1543072a9f68403/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 9 | [3314 - Mountain Range](https://cses.fi/problemset/task/3314) | N/A | N/A | Feb 12, 2026 | [Code](3314.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 10 | [3359 - Minimal Grid Path](https://cses.fi/problemset/task/3359) | `Dynamic Programming` | $\mathcal{O}(n \cdot m)$ | Feb 11, 2026 | [Code](3359.cpp) \| [Sub](https://cses.fi/problemset/result/16238561/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
