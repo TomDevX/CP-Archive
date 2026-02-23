@@ -30,8 +30,6 @@ def get_last_commit_time():
 
 def get_oj_link_from_file(folder_path):
     link_files = ['link.txt', 'oj.txt', 'source.url']
-    
-    # 1. Kiểm tra các file link phụ như cũ
     for file_name in link_files:
         file_path = os.path.join(folder_path, file_name)
         if os.path.exists(file_path):
@@ -39,27 +37,26 @@ def get_oj_link_from_file(folder_path):
                 with open(file_path, 'r', encoding='utf-8') as f:
                     content = f.read().strip()
                     if file_name.endswith('.url'):
-                        match = re.search(r'URL=(https?://[^\s]+|\./[^\s]+)', content)
-                        if match: return match.group(1)
-                    if content.startswith(('http', './')):
-                        return content.split('\n')[0].strip()
+                        # Lấy mọi thứ sau URL=
+                        match = re.search(r'URL=(.+)', content)
+                        if match: return match.group(1).strip().replace(' ', '%20')
+                    if content: # Chỉ cần có chữ là lấy
+                        return content.split('\n')[0].strip().replace(' ', '%20')
             except Exception: pass
 
-    # 2. BỔ SUNG: Quét trực tiếp header trong các file .cpp ở folder này
+    # Quét trực tiếp file .cpp
     try:
         for file_name in os.listdir(folder_path):
             if file_name.endswith('.cpp'):
                 file_path = os.path.join(folder_path, file_name)
                 with open(file_path, 'r', encoding='utf-8') as f:
-                    # Chỉ đọc 20 dòng đầu để tiết kiệm hiệu năng
                     header_content = "".join([next(f) for _ in range(20) if f])
-                    # Regex tìm source: hỗ trợ cả link http và đường dẫn file cục bộ
-                    # Dùng [^\s\*] để dừng lại khi gặp khoảng trắng hoặc dấu sao kết thúc comment
-                    source_match = re.search(r'source:\s+([^\s\*]+)', header_content)
+                    # Regex lấy mọi thứ từ source: đến hết dòng, loại bỏ dấu sao kết thúc
+                    source_match = re.search(r'source:\s*(.+)', header_content)
                     if source_match:
-                        return source_match.group(1).strip()
+                        val = source_match.group(1).split('\n')[0].strip().rstrip('*').strip()
+                        if val: return val.replace(' ', '%20')
     except Exception: pass
-    
     return None
 
 def format_display_name(name, is_oj=False):
@@ -95,12 +92,19 @@ def extract_metadata(file_path):
                         if val: meta["title"] = val
                     elif lower_line.startswith("status:"):
                         val = clean_line[7:].strip().upper()
-                        if "IN PROGRESS" in val or "WIP" in val: meta["status"] = "WIP"
+                        if any(x in val for x in ["IN PROGRESS", "WIP"]): meta["status"] = "WIP"
                         elif val in STATUS_MAP: meta["status"] = val
+                    
+                    # --- PHẦN SỬA ĐỔI SOURCE ---
                     elif lower_line.startswith("source:"):
-                        # FIX: Nhận diện cả http, ./ và không dừng lại ở %20
-                        match = re.search(r'(https?://[^\s\*]+|\./[^\s\*]+)', clean_line)
-                        if match: meta["source"] = match.group(1).strip()
+                        val = clean_line[7:].strip().replace(' ', '%20') # Lấy tất cả và encode dấu cách
+                        if val: meta["source"] = val
+                    
+                    elif lower_line.startswith("submission:"):
+                        val = clean_line[11:].strip().replace(' ', '%20') # Tương tự cho submission
+                        if val: meta["submission"] = val
+                    # ---------------------------
+
                     elif lower_line.startswith("created:"):
                         val = clean_line[8:].strip()
                         if val:
@@ -109,10 +113,6 @@ def extract_metadata(file_path):
                                 day = dt.strftime("%d").lstrip("0")
                                 meta["date"] = dt.strftime(f"%b {day}, %Y")
                             except: meta["date"] = val
-                    elif lower_line.startswith("submission:"):
-                        # FIX: Tương tự cho phần submission
-                        match = re.search(r'(https?://[^\s\*]+|\./[^\s\*]+)', clean_line)
-                        if match: meta["submission"] = match.group(1).strip()
                     elif lower_line.startswith("tags:"):
                         val = clean_line[5:].strip()
                         if val:
@@ -126,8 +126,7 @@ def extract_metadata(file_path):
                             else:
                                 inner = re.sub(r'^[Oo]\s*\((.*)\)$', r'\1', val).strip()
                                 meta["complexity"] = f"$\\mathcal{{O}}({inner})$"
-    except Exception: 
-        pass
+    except Exception: pass
     return meta
 
 def get_status_badge(status_code):

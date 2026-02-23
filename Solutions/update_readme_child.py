@@ -57,10 +57,18 @@ def extract_metadata(file_path):
                     elif lower_line.startswith("status:"):
                         val = clean_line[7:].strip().upper()
                         if any(x in val for x in ["IN PROGRESS", "WIP"]): meta["status"] = "WIP"
+                        elif val in STATUS_MAP: meta["status"] = val
+                    
+                    # --- PHẦN SỬA ĐỔI SOURCE ---
                     elif lower_line.startswith("source:"):
-                        # Sửa Regex: Cho phép nhận diện %20 và các ký tự đường dẫn cho đến hết dòng
-                        match = re.search(r'(https?://[^\s\*]+|\./[^\s\*]+)', clean_line)
-                        if match: meta["source"] = match.group(1).strip()
+                        val = clean_line[7:].strip().replace(' ', '%20') # Lấy tất cả và encode dấu cách
+                        if val: meta["source"] = val
+                    
+                    elif lower_line.startswith("submission:"):
+                        val = clean_line[11:].strip().replace(' ', '%20') # Tương tự cho submission
+                        if val: meta["submission"] = val
+                    # ---------------------------
+
                     elif lower_line.startswith("created:"):
                         val = clean_line[8:].strip()
                         if val:
@@ -69,10 +77,6 @@ def extract_metadata(file_path):
                                 day = dt.strftime("%d").lstrip("0")
                                 meta["date"] = dt.strftime(f"%b {day}, %Y")
                             except: meta["date"] = val
-                    elif lower_line.startswith("submission:"):
-                        # Cập nhật tương tự cho trường submission
-                        match = re.search(r'(https?://[^\s\*]+|\./[^\s\*]+)', clean_line)
-                        if match: meta["submission"] = match.group(1).strip()
                     elif lower_line.startswith("tags:"):
                         val = clean_line[5:].strip()
                         if val:
@@ -86,8 +90,7 @@ def extract_metadata(file_path):
                             else:
                                 inner = re.sub(r'^[Oo]\s*\((.*)\)$', r'\1', val).strip()
                                 meta["complexity"] = f"$\\mathcal{{O}}({inner})$"
-    except Exception: 
-        pass
+    except Exception: pass
     return meta
 
 def get_status_badge(status_code):
