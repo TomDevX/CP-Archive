@@ -1,15 +1,15 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-23 09:51:52
+ *    created: 2026-02-24 13:51:09
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: JOB
- *    source: BT_20260223.pdf
+ *    title: ANCES
+ *    source: LCA1.pdf
  *    submission: 
- *    status: WIP
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
+ *    tags: LCA
+ *    complexity: O(n \log 19 + (n-1) + \log 19)
  *    note: 
 **/
 
@@ -45,21 +45,75 @@ using vll = vector<long long>;
 using vvll = vector<vector<long long>>;
 
 void setup(){
-    if(!fopen("NAME.INP", "r")) return;
-    freopen("NAME.INP", "r", stdin);
-    freopen("NAME.OUT", "w", stdout);
+    if(!fopen("ANCES.INP", "r")) return;
+    freopen("ANCES.INP", "r", stdin);
+    freopen("ANCES.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+int n,k;
+const int N = 1e5+2;
+int logg[N];
+vi adj[N];
+int up[N][19];
+int h[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void init(){
+    logg[1] = 0;
+    for(int i = 2; i <= n; i++){
+        logg[i] = logg[i>>1] + 1;
+    }
+}
 
+void dfs(int u){
+    for(int v : adj[u]){
+        if(v == up[u][0]) continue;
+        h[v] = h[u] + 1;
+        up[v][0] = u;
+
+        for(int j = 1; j <= 17; j++){
+            up[v][j] = up[up[v][j-1]][j-1];
+        }
+        dfs(v);
+    }
+}
+
+int lca(int u, int v){
+    if(h[u] != h[v]){
+        if(h[u] < h[v]) swap(u,v);
+
+        int dis = h[u] - h[v];
+        for(int j = 0; (1 << j) <= dis; j++){
+            if(dis >> j & 1) u = up[u][j];
+        }
+    }
+    if(u == v) return u;
+
+    for(int j = logg[h[u]]; j >= 0; j--){
+        if(up[u][j] != up[v][j]) u = up[u][j], v = up[v][j];
+    }
+    return up[u][0];
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
+    init();
 
-    
+    cin >> n >> k;
+
+    for(int i = 1; i < n; i++){
+        int u,v;
+        cin >> u >> v;
+        adj[u].eb(v);
+        adj[v].eb(u);
+    }
+
+    dfs(k);
+
+    int a,b;
+    cin >> a >> b;
+    cout << lca(a,b);
 }

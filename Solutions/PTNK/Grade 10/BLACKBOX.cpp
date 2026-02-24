@@ -1,9 +1,9 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-23 09:51:52
+ *    created: 2026-02-24 13:31:25
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: JOB
+ *    title: BLACKBOX
  *    source: BT_20260223.pdf
  *    submission: 
  *    status: WIP
@@ -51,7 +51,19 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+struct Point{
+    int x,y;
 
+    Point(int _x = 0, int _y = 0) : x(_x), y(_y) {};
+};
+
+struct Line{
+    int a,b,c;
+
+    Line(int _a = 0, int _b = 0, int _c = 0) : a(_a), b(_b), c(_c) {};
+};
+Point circ, p1,p2;
+Line L;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -60,6 +72,12 @@ void setup(){
 int main(){
     fastio;
     setup();
+
+
+    cin >> circ.x >> circ.y;
+    cin >> L.a >> L.b >> L.c;
+    cin >> p1.x >> p1.y;
+    cin >> p2.x >> p2.y;
 
     
 }
