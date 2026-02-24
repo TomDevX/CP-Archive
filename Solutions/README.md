@@ -2,16 +2,10 @@
 
 ### 📊 Repository Stats
 
-<<<<<<< HEAD
-![Progress](https://img.shields.io/badge/Progress-106/115-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_24%2C_2026_--_15%3A50_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260224T1550&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-107/116-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_24%2C_2026_--_23%3A16_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260224T2316&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 115
-=======
-![Progress](https://img.shields.io/badge/Progress-106/114-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_24%2C_2026_--_23%3A13_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260224T2313&p1=218 "🖱️ CLICK TO CONVERT")
-
-- **Total Problems:** 114
->>>>>>> d1e98d3 (add CodeForces 1969B Shifts and Sorting)
-- **Accepted:** 106
+- **Total Problems:** 116
+- **Accepted:** 107
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -36,16 +30,12 @@
 * [📂 VNOI (4)](#-vnoi-4)
 
 ---
-<<<<<<< HEAD
-## 📂 [Solutions (115)](*%20%20%20%20submission:)
+## 📂 [Solutions (116)](*%20%20%20%20submission:)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Main | N/A | N/A | Feb 24, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
-## 📂 [Codeforces (78)](https://codeforces.com/)
-=======
 ## 📂 [Codeforces (79)](https://codeforces.com/)
->>>>>>> d1e98d3 (add CodeForces 1969B Shifts and Sorting)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1A](https://codeforces.com/contest/1/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
