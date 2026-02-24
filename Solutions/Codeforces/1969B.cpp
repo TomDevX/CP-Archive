@@ -9,7 +9,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Greedy, Implementation
- *    complexity: O(tc*n)
+ *    complexity: O(tc \cdot n)
  *    note: We need to move all 0s before the first 1. After moving 1 0s, we remove it from the future swaps by the counter
 **/
 
