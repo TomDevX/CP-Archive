@@ -5,12 +5,12 @@
  * ----------------------------------------------------------
  *    title: Unique subsequences
  *    source: https://marisaoj.com/problem/154
- *    submission: https://marisaoj.com/submission/1099767
- *    status: WA
+ *    submission: https://marisaoj.com/submission/1099777
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Dynamic Programming
+ *    complexity: O(n)
+ *    note: Let dp[i] = number of valid subsequences which can be from 1 to n. dp[i] can get result from dp[i-1] because at dp[i-1] subsequences, we can choose to add the i_th element or not, so dp[i] = dp[i-1]*2. To handle the duplicated element, we need to know that which subsequences has been added by a previous A_j = A_i, and I use cnt[A_i] to save those results. The subsequences that has added A_j is dp[j-1]. And we only save the latest dp value because dp is already the prefix sum of dp[1 -> i-1].
 **/
 
 #include <iostream>
@@ -75,7 +75,7 @@ int main(){
 
     for(int i = 1; i <= n; i++){
         dp[i] = (dp[i-1]*2 - cnt[a[i]] + MOD)%MOD;
-        cnt[a[i]] = (cnt[a[i]] + dp[i-1])%MOD;
+        cnt[a[i]] = dp[i-1];
     }
     cout << (dp[n] - 1 + MOD)%MOD;
 }
