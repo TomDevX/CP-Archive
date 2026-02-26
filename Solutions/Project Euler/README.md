@@ -2,11 +2,7 @@
 
 ### 📊 Project Euler Stats
 
-<<<<<<< HEAD
-![Progress](https://img.shields.io/badge/Progress-2/2-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_26%2C_2026_--_13%3A28_(GMT+7)-0078d4?style=for-the-badge&logo=github)
-=======
-![Progress](https://img.shields.io/badge/Progress-2/2-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_26%2C_2026_--_10%3A57_(GMT+7)-0078d4?style=for-the-badge&logo=github)
->>>>>>> bd11a8cf5a05e66a4afc8fb33dd265a168800e45
+![Progress](https://img.shields.io/badge/Progress-2/2-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_26%2C_2026_--_21%3A32_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 2
 - **Solved (AC):** 2

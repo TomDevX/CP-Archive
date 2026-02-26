@@ -2,17 +2,10 @@
 
 ### 📊 Repository Stats
 
-<<<<<<< HEAD
-![Progress](https://img.shields.io/badge/Progress-107/116-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_26%2C_2026_--_13%3A28_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260226T1328&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-109/118-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_26%2C_2026_--_21%3A32_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260226T2132&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 116
-- **Accepted:** 107
-=======
-![Progress](https://img.shields.io/badge/Progress-108/117-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_26%2C_2026_--_10%3A57_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260226T1057&p1=218 "🖱️ CLICK TO CONVERT")
-
-- **Total Problems:** 117
-- **Accepted:** 108
->>>>>>> bd11a8cf5a05e66a4afc8fb33dd265a168800e45
+- **Total Problems:** 118
+- **Accepted:** 109
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -37,11 +30,7 @@
 * [📂 VNOI (4)](#-vnoi-4)
 
 ---
-<<<<<<< HEAD
-## 📂 [Solutions (116)](*%20%20%20%20submission:)
-=======
-## 📂 [Solutions (117)](*%20%20%20%20submission:)
->>>>>>> bd11a8cf5a05e66a4afc8fb33dd265a168800e45
+## 📂 [Solutions (118)](*%20%20%20%20submission:)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Main | N/A | N/A | Feb 24, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
