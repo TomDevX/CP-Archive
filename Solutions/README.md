@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-106/115-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_24%2C_2026_--_15%3A50_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260224T1550&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-107/116-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_26%2C_2026_--_13%3A28_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260226T1328&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 115
-- **Accepted:** 106
+- **Total Problems:** 116
+- **Accepted:** 107
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -14,10 +14,10 @@
 
 * [📂 Codeforces (78)](#-codeforces-78)
 * [📂 CPPros (1)](#-cppros-1)
-* [📂 CSES (21)](#-cses-21)
+* [📂 CSES (22)](#-cses-22)
   * [📂 Advanced Techniques (2)](#-advanced-techniques-2)
   * [📂 Dynamic Programming (9)](#-dynamic-programming-9)
-  * [📂 Graph (5)](#-graph-5)
+  * [📂 Graph (6)](#-graph-6)
   * [📂 Range Queries (1)](#-range-queries-1)
   * [📂 Sliding Windơows Problem (1)](#-sliding-windơows-problem-1)
   * [📂 Sorting And Searching (3)](#-sorting-and-searching-3)
@@ -30,7 +30,7 @@
 * [📂 VNOI (4)](#-vnoi-4)
 
 ---
-## 📂 [Solutions (115)](*%20%20%20%20submission:)
+## 📂 [Solutions (116)](*%20%20%20%20submission:)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Main | N/A | N/A | Feb 24, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -142,14 +142,15 @@
 | 9 | [3314 - Mountain Range](https://cses.fi/problemset/task/3314) | N/A | N/A | Feb 12, 2026 | [Code](CSES/Dynamic%20Programming/3314.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 10 | [3359 - Minimal Grid Path](https://cses.fi/problemset/task/3359) | `Dynamic Programming` | $\mathcal{O}(n \cdot m)$ | Feb 11, 2026 | [Code](CSES/Dynamic%20Programming/3359.cpp) \| [Sub](https://cses.fi/problemset/result/16238561/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-### 📁 Graph (5)
+### 📁 Graph (6)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1192 - Counting Rooms](https://cses.fi/problemset/task/1192/) | `BFS`, `flood fill` | $\mathcal{O}(V+E)$ | Aug 9, 2025 | [Code](CSES/Graph/1192_Counting_Rooms.cpp) \| [Sub](https://cses.fi/paste/96f91e45fb63bc5dd6975e/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [1195 - Flight Discount](https://cses.fi/problemset/task/1195) | `Graph`, `Dijkstra` | $\mathcal{O}((n+m) \log m)$ | Feb 23, 2026 | [Code](CSES/Graph/1195.cpp) \| [Sub](https://cses.fi/problemset/result/16352463/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 3 | [1668 - Building Teams](https://cses.fi/problemset/task/1668) | `Graph` | $\mathcal{O}(V + E)$ | Feb 17, 2026 | [Code](CSES/Graph/1668.cpp) \| [Sub](https://cses.fi/problemset/result/16295973/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 4 | [1669 - Round Trip](https://cses.fi/problemset/task/1669) | `Graph` | $\mathcal{O}(V+E)$ | Feb 17, 2026 | [Code](CSES/Graph/1669.cpp) \| [Sub](https://cses.fi/problemset/result/16296787/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 5 | [1673 - High Score](https://cses.fi/problemset/task/1673) | `Graph`, `Bellman Ford` | $\mathcal{O}(n \cdot m)$ | Feb 23, 2026 | [Code](CSES/Graph/1673.cpp) \| [Sub](https://cses.fi/problemset/result/16352395/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 3 | [1197 - Cycle Finding](https://cses.fi/problemset/task/1197) | `Graph`, `Bellman Ford` | $\mathcal{O}(n \cdot m)$ | Feb 26, 2026 | [Code](CSES/Graph/1197.cpp) \| [Sub](https://cses.fi/problemset/result/16382838/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 4 | [1668 - Building Teams](https://cses.fi/problemset/task/1668) | `Graph` | $\mathcal{O}(V + E)$ | Feb 17, 2026 | [Code](CSES/Graph/1668.cpp) \| [Sub](https://cses.fi/problemset/result/16295973/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 5 | [1669 - Round Trip](https://cses.fi/problemset/task/1669) | `Graph` | $\mathcal{O}(V+E)$ | Feb 17, 2026 | [Code](CSES/Graph/1669.cpp) \| [Sub](https://cses.fi/problemset/result/16296787/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 6 | [1673 - High Score](https://cses.fi/problemset/task/1673) | `Graph`, `Bellman Ford` | $\mathcal{O}(n \cdot m)$ | Feb 23, 2026 | [Code](CSES/Graph/1673.cpp) \| [Sub](https://cses.fi/problemset/result/16352395/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ### 📁 Range Queries (1)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |

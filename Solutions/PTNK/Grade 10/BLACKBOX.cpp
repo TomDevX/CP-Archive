@@ -79,5 +79,7 @@ int main(){
     cin >> p1.x >> p1.y;
     cin >> p2.x >> p2.y;
 
-    
+    if(both_in_circle()){
+        
+    }
 }
