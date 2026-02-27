@@ -3,14 +3,14 @@
  *    created: 2026-02-27 11:13:34
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: TRAVEL
- *    source: BT_20260226
- *    submission: TRAVEL_submission.log
+ *    title: Sightseeing
+ *    source: https://www.acmicpc.net/problem/10078
+ *    submission: https://www.acmicpc.net/source/103344425
  *    status: AC
  * ----------------------------------------------------------
  *    tags: DSU, MST, Graph
- *    complexity: O(n + m \log m + q)
- *    note: Our goal is to get the highest edge as possible, but if we use Dijkstra, it would be too harsh for the edges' priority queue. So that, we need to remove some unecessary edges, we use MST (Kruskal), but not minimum this time, we use maximum edges to maximize the answer. After that, we don't need to Dijkstra anymore because there is now 1 only way from any node u to node v on the "MST" - we use DFS/BFS. The hard thing here is the edges constraint is too large to we need to implement economically.
+ *    complexity: O((n + m) + m \log m + q + MAX_VAL)
+ *    note: Our goal is to get the highest edge as possible, but if we use Dijkstra, it would be too harsh for the edges' priority queue. So that, we need to remove some unecessary edges, we use MST (Kruskal), but not minimum this time, we use maximum edges to maximize the answer. After that, we don't need to Dijkstra anymore because there is now 1 only way from any node u to node v on the "MST" - we use DFS/BFS. The hard thing here is the edges constraint is too large to we need to implement economically - I tried to use 1D arrays instead of vectors or 2D.
 **/
 
 #include <iostream>
@@ -21,6 +21,8 @@
 #include <algorithm>
 #include <cstring>
 #include <queue>
+#include <type_traits>
+#include <string>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n';
@@ -41,22 +43,23 @@ using ll = long long;
 using ld = long double;
 using pll = pair<long long,long long>;
 using pld = pair<long double,long double>;
-using ull = unsigned long long;
 using pii = pair<int,int>;
+using ull = unsigned long long;
 using vi = vector<int>;
 using vvi = vector<vector<int>>;
 using vll = vector<long long>;
 using vvll = vector<vector<long long>>;
 
 void setup(){
-    if(!fopen("TRAVEL.INP", "r")) return;
-    freopen("TRAVEL.INP", "r", stdin);
-    freopen("TRAVEL.OUT", "w", stdout);
+    if(!fopen("NAME.INP", "r")) return;
+    freopen("NAME.INP", "r", stdin);
+    freopen("NAME.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 int n,m,q;
 const int N = 5e5+5;
+const int VAL = 1e5+5;
 const int M = 1e7+5;
 
 struct node{
@@ -67,15 +70,18 @@ struct node{
 };
 
 node adj[M];
+node sorted[M];
+int cnt[VAL];
 ll dis[N];
 int par[N], sz[N];
-vector<pair<int,ll>> E[N];
+int last[2*N], pre[2*N], to[2*N];
+ll weight[2*N];
 int edges = 1;
 bitset<N> vis;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 void init(){
-    for(int i = 1; i <= n; i++) par[i] = i, sz[i] = 1;
+    for(int i = 1; i <= n; i++) par[i] = i;
 }
 
 int find_set(int u){
@@ -106,11 +112,12 @@ void bfs(int src){
         int u = qu.front();
         qu.pop();
 
-        for(pair<int,ll> &v : E[u]){
-            if(!vis[v.fi]){
-                dis[v.fi] = min(dis[u],v.se);
-                qu.push(v.fi);
-                vis[v.fi] = 1;
+        for(int v_id = last[u]; v_id != 0; v_id = pre[v_id]){
+            int v = to[v_id];
+            if(!vis[v]){
+                dis[v] = min(dis[u], weight[v_id]);
+                qu.push(v);
+                vis[v] = 1;
             }
         }
     }
@@ -126,14 +133,34 @@ int main(){
     init();
     for(int i = 1; i <= m; i++){
         cin >> adj[i].u >> adj[i].v >> adj[i].w;
+        cnt[adj[i].w]++;
     }
 
-    sort(adj+1, adj+m+1, [](const node& a, const node& b){return a.w > b.w;}); // non-increase
+    int cur = 1;
+    for(int i = VAL-5; i >= 0; i--){
+        int tmp = cnt[i];
+        cnt[i] = cur;
+        cur += tmp;
+    }
 
-    for(int i = 1; i <= m; i++){ // MST
-        if(union_set(adj[i].u, adj[i].v)){
-            E[adj[i].u].eb(adj[i].v, adj[i].w);
-            E[adj[i].v].eb(adj[i].u, adj[i].w);
+    for(int i = 1; i <= m; i++){
+        sorted[cnt[adj[i].w]] = adj[i];
+        cnt[adj[i].w]++;
+    }
+
+    for(int i = 1; i <= m; i++){
+        if(union_set(sorted[i].u, sorted[i].v)){
+            to[edges] = sorted[i].v;
+            weight[edges] = sorted[i].w;
+            pre[edges] = last[sorted[i].u];
+            last[sorted[i].u] = edges;
+            edges++;
+
+            to[edges] = sorted[i].u;
+            weight[edges] = sorted[i].w;
+            pre[edges] = last[sorted[i].v];
+            last[sorted[i].v] = edges;
+            edges++;
         }
     }
 

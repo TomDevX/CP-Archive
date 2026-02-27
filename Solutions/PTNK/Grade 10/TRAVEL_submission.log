@@ -1,0 +1,36 @@
+ ﻿i2528_quantran‣TRAVEL: 100.00
+TRAVEL.cpp
+"D:\Data\Themis\gcc\bin\g++.exe" -std=c++14 "TRAVEL.cpp" -pipe -O2 -s -static -lm -x c++ -o"TRAVEL.exe" -Wl,--stack,66060288|@WorkDir=D:\ProgramData\ThemisWorkSpace\WaitRoom41524\
+Dịch thành công.
+
+// Note: giây = second
+// Kết quả khớp đáp án! = AC
+// Thời gian = Runtime
+
+i2528_quantran‣TRAVEL‣Test01: 11.10
+Thời gian ≈ 0.106001800 giây
+Kết quả khớp đáp án!
+i2528_quantran‣TRAVEL‣Test02: 11.10
+Thời gian ≈ 0.104972600 giây
+Kết quả khớp đáp án!
+i2528_quantran‣TRAVEL‣Test03: 11.10
+Thời gian ≈ 0.104353700 giây
+Kết quả khớp đáp án!
+i2528_quantran‣TRAVEL‣Test04: 11.10
+Thời gian ≈ 0.106277000 giây
+Kết quả khớp đáp án!
+i2528_quantran‣TRAVEL‣Test05: 11.10
+Thời gian ≈ 0.103811400 giây
+Kết quả khớp đáp án!
+i2528_quantran‣TRAVEL‣Test06: 11.10
+Thời gian ≈ 0.128066400 giây
+Kết quả khớp đáp án!
+i2528_quantran‣TRAVEL‣Test07: 11.10
+Thời gian ≈ 0.125654100 giây
+Kết quả khớp đáp án!
+i2528_quantran‣TRAVEL‣Test08: 11.10
+Thời gian ≈ 1.291868000 giây
+Kết quả khớp đáp án!
+i2528_quantran‣TRAVEL‣Test09: 11.20
+Thời gian ≈ 1.747824800 giây
+Kết quả khớp đáp án!

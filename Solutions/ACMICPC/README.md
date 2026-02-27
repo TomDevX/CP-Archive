@@ -1,6 +1,6 @@
-# 📁 Leetcode Solutions
+# 📁 ACMICPC Solutions
 
-### 📊 Leetcode Stats
+### 📊 ACMICPC Stats
 
 ![Progress](https://img.shields.io/badge/Progress-1/1-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_27%2C_2026_--_13%3A40_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
@@ -12,11 +12,11 @@
 ---
 ## 📌 Table of Contents
 
-* [📁 Leetcode (1)](#-leetcode-1)
+* [📁 ACMICPC (1)](#-acmicpc-1)
 
 ---
-## 📂 Leetcode (1)
+## 📂 ACMICPC (1)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [64 - Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum) | `Dynamic Programming` | $\mathcal{O}(n \cdot m)$ | Feb 12, 2026 | [Code](64.cpp) \| [Sub](https://leetcode.com/problems/minimum-path-sum/submissions/1916094804) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | [10078 - Sightseeing](https://www.acmicpc.net/problem/10078) | `DSU`, `MST`, `Graph` | $\mathcal{O}((n + m) + m \log m + q + MAX_VAL)$ | Feb 27, 2026 | [Code](10078.cpp) \| [Sub](https://www.acmicpc.net/source/103344425) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 

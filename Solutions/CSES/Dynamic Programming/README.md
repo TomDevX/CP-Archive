@@ -2,7 +2,7 @@
 
 ### 📊 Dynamic Programming Stats
 
-![Progress](https://img.shields.io/badge/Progress-8/9-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_27%2C_2026_--_10%3A24_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-8/9-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Feb_27%2C_2026_--_13%3A40_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 9
 - **Solved (AC):** 8

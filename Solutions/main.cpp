@@ -1,10 +1,10 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-24 15:41:43
+ *    created: 2026-02-26 15:45:13
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: TRAVEL
+ *    source: BT_20260226.pdf
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -17,6 +17,8 @@
 #include <vector>
 #include <cstdio>
 #include <utility>
+#include <queue>
+#include <algorithm>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n';
@@ -45,43 +47,72 @@ using vll = vector<long long>;
 using vvll = vector<vector<long long>>;
 
 void setup(){
-    if(!fopen("NAME.INP", "r")) return;
-    freopen("NAME.INP", "r", stdin);
-    freopen("NAME.OUT", "w", stdout);
+    if(!fopen("TRAVEL.INP", "r")) return;
+    freopen("TRAVEL.INP", "r", stdin);
+    freopen("TRAVEL.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+int n,m,q;
+const int N = 5e6+2;
 
+struct node{
+    int u;
+    ll w;
+
+    node(int _u = 0, ll _w = 0) : u(_u), w(_w) {};
+    bool operator<(const node& other) const{
+        return w > other.w;
+    }
+};
+
+vector<node> adj[N];
+ll dis[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void diks(int src){
+    priority_queue<node> pq;
+    pq.push({src,(ll)2e18});
+    dis[src] = 2e18;
 
+    while(!pq.empty()){
+        node u = pq.top();
+        pq.pop();
+
+        if(dis[u.u] > u.w) continue;
+        
+        for(node v : adj[u.u]){ 
+            // dbg(min(v.w,dis[u.u]),v.u);
+            if(dis[v.u] < min(v.w,dis[u.u])){
+                dis[v.u] = min(v.w,dis[u.u]);
+                pq.push({v.u,dis[v.u]});
+            }
+        }
+    }
+}
 
 // ----------------------- [ MAIN ] -----------------------
-int main() {
+int main(){
     fastio;
     setup();
 
-    cout << 
-        "    ********\n"
-        "    ************\n"
-        "    ####....#.\n"
-        "  #..###.....##....\n"
-        "  ###.......######              ###            ###\n"
-        "     ...........               #...#          #...#\n"
-        "    ##*#######                 #.#.#          #.#.#\n"
-        " ####*******######             #.#.#          #.#.#\n"
-        "...#***.****.*###....          #...#          #...#\n"
-        "....**********##.....           ###            ###\n"
-        "....****    *****....\n"
-        "  ####        ####\n"
-        "######        ######\n"
-        "##############################################################\n"
-        "#...#......#.##...#......#.##...#......#.##------------------#\n"
-        "###########################################------------------#\n"
-        "#..#....#....##..#....#....##..#....#....#####################\n"
-        "##########################################    #----------#\n"
-        "#.....#......##.....#......##.....#......#    #----------#\n"
-        "##########################################    #----------#\n"
-        "#.#..#....#..##.#..#....#..##.#..#....#..#    #----------#\n"
-        "##########################################    ############\n";
+    cin >> n >> m >> q;
+
+    for(int i = 1; i <= m; i++){
+        int u,v;
+        ll w;
+
+        cin >> u >> v >> w;
+        adj[u].eb(v,w);
+        adj[v].eb(u,w);
+    }
+
+    diks(1);
+
+    dis[0] = 0;
+    int x;
+    while(q--){
+        cin >> x;
+        cout << dis[x] << '\n';
+    }
 }
