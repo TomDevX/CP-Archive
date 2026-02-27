@@ -48,9 +48,9 @@ using vll = vector<long long>;
 using vvll = vector<vector<long long>>;
 
 void setup(){
-    if(!fopen("NAME.INP", "r")) return;
-    freopen("NAME.INP", "r", stdin);
-    freopen("NAME.OUT", "w", stdout);
+    if(!fopen("JOB.INP", "r")) return;
+    freopen("JOB.INP", "r", stdin);
+    freopen("JOB.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------

@@ -2,7 +2,11 @@
 
 ### 📊 Repository Stats
 
+<<<<<<< HEAD
 ![Progress](https://img.shields.io/badge/Progress-110/119-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_27%2C_2026_--_07%3A06_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260227T0706&p1=218 "🖱️ CLICK TO CONVERT")
+=======
+![Progress](https://img.shields.io/badge/Progress-110/119-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_26%2C_2026_--_16%3A08_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260226T1608&p1=218 "🖱️ CLICK TO CONVERT")
+>>>>>>> db238d7 (after PTNK du tuyen #1)
 
 - **Total Problems:** 119
 - **Accepted:** 110
@@ -25,8 +29,8 @@
 * [📂 Leetcode (1)](#-leetcode-1)
 * [📂 MarisaOJ (5)](#-marisaoj-5)
 * [📂 Project Euler (2)](#-project-euler-2)
-* [📂 PTNK (2)](#-ptnk-2)
-  * [📂 Grade 10 (2)](#-grade-10-2)
+* [📂 PTNK (3)](#-ptnk-3)
+  * [📂 Grade 10 (3)](#-grade-10-3)
 * [📂 VNOI (4)](#-vnoi-4)
 
 ---
@@ -196,7 +200,7 @@
 | 1 | [6 - Sum Square Difference](https://projecteuler.net/problem=6) | `Level 0` | $\mathcal{O}(1)$ | Feb 6, 2026 | [Code](Project%20Euler/6.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [7 - 10 001st Prime](https://projecteuler.net/problem=7) | `Level 0` | $\mathcal{O}(n \log \log n)$ | Feb 6, 2026 | [Code](Project%20Euler/7.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-### 📁 Grade 10 (2)
+### 📁 Grade 10 (3)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [ANCES - ANCES](PTNK/Grade%2010/LCA1.pdf) | `LCA` | $\mathcal{O}(n \log 19 + (n-1) + \log 19)$ | Feb 24, 2026 | [Code](PTNK/Grade%2010/ANCES.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -204,6 +208,9 @@
 | 3 | [JOB - JOB](PTNK/Grade%2010/BT_20260223.pdf) | N/A | N/A | Feb 23, 2026 | [Code](PTNK/Grade%2010/JOB.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 4 | [LCA2 - LCA2](PTNK/Grade%2010/LCA1.pdf) | `LCA` | N/A | Feb 24, 2026 | [Code](PTNK/Grade%2010/LCA2.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 5 | [LCA - LCA](PTNK/Grade%2010/LCA1.pdf) | `LCA` | $\mathcal{O}(n \log 19 + (n-1) + q \log 19)$ | Feb 24, 2026 | [Code](PTNK/Grade%2010/LCA.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 6 | [MINMM - MINMM](PTNK/Grade%2010/BT_20260226.pdf) | N/A | N/A | Feb 26, 2026 | [Code](PTNK/Grade%2010/MINMM.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 7 | [STRINGKC - STRINGKC](PTNK/Grade%2010/BT_20260226.pdf) | N/A | N/A | Feb 26, 2026 | [Code](PTNK/Grade%2010/STRINGKC.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 8 | [TRAVEL - TRAVEL](PTNK/Grade%2010/BT_20260226.pdf) | N/A | N/A | Feb 26, 2026 | [Code](PTNK/Grade%2010/TRAVEL.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
 ## 📂 [VNOI (4)](https://oj.vnoi.info/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
