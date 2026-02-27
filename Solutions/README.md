@@ -2,14 +2,10 @@
 
 ### 📊 Repository Stats
 
-<<<<<<< HEAD
-![Progress](https://img.shields.io/badge/Progress-110/119-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_27%2C_2026_--_07%3A06_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260227T0706&p1=218 "🖱️ CLICK TO CONVERT")
-=======
-![Progress](https://img.shields.io/badge/Progress-110/119-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_26%2C_2026_--_16%3A08_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260226T1608&p1=218 "🖱️ CLICK TO CONVERT")
->>>>>>> db238d7 (after PTNK du tuyen #1)
+![Progress](https://img.shields.io/badge/Progress-111/120-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_27%2C_2026_--_10%3A24_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260227T1024&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 119
-- **Accepted:** 110
+- **Total Problems:** 120
+- **Accepted:** 111
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -34,7 +30,7 @@
 * [📂 VNOI (4)](#-vnoi-4)
 
 ---
-## 📂 [Solutions (119)](*%20%20%20%20submission:)
+## 📂 [Solutions (120)](*%20%20%20%20submission:)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Main | N/A | N/A | Feb 24, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
