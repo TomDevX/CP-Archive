@@ -2,7 +2,7 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-113/122-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_27%2C_2026_--_13%3A40_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260227T1340&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-113/122-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_27%2C_2026_--_13%3A41_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260227T1341&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 122
 - **Accepted:** 113
@@ -36,7 +36,7 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [MAIN - TRAVEL](BT_20260226.pdf) | N/A | N/A | Feb 26, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
-## 📂 [ACMICPC (1)](https://www.acmicpc.net/problem/10078)
+## 📂 [ACMICPC (1)](https://www.acmicpc.net)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [10078 - Sightseeing](https://www.acmicpc.net/problem/10078) | `DSU`, `MST`, `Graph` | $\mathcal{O}((n + m) + m \log m + q + MAX_VAL)$ | Feb 27, 2026 | [Code](ACMICPC/10078.cpp) \| [Sub](https://www.acmicpc.net/source/103344425) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
