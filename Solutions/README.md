@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-115/124-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_28%2C_2026_--_11%3A10_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260228T1110&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-116/124-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Feb_28%2C_2026_--_11%3A12_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260228T1112&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 124
-- **Accepted:** 115
+- **Accepted:** 116
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -109,7 +109,7 @@
 | 63 | [1692A](https://codeforces.com/contest/1692/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1692A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 64 | [1703A](https://codeforces.com/contest/1703/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1703A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 65 | [1742A](https://codeforces.com/contest/1742/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1742A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 66 | [1777A - Everybody Likes Good Arrays!](https://codeforces.com/problemset/problem/1777/A) | N/A | N/A | Feb 28, 2026 | [Code](Codeforces/1777A.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 66 | [1777A - Everybody Likes Good Arrays!](https://codeforces.com/problemset/problem/1777/A) | `Greedy`, `Math` | $\mathcal{O}(n)$ | Feb 28, 2026 | [Code](Codeforces/1777A.cpp) \| [Sub](https://codeforces.com/contest/1777/submission/364779968) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 67 | [1829B - Blank Space](https://codeforces.com/problemset/problem/1829/B) | `implementation` | $\mathcal{O}(t \cdot n)$ | Feb 6, 2026 | [Code](Codeforces/1829B.cpp) \| [Sub](https://codeforces.com/problemset/submission/1829/361679553) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 68 | [1850A - To My Critics](https://codeforces.com/problemset/problem/1850/A) | `Implementation` | $\mathcal{O}(t)$ | Feb 21, 2026 | [Code](Codeforces/1850A.cpp) \| [Sub](https://codeforces.com/problemset/submission/1850/363881834) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 69 | [1906A - Easy as ABC](https://codeforces.com/problemset/problem/1906/A) | `Brute Force` | $\mathcal{O}(3^6)$ | Feb 10, 2026 | [Code](Codeforces/1906A.cpp) \| [Sub](https://codeforces.com/problemset/submission/1906/362212391) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |

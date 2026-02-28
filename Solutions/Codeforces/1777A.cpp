@@ -5,12 +5,12 @@
  * ----------------------------------------------------------
  *    title: Everybody Likes Good Arrays!
  *    source: https://codeforces.com/problemset/problem/1777/A
- *    submission: 
- *    status: WIP
+ *    submission: https://codeforces.com/contest/1777/submission/364779968
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Greedy, Math
+ *    complexity: O(n)
+ *    note: You can't avoid any element so you can just do it sequentially. I set the value to 1 or 2 to represent if it is odd or even (to check the parity)
 **/
 
 #include <iostream>
