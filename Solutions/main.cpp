@@ -1,6 +1,10 @@
 /**
  *    author: TomDev - Tran Hoang Quan
+<<<<<<< Updated upstream
  *    created: 2026-03-02 09:26:53
+=======
+ *    created: 2026-03-02 09:09:04
+>>>>>>> Stashed changes
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -52,7 +56,10 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+const ll MOD = 1e9+7;
+int n,k;
+const int N = 1e6+2;
+int cnt[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -62,5 +69,36 @@ int main(){
     fastio;
     setup();
 
+<<<<<<< Updated upstream
     
+=======
+    cin >> n >> k;
+    vi a(n+1);
+    for(int i = 1; i <= n; i++){
+        cin >> a[i];
+    }
+
+    vll dp(n+1), pref(n+1);
+    dp[0] = pref[0] = 1;
+
+    int last = 1;
+    int avail = 0;
+
+    for(int i = 1; i <= n; i++){
+        cnt[a[i]]++;
+        if(cnt[a[i]] == 1) avail++;
+
+        while(last < i && cnt[a[last]] > 1){
+            cnt[a[last]]--;
+            last++;
+        }
+
+        if(avail == k){
+            dp[i] = pref[last-1];
+            // dbg(dp[i],i);
+        }
+        pref[i] = (pref[i-1] + dp[i])%MOD;
+    }
+    cout << dp[n];
+>>>>>>> Stashed changes
 }
