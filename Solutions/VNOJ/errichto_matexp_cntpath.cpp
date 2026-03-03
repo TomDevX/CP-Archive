@@ -3,14 +3,14 @@
  *    created: 2026-03-02 09:27:18
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: CPATH
- *    source: BT_20260302.pdf
- *    submission: 
+ *    title: Matrix Exponentiation - Count path
+ *    source: https://oj.vnoi.info/problem/errichto_matexp_cntpath
+ *    submission: https://oj.vnoi.info/submission/11787099
  *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity:
- *    note: 
+ *    tags: Matrix Exponentiation
+ *    complexity: O(n^3 \cdot \log k)
+ *    note: To count all the ways to move from a to b with middleman vertex (x), we count sum(ways[a -> x] * ways[b -> x]) with x = 1 -> n. We notice that it is the matrix exponentiation formula. At first, ways[a -> x] and ways[x -> b] only go through 1 edges, after doing the formula, every ways[a -> b] is 2 now. So if we power ways array k times, we have all ways[a -> b] will go through exactly k roads.
 **/
 
 #include <iostream>
@@ -46,9 +46,9 @@ using vll = vector<long long>;
 using vvll = vector<vector<long long>>;
 
 void setup(){
-    if(!fopen("CPATH.INP", "r")) return;
-    freopen("CPATH.INP", "r", stdin);
-    freopen("CPATH.OUT", "w", stdout);
+    if(!fopen("NAME.INP", "r")) return;
+    freopen("NAME.INP", "r", stdin);
+    freopen("NAME.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
@@ -132,6 +132,12 @@ int main(){
     }
 
     Matrix res = a^k;
+    ll ans = 0;
 
-    cout << res.mat[1][n];
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= n; j++){
+            ans = (ans + res.mat[i][j])%MOD;
+        }
+    }
+    cout << ans;
 }
