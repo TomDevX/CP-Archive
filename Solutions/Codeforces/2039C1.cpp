@@ -1,22 +1,23 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-04 09:20:06
+ *    created: 2026-03-04 09:03:56
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Shohag Loves XOR (Easy Version)
+ *    source: https://codeforces.com/contest/2039/problem/C1
+ *    submission: https://codeforces.com/gym/676327/submission/365315587
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Math, Bit
+ *    complexity: O(x)
+ *    note: For x XOR y to be divisor candidate of x, x XOR y must be <= 2*x. And if y > 2*x, x XOR y can't be the divisor because x XOR y has the same ost significant bit with y
 **/
 
 #include <iostream>
 #include <vector>
 #include <cstdio>
 #include <utility>
+#include <algorithm>
 #include <algorithm>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
@@ -56,30 +57,27 @@ void setup(){
 
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-string tobit(int n){
-    string s;
 
-    while(n){
-        s += (n&1) + '0';
-        n >>= 1;
-    }
-    while(sz(s) < 5) s += '0';
-    reverse(all(s,0));
-    return s;
-}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
 
-    int n;
-    cin >> n;
-    cout << tobit(n) << '\n';
-    for(int i = 2; i * i <= n; i++){
-        if(n%i == 0){
-            cout << tobit(i) << '\n';
-            if(i != n/i) cout << tobit(n/i) << '\n';
+    int tc;
+    cin >> tc;
+    while(tc--){
+        int x;
+        ll m;
+        cin >> x >> m;
+
+        int cnt = 0;
+        for(int i = 1; i <= min(2LL*x,m); i++){
+            if(x != i && (x%(x^i) == 0 || i%(x^i) == 0)){
+                cnt++;
+            }
         }
+
+        cout << cnt << '\n';
     }
 }

@@ -1,10 +1,10 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-04 09:20:06
+ *    created: 2026-03-04 09:04:09
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
- *    source: 
+ *    source: https://codeforces.com/contest/1854/problem/A1
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -17,7 +17,6 @@
 #include <vector>
 #include <cstdio>
 #include <utility>
-#include <algorithm>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n';
@@ -56,30 +55,12 @@ void setup(){
 
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-string tobit(int n){
-    string s;
 
-    while(n){
-        s += (n&1) + '0';
-        n >>= 1;
-    }
-    while(sz(s) < 5) s += '0';
-    reverse(all(s,0));
-    return s;
-}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
 
-    int n;
-    cin >> n;
-    cout << tobit(n) << '\n';
-    for(int i = 2; i * i <= n; i++){
-        if(n%i == 0){
-            cout << tobit(i) << '\n';
-            if(i != n/i) cout << tobit(n/i) << '\n';
-        }
-    }
+    
 }
