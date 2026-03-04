@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-04 09:20:06
+ *    created: 2026-03-04 16:20:28
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -56,30 +56,14 @@ void setup(){
 
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-string tobit(int n){
-    string s;
 
-    while(n){
-        s += (n&1) + '0';
-        n >>= 1;
-    }
-    while(sz(s) < 5) s += '0';
-    reverse(all(s,0));
-    return s;
-}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
 
-    int n;
-    cin >> n;
-    cout << tobit(n) << '\n';
-    for(int i = 2; i * i <= n; i++){
-        if(n%i == 0){
-            cout << tobit(i) << '\n';
-            if(i != n/i) cout << tobit(n/i) << '\n';
-        }
-    }
+    vi a = {3,2,1};
+    int it = lower_bound(all(a,1),4,greater<int>()) - a.begin();
+    cout << it;
 }

@@ -17,6 +17,7 @@
 #include <vector>
 #include <cstdio>
 #include <utility>
+#include <algorithm>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n';
@@ -62,5 +63,26 @@ int main(){
     fastio;
     setup();
 
-    
+    int tc;
+    cin >> tc;
+    while(tc--){
+        int n;
+        cin >> n;
+        vi a(n+1);
+        for(int i = 1; i <= n; i++){
+            cin >> a[i];
+        }
+
+        vector<pii> trace;
+        for(int i = 2; i <= n; i++){
+            while(a[i] < a[i-1]){
+                int it = lower_bound(a.begin()+1,a.begin()+i, a[i-1] - a[i]) - a.begin();
+                a[i] += a[it];
+                trace.eb(i,it);
+                dbg(it,1);
+            }
+        }
+        cout << sz(trace) << '\n';
+        for(int i = 0; i < sz(trace); i++) cout << trace[i].fi << ' ' << trace[i].se << '\n';
+    }
 }
