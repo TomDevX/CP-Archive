@@ -1,12 +1,12 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-26 15:45:13
+ *    created: 2026-03-03 21:13:09
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: TRAVEL
- *    source: BT_20260226.pdf
+ *    title: 
+ *    source: 
  *    submission: 
- *    status: AC
+ *    status: WIP
  * ----------------------------------------------------------
  *    tags: 
  *    complexity: 
@@ -17,7 +17,7 @@
 #include <vector>
 #include <cstdio>
 #include <utility>
-#include <queue>
+#include <string>
 #include <algorithm>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
@@ -36,59 +36,29 @@ using namespace std;
 #define eb emplace_back
 #define sz(x) (int)(x).size()
 using ll = long long;
+using ull = unsigned long long;
 using ld = long double;
 using pll = pair<long long,long long>;
 using pld = pair<long double,long double>;
-using ull = unsigned long long;
 using pii = pair<int,int>;
+using pill = pair<int,long long>;
 using vi = vector<int>;
 using vvi = vector<vector<int>>;
 using vll = vector<long long>;
 using vvll = vector<vector<long long>>;
 
 void setup(){
-    if(!fopen("TRAVEL.INP", "r")) return;
-    freopen("TRAVEL.INP", "r", stdin);
-    freopen("TRAVEL.OUT", "w", stdout);
+    if(!fopen("NAME.INP", "r")) return;
+    freopen("NAME.INP", "r", stdin);
+    freopen("NAME.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-int n,m,q;
-const int N = 5e6+2;
-
-struct node{
-    int u;
-    ll w;
-
-    node(int _u = 0, ll _w = 0) : u(_u), w(_w) {};
-    bool operator<(const node& other) const{
-        return w > other.w;
-    }
-};
-
-vector<node> adj[N];
-ll dis[N];
+const ll MOD = 20032024;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void diks(int src){
-    priority_queue<node> pq;
-    pq.push({src,(ll)2e18});
-    dis[src] = 2e18;
-
-    while(!pq.empty()){
-        node u = pq.top();
-        pq.pop();
-
-        if(dis[u.u] > u.w) continue;
-        
-        for(node v : adj[u.u]){ 
-            // dbg(min(v.w,dis[u.u]),v.u);
-            if(dis[v.u] < min(v.w,dis[u.u])){
-                dis[v.u] = min(v.w,dis[u.u]);
-                pq.push({v.u,dis[v.u]});
-            }
-        }
-    }
+bool is_nguyen(char c){
+    return c == 'e' || c == 'u' || c == 'o' || c == 'a' || c == 'i';
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -96,23 +66,76 @@ int main(){
     fastio;
     setup();
 
-    cin >> n >> m >> q;
+    int tc;
+    cin >> tc;
+    while(tc--){
+        string s;
+        cin >> s;
+        int n = sz(s);
+        s = '#' + s;
 
-    for(int i = 1; i <= m; i++){
-        int u,v;
-        ll w;
+        vi pref_cnt_nguyen(n+1);
+        vi pref_cnt_phu(n+1);
+        vi suff_cnt_nguyen(n+2);
+        vi suff_cnt_phu(n+2);
 
-        cin >> u >> v >> w;
-        adj[u].eb(v,w);
-        adj[v].eb(u,w);
-    }
+        vi pref_idx_nguyen(n+1,-1);
+        vi pref_idx_phu(n+1,-1);
+        vi suff_idx_nguyen(n+2,-1);
+        vi suff_idx_phu(n+2,-1);
 
-    diks(1);
+        
+        for(int i = 1; i <= n; i++){
+            if(is_nguyen(s[i])){
+                pref_cnt_nguyen[i]++;
+                pref_idx_nguyen[i] = i;
+            }
+            else{
+                pref_cnt_phu[i]++;
+                pref_idx_phu[i] = i;
+            }
+            
+            pref_cnt_nguyen[i] += pref_cnt_nguyen[i-1];
+            pref_cnt_phu[i] += pref_cnt_phu[i-1];
+            pref_idx_nguyen[i] = max(pref_idx_nguyen[i], pref_idx_nguyen[i-1]);
+            pref_idx_phu[i] = max(pref_idx_phu[i], pref_idx_phu[i-1]);
+        }
+        
+        for(int i = n; i >= 1; i--){
+            if(is_nguyen(s[i])){
+                suff_cnt_nguyen[i]++;
+                suff_idx_nguyen[i] = i;
+            }
+            else{
+                suff_cnt_phu[i]++;
+                suff_idx_phu[i] = i;
+            }
+            
+            suff_cnt_nguyen[i] += suff_cnt_nguyen[i+1];
+            suff_cnt_phu[i] += suff_cnt_phu[i+1];
+            suff_idx_nguyen[i] = max(suff_idx_nguyen[i], suff_idx_nguyen[i+1]);
+            suff_idx_phu[i] = max(suff_idx_phu[i], suff_idx_phu[i+1]);
+        }
+        
+        ll ans = 0;
+        for(int i = 1; i <= n; i++){
+            if(tc == 4){
+                dbg(suff_idx_nguyen[i+1],i);
+            }
+            if(pref_idx_nguyen[i] == i && (suff_idx_phu[i+1] < suff_idx_nguyen[i+1] || suff_idx_nguyen[i+1] == -1) && suff_idx_phu[i+1] != -1){
+                int pos = (suff_idx_nguyen[i+1] == -1 ? n : suff_idx_nguyen[i+1]-1);
+                ans = (ans + pos - i)%MOD;
+                dbg(pos,1);
+            }
+        }
 
-    dis[0] = 0;
-    int x;
-    while(q--){
-        cin >> x;
-        cout << dis[x] << '\n';
+        for(int i = n; i >= 1; i--){
+            if(suff_idx_nguyen[i] == i && (pref_idx_phu[i-1] > pref_idx_nguyen[i-1] || pref_idx_nguyen[i-1] == -1) && pref_idx_phu[i-1] != -1){
+                int pos = (pref_idx_nguyen[i-1] == -1 ? 1 : pref_idx_nguyen[i-1]+1);
+                ans = (ans + i - pos)%MOD;
+            }
+        }
+
+        cout << ans << '\n';
     }
 }
