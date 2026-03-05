@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-123/143-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Mar_04%2C_2026_--_16%3A40_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260304T1640&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-124/144-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Mar_05%2C_2026_--_23%3A30_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260305T2330&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 143
-- **Accepted:** 123
+- **Total Problems:** 144
+- **Accepted:** 124
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -28,13 +28,15 @@
 * [📂 Project Euler (2)](#-project-euler-2)
 * [📂 PTNK (7)](#-ptnk-7)
   * [📂 Grade 10 (7)](#-grade-10-7)
+* [📂 VNOI (0)](#-vnoi-0)
 * [📂 VNOJ (6)](#-vnoj-6)
 
 ---
-## 📂 [Solutions (143)](*%20%20%20%20submission:)
+## 📂 [Solutions (144)](https://marisaoj.com/problem/572)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | Main | N/A | N/A | Mar 4, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 1 | [572 - Buying tickets](https://marisaoj.com/problem/572) | `Dynamic Programming` | $\mathcal{O}(n)$ | Mar 5, 2026 | [Code](572.cpp) \| [Sub](https://marisaoj.com/submission/1111914) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 2 | Main | N/A | N/A | Mar 5, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
 ## 📂 [ACMICPC (1)](https://www.acmicpc.net)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |

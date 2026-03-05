@@ -1,22 +1,23 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-05 20:52:03
+ *    created: 2026-03-05 23:25:33
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Buying tickets
+ *    source: https://marisaoj.com/problem/572
+ *    submission: https://marisaoj.com/submission/1111914
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Dynamic Programming
+ *    complexity: O(n)
+ *    note: At each option we have 2 ways to choose: buy only for person i and buy for both person i and i-1
 **/
 
 #include <iostream>
 #include <vector>
 #include <cstdio>
 #include <utility>
+#include <algorithm>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n';
@@ -62,10 +63,16 @@ int main(){
     fastio;
     setup();
 
-    string s;
-    cin >> s;
+    int n;
+    cin >> n;
+    vi a(n+1), t(n+1);
+    for(int i = 1; i <= n; i++) cin >> a[i];
+    for(int i = 1; i < n; i++) cin >> t[i];
 
-    s = '#' + s;
-
-    
+    vll dp(n+1);
+    dp[1] = a[1];
+    for(int i = 2; i <= n; i++){
+        dp[i] = min(dp[i-1] + a[i], dp[i-2] + t[i-1]);
+    }
+    cout << dp[n];
 }
