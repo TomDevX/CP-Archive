@@ -1,10 +1,10 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-26 15:45:13
+ *    created: 2026-03-03 14:02:46
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: PWALK
+ *    source: https://oj.vnoi.info/problem/pwalk
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -17,8 +17,6 @@
 #include <vector>
 #include <cstdio>
 #include <utility>
-#include <queue>
-#include <algorithm>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n';
@@ -48,48 +46,53 @@ using vll = vector<long long>;
 using vvll = vector<vector<long long>>;
 
 void setup(){
-    if(!fopen("NAME.INP", "r")) return;
-    freopen("NAME.INP", "r", stdin);
-    freopen("NAME.OUT", "w", stdout);
+    if(!fopen("PWALK.INP", "r")) return;
+    freopen("PWALK.INP", "r", stdin);
+    freopen("PWALK.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-int n,m,q;
-const int N = 5e6+2;
+int n,q;
+const int N = 1e5+2;
 
-struct node{
-    int u;
-    ll w;
-
-    node(int _u = 0, ll _w = 0) : u(_u), w(_w) {};
-    bool operator<(const node& other) const{
-        return w > other.w;
-    }
-};
-
-vector<node> adj[N];
-ll dis[N];
+vector<pii> adj[N];
+int up[N][18];
+int h[N];
+int dist[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void diks(int src){
-    priority_queue<node> pq;
-    pq.push({src,(ll)2e18});
-    dis[src] = 2e18;
+void dfs(int u){
+    for(pii& v : adj[u]){
+        if(v.fi == up[u][0]) continue;
+        up[v.fi][0] = u;
+        h[v.fi] = h[u] + 1;
+        dist[v.fi] = dist[u] + v.se;
 
-    while(!pq.empty()){
-        node u = pq.top();
-        pq.pop();
+        for(int i = 1; i <= 17; i++){
+            up[v.fi][i] = up[up[v.fi][i-1]][i-1];
+        }
+        dfs(v.fi);
+    }
+}
 
-        if(dis[u.u] > u.w) continue;
-        
-        for(node v : adj[u.u]){ 
-            // dbg(min(v.w,dis[u.u]),v.u);
-            if(dis[v.u] < min(v.w,dis[u.u])){
-                dis[v.u] = min(v.w,dis[u.u]);
-                pq.push({v.u,dis[v.u]});
-            }
+int lca(int u, int v){
+    if(h[u] != h[v]){
+        if(h[u] < h[v]) swap(u,v);  
+
+        int k = h[u] - h[v];
+        for(int i = 17; i >= 0; i--){
+            if(k >> i & 1) u = up[u][i];    
         }
     }
+    if(u == v) return u;
+
+    for(int i = 17; i >= 0; i--){
+        if(up[u][i] != up[v][i]){
+            u = up[u][i];
+            v = up[v][i];
+        }
+    }
+    return up[u][0];
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -97,23 +100,20 @@ int main(){
     fastio;
     setup();
 
-    cin >> n >> m >> q;
-
-    for(int i = 1; i <= m; i++){
-        int u,v;
-        ll w;
-
+    cin >> n >> q;
+    for(int i = 1; i < n; i++){
+        int u,v,w;
         cin >> u >> v >> w;
         adj[u].eb(v,w);
         adj[v].eb(u,w);
     }
 
-    diks(1);
+    h[1] = 1;
+    dfs(1);
 
-    dis[0] = 0;
-    int x;
     while(q--){
-        cin >> x;
-        cout << dis[x] << '\n';
+        int a,b;
+        cin >> a >> b;
+        cout << dist[a] + dist[b] - 2*dist[lca(a,b)] << '\n';
     }
 }

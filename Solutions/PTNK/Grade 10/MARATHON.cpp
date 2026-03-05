@@ -1,12 +1,12 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-26 15:45:13
+ *    created: 2026-03-03 13:47:52
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: MARATHON
+ *    source: LCA2.pdf
  *    submission: 
- *    status: WIP
+ *    status: AC
  * ----------------------------------------------------------
  *    tags: 
  *    complexity: 
@@ -17,8 +17,6 @@
 #include <vector>
 #include <cstdio>
 #include <utility>
-#include <queue>
-#include <algorithm>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n';
@@ -48,48 +46,58 @@ using vll = vector<long long>;
 using vvll = vector<vector<long long>>;
 
 void setup(){
-    if(!fopen("NAME.INP", "r")) return;
-    freopen("NAME.INP", "r", stdin);
-    freopen("NAME.OUT", "w", stdout);
+    if(!fopen("MARATHON.INP", "r")) return;
+    freopen("MARATHON.INP", "r", stdin);
+    freopen("MARATHON.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-int n,m,q;
-const int N = 5e6+2;
-
-struct node{
-    int u;
-    ll w;
-
-    node(int _u = 0, ll _w = 0) : u(_u), w(_w) {};
-    bool operator<(const node& other) const{
-        return w > other.w;
-    }
-};
-
-vector<node> adj[N];
-ll dis[N];
+int n,q;
+const int N = 1e5+2;
+vi adj[N];
+int up[N][18];
+int h[N];
+int dis[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void diks(int src){
-    priority_queue<node> pq;
-    pq.push({src,(ll)2e18});
-    dis[src] = 2e18;
+void dfs(int u){
+    for(int v : adj[u]){
+        if(v == up[u][0]) continue;
 
-    while(!pq.empty()){
-        node u = pq.top();
-        pq.pop();
+        h[v] = h[u] + 1;
+        up[v][0] = u;
+        dis[v] = dis[u] + 1;
 
-        if(dis[u.u] > u.w) continue;
-        
-        for(node v : adj[u.u]){ 
-            // dbg(min(v.w,dis[u.u]),v.u);
-            if(dis[v.u] < min(v.w,dis[u.u])){
-                dis[v.u] = min(v.w,dis[u.u]);
-                pq.push({v.u,dis[v.u]});
-            }
+        for(int i = 1; i <= 17; i++){
+            up[v][i] = up[up[v][i-1]][i-1];
+        }
+
+        dfs(v);
+    }
+}
+
+int lca(int u, int v){
+    if(h[u] != h[v]){
+        if(h[u] < h[v]) swap(u,v);
+
+        int k = h[u] - h[v];
+        for(int i = 17; i >= 0; i--){
+            if(k >> i & 1) u = up[u][i];
         }
     }
+    if(u == v) return u;
+
+    for(int i = 17; i >= 0; i--){
+        if(up[u][i] != up[v][i]){
+            u = up[u][i];
+            v = up[v][i];
+        }
+    }
+    return up[u][0];
+}
+
+int getd(int a, int b){
+    return dis[a] + dis[b] - 2*dis[lca(a,b)];
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -97,23 +105,20 @@ int main(){
     fastio;
     setup();
 
-    cin >> n >> m >> q;
-
-    for(int i = 1; i <= m; i++){
+    cin >> n >> q;   
+    for(int i = 1; i < n; i++){
         int u,v;
-        ll w;
+        cin >> u >> v;
+        adj[u].eb(v);
+        adj[v].eb(u);
+    } 
 
-        cin >> u >> v >> w;
-        adj[u].eb(v,w);
-        adj[v].eb(u,w);
-    }
+    dis[1] = 1;
+    dfs(1);
 
-    diks(1);
-
-    dis[0] = 0;
-    int x;
     while(q--){
-        cin >> x;
-        cout << dis[x] << '\n';
+        int a,b,k;
+        cin >> a >> b >> k;
+        cout << (getd(a,b) == getd(a,k) + getd(k,b) ? 1 : 0) << '\n';
     }
 }

@@ -1,23 +1,23 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-26 15:45:13
+ *    created: 2026-03-04 09:03:56
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Shohag Loves XOR (Easy Version)
+ *    source: https://codeforces.com/contest/2039/problem/C1
+ *    submission: https://codeforces.com/gym/676327/submission/365315587
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Math, Bit
+ *    complexity: O(x)
+ *    note: For x XOR y to be divisor candidate of x, x XOR y must be <= 2*x. And if y > 2*x, x XOR y can't be the divisor because x XOR y has the same ost significant bit with y
 **/
 
 #include <iostream>
 #include <vector>
 #include <cstdio>
 #include <utility>
-#include <queue>
+#include <algorithm>
 #include <algorithm>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
@@ -54,66 +54,30 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-int n,m,q;
-const int N = 5e6+2;
 
-struct node{
-    int u;
-    ll w;
-
-    node(int _u = 0, ll _w = 0) : u(_u), w(_w) {};
-    bool operator<(const node& other) const{
-        return w > other.w;
-    }
-};
-
-vector<node> adj[N];
-ll dis[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void diks(int src){
-    priority_queue<node> pq;
-    pq.push({src,(ll)2e18});
-    dis[src] = 2e18;
 
-    while(!pq.empty()){
-        node u = pq.top();
-        pq.pop();
-
-        if(dis[u.u] > u.w) continue;
-        
-        for(node v : adj[u.u]){ 
-            // dbg(min(v.w,dis[u.u]),v.u);
-            if(dis[v.u] < min(v.w,dis[u.u])){
-                dis[v.u] = min(v.w,dis[u.u]);
-                pq.push({v.u,dis[v.u]});
-            }
-        }
-    }
-}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
 
-    cin >> n >> m >> q;
+    int tc;
+    cin >> tc;
+    while(tc--){
+        int x;
+        ll m;
+        cin >> x >> m;
 
-    for(int i = 1; i <= m; i++){
-        int u,v;
-        ll w;
+        int cnt = 0;
+        for(int i = 1; i <= min(2LL*x,m); i++){
+            if(x != i && (x%(x^i) == 0 || i%(x^i) == 0)){
+                cnt++;
+            }
+        }
 
-        cin >> u >> v >> w;
-        adj[u].eb(v,w);
-        adj[v].eb(u,w);
-    }
-
-    diks(1);
-
-    dis[0] = 0;
-    int x;
-    while(q--){
-        cin >> x;
-        cout << dis[x] << '\n';
+        cout << cnt << '\n';
     }
 }

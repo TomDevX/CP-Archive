@@ -1,10 +1,10 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-26 15:45:13
+ *    created: 2026-03-04 09:04:09
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
- *    source: 
+ *    source: https://codeforces.com/contest/1854/problem/A1
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -17,7 +17,6 @@
 #include <vector>
 #include <cstdio>
 #include <utility>
-#include <queue>
 #include <algorithm>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
@@ -54,66 +53,36 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-int n,m,q;
-const int N = 5e6+2;
 
-struct node{
-    int u;
-    ll w;
-
-    node(int _u = 0, ll _w = 0) : u(_u), w(_w) {};
-    bool operator<(const node& other) const{
-        return w > other.w;
-    }
-};
-
-vector<node> adj[N];
-ll dis[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void diks(int src){
-    priority_queue<node> pq;
-    pq.push({src,(ll)2e18});
-    dis[src] = 2e18;
 
-    while(!pq.empty()){
-        node u = pq.top();
-        pq.pop();
-
-        if(dis[u.u] > u.w) continue;
-        
-        for(node v : adj[u.u]){ 
-            // dbg(min(v.w,dis[u.u]),v.u);
-            if(dis[v.u] < min(v.w,dis[u.u])){
-                dis[v.u] = min(v.w,dis[u.u]);
-                pq.push({v.u,dis[v.u]});
-            }
-        }
-    }
-}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
 
-    cin >> n >> m >> q;
+    int tc;
+    cin >> tc;
+    while(tc--){
+        int n;
+        cin >> n;
+        vi a(n+1);
+        for(int i = 1; i <= n; i++){
+            cin >> a[i];
+        }
 
-    for(int i = 1; i <= m; i++){
-        int u,v;
-        ll w;
-
-        cin >> u >> v >> w;
-        adj[u].eb(v,w);
-        adj[v].eb(u,w);
-    }
-
-    diks(1);
-
-    dis[0] = 0;
-    int x;
-    while(q--){
-        cin >> x;
-        cout << dis[x] << '\n';
+        vector<pii> trace;
+        for(int i = 2; i <= n; i++){
+            while(a[i] < a[i-1]){
+                int it = lower_bound(a.begin()+1,a.begin()+i, a[i-1] - a[i]) - a.begin();
+                a[i] += a[it];
+                trace.eb(i,it);
+                dbg(it,1);
+            }
+        }
+        cout << sz(trace) << '\n';
+        for(int i = 0; i < sz(trace); i++) cout << trace[i].fi << ' ' << trace[i].se << '\n';
     }
 }
