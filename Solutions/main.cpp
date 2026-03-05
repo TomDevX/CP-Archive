@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-04 16:20:28
+ *    created: 2026-03-05 13:20:11
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -17,7 +17,6 @@
 #include <vector>
 #include <cstdio>
 #include <utility>
-#include <algorithm>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n';
@@ -63,7 +62,5 @@ int main(){
     fastio;
     setup();
 
-    vi a = {3,2,1};
-    int it = lower_bound(all(a,1),4,greater<int>()) - a.begin();
-    cout << it;
+    
 }
