@@ -1,71 +1,42 @@
-/**
- *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-05 20:52:03
- *    country: Vietnam - VNM
- * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
- * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
-**/
-
-#include <iostream>
-#include <vector>
-#include <cstdio>
-#include <utility>
-#if __has_include("debuggingz.h")
-    #include "debuggingz.h"
-    #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n';
-#else
-    #define dbg(x,i)
-#endif
-
+#include <bits/stdc++.h>
+ 
 using namespace std;
-
-#define all(x,bonus) (x).begin()+(bonus),(x).end()
-#define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
-#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
-#define fi first
-#define se second
-#define eb emplace_back
-#define sz(x) (int)(x).size()
-using ll = long long;
-using ull = unsigned long long;
-using ld = long double;
-using pll = pair<long long,long long>;
-using pld = pair<long double,long double>;
-using pii = pair<int,int>;
-using pill = pair<int,long long>;
-using vi = vector<int>;
-using vvi = vector<vector<int>>;
-using vll = vector<long long>;
-using vvll = vector<vector<long long>>;
-
-void setup(){
-    if(!fopen("NAME.INP", "r")) return;
-    freopen("NAME.INP", "r", stdin);
-    freopen("NAME.OUT", "w", stdout);
-}
-
-// ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
-
-// ----------------------- [ FUNCTIONS ] -----------------------
-
-
-// ----------------------- [ MAIN ] -----------------------
-int main(){
-    fastio;
-    setup();
-
-    string s;
-    cin >> s;
-
-    s = '#' + s;
-
+ 
+const int N = 300043;
+ 
+int t;
+int n, m;
+int a[N];
+long long sum[N];
+int cnt1[N];
+ 
+int main() {
+    ios_base::sync_with_stdio(false);
     
+    cin >> t;
+    for (int tc = 0; tc < t; ++tc) {
+        cin >> n >> m;
+        memset(sum, 0, sizeof(sum[0]) * (n + 5));
+        memset(cnt1, 0, sizeof(cnt1[0]) * (n + 5));
+        for (int i = 0; i < n; ++i) {
+            cin >> a[i];
+            sum[i + 1] = sum[i] + a[i];
+            cnt1[i + 1] = cnt1[i] + (a[i] == 1);
+        }
+        
+        for (int i = 0; i < m; ++i) {
+            int l, r;
+            cin >> l >> r;
+            --l;
+            int cur_cnt1 = cnt1[r] - cnt1[l];
+            long long cur_sum = sum[r] - sum[l];
+            
+            cerr << cur_cnt1 << ' ' << cur_sum << '\n';
+            if((r - l) + cur_cnt1 <= cur_sum && r - l > 1)
+                cout << "YES\n";
+            else
+                cout << "NO\n";
+        }
+    }
+    return 0;
 }
