@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-129/150-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Mar_06%2C_2026_--_23%3A37_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260306T2337&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-128/150-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Mar_08%2C_2026_--_01%3A29_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260308T0129&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 150
-- **Accepted:** 129
+- **Accepted:** 128
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -32,10 +32,10 @@
 * [📂 VNOJ (6)](#-vnoj-6)
 
 ---
-## 📂 Solutions (150)
+## 📂 [Solutions (150)](*%20%20%20%20submission:)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | Main | N/A | N/A | N/A | [Code](main.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | Main | N/A | N/A | Mar 8, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
 ## 📂 [ACMICPC (1)](https://www.acmicpc.net)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |

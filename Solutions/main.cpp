@@ -1,42 +1,90 @@
-#include <bits/stdc++.h>
- 
+/**
+ *    author: TomDev - Tran Hoang Quan
+ *    created: 2026-03-08 01:27:54
+ *    country: Vietnam - VNM
+ * ----------------------------------------------------------
+ *    title: 
+ *    source: 
+ *    submission: 
+ *    status: WIP
+ * ----------------------------------------------------------
+ *    tags: 
+ *    complexity: 
+ *    note: 
+**/
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cstdio>
+#include <utility>
 using namespace std;
- 
-const int N = 300043;
- 
-int t;
-int n, m;
-int a[N];
-long long sum[N];
-int cnt1[N];
- 
+
+// --- [ DEBUGGING & LOCAL CONFIG ] ---
+#if __has_include("debuggingz.h")
+#include "debuggingz.h"
+    #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
+#else
+    #define dbg(x,i)
+#endif
+#ifdef LOCAL
+    #include <iomanip>
+    #include <ctime>
+    #define NAH_I_WOULD_WIN cerr << "\033[32m\n[Runtime: " << fixed << setprecision(3) << 1.0*clock()/CLOCKS_PER_SEC << "s]\033[0m\n", 0
+#else
+    #define NAH_I_WOULD_WIN 0
+#endif
+
+// --- [ MACROS ] ---
+#define all(x,bonus) (x).begin()+(bonus),(x).end()
+#define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
+#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define fi first
+#define se second
+#define eb emplace_back
+#define sz(x) (int)(x).size()
+
+// --- [ TYPES & ALIASES ] ---
+using ll = long long;
+using ull = unsigned long long;
+using ld = long double;
+using pll = pair<long long,long long>;
+using pld = pair<long double,long double>;
+using pii = pair<int,int>;
+using pill = pair<int,long long>;
+using vi = vector<int>;
+using vvi = vector<vector<int>>;
+using vll = vector<long long>;
+using vvll = vector<vector<long long>>;
+
+// --- [ EXECUTION HUB ] ---
+void setup() {
+    if (!fopen("main.INP", "r")) return;
+    freopen("main.INP", "r", stdin);
+    freopen("main.OUT", "w", stdout);
+}
+
+void TomDev_will_AK_VOI(int tc);
+
 int main() {
-    ios_base::sync_with_stdio(false);
+    fastio;
+    setup();
     
-    cin >> t;
-    for (int tc = 0; tc < t; ++tc) {
-        cin >> n >> m;
-        memset(sum, 0, sizeof(sum[0]) * (n + 5));
-        memset(cnt1, 0, sizeof(cnt1[0]) * (n + 5));
-        for (int i = 0; i < n; ++i) {
-            cin >> a[i];
-            sum[i + 1] = sum[i] + a[i];
-            cnt1[i + 1] = cnt1[i] + (a[i] == 1);
-        }
-        
-        for (int i = 0; i < m; ++i) {
-            int l, r;
-            cin >> l >> r;
-            --l;
-            int cur_cnt1 = cnt1[r] - cnt1[l];
-            long long cur_sum = sum[r] - sum[l];
-            
-            cerr << cur_cnt1 << ' ' << cur_sum << '\n';
-            if((r - l) + cur_cnt1 <= cur_sum && r - l > 1)
-                cout << "YES\n";
-            else
-                cout << "NO\n";
-        }
+    int tc; tc = 1;
+    for (int test = 1; test <= tc; test++) {
+        TomDev_will_AK_VOI(test);
     }
-    return 0;
+    
+    return NAH_I_WOULD_WIN;
+}
+
+// ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+
+
+// ----------------------- [ FUNCTIONS ] -----------------------
+
+
+// ----------------------- [ CORE LOGIC ] -----------------------
+void TomDev_will_AK_VOI(int tc) {
+    
 }
