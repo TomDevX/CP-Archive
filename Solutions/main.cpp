@@ -58,7 +58,7 @@ using vll = vector<long long>;
 using vvll = vector<vector<long long>>;
 
 // --- [ EXECUTION HUB ] ---
-void setup() {
+void setup() {          
     if (!fopen("main.INP", "r")) return;
     freopen("main.INP", "r", stdin);
     freopen("main.OUT", "w", stdout);
