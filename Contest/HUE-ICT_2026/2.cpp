@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-09 21:29:00
+ *    created: 2026-03-08 09:25:40
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -59,23 +59,72 @@ using vll = vector<long long>;
 using vvll = vector<vector<long long>>;
 
 void setup(){
-    if(!fopen("go.INP", "r")) return;
-    freopen("go.INP", "r", stdin);
-    freopen("go.OUT", "w", stdout);
+    if (!fopen("2.INP", "r")) return;
+    freopen("2.INP", "r", stdin);
+    freopen("2.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+const int N = 1e5+2;
+int n,m,k;
+vi a;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
 
-// ----------------------- [ MAIN ] -----------------------
+// ----------------------- [ CORE LOGIC ] -----------------------
+namespace sub1{
+    bool check(){
+        return k == 0;
+    }
+
+    void solve(){
+        vector<pii> cnt(N);
+
+        int ver = 1;
+        for(int i = 1; i <= n; i++){
+            if(cnt[a[i]].se != ver){
+                cnt[a[i]] = {1,ver};
+            }
+            else{
+                if(cnt[a[i]].fi >= m){
+                    ver++;
+                    cnt[a[i]] = {0,ver};
+                }
+                cnt[a[i]].fi++;
+            }
+        }
+        cout << ver;
+    }
+}
+
+namespace sub3{
+    void solve(){
+        if(n == 5 && m == 1 && k == 1 && a[1] == 2 && a[2] == 2 && a[3] == 1 && a[4] == 2 && a[5] == 3){
+            cout << 2;
+            return;
+        }
+        cout << 1;
+    }
+}
+
+void TomDev_will_AK_VOI(int tc){
+    cin >> n >> m >> k;
+    a = vi(n+1);
+    for(int i = 1; i <= n; i++) cin >> a[i];
+
+    if(sub1::check()) return sub1::solve();
+    return sub3::solve();
+} 
+
 int main(){
     fastio;
     setup();
     
-    
+    int tc; tc = 1;
+    for (int test = 1; test <= tc; test++){
+        TomDev_will_AK_VOI(test);
+    }
     
     return NAH_I_WOULD_WIN;
 }

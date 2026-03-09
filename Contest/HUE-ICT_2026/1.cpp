@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-09 21:29:00
+ *    created: 2026-03-08 09:10:17
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -18,6 +18,7 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
+#include <bitset>
 
 using namespace std;
 
@@ -59,23 +60,79 @@ using vll = vector<long long>;
 using vvll = vector<vector<long long>>;
 
 void setup(){
-    if(!fopen("go.INP", "r")) return;
-    freopen("go.INP", "r", stdin);
-    freopen("go.OUT", "w", stdout);
+    if (!fopen("1.INP", "r")) return;
+    freopen("1.INP", "r", stdin);
+    freopen("1.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+const int N = 1e6;
+bitset<N+2> sang;
+int n,m;
+vvi a, pref;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void sieve(){
+    sang[0] = sang[1] = 1;
+    for(int i = 2; i * i <= N; i++){
+        if(!sang[i]){
+            for(int j = i*i; j <= N; j += i) sang[j] = 1;
+        }
+    }
+}
 
+int get_snt(int x1, int y1, int x2, int y2){
+    return pref[x2][y2] - pref[x2][y1-1] - pref[x1-1][y2] + pref[x1-1][y1-1];
+}
 
-// ----------------------- [ MAIN ] -----------------------
+bool check(int mid){
+    for(int i = 1; i <= n-mid+1; i++){
+        for(int j = 1; j <= m-mid+1; j++){
+            if(get_snt(i,j,i+mid-1,j+mid-1) <= 1) return true;
+        }
+    }
+    return false;
+}
+
+// ----------------------- [ CORE LOGIC ] -----------------------
+void TomDev_will_AK_VOI(int tc){
+    cin >> n >> m;
+    a = vvi(n+1,vi(m+1));
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= m; j++) cin >> a[i][j];
+    }
+    
+    pref = vvi(n+1,vi(m+1));
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= m; j++){
+            pref[i][j] = pref[i-1][j] + pref[i][j-1] - pref[i-1][j-1] + sang[a[i][j]];
+        }
+    }
+
+    int l = 1, r = max(n,m);
+    int ans = 0;
+    while(l <= r){
+        int mid = l + ((r-l)>>1);
+        
+        if(check(mid)){
+            ans = mid;
+            l = mid+1;
+        }
+        else r = mid-1;
+    }
+    cout << ans*ans;
+}
+
 int main(){
     fastio;
     setup();
+
+    sieve();
     
-    
+    int tc; tc = 1;
+    for (int test = 1; test <= tc; test++){
+        TomDev_will_AK_VOI(test);
+    }
     
     return NAH_I_WOULD_WIN;
 }
