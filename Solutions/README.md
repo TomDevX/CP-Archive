@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-128/150-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Mar_08%2C_2026_--_07%3A09_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260308T0709&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-129/151-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Mar_09%2C_2026_--_21%3A28_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260309T2128&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 150
-- **Accepted:** 128
+- **Total Problems:** 151
+- **Accepted:** 129
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -24,7 +24,7 @@
   * [📂 Sorting And Searching (3)](#-sorting-and-searching-3)
 * [📂 IUHCoder (2)](#-iuhcoder-2)
 * [📂 Leetcode (1)](#-leetcode-1)
-* [📂 MarisaOJ (10)](#-marisaoj-10)
+* [📂 MarisaOJ (11)](#-marisaoj-11)
 * [📂 Project Euler (2)](#-project-euler-2)
 * [📂 PTNK (7)](#-ptnk-7)
   * [📂 Grade 10 (7)](#-grade-10-7)
@@ -32,7 +32,7 @@
 * [📂 VNOJ (6)](#-vnoj-6)
 
 ---
-## 📂 [Solutions (150)](*%20%20%20%20submission:)
+## 📂 [Solutions (151)](*%20%20%20%20submission:)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Main | N/A | N/A | Mar 8, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -208,7 +208,7 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [64 - Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum) | `Dynamic Programming` | $\mathcal{O}(n \cdot m)$ | Feb 12, 2026 | [Code](Leetcode/64.cpp) \| [Sub](https://leetcode.com/problems/minimum-path-sum/submissions/1916094804) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-## 📂 [MarisaOJ (10)](https://marisaoj.com/)
+## 📂 [MarisaOJ (11)](https://marisaoj.com/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [74 - Brewing potion](https://account.marisaoj.com/problem/74) | `Greedy`, `Two Pointers` | $\mathcal{O}(n \log n)$ | Feb 22, 2026 | [Code](MarisaOJ/74.cpp) \| [Sub](https://account.marisaoj.com/submission/1094298) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -221,6 +221,7 @@
 | 8 | [160 - Jealousy](https://marisaoj.com/problem/160) | `Dynamic Programming` | $\mathcal{O}(n)$ | Mar 6, 2026 | [Code](MarisaOJ/160.cpp) \| [Sub](https://marisaoj.com/submission/1113310) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 9 | [556 - Cucumber](https://account.marisaoj.com/problem/556) | `Greedy` | $\mathcal{O}(n \log n)$ | Feb 22, 2026 | [Code](MarisaOJ/556.cpp) \| [Sub](https://account.marisaoj.com/submission/1094391) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 10 | [572 - Buying tickets](https://marisaoj.com/problem/572) | `Dynamic Programming` | $\mathcal{O}(n)$ | Mar 5, 2026 | [Code](MarisaOJ/572.cpp) \| [Sub](https://marisaoj.com/submission/1111914) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 11 | [574 - Fences painting](https://marisaoj.com/problem/574) | `Dynamic Programming` | $\mathcal{O}(n)$ | Mar 9, 2026 | [Code](MarisaOJ/574.cpp) \| [Sub](https://marisaoj.com/submission/1117055) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [Project Euler (2)](https://projecteuler.net/about)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
