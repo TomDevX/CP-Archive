@@ -3,14 +3,14 @@
  *    created: 2026-03-13 15:49:12
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Boredom
+ *    source: https://codeforces.com/contest/455/problem/A
+ *    submission: https://codeforces.com/contest/455/submission/366471336
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Dynamic Programming
+ *    complexity: O(N)
+ *    note: Let dp[i] = best answer you can get only with value 1 -> i. If we don't choose value i, we get the best previous value: dp[i-1]. If we choose value i, we get dp[i-2] + cnt[i]*i. Why only dp[i-2]? Because first it will skip the value i-1 for us, second when we go to value i+1, it will skip value i for us (because removing a[i]+1, a[i]-1 is symmetric) => fun fact that this solution will not change even if the problem states we only remove a[i]-1 or only remove a[i]+1
 **/
 
 #include <iostream>

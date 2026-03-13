@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-13 15:49:12
+ *    created: 2026-03-13 12:43:24
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Prepend and Append 
+ *    source: https://codeforces.com/contest/1791/problem/C
+ *    submission: https://codeforces.com/contest/1791/submission/366453264
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Implementation
+ *    complexity: O(n)
+ *    note: Just iterate through all the borders to see if they are different
 **/
 
 #include <iostream>
@@ -18,6 +18,7 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
+#include <string>
 
 using namespace std;
 
@@ -45,14 +46,13 @@ using namespace std;
                 mem /= 1024.0;
             #endif
     
-            cerr << "\033[1;32m\n--------------------------------\033[0m\n";
+            cerr << "\033[1;32m--------------------------------\033[0m\n";
             cerr << "\033[1;32mNAH I'D WIN!\033[0m | ";
             cerr << "\033[1;33mTime: " << fixed << setprecision(3) << time << "s\033[0m | ";
             cerr << "\033[1;36mMem: " << fixed << setprecision(2) << mem << "MB\033[0m\n";
         }
-    } __TomDev_will_AK_VOI;
+    } __tracker;
 #endif
-#define NAH_I_WOULD_WIN 0
 
 // --- [ MACROS ] ---
 #define all(x,bonus) (x).begin()+(bonus),(x).end()
@@ -86,8 +86,7 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5;
-int cnt[N+2];
+
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -97,22 +96,22 @@ int main(){
     fastio;
     setup();
     
-    int n;
-    cin >> n;
-    for(int i = 1, x; i <= n; i++){
-        cin >> x;
-        cnt[x]++;
+    int tc;
+    cin >> tc;
+    while(tc--){
+        int n;
+        cin >> n;
+        string s;
+        cin >> s;
+        s = '#' + s;
+
+        int cnt = 0;
+        for(int i = 1; i <= n/2; i++){
+            if((s[i] - '0')^(s[n-i+1] - '0')){
+                cnt+=2;
+            }
+            else break;
+        }
+        cout << n-cnt << '\n';
     }
-
-    vll dp(N+1);
-    dp[0] = 0;
-    dp[1] = cnt[1];
-
-    for(int i = 2; i <= N; i++){
-        dp[i] = max(dp[i-1], dp[i-2] + 1LL*cnt[i]*i);
-    }
-
-    cout << dp[N];
-    
-    return NAH_I_WOULD_WIN;
-}
+}   
