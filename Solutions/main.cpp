@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-13 17:27:17
+ *    created: 2026-03-13 22:38:27
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -22,14 +22,9 @@
 using namespace std;
 
 // --- [ DEBUGGING & LOCAL CONFIG ] ---
-#if __has_include("debuggingz.h")
-#include "debuggingz.h"
-    #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
-#else
-    #define dbg(x,i)
-#endif
 #if __has_include("TomDev.h")
-    #include "TomDev.h"
+#include "TomDev.h"
+#define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
 #endif
 #define NAH_I_WOULD_WIN 0
 
@@ -66,17 +61,46 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+const int N = 1e5;
+pii st[N+2][18];
+int lg[N+2];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-
+pii get(int l, int r){
+    if(l > r) return {0,0};
+    int k = lg[r-l+1];
+    return max(st[l][k], st[r - (1 << k) + 1][k]);
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    
+    int n,q;
+    cin >> n >> q;
+
+    for(int i = 1; i <= n; i++){
+        cin >> st[i][0].fi;
+        st[i][0].se = i;
+        if(i > 1) lg[i] = lg[i>>1] + 1;
+    }
+
+    for(int k = 1; k <= 17; k++){
+        for(int i = 1; i + (1 << k) - 1 <= n; i++){
+            st[i][k] = max(st[i][k-1], st[i + (1 << (k-1))][k-1]);
+        }
+    }
+
+    while(q--){
+        int l,r;
+        cin >> l >> r;
+
+        pii a = get(l,r);
+        pii b = max(get(l,a.se-1), get(a.se+1,r));
+
+        cout << a.fi + b.fi << '\n';
+    }
     
     return NAH_I_WOULD_WIN;
 }
