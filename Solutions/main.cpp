@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-13 15:49:12
+ *    created: 2026-03-13 17:27:17
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -28,29 +28,8 @@ using namespace std;
 #else
     #define dbg(x,i)
 #endif
-#ifdef LOCAL
-    #include <iomanip>
-    #include <ctime>
-    #include <sys/resource.h>
-    struct Statistic_Tracker {
-        ~Statistic_Tracker() {
-            struct rusage usage;
-            getrusage(RUSAGE_SELF, &usage);
-            double time = 1.0 * clock() / CLOCKS_PER_SEC;
-            
-            double mem = usage.ru_maxrss;
-            #ifdef __APPLE__
-                mem /= (1024.0 * 1024.0);
-            #else
-                mem /= 1024.0;
-            #endif
-    
-            cerr << "\033[1;32m\n--------------------------------\033[0m\n";
-            cerr << "\033[1;32mNAH I'D WIN!\033[0m | ";
-            cerr << "\033[1;33mTime: " << fixed << setprecision(3) << time << "s\033[0m | ";
-            cerr << "\033[1;36mMem: " << fixed << setprecision(2) << mem << "MB\033[0m\n";
-        }
-    } __TomDev_will_AK_VOI;
+#if __has_include("TomDev.h")
+    #include "TomDev.h"
 #endif
 #define NAH_I_WOULD_WIN 0
 
@@ -87,8 +66,7 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5;
-int cnt[N+2];
+
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -98,22 +76,7 @@ int main(){
     fastio;
     setup();
     
-    int n;
-    cin >> n;
-    for(int i = 1, x; i <= n; i++){
-        cin >> x;
-        cnt[x]++;
-    }
-
-    vll dp(N+1);
-    dp[0] = 0;
-    dp[1] = cnt[1];
-
-    for(int i = 2; i <= N; i++){
-        dp[i] = max(dp[i-1], dp[i-2] + 1LL*cnt[i]*i);
-    }
-
-    cout << dp[N];
+    
     
     return NAH_I_WOULD_WIN;
 }
