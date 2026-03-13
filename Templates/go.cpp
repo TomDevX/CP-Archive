@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-09 21:29:00
+ *    created: 2026-03-13 23:23:06
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -22,22 +22,17 @@
 using namespace std;
 
 // --- [ DEBUGGING & LOCAL CONFIG ] ---
-#if __has_include("debuggingz.h")
-#include "debuggingz.h"
+#if __has_include("TomDev.h")
+    #include "TomDev.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
 #else
     #define dbg(x,i)
 #endif
-#ifdef LOCAL
-    #include <iomanip>
-    #include <ctime>
-    #define NAH_I_WOULD_WIN cerr << "\033[32m\n[Runtime: " << fixed << setprecision(3) << 1.0*clock()/CLOCKS_PER_SEC << "s]\033[0m\n", 0
-#else
-    #define NAH_I_WOULD_WIN 0
-#endif
+#define NAH_I_WOULD_WIN 0
 
 // --- [ MACROS ] ---
 #define all(x,bonus) (x).begin()+(bonus),(x).end()
+#define filter(x,bonus) (x).erase(unique((x).begin()+(bonus), (x).end()), (x).end())
 #define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
 #define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
 #define fi first
@@ -57,6 +52,9 @@ using vi = vector<int>;
 using vvi = vector<vector<int>>;
 using vll = vector<long long>;
 using vvll = vector<vector<long long>>;
+using vpii = vector<pair<int,int>>;
+using vpill = vector<pair<int,long long>>;
+using vpll = vector<pair<long long,long long>>;
 
 void setup(){
     if(!fopen("go.INP", "r")) return;

@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-08 08:28:19
+ *    created: 2026-03-09 21:29:35
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -58,25 +58,10 @@ using vvi = vector<vector<int>>;
 using vll = vector<long long>;
 using vvll = vector<vector<long long>>;
 
-// --- [ EXECUTION HUB ] ---
 void setup(){
-    if (!fopen("main.INP", "r")) return;
+    if(!fopen("main.INP", "r")) return;
     freopen("main.INP", "r", stdin);
     freopen("main.OUT", "w", stdout);
-}
-
-void TomDev_will_AK_VOI(int tc);
-
-int main(){
-    fastio;
-    setup();
-    
-    int tc; tc = 1;
-    for (int test = 1; test <= tc; test++){
-        TomDev_will_AK_VOI(test);
-    }
-    
-    return NAH_I_WOULD_WIN;
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
@@ -85,7 +70,12 @@ int main(){
 // ----------------------- [ FUNCTIONS ] -----------------------
 
 
-// ----------------------- [ CORE LOGIC ] -----------------------
-void TomDev_will_AK_VOI(int tc){
+// ----------------------- [ MAIN ] -----------------------
+int main(){
+    fastio;
+    setup();
     
+    
+    
+    return NAH_I_WOULD_WIN;
 }
