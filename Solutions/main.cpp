@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-13 23:26:07
+ *    created: 2026-03-15 23:28:48
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -63,7 +63,8 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+const int N = 1e6;
+int pos[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -73,20 +74,21 @@ int main(){
     fastio;
     setup();
     
-    int r;
-    cin >> r;
-    int y = r;
-
-    int ans = 0;
-
-    for(int x = 0; x < r && x <= y; x++){
-        while(y >= 0 && x*x + y*y > r*r) y--;
-
-        if(y < 0) break;
-
-        ans = max(ans, 4*x*y);
+    int n;
+    cin >> n;
+    for(int i = 1, x; i <= n; i++){
+        cin >> x;
+        pos[x] = i;
     }
-    cout << ans;
+
+    vi dp(n+1,1);
+    for(int i = 1; i < n; i++){
+        for(int j = i; j <= n; j += i){
+            if(pos[j] > pos[i]) dp[j] = max(dp[j],dp[i] + 1);
+        }
+    }
     
+    cout << *max_element(all(dp,1));
+
     return NAH_I_WOULD_WIN;
 }
