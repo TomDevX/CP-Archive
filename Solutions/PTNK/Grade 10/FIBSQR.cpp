@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-16 09:39:38
+ *    created: 2026-03-16 15:41:21
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: FIB
+ *    title: FIBSQR
  *    source: BT_20260316.pdf
  *    submission: 
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Matrix Exponentiation
- *    complexity: O(\log R + \log L)
- *    note: We have sum from fibo(1 -> n) = fibo(n+2) - 1, apply that formula into our problem with matrix exponentiation
+ *    complexity: O(\log n)
+ *    note: We have a formula for dp that sum(fibo(1 -> n)^2) = fibo_n * fibo_{n+1}. Apply that formula we calculate fibo_n and fibo_{n+1} with matrix exponentiation
 **/
 
 #include <iostream>
@@ -57,13 +57,13 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("FIB.INP", "r")) return;
-    freopen("FIB.INP", "r", stdin);
-    freopen("FIB.OUT", "w", stdout);
+    if(!fopen("FIBSQR.INP", "r")) return;
+    freopen("FIBSQR.INP", "r", stdin);
+    freopen("FIBSQR.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-ll MOD;
+const ll MOD = 998244353;
 struct Matrix{
     int n,m;
     vvll mat;
@@ -117,28 +117,22 @@ int main(){
     fastio;
     setup();
     
-    int tc;
-    cin >> tc;
-    while(tc--){
-        int a,b;
-        ll l,r;
-        ll m;
-        cin >> a >> b >> l >> r >> m;
+    ll n;
+    cin >> n;
 
-        MOD = m;
+    Matrix A(2,2);
+    A.mat[1][1] = A.mat[1][2] = A.mat[2][1] = 1;
+    
+    Matrix V(2,1);
+    V.mat[1][1] = 1;
+    V.mat[2][1] = 1;
 
-        Matrix A(2,2);
-        A.mat[1][1] = A.mat[1][2] = A.mat[2][1] = 1;
-        
-        Matrix V(2,1);
-        V.mat[1][1] = b%MOD;
-        V.mat[2][1] = a%MOD;
+    Matrix fibo_n1 = (A^(n-1))*V;
+    Matrix fibo_n = (A^n)*V;
 
-        Matrix resR = (A^r)*V;
-        Matrix resL = (A^(l-1))*V;
+    Matrix res = fibo_n*fibo_n1;
 
-        cout << ((resR.mat[1][1]-1) - (resL.mat[1][1]-1) + MOD)%MOD << '\n';
-    }
+    cout << res.mat[1][1];
     
     return NAH_I_WOULD_WIN;
 }

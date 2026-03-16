@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-16 09:39:38
+ *    created: 2026-03-16 15:47:03
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: FIB
+ *    title: FIB3
  *    source: BT_20260316.pdf
  *    submission: 
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Matrix Exponentiation
- *    complexity: O(\log R + \log L)
- *    note: We have sum from fibo(1 -> n) = fibo(n+2) - 1, apply that formula into our problem with matrix exponentiation
+ *    complexity: O(\log n)
+ *    note: Use typical Matrix Exponentiation method with fibonacci but need to notice the a and b
 **/
 
 #include <iostream>
@@ -57,13 +57,13 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("FIB.INP", "r")) return;
-    freopen("FIB.INP", "r", stdin);
-    freopen("FIB.OUT", "w", stdout);
+    if(!fopen("FIB3.INP", "r")) return;
+    freopen("FIB3.INP", "r", stdin);
+    freopen("FIB3.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-ll MOD;
+const ll MOD = 1e9+7;
 struct Matrix{
     int n,m;
     vvll mat;
@@ -116,28 +116,29 @@ struct Matrix{
 int main(){
     fastio;
     setup();
-    
+
+    Matrix A(2,2);
+    A.mat = {
+        {0,0,0},
+        {0,1,1},
+        {0,1,0},
+    };
+    Matrix V(2,1);
+
     int tc;
     cin >> tc;
     while(tc--){
-        int a,b;
-        ll l,r;
-        ll m;
-        cin >> a >> b >> l >> r >> m;
+        int n,a,b;
+        cin >> a >> b >> n;
 
-        MOD = m;
+        V.mat = {
+            {0,0},
+            {0,b},
+            {0,a}
+        };
 
-        Matrix A(2,2);
-        A.mat[1][1] = A.mat[1][2] = A.mat[2][1] = 1;
-        
-        Matrix V(2,1);
-        V.mat[1][1] = b%MOD;
-        V.mat[2][1] = a%MOD;
-
-        Matrix resR = (A^r)*V;
-        Matrix resL = (A^(l-1))*V;
-
-        cout << ((resR.mat[1][1]-1) - (resL.mat[1][1]-1) + MOD)%MOD << '\n';
+        Matrix res = (A^(n-1))*V;
+        cout << res.mat[1][1] << '\n';
     }
     
     return NAH_I_WOULD_WIN;
