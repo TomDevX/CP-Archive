@@ -1,24 +1,22 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-02-23 09:14:18
+ *    created: 2026-03-06 21:45:31
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: product
- *    source: https://oj.vnoi.info/problem/product
- *    submission: https://oj.vnoi.info/submission/11801553
- *    status: AC
+ *    title: 
+ *    source: https://codeforces.com/contest/2121/problem/C
+ *    submission: 
+ *    status: WIP
  * ----------------------------------------------------------
- *    tags: Two Pointes
- *    complexity: O(n)
- *    note: Instead of getting big num, we use floating point numbers by using log formulas and accept the deviation
+ *    tags: 
+ *    complexity: 
+ *    note: 
 **/
 
 #include <iostream>
 #include <vector>
 #include <cstdio>
 #include <utility>
-#include <cmath>
-#include <string>
 #include <algorithm>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
@@ -55,44 +53,67 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const ld eps = 1e-7;
+
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-ld to_ld(string s){
-    ld res = 0;
-    for(int i = sz(s)-1; i >= 0; i--){
-        res /= 10;
-        res += (s[i] - '0');
-    }
-    return res;
-}
+
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
 
-    string s;
-    cin >> s;
-
-    ld a = to_ld(s.substr(0,min(15,sz(s))));
-
-    while(a >= 10.0) a/= 10.0;
-
-    long double target = log10(a) + sz(s) -1;
-    // dbg(a,1);
-
-    int l = 1;
-    ld cur = 0;
-    for(int r = 1; r <= 1e5; r++){
-        cur += log10(r);
-        while(cur > target + eps){
-            cur -= log10(l);
-            l++;
+    int tc;
+    cin >> tc;
+    while(tc--){
+        int n,m;
+        cin >> n >> m;
+        vvi a(n+1,vi(m+1));
+        
+        int max_val = 0;
+        for(int i = 1; i <= n; i++){
+            for(int j = 1; j <= m; j++){
+                cin >> a[i][j];
+                max_val = max(max_val,a[i][j]);
+            }
         }
-        if(abs(cur - target) < eps){
-            cout << l << ' ' << r;
-            return 0;
+
+        vector<pii> pos;
+        for(int i = 1; i <= n; i++){
+            for(int j = 1; j <= m; j++){
+                if(a[i][j] == max_val) pos.eb(i,j);
+            }
         }
+
+        int val = -1;
+        bool ok = true;
+        for(int i = 1; i < sz(pos); i++){
+            if(pos[i].fi != pos[0].fi){
+                if(val == -1) val = pos[i].se;
+                else if(val != pos[i].se){
+                    ok = false;
+                    break;
+                }
+            }
+        }
+
+        if(ok){
+            cout << max_val-1 << '\n';
+            continue;
+        }
+
+        val = -1;
+        ok = true;
+        for(int i = 1; i < sz(pos); i++){
+            if(pos[i].se != pos[0].se){
+                if(val == -1) val = pos[i].fi;
+                else if(val != pos[i].fi){
+                    ok = false;
+                    break;
+                }
+            }
+        }
+
+        cout << (ok ? max_val-1 : max_val) << '\n';
     }
 }

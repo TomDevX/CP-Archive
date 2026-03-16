@@ -1,14 +1,14 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-13 23:23:06
+ *    created: 2026-03-16 09:39:38
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: FIB
+ *    source: BT_20260316.pdf
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
- *    tags: 
+ *    tags: Matrix Exponentiation
  *    complexity: 
  *    note: 
 **/
@@ -57,13 +57,57 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("go.INP", "r")) return;
-    freopen("go.INP", "r", stdin);
-    freopen("go.OUT", "w", stdout);
+    if(!fopen("FIB.INP", "r")) return;
+    freopen("FIB.INP", "r", stdin);
+    freopen("FIB.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+int MOD;
+struct Matrix{
+    int n,m;
+    vvll mat;
 
+    Matrix(int _n = 0, int _m = 0) : n(_n), m(_m){
+        mat = vvll(n+1,vll(m+1));
+    }
+
+    Matrix init(){
+        Matrix res(n,m);
+        for(int i = 1; i <= n; i++){
+            res.mat[i][i] = 1;
+        }
+        return res;
+    }
+
+    Matrix operator*(Matrix &b){
+        Matrix res(n, b.m);
+        for(int i = 1; i <= n; i++){
+            for(int k = 1; k <= m; k++){
+                for(int j = 1; j <= b.m; j++){
+                    res.mat[i][j] = (res.mat[i][j] + mat[i][k]*b.mat[k][j])%MOD;
+                }
+            }
+        }
+        return res;
+    }
+
+    Matrix operator^(ll k){
+        Matrix res(n,m);
+        res = init();
+        Matrix a = *this;
+
+        while(k){
+            if(k&1){
+                res = res*a;
+            }
+            a = a*a;
+            k >>= 1;
+            dbg(k,1);
+        }
+        return res;
+    }
+};
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -73,7 +117,30 @@ int main(){
     fastio;
     setup();
     
-    
+    int tc;
+    cin >> tc;
+    while(tc--){
+        int a,b,l,r,m;
+        cin >> a >> b >> l >> r >> m;
+        r += 2;
+        l += 1;
+        MOD = m;
+
+        Matrix A_L(2,2);
+        A_L.mat[1][1] = A_L.mat[1][2] = A_L.mat[2][1] = 1;
+        Matrix A_R(2,2);
+        A_R.mat[1][1] = A_R.mat[1][2] = A_R.mat[2][1] = 1;
+        A_R = A_R^r;
+        A_L = A_L^l;
+        
+        Matrix V(2,1);
+        V.mat[1][1] = b;
+        V.mat[2][1] = a;
+
+        Matrix resR = A_R*V;
+        Matrix resL = A_L*V;
+        cout << ((resR.mat[1][1]-1) - (resL.mat[1][1]-1) + MOD)%MOD << '\n';
+    }
     
     return NAH_I_WOULD_WIN;
 }

@@ -1,21 +1,20 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-04 16:20:28
+ *    created: 2026-03-06 20:24:06
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Jealousy
+ *    source: https://marisaoj.com/problem/160
+ *    submission: https://marisaoj.com/submission/1113310
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Dynamic Programming
+ *    complexity: O(n)
+ *    note: We can get streak from previous dps to avoid the 3 consecutive
 **/
 
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #include <cstdio>
 #include <utility>
 #include <algorithm>
@@ -25,19 +24,16 @@
 #else
     #define dbg(x,i)
 #endif
-#define NAH_I_WOULD_WIN 0
 
-// --- [ MACROS ] ---
+using namespace std;
+
 #define all(x,bonus) (x).begin()+(bonus),(x).end()
-#define filter(x,bonus) (x).erase(unique((x).begin()+(bonus), (x).end()), (x).end())
 #define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
 #define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
 #define fi first
 #define se second
 #define eb emplace_back
 #define sz(x) (int)(x).size()
-
-// --- [ TYPES & ALIASES ] ---
 using ll = long long;
 using ull = unsigned long long;
 using ld = long double;
@@ -49,19 +45,16 @@ using vi = vector<int>;
 using vvi = vector<vector<int>>;
 using vll = vector<long long>;
 using vvll = vector<vector<long long>>;
-using vpii = vector<pair<int,int>>;
-using vpill = vector<pair<int,long long>>;
-using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("NAME.INP", "r")) return;
+    freopen("NAME.INP", "r", stdin);
+    freopen("NAME.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e6;
-int pos[N];
+const int N = 1e5+2;
+ll dp[N][2][3];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -71,7 +64,24 @@ int main(){
     fastio;
     setup();
 
-    vi a = {3,2,1};
-    int it = lower_bound(all(a,1),4,greater<int>()) - a.begin();
-    cout << it;
+    int n;
+    cin >> n;
+    vi a(n+1),b(n+1);
+    for(int i = 1; i <= n; i++) cin >> a[i];
+    for(int i = 1; i <= n; i++) cin >> b[i];
+
+    for(int i = 1; i <= n; i++){
+        for(int person = 0; person < 2; person++){
+            dp[i][person][1] = max({dp[i-1][!person][1], dp[i-1][!person][2]}) + (person ? b[i] : a[i]);
+            dp[i][person][2] = max({dp[i-1][!person][1], dp[i-1][!person][2], dp[i-1][person][1]}) + (person ? b[i] : a[i]);
+        }
+    }
+
+    ll ans = 0;
+    for(int person = 0; person < 2; person++){
+        for(int j = 1; j <= 2; j++){
+            ans = max(ans, dp[n][person][j]);
+        }
+    }
+    cout << ans;
 }

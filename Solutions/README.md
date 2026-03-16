@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-123/143-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Mar_04%2C_2026_--_16%3A40_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260304T1640&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-135/157-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Mar_16%2C_2026_--_13%3A05_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260316T1305&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 143
-- **Accepted:** 123
+- **Total Problems:** 157
+- **Accepted:** 135
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -13,25 +13,26 @@
 ## 📌 Table of Contents
 
 * [📂 ACMICPC (1)](#-acmicpc-1)
-* [📂 Codeforces (96)](#-codeforces-96)
+* [📂 Codeforces (100)](#-codeforces-100)
 * [📂 CPPros (1)](#-cppros-1)
-* [📂 CSES (22)](#-cses-22)
+* [📂 CSES (25)](#-cses-25)
   * [📂 Advanced Techniques (2)](#-advanced-techniques-2)
-  * [📂 Dynamic Programming (9)](#-dynamic-programming-9)
+  * [📂 Dynamic Programming (12)](#-dynamic-programming-12)
   * [📂 Graph (6)](#-graph-6)
   * [📂 Range Queries (1)](#-range-queries-1)
+  * [📂 Sliding Windows Problem (0)](#-sliding-windows-problem-0)
   * [📂 Sliding Windơows Problem (1)](#-sliding-windơows-problem-1)
   * [📂 Sorting And Searching (3)](#-sorting-and-searching-3)
 * [📂 IUHCoder (2)](#-iuhcoder-2)
 * [📂 Leetcode (1)](#-leetcode-1)
-* [📂 MarisaOJ (5)](#-marisaoj-5)
+* [📂 MarisaOJ (11)](#-marisaoj-11)
 * [📂 Project Euler (2)](#-project-euler-2)
-* [📂 PTNK (7)](#-ptnk-7)
-  * [📂 Grade 10 (7)](#-grade-10-7)
+* [📂 PTNK (8)](#-ptnk-8)
+  * [📂 Grade 10 (8)](#-grade-10-8)
 * [📂 VNOJ (6)](#-vnoj-6)
 
 ---
-## 📂 [Solutions (143)](*%20%20%20%20submission:)
+## 📂 [Solutions (157)](*%20%20%20%20submission:)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Main | N/A | N/A | Mar 4, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -41,7 +42,7 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [10078 - Sightseeing](https://www.acmicpc.net/problem/10078) | `DSU`, `MST`, `Graph` | $\mathcal{O}((n + m) + m \log m + q + MAX_VAL)$ | Feb 27, 2026 | [Code](ACMICPC/10078.cpp) \| [Sub](https://www.acmicpc.net/source/103344425) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-## 📂 [Codeforces (96)](https://codeforces.com/)
+## 📂 [Codeforces (100)](https://codeforces.com/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1A](https://codeforces.com/contest/1/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -75,77 +76,81 @@
 | 29 | [381A](https://codeforces.com/contest/381/problem/A) | N/A | N/A | N/A | [Code](Codeforces/381A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 30 | [427A](https://codeforces.com/contest/427/problem/A) | N/A | N/A | N/A | [Code](Codeforces/427A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 31 | [443A](https://codeforces.com/contest/443/problem/A) | N/A | N/A | N/A | [Code](Codeforces/443A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 32 | [467A](https://codeforces.com/contest/467/problem/A) | N/A | N/A | N/A | [Code](Codeforces/467A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 33 | [469A](https://codeforces.com/contest/469/problem/A) | N/A | N/A | N/A | [Code](Codeforces/469A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 34 | [486A](https://codeforces.com/contest/486/problem/A) | N/A | N/A | N/A | [Code](Codeforces/486A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 35 | [510A](https://codeforces.com/contest/510/problem/A) | N/A | N/A | N/A | [Code](Codeforces/510A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 36 | [520A](https://codeforces.com/contest/520/problem/A) | N/A | N/A | N/A | [Code](Codeforces/520A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 37 | [546A](https://codeforces.com/contest/546/problem/A) | N/A | N/A | N/A | [Code](Codeforces/546A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 38 | [581A](https://codeforces.com/contest/581/problem/A) | N/A | N/A | N/A | [Code](Codeforces/581A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 39 | [617A](https://codeforces.com/contest/617/problem/A) | N/A | N/A | N/A | [Code](Codeforces/617A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 40 | [630A](https://codeforces.com/contest/630/problem/A) | N/A | N/A | N/A | [Code](Codeforces/630A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 41 | [677A](https://codeforces.com/contest/677/problem/A) | N/A | N/A | N/A | [Code](Codeforces/677A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 42 | [705A](https://codeforces.com/contest/705/problem/A) | N/A | N/A | N/A | [Code](Codeforces/705A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 43 | [723A](https://codeforces.com/contest/723/problem/A) | N/A | N/A | N/A | [Code](Codeforces/723A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 44 | [732A](https://codeforces.com/contest/732/problem/A) | N/A | N/A | N/A | [Code](Codeforces/732A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 45 | [734A](https://codeforces.com/contest/734/problem/A) | N/A | N/A | N/A | [Code](Codeforces/734A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 46 | [750A](https://codeforces.com/contest/750/problem/A) | N/A | N/A | N/A | [Code](Codeforces/750A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 47 | [758A](https://codeforces.com/contest/758/problem/A) | N/A | N/A | N/A | [Code](Codeforces/758A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 48 | [785A](https://codeforces.com/contest/785/problem/A) | N/A | N/A | N/A | [Code](Codeforces/785A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 49 | [791A](https://codeforces.com/contest/791/problem/A) | N/A | N/A | N/A | [Code](Codeforces/791A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 50 | [977A](https://codeforces.com/contest/977/problem/A) | N/A | N/A | N/A | [Code](Codeforces/977A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 51 | [996A](https://codeforces.com/contest/996/problem/A) | N/A | N/A | N/A | [Code](Codeforces/996A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 52 | [1030A](https://codeforces.com/contest/1030/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1030A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 53 | [1154A](https://codeforces.com/contest/1154/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1154A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 54 | [1328A](https://codeforces.com/contest/1328/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1328A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 55 | [1335A](https://codeforces.com/contest/1335/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1335A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 56 | [1352A](https://codeforces.com/contest/1352/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1352A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 57 | [1399A](https://codeforces.com/contest/1399/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1399A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 58 | [1409A](https://codeforces.com/contest/1409/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1409A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 59 | [1504A](https://codeforces.com/contest/1504/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1504A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 60 | [1512A](https://codeforces.com/contest/1512/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1512A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 61 | [1669A](https://codeforces.com/contest/1669/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1669A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 62 | [1676A](https://codeforces.com/contest/1676/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1676A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 63 | [1692A](https://codeforces.com/contest/1692/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1692A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 64 | [1703A](https://codeforces.com/contest/1703/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1703A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 65 | [1742A](https://codeforces.com/contest/1742/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1742A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 66 | [1777A - Everybody Likes Good Arrays!](https://codeforces.com/problemset/problem/1777/A) | `Greedy`, `Math` | $\mathcal{O}(n)$ | Feb 28, 2026 | [Code](Codeforces/1777A.cpp) \| [Sub](https://codeforces.com/contest/1777/submission/364779968) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 67 | [1789A - Serval and Mocha's Array](https://codeforces.com/contest/1789/problem/A) | N/A | N/A | Mar 2, 2026 | [Code](Codeforces/1789A.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 68 | [1816B - Grid Reconstruction](https://codeforces.com/contest/1816/problem/B) | N/A | N/A | Mar 2, 2026 | [Code](Codeforces/1816B.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 69 | [1829B - Blank Space](https://codeforces.com/problemset/problem/1829/B) | `implementation` | $\mathcal{O}(t \cdot n)$ | Feb 6, 2026 | [Code](Codeforces/1829B.cpp) \| [Sub](https://codeforces.com/problemset/submission/1829/361679553) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 70 | [1830A - Copil Copac Draws Trees](https://codeforces.com/contest/1830/problem/A) | N/A | N/A | Mar 2, 2026 | [Code](Codeforces/1830A.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 71 | [1849B](https://codeforces.com/contest/1849/problem/B) | N/A | N/A | Mar 1, 2026 | [Code](Codeforces/1849B.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 72 | [1850A - To My Critics](https://codeforces.com/problemset/problem/1850/A) | `Implementation` | $\mathcal{O}(t)$ | Feb 21, 2026 | [Code](Codeforces/1850A.cpp) \| [Sub](https://codeforces.com/problemset/submission/1850/363881834) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 73 | [1854A1](https://codeforces.com/contest/1854/problem/A1) | N/A | N/A | Mar 4, 2026 | [Code](Codeforces/1854A1.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 74 | [1906A - Easy as ABC](https://codeforces.com/problemset/problem/1906/A) | `Brute Force` | $\mathcal{O}(3^6)$ | Feb 10, 2026 | [Code](Codeforces/1906A.cpp) \| [Sub](https://codeforces.com/problemset/submission/1906/362212391) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 75 | [1916B - Two Divisors](https://codeforces.com/problemset/problem/1916/B) | `Math`, `Number Theory` | $\mathcal{O}(1)$ | Feb 28, 2026 | [Code](Codeforces/1916B.cpp) \| [Sub](https://codeforces.com/problemset/submission/1916/364864584) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 76 | [1928C - Physical Education Lesson](https://codeforces.com/problemset/problem/1928/C) | N/A | N/A | Feb 10, 2026 | [Code](Codeforces/1928C.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 77 | [1969B - Shifts and Sorting](https://codeforces.com/contest/1969/problem/B) | `Greedy`, `Implementation` | $\mathcal{O}(tc \cdot n)$ | Feb 24, 2026 | [Code](Codeforces/1969B.cpp) \| [Sub](https://codeforces.com/contest/1969/submission/364214311) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 78 | [1987A](https://codeforces.com/contest/1987/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1987A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 79 | [1996A](https://codeforces.com/contest/1996/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1996A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 80 | [1996B](https://codeforces.com/contest/1996/problem/B) | N/A | N/A | N/A | [Code](Codeforces/1996B.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 81 | [1996C](https://codeforces.com/contest/1996/problem/C) | N/A | N/A | N/A | [Code](Codeforces/1996C.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 82 | [1996D](https://codeforces.com/contest/1996/problem/D) | N/A | N/A | N/A | [Code](Codeforces/1996D.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 83 | [1997A](https://codeforces.com/contest/1997/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1997A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 84 | [1997B](https://codeforces.com/contest/1997/problem/B) | N/A | N/A | N/A | [Code](Codeforces/1997B.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 85 | [2039C1 - Shohag Loves XOR (Easy Version)](https://codeforces.com/contest/2039/problem/C1) | `Math`, `Bit` | $\mathcal{O}(x)$ | Mar 4, 2026 | [Code](Codeforces/2039C1.cpp) \| [Sub](https://codeforces.com/gym/676327/submission/365315587) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 86 | [2069B - Set of Strangers](https://codeforces.com/problemset/problem/2069/B) | `greedy` | $\mathcal{O}(t \cdot n \cdot m)$ | Feb 10, 2026 | [Code](Codeforces/2069B.cpp) \| [Sub](https://codeforces.com/problemset/submission/2069/362299991) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 87 | [2084C - You Soared Afar With Grace](https://codeforces.com/problemset/problem/2084/C) | N/A | N/A | Feb 17, 2026 | [Code](Codeforces/2084C.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 88 | [2170B - Addition on a Segment](https://codeforces.com/contest/2170/problem/B) | N/A | N/A | Mar 2, 2026 | [Code](Codeforces/2170B.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 89 | [2185C - Shifted MEX](https://codeforces.com/problemset/problem/2185/C) | `Implementation`, `Adhoc` | $\mathcal{O}(n \log n)$ | Feb 28, 2026 | [Code](Codeforces/2185C.cpp) \| [Sub](https://codeforces.com/problemset/submission/2185/364781791) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 90 | [2185C - Shifted MEX](https://codeforces.com/problemset/problem/2185/C) | `Implementation`, `Adhoc` | $\mathcal{O}(n^2)$ | Feb 28, 2026 | [Code](Codeforces/2185C_2.cpp) \| [Sub](https://codeforces.com/problemset/submission/2185/364782560) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 91 | [2190A - Sorting Game](https://codeforces.com/problemset/problem/2190/A) | N/A | N/A | Feb 28, 2026 | [Code](Codeforces/2190A.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 92 | [2190B1 - Sub-RBS (Easy Version)](https://codeforces.com/problemset/problem/2190/B1) | N/A | N/A | Feb 28, 2026 | [Code](Codeforces/2190B1.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 93 | [2193B - Reverse a Permutation](https://codeforces.com/problemset/problem/2193/B) | N/A | N/A | Feb 28, 2026 | [Code](Codeforces/2193B.cpp) \| [Sub](https://codeforces.com/problemset/submission/2193/364783033) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 94 | [2193C - Replace and Sum](https://codeforces.com/problemset/problem/2193/C) | N/A | N/A | Feb 28, 2026 | [Code](Codeforces/2193C.cpp) \| [Sub](https://codeforces.com/problemset/submission/2193/364783372) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 95 | [2205A](https://codeforces.com/contest/2205/problem/A) | N/A | N/A | Mar 1, 2026 | [Code](Codeforces/2205A.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 96 | [2205B](https://codeforces.com/contest/2205/problem/B) | N/A | N/A | Mar 1, 2026 | [Code](Codeforces/2205B.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 97 | [2205C](https://codeforces.com/contest/2205/problem/C) | N/A | N/A | Mar 1, 2026 | [Code](Codeforces/2205C.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 32 | [455A - Boredom](https://codeforces.com/contest/455/problem/A) | `Dynamic Programming` | $\mathcal{O}(N)$ | Mar 13, 2026 | [Code](Codeforces/455A.cpp) \| [Sub](https://codeforces.com/contest/455/submission/366471336) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 33 | [467A](https://codeforces.com/contest/467/problem/A) | N/A | N/A | N/A | [Code](Codeforces/467A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 34 | [469A](https://codeforces.com/contest/469/problem/A) | N/A | N/A | N/A | [Code](Codeforces/469A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 35 | [486A](https://codeforces.com/contest/486/problem/A) | N/A | N/A | N/A | [Code](Codeforces/486A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 36 | [510A](https://codeforces.com/contest/510/problem/A) | N/A | N/A | N/A | [Code](Codeforces/510A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 37 | [520A](https://codeforces.com/contest/520/problem/A) | N/A | N/A | N/A | [Code](Codeforces/520A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 38 | [546A](https://codeforces.com/contest/546/problem/A) | N/A | N/A | N/A | [Code](Codeforces/546A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 39 | [581A](https://codeforces.com/contest/581/problem/A) | N/A | N/A | N/A | [Code](Codeforces/581A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 40 | [617A](https://codeforces.com/contest/617/problem/A) | N/A | N/A | N/A | [Code](Codeforces/617A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 41 | [630A](https://codeforces.com/contest/630/problem/A) | N/A | N/A | N/A | [Code](Codeforces/630A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 42 | [677A](https://codeforces.com/contest/677/problem/A) | N/A | N/A | N/A | [Code](Codeforces/677A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 43 | [705A](https://codeforces.com/contest/705/problem/A) | N/A | N/A | N/A | [Code](Codeforces/705A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 44 | [723A](https://codeforces.com/contest/723/problem/A) | N/A | N/A | N/A | [Code](Codeforces/723A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 45 | [732A](https://codeforces.com/contest/732/problem/A) | N/A | N/A | N/A | [Code](Codeforces/732A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 46 | [734A](https://codeforces.com/contest/734/problem/A) | N/A | N/A | N/A | [Code](Codeforces/734A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 47 | [750A](https://codeforces.com/contest/750/problem/A) | N/A | N/A | N/A | [Code](Codeforces/750A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 48 | [758A](https://codeforces.com/contest/758/problem/A) | N/A | N/A | N/A | [Code](Codeforces/758A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 49 | [785A](https://codeforces.com/contest/785/problem/A) | N/A | N/A | N/A | [Code](Codeforces/785A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 50 | [791A](https://codeforces.com/contest/791/problem/A) | N/A | N/A | N/A | [Code](Codeforces/791A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 51 | [977A](https://codeforces.com/contest/977/problem/A) | N/A | N/A | N/A | [Code](Codeforces/977A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 52 | [996A](https://codeforces.com/contest/996/problem/A) | N/A | N/A | N/A | [Code](Codeforces/996A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 53 | [1030A](https://codeforces.com/contest/1030/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1030A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 54 | [1154A](https://codeforces.com/contest/1154/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1154A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 55 | [1328A](https://codeforces.com/contest/1328/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1328A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 56 | [1335A](https://codeforces.com/contest/1335/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1335A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 57 | [1352A](https://codeforces.com/contest/1352/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1352A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 58 | [1399A](https://codeforces.com/contest/1399/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1399A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 59 | [1409A](https://codeforces.com/contest/1409/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1409A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 60 | [1504A](https://codeforces.com/contest/1504/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1504A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 61 | [1512A](https://codeforces.com/contest/1512/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1512A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 62 | [1669A](https://codeforces.com/contest/1669/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1669A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 63 | [1676A](https://codeforces.com/contest/1676/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1676A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 64 | [1692A](https://codeforces.com/contest/1692/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1692A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 65 | [1703A](https://codeforces.com/contest/1703/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1703A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 66 | [1742A](https://codeforces.com/contest/1742/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1742A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 67 | [1777A - Everybody Likes Good Arrays!](https://codeforces.com/problemset/problem/1777/A) | `Greedy`, `Math` | $\mathcal{O}(n)$ | Feb 28, 2026 | [Code](Codeforces/1777A.cpp) \| [Sub](https://codeforces.com/contest/1777/submission/364779968) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 68 | [1789A - Serval and Mocha's Array](https://codeforces.com/contest/1789/problem/A) | N/A | N/A | Mar 2, 2026 | [Code](Codeforces/1789A.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 69 | [1791C - Prepend and Append](https://codeforces.com/contest/1791/problem/C) | `Implementation` | $\mathcal{O}(n)$ | Mar 13, 2026 | [Code](Codeforces/1791C.cpp) \| [Sub](https://codeforces.com/contest/1791/submission/366453264) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 70 | [1816B - Grid Reconstruction](https://codeforces.com/contest/1816/problem/B) | N/A | N/A | Mar 2, 2026 | [Code](Codeforces/1816B.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 71 | [1829B - Blank Space](https://codeforces.com/problemset/problem/1829/B) | `implementation` | $\mathcal{O}(t \cdot n)$ | Feb 6, 2026 | [Code](Codeforces/1829B.cpp) \| [Sub](https://codeforces.com/problemset/submission/1829/361679553) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 72 | [1830A - Copil Copac Draws Trees](https://codeforces.com/contest/1830/problem/A) | N/A | N/A | Mar 2, 2026 | [Code](Codeforces/1830A.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 73 | [1849B](https://codeforces.com/contest/1849/problem/B) | N/A | N/A | Mar 1, 2026 | [Code](Codeforces/1849B.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 74 | [1850A - To My Critics](https://codeforces.com/problemset/problem/1850/A) | `Implementation` | $\mathcal{O}(t)$ | Feb 21, 2026 | [Code](Codeforces/1850A.cpp) \| [Sub](https://codeforces.com/problemset/submission/1850/363881834) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 75 | [1854A1](https://codeforces.com/contest/1854/problem/A1) | N/A | N/A | Mar 4, 2026 | [Code](Codeforces/1854A1.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 76 | [1876A - Helmets in Night Light](https://codeforces.com/contest/1876/problem/A) | N/A | N/A | Mar 6, 2026 | [Code](Codeforces/1876A.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 77 | [1906A - Easy as ABC](https://codeforces.com/problemset/problem/1906/A) | `Brute Force` | $\mathcal{O}(3^6)$ | Feb 10, 2026 | [Code](Codeforces/1906A.cpp) \| [Sub](https://codeforces.com/problemset/submission/1906/362212391) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 78 | [1916B - Two Divisors](https://codeforces.com/problemset/problem/1916/B) | `Math`, `Number Theory` | $\mathcal{O}(1)$ | Feb 28, 2026 | [Code](Codeforces/1916B.cpp) \| [Sub](https://codeforces.com/problemset/submission/1916/364864584) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 79 | [1928C - Physical Education Lesson](https://codeforces.com/problemset/problem/1928/C) | N/A | N/A | Feb 10, 2026 | [Code](Codeforces/1928C.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 80 | [1969B - Shifts and Sorting](https://codeforces.com/contest/1969/problem/B) | `Greedy`, `Implementation` | $\mathcal{O}(tc \cdot n)$ | Feb 24, 2026 | [Code](Codeforces/1969B.cpp) \| [Sub](https://codeforces.com/contest/1969/submission/364214311) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 81 | [1987A](https://codeforces.com/contest/1987/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1987A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 82 | [1996A](https://codeforces.com/contest/1996/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1996A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 83 | [1996B](https://codeforces.com/contest/1996/problem/B) | N/A | N/A | N/A | [Code](Codeforces/1996B.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 84 | [1996C](https://codeforces.com/contest/1996/problem/C) | N/A | N/A | N/A | [Code](Codeforces/1996C.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 85 | [1996D](https://codeforces.com/contest/1996/problem/D) | N/A | N/A | N/A | [Code](Codeforces/1996D.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 86 | [1997A](https://codeforces.com/contest/1997/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1997A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 87 | [1997B](https://codeforces.com/contest/1997/problem/B) | N/A | N/A | N/A | [Code](Codeforces/1997B.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 88 | [2039C1 - Shohag Loves XOR (Easy Version)](https://codeforces.com/contest/2039/problem/C1) | `Math`, `Bit` | $\mathcal{O}(x)$ | Mar 4, 2026 | [Code](Codeforces/2039C1.cpp) \| [Sub](https://codeforces.com/gym/676327/submission/365315587) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 89 | [2069B - Set of Strangers](https://codeforces.com/problemset/problem/2069/B) | `greedy` | $\mathcal{O}(t \cdot n \cdot m)$ | Feb 10, 2026 | [Code](Codeforces/2069B.cpp) \| [Sub](https://codeforces.com/problemset/submission/2069/362299991) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 90 | [2084C - You Soared Afar With Grace](https://codeforces.com/problemset/problem/2084/C) | N/A | N/A | Feb 17, 2026 | [Code](Codeforces/2084C.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 91 | [2121C](https://codeforces.com/contest/2121/problem/C) | N/A | N/A | Mar 6, 2026 | [Code](Codeforces/2121C.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 92 | [2170B - Addition on a Segment](https://codeforces.com/contest/2170/problem/B) | N/A | N/A | Mar 2, 2026 | [Code](Codeforces/2170B.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 93 | [2185C - Shifted MEX](https://codeforces.com/problemset/problem/2185/C) | `Implementation`, `Adhoc` | $\mathcal{O}(n \log n)$ | Feb 28, 2026 | [Code](Codeforces/2185C.cpp) \| [Sub](https://codeforces.com/problemset/submission/2185/364781791) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 94 | [2185C - Shifted MEX](https://codeforces.com/problemset/problem/2185/C) | `Implementation`, `Adhoc` | $\mathcal{O}(n^2)$ | Feb 28, 2026 | [Code](Codeforces/2185C_2.cpp) \| [Sub](https://codeforces.com/problemset/submission/2185/364782560) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 95 | [2190A - Sorting Game](https://codeforces.com/problemset/problem/2190/A) | N/A | N/A | Feb 28, 2026 | [Code](Codeforces/2190A.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 96 | [2190B1 - Sub-RBS (Easy Version)](https://codeforces.com/problemset/problem/2190/B1) | N/A | N/A | Feb 28, 2026 | [Code](Codeforces/2190B1.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 97 | [2193B - Reverse a Permutation](https://codeforces.com/problemset/problem/2193/B) | N/A | N/A | Feb 28, 2026 | [Code](Codeforces/2193B.cpp) \| [Sub](https://codeforces.com/problemset/submission/2193/364783033) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 98 | [2193C - Replace and Sum](https://codeforces.com/problemset/problem/2193/C) | N/A | N/A | Feb 28, 2026 | [Code](Codeforces/2193C.cpp) \| [Sub](https://codeforces.com/problemset/submission/2193/364783372) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 99 | [2205A](https://codeforces.com/contest/2205/problem/A) | N/A | N/A | Mar 1, 2026 | [Code](Codeforces/2205A.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 100 | [2205B](https://codeforces.com/contest/2205/problem/B) | N/A | N/A | Mar 1, 2026 | [Code](Codeforces/2205B.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 101 | [2205C](https://codeforces.com/contest/2205/problem/C) | N/A | N/A | Mar 1, 2026 | [Code](Codeforces/2205C.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
 ## 📂 [CPPros (1)](https://oj.vnoi.info/organization/gogovoi)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [PRODUCT - product](https://oj.vnoi.info/problem/product) | N/A | N/A | Feb 23, 2026 | [Code](CPPros/product.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 1 | [PRODUCT - product](https://oj.vnoi.info/problem/product) | `Two Pointes` | $\mathcal{O}(n)$ | Feb 23, 2026 | [Code](CPPros/product.cpp) \| [Sub](https://oj.vnoi.info/submission/11801553) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ### 📁 Advanced Techniques (2)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
@@ -153,19 +158,22 @@
 | 1 | [1628 - Meet in the Middle](https://cses.fi/problemset/task/1628/) | `Dynamic Programming`, `Implementation`, `Optimization` | $\mathcal{O}(2^{\frac{n}{2}} \cdot \log(\frac{n}{2}) + 2^{\frac{n}{2}} \cdot \log(\frac{n}{2}))$ | Feb 5, 2026 | [Code](CSES/Advanced%20Techniques/1628.cpp) \| [Sub](https://cses.fi/paste/39bb411c336d08d8f6c8f1/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [2136 - Hamming Distance](https://cses.fi/problemset/task/2136) | `bit` | $\mathcal{O}(n^2)$ | Feb 5, 2026 | [Code](CSES/Advanced%20Techniques/2136.cpp) \| [Sub](https://cses.fi/paste/9254599d71bb5d60f6b997/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-### 📁 Dynamic Programming (9)
+### 📁 Dynamic Programming (12)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [1140 - Projects](https://cses.fi/problemset/task/1140) | `Dynamic Programming` | $\mathcal{O}(n)$ | Feb 13, 2026 | [Code](CSES/Dynamic%20Programming/1140.cpp) \| [Sub](https://cses.fi/problemset/result/16252002/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 2 | [1653-2 - Elevator Rides (Approach 2)](https://cses.fi/problemset/task/1653/) | `Dynamic Programming`, `Bitmask` | $\mathcal{O}(n \cdot 2^n)$ | Feb 16, 2026 | [Code](CSES/Dynamic%20Programming/1653-2.cpp) \| [Sub](https://cses.fi/problemset/result/16280676/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 3 | [1653 - Elevator Rides (Approach 1)](https://cses.fi/problemset/task/1653/) | `Dynamic Programming`, `Bitmask` | $\mathcal{O}(n \cdot 2^n)$ | Feb 16, 2026 | [Code](CSES/Dynamic%20Programming/1653.cpp) \| [Sub](https://cses.fi/problemset/result/16280676/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 4 | [1744 - Rectangle Cutting](https://cses.fi/problemset/task/1744) | `Dynamic Programming` | $\mathcal{O}(n \cdot m \cdot (n+m))$ | Feb 11, 2026 | [Code](CSES/Dynamic%20Programming/1744.cpp) \| [Sub](https://cses.fi/problemset/result/16234536/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 5 | [1748 - Increasing Subsequence II](https://cses.fi/problemset/task/1748) | `Dynamic Programming`, `Range Query` | $\mathcal{O}(n \log n)$ | Feb 13, 2026 | [Code](CSES/Dynamic%20Programming/1748.cpp) \| [Sub](https://cses.fi/problemset/result/16251418/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 6 | [2181 - Counting Tilings](https://cses.fi/problemset/task/2181) | `DP on Broken Profile` | $\mathcal{O}(n \cdot m \cdot 2^n)$ | Feb 17, 2026 | [Code](CSES/Dynamic%20Programming/2181.cpp) \| [Sub](https://cses.fi/problemset/result/16290752/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 7 | [2220 - Counting Numbers](https://cses.fi/problemset/task/2220) | `DP Digit` | $\mathcal{O}(digit(n) \cdot 9 \cdot 2 \cdot 2 \cdot 9)$ | Feb 18, 2026 | [Code](CSES/Dynamic%20Programming/2220.cpp) \| [Sub](https://cses.fi/problemset/result/16314439/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 8 | [2413 - Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | $\mathcal{O}(n)$ | Feb 4, 2026 | [Code](CSES/Dynamic%20Programming/2413.cpp) \| [Sub](https://cses.fi/paste/67df7ff1543072a9f68403/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 9 | [3314 - Mountain Range](https://cses.fi/problemset/task/3314) | N/A | N/A | Feb 12, 2026 | [Code](CSES/Dynamic%20Programming/3314.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 10 | [3359 - Minimal Grid Path](https://cses.fi/problemset/task/3359) | `Dynamic Programming` | $\mathcal{O}(n \cdot m)$ | Feb 11, 2026 | [Code](CSES/Dynamic%20Programming/3359.cpp) \| [Sub](https://cses.fi/problemset/result/16238561/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | [141 - Knapsack 2](https://marisaoj.com/problem/141) | `Dynamic Programming` | $\mathcal{O}(n \cdot S)$ | Mar 9, 2026 | [Code](CSES/Dynamic%20Programming/141.cpp) \| [Sub](https://marisaoj.com/submission/1117110) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 2 | [144 - Longest common subsequence](https://marisaoj.com/problem/144) | `Dynamic Programming` | $\mathcal{O}(n^2)$ | Mar 9, 2026 | [Code](CSES/Dynamic%20Programming/144.cpp) \| [Sub](https://marisaoj.com/submission/1117153) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 3 | [575 - Hall](https://marisaoj.com/problem/575) | `Dynamic Programming` | $\mathcal{O}(n)$ | Mar 10, 2026 | [Code](CSES/Dynamic%20Programming/575.cpp) \| [Sub](https://marisaoj.com/submission/1117926) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 4 | [1140 - Projects](https://cses.fi/problemset/task/1140) | `Dynamic Programming` | $\mathcal{O}(n)$ | Feb 13, 2026 | [Code](CSES/Dynamic%20Programming/1140.cpp) \| [Sub](https://cses.fi/problemset/result/16252002/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 5 | [1653-2 - Elevator Rides (Approach 2)](https://cses.fi/problemset/task/1653/) | `Dynamic Programming`, `Bitmask` | $\mathcal{O}(n \cdot 2^n)$ | Feb 16, 2026 | [Code](CSES/Dynamic%20Programming/1653-2.cpp) \| [Sub](https://cses.fi/problemset/result/16280676/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 6 | [1653 - Elevator Rides (Approach 1)](https://cses.fi/problemset/task/1653/) | `Dynamic Programming`, `Bitmask` | $\mathcal{O}(n \cdot 2^n)$ | Feb 16, 2026 | [Code](CSES/Dynamic%20Programming/1653.cpp) \| [Sub](https://cses.fi/problemset/result/16280676/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 7 | [1744 - Rectangle Cutting](https://cses.fi/problemset/task/1744) | `Dynamic Programming` | $\mathcal{O}(n \cdot m \cdot (n+m))$ | Feb 11, 2026 | [Code](CSES/Dynamic%20Programming/1744.cpp) \| [Sub](https://cses.fi/problemset/result/16234536/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 8 | [1748 - Increasing Subsequence II](https://cses.fi/problemset/task/1748) | `Dynamic Programming`, `Range Query` | $\mathcal{O}(n \log n)$ | Feb 13, 2026 | [Code](CSES/Dynamic%20Programming/1748.cpp) \| [Sub](https://cses.fi/problemset/result/16251418/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 9 | [2181 - Counting Tilings](https://cses.fi/problemset/task/2181) | `DP on Broken Profile` | $\mathcal{O}(n \cdot m \cdot 2^n)$ | Feb 17, 2026 | [Code](CSES/Dynamic%20Programming/2181.cpp) \| [Sub](https://cses.fi/problemset/result/16290752/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 10 | [2220 - Counting Numbers](https://cses.fi/problemset/task/2220) | `DP Digit` | $\mathcal{O}(digit(n) \cdot 9 \cdot 2 \cdot 2 \cdot 9)$ | Feb 18, 2026 | [Code](CSES/Dynamic%20Programming/2220.cpp) \| [Sub](https://cses.fi/problemset/result/16314439/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 11 | [2413 - Counting Towers](https://cses.fi/problemset/task/2413) | `Dynamic Programming`, `AdHoc` | $\mathcal{O}(n)$ | Feb 4, 2026 | [Code](CSES/Dynamic%20Programming/2413.cpp) \| [Sub](https://cses.fi/paste/67df7ff1543072a9f68403/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 12 | [3314 - Mountain Range](https://cses.fi/problemset/task/3314) | N/A | N/A | Feb 12, 2026 | [Code](CSES/Dynamic%20Programming/3314.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 13 | [3359 - Minimal Grid Path](https://cses.fi/problemset/task/3359) | `Dynamic Programming` | $\mathcal{O}(n \cdot m)$ | Feb 11, 2026 | [Code](CSES/Dynamic%20Programming/3359.cpp) \| [Sub](https://cses.fi/problemset/result/16238561/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ### 📁 Graph (6)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
@@ -205,14 +213,20 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [64 - Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum) | `Dynamic Programming` | $\mathcal{O}(n \cdot m)$ | Feb 12, 2026 | [Code](Leetcode/64.cpp) \| [Sub](https://leetcode.com/problems/minimum-path-sum/submissions/1916094804) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-## 📂 [MarisaOJ (5)](https://marisaoj.com/)
+## 📂 [MarisaOJ (11)](https://marisaoj.com/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [74 - Brewing potion](https://account.marisaoj.com/problem/74) | `Greedy`, `Two Pointers` | $\mathcal{O}(n \log n)$ | Feb 22, 2026 | [Code](MarisaOJ/74.cpp) \| [Sub](https://account.marisaoj.com/submission/1094298) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [130 - DSU](https://marisaoj.com/problem/130) | `DSU` | $\mathcal{O}(n + q \cdot \alpha{(n)})$ | Feb 12, 2026 | [Code](MarisaOJ/130.cpp) \| [Sub](https://marisaoj.com/submission/1081451) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 3 | [140 - Hakurei Shrine](https://marisaoj.com/problem/140) | `Dynamic Programming` | $\mathcal{O}(n)$ | Feb 26, 2026 | [Code](MarisaOJ/140.cpp) \| [Sub](https://marisaoj.com/submission/1100620) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 4 | [154 - Unique subsequences](https://marisaoj.com/problem/154) | `Dynamic Programming` | $\mathcal{O}(n)$ | Feb 26, 2026 | [Code](MarisaOJ/154.cpp) \| [Sub](https://marisaoj.com/submission/1099777) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 5 | [556 - Cucumber](https://account.marisaoj.com/problem/556) | `Greedy` | $\mathcal{O}(n \log n)$ | Feb 22, 2026 | [Code](MarisaOJ/556.cpp) \| [Sub](https://account.marisaoj.com/submission/1094391) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 4 | [142 - Maximum path 2](https://marisaoj.com/problem/142) | `Dynamic Programming` | $\mathcal{O}(n^2)$ | Mar 6, 2026 | [Code](MarisaOJ/142.cpp) \| [Sub](https://marisaoj.com/submission/1113316) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 5 | [143 - Longest increasing subsequence](https://marisaoj.com/problem/143) | `Dynamic Programming` | $\mathcal{O}(n \log n)$ | Mar 6, 2026 | [Code](MarisaOJ/143.cpp) \| [Sub](https://marisaoj.com/submission/1112864) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 6 | [154 - Unique subsequences](https://marisaoj.com/problem/154) | `Dynamic Programming` | $\mathcal{O}(n)$ | Feb 26, 2026 | [Code](MarisaOJ/154.cpp) \| [Sub](https://marisaoj.com/submission/1099777) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 7 | [159 - Reading 2](https://marisaoj.com/problem/159) | `Dynamic Programming` | $\mathcal{O}(n \cdot k)$ | Mar 5, 2026 | [Code](MarisaOJ/159.cpp) \| [Sub](https://marisaoj.com/submission/1111932) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 8 | [160 - Jealousy](https://marisaoj.com/problem/160) | `Dynamic Programming` | $\mathcal{O}(n)$ | Mar 6, 2026 | [Code](MarisaOJ/160.cpp) \| [Sub](https://marisaoj.com/submission/1113310) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 9 | [556 - Cucumber](https://account.marisaoj.com/problem/556) | `Greedy` | $\mathcal{O}(n \log n)$ | Feb 22, 2026 | [Code](MarisaOJ/556.cpp) \| [Sub](https://account.marisaoj.com/submission/1094391) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 10 | [572 - Buying tickets](https://marisaoj.com/problem/572) | `Dynamic Programming` | $\mathcal{O}(n)$ | Mar 5, 2026 | [Code](MarisaOJ/572.cpp) \| [Sub](https://marisaoj.com/submission/1111914) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 11 | [574 - Fences painting](https://marisaoj.com/problem/574) | `Dynamic Programming` | $\mathcal{O}(n)$ | Mar 9, 2026 | [Code](MarisaOJ/574.cpp) \| [Sub](https://marisaoj.com/submission/1117055) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [Project Euler (2)](https://projecteuler.net/about)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
@@ -220,21 +234,22 @@
 | 1 | [6 - Sum Square Difference](https://projecteuler.net/problem=6) | `Level 0` | $\mathcal{O}(1)$ | Feb 6, 2026 | [Code](Project%20Euler/6.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [7 - 10 001st Prime](https://projecteuler.net/problem=7) | `Level 0` | $\mathcal{O}(n \log \log n)$ | Feb 6, 2026 | [Code](Project%20Euler/7.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-### 📁 Grade 10 (7)
+### 📁 Grade 10 (8)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [ANCES - ANCES](PTNK/Grade%2010/LCA1.pdf) | `LCA` | $\mathcal{O}(n \log 19 + (n-1) + \log 19)$ | Feb 24, 2026 | [Code](PTNK/Grade%2010/ANCES.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [BLACKBOX - BLACKBOX](PTNK/Grade%2010/BT_20260223.pdf) | N/A | N/A | Feb 24, 2026 | [Code](PTNK/Grade%2010/BLACKBOX.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 3 | [CPATH - CPATH](PTNK/Grade%2010/BT_20260302.pdf) | N/A | N/A | Mar 2, 2026 | [Code](PTNK/Grade%2010/CPATH.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 4 | [JOB - JOB](PTNK/Grade%2010/BT_20260223.pdf) | N/A | N/A | Feb 23, 2026 | [Code](PTNK/Grade%2010/JOB.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 5 | [LCA2 - LCA2](PTNK/Grade%2010/LCA1.pdf) | `LCA` | N/A | Feb 24, 2026 | [Code](PTNK/Grade%2010/LCA2.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 6 | [LCA - LCA](PTNK/Grade%2010/LCA1.pdf) | `LCA` | $\mathcal{O}(n \log 19 + (n-1) + q \log 19)$ | Feb 24, 2026 | [Code](PTNK/Grade%2010/LCA.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 7 | [MARATHON - MARATHON](PTNK/Grade%2010/LCA2.pdf) | N/A | N/A | Mar 3, 2026 | [Code](PTNK/Grade%2010/MARATHON.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 8 | [MINMM - MINMM](PTNK/Grade%2010/BT_20260226.pdf) | N/A | N/A | Feb 26, 2026 | [Code](PTNK/Grade%2010/MINMM.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 9 | [POVISICE - PROVISICE](PTNK/Grade%2010/LCA2.pdf) | N/A | N/A | Mar 3, 2026 | [Code](PTNK/Grade%2010/POVISICE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 10 | [PWALK - PWALK](https://oj.vnoi.info/problem/pwalk) | N/A | N/A | Mar 3, 2026 | [Code](PTNK/Grade%2010/PWALK.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 11 | [STRINGKC - STRINGKC](PTNK/Grade%2010/BT_20260226.pdf) | N/A | N/A | Feb 26, 2026 | [Code](PTNK/Grade%2010/STRINGKC.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 12 | [TRAVEL - TRAVEL](PTNK/Grade%2010/BT_20260226) | `DSU`, `MST`, `Graph` | $\mathcal{O}(n + m \log m + q)$ | Feb 27, 2026 | [Code](PTNK/Grade%2010/TRAVEL.cpp) \| [Sub](TRAVEL_submission.log) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 4 | [FIB - FIB](PTNK/Grade%2010/BT_20260316.pdf) | `Matrix Exponentiation` | N/A | Mar 16, 2026 | [Code](PTNK/Grade%2010/FIB.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 5 | [JOB - JOB](PTNK/Grade%2010/BT_20260223.pdf) | N/A | N/A | Feb 23, 2026 | [Code](PTNK/Grade%2010/JOB.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 6 | [LCA2 - LCA2](PTNK/Grade%2010/LCA1.pdf) | `LCA` | N/A | Feb 24, 2026 | [Code](PTNK/Grade%2010/LCA2.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 7 | [LCA - LCA](PTNK/Grade%2010/LCA1.pdf) | `LCA` | $\mathcal{O}(n \log 19 + (n-1) + q \log 19)$ | Feb 24, 2026 | [Code](PTNK/Grade%2010/LCA.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 8 | [MARATHON - MARATHON](PTNK/Grade%2010/LCA2.pdf) | N/A | N/A | Mar 3, 2026 | [Code](PTNK/Grade%2010/MARATHON.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 9 | [MINMM - MINMM](PTNK/Grade%2010/BT_20260226.pdf) | N/A | N/A | Feb 26, 2026 | [Code](PTNK/Grade%2010/MINMM.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 10 | [POVISICE - PROVISICE](PTNK/Grade%2010/LCA2.pdf) | N/A | N/A | Mar 3, 2026 | [Code](PTNK/Grade%2010/POVISICE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 11 | [PWALK - PWALK](https://oj.vnoi.info/problem/pwalk) | N/A | N/A | Mar 3, 2026 | [Code](PTNK/Grade%2010/PWALK.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 12 | [STRINGKC - STRINGKC](PTNK/Grade%2010/BT_20260226.pdf) | N/A | N/A | Feb 26, 2026 | [Code](PTNK/Grade%2010/STRINGKC.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 13 | [TRAVEL - TRAVEL](PTNK/Grade%2010/BT_20260226) | `DSU`, `MST`, `Graph` | $\mathcal{O}(n + m \log m + q)$ | Feb 27, 2026 | [Code](PTNK/Grade%2010/TRAVEL.cpp) \| [Sub](TRAVEL_submission.log) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [VNOJ (6)](https://oj.vnoi.info/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |

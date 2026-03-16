@@ -2,7 +2,7 @@
 
 ### 📊 Leetcode Stats
 
-![Progress](https://img.shields.io/badge/Progress-1/1-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Mar_04%2C_2026_--_16%3A40_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-1/1-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Mar_16%2C_2026_--_13%3A05_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 1
 - **Solved (AC):** 1
