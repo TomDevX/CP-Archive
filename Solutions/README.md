@@ -2,7 +2,7 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-135/157-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Mar_16%2C_2026_--_13%3A05_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260316T1305&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-135/157-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Mar_16%2C_2026_--_13%3A06_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260316T1306&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 157
 - **Accepted:** 135
@@ -20,7 +20,6 @@
   * [📂 Dynamic Programming (12)](#-dynamic-programming-12)
   * [📂 Graph (6)](#-graph-6)
   * [📂 Range Queries (1)](#-range-queries-1)
-  * [📂 Sliding Windows Problem (0)](#-sliding-windows-problem-0)
   * [📂 Sliding Windơows Problem (1)](#-sliding-windơows-problem-1)
   * [📂 Sorting And Searching (3)](#-sorting-and-searching-3)
 * [📂 IUHCoder (2)](#-iuhcoder-2)
@@ -29,13 +28,14 @@
 * [📂 Project Euler (2)](#-project-euler-2)
 * [📂 PTNK (8)](#-ptnk-8)
   * [📂 Grade 10 (8)](#-grade-10-8)
+* [📂 VNOI (0)](#-vnoi-0)
 * [📂 VNOJ (6)](#-vnoj-6)
 
 ---
 ## 📂 [Solutions (157)](*%20%20%20%20submission:)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | Main | N/A | N/A | Mar 4, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 1 | Main | N/A | N/A | Mar 16, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
 ## 📂 [ACMICPC (1)](https://www.acmicpc.net)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |

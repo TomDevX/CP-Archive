@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-04 16:20:28
+ *    created: 2026-03-16 13:06:10
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -18,10 +18,13 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
-#include <algorithm>
-#if __has_include("debuggingz.h")
-    #include "debuggingz.h"
-    #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n';
+
+using namespace std;
+
+// --- [ DEBUGGING & LOCAL CONFIG ] ---
+#if __has_include("TomDev.h")
+    #include "TomDev.h"
+    #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
 #else
     #define dbg(x,i)
 #endif
@@ -60,8 +63,7 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e6;
-int pos[N];
+
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -70,8 +72,8 @@ int pos[N];
 int main(){
     fastio;
     setup();
-
-    vi a = {3,2,1};
-    int it = lower_bound(all(a,1),4,greater<int>()) - a.begin();
-    cout << it;
+    
+    
+    
+    return NAH_I_WOULD_WIN;
 }
