@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-136/157-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Mar_16%2C_2026_--_18%3A06_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260316T1806&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-137/158-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Mar_16%2C_2026_--_21%3A33_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260316T2133&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 157
-- **Accepted:** 136
+- **Total Problems:** 158
+- **Accepted:** 137
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -28,11 +28,11 @@
 * [📂 Project Euler (2)](#-project-euler-2)
 * [📂 PTNK (8)](#-ptnk-8)
   * [📂 Grade 10 (8)](#-grade-10-8)
-* [📂 VNOI (0)](#-vnoi-0)
+* [📂 VNOI (1)](#-vnoi-1)
 * [📂 VNOJ (6)](#-vnoj-6)
 
 ---
-## 📂 [Solutions (157)](*%20%20%20%20submission:)
+## 📂 [Solutions (158)](*%20%20%20%20submission:)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Main | N/A | N/A | Mar 16, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -252,6 +252,11 @@
 | 13 | [PWALK - PWALK](https://oj.vnoi.info/problem/pwalk) | N/A | N/A | Mar 3, 2026 | [Code](PTNK/Grade%2010/PWALK.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 14 | [STRINGKC - STRINGKC](PTNK/Grade%2010/BT_20260226.pdf) | N/A | N/A | Feb 26, 2026 | [Code](PTNK/Grade%2010/STRINGKC.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 15 | [TRAVEL - TRAVEL](PTNK/Grade%2010/BT_20260226) | `DSU`, `MST`, `Graph` | $\mathcal{O}(n + m \log m + q)$ | Feb 27, 2026 | [Code](PTNK/Grade%2010/TRAVEL.cpp) \| [Sub](TRAVEL_submission.log) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+
+## 📂 [VNOI (1)](https://oj.vnoi.info/problem/hcm_thpt_23_b)
+| # | Problem Name | Tags | Complexity | Date | Solution | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | [HCM - HSG THPT TPHCM 2023 - Bắn tàu](https://oj.vnoi.info/problem/hcm_thpt_23_b) | `DP` | $\mathcal{O}(n^2 \cdot k)$ | Mar 16, 2026 | [Code](VNOI/hcm_thpt_23_b.cpp) \| [Sub](https://oj.vnoi.info/submission/11890536) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [VNOJ (6)](https://oj.vnoi.info/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |

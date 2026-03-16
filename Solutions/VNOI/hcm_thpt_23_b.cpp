@@ -3,14 +3,14 @@
  *    created: 2026-03-16 13:06:10
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: HSG THPT TPHCM 2023 - Bắn tàu
+ *    source: https://oj.vnoi.info/problem/hcm_thpt_23_b
+ *    submission: https://oj.vnoi.info/submission/11890536
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: DP
+ *    complexity: O(n^2 \cdot k)
+ *    note: The min cost to fire from range i to j = sum(max(i -> j) - a_x) => cost(i -> j) = max_a*(length) - sum(i -> j). So we can DP on that cost to get the min one. Let dp[i][k] = ends at index k and has changed the range k times. Of course we need to set it always optimal at the beginning
 **/
 
 #include <iostream>
