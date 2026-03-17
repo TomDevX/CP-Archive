@@ -2,20 +2,20 @@
 
 ### 📊 PTNK Stats
 
-![Progress](https://img.shields.io/badge/Progress-6/8-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Mar_16%2C_2026_--_23%3A11_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-7/9-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Mar_17%2C_2026_--_14%3A10_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
-- **Total Unique Problems:** 8
-- **Solved (AC):** 6
+- **Total Unique Problems:** 9
+- **Solved (AC):** 7
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
 
 ---
 ## 📌 Table of Contents
 
-  * [📁 Grade 10 (8)](#-grade-10-8)
+  * [📁 Grade 10 (9)](#-grade-10-9)
 
 ---
-### 📁 Grade 10 (8)
+### 📁 Grade 10 (9)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [ANCES - ANCES](Grade%2010/LCA1.pdf) | `LCA` | $\mathcal{O}(n \log 19 + (n-1) + \log 19)$ | Feb 24, 2026 | [Code](Grade%2010/ANCES.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -32,5 +32,6 @@
 | 12 | [POVISICE - PROVISICE](Grade%2010/LCA2.pdf) | N/A | N/A | Mar 03, 2026 | [Code](Grade%2010/POVISICE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 13 | [PWALK - PWALK](https://oj.vnoi.info/problem/pwalk) | N/A | N/A | Mar 03, 2026 | [Code](Grade%2010/PWALK.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 14 | [STRINGKC - STRINGKC](Grade%2010/BT_20260226.pdf) | N/A | N/A | Feb 26, 2026 | [Code](Grade%2010/STRINGKC.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 15 | [TRAVEL - TRAVEL](Grade%2010/BT_20260226) | `DSU`, `MST`, `Graph` | $\mathcal{O}(n + m \log m + q)$ | Feb 27, 2026 | [Code](Grade%2010/TRAVEL.cpp) \| [Sub](../TRAVEL_submission.log) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 15 | [TOURIST - Tourist](Grade%2010/LCA4) | `LCA` | $\mathcal{O}(n \log n)$ | Mar 17, 2026 | [Code](Grade%2010/Tourist.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 16 | [TRAVEL - TRAVEL](Grade%2010/BT_20260226) | `DSU`, `MST`, `Graph` | $\mathcal{O}(n + m \log m + q)$ | Feb 27, 2026 | [Code](Grade%2010/TRAVEL.cpp) \| [Sub](../TRAVEL_submission.log) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
