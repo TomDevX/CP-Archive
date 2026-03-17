@@ -1,22 +1,22 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-17 13:37:52
+ *    created: 2026-03-17 15:29:02
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: Tourist
+ *    title: UPDTREE
  *    source: LCA4.pdf
  *    submission: 
- *    status: AC
+ *    status: WIP
  * ----------------------------------------------------------
- *    tags: LCA
- *    complexity: O(n \log n)
- *    note: Get dis from every distance between i and its multiple with LCA (because this is a tree)
+ *    tags: 
+ *    complexity: 
+ *    note: 
 **/
 
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cstdio>   
+#include <cstdio>
 #include <utility>
 #include <bitset>
 
@@ -58,56 +58,27 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("Tourist.inp", "r")) return;
-    freopen("Tourist.inp", "r", stdin);
-    freopen("Tourist.out", "w", stdout);
+    if(!fopen("UPDTREE.INP", "r")) return;
+    freopen("UPDTREE.INP", "r", stdin);
+    freopen("UPDTREE.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 int n;
 const int N = 1e5+2;
+ll D[N], A[N];
+bitset<N> vis, has_end;
 vi adj[N];
-bitset<N> vis;
-int up[N][18];
-int h[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 void dfs(int u){
     vis[u] = 1;
-    
     for(int v : adj[u]){
         if(vis[v]) continue;
-        up[v][0] = u;
-        for(int k = 1; k <= 17; k++){
-            up[v][k] = up[up[v][k-1]][k-1];
-        }
-        h[v] = h[u] + 1;
+
+        D[v] += D[u] - (has_end[u] ? A[u] : 0);
         dfs(v);
     }
-}
-
-int lca(int u, int v){
-    if(h[u] != h[v]){
-        if(h[u] < h[v]) swap(u,v);
-
-        int k = h[u] - h[v];
-        for(int j = 17; j >= 0; j--){
-            if(k >> j & 1) u = up[u][j];
-        }
-    }
-    if(u == v) return u;
-
-    for(int i = 17; i >= 0; i--){
-        if(up[u][i] != up[v][i]){
-            u = up[u][i];
-            v = up[v][i];
-        }
-    }
-    return up[u][0];
-}
-
-int get_dis(int u, int v){
-    return h[u] + h[v] - 2*h[lca(u,v)];
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -116,23 +87,34 @@ int main(){
     setup();
     
     cin >> n;
+    vi a(n+1);
+    for(int i = 1; i <= n; i++){
+        cin >> a[i];
+    }
     for(int i = 1; i < n; i++){
         int u,v;
         cin >> u >> v;
         adj[u].eb(v);
         adj[v].eb(u);
+    }   
+
+    int q;
+    cin >> q;
+    while(q--){
+        int u,v;
+        ll w;
+
+        cin >> u >> v >> w;
+        D[u] += w;
+        A[v] += w;
+        has_end[v] = 1;
     }
 
     dfs(1);
 
-    ll ans = 0;
-    for(int i = 1; i < n; i++){
-        for(int j = i*2; j <= n; j += i){
-            ans += get_dis(i,j)+1;
-        }
+    for(int i = 1; i <= n; i++){
+        cout << D[i] + a[i] << ' ';
     }
-
-    cout << ans;
     
     return NAH_I_WOULD_WIN;
 }
