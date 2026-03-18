@@ -2,7 +2,7 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-140/160-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Mar_18%2C_2026_--_10%3A46_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260318T1046&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-140/160-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Mar_18%2C_2026_--_21%3A41_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260318T2141&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 160
 - **Accepted:** 140
@@ -20,7 +20,6 @@
   * [📂 Dynamic Programming (12)](#-dynamic-programming-12)
   * [📂 Graph (6)](#-graph-6)
   * [📂 Range Queries (1)](#-range-queries-1)
-  * [📂 Sliding Windows Problem (0)](#-sliding-windows-problem-0)
   * [📂 Sliding Windơows Problem (1)](#-sliding-windơows-problem-1)
   * [📂 Sorting And Searching (3)](#-sorting-and-searching-3)
 * [📂 IUHCoder (2)](#-iuhcoder-2)

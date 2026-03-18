@@ -1,0 +1,18 @@
+Diagnostics:
+  UnusedIncludes: None
+  MissingIncludes: Strict
+Completion:
+  AllScopes: false
+  ArgumentLists: None
+InlayHints:
+  BlockEnd: false
+  Designators: false
+  Enabled: true
+  ParameterNames: false
+  DeducedTypes: false
+  DefaultArguments: false
+  TypeNameLimit: 24
+CompileFlags:
+  Add: ["-DLOCAL"]
+Index:
+  StandardLibrary: true
