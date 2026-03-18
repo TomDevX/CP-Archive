@@ -4,7 +4,7 @@
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: BRACKET
- *    source: bedao_r14_bracket
+ *    source: https://oj.vnoi.info/problem/bedao_r14_bracket
  *    submission: https://oj.vnoi.info/submission/11905547
  *    status: AC
  * ----------------------------------------------------------
