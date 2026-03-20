@@ -3,14 +3,14 @@
  *    created: 2026-03-20 15:13:50
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Minimize!
+ *    source: https://codeforces.com/problemset/problem/2009/A
+ *    submission: https://codeforces.com/problemset/submission/2009/367454867
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Math
+ *    complexity: O(1) 
+ *    note: Optimizing by getting the middle number
 **/
 
 #include <iostream>
