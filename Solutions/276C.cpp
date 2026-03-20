@@ -5,12 +5,12 @@
  * ----------------------------------------------------------
  *    title: Little Girl and Maximum Sum
  *    source: https://codeforces.com/problemset/problem/276/C
- *    submission: 
- *    status: WIP
+ *    submission: https://codeforces.com/contest/276/submission/367460597
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Implementation
+ *    complexity: O(n \log n)
+ *    note: To get the max sum, we should put the largest value into the most used position, and so on to pair the i^{th} largest value with i^{th} most used position. To count the used time of position, we use prefix sum of diff array
 **/
 
 #include <iostream>
@@ -95,7 +95,7 @@ int main(){
         cnt[i] += cnt[i-1];
     }
 
-    sort(cnt.begin());
+    sort(range(cnt,1,n));
 
     ll ans = 0;
     for(int i = 1; i <= n; i++){
