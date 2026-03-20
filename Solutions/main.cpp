@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-18 09:20:06
+ *    created: 2026-03-19 14:43:05
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: Tối giản
- *    source: https://oj.vnoi.info/problem/rmq_simpseq
- *    submission: https://oj.vnoi.info/submission/11900208
- *    status: AC
+ *    title: 
+ *    source: 
+ *    submission: 
+ *    status: WIP
  * ----------------------------------------------------------
- *    tags: Range Minimum Query
- *    complexity: O(n \log n)
- *    note: We check all elements in array and assume current a[i] is x. We have 2 observations | 1: x must be the only smallest value in our valid array (because all a[j] are multipliers of x and x is unique) | 2: gcd of our valid array must be x (so x will be the divisor of the whole array) => Through these observations, we can iterate through all a[i] and binary lifting it from the left and right to get the furthest left/right endpoint l and r which can make a valid array through [l;i] and [i;r]. To check if they are valid, we use sparse table to query the gcd and the min element. After getting l and r, we combine the ways that we can contribute to the answer
+ *    tags: 
+ *    complexity: 
+ *    note: 
 **/
 
 #include <iostream>
@@ -63,18 +63,10 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 3e5+2;
-int st_min[N][20], st_gcd[N][20];
+
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-int gcd(int a, int b){
-    while(b){
-        int temp = a%b;
-        a = b;
-        b = temp;
-    }
-    return a;
-}
+
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
@@ -83,43 +75,23 @@ int main(){
     
     int n;
     cin >> n;
-    for(int i = 1; i <= n; i++){
-        cin >> st_min[i][0];
-        st_gcd[i][0] = st_min[i][0];
-    }
-
-    for(int k = 1; k <= 19; k++){
-        for(int i = 1; i + (1 << k) - 1 <= n; i++){
-            st_min[i][k] = min(st_min[i][k-1], st_min[i + (1 << (k-1))][k-1]);
-            st_gcd[i][k] = gcd(st_gcd[i][k-1], st_gcd[i + (1 << (k-1))][k-1]);
-        }
-    }
-
-    ll ans = 0;
-    
-    for(int i = 1; i <= n; i++){
-        int l = i;
-        for(int k = 19; k >= 0; k--){
-            if(l - (1 << k) <= 0) continue;
-            int j = l - (1 << k);
-            if(st_min[j][k] > st_min[i][0] && gcd(st_gcd[j][k], st_min[i][0]) == st_min[i][0]){
-                l -= (1 << k);
-            }
+    vi a(n);
+    for(int i = 1; i <= n; i++) cin >> a[i];
+     
+    int max_pos = 0;
+    for(int i = 0; i < n; i++){
+        if(i > max_pos){
+            cout << "NO" << '\n';
+            return 0;
         }
 
-        int r = i;
-        for(int k = 19; k >= 0; k--){
-            if(r + (1 << k) > n) continue;
-            if(st_min[r+1][k] > st_min[i][0] && gcd(st_gcd[r+1][k], st_min[i][0]) == st_min[i][0]){
-                r += (1 << k);
-            }
+        max_pos = max(max_pos, i + a[i]);
+
+        if(max_pos >= n-1){
+            cout << "YES";
+            return 0;
         }
-
-        dbg(make_pair(l,r), i);
-        ans += (i - l)*(r-i) + (i-l) + (r-i);
     }
-
-    cout << ans;
-
-    return NAH_I_WOULD_WIN;
+    cout << "NO";
+    return NAH_I_WOULD_WIN; 
 }
