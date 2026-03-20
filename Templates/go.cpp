@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-13 23:23:06
+ *    created: 2026-03-20 16:15:09
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -32,6 +32,7 @@ using namespace std;
 
 // --- [ MACROS ] ---
 #define all(x,bonus) (x).begin()+(bonus),(x).end()
+#define range(x,st,ed) (x).begin()+(st),(x).begin()+(ed)+1
 #define filter(x,bonus) (x).erase(unique((x).begin()+(bonus), (x).end()), (x).end())
 #define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
 #define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
