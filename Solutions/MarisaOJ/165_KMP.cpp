@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-21 23:06:39
+ *    created: 2026-03-21 23:52:56
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: String occurences 2 - KMP
+ *    source: https://marisaoj.com/problem/165
+ *    submission: https://marisaoj.com/submission/1132019
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: KMP
+ *    complexity: O(n + m) 
+ *    note: Typical KMP algo
 **/
 
 #include <iostream>
@@ -18,6 +18,7 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
+#include <string>
 
 using namespace std;
 
@@ -58,38 +59,44 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("165_KMP.INP", "r")) return;
+    freopen("165_KMP.INP", "r", stdin);
+    freopen("165_KMP.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-
+vi pf(string &s){
+    int n = sz(s);
+    vi pi(n);
+    int j = 0;
+    for(int i = 1; i < n; i++){
+        while(j > 0 && s[i] != s[j]) j = pi[j-1];
+        if(s[i] == s[j]) j++;
+        pi[i] = j;
+    }
+    return pi;
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    int n,m;
-    cin >> n >> m;
-    vvi a(n+1,vi(m+1));
-    for(int i = 1; i <= n; i++){
-        for(int j = 1; j <= m; j++) cin >> a[i][j];
-    }
+    string a,b;
+    cin >> a >> b;
+    int m = sz(b);
 
-    for(int i = 1; i <= n; i++){
-        for(int j = 1; j <= m; j++) cout << a[i][j];
-    }
+    string t = b+"#" +a;
 
-    for(int i = 1; i <= n; i++){
-        for(int j = 1; j <= m; j++){
-            cin >> a[i][j];
-        }
+    vi pi = pf(t);
+    int ans = 0;
+    for(int i = 2*m; i < sz(t); i++){
+        if(pi[i] == m) ans++;
     }
+    cout<< ans;
     
     return NAH_I_WOULD_WIN;
 }

@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-21 23:06:39
+ *    created: 2026-03-21 23:40:47
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: String occurences 2 - Hash Approach
+ *    source: https://marisaoj.com/problem/165
+ *    submission: https://marisaoj.com/submission/1132007
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Hashing
+ *    complexity: O(n+m)
+ *    note: Use typical Hashing algorithm
 **/
 
 #include <iostream>
@@ -18,6 +18,7 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
+#include <string>
 
 using namespace std;
 
@@ -58,38 +59,58 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("165.INP", "r")) return;
+    freopen("165.INP", "r", stdin);
+    freopen("165.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+const int N = 1e6+2;
+const ll MOD = 1e9+6967;
+ll hashS[N];
+ll hashT = 0;
+int base = 31;
+ll POW[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void init(){
+    POW[0] = 1;
+    for(int i = 1; i < N; i++){
+        POW[i] = (POW[i-1]*base)%MOD;
+    }
+}
 
+ll get_hash(int l, int r){
+    return ((hashS[r] - hashS[l-1]*POW[r-l+1])%MOD + MOD)%MOD;
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
+    init();
     
-    int n,m;
-    cin >> n >> m;
-    vvi a(n+1,vi(m+1));
-    for(int i = 1; i <= n; i++){
-        for(int j = 1; j <= m; j++) cin >> a[i][j];
-    }
+    string s,t;
+    cin >> s >> t;
+
+    int n = sz(s), m = sz(t);
+    s = '#' + s;
+    t = '#' + t;
 
     for(int i = 1; i <= n; i++){
-        for(int j = 1; j <= m; j++) cout << a[i][j];
+        hashS[i] = (hashS[i-1]*base + s[i] - '0' + 1)%MOD;
     }
 
-    for(int i = 1; i <= n; i++){
-        for(int j = 1; j <= m; j++){
-            cin >> a[i][j];
-        }
+    for(int i = 1; i <= m; i++){
+        hashT = (hashT*base + t[i] - '0' + 1)%MOD;
     }
+
+    int ans = 0;
+    for(int i = m; i <= n; i++){
+        if(get_hash(i - m + 1, i) == hashT) ans++;
+    }
+
+    cout << ans;
     
     return NAH_I_WOULD_WIN;
 }

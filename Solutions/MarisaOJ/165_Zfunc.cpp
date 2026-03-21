@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-21 23:06:39
+ *    created: 2026-03-22 00:00:46
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: String occurences 2 - Z function
+ *    source: https://marisaoj.com/problem/165
+ *    submission: https://marisaoj.com/submission/1132029
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Z-function
+ *    complexity: O(n + m)
+ *    note: Typical Z-function
 **/
 
 #include <iostream>
@@ -18,6 +18,7 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
+#include <string>
 
 using namespace std;
 
@@ -58,38 +59,50 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("165_Zfunc.INP", "r")) return;
+    freopen("165_Zfunc.INP", "r", stdin);
+    freopen("165_Zfunc.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+vi zf(string &s){
+    int n = sz(s);
+    vi z(n);
 
+    for(int i = 1, l = 0, r = 0; i < n; i++){
+        if(i <= r){
+            z[i] = min(r-i+1,z[i-l]);
+        }
+        while(i + z[i] < n && s[z[i]] == s[i + z[i]]){
+            z[i]++;
+        }
+        if(i + z[i] - 1 > r){
+            l = i;
+            r = i + z[i] - 1;
+        }
+    }
+    return z;
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    int n,m;
-    cin >> n >> m;
-    vvi a(n+1,vi(m+1));
-    for(int i = 1; i <= n; i++){
-        for(int j = 1; j <= m; j++) cin >> a[i][j];
-    }
+    string a,b;
+    cin >> a >> b;
+    int m = sz(b);
+    string t = b + "#" + a;
 
-    for(int i = 1; i <= n; i++){
-        for(int j = 1; j <= m; j++) cout << a[i][j];
+    vi z = zf(t);
+    int ans = 0;
+    for(int i = m+1; i < sz(t); i++){
+        if(z[i] == m) ans++;
     }
-
-    for(int i = 1; i <= n; i++){
-        for(int j = 1; j <= m; j++){
-            cin >> a[i][j];
-        }
-    }
+    cout << ans;
     
     return NAH_I_WOULD_WIN;
 }
