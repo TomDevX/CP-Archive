@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-21 21:14:01
+ *    created: 2026-03-21 22:24:10
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Dãy con tăng dài nhất (bản khó)
+ *    source: https://oj.vnoi.info/problem/lis
+ *    submission: https://oj.vnoi.info/submission/11927394
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Dynamic Programming
+ *    complexity: O(n \log n)
+ *    note: Typical LIS problem
 **/
 
 #include <iostream>
@@ -58,76 +58,39 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("rmq_threenum.INP", "r")) return;
-    freopen("rmq_threenum.INP", "r", stdin);
-    freopen("rmq_threenum.OUT", "w", stdout);
+    if(!fopen("lis.INP", "r")) return;
+    freopen("lis.INP", "r", stdin);
+    freopen("lis.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 2e5+2;
-pii st_min[N][19], st_max[N][19];
-int lg[N];
+
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-pii get_min(int l, int r){
-    if(l > r) return {2e9,-1};
-    int k = lg[r-l+1];
-    return min(st_min[l][k], st_min[r - (1 << k) + 1][k]);
-}
 
-pii get_max(int l, int r){
-    if(l > r) return {-2e9,-1};
-    int k = lg[r-l+1];
-    return max(st_max[l][k], st_max[r - (1 << k) + 1][k]);
-}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    int n,q;
-    cin >> n >> q;
+    int n;
+    cin >> n;
+    vi a(n+1);
+    for(int i = 1; i <= n; ++i) cin >> a[i];
+
+    vi lis;
+    int ans = 0;
     for(int i = 1; i <= n; i++){
-        cin >> st_min[i][0].fi;
-        st_min[i][0].se = i;
-        st_max[i][0] = st_min[i][0];
-    }
-    for(int i = 2; i <= n; i++) lg[i] = lg[i>>1] + 1;
-
-    for(int k = 1; k <= 18; k++){
-        for(int i = 1; i  + (1 << k) - 1 <= n; i++){
-            st_min[i][k] = min(st_min[i][k-1], st_min[i + (1 << (k-1))][k-1]);
-            st_max[i][k] = max(st_max[i][k-1], st_max[i + (1 << (k-1))][k-1]);
+        int it = lower_bound(all(lis,0), a[i]) - lis.begin();
+        if(it == sz(lis)){
+            lis.eb(a[i]);
+            ans = sz(lis);
         }
+        else lis[it] = a[i];
     }
 
-    while(q--){
-        int l,r;
-        cin >> l >> r;
-
-        pii x = get_min(l,r);
-        pii y = min(get_min(l,x.se-1), get_min(x.se+1,r));
-        bool swapped = false;
-        if(x.se > y.se){
-            swapped = true;
-            swap(x,y);
-        }
-        pii z = min({get_min(l,x.se-1), get_min(x.se+1,y.se-1), get_min(y.se+1,r)});
-        // dbg(make_pair(x,y),1);
-        
-        ll ans = 1LL*x.fi*y.fi*z.fi;
-        
-        if(swapped) swap(x,y);
-        y = max(get_max(l,x.se-1), get_max(x.se+1,r));
-        if(x.se > y.se) swap(x,y);
-        z = max({get_max(l,x.se-1), get_max(x.se+1,y.se-1), get_max(y.se+1,r)});
-        // dbg(make_pair(x,y),1);
-        
-        ans = min(ans, 1LL*x.fi*y.fi*z.fi);
-
-        cout << ans << '\n';
-    }
+    cout << ans;
     
     return NAH_I_WOULD_WIN;
 }

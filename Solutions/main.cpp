@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-20 15:13:50
+ *    created: 2026-03-21 22:07:31
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -32,6 +32,7 @@ using namespace std;
 
 // --- [ MACROS ] ---
 #define all(x,bonus) (x).begin()+(bonus),(x).end()
+#define range(x,st,ed) (x).begin()+(st),(x).begin()+(ed)+1
 #define filter(x,bonus) (x).erase(unique((x).begin()+(bonus), (x).end()), (x).end())
 #define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
 #define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
@@ -73,14 +74,19 @@ int main(){
     fastio;
     setup();
     
-    int tc;
-    cin >> tc;
-    while(tc--){
-        int a,b;
-        cin >> a >> b;
-        int c = (a+b)>>1;
-        cout << c-a + b-c << '\n';
+    int n = 3, m = 3;
+    vvi a = {
+        {},
+        {0,1,2,3},
+        {0,1,2,3},
+        {0,1,2,3},
+    };
+
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= m; j++){
+            cout << a[i][j] << " \n"[j == m];
+        }
     }
     
     return NAH_I_WOULD_WIN;
-}
+}   
