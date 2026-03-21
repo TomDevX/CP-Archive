@@ -3,7 +3,7 @@
  *    created: 2026-03-22 00:00:46
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: String occurences 2 - Z function
+ *    title: String occurences 2 - Z function Approach
  *    source: https://marisaoj.com/problem/165
  *    submission: https://marisaoj.com/submission/1132029
  *    status: AC

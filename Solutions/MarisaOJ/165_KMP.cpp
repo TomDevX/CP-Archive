@@ -3,7 +3,7 @@
  *    created: 2026-03-21 23:52:56
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: String occurences 2 - KMP
+ *    title: String occurences 2 - KMP Approach
  *    source: https://marisaoj.com/problem/165
  *    submission: https://marisaoj.com/submission/1132019
  *    status: AC
