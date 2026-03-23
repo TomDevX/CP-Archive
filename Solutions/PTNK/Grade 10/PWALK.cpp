@@ -6,11 +6,11 @@
  *    title: PWALK
  *    source: https://oj.vnoi.info/problem/pwalk
  *    submission: 
- *    status: WIP
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: LCA
+ *    complexity: O(n \log n) 
+ *    note: To calculate the distance on the tree, the path will go from root -> u -> lca(u,v) -> v so we have a formula: dis[root -> u] + dis[root -> v] - 2*dis[root -> lca(u,v)]
 **/
 
 #include <iostream>
