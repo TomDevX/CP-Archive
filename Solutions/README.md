@@ -2,7 +2,7 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-187/209-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Mar_23%2C_2026_--_11%3A09_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260323T1109&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-187/209-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Mar_23%2C_2026_--_11%3A10_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260323T1110&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 209
 - **Accepted:** 187
@@ -124,7 +124,7 @@
 | 75 | [1830A - Copil Copac Draws Trees](https://codeforces.com/contest/1830/problem/A) | N/A | N/A | Mar 2, 2026 | [Code](Codeforces/1830A.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 76 | [1849B](https://codeforces.com/contest/1849/problem/B) | N/A | N/A | Mar 1, 2026 | [Code](Codeforces/1849B.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 77 | [1850A - To My Critics](https://codeforces.com/problemset/problem/1850/A) | `Implementation` | $\mathcal{O}(t)$ | Feb 21, 2026 | [Code](Codeforces/1850A.cpp) \| [Sub](https://codeforces.com/problemset/submission/1850/363881834) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 78 | [1854A1 - Dual (Easy Version)](https://codeforces.com/contest/1854/problem/A1) | `Greedy` | $\mathcal{O}(n \log n)$ | Mar 4, 2026 | [Code](Codeforces/1854A1.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 78 | [1854A1 - Dual (Easy Version)](https://codeforces.com/contest/1854/problem/A1) | `Greedy` | $\mathcal{O}(n \log n)$ | Mar 4, 2026 | [Code](Codeforces/1854A1.cpp) \| [Sub](https://codeforces.com/contest/1854/submission/367846325) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 79 | [1876A - Helmets in Night Light](https://codeforces.com/contest/1876/problem/A) | N/A | N/A | Mar 6, 2026 | [Code](Codeforces/1876A.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 80 | [1906A - Easy as ABC](https://codeforces.com/problemset/problem/1906/A) | `Brute Force` | $\mathcal{O}(3^6)$ | Feb 10, 2026 | [Code](Codeforces/1906A.cpp) \| [Sub](https://codeforces.com/problemset/submission/1906/362212391) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 81 | [1916B - Two Divisors](https://codeforces.com/problemset/problem/1916/B) | `Math`, `Number Theory` | $\mathcal{O}(1)$ | Feb 28, 2026 | [Code](Codeforces/1916B.cpp) \| [Sub](https://codeforces.com/problemset/submission/1916/364864584) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |

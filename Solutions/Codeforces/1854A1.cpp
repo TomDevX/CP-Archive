@@ -5,7 +5,7 @@
  * ----------------------------------------------------------
  *    title: Dual (Easy Version)    
  *    source: https://codeforces.com/contest/1854/problem/A1
- *    submission: 
+ *    submission: https://codeforces.com/contest/1854/submission/367846325
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Greedy
