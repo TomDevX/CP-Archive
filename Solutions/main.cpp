@@ -144,10 +144,10 @@ int main(){
         int l,r;
         cin >> l >> r;
 
-        int posL = max(l, L[r]);
-        int posR = min(r, R[l]);
+        int posL = max(l, L[r]-1); // L[r] - 1 because it is the furthest cut which is good
+        int posR = min(r-1, R[l]); // r-1 because you can't cut at r (makes the array become only one)
         
-        dbg(posR,posL);
+        dbg(make_pair(posL,posR),q);
         cout << max(0,posR-posL+1) << '\n';
     }
     
