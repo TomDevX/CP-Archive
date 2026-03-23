@@ -5,12 +5,12 @@
  * ----------------------------------------------------------
  *    title: rmq_divseq
  *    source: https://oj.vnoi.info/problem/rmq_divseq
- *    submission: 
- *    status: WIP
+ *    submission: https://oj.vnoi.info/src/11908097
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Sparse Table
+ *    complexity: O(n \log n)
+ *    note: We need to know the safe pos before i to make a good array from [pos;i], so we make it both ways prefix (array L) and suffix (array R). The answer will get the intersect of that pos with prefix and suffix
 **/
 
 #include <iostream>
