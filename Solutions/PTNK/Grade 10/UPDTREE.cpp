@@ -6,11 +6,11 @@
  *    title: UPDTREE
  *    source: LCA4.pdf
  *    submission: 
- *    status: WIP
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Graph
+ *    complexity: O(n) 
+ *    note: Just do like a diff array but with the order of a tree
 **/
 
 #include <iostream>

@@ -8,9 +8,9 @@
  *    submission: 
  *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Euler Tour, Tree, Fenwick Tree
+ *    complexity: O(n \log n)
+ *    note: Notice that we just need to know the max element of the subtree and find the furthest parent node of current node and print out their diff depth 
 **/
 
 #include <iostream>

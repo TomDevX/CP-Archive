@@ -8,9 +8,9 @@
  *    submission: 
  *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: LCA
+ *    complexity: O(n \log n)
+ *    note: Somehow if we have 2 same LCA then the odd one out will be the answer. Just imagine you pick the new root up and the tree will all fall down, then you consider all the case like the other node is above, below, between,...
 **/
 
 #include <iostream>

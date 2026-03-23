@@ -3,14 +3,14 @@
  *    created: 2026-03-04 09:04:09
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
+ *    title: Dual (Easy Version)    
  *    source: https://codeforces.com/contest/1854/problem/A1
  *    submission: 
- *    status: WIP
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Greedy
+ *    complexity: O(n \log n)
+ *    note: We add the max element to the whole array to make it the same sign, now if the sign is negative, we do a suffix to guarantee it is non-decrease, else we do the prefix with the same purpose
 **/
 
 #include <iostream>
@@ -18,6 +18,7 @@
 #include <cstdio>
 #include <utility>
 #include <algorithm>
+#include <cmath>
 #if __has_include("debuggingz.h")
     #include "debuggingz.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n';
@@ -69,20 +70,34 @@ int main(){
         int n;
         cin >> n;
         vi a(n+1);
+
+        int pos = 1;
         for(int i = 1; i <= n; i++){
             cin >> a[i];
+            if(i > 1 && abs(a[pos]) < abs(a[i])) pos = i;
         }
 
         vector<pii> trace;
-        for(int i = 2; i <= n; i++){
-            while(a[i] < a[i-1]){
-                int it = lower_bound(a.begin()+1,a.begin()+i, a[i-1] - a[i]) - a.begin();
-                a[i] += a[it];
-                trace.eb(i,it);
-                dbg(it,1);
+        for(int i = 1; i <= n; i++){
+            if(a[i] * a[pos] < 0){
+                trace.eb(i,pos);
             }
         }
+
+        if(a[pos] < 0){
+            for(int i = n-1; i >= 1; i--){
+                trace.eb(i,i+1);
+            }
+        }
+        else{
+            for(int i = 2; i <= n; i++){
+                trace.eb(i,i-1);
+            }
+        }
+
         cout << sz(trace) << '\n';
-        for(int i = 0; i < sz(trace); i++) cout << trace[i].fi << ' ' << trace[i].se << '\n';
+        for(pii &p : trace){
+            cout << p.fi << ' ' << p.second << '\n';
+        }
     }
 }

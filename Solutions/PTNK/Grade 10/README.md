@@ -2,7 +2,7 @@
 
 ### 📊 Grade 10 Stats
 
-![Progress](https://img.shields.io/badge/Progress-42/44-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Mar_23%2C_2026_--_10%3A35_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-42/44-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Mar_23%2C_2026_--_11%3A09_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 44
 - **Solved (AC):** 42
@@ -40,7 +40,7 @@
 | 20 | [LCA2 - LCA2](LCA1.pdf) | `LCA` | N/A | Feb 24, 2026 | [Code](LCA2.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 21 | [LCA - LCA](LCA1.pdf) | `LCA` | $\mathcal{O}(n \log 19 + (n-1) + q \log 19)$ | Feb 24, 2026 | [Code](LCA.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 22 | main | N/A | N/A | Jan 30, 2026 | [Code](main.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 23 | [MARATHON - MARATHON](LCA2.pdf) | N/A | N/A | Mar 03, 2026 | [Code](MARATHON.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 23 | [MARATHON - MARATHON](LCA2.pdf) | `LCA` | $\mathcal{O}(n \log n)$ | Mar 03, 2026 | [Code](MARATHON.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 24 | [MINMM - MINMM](BT_20260226.pdf) | N/A | N/A | Feb 26, 2026 | [Code](MINMM.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 25 | MINQUERY | N/A | N/A | Jan 20, 2026 | [Code](MINQUERY.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 26 | MODSEQ | N/A | N/A | Jan 19, 2026 | [Code](MODSEQ.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -51,7 +51,7 @@
 | 31 | PAINT | N/A | N/A | Dec 02, 2025 | [Code](PAINT.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 32 | PANDS | N/A | N/A | Jan 12, 2026 | [Code](PANDS.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 33 | [PIER - Bến tàu](KT_20260323.pdf) | N/A | N/A | Mar 23, 2026 | [Code](PIER.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 34 | [POVISICE - PROVISICE](LCA2.pdf) | N/A | N/A | Mar 03, 2026 | [Code](POVISICE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 34 | [POVISICE - PROVISICE](LCA2.pdf) | `Euler Tour`, `Tree`, `Fenwick Tree` | $\mathcal{O}(n \log n)$ | Mar 03, 2026 | [Code](POVISICE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 35 | prim | N/A | N/A | Dec 01, 2025 | [Code](prim.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 36 | PROGRAM | N/A | N/A | Dec 30, 2025 | [Code](PROGRAM.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 37 | promote | N/A | N/A | Jan 21, 2026 | [Code](promote.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -70,6 +70,6 @@
 | 50 | [TREEDGE - TREEDGE](LCA4.pdf) | `LCA` | $\mathcal{O}(n \log n)$ | Mar 17, 2026 | [Code](TREEDGE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 51 | [TSP - HÀNH TRÌNH RẺ NHẤT](KT_20260323.pdf) | N/A | N/A | Mar 23, 2026 | [Code](TSP.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 52 | TWOARR | N/A | N/A | Jan 19, 2026 | [Code](TWOARR.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 53 | [UPDTREE - UPDTREE](LCA4.pdf) | N/A | N/A | Mar 17, 2026 | [Code](UPDTREE.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 53 | [UPDTREE - UPDTREE](LCA4.pdf) | `Graph` | $\mathcal{O}(n)$ | Mar 17, 2026 | [Code](UPDTREE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 54 | XORSUM | N/A | N/A | Jan 13, 2026 | [Code](XORSUM.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
