@@ -1,10 +1,10 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-19 21:57:12
+ *    created: 2026-03-21 21:14:01
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: Threenum
- *    source: https://oj.vnoi.info/problem/rmq_threenum
+ *    title: 
+ *    source: 
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -32,6 +32,7 @@ using namespace std;
 
 // --- [ MACROS ] ---
 #define all(x,bonus) (x).begin()+(bonus),(x).end()
+#define range(x,st,ed) (x).begin()+(st),(x).begin()+(ed)+1
 #define filter(x,bonus) (x).erase(unique((x).begin()+(bonus), (x).end()), (x).end())
 #define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
 #define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
@@ -64,14 +65,20 @@ void setup(){
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 const int N = 2e5+2;
-pii st[N][19];
+pii st_min[N][19], st_max[N][19];
 int lg[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-pii get(int l, int r){
-    if(l > r) return {2e9,1};
+pii get_min(int l, int r){
+    if(l > r) return {2e9,-1};
     int k = lg[r-l+1];
-    return min(st[l][k], st[r - (1 << k) + 1][k]);
+    return min(st_min[l][k], st_min[r - (1 << k) + 1][k]);
+}
+
+pii get_max(int l, int r){
+    if(l > r) return {-2e9,-1};
+    int k = lg[r-l+1];
+    return max(st_max[l][k], st_max[r - (1 << k) + 1][k]);
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -82,14 +89,16 @@ int main(){
     int n,q;
     cin >> n >> q;
     for(int i = 1; i <= n; i++){
-        cin >> st[i][0].fi;
-        st[i][0].se = i;
+        cin >> st_min[i][0].fi;
+        st_min[i][0].se = i;
+        st_max[i][0] = st_min[i][0];
     }
     for(int i = 2; i <= n; i++) lg[i] = lg[i>>1] + 1;
 
     for(int k = 1; k <= 18; k++){
-        for(int i = 1; i + (1 << k) - 1 <= n; i++){
-            st[i][k] = min(st[i][k-1], st[i + (1 << (k-1))][k-1]);
+        for(int i = 1; i  + (1 << k) - 1 <= n; i++){
+            st_min[i][k] = min(st_min[i][k-1], st_min[i + (1 << (k-1))][k-1]);
+            st_max[i][k] = max(st_max[i][k-1], st_max[i + (1 << (k-1))][k-1]);
         }
     }
 
@@ -97,19 +106,27 @@ int main(){
         int l,r;
         cin >> l >> r;
 
-        pii a = get(l,r);
-        pii b = min(get(l,a.se-1), get(a.se+1,r));
-        if(a.se > b.se) swap(a,b);
-        pii c = min({get(l,a.se-1), get(a.se+1,b.se-1), get(b.se+1,r)});
+        pii x = get_min(l,r);
+        pii y = min(get_min(l,x.se-1), get_min(x.se+1,r));
+        bool swapped = false;
+        if(x.se > y.se){
+            swapped = true;
+            swap(x,y);
+        }
+        pii z = min({get_min(l,x.se-1), get_min(x.se+1,y.se-1), get_min(y.se+1,r)});
+        // dbg(make_pair(x,y),1);
+        
+        ll ans = 1LL*x.fi*y.fi*z.fi;
+        
+        if(swapped) swap(x,y);
+        y = max(get_max(l,x.se-1), get_max(x.se+1,r));
+        if(x.se > y.se) swap(x,y);
+        z = max({get_max(l,x.se-1), get_max(x.se+1,y.se-1), get_max(y.se+1,r)});
+        // dbg(make_pair(x,y),1);
+        
+        ans = min(ans, 1LL*x.fi*y.fi*z.fi);
 
-        ll ans1 = 1LL*a.fi*b.fi*c.fi;
-
-        pii a = get(l,r);
-        pii b = min(get(l,a.se-1), get(a.se+1,r));
-        if(a.se > b.se) swap(a,b);
-        pii c = min({get(l,a.se-1), get(a.se+1,b.se-1), get(b.se+1,r)});
-
-        cout << 1LL*a.fi*b.fi*c.fi << '\n';
+        cout << ans << '\n';
     }
     
     return NAH_I_WOULD_WIN;

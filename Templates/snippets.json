@@ -264,6 +264,7 @@
         "",
         "// --- [ MACROS ] ---",
         "#define all(x,bonus) (x).begin()+(bonus),(x).end()",
+        "#define range(x,st,ed) (x).begin()+(st),(x).begin()+(ed)+1",
         "#define filter(x,bonus) (x).erase(unique((x).begin()+(bonus), (x).end()), (x).end())",
         "#define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)",
         "#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);",
