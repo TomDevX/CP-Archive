@@ -64,7 +64,8 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+const int N = 5e5+2;
+int st_min[N][20], st_max[N][20];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -74,7 +75,20 @@ int main(){
     fastio;
     setup();
     
-    
+    int n,q;
+    cin >> n >> q;
+    vi a(n+1);
+    for(int i = 1; i <= n; i++){
+        cin >> a[i]; 
+    }
+
+    vi sorted = a;
+    for(int i = 1; i <= n; i++){
+        a[i] = lower_bound(all(sorted,1), a[i]) - sorted.begin();
+    }
+
+    int pos = 1;
+    for(int i = 2;)
     
     return NAH_I_WOULD_WIN;
 }
