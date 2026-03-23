@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-19 14:43:05
+ *    created: 2026-03-21 14:37:55
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -32,6 +32,7 @@ using namespace std;
 
 // --- [ MACROS ] ---
 #define all(x,bonus) (x).begin()+(bonus),(x).end()
+#define range(x,st,ed) (x).begin()+(st),(x).begin()+(ed)+1
 #define filter(x,bonus) (x).erase(unique((x).begin()+(bonus), (x).end()), (x).end())
 #define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
 #define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
@@ -63,35 +64,72 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+const int N = 2e5+2;
+pii st_min[N][19], st_max[N][19];
+int lg[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+pii get_min(int l, int r){
+    if(l > r) return {2e9,-1};
+    int k = lg[r-l+1];
+    return min(st_min[l][k], st_min[r - (1 << k) + 1][k]);
+}
 
+pii get_max(int l, int r){
+    if(l > r) return {-2e9,-1};
+    int k = lg[r-l+1];
+    return max(st_max[l][k], st_max[r - (1 << k) + 1][k]);
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
-    
-    int n;
-    cin >> n;
-    vi a(n);
-    for(int i = 1; i <= n; i++) cin >> a[i];
-     
-    int max_pos = 0;
-    for(int i = 0; i < n; i++){
-        if(i > max_pos){
-            cout << "NO" << '\n';
-            return 0;
-        }
 
-        max_pos = max(max_pos, i + a[i]);
+    int n,q;
+    cin >> n >> q;
+    vi a(n+1);
+    for(int i = 1; i <= n; i++){
+        cin >> st_min[i][0].fi;
+        st_max[i][0].fi = st_min[i][0].fi;
+        st_max[i][0].se = st_min[i][0].se = i;
+    }
+    for(int i = 2; i <= n; i++) lg[i] = lg[i>>1] + 1;
 
-        if(max_pos >= n-1){
-            cout << "YES";
-            return 0;
+    for(int k = 1; k <= 18; k++){
+        for(int i = 1; i + (1 << k) - 1 <= n; i++){
+            st_min[i][k] = min(st_min[i][k-1], st_min[i + (1 << (k-1))][k-1]);
+            st_max[i][k] = max(st_max[i][k-1], st_max[i + (1 << (k-1))][k-1]);
         }
     }
-    cout << "NO";
-    return NAH_I_WOULD_WIN; 
+
+    while(q--){
+        int l,r;
+        cin >> l >> r;
+
+        // min - min - min
+        pii x = get_min(l,r);
+        pii y = min(get_min(l,x.se-1), get_min(x.se+1,r));
+        if(x.se > y.se) swap(x,y);
+        pii z = min({get_min(l,x.se-1), get_min(x.se+1,y.se-1), get_min(y.se+1,r)});
+
+        ll ans = 1LL*x.fi*y.fi*z.fi;
+
+        // min - min - max
+        z = max({get_max(l,x.se-1), get_max(x.se+1,y.se-1), get_max(y.se+1,r)});
+
+        ans = min(ans, 1LL*x.fi*y.fi*z.fi);
+        
+        // max - max - max
+        x = get_max(l,r);
+        y = max(get_max(l,x.se-1), get_max(x.se+1,r));
+        if(x.se > y.se) swap(x,y);
+        z = max({get_max(l,x.se-1), get_max(x.se+1,y.se-1), get_max(y.se+1,r)});
+        
+        ans = min(ans, 1LL*x.fi*y.fi*z.fi);
+
+        cout << ans << '\n';
+    }
+    
+    return NAH_I_WOULD_WIN;
 }
