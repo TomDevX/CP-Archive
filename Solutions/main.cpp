@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-23 09:19:14
+ *    created: 2026-03-23 12:46:39
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -18,6 +18,7 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
+#include <cstring>
 
 using namespace std;
 
@@ -66,9 +67,17 @@ void setup(){
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 const int N = 5e5+2;
 int st_min[N][20], st_max[N][20];
+int last[N], L[N], R[N], lg[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-
+int get_min(int l, int r){
+    int k = lg[r-l+1];
+    return min(st_min[l][k], st_min[r - (1 << k) + 1][k]);
+}
+int get_max(int l, int r){
+    int k = lg[r-l+1];
+    return max(st_max[l][k], st_max[r - (1 << k) + 1][k]);
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
@@ -78,17 +87,69 @@ int main(){
     int n,q;
     cin >> n >> q;
     vi a(n+1);
-    for(int i = 1; i <= n; i++){
-        cin >> a[i]; 
-    }
+    for(int i = 1; i <= n; i++) cin >> a[i];
 
     vi sorted = a;
+    sort(all(sorted,1));
     for(int i = 1; i <= n; i++){
         a[i] = lower_bound(all(sorted,1), a[i]) - sorted.begin();
     }
+    for(int i = 2; i <= n; i++) lg[i] = lg[i>>1] + 1;
+
+    for(int i = 1; i <= n; i++){
+        st_max[i][0] = last[a[i]];
+        last[a[i]] = i;
+    }
+
+    memset(last,0,sizeof(last));
+
+    for(int i = n; i >= 1; i--){
+        if(last[a[i]] == 0) st_min[i][0] = n+1;
+        else st_min[i][0] = last[a[i]];
+        last[a[i]] = i;
+    }
+
+    for(int k = 1; k <= 19; k++){
+        for(int i = 1; i + (1 << k) - 1 <= n; i++){
+            st_min[i][k] = min(st_min[i][k-1], st_min[i + (1 << (k-1))][k-1]);
+            st_max[i][k] = max(st_max[i][k-1], st_max[i + (1 << (k-1))][k-1]);
+        }
+    }
 
     int pos = 1;
-    for(int i = 2;)
+    for(int i = 1; i <= n; i++){
+        while(get_max(pos,i) >= pos){
+            pos++;
+        }
+        L[i] = pos;
+    }
+
+    pos = n;
+    R[n] = n;
+    for(int i = n; i >= 1; i--){
+        while(pos > i && get_min(i, pos) <= pos){
+            pos--;
+        }
+        R[i] = pos;
+    }
+
+    for(int i = 1; i <= n; i++){
+        cout << L[i] << " \n"[i==n];
+    }
+    for(int i = 1; i <= n; i++){
+        cout << R[i] << " \n"[i==n];
+    }
+
+    while(q--){
+        int l,r;
+        cin >> l >> r;
+
+        int posL = max(l, L[r]);
+        int posR = min(r, R[l]);
+        
+        dbg(posR,posL);
+        cout << max(0,posR-posL+1) << '\n';
+    }
     
     return NAH_I_WOULD_WIN;
 }
