@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-188/210-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Mar_23%2C_2026_--_20%3A15_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260323T2015&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-189/211-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Mar_24%2C_2026_--_10%3A53_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260324T1053&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 210
-- **Accepted:** 188
+- **Total Problems:** 211
+- **Accepted:** 189
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -24,6 +24,7 @@
   * [📂 Sorting And Searching (3)](#-sorting-and-searching-3)
 * [📂 IUHCoder (2)](#-iuhcoder-2)
 * [📂 Leetcode (1)](#-leetcode-1)
+* [📂 Luogu (1)](#-luogu-1)
 * [📂 MarisaOJ (12)](#-marisaoj-12)
 * [📂 Project Euler (2)](#-project-euler-2)
 * [📂 PTNK (44)](#-ptnk-44)
@@ -31,12 +32,12 @@
 * [📂 VNOJ (13)](#-vnoj-13)
 
 ---
-## 📂 [Solutions (210)](https://codeforces.com/problemset/problem/276/C)
+## 📂 [Solutions (211)](https://codeforces.com/problemset/problem/276/C)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [276C - Little Girl and Maximum Sum](https://codeforces.com/problemset/problem/276/C) | `Implementation` | $\mathcal{O}(n \log n)$ | Mar 20, 2026 | [Code](276C.cpp) \| [Sub](https://codeforces.com/contest/276/submission/367460597) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [580C - Kefa and Park](https://codeforces.com/problemset/problem/580/C) | `Graph`, `DFS/BFS` | $\mathcal{O}(n)$ | Mar 20, 2026 | [Code](580C.cpp) \| [Sub](https://codeforces.com/problemset/submission/580/367462297) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 3 | Main | N/A | N/A | Mar 23, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 3 | Main | N/A | N/A | Mar 24, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
 ## 📂 [ACMICPC (3)](https://www.acmicpc.net)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
@@ -220,6 +221,11 @@
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [64 - Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum) | `Dynamic Programming` | $\mathcal{O}(n \cdot m)$ | Feb 12, 2026 | [Code](Leetcode/64.cpp) \| [Sub](https://leetcode.com/problems/minimum-path-sum/submissions/1916094804) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+
+## 📂 [Luogu (1)](https://www.luogu.com.cn/problem/list)
+| # | Problem Name | Tags | Complexity | Date | Solution | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | [P6166 - [IOI 2012] scrivener](https://www.luogu.com.cn/problem/P6166) | `Binary Lifting` | $\mathcal{O}(n \log n)$ | Mar 24, 2026 | [Code](Luogu/P6166.cpp) \| [Sub](https://www.luogu.com.cn/record/269308831) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [MarisaOJ (12)](https://marisaoj.com/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
