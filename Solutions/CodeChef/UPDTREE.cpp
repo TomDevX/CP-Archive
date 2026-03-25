@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-25 09:14:37
+ *    created: 2026-03-25 10:14:55
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: UPDTREE2
- *    source: LCA5.pdf
- *    submission: 
+ *    title: Updating Edges on Trees
+ *    source: https://www.codechef.com/problems/UPDTREE
+ *    submission: https://www.codechef.com/viewsolution/1252458834
  *    status: AC
  * ----------------------------------------------------------
  *    tags: LCA, Different array on tree
  *    complexity: O(n \log n)
  *    note: We find the intersect area of [a;b] and [c;d] by using lca at the start and end and then remove that one from diff array, then we do a diff array on the tree, then prefix sum. Notice that the problem update the value on edges, not verticals. The hard thing is getting the intersect, we know that with [a;b], a is the starting/ending point, same as b, and same approach with [c;d], and we know that if a and b are in different subtree, our path need to go up to parents and then down, so we need to find the 2 deepest intersect of [a;b] and [c;d] among the candidate {lca(a,c), lca(a,d), lca(b,c), lca(b,d)} - we are getting the smaller left and right boundary. About the difference array on tree, we do bottom-up, that means the child will update value to its parents and the root will get all of that values. But when building prefix sum, we do top-down for easier access
-**/
+*/
 
 #include <iostream>
 #include <vector>
@@ -58,26 +58,20 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("UPDTREE2.INP", "r")) return;
-    freopen("UPDTREE2.INP", "r", stdin);
-    freopen("UPDTREE2.OUT", "w", stdout);
+    if(!fopen("UPDTREE.INP", "r")) return;
+    freopen("UPDTREE.INP", "r", stdin);
+    freopen("UPDTREE.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 2e5+2;
-int h[N], up[N][19], lg[N], diff[N];
-ll tot[N];
+const int N = 1e5+2;
+int lg[N], up[N][19], diff[N], h[N];
+ll pref[N];
 vi adj[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-bool cmp(int a, int b){
-    return h[a] > h[b];
-}
-
 void init(){
-    for(int i = 2; i < N; i++){
-        lg[i] = lg[i >> 1] + 1;
-    }
+    for(int i = 2; i < N; i++) lg[i] = lg[i>>1] + 1;
 }
 
 void dfs(int u){
@@ -96,8 +90,9 @@ void dfs(int u){
 int lca(int u, int v){
     if(h[u] != h[v]){
         if(h[u] < h[v]) swap(u,v);
-        
+
         int dis = h[u] - h[v];
+
         for(int k = 18; k >= 0; k--){
             if(dis >> k & 1) u = up[u][k];
         }
@@ -114,8 +109,12 @@ int dist(int a, int b){
     return h[a] + h[b] - 2*h[lca(a,b)];
 }
 
-bool isIn(int a, int b, int x){
+bool isOn(int a, int b, int x){
     return dist(a,b) == dist(a,x) + dist(x,b);
+}
+
+bool isOnBothPath(int a, int b, int c, int d, int x){
+    return isOn(a,b,x) && isOn(c,d,x);
 }
 
 void remove_diff(int a, int b){
@@ -133,25 +132,31 @@ void add_diff(int a, int b){
 void dfs_diff(int u){
     for(int v : adj[u]){
         if(v == up[u][0]) continue;
-
+        
         dfs_diff(v);
-
+        
         diff[u] += diff[v];
     }
 }
 
-void pref_build(int u){
+void build_pref(int u){
     for(int v : adj[u]){
         if(v == up[u][0]) continue;
-
-        tot[v] = tot[u] + diff[v];
-        pref_build(v);
+        
+        pref[v] = pref[u] + diff[v];
+        
+        build_pref(v);
     }
 }
 
 ll get_pref(int a, int b){
-    return tot[a] + tot[b] - 2*tot[lca(a,b)];
+    return pref[a] + pref[b] - 2*pref[lca(a,b)];
 }
+
+bool cmp(int a, int b){
+    return h[a] > h[b];
+}
+
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
@@ -177,30 +182,28 @@ int main(){
         vi can = {lca(a,c), lca(a,d), lca(b,c), lca(b,d)};
         vi good;
         for(int x : can){
-            if(isIn(a,b,x) && isIn(c,d,x)) good.eb(x);
+            if(isOnBothPath(a,b,c,d,x)){
+                good.eb(x);
+            }
         }
         sort(all(good,0), cmp);
         filter(good,0);
 
-        if(sz(good) == 1){
-            remove_diff(good[0],good[0]);
-        }
-        else if(sz(good) > 1){
-            remove_diff(good[0], good[1]);
+        if(sz(good) > 1){
+            remove_diff(good[0],good[1]);
         }
 
         add_diff(a,b);
     }
 
     dfs_diff(1);
-    pref_build(1);
+    build_pref(1);
 
     while(p--){
-        int u, v;
+        int u,v;
         cin >> u >> v;
-
         cout << get_pref(u,v) << '\n';
     }
-    
+
     return NAH_I_WOULD_WIN;
 }
