@@ -2,9 +2,9 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-192/214-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Mar_25%2C_2026_--_13%3A12_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260325T1312&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-192/215-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Mar_26%2C_2026_--_12%3A42_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260326T1242&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 214
+- **Total Problems:** 215
 - **Accepted:** 192
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
@@ -16,11 +16,11 @@
 * [📂 CodeChef (1)](#-codechef-1)
 * [📂 Codeforces (104)](#-codeforces-104)
 * [📂 CPPros (1)](#-cppros-1)
-* [📂 CSES (26)](#-cses-26)
+* [📂 CSES (27)](#-cses-27)
   * [📂 Advanced Techniques (2)](#-advanced-techniques-2)
   * [📂 Dynamic Programming (12)](#-dynamic-programming-12)
   * [📂 Graph (7)](#-graph-7)
-  * [📂 Range Queries (1)](#-range-queries-1)
+  * [📂 Range Queries (2)](#-range-queries-2)
   * [📂 Sliding Windơows Problem (1)](#-sliding-windơows-problem-1)
   * [📂 Sorting And Searching (3)](#-sorting-and-searching-3)
 * [📂 IUHCoder (2)](#-iuhcoder-2)
@@ -34,7 +34,7 @@
 * [📂 VNOJ (13)](#-vnoj-13)
 
 ---
-## 📂 [Solutions (214)](https://codeforces.com/problemset/problem/276/C)
+## 📂 [Solutions (215)](https://codeforces.com/problemset/problem/276/C)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [276C - Little Girl and Maximum Sum](https://codeforces.com/problemset/problem/276/C) | `Implementation` | $\mathcal{O}(n \log n)$ | Mar 20, 2026 | [Code](276C.cpp) \| [Sub](https://codeforces.com/contest/276/submission/367460597) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -201,10 +201,11 @@
 | 6 | [1673 - High Score](https://cses.fi/problemset/task/1673) | `Graph`, `Bellman Ford` | $\mathcal{O}(n \cdot m)$ | Feb 23, 2026 | [Code](CSES/Graph/1673.cpp) \| [Sub](https://cses.fi/problemset/result/16352395/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 7 | [1750 - Planets Queries I](https://cses.fi/problemset/task/1750) | `Binary Lifting` | $\mathcal{O}((n+q) \log n)$ | Mar 19, 2026 | [Code](CSES/Graph/1750.cpp) \| [Sub](https://cses.fi/problemset/result/16614664/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-### 📁 Range Queries (1)
+### 📁 Range Queries (2)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1143 - Hotel Queries](https://cses.fi/problemset/task/1143) | N/A | N/A | Feb 18, 2026 | [Code](CSES/Range%20Queries/1143.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 2 | [1648 - Dynamic Range Sum Queries](https://cses.fi/problemset/task/1648) | N/A | N/A | Mar 26, 2026 | [Code](CSES/Range%20Queries/1648.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
 ### 📁 Sliding Windơows Problem (1)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
