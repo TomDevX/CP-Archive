@@ -3,7 +3,7 @@
  *    created: 2025-11-22 22:01:50
  *    country: Vietnam - VNM
  *    title: Dãy con tăng dài nhất (bản dễ) 
- *    source: 
+ *    source: https://oj.vnoi.info/problem/liq
  *    submission: https://oj.vnoi.info/src/10967418
  * ----------------------------------------------------------
  *    algorithm: Dynamic Programming, Binary Search
