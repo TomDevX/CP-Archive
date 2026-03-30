@@ -3,14 +3,14 @@
  *    created: 2026-03-21 21:14:01
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Threenum
+ *    source: https://oj.vnoi.info/problem/rmq_threenum
+ *    submission: https://oj.vnoi.info/submission/11926969
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Sparse table
+ *    complexity: O(n \log n)
+ *    note: Just approach the problem by considering the negative and positive integers and the minimum maximum they combine together in each case
 **/
 
 #include <iostream>

@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-27 09:08:52
+ *    created: 2026-03-28 21:12:59
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Bật đèn
+ *    source: https://oj.vnoi.info/problem/lites
+ *    submission: https://oj.vnoi.info/submission/11975680
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Segment Tree
+ *    complexity: O(n \log n)
+ *    note: We know that the bulb will only have 2 states that are on and off, so if the number of toggle times is even, it will be an off, otherwise, it will be an on
 **/
 
 #include <iostream>
@@ -58,44 +58,81 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("lites.INP", "r")) return;
+    freopen("lites.INP", "r", stdin);
+    freopen("lites.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 2e5+2;
-int diff[N];
+int n,q;
+const int N = 1e5+2;
+int st[4*N], t[4*N], a[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void down(int id, int l, int r, int mid){
+    if(t[id] == 0) return;
+    t[id] = 0;
 
+    int lc = id<<1;
+
+    t[lc] = !t[lc];
+    t[lc|1] = !t[lc|1];
+    st[lc] = (mid-l+1) - st[lc];
+    st[lc|1] = (r-mid) - st[lc|1];
+}
+
+void update(int id, int l, int r, int u, int v){
+    if(l > v || r < u) return;
+    if(l >= u && r <= v){
+        st[id] = ((r-l+1) - st[id]);
+        t[id] = !t[id];
+        return;
+    }
+
+    int mid = l + ((r-l)>>1);
+    int lc = id<<1;
+    down(id, l, r, mid);
+
+    update(lc,l,mid,u,v);
+    update(lc|1,mid+1,r,u,v);
+
+    st[id] = st[lc] + st[lc|1];
+}
+
+int get(int id, int l, int r, int u, int v){
+    if(l > v || r < u) return 0;
+    if(l >= u && r <= v){
+        return st[id];
+    }
+
+    int mid = l + ((r-l)>>1);
+    int lc = id<<1;
+    down(id, l, r, mid);
+
+    return get(lc,l,mid,u,v) + get(lc|1,mid+1,r,u,v);
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    int n,l,r;
-    cin >> n;
-    vpii a(n+1);
-    for(int i = 1; i <= n; i++) cin >> a[i].fi >> a[i].se;
+    cin >> n >> q;
 
-    vi sorted(2*n + 1);
-    for(int i = 1; i <= n; i++){
-        sorted[2*i] = a[i].fi;
-        sorted[2*i | 1] = a[i].se;
-    }
+    while(q--){
+        int type;
+        cin >> type;
+        if(type == 0){
+            int l,r;
+            cin >> l >> r;
 
-    for(int i = 1; i <= n; i++){
-        a[i].fi = lower_bound(all(sorted,1), a[i].fi) - sorted.begin();
-        a[i].se = lower_bound(all(sorted,1), a[i].se) - sorted.begin();
-
-        diff[a[i].fi]++;
-        diff[a[i].se+1]--;
-    }   
-
-    for(int i = 1; i < N; i++){
-        
+            update(1,1,n,l,r);
+        }
+        else{
+            int l,r;
+            cin >> l >> r;
+            cout << get(1,1,n,l,r) << '\n';
+        }
     }
     
     return NAH_I_WOULD_WIN;
