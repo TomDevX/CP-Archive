@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-30 09:02:58
+ *    created: 2026-03-30 09:13:21
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: CHUỖI BIÊN - Z-function
+ *    source: BT_20260330.pdf
  *    submission: 
- *    status: WIP
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Z-function, String Matching
+ *    complexity: O(n)
+ *    note: Use Z-function
 **/
 
 #include <iostream>
@@ -18,6 +18,7 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
+#include <string>
 
 using namespace std;
 
@@ -58,23 +59,49 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("SBORDER.INP", "r")) return;
+    freopen("SBORDER.INP", "r", stdin);
+    freopen("SBORDER.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-
+vi z_func(string &s){
+    int n = sz(s);
+    vi z(n);
+    for(int i = 1, l = 0, r = 0; i < n; i++){
+        if(i <= r){
+            z[i] = min(r-i+1, z[i-l]);
+        }
+        while(i + z[i] < n && s[z[i]] == s[i + z[i]]) z[i]++;
+        if(i + z[i] - 1 > r){
+            l = i;
+            r = i + z[i] - 1;
+        }
+    }
+    return z;
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    
+    string s;
+    cin >> s;
+    int n = sz(s);
+    vi z = z_func(s);
+
+    dbg(z,1);
+
+
+    for(int i = n-1; i >= 0; i--){
+        if(z[i] == n-i){
+            cout << z[i] << ' ';
+        }
+    }
     
     return NAH_I_WOULD_WIN;
 }

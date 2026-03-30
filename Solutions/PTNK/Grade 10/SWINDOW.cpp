@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-30 09:02:58
+ *    created: 2026-03-30 09:30:07
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: CỬA SỔ VĂN BẢN
+ *    source: BT_20260330.pdf
  *    submission: 
- *    status: WIP
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Z-function, String Matching
+ *    complexity: O(n)
+ *    note: Use string matching with some process to only get the window with size k
 **/
 
 #include <iostream>
@@ -18,6 +18,8 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
+#include <string>
+#include <deque>
 
 using namespace std;
 
@@ -58,23 +60,56 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("SWINDOW.INP", "r")) return;
+    freopen("SWINDOW.INP", "r", stdin);
+    freopen("SWINDOW.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-
+vi zf(string &s){
+    int n = sz(s);
+    vi z(n);
+    for(int i = 1,l = 0, r = 0; i < n; i++){
+        if(i <= r){
+            z[i] = min(r-i+1,z[i-l]);
+        }
+        while(i + z[i] < n && s[z[i]] == s[i + z[i]]) z[i]++;
+        if(i + z[i] - 1 > r){
+            l = i;
+            r = i + z[i] - 1;
+        }
+    }
+    return z;
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
+    string a,b;
+    getline(cin >> ws, a);
+    getline(cin >> ws, b);
+    int k;
+    cin >> k;
+
+    string t = b + "#" + a;
+    vi z = zf(t);
+    vi suff(sz(t)+1);
+    int m = sz(b);
+    for(int i = sz(t) - 1; i >= 0; i--){
+        suff[i] = suff[i+1] + (z[i] == m);
+    }
+
     
+    int ans = 0;
+    for(int i = m + 1; i + k <= sz(t); i++){
+        if(suff[i] - suff[i + k - m + 1] >= 1) ans++;
+    }
+    cout << ans;
     
     return NAH_I_WOULD_WIN;
 }
