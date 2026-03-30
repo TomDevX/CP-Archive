@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-27 09:08:52
+ *    created: 2026-03-30 08:22:36
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Educational Segment Tree Contest - ITEZ2
+ *    source: https://oj.vnoi.info/problem/segtree_itez2
+ *    submission: https://oj.vnoi.info/submission/11984622
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Segment Tree
+ *    complexity: O(n \log n)
+ *    note: Typical Segment tree sum query
 **/
 
 #include <iostream>
@@ -58,44 +58,64 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("segtree_itez2.INP", "r")) return;
+    freopen("segtree_itez2.INP", "r", stdin);
+    freopen("segtree_itez2.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 2e5+2;
-int diff[N];
+const int N = 1e5+2;
+ll st[4*N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void update(int id, int l, int r, int pos, int val){
+    if(l == r){
+        st[id] = val;
+        return;
+    }
 
+    int mid = l + ((r-l)>>1);
+    int lc = id<<1;
+
+    if(pos <= mid){
+        update(lc,l,mid,pos,val);
+    }
+    else update(lc|1,mid+1,r,pos,val);
+
+    st[id] = st[lc] + st[lc|1];
+}
+
+ll get(int id, int l, int r, int u, int v){
+    if(l > v || r < u) return 0;
+    if(l >= u && r <= v) return st[id];
+
+    int mid = l + ((r-l)>>1);
+    int lc = id<<1;
+
+    return get(lc,l,mid,u,v) + get(lc|1,mid+1,r,u,v);
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    int n,l,r;
-    cin >> n;
-    vpii a(n+1);
-    for(int i = 1; i <= n; i++) cin >> a[i].fi >> a[i].se;
+    int n,q;
+    cin >> n >> q;
 
-    vi sorted(2*n + 1);
-    for(int i = 1; i <= n; i++){
-        sorted[2*i] = a[i].fi;
-        sorted[2*i | 1] = a[i].se;
-    }
-
-    for(int i = 1; i <= n; i++){
-        a[i].fi = lower_bound(all(sorted,1), a[i].fi) - sorted.begin();
-        a[i].se = lower_bound(all(sorted,1), a[i].se) - sorted.begin();
-
-        diff[a[i].fi]++;
-        diff[a[i].se+1]--;
-    }   
-
-    for(int i = 1; i < N; i++){
-        
+    while(q--){
+        int type;
+        cin >> type;
+        if(type == 2){
+            int l,r;
+            cin >> l >> r;
+            cout << get(1,1,n,l,r) << '\n';
+        }
+        else{
+            int pos,x;
+            cin >> pos >> x;
+            update(1,1,n,pos,x);
+        }
     }
     
     return NAH_I_WOULD_WIN;
