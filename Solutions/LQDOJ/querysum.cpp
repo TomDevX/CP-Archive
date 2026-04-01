@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-31 07:38:11
+ *    created: 2026-04-01 09:57:42
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: DÂY CUNG
- *    source: Olp_20260330
- *    submission: 
- *    status: WIP
+ *    title: Query-Sum
+ *    source: https://lqdoj.edu.vn/problem/querysum
+ *    submission: https://lqdoj.edu.vn/submission/8320846
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Fenwick Tree
+ *    complexity: O(n \log n)
+ *    note: Typical Fenwick Tree
 **/
 
 #include <iostream>
@@ -18,7 +18,7 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
-#include <bitset>
+#include <cstring>
 
 using namespace std;
 
@@ -59,29 +59,46 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("CHORDS.INP", "r")) return;
-    freopen("CHORDS.INP", "r", stdin);
-    freopen("CHORDS.OUT", "w", stdout);
+    if(!fopen("querysum.INP", "r")) return;
+    freopen("querysum.INP", "r", stdin);
+    freopen("querysum.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 2e5+2;
-int bit[N];
-int n;
+const int N = 1e5+2;
+struct BIT{
+    ll bit[N];
+    int n;
 
-struct Fenwick_Tree{
-    void update(int pos, int val){
-        for(; pos <= 2*n; pos += pos&(-pos)) bit[pos] += val;
+    BIT(int _n = 0) : n(_n) {
+        memset(bit,0,sizeof(bit));
+    };
+
+    void build(const vi& a){
+        for(int i = 1; i <= n; i++){
+            bit[i] += a[i];
+
+            int j = i + (i&-i);
+            if(j <= n) bit[j] += bit[i];
+        }
     }
-    int get(int pos){
-        int ans = 0;
-        for(; pos; pos -= pos&(-pos)){
+
+    void update(int pos, int val){
+        for(; pos <= n; pos += pos&-pos){
+            bit[pos] += val;
+        }
+    }
+
+    ll prefSum(int pos){
+        ll ans = 0;
+        for(; pos; pos -= pos&-pos){
             ans += bit[pos];
         }
         return ans;
     }
-    int query(int l, int r){
-        return get(r) - get(l-1);
+
+    ll query(int l, int r){
+        return prefSum(r) - prefSum(l-1);
     }
 };
 
@@ -92,23 +109,30 @@ struct Fenwick_Tree{
 int main(){
     fastio;
     setup();
-    Fenwick_Tree BIT;
     
-    cin >> n;
-    vpii a(n+1);
-    for(int i = 1; i <= n; i++){
-        cin >> a[i].fi >> a[i].se;
-        if(a[i].fi > a[i].se) swap(a[i].fi,a[i].se);
-        BIT.update(a[i].fi,1);
-    }
-    sort(all(a,1));
-    
-    int ans = 0;
-    for(int i = 1; i <= n; i++){
-        ans += BIT.query(a[i].fi+1, a[i].se);
+    int n,q;
+    cin >> n >> q;
+    vi a(n+1);
+    for(int i = 1; i <= n; i++) cin >> a[i];
+
+    BIT bit(n);
+    bit.build(a);
+
+    while(q--){
+        int type;
+        cin >> type;
+        if(type == 1){
+            int pos,x;
+            cin >> pos >> x;
+
+            bit.update(pos,x);
+        }
+        else{
+            int l,r;
+            cin >> l >> r;
+            cout << bit.query(l,r) << '\n';
+        }
     }
 
-    cout << ans;
-    
     return NAH_I_WOULD_WIN;
 }

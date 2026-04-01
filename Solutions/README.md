@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-200/223-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Mar_30%2C_2026_--_11%3A33_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260330T1133&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-201/232-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Apr_01%2C_2026_--_12%3A19_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260401T1219&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 223
-- **Accepted:** 200
+- **Total Problems:** 232
+- **Accepted:** 201
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -25,16 +25,18 @@
   * [📂 Sorting And Searching (3)](#-sorting-and-searching-3)
 * [📂 IUHCoder (2)](#-iuhcoder-2)
 * [📂 Leetcode (1)](#-leetcode-1)
+* [📂 LQDOJ (1)](#-lqdoj-1)
 * [📂 Luogu (1)](#-luogu-1)
 * [📂 MarisaOJ (13)](#-marisaoj-13)
 * [📂 ojuz (1)](#-ojuz-1)
 * [📂 Project Euler (2)](#-project-euler-2)
-* [📂 PTNK (45)](#-ptnk-45)
-  * [📂 Grade 10 (45)](#-grade-10-45)
+* [📂 PTNK (53)](#-ptnk-53)
+  * [📂 Grade 10 (53)](#-grade-10-53)
+    * [📂 Entrance Exam 260331 (8)](#-entrance-exam-260331-8)
 * [📂 VNOJ (18)](#-vnoj-18)
 
 ---
-## 📂 [Solutions (223)](https://codeforces.com/problemset/problem/276/C)
+## 📂 [Solutions (232)](https://codeforces.com/problemset/problem/276/C)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [276C - Little Girl and Maximum Sum](https://codeforces.com/problemset/problem/276/C) | `Implementation` | $\mathcal{O}(n \log n)$ | Mar 20, 2026 | [Code](276C.cpp) \| [Sub](https://codeforces.com/contest/276/submission/367460597) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -232,6 +234,11 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [64 - Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum) | `Dynamic Programming` | $\mathcal{O}(n \cdot m)$ | Feb 12, 2026 | [Code](Leetcode/64.cpp) \| [Sub](https://leetcode.com/problems/minimum-path-sum/submissions/1916094804) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
+## 📂 [LQDOJ (1)](https://lqdoj.edu.vn/problems)
+| # | Problem Name | Tags | Complexity | Date | Solution | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | [QUERYSUM - Query-Sum](https://lqdoj.edu.vn/problem/querysum) | `Fenwick Tree` | $\mathcal{O}(n \log n)$ | Apr 1, 2026 | [Code](LQDOJ/querysum.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8320846) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+
 ## 📂 [Luogu (1)](https://www.luogu.com.cn/problem/list)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -267,7 +274,7 @@
 | 1 | [6 - Sum Square Difference](https://projecteuler.net/problem=6) | `Level 0` | $\mathcal{O}(1)$ | Feb 6, 2026 | [Code](Project%20Euler/6.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [7 - 10 001st Prime](https://projecteuler.net/problem=7) | `Level 0` | $\mathcal{O}(n \log \log n)$ | Feb 6, 2026 | [Code](Project%20Euler/7.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-### 📁 Grade 10 (45)
+### 📁 Grade 10 (53)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [ANCES - ANCES](PTNK/Grade%2010/LCA1.pdf) | `LCA` | $\mathcal{O}(n \log 19 + (n-1) + \log 19)$ | Feb 24, 2026 | [Code](PTNK/Grade%2010/ANCES.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -275,7 +282,7 @@
 | 3 | Anime 2 | N/A | N/A | N/A | [Code](PTNK/Grade%2010/ANIME_2.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 4 | [BLACKBOX - BLACKBOX](PTNK/Grade%2010/BT_20260223.pdf) | N/A | N/A | Feb 24, 2026 | [Code](PTNK/Grade%2010/BLACKBOX.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 5 | Catch | N/A | N/A | Dec 8, 2025 | [Code](PTNK/Grade%2010/CATCH.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 6 | [CHORDS - DÂY CUNG](PTNK/Grade%2010/Olp_20260330.pdf) | N/A | N/A | Mar 30, 2026 | [Code](PTNK/Grade%2010/CHORDS.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 6 | [CHORDS - DÂY CUNG](PTNK/Grade%2010/Olp_20260330) | N/A | N/A | Mar 31, 2026 | [Code](PTNK/Grade%2010/CHORDS.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 7 | Correction | N/A | N/A | Jan 19, 2026 | [Code](PTNK/Grade%2010/CORRECTION.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 8 | [CPATH - CPATH](PTNK/Grade%2010/BT_20260302.pdf) | N/A | N/A | Mar 2, 2026 | [Code](PTNK/Grade%2010/CPATH.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 9 | Delcol | N/A | N/A | Jan 6, 2026 | [Code](PTNK/Grade%2010/DELCOL.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -327,6 +334,18 @@
 | 55 | [UPDTREE - UPDTREE](PTNK/Grade%2010/LCA4.pdf) | `Graph` | $\mathcal{O}(n)$ | Mar 17, 2026 | [Code](PTNK/Grade%2010/UPDTREE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 56 | [VOTREE - VOTREE](PTNK/Grade%2010/LCA5.pdf) | `Sparse table`, `LCA` | $\mathcal{O}(n \log n)$ | Mar 24, 2026 | [Code](PTNK/Grade%2010/VOTREE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 57 | Xorsum | N/A | N/A | Jan 13, 2026 | [Code](PTNK/Grade%2010/XORSUM.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+
+### 📁 Entrance Exam 260331 (8)
+| # | Problem Name | Tags | Complexity | Date | Solution | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | Build | N/A | N/A | Mar 31, 2026 | [Code](PTNK/Grade%2010/Entrance_exam_260331/BUILD.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 2 | Dtrain | N/A | N/A | Mar 31, 2026 | [Code](PTNK/Grade%2010/Entrance_exam_260331/DTRAIN.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 3 | Hattrick | N/A | N/A | Mar 31, 2026 | [Code](PTNK/Grade%2010/Entrance_exam_260331/HATTRICK.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 4 | Kdiff | N/A | N/A | Mar 31, 2026 | [Code](PTNK/Grade%2010/Entrance_exam_260331/KDIFF.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 5 | MAXDIS - Khoảng cách lớn nhất | N/A | N/A | Mar 31, 2026 | [Code](PTNK/Grade%2010/Entrance_exam_260331/MAXDIS.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 6 | Mpd | N/A | N/A | Mar 31, 2026 | [Code](PTNK/Grade%2010/Entrance_exam_260331/MPD.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 7 | RTOWER - Phá tháp | N/A | N/A | Mar 31, 2026 | [Code](PTNK/Grade%2010/Entrance_exam_260331/RTOWER.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 8 | SUBP - Dãy ngoặc | N/A | N/A | Mar 31, 2026 | [Code](PTNK/Grade%2010/Entrance_exam_260331/SUBP.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
 ## 📂 [VNOJ (18)](https://oj.vnoi.info/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |

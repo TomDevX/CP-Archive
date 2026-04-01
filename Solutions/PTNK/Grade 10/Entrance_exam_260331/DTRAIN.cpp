@@ -1,10 +1,10 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-31 07:38:11
+ *    created: 2026-03-31 15:19:26
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: DÂY CUNG
- *    source: Olp_20260330
+ *    title: 
+ *    source: 
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -18,7 +18,6 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
-#include <bitset>
 
 using namespace std;
 
@@ -59,31 +58,13 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("CHORDS.INP", "r")) return;
-    freopen("CHORDS.INP", "r", stdin);
-    freopen("CHORDS.OUT", "w", stdout);
+    if(!fopen("DTRAIN.INP", "r")) return;
+    freopen("DTRAIN.INP", "r", stdin);
+    freopen("DTRAIN.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 2e5+2;
-int bit[N];
-int n;
 
-struct Fenwick_Tree{
-    void update(int pos, int val){
-        for(; pos <= 2*n; pos += pos&(-pos)) bit[pos] += val;
-    }
-    int get(int pos){
-        int ans = 0;
-        for(; pos; pos -= pos&(-pos)){
-            ans += bit[pos];
-        }
-        return ans;
-    }
-    int query(int l, int r){
-        return get(r) - get(l-1);
-    }
-};
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -92,23 +73,8 @@ struct Fenwick_Tree{
 int main(){
     fastio;
     setup();
-    Fenwick_Tree BIT;
     
-    cin >> n;
-    vpii a(n+1);
-    for(int i = 1; i <= n; i++){
-        cin >> a[i].fi >> a[i].se;
-        if(a[i].fi > a[i].se) swap(a[i].fi,a[i].se);
-        BIT.update(a[i].fi,1);
-    }
-    sort(all(a,1));
-    
-    int ans = 0;
-    for(int i = 1; i <= n; i++){
-        ans += BIT.query(a[i].fi+1, a[i].se);
-    }
-
-    cout << ans;
+    cout << 34;
     
     return NAH_I_WOULD_WIN;
 }

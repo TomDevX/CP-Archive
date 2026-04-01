@@ -1,10 +1,10 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-31 07:38:11
+ *    created: 2026-03-31 15:01:26
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: DÂY CUNG
- *    source: Olp_20260330
+ *    title: 
+ *    source: 
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -18,7 +18,6 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
-#include <bitset>
 
 using namespace std;
 
@@ -59,31 +58,16 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("CHORDS.INP", "r")) return;
-    freopen("CHORDS.INP", "r", stdin);
-    freopen("CHORDS.OUT", "w", stdout);
+    if(!fopen("MPD.INP", "r")) return;
+    freopen("MPD.INP", "r", stdin);
+    freopen("MPD.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 2e5+2;
-int bit[N];
-int n;
-
-struct Fenwick_Tree{
-    void update(int pos, int val){
-        for(; pos <= 2*n; pos += pos&(-pos)) bit[pos] += val;
-    }
-    int get(int pos){
-        int ans = 0;
-        for(; pos; pos -= pos&(-pos)){
-            ans += bit[pos];
-        }
-        return ans;
-    }
-    int query(int l, int r){
-        return get(r) - get(l-1);
-    }
-};
+int n,m,p;
+const int N = 11, VAL = 1e6+1;
+ll a[N][N][VAL];
+ll ans = 0;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -92,20 +76,18 @@ struct Fenwick_Tree{
 int main(){
     fastio;
     setup();
-    Fenwick_Tree BIT;
     
-    cin >> n;
-    vpii a(n+1);
+    cin >> n >> m >> p;
     for(int i = 1; i <= n; i++){
-        cin >> a[i].fi >> a[i].se;
-        if(a[i].fi > a[i].se) swap(a[i].fi,a[i].se);
-        BIT.update(a[i].fi,1);
+        for(int j = 1; j <= m; j++){
+            cin >> a[i][j];
+        }
     }
-    sort(all(a,1));
     
-    int ans = 0;
     for(int i = 1; i <= n; i++){
-        ans += BIT.query(a[i].fi+1, a[i].se);
+        for(int j = 1; j <= m; j++){
+
+        }
     }
 
     cout << ans;

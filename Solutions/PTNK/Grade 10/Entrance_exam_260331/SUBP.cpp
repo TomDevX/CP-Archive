@@ -1,10 +1,10 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-31 07:38:11
+ *    created: 2026-03-31 14:05:58
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: DÂY CUNG
- *    source: Olp_20260330
+ *    title: Dãy ngoặc
+ *    source: 
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -18,7 +18,8 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
-#include <bitset>
+#include <string>
+#include <cstring>
 
 using namespace std;
 
@@ -59,31 +60,14 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("CHORDS.INP", "r")) return;
-    freopen("CHORDS.INP", "r", stdin);
-    freopen("CHORDS.OUT", "w", stdout);
+    if(!fopen("SUBP.INP", "r")) return;
+    freopen("SUBP.INP", "r", stdin);
+    freopen("SUBP.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 2e5+2;
-int bit[N];
-int n;
-
-struct Fenwick_Tree{
-    void update(int pos, int val){
-        for(; pos <= 2*n; pos += pos&(-pos)) bit[pos] += val;
-    }
-    int get(int pos){
-        int ans = 0;
-        for(; pos; pos -= pos&(-pos)){
-            ans += bit[pos];
-        }
-        return ans;
-    }
-    int query(int l, int r){
-        return get(r) - get(l-1);
-    }
-};
+const int N = 1e5+2;
+int pos[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -92,22 +76,40 @@ struct Fenwick_Tree{
 int main(){
     fastio;
     setup();
-    Fenwick_Tree BIT;
+    memset(pos,-1,sizeof(pos));
+    pos[0] = 0;
     
-    cin >> n;
-    vpii a(n+1);
-    for(int i = 1; i <= n; i++){
-        cin >> a[i].fi >> a[i].se;
-        if(a[i].fi > a[i].se) swap(a[i].fi,a[i].se);
-        BIT.update(a[i].fi,1);
-    }
-    sort(all(a,1));
-    
-    int ans = 0;
-    for(int i = 1; i <= n; i++){
-        ans += BIT.query(a[i].fi+1, a[i].se);
-    }
+    string s;
+    cin >> s;
+    int n = sz(s);
+    dbg(n,1);
+    s = '#' + s;
 
+    int st = -1;
+    int ans = 0;
+
+    vi pref(n+1);
+    for(int i = 1; i <= n; i++){
+        if(s[i] == '('){
+            pref[i] = pref[i-1] + 1;
+        }
+        else{
+            pref[i] = pref[i-1] - 1;
+        }
+
+        if(pref[i] < 0){
+            st = i;
+            pref[i] = 0;
+        }
+        else{
+            if(pos[pref[i]] > st){
+                ans = max(ans, i - pos[pref[i]]);
+                // dbg(pos[pref[i]],i);
+            }
+            else pos[pref[i]] = i;
+        }
+    }
+    // dbg(pref,1);
     cout << ans;
     
     return NAH_I_WOULD_WIN;
