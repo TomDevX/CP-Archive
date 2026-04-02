@@ -98,8 +98,8 @@ struct BIT{
     void update_range(int l, int r, int val){
         update_point(0,l,val);
         update_point(0,r+1,-val);
-        update_point(1,l,l*val);
-        update_point(1,r+1,-(r+1)*val);
+        update_point(1,l,1LL*l*val);
+        update_point(1,r+1,1LL*-(r+1)*val);
     }
 
     ll get(int pos){
