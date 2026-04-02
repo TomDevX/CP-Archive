@@ -1,10 +1,10 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-02 14:01:04
+ *    created: 2026-04-02 09:2919
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: INCSEQ VN
+ *    source: https://oj.vnoi.info/problem/incvn
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -58,50 +58,46 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("incvn.INP", "r")) return;
+    freopen("incvn.INP", "r", stdin);
+    freopen("incvn.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-struct node{
-    int u,id;
-
-    node(int _u = 0, int _id = 0) : u(_u), id(_id) {};
-};
-const int N = 2002;
-vector<node> adj[N];
-int n;
-vi cycles;
+const int N = 1e4+2;
+ll st[4*N][2];
+ll dp[N][2];
+const int MOD = 5e6;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void find_cycle(){
+void build(int id, int l, int r){
+    if(l == r){
+        st[id][0] = 1;
+        return;
+    }
 
+    int mid = l+((r-l)>>1);
+    int lc = id<<1;
+
+    build(lc,l,mid);
+    build(lc|1,mid+1,r);
+
+    st[id][0] = (st[lc][0] + st[lc|1][0])%MOD;
 }
+
+voi
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    cin >> n;
-    for(int i = 1; i <= n; i++){
-        int u,v;
-        cin >> u >> v;
-        adj[u].eb(v,i);
-        adj[v].eb(u,i);
-    }
+    int n,k;
+    cin >> n >> k;
+    vi a(n+1);
+    for(int i = 1; i <= n; i++) cin >> a[i];
 
-    find_cycle();
-
-    int ans = 0;
-    for(int u : cycles){
-        for(node v : adj[u]) dfss(1,v.id);
-        ans = max(ans,get_d(1));
-        rest();
-    }
-
-    cout << ans;
+    
     
     return NAH_I_WOULD_WIN;
 }
