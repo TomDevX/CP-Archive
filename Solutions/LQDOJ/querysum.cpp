@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-02 21:08:46
+ *    created: 2026-04-01 09:57:42
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Query-Sum
+ *    source: https://lqdoj.edu.vn/problem/querysum
+ *    submission: https://lqdoj.edu.vn/submission/8320846
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Fenwick Tree
+ *    complexity: O(n \log n)
+ *    note: Typical Fenwick Tree
 **/
 
 #include <iostream>
@@ -18,6 +18,7 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
+#include <cstring>
 
 using namespace std;
 
@@ -58,58 +59,42 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("querysum.INP", "r")) return;
+    freopen("querysum.INP", "r", stdin);
+    freopen("querysum.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 const int N = 1e5+2;
 struct BIT{
-    ll bit[N][2];
+    ll bit[N];
     int n;
 
     BIT(int _n = 0) : n(_n) {
-        for(int i = 1; i <= n; i++) bit[i][0] = bit[i][1] = 0;
-    }
+        memset(bit,0,sizeof(bit));
+    };
 
-    void build(vi &a){
+    void build(const vi& a){
         for(int i = 1; i <= n; i++){
-            ll d = 1LL*(a[i] - a[i-1])*(n-i+1);
-            bit[i][0] += d;
-            bit[i][1] += a[i] - a[i-1];
-            
+            bit[i] += a[i];
+
             int j = i + (i&-i);
-            if(j <= n){
-                bit[j][0] += bit[i][0];
-                bit[j][1] += bit[i][1];
-            }
+            if(j <= n) bit[j] += bit[i];
         }
     }
 
-    void update_point(int id, int pos, ll val){
+    void update(int pos, int val){
         for(; pos <= n; pos += pos&-pos){
-            bit[pos][id] += val;
+            bit[pos] += val;
         }
-    }
-
-    void update_range(int l, int r, ll val){
-        update_point(0, l, (n-l+1)*val);
-        update_point(0, r+1, -(n-r)*val);
-        update_point(1, l, val);
-        update_point(1, r+1, -val); 
-    }
-
-    ll get(int id, int pos){
-        ll ans = 0;
-        for(; pos; pos -= pos&-pos){
-            ans += bit[pos][id];
-        }
-        return ans;
     }
 
     ll prefSum(int pos){
-        return get(0, pos) - (n - pos)*get(1,pos);
+        ll ans = 0;
+        for(; pos; pos -= pos&-pos){
+            ans += bit[pos];
+        }
+        return ans;
     }
 
     ll query(int l, int r){
@@ -137,9 +122,10 @@ int main(){
         int type;
         cin >> type;
         if(type == 1){
-            int l,r,v;
-            cin >> l >> r >> v;
-            bit.update_range(l,r,v);
+            int pos,x;
+            cin >> pos >> x;
+
+            bit.update(pos,x);
         }
         else{
             int l,r;
@@ -147,6 +133,6 @@ int main(){
             cout << bit.query(l,r) << '\n';
         }
     }
-    
+
     return NAH_I_WOULD_WIN;
 }

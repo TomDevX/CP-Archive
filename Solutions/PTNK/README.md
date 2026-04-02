@@ -2,9 +2,9 @@
 
 ### 📊 PTNK Stats
 
-![Progress](https://img.shields.io/badge/Progress-42/45-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Mar_30%2C_2026_--_11%3A33_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-42/53-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_02%2C_2026_--_16%3A11_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
-- **Total Unique Problems:** 45
+- **Total Unique Problems:** 53
 - **Solved (AC):** 42
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
@@ -12,10 +12,11 @@
 ---
 ## 📌 Table of Contents
 
-  * [📁 Grade 10 (45)](#-grade-10-45)
+  * [📁 Grade 10 (53)](#-grade-10-53)
+    * [📁 Entrance_exam_260331 (8)](#-entrance_exam_260331-8)
 
 ---
-### 📁 Grade 10 (45)
+### 📁 Grade 10 (53)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [ANCES - ANCES](Grade%2010/LCA1.pdf) | `LCA` | $\mathcal{O}(n \log 19 + (n-1) + \log 19)$ | Feb 24, 2026 | [Code](Grade%2010/ANCES.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -23,7 +24,7 @@
 | 3 | ANIME_2 | N/A | N/A | N/A | [Code](Grade%2010/ANIME_2.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 4 | [BLACKBOX - BLACKBOX](Grade%2010/BT_20260223.pdf) | N/A | N/A | Feb 24, 2026 | [Code](Grade%2010/BLACKBOX.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 5 | CATCH | N/A | N/A | Dec 08, 2025 | [Code](Grade%2010/CATCH.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 6 | [CHORDS - DÂY CUNG](Grade%2010/Olp_20260330.pdf) | N/A | N/A | Mar 30, 2026 | [Code](Grade%2010/CHORDS.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 6 | [CHORDS - DÂY CUNG](Grade%2010/Olp_20260330) | N/A | N/A | Mar 31, 2026 | [Code](Grade%2010/CHORDS.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 7 | CORRECTION | N/A | N/A | Jan 19, 2026 | [Code](Grade%2010/CORRECTION.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 8 | [CPATH - CPATH](Grade%2010/BT_20260302.pdf) | N/A | N/A | Mar 02, 2026 | [Code](Grade%2010/CPATH.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 9 | DELCOL | N/A | N/A | Jan 06, 2026 | [Code](Grade%2010/DELCOL.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -75,4 +76,16 @@
 | 55 | [UPDTREE - UPDTREE](Grade%2010/LCA4.pdf) | `Graph` | $\mathcal{O}(n)$ | Mar 17, 2026 | [Code](Grade%2010/UPDTREE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 56 | [VOTREE - VOTREE](Grade%2010/LCA5.pdf) | `Sparse table`, `LCA` | $\mathcal{O}(n \log n)$ | Mar 24, 2026 | [Code](Grade%2010/VOTREE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 57 | XORSUM | N/A | N/A | Jan 13, 2026 | [Code](Grade%2010/XORSUM.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+
+#### 📁 Entrance_exam_260331 (8)
+| # | Problem Name | Tags | Complexity | Date | Solution | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | BUILD | N/A | N/A | Mar 31, 2026 | [Code](Grade%2010/Entrance_exam_260331/BUILD.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 2 | DTRAIN | N/A | N/A | Mar 31, 2026 | [Code](Grade%2010/Entrance_exam_260331/DTRAIN.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 3 | HATTRICK | N/A | N/A | Mar 31, 2026 | [Code](Grade%2010/Entrance_exam_260331/HATTRICK.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 4 | KDIFF | N/A | N/A | Mar 31, 2026 | [Code](Grade%2010/Entrance_exam_260331/KDIFF.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 5 | MAXDIS - Khoảng cách lớn nhất | N/A | N/A | Mar 31, 2026 | [Code](Grade%2010/Entrance_exam_260331/MAXDIS.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 6 | MPD | N/A | N/A | Mar 31, 2026 | [Code](Grade%2010/Entrance_exam_260331/MPD.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 7 | RTOWER - Phá tháp | N/A | N/A | Mar 31, 2026 | [Code](Grade%2010/Entrance_exam_260331/RTOWER.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 8 | SUBP - Dãy ngoặc | N/A | N/A | Mar 31, 2026 | [Code](Grade%2010/Entrance_exam_260331/SUBP.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 

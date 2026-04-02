@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-02 21:08:46
+ *    created: 2026-03-31 15:06:35
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -58,64 +58,14 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("KDIFF.INP", "r")) return;
+    freopen("KDIFF.INP", "r", stdin);
+    freopen("KDIFF.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 const int N = 1e5+2;
-struct BIT{
-    ll bit[N][2];
-    int n;
-
-    BIT(int _n = 0) : n(_n) {
-        for(int i = 1; i <= n; i++) bit[i][0] = bit[i][1] = 0;
-    }
-
-    void build(vi &a){
-        for(int i = 1; i <= n; i++){
-            ll d = 1LL*(a[i] - a[i-1])*(n-i+1);
-            bit[i][0] += d;
-            bit[i][1] += a[i] - a[i-1];
-            
-            int j = i + (i&-i);
-            if(j <= n){
-                bit[j][0] += bit[i][0];
-                bit[j][1] += bit[i][1];
-            }
-        }
-    }
-
-    void update_point(int id, int pos, ll val){
-        for(; pos <= n; pos += pos&-pos){
-            bit[pos][id] += val;
-        }
-    }
-
-    void update_range(int l, int r, ll val){
-        update_point(0, l, (n-l+1)*val);
-        update_point(0, r+1, -(n-r)*val);
-        update_point(1, l, val);
-        update_point(1, r+1, -val); 
-    }
-
-    ll get(int id, int pos){
-        ll ans = 0;
-        for(; pos; pos -= pos&-pos){
-            ans += bit[pos][id];
-        }
-        return ans;
-    }
-
-    ll prefSum(int pos){
-        return get(0, pos) - (n - pos)*get(1,pos);
-    }
-
-    ll query(int l, int r){
-        return prefSum(r) - prefSum(l-1);
-    }
-};
+pii cnt[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -125,28 +75,27 @@ int main(){
     fastio;
     setup();
     
-    int n,q;
-    cin >> n >> q;
+    int n,k;
+    cin >> n >> k;
     vi a(n+1);
     for(int i = 1; i <= n; i++) cin >> a[i];
 
-    BIT bit(n);
-    bit.build(a);
-
-    while(q--){
-        int type;
-        cin >> type;
-        if(type == 1){
-            int l,r,v;
-            cin >> l >> r >> v;
-            bit.update_range(l,r,v);
-        }
-        else{
-            int l,r;
-            cin >> l >> r;
-            cout << bit.query(l,r) << '\n';
+    ll ans = 0;
+    for(int i = 1; i <= n; i++){
+        int diff = 0;
+        for(int j = i; j <= n; j++){
+            if(cnt[a[j]].se != i){
+                cnt[a[j]] = {1,i};
+                diff++;
+            }
+            else{
+                cnt[a[j]].fi++;
+                if(cnt[a[j]].fi == 1) diff++;
+            }
+            ans += (diff == k);
         }
     }
+    cout << ans;
     
     return NAH_I_WOULD_WIN;
 }

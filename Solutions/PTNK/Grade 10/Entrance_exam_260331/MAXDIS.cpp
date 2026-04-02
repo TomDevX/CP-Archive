@@ -1,9 +1,9 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-02 21:08:46
+ *    created: 2026-03-31 14:00:23
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
+ *    title: Khoảng cách lớn nhất
  *    source: 
  *    submission: 
  *    status: WIP
@@ -18,6 +18,7 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
+#include <cmath>
 
 using namespace std;
 
@@ -58,64 +59,13 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("MAXDIS.INP", "r")) return;
+    freopen("MAXDIS.INP", "r", stdin);
+    freopen("MAXDIS.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5+2;
-struct BIT{
-    ll bit[N][2];
-    int n;
 
-    BIT(int _n = 0) : n(_n) {
-        for(int i = 1; i <= n; i++) bit[i][0] = bit[i][1] = 0;
-    }
-
-    void build(vi &a){
-        for(int i = 1; i <= n; i++){
-            ll d = 1LL*(a[i] - a[i-1])*(n-i+1);
-            bit[i][0] += d;
-            bit[i][1] += a[i] - a[i-1];
-            
-            int j = i + (i&-i);
-            if(j <= n){
-                bit[j][0] += bit[i][0];
-                bit[j][1] += bit[i][1];
-            }
-        }
-    }
-
-    void update_point(int id, int pos, ll val){
-        for(; pos <= n; pos += pos&-pos){
-            bit[pos][id] += val;
-        }
-    }
-
-    void update_range(int l, int r, ll val){
-        update_point(0, l, (n-l+1)*val);
-        update_point(0, r+1, -(n-r)*val);
-        update_point(1, l, val);
-        update_point(1, r+1, -val); 
-    }
-
-    ll get(int id, int pos){
-        ll ans = 0;
-        for(; pos; pos -= pos&-pos){
-            ans += bit[pos][id];
-        }
-        return ans;
-    }
-
-    ll prefSum(int pos){
-        return get(0, pos) - (n - pos)*get(1,pos);
-    }
-
-    ll query(int l, int r){
-        return prefSum(r) - prefSum(l-1);
-    }
-};
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -125,28 +75,47 @@ int main(){
     fastio;
     setup();
     
-    int n,q;
-    cin >> n >> q;
+    int n,l,r;
+    cin >> n >> l >> r;
     vi a(n+1);
-    for(int i = 1; i <= n; i++) cin >> a[i];
+    for(int i = 1; i <= n; i++){
+        cin >> a[i];
+    }
 
-    BIT bit(n);
-    bit.build(a);
+    sort(all(a,1));
 
-    while(q--){
-        int type;
-        cin >> type;
-        if(type == 1){
-            int l,r,v;
-            cin >> l >> r >> v;
-            bit.update_range(l,r,v);
+    int ans = -2e9, maxdis = -1e9;
+
+    if(r > a[n]){
+        maxdis = r - a[n];
+        ans = r;
+    }
+
+    for(int i = n-1; i >= 1; i--){
+        int mid = ((a[i] + a[i+1])/2);
+        if(mid > r || mid < l){
+            if(r >= a[i] && r <= a[i+1] && min(abs(r - a[i]),abs(r - a[i+1])) > maxdis){
+                maxdis = max(abs(r - a[i]),abs(r - a[i+1]));
+                dbg(maxdis,i);
+                ans = r;
+            }
+            if(l >= a[i] && l <= a[i+1] && min(abs(l - a[i]),abs(l - a[i+1])) > maxdis){
+                maxdis = max(abs(l - a[i]),abs(l - a[i+1]));
+                ans = l;
+            }
         }
-        else{
-            int l,r;
-            cin >> l >> r;
-            cout << bit.query(l,r) << '\n';
+        else if(min(abs(mid - a[i]), abs(a[i+1] - mid)) > maxdis){
+            maxdis = max(abs(mid - a[i]), abs(a[i+1] - mid));
+            ans = mid;
         }
     }
-    
+
+    if(l < a[1] && a[1] - l > maxdis){
+        maxdis = a[1] - l;
+        ans = l;
+    }
+
+    cout << ans;
+
     return NAH_I_WOULD_WIN;
 }

@@ -1,6 +1,6 @@
-# 📁 ojuz Solutions
+# 📁 LQDOJ Solutions
 
-### 📊 ojuz Stats
+### 📊 LQDOJ Stats
 
 ![Progress](https://img.shields.io/badge/Progress-1/1-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_02%2C_2026_--_16%3A11_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
@@ -12,11 +12,11 @@
 ---
 ## 📌 Table of Contents
 
-* [📁 ojuz (1)](#-ojuz-1)
+* [📁 LQDOJ (1)](#-lqdoj-1)
 
 ---
-## 📂 ojuz (1)
+## 📂 LQDOJ (1)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [IOI12 - IOI 2012 - Scrivener](https://oj.uz/problem/view/IOI12_scrivener) | `Binary Lifting` | $\mathcal{O}(n \log n)$ | Mar 24, 2026 | [Code](IOI12_scrivener.cpp) \| [Sub](https://oj.uz/submission/1341268) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | [QUERYSUM - Query-Sum](https://lqdoj.edu.vn/problem/querysum) | `Fenwick Tree` | $\mathcal{O}(n \log n)$ | Apr 01, 2026 | [Code](querysum.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8320846) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 

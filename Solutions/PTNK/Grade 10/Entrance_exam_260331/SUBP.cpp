@@ -1,9 +1,9 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-02 21:08:46
+ *    created: 2026-03-31 14:05:58
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
+ *    title: Dãy ngoặc
  *    source: 
  *    submission: 
  *    status: WIP
@@ -18,6 +18,8 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
+#include <string>
+#include <cstring>
 
 using namespace std;
 
@@ -58,64 +60,14 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("SUBP.INP", "r")) return;
+    freopen("SUBP.INP", "r", stdin);
+    freopen("SUBP.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 const int N = 1e5+2;
-struct BIT{
-    ll bit[N][2];
-    int n;
-
-    BIT(int _n = 0) : n(_n) {
-        for(int i = 1; i <= n; i++) bit[i][0] = bit[i][1] = 0;
-    }
-
-    void build(vi &a){
-        for(int i = 1; i <= n; i++){
-            ll d = 1LL*(a[i] - a[i-1])*(n-i+1);
-            bit[i][0] += d;
-            bit[i][1] += a[i] - a[i-1];
-            
-            int j = i + (i&-i);
-            if(j <= n){
-                bit[j][0] += bit[i][0];
-                bit[j][1] += bit[i][1];
-            }
-        }
-    }
-
-    void update_point(int id, int pos, ll val){
-        for(; pos <= n; pos += pos&-pos){
-            bit[pos][id] += val;
-        }
-    }
-
-    void update_range(int l, int r, ll val){
-        update_point(0, l, (n-l+1)*val);
-        update_point(0, r+1, -(n-r)*val);
-        update_point(1, l, val);
-        update_point(1, r+1, -val); 
-    }
-
-    ll get(int id, int pos){
-        ll ans = 0;
-        for(; pos; pos -= pos&-pos){
-            ans += bit[pos][id];
-        }
-        return ans;
-    }
-
-    ll prefSum(int pos){
-        return get(0, pos) - (n - pos)*get(1,pos);
-    }
-
-    ll query(int l, int r){
-        return prefSum(r) - prefSum(l-1);
-    }
-};
+int pos[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -124,29 +76,41 @@ struct BIT{
 int main(){
     fastio;
     setup();
+    memset(pos,-1,sizeof(pos));
+    pos[0] = 0;
     
-    int n,q;
-    cin >> n >> q;
-    vi a(n+1);
-    for(int i = 1; i <= n; i++) cin >> a[i];
+    string s;
+    cin >> s;
+    int n = sz(s);
+    dbg(n,1);
+    s = '#' + s;
 
-    BIT bit(n);
-    bit.build(a);
+    int st = -1;
+    int ans = 0;
 
-    while(q--){
-        int type;
-        cin >> type;
-        if(type == 1){
-            int l,r,v;
-            cin >> l >> r >> v;
-            bit.update_range(l,r,v);
+    vi pref(n+1);
+    for(int i = 1; i <= n; i++){
+        if(s[i] == '('){
+            pref[i] = pref[i-1] + 1;
         }
         else{
-            int l,r;
-            cin >> l >> r;
-            cout << bit.query(l,r) << '\n';
+            pref[i] = pref[i-1] - 1;
+        }
+
+        if(pref[i] < 0){
+            st = i;
+            pref[i] = 0;
+        }
+        else{
+            if(pos[pref[i]] > st){
+                ans = max(ans, i - pos[pref[i]]);
+                // dbg(pos[pref[i]],i);
+            }
+            else pos[pref[i]] = i;
         }
     }
+    // dbg(pref,1);
+    cout << ans;
     
     return NAH_I_WOULD_WIN;
 }

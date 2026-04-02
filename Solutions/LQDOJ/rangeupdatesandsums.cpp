@@ -3,7 +3,7 @@
  *    created: 2026-03-31 20:37:47
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
+ *    title:    
  *    source: 
  *    submission: 
  *    status: WIP
