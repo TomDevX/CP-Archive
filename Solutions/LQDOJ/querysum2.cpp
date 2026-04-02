@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-02 21:08:46
+ *    created: 2026-04-02 22:08:26
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Query-Sum 2
+ *    source: https://lqdoj.edu.vn/problem/querysum2
+ *    submission: https://lqdoj.edu.vn/submission/8335727
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Fenwick Tree (BIT)
+ *    complexity: O(n \log n)
+ *    note: we have Sum(1 -> p) = (p+1) * sum(d[1] -> d[p]) - sum(i*d[1] -> i*d[i]). Using diff array on Fenwick Tree (BIT)
 **/
 
 #include <iostream>
@@ -58,9 +58,9 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("querysum2.INP", "r")) return;
+    freopen("querysum2.INP", "r", stdin);
+    freopen("querysum2.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
@@ -71,14 +71,16 @@ struct BIT{
 
     BIT(int _n = 0) : n(_n) {
         for(int i = 1; i <= n; i++) bit[i][0] = bit[i][1] = 0;
-    }
+    };
 
     void build(vi &a){
         for(int i = 1; i <= n; i++){
-            ll d = 1LL*i*(a[i] - a[i-1]);
-            bit[i][0] += a[i] - a[i-1];
+            ll diff = a[i] - a[i-1];
+            ll d = 1LL*i*diff;
+
+            bit[i][0] += diff;
             bit[i][1] += d;
-            
+
             int j = i + (i&-i);
             if(j <= n){
                 bit[j][0] += bit[i][0];
@@ -87,33 +89,31 @@ struct BIT{
         }
     }
 
-    void update_point(int id, int pos, ll val){
-        for(; pos <= n; pos += pos&-pos){
+    void update_point(int id, int pos, int val){
+        for(;pos <= n; pos += pos&-pos){
             bit[pos][id] += val;
         }
     }
 
-    void update_range(int l, int r, ll val){
-        update_point(0, l, val);
-        update_point(0, r+1, -val);
-        update_point(1, l, l*val);
-        update_point(1, r+1, -(r+1)*val); 
+    void update_range(int l, int r, int val){
+        update_point(0,l,val);
+        update_point(0,r+1,-val);
+        update_point(1,l,l*val);
+        update_point(1,r+1,-(r+1)*val);
     }
 
-    ll get(int id, int pos){
-        ll ans = 0;
+    ll get(int pos){
+        ll suma = 0, sumb = 0;
+        int ori = pos;
         for(; pos; pos -= pos&-pos){
-            ans += bit[pos][id];
+            suma += bit[pos][0];
+            sumb += bit[pos][1];
         }
-        return ans;
-    }
-
-    ll prefSum(int pos){
-        return (pos+1)*get(0, pos) - get(1,pos);
+        return 1LL*(ori+1)*suma - sumb;
     }
 
     ll query(int l, int r){
-        return prefSum(r) - prefSum(l-1);
+        return get(r) - get(l-1);
     }
 };
 
@@ -137,9 +137,9 @@ int main(){
         int type;
         cin >> type;
         if(type == 1){
-            int l,r,v;
-            cin >> l >> r >> v;
-            bit.update_range(l,r,v);
+            int l,r,val;
+            cin >> l >> r >> val;
+            bit.update_range(l,r,val);
         }
         else{
             int l,r;
