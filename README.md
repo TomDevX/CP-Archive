@@ -7,7 +7,6 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ### 🔴 High-Level Goals (Long-term)
 
 - [ ] **Second Prize** - Vietnam National Olympiad in Informatics (VOI)
-- [ ] **Second Prize** - Tin Học Trẻ National (Category C1)
 
 ### 🟡 Current Priority
 
@@ -15,8 +14,9 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 
 ### 🔵 Side-Milestones
 
-- [ ] **Candidate Master** on Codeforces (Current Rating: [![Codeforce](https://mosesxu.ca/judge-badge/codeforces/tomdev)](https://codeforces.com/profile/tomdev))
 - [ ] **First Prize** - Tin Học Trẻ Southern Region (Category C1)
+- [ ] **Second Prize** - Tin Học Trẻ National (Category C1)
+- [ ] **Candidate Master** on Codeforces (Current Rating: [![Codeforce](https://mosesxu.ca/judge-badge/codeforces/tomdev)](https://codeforces.com/profile/tomdev))
 
 ## 📂 Directory Structure
 
