@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-01 22:08:43
+ *    created: 2026-03-31 20:37:47
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -18,8 +18,6 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
-#include <cstring>
-#include <queue>
 
 using namespace std;
 
@@ -60,64 +58,23 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("rangeupdatesandsums.INP", "r")) return;
+    freopen("rangeupdatesandsums.INP", "r", stdin);
+    freopen("rangeupdatesandsums.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 102;
-int dis[N];
-struct node{
-    int u,w;
 
-    node(int _u = 0, int _w = 0) : u(_u), w(_w) {};
-    bool operator<(const node& other) const{
-        return w > other.w;
-    }
-};
-vector<node> adj[N];
-priority_queue<node> pq;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void diks(int src){
-    dis[src] = 0;
-    pq.push({src,0});
 
-    while(!pq.empty()){
-        node u = pq.top();
-        pq.pop();
-
-        if(u.w > dis[u.u]) continue;
-        for(node v : adj[u.u]){
-            if(dis[v.u] > u.w + v.w){
-                dis[v.u] = u.w + v.w;
-                pq.push({v.u, dis[v.u]});
-            }
-        }
-    }
-}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
-    memset(dis,0x3f,sizeof(dis));
     
-    int n,m;
-    cin >> n >> m;
-    for(int i = 1; i <= m; i++){
-        int u,v,w;
-        cin >> u >> v >> w;
-        adj[u].eb(v,w);
-        adj[v].eb(u,w);
-    }
-
-    diks(1);
-
-    for(int i = 2; i <= n; i++){
-        cout << (dis[i] == dis[0] ? -1 : dis[i]) << '\n';
-    }
+    
     
     return NAH_I_WOULD_WIN;
 }
