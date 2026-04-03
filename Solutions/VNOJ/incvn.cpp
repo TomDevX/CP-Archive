@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-02 09:2919
+ *    created: 2026-04-03 10:55:59
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: INCSEQ VN
  *    source: https://oj.vnoi.info/problem/incvn
- *    submission: 
- *    status: WIP
+ *    submission: https://oj.vnoi.info/submission/12024546
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Segment Tree, Dynamic Programming
+ *    complexity: O(n \log n)
+ *    note: Just like normal LIS but instead of binary search we query it with segment tree and add the second dimension is number of elements
 **/
 
 #include <iostream>
@@ -64,28 +64,35 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e4+2;
-ll st[4*N][2];
-ll dp[N][2];
-const int MOD = 5e6;
+const int N = 1e4+2, MAXVAL = 1e5, MOD = 5e6, K = 52;
+ll dp[K][N];
+ll st[K][4*MAXVAL];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void build(int id, int l, int r){
+void update(int dim, int id, int l, int r, int pos, int val){
     if(l == r){
-        st[id][0] = 1;
+        st[dim][id] += val;
         return;
     }
 
-    int mid = l+((r-l)>>1);
+    int mid = l + ((r-l)>>1);
     int lc = id<<1;
 
-    build(lc,l,mid);
-    build(lc|1,mid+1,r);
+    if(pos <= mid) update(dim,lc,l,mid,pos,val);
+    else update(dim,lc|1,mid+1,r,pos,val);
 
-    st[id][0] = (st[lc][0] + st[lc|1][0])%MOD;
+    st[dim][id] = (st[dim][lc] + st[dim][lc|1])%MOD;
 }
 
-voi
+ll get(int dim, int id, int l, int r, int u, int v){
+    if(l > v || r < u) return 0;
+    if(l >= u && r <= v) return st[dim][id];
+
+    int mid = l + ((r-l)>>1);
+    int lc = id<<1;
+
+    return (get(dim,lc,l,mid,u,v) + get(dim,lc|1,mid+1,r,u,v))%MOD;
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
@@ -95,9 +102,20 @@ int main(){
     int n,k;
     cin >> n >> k;
     vi a(n+1);
-    for(int i = 1; i <= n; i++) cin >> a[i];
+    for(int i = 1; i <= n; i++){
+        cin >> a[i];
+        dp[1][i] = 1;
+    }
 
-    
+    ll ans = 0;
+    for(int j = 2; j <= k; j++){
+        for(int i = 1; i <= n; i++){
+            dp[j][i] = get(j,1,1,MAXVAL,1,a[i]-1);
+            update(j,1,1,MAXVAL,a[i], dp[j-1][i]);
+            if(j == k) ans = (dp[j][i] + ans)%MOD;
+        }   
+    }
+    cout << ans;
     
     return NAH_I_WOULD_WIN;
 }

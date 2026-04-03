@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-02 21:08:46
+ *    created: 2026-04-03 10:07:43
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -64,89 +64,58 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5+2;
-struct BIT{
-    ll bit[N][2];
-    int n;
-
-    BIT(int _n = 0) : n(_n) {
-        for(int i = 1; i <= n; i++) bit[i][0] = bit[i][1] = 0;
-    }
-
-    void build(vi &a){
-        for(int i = 1; i <= n; i++){
-            ll d = 1LL*i*(a[i] - a[i-1]);
-            bit[i][0] += a[i] - a[i-1];
-            bit[i][1] += d;
-            
-            int j = i + (i&-i);
-            if(j <= n){
-                bit[j][0] += bit[i][0];
-                bit[j][1] += bit[i][1];
-            }
-        }
-    }
-
-    void update_point(int id, int pos, ll val){
-        for(; pos <= n; pos += pos&-pos){
-            bit[pos][id] += val;
-        }
-    }
-
-    void update_range(int l, int r, ll val){
-        update_point(0, l, val);
-        update_point(0, r+1, -val);
-        update_point(1, l, l*val);
-        update_point(1, r+1, -(r+1)*val); 
-    }
-
-    ll get(int id, int pos){
-        ll ans = 0;
-        for(; pos; pos -= pos&-pos){
-            ans += bit[pos][id];
-        }
-        return ans;
-    }
-
-    ll prefSum(int pos){
-        return (pos+1)*get(0, pos) - get(1,pos);
-    }
-
-    ll query(int l, int r){
-        return prefSum(r) - prefSum(l-1);
-    }
-};
+const int N = 1e4+2, MAXVAL = 1e5, MOD = 5e6, K = 52;
+ll dp[K][N];
+ll st[K][4*MAXVAL];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void update(int dim, int id, int l, int r, int pos, int val){
+    if(l == r){
+        st[dim][id] += val;
+        return;
+    }
 
+    int mid = l + ((r-l)>>1);
+    int lc = id<<1;
+
+    if(pos <= mid) update(dim,lc,l,mid,pos,val);
+    else update(dim,lc|1,mid+1,r,pos,val);
+
+    st[dim][id] = (st[dim][lc] + st[dim][lc|1])%MOD;
+}
+
+ll get(int dim, int id, int l, int r, int u, int v){
+    if(l > v || r < u) return 0;
+    if(l >= u && r <= v) return st[dim][id];
+
+    int mid = l + ((r-l)>>1);
+    int lc = id<<1;
+
+    return (get(dim,lc,l,mid,u,v) + get(dim,lc|1,mid+1,r,u,v))%MOD;
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    int n,q;
-    cin >> n >> q;
+    int n,k;
+    cin >> n >> k;
     vi a(n+1);
-    for(int i = 1; i <= n; i++) cin >> a[i];
-
-    BIT bit(n);
-    bit.build(a);
-
-    while(q--){
-        int type;
-        cin >> type;
-        if(type == 1){
-            int l,r,v;
-            cin >> l >> r >> v;
-            bit.update_range(l,r,v);
-        }
-        else{
-            int l,r;
-            cin >> l >> r;
-            cout << bit.query(l,r) << '\n';
-        }
+    for(int i = 1; i <= n; i++){
+        cin >> a[i];
+        dp[1][i] = 1;
     }
+
+    ll ans = 0;
+    for(int j = 2; j <= k; j++){
+        for(int i = 1; i <= n; i++){
+            dp[j][i] = get(j,1,1,MAXVAL,1,a[i]-1);
+            update(j,1,1,MAXVAL,a[i], dp[j-1][i]);
+            if(j == k) ans = (dp[j][i] + ans)%MOD;
+        }   
+    }
+    cout << ans;
     
     return NAH_I_WOULD_WIN;
 }
