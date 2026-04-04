@@ -3,14 +3,14 @@
  *    created: 2026-04-04 10:38:30
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: List Removals - Segment Tree Approach
+ *    source: https://cses.fi/problemset/task/1749/
+ *    submission: https://cses.fi/problemset/result/16793927/
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Walk on Segment Tree
+ *    complexity: O(n \log n)
+ *    note: We mark an available element as 1, and deleted one as 0, so sum of 1s from [1;i] is i's real index after deleting previous elements. So now we implement segment tree to query the sum and update 0 value for deleted elements. And then we do walk on segment tree to find that index
 **/
 
 #include <iostream>
@@ -66,6 +66,7 @@ void setup(){
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 const int N = 2e5+2;
 int st[4*N];
+int n;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 void build(int id, int l, int r){
@@ -93,8 +94,8 @@ int get(int id, int l, int r, int pos){
     int lc = id<<1;
 
     int ans = 0;
-    if(st[lc] >= pos) ans = get(lc,l,mid,pos);
-    else ans = get(lc|1,mid+1,r,pos);
+    if(st[lc] >= pos) ans = get(lc,l,mid,pos); // target index is on the left side
+    else ans = get(lc|1,mid+1,r,pos-st[lc]); // target index is on the right side, since we skipped the left side, the new position with the base of mid+1 must be x - sum[1 -> mid]
 
     st[id] = st[lc] + st[lc|1];
 
@@ -106,7 +107,6 @@ int main(){
     fastio;
     setup();
     
-    int n;
     cin >> n;
     vi a(n+1);
     for(int i = 1; i <= n; i++){
