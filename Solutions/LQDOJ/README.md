@@ -1,32 +1,8 @@
-<<<<<<< HEAD
 # 📁 LQDOJ Solutions
 
 ### 📊 LQDOJ Stats
 
-![Progress](https://img.shields.io/badge/Progress-1/1-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_02%2C_2026_--_16%3A11_(GMT+7)-0078d4?style=for-the-badge&logo=github)
-
-- **Total Unique Problems:** 1
-- **Solved (AC):** 1
-
-> 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
-
----
-## 📌 Table of Contents
-
-* [📁 LQDOJ (1)](#-lqdoj-1)
-
----
-## 📂 LQDOJ (1)
-| # | Problem Name | Tags | Complexity | Date | Solution | Status |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [QUERYSUM - Query-Sum](https://lqdoj.edu.vn/problem/querysum) | `Fenwick Tree` | $\mathcal{O}(n \log n)$ | Apr 01, 2026 | [Code](querysum.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8320846) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-
-=======
-# 📁 LQDOJ Solutions
-
-### 📊 LQDOJ Stats
-
-![Progress](https://img.shields.io/badge/Progress-4/5-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_05%2C_2026_--_12%3A37_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-4/5-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_05%2C_2026_--_23%3A29_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 5
 - **Solved (AC):** 4
@@ -48,4 +24,3 @@
 | 4 | rangeupdatesandsums | N/A | N/A | Mar 31, 2026 | [Code](rangeupdatesandsums.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 5 | [TRUNGVIQUE - MEDIAN QUERY](https://lqdoj.edu.vn/problem/trungvique) | `Mo's Algorithm`, `Sqrt Decomposition` | $\mathcal{O}(n \sqrt{q} + q \sqrt{MAX_VALUE})$ | Apr 05, 2026 | [Code](trungvique.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8354767) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
->>>>>>> 5fa6d33d83da482da2e14af83379253378ad3e97
