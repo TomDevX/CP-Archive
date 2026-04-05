@@ -2,10 +2,10 @@
 
 ### 📊 CSES Stats
 
-![Progress](https://img.shields.io/badge/Progress-26/29-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_04%2C_2026_--_11%3A45_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-27/30-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_05%2C_2026_--_10%3A55_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
-- **Total Unique Problems:** 29
-- **Solved (AC):** 26
+- **Total Unique Problems:** 30
+- **Solved (AC):** 27
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
 
@@ -16,7 +16,7 @@
   * [📁 Dynamic Programming (12)](#-dynamic-programming-12)
   * [📁 Graph (7)](#-graph-7)
   * [📁 Range Queries (4)](#-range-queries-4)
-  * [📁 Sliding Windơows Problem (1)](#-sliding-windơows-problem-1)
+  * [📁 Sliding Windơows Problem (2)](#-sliding-windơows-problem-2)
   * [📁 Sorting and Searching (3)](#-sorting-and-searching-3)
 
 ---
@@ -63,10 +63,11 @@
 | 4 | [1749 - List Removals - Segment Tree Approach](https://cses.fi/problemset/task/1749/) | `Walk on Segment Tree` | $\mathcal{O}(n \log n)$ | Apr 04, 2026 | [Code](Range%20Queries/1749_segtree.cpp) \| [Sub](https://cses.fi/problemset/result/16793927/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 5 | [2184 - Missing Coin Sum Queries](https://cses.fi/problemset/task/2184) | `Sparse Table`, `MEX`, `bit` | $\mathcal{O}(n \log n \log a_i)$ | Mar 25, 2026 | [Code](Range%20Queries/2184.cpp) \| [Sub](https://cses.fi/problemset/result/16681741/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-### 📁 Sliding Windơows Problem (1)
+### 📁 Sliding Windơows Problem (2)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [3220 - Sliding Window Sum](https://cses.fi/problemset/task/3220) | N/A | N/A | Feb 11, 2026 | [Code](Sliding%20Windơows%20Problem/3220.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 1 | [1076 - Sliding Window Median](https://cses.fi/problemset/task/1076) | `Walk on BIT` | $\mathcal{O}(n \log n)$ | Apr 05, 2026 | [Code](Sliding%20Windơows%20Problem/1076.cpp) \| [Sub](https://cses.fi/problemset/result/16803462/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 2 | [3220 - Sliding Window Sum](https://cses.fi/problemset/task/3220) | N/A | N/A | Feb 11, 2026 | [Code](Sliding%20Windơows%20Problem/3220.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
 ### 📁 Sorting and Searching (3)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |

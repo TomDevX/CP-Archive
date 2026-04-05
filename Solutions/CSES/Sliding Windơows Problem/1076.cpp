@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-05 08:51:59
+ *    created: 2026-04-05 10:34:55
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Sliding Window Median
+ *    source: https://cses.fi/problemset/task/1076
+ *    submission: https://cses.fi/problemset/result/16803462/
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Walk on BIT
+ *    complexity: O(n \log n)
+ *    note: We use typical walk on BIT so search for median
 **/
 
 #include <iostream>
@@ -58,39 +58,32 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("1076.INP", "r")) return;
+    freopen("1076.INP", "r", stdin);
+    freopen("1076.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 4e5+2;
-ll st[4*N];
+int n,k;
+const int N = 2e5+2;
+int bit[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void update(int id, int l, int r, int pos){
-    if(l == r){
-        st[id]++;
-        return;
+void update(int pos, int val){
+    for(; pos <= n; pos += pos&-pos){
+        bit[pos] += val;
     }
-
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1;
-
-    if(pos <= mid) update(lc,l,mid,pos);
-    else update(lc|1,mid+1,r,pos);
-
-    st[id] = st[lc] + st[lc|1];
 }
 
-ll get(int id, int l, int r, int u, int v){
-    if(l > v || r < u) return 0;
-    if(l >= u && r <= v) return st[id];
-
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1;
-
-    return get(lc,l,mid,u,v) + get(lc|1,mid+1,r,u,v);
+int get(int x){
+    int pos = 0;
+    for(int j = 17; j >= 0; j--){
+        if(pos + (1 << j) <= n && bit[pos + (1 << j)] < x){
+            pos += (1 << j);
+            x -= bit[pos];
+        }
+    }
+    return pos+1;
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -98,23 +91,23 @@ int main(){
     fastio;
     setup();
     
-    int n,k;
     cin >> n >> k;
-    vi pref(n+1);
-    for(int i = 1, x; i <= n; i++){
-        cin >> x;
-        pref[i] = (x < k) + pref[i-1];
+    vi a(n+1);
+    for(int i = 1; i <= n; i++) cin >> a[i];
+    vi sorted = a;
+    sort(all(sorted,1));
+
+    for(int i = 1; i <= n; i++) a[i] = lower_bound(all(sorted,1), a[i]) - sorted.begin();
+
+    for(int r = 1; r < k; r++){
+        update(a[r],1);
     }
 
-    ll ans = 0;
-    update(1,0,n+2e5,1e5);
-    for(int i = 1; i <= n; i++){
-        ans += get(1,0,n+2e5,2*pref[i] - i + 1e5, n+2e5);
-
-        update(1,0,n+2e5,2*pref[i] - i + 1e5);
+    for(int r = k; r <= n; r++){
+        update(a[r],1);
+        cout << sorted[get((k+1)>>1)] << ' '; // find element that is higher than k/2 values
+        update(a[r-k+1],-1);
     }
-
-    cout << ans;
     
     return NAH_I_WOULD_WIN;
 }
