@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-06 02:41:59
+ *    created: 2026-04-06 04:02:43
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: Xâu cơ sở
+ *    source: BT_20260406.pdf
  *    submission: 
- *    status: WIP
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: String
+ *    complexity: O(1)
+ *    note: If string a and b has the same base, so a + b = b + a, if this condition doesn't meet, answer = NO. Since they have the same base, our answer is the string with gcd(|a|,|b|) size
 **/
 
 #include <iostream>
@@ -18,6 +18,7 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
+#include <string>
 
 using namespace std;
 
@@ -58,23 +59,40 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("BASESTRING.INP", "r")) return;
+    freopen("BASESTRING.INP", "r", stdin);
+    freopen("BASESTRING.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-
+int gcd(int a, int b){
+    while(b != 0){
+        int tmp = a%b;
+        a = b;
+        b = tmp;
+    }
+    return a;
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
+    string a,b;
+    cin >> a >> b;
+
+    if(a + b != b + a){
+        cout << "NO";
+        return 0;
+    }
     
+    int n = sz(a), m = sz(b);
+
+    cout << a.substr(0,gcd(n,m));
     
     return NAH_I_WOULD_WIN;
 }

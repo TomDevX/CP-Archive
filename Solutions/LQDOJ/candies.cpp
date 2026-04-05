@@ -1,10 +1,10 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-06 02:41:59
+ *    created: 2026-04-05 16:04:32
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: Candies
+ *    source: https://lqdoj.edu.vn/problem/candies
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -58,23 +58,61 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("candies.INP", "r")) return;
+    freopen("candies.INP", "r", stdin);
+    freopen("candies.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+const int N = 1e5+2;
+int bit[N], a[N];
+int n;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void update(int pos, int val){
+    for(; pos <= n; pos += pos&-pos){
+        bit[pos] += val;
+    }
+}
 
+int prefSum(int pos){
+    int ans = 0;
+    for(; pos; pos -= pos&-pos) ans += bit[pos];
+    return ans;
+}
+
+int get(int x){
+    int pos = 0;
+    for(int k = 17; k >= 0; k--){
+        if(pos + (1 << k) <= n && a[pos + (1 << k)] - bit[pos + (1 << k)] < x){
+            pos += (1 << k);
+            x -= bit[pos];
+        }
+    }
+    return pos+1;
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    
+    cin >> n;
+    for(int i = 1; i <= n; i++) cin >> a[i];
+
+    sort(a+1,a+n+1);
+
+    int q;
+    cin >> q;
+    while(q--){
+        int x;
+        cin >> x;
+
+        int pos = get(x);
+        cout << n - pos + 1 << '\n';
+
+        update(pos,1);
+    }
     
     return NAH_I_WOULD_WIN;
 }
