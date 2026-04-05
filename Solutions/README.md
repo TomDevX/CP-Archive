@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-211/242-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Apr_06%2C_2026_--_03%3A26_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260406T0326&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-209/243-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Apr_06%2C_2026_--_03%3A26_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260406T0326&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 242
-- **Accepted:** 211
+- **Total Problems:** 243
+- **Accepted:** 209
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -37,10 +37,10 @@
 * [📂 VNOJ (19)](#-vnoj-19)
 
 ---
-## 📂 Solutions (242)
+## 📂 Solutions (243)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [MAIN - MEDIAN QUERY](https://lqdoj.edu.vn/problem/trungvique) | `Mo's Algorithm`, `Sqrt Decomposition` | $\mathcal{O}(n \sqrt{q} + q \sqrt{MAX_VALUE})$ | Apr 5, 2026 | [Code](main.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8354767) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | Main | N/A | N/A | Apr 2, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 2 | Test | N/A | N/A | N/A | [Code](test.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [ACMICPC (4)](https://www.acmicpc.net)
@@ -209,7 +209,7 @@
 ### 📁 Range Queries (4)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [1143 - Hotel Queries](https://cses.fi/problemset/task/1143) | `Walk on Segment Tree` | $\mathcal{O}(n \log n)$ | Apr 4, 2026 | [Code](CSES/Range%20Queries/1143.cpp) \| [Sub](https://cses.fi/problemset/result/16790807/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | [1143 - Hotel Queries](https://cses.fi/problemset/task/1143) | N/A | N/A | Feb 18, 2026 | [Code](CSES/Range%20Queries/1143.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 2 | [1648 - Dynamic Range Sum Queries](https://cses.fi/problemset/task/1648) | N/A | N/A | Mar 26, 2026 | [Code](CSES/Range%20Queries/1648.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 3 | [1749 - List Removals - Fenwick Tree (BIT) Approach](https://cses.fi/problemset/task/1749/) | `Walk on BIT` | $\mathcal{O}(n \log n)$ | Apr 4, 2026 | [Code](CSES/Range%20Queries/1749_BIT.cpp) \| [Sub](https://cses.fi/problemset/result/16793996) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 4 | [1749 - List Removals - Segment Tree Approach](https://cses.fi/problemset/task/1749/) | `Walk on Segment Tree` | $\mathcal{O}(n \log n)$ | Apr 4, 2026 | [Code](CSES/Range%20Queries/1749_segtree.cpp) \| [Sub](https://cses.fi/problemset/result/16793927/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -368,7 +368,7 @@
 | 4 | [C11PRIME2 - Số nguyên tố (#2 Approach)](https://oj.vnoi.info/problem/c11prime) | `Number Theory` | $\mathcal{O}(60 \cdot \log(10^9) \cdot 12 \cdot \log^3(n))$ | Feb 9, 2026 | [Code](VNOJ/c11prime2.cpp) \| [Sub](https://oj.vnoi.info/submission/11679434) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 5 | [ERRICHTO - Matrix Exponentiation - Count path](https://oj.vnoi.info/problem/errichto_matexp_cntpath) | `Matrix Exponentiation` | $\mathcal{O}(n^3 \cdot \log k)$ | Mar 2, 2026 | [Code](VNOJ/errichto_matexp_cntpath.cpp) \| [Sub](https://oj.vnoi.info/submission/11787099) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 6 | [HCM - HSG THPT TPHCM 2023 - Bắn tàu](https://oj.vnoi.info/problem/hcm_thpt_23_b) | `DP` | $\mathcal{O}(n^2 \cdot k)$ | Mar 16, 2026 | [Code](VNOJ/hcm_thpt_23_b.cpp) \| [Sub](https://oj.vnoi.info/submission/11890536) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 7 | [INCVN - INCSEQ VN](https://oj.vnoi.info/problem/incvn) | `Segment Tree`, `Dynamic Programming` | $\mathcal{O}(n \log n)$ | Apr 3, 2026 | [Code](VNOJ/incvn.cpp) \| [Sub](https://oj.vnoi.info/submission/12024546) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 7 | [INCVN - INCSEQ VN](https://oj.vnoi.info/problem/incvn) | N/A | N/A | Apr 2, 2026 | [Code](VNOJ/incvn.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 8 | [LIQ - Dãy con tăng dài nhất (bản dễ)](https://oj.vnoi.info/problem/liq) | N/A | $\mathcal{O}(n \log n)$ | Nov 22, 2025 | [Code](VNOJ/liq.cpp) \| [Sub](https://oj.vnoi.info/src/10967418) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 9 | [LIS - Dãy con tăng dài nhất (bản khó)](https://oj.vnoi.info/problem/lis) | `Dynamic Programming` | $\mathcal{O}(n \log n)$ | Mar 21, 2026 | [Code](VNOJ/lis.cpp) \| [Sub](https://oj.vnoi.info/submission/11927394) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 10 | [LITES - Bật đèn](https://oj.vnoi.info/problem/lites) | `Segment Tree` | $\mathcal{O}(n \log n)$ | Mar 28, 2026 | [Code](VNOJ/lites.cpp) \| [Sub](https://oj.vnoi.info/submission/11975680) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |

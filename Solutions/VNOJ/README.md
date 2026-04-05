@@ -2,10 +2,10 @@
 
 ### 📊 VNOJ Stats
 
-![Progress](https://img.shields.io/badge/Progress-19/19-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_06%2C_2026_--_03%3A26_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-18/19-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_06%2C_2026_--_03%3A26_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 19
-- **Solved (AC):** 19
+- **Solved (AC):** 18
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
 
@@ -24,7 +24,7 @@
 | 4 | [C11PRIME2 - Số nguyên tố (#2 Approach)](https://oj.vnoi.info/problem/c11prime) | `Number Theory` | $\mathcal{O}(60 \cdot \log(10^9) \cdot 12 \cdot \log^3(n))$ | Feb 09, 2026 | [Code](c11prime2.cpp) \| [Sub](https://oj.vnoi.info/submission/11679434) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 5 | [ERRICHTO - Matrix Exponentiation - Count path](https://oj.vnoi.info/problem/errichto_matexp_cntpath) | `Matrix Exponentiation` | $\mathcal{O}(n^3 \cdot \log k)$ | Mar 02, 2026 | [Code](errichto_matexp_cntpath.cpp) \| [Sub](https://oj.vnoi.info/submission/11787099) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 6 | [HCM - HSG THPT TPHCM 2023 - Bắn tàu](https://oj.vnoi.info/problem/hcm_thpt_23_b) | `DP` | $\mathcal{O}(n^2 \cdot k)$ | Mar 16, 2026 | [Code](hcm_thpt_23_b.cpp) \| [Sub](https://oj.vnoi.info/submission/11890536) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 7 | [INCVN - INCSEQ VN](https://oj.vnoi.info/problem/incvn) | `Segment Tree`, `Dynamic Programming` | $\mathcal{O}(n \log n)$ | Apr 03, 2026 | [Code](incvn.cpp) \| [Sub](https://oj.vnoi.info/submission/12024546) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 7 | [INCVN - INCSEQ VN](https://oj.vnoi.info/problem/incvn) | N/A | N/A | Apr 02, 2026 | [Code](incvn.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 8 | [LIQ - Dãy con tăng dài nhất (bản dễ)](https://oj.vnoi.info/problem/liq) | N/A | $\mathcal{O}(n \log n)$ | Nov 22, 2025 | [Code](liq.cpp) \| [Sub](https://oj.vnoi.info/src/10967418) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 9 | [LIS - Dãy con tăng dài nhất (bản khó)](https://oj.vnoi.info/problem/lis) | `Dynamic Programming` | $\mathcal{O}(n \log n)$ | Mar 21, 2026 | [Code](lis.cpp) \| [Sub](https://oj.vnoi.info/submission/11927394) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 10 | [LITES - Bật đèn](https://oj.vnoi.info/problem/lites) | `Segment Tree` | $\mathcal{O}(n \log n)$ | Mar 28, 2026 | [Code](lites.cpp) \| [Sub](https://oj.vnoi.info/submission/11975680) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
