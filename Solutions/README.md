@@ -2,9 +2,9 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-209/243-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Apr_06%2C_2026_--_03%3A26_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260406T0326&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-209/242-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Apr_06%2C_2026_--_03%3A44_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260406T0344&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 243
+- **Total Problems:** 242
 - **Accepted:** 209
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
@@ -37,10 +37,10 @@
 * [📂 VNOJ (19)](#-vnoj-19)
 
 ---
-## 📂 Solutions (243)
+## 📂 Solutions (242)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | Main | N/A | N/A | Apr 2, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 1 | [MAIN - MEDIAN QUERY](https://lqdoj.edu.vn/problem/trungvique) | `Mo's Algorithm`, `Sqrt Decomposition` | $\mathcal{O}(n \sqrt{q} + q \sqrt{q})$ | Apr 5, 2026 | [Code](main.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8354746) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | Test | N/A | N/A | N/A | [Code](test.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [ACMICPC (4)](https://www.acmicpc.net)

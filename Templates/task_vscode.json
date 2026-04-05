@@ -1,0 +1,46 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "markdownlint",
+			"problemMatcher": [
+				"$markdownlint"
+			],
+			"label": "markdownlint: Lint all Markdown files in the workspace with markdownlint"
+		},
+		{
+            "label": "Compile and Run cpp",
+            "type": "shell",
+            // Đã chuyển đổi các biến sang chuẩn VS Code và thêm ngoặc kép để tránh lỗi nếu tên thư mục có dấu cách
+            "command": "cd \"${fileDirname}\" && g++ -O2 -Wall -Wextra -Wshadow -Wfloat-equal -DLOCAL --std=c++14 \"${fileBasename}\" -o \"${fileBasenameNoExtension}\" && \"./${fileBasenameNoExtension}\" < /Users/tomimac/Documents/CP-Archive/Solutions/input.txt",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true,
+                "showReuseMessage": false
+            },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Compile and Run cpp with out file",
+            "type": "shell",
+            // Đã chuyển đổi các biến sang chuẩn VS Code và thêm ngoặc kép để tránh lỗi nếu tên thư mục có dấu cách
+            "command": "cd \"${fileDirname}\" && g++ -O2 -Wall -Wextra -Wshadow -Wfloat-equal -DLOCAL --std=c++14 \"${fileBasename}\" -o \"${fileBasenameNoExtension}\" && \"./${fileBasenameNoExtension}\" < /Users/tomimac/Documents/CP-Archive/Solutions/input.txt > /Users/tomimac/Documents/CP-Archive/Solutions/output.txt",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true,
+                "showReuseMessage": false
+            },
+            "problemMatcher": ["$gcc"]
+        }
+	]
+}
