@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-208/242-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Apr_06%2C_2026_--_04%3A12_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260406T0412&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-209/242-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Apr_07%2C_2026_--_01%3A09_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260407T0109&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 242
-- **Accepted:** 208
+- **Accepted:** 209
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -241,7 +241,7 @@
 ## 📂 [LQDOJ (6)](<<<<<<<%20HEAD)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [CANDIES - Candies](https://lqdoj.edu.vn/problem/candies) | N/A | N/A | Apr 5, 2026 | [Code](LQDOJ/candies.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 1 | [CANDIES - Candies](https://lqdoj.edu.vn/problem/candies) | `Walk on BIT` | $\mathcal{O}(n \log n)$ | Apr 7, 2026 | [Code](LQDOJ/candies.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8372657) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [CANHGACBT - Canh gác bảo tàng](https://lqdoj.edu.vn/problem/canhgacbt) | `Segment Tree`, `Dynamic Programming` | $\mathcal{O}(n \log n)$ | Apr 4, 2026 | [Code](LQDOJ/canhgacbt.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8343061) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 3 | [QUERYSUM2 - Query-Sum 2](https://lqdoj.edu.vn/problem/querysum2) | `Fenwick Tree (BIT)` | $\mathcal{O}(n \log n)$ | Apr 2, 2026 | [Code](LQDOJ/querysum2.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8335727) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 4 | [QUERYSUM - Query-Sum](https://lqdoj.edu.vn/problem/querysum) | `Fenwick Tree` | $\mathcal{O}(n \log n)$ | Apr 1, 2026 | [Code](LQDOJ/querysum.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8320846) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |

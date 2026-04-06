@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-05 16:04:32
+ *    created: 2026-04-07 00:38:58
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: Candies
  *    source: https://lqdoj.edu.vn/problem/candies
- *    submission: 
- *    status: WIP
+ *    submission: https://lqdoj.edu.vn/submission/8372657
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Walk on BIT
+ *    complexity: O(n \log n)
+ *    note: First, we sort the array, so that if we mark a point, it means that that point is the starting candy which is taken, which means we minus [marked point; n] by 1. And when we want to know the current value of a candy, we take its current value minus its (positive) prefix sum. To search for the first position that that matches the query, we use walk on BIT
 **/
 
 #include <iostream>
@@ -64,32 +64,26 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5+2;
-int bit[N], a[N];
 int n;
+const int N = 1e5+2;
+int a[N], bit[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void update(int pos, int val){
-    for(; pos <= n; pos += pos&-pos){
-        bit[pos] += val;
-    }
-}
-
-int prefSum(int pos){
-    int ans = 0;
-    for(; pos; pos -= pos&-pos) ans += bit[pos];
-    return ans;
-}
-
 int get(int x){
     int pos = 0;
     for(int k = 17; k >= 0; k--){
         if(pos + (1 << k) <= n && a[pos + (1 << k)] - bit[pos + (1 << k)] < x){
             pos += (1 << k);
-            x -= bit[pos];
+            x += bit[pos];
+
+            // after each jump, we need to add bit[pos] to the future equations, but we are using a[pos + (1 << k)] so to change to the other side, we change its sign to positive, so we += bit[pos] to x
         }
     }
     return pos+1;
+}
+
+void update(int pos){
+    for(; pos <= n; pos += pos&-pos) bit[pos]++;
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -98,9 +92,11 @@ int main(){
     setup();
     
     cin >> n;
-    for(int i = 1; i <= n; i++) cin >> a[i];
+    for(int i = 1; i <= n; i++){
+        cin >> a[i];
+    }
 
-    sort(a+1,a+n+1);
+    sort(a + 1, a + n + 1);
 
     int q;
     cin >> q;
@@ -109,10 +105,10 @@ int main(){
         cin >> x;
 
         int pos = get(x);
-        cout << n - pos + 1 << '\n';
+        cout << n-pos+1 << '\n';
 
-        update(pos,1);
+        update(pos);
     }
-    
+
     return NAH_I_WOULD_WIN;
 }
