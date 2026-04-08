@@ -1,10 +1,10 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-07 15:13:11
+ *    created: 2026-04-08 09:42:44
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: Subarray Sum Queries II
+ *    source: https://cses.fi/problemset/task/3226
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -58,13 +58,20 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("3226.INP", "r")) return;
+    freopen("3226.INP", "r", stdin);
+    freopen("3226.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+int n,q;
+const int N = 2e5+2;
 
+struct node{
+    ll sum,pref,suff,best;
+
+    node(ll _sum = 0, ll _pref = 0, ll _suff = 0, ll _best = 0) sum(_sum), pref(_pref), suff(_suff), best(_best) {};
+}
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -74,24 +81,14 @@ int main(){
     fastio;
     setup();
     
-    int n;
-    ll C;
-    cin >> n >> C;
+    cin >> n >> q;
 
-    vll a(n+1), dp(n+1, 2e18), pref(n+1); 
-    for(int i = 1; i <= n; i++){
-        cin >> a[i];
-        pref[i] = pref[i-1] + a[i];
-    }
+    vi a(n+1);
+    for(int i = 1; i <= n; i++) cin >> a[i];
 
-    dp[0] = 0;
-    for(int i = 1; i <= n; i++){
-        for(int j = 0; j < i; j++){
-            dp[i] = min(dp[i], (pref[i] - pref[j])*(pref[i] - pref[j]) + C + dp[j]);
-        }
-    }
+    build(1,1,n);
 
-    cout << dp[n];
+
     
     return NAH_I_WOULD_WIN;
 }

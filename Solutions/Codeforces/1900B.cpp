@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-07 15:13:11
+ *    created: 2026-04-08 10:00:26
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Laura and Operations
+ *    source: https://codeforces.com/contest/1900/problem/B
+ *    submission: https://codeforces.com/contest/1900/submission/370219147`
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: math
+ *    complexity: O(1)
+ *    note: Now consider the case we are querying digit 1, and apply the same with digit 2 and 3. If the digit 2,3 are 0, we have already satisfied the problem. Else, we need digit 2,3 to have the same parity, because if they have a different parity, the max number in digit 2,3 can't be made to 0;
 **/
 
 #include <iostream>
@@ -58,40 +58,32 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("1900B.INP", "r")) return;
+    freopen("1900B.INP", "r", stdin);
+    freopen("1900B.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-
+bool check(int a, int b, int c){
+    return ((b&1)^(c&1)) == 0;
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    int n;
-    ll C;
-    cin >> n >> C;
+    int tc;
+    cin >> tc;
+    while(tc--){
+        int a,b,c;
+        cin >> a >> b >> c;
 
-    vll a(n+1), dp(n+1, 2e18), pref(n+1); 
-    for(int i = 1; i <= n; i++){
-        cin >> a[i];
-        pref[i] = pref[i-1] + a[i];
+        cout << (check(a,b,c) ? 1 : 0) << ' ' << (check(b,a,c) ? 1 : 0) << ' ' << (check(c,a,b) ? 1 : 0) << '\n';
     }
-
-    dp[0] = 0;
-    for(int i = 1; i <= n; i++){
-        for(int j = 0; j < i; j++){
-            dp[i] = min(dp[i], (pref[i] - pref[j])*(pref[i] - pref[j]) + C + dp[j]);
-        }
-    }
-
-    cout << dp[n];
     
     return NAH_I_WOULD_WIN;
 }
