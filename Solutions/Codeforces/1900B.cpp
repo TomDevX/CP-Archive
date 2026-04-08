@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-08 09:42:44
+ *    created: 2026-04-08 10:00:26
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: Subarray Sum Queries II
- *    source: https://cses.fi/problemset/task/3226
- *    submission: https://cses.fi/problemset/result/16838741/
+ *    title: Laura and Operations
+ *    source: https://codeforces.com/contest/1900/problem/B
+ *    submission: https://codeforces.com/contest/1900/submission/370219147`
  *    status: AC
  * ----------------------------------------------------------
- *    tags: Segment Tree
- *    complexity: O(n \log n)
- *    note: 
+ *    tags: math
+ *    complexity: O(1)
+ *    note: Now consider the case we are querying digit 1, and apply the same with digit 2 and 3. If the digit 2,3 are 0, we have already satisfied the problem. Else, we need digit 2,3 to have the same parity, because if they have a different parity, the max number in digit 2,3 can't be made to 0;
 **/
 
 #include <iostream>
@@ -18,10 +18,6 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
-#include <stack>
-#include <cstring>
-#include <queue>
-#include <bitset>
 
 using namespace std;
 
@@ -62,56 +58,17 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("3226.INP", "r")) return;
-    freopen("3226.INP", "r", stdin);
-    freopen("3226.OUT", "w", stdout);
+    if(!fopen("1900B.INP", "r")) return;
+    freopen("1900B.INP", "r", stdin);
+    freopen("1900B.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-int n,q;
-const int N = 5e4+2;
-int a[N];
 
-struct node{
-    int sum,pref,suff,best;
-
-    node(int _sum = 0, int _pref = 0, int _suff = 0, int _best = 0) : sum(_sum), pref(_pref), suff(_suff), best(_best) {};
-    node operator+(const node& other){
-        int sumres = sum  + other.sum;
-        int prefres = max({pref, sum + other.pref,0});
-        int suffres = max({0,other.suff, other.sum + suff});
-        int bestres = max({best, other.best, suff + other.pref,0});
-        return node(sumres,prefres,suffres,bestres);
-    }
-};
-
-node st[4*N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void build(int id, int l, int r){
-    if(l == r){
-        int x = max(a[l],0);
-        st[id] = node(a[l], x, x, x);
-        return;
-    }
-
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1;
-
-    build(lc,l,mid);
-    build(lc|1,mid+1,r);
-
-    st[id] = st[lc] + st[lc|1];
-}
-
-node get(int id, int l, int r, int u, int v){
-    if(l > v || r < u) return node(0,-1e9,-1e9,-1e9);
-    if(l >= u && r <= v) return st[id];
-
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1;
-
-    return get(lc,l,mid,u,v) + get(lc|1,mid+1,r,u,v);
+bool check(int a, int b, int c){
+    return ((b&1)^(c&1)) == 0;
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -119,16 +76,13 @@ int main(){
     fastio;
     setup();
     
-    cin >> n >> q;
+    int tc;
+    cin >> tc;
+    while(tc--){
+        int a,b,c;
+        cin >> a >> b >> c;
 
-    for(int i = 1; i <= n; i++) cin >> a[i];
-
-    build(1,1,n);
-
-    while(q--){
-        int l,r;
-        cin >> l >> r;
-        cout << get(1,1,n,l,r).best << '\n';
+        cout << (check(a,b,c) ? 1 : 0) << ' ' << (check(b,a,c) ? 1 : 0) << ' ' << (check(c,a,b) ? 1 : 0) << '\n';
     }
     
     return NAH_I_WOULD_WIN;

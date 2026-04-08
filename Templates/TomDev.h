@@ -41,18 +41,15 @@ std::ostream& operator<<(std::ostream& out, const std::pair<T1, T2>& pair) {
 
 // Chuyên biệt hóa cho vector 2 chiều để in xuống dòng
 template <typename T>
-std::ostream& operator<<(std::ostream& out, const std::vector<std::vector<T>>& vec) {
+std::ostream& operator<<(std::ostream& out, const std::vector<T>& vec) {
     if (vec.empty()) {
         return out << "[]";
     }
-    out << "[\n";
-    for (size_t i = 0; i < vec.size(); i++) {
-        out << "  " << vec[i]; // Sử dụng lại operator<< của vector 1 chiều
-        if (i != vec.size() - 1) {
-            out << ", \n";
-        }
+    out << '[';
+    for (int i = 0; i < (int)vec.size() - 1; i++) {
+        out << vec[i] << ", ";
     }
-    return out << "\n]";
+    return out << vec.back() << ']';
 }
 
 template <typename T, size_t SZ>

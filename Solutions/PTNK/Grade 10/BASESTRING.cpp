@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-08 09:42:44
+ *    created: 2026-04-06 04:02:43
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: Subarray Sum Queries II
- *    source: https://cses.fi/problemset/task/3226
- *    submission: https://cses.fi/problemset/result/16838741/
+ *    title: Xâu cơ sở
+ *    source: BT_20260406.pdf
+ *    submission: 
  *    status: AC
  * ----------------------------------------------------------
- *    tags: Segment Tree
- *    complexity: O(n \log n)
- *    note: 
+ *    tags: String
+ *    complexity: O(1)
+ *    note: If string a and b has the same base, so a + b = b + a, if this condition doesn't meet, answer = NO. Since they have the same base, our answer is the string with gcd(|a|,|b|) size
 **/
 
 #include <iostream>
@@ -18,10 +18,7 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
-#include <stack>
-#include <cstring>
-#include <queue>
-#include <bitset>
+#include <string>
 
 using namespace std;
 
@@ -62,56 +59,22 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("3226.INP", "r")) return;
-    freopen("3226.INP", "r", stdin);
-    freopen("3226.OUT", "w", stdout);
+    if(!fopen("BASESTRING.INP", "r")) return;
+    freopen("BASESTRING.INP", "r", stdin);
+    freopen("BASESTRING.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-int n,q;
-const int N = 5e4+2;
-int a[N];
 
-struct node{
-    int sum,pref,suff,best;
-
-    node(int _sum = 0, int _pref = 0, int _suff = 0, int _best = 0) : sum(_sum), pref(_pref), suff(_suff), best(_best) {};
-    node operator+(const node& other){
-        int sumres = sum  + other.sum;
-        int prefres = max({pref, sum + other.pref,0});
-        int suffres = max({0,other.suff, other.sum + suff});
-        int bestres = max({best, other.best, suff + other.pref,0});
-        return node(sumres,prefres,suffres,bestres);
-    }
-};
-
-node st[4*N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void build(int id, int l, int r){
-    if(l == r){
-        int x = max(a[l],0);
-        st[id] = node(a[l], x, x, x);
-        return;
+int gcd(int a, int b){
+    while(b != 0){
+        int tmp = a%b;
+        a = b;
+        b = tmp;
     }
-
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1;
-
-    build(lc,l,mid);
-    build(lc|1,mid+1,r);
-
-    st[id] = st[lc] + st[lc|1];
-}
-
-node get(int id, int l, int r, int u, int v){
-    if(l > v || r < u) return node(0,-1e9,-1e9,-1e9);
-    if(l >= u && r <= v) return st[id];
-
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1;
-
-    return get(lc,l,mid,u,v) + get(lc|1,mid+1,r,u,v);
+    return a;
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -119,17 +82,17 @@ int main(){
     fastio;
     setup();
     
-    cin >> n >> q;
+    string a,b;
+    cin >> a >> b;
 
-    for(int i = 1; i <= n; i++) cin >> a[i];
-
-    build(1,1,n);
-
-    while(q--){
-        int l,r;
-        cin >> l >> r;
-        cout << get(1,1,n,l,r).best << '\n';
+    if(a + b != b + a){
+        cout << "NO";
+        return 0;
     }
+    
+    int n = sz(a), m = sz(b);
+
+    cout << a.substr(0,gcd(n,m));
     
     return NAH_I_WOULD_WIN;
 }

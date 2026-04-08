@@ -8,9 +8,9 @@
  *    submission: https://cses.fi/problemset/result/16838741/
  *    status: AC
  * ----------------------------------------------------------
- *    tags: Segment Tree
+ *    tags: Segment Tree (Custom Operator)
  *    complexity: O(n \log n)
- *    note: 
+ *    note: To find the max subarray in range, we think about segment tree. But this segment tree is somewhat custom in the merge operation, when we combine 2 subarrays, there are 3 positions for the max subarray: 1: it all contains in the left side | 2: all contains in right side | 3: in the border of left and right segment. The most complicated part of this problem is just the case 3, we need to make a best prefix, suffix sum for each segment.
 **/
 
 #include <iostream>
@@ -18,10 +18,6 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
-#include <stack>
-#include <cstring>
-#include <queue>
-#include <bitset>
 
 using namespace std;
 
@@ -69,18 +65,18 @@ void setup(){
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 int n,q;
-const int N = 5e4+2;
+const int N = 2e5+2;
 int a[N];
 
 struct node{
-    int sum,pref,suff,best;
+    ll sum,pref,suff,best;
 
-    node(int _sum = 0, int _pref = 0, int _suff = 0, int _best = 0) : sum(_sum), pref(_pref), suff(_suff), best(_best) {};
+    node(ll _sum = 0, ll _pref = 0, ll _suff = 0, ll _best = 0) : sum(_sum), pref(_pref), suff(_suff), best(_best) {};
     node operator+(const node& other){
-        int sumres = sum  + other.sum;
-        int prefres = max({pref, sum + other.pref,0});
-        int suffres = max({0,other.suff, other.sum + suff});
-        int bestres = max({best, other.best, suff + other.pref,0});
+        ll sumres = sum  + other.sum;
+        ll prefres = max({pref, sum + other.pref,0LL});
+        ll suffres = max({0LL,other.suff, other.sum + suff});
+        ll bestres = max({best, other.best, suff + other.pref,0LL});
         return node(sumres,prefres,suffres,bestres);
     }
 };
@@ -91,7 +87,7 @@ node st[4*N];
 void build(int id, int l, int r){
     if(l == r){
         int x = max(a[l],0);
-        st[id] = node(a[l], x, x, x);
+        st[id] = node(a[l], x, x, x); // you need to still keep the sum in case our subarray to combine to the other one has only 1 element
         return;
     }
 
@@ -105,7 +101,7 @@ void build(int id, int l, int r){
 }
 
 node get(int id, int l, int r, int u, int v){
-    if(l > v || r < u) return node(0,-1e9,-1e9,-1e9);
+    if(l > v || r < u) return node(0,-2e15,-2e15,-2e15); // neutral node
     if(l >= u && r <= v) return st[id];
 
     int mid = l + ((r-l)>>1);

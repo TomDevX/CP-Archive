@@ -2,10 +2,10 @@
 
 ### 📊 LQDOJ Stats
 
-![Progress](https://img.shields.io/badge/Progress-4/6-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_08%2C_2026_--_21%3A24_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-5/6-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_08%2C_2026_--_21%3A25_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 6
-- **Solved (AC):** 4
+- **Solved (AC):** 5
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
 
@@ -18,7 +18,7 @@
 ## 📂 LQDOJ (6)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [CANDIES - Candies](https://lqdoj.edu.vn/problem/candies) | N/A | N/A | Apr 05, 2026 | [Code](candies.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 1 | [CANDIES - Candies](https://lqdoj.edu.vn/problem/candies) | `Walk on BIT` | $\mathcal{O}(n \log n)$ | Apr 07, 2026 | [Code](candies.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8372657) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [CANHGACBT - Canh gác bảo tàng](https://lqdoj.edu.vn/problem/canhgacbt) | `Segment Tree`, `Dynamic Programming` | $\mathcal{O}(n \log n)$ | Apr 04, 2026 | [Code](canhgacbt.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8343061) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 3 | [QUERYSUM2 - Query-Sum 2](https://lqdoj.edu.vn/problem/querysum2) | `Fenwick Tree (BIT)` | $\mathcal{O}(n \log n)$ | Apr 02, 2026 | [Code](querysum2.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8335727) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 4 | [QUERYSUM - Query-Sum](https://lqdoj.edu.vn/problem/querysum) | `Fenwick Tree` | $\mathcal{O}(n \log n)$ | Apr 01, 2026 | [Code](querysum.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8320846) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
