@@ -1,17 +1,16 @@
 /**
-
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-05 11:19:56
+ *    created: 2026-04-07 20:04:59
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: MEDIAN QUERY
- *    source: https://lqdoj.edu.vn/problem/trungvique
- *    submission: https://lqdoj.edu.vn/submission/8354746
- *    status: AC
+ *    title: 
+ *    source: 
+ *    submission: 
+ *    status: WIP
  * ----------------------------------------------------------
- *    tags: Mo's Algorithm, Sqrt Decomposition
- *    complexity: O(n \sqrt{q} + q \sqrt{q})
- *    note: We use Mo for the query and O(1) update for each move l,r in query. cnt[i] = number of occurences of value i in a[l -> r], block[i] = sum(cnt[i*BLOCK_SIZE -> (i+1)*BLOCK_SIZE - 1]). After updating, we query by getting the value that is higher than (r-l+1)/2 values
+ *    tags: 
+ *    complexity: 
+ *    note: 
 **/
 
 #include <iostream>
@@ -19,6 +18,10 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
+#include <stack>
+#include <cstring>
+#include <queue>
+#include <bitset>
 
 using namespace std;
 
@@ -31,7 +34,7 @@ using namespace std;
 #endif
 #define NAH_I_WOULD_WIN 0
 
-// --- [ MACROS ] ---   
+// --- [ MACROS ] ---
 #define all(x,bonus) (x).begin()+(bonus),(x).end()
 #define range(x,st,ed) (x).begin()+(st),(x).begin()+(ed)+1
 #define filter(x,bonus) (x).erase(unique((x).begin()+(bonus), (x).end()), (x).end())
@@ -65,90 +68,131 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int BLOCK_SIZE = 1000;
-const int N = 1e5+2;
-int cnt[N], block[BLOCK_SIZE];
-struct Query{
-    int l,r,id,blk;
-
-    Query(int _l = 0, int _r = 0, int _id = 0) : l(_l), r(_r), id(_id) {};
-    bool operator<(const Query& other) const{
-        if(blk != other.blk) return blk < other.blk;
-
-        if(blk&1) return r < other.r;
-        return r > other.r;
-    }
-};
+int n,m,q;
+const int N = 5e4+2;
+vi adj[N], E[N];
+int num[N], low[N], id[N], idE[N], deg_in[N], h[N], lg[N], up[N][20];
+int scc = 0, cnt = 0, sccE = 0;
+stack<int> st;
+bitset<N> del;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void tarjan(int u){
+    num[u] = low[u] = ++cnt;
+    st.push(u);
+    for(int v : adj[u]){
+        if(del[v]) continue;
+        if(num[v]){
+            low[u] = min(low[u], num[v]);
+            continue;
+        }
 
+        tarjan(v);
+        low[u] = min(low[u],low[v]);
+    }
+
+    if(num[u] == low[u]){
+        int v;
+        scc++;
+        do{
+            v = st.top();
+            st.pop();
+            id[v] = scc;
+            del[v] = 1;
+        }while(v != u);
+    }
+}
+
+void dfsE(int u){
+    num[u] = 1;
+    for(int v : E[u]){
+        h[v] = h[u]+1;
+        up[v][0] = u;
+        for(int k = 1; k <= 18; k++){
+            up[v][k] = up[up[v][k-1]][k-1];
+        }
+        dfsE(v);
+    }
+}
+
+int lca(int u, int v){
+    if(h[u] != h[v]){
+        if(h[u] < h[v]) swap(u,v);
+
+        int diff = h[u] - h[v];
+        for(int k = 18; k >= 0; k--){
+            if(diff >> k & 1) u = up[u][k];
+        }
+    }
+    if(u == v) return u;
+
+    for(int k = 18; k >= 0; k--){
+        if(up[u][k] != up[v][k]){
+            u = up[u][k];
+            v = up[v][k];
+        }
+    }
+    return up[u][0];
+}
+
+bool check(int a, int b){
+    int mid = lca(a,b);
+    return a == mid;
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
+    
+    cin >> n >> m >> q;
+    for(int i = 1; i <= m; i++){
+        int u,v;
+        cin >> u >> v;
+        adj[u].eb(v);
+    }
 
-    int n;
-    cin >> n;
-    vi a(n+1);
     for(int i = 1; i <= n; i++){
-        cin >> a[i];
+        if(num[i] == 0){
+            tarjan(i);
+        }
+        lg[i] = lg[i>>1] + 1;
     }
 
-    int q;
-    cin >> q;
-    vector<Query> queries(q+1);
-    for(int i = 1; i <= q; i++){
-        cin >> queries[i].l >> queries[i].r;
-        queries[i].id = i;
-        queries[i].blk = queries[i].l/BLOCK_SIZE;
-    }
-    sort(all(queries,1));
-
-    int l = 1, r = 0;
-    vi ans(q+1);
-    for(int i = 1; i <= q; i++){
-        while(r < queries[i].r){
-            r++;
-            cnt[a[r]]++;
-            block[a[r]/BLOCK_SIZE]++;
+    for(int u = 1; u <= n; u++){
+        for(int v : adj[u]){
+            if(id[u] != id[v]){
+                E[id[u]].eb(id[v]);
+                deg_in[id[v]]++;
+            }
         }
-        while(r > queries[i].r){
-            cnt[a[r]]--;
-            block[a[r]/BLOCK_SIZE]--;
-            r--;
-        }
-        while(l < queries[i].l){
-            cnt[a[l]]--;
-            block[a[l]/BLOCK_SIZE]--;
-            l++;
-        }
-        while(l > queries[i].l){
-            l--;
-            cnt[a[l]]++;
-            block[a[l]/BLOCK_SIZE]++;
-        }
-
-        int k = (queries[i].r-queries[i].l+2)/2;
-
-        int cur_block = 0;
-        while(k > block[cur_block]){
-            k -= block[cur_block];
-            cur_block++;
-        }
-
-        int cur = cur_block*BLOCK_SIZE;
-        while(k > cnt[cur]){
-            k -= cnt[cur];
-            cur++;
-        }
-
-        ans[queries[i].id] = cur;
     }
 
-    for(int i = 1; i <= q; i++){
-        cout << ans[i] << '\n';
+    queue<int> qu;
+    memset(num,0,sizeof(num));
+    for(int u = 1; u <= scc; u++){
+        if(deg_in[u] == 0) qu.push(u);
     }
 
+    while(!qu.empty()){
+        int u = qu.front();
+        qu.pop();
+
+        if(num[u] == 0) dfsE(u);
+        for(int v : adj[u]){
+            if(deg_in[v] == 1){
+                deg_in[v]--;
+                qu.push(v);
+            }
+        }
+    }
+
+
+    while(q--){
+        int u,v;
+        cin >> u >> v;
+        cout << (check(id[u],id[v]) ? "YES" : "NO") << '\n';
+    }
+    
     return NAH_I_WOULD_WIN;
 }
