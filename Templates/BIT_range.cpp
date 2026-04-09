@@ -1,8 +1,8 @@
-struct BIT{
+struct BITR{
     ll bit[N][2];
     int n;
 
-    BIT(int _n = 0) : n(_n) {
+    BITR(int _n = 0) : n(_n) {
         for(int i = 1; i <= n; i++) bit[i][0] = bit[i][1] = 0;
     };
 

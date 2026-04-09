@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-08 09:42:44
+ *    created: 2026-04-08 20:58:33
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: Subarray Sum Queries II
- *    source: https://cses.fi/problemset/task/3226
- *    submission: 
- *    status: WIP
+ *    title: Cắt hình chữ nhật
+ *    source: https://marisaoj.com/problem/150
+ *    submission: https://marisaoj.com/submission/1156452
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: DP
+ *    complexity: O(n^3)
+ *    note: Let dp[i][j] = min cut to make cells from (1,1) -> (i,j) into squares. In each iteration of i and j, we loop through k 2 times, which is the index of our cut by horizon or vertical way, each time we divide, we have 2 sectors that is k and i-k, use that in dp formula.
 **/
 
 #include <iostream>
@@ -18,10 +18,6 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
-#include <stack>
-#include <cstring>
-#include <queue>
-#include <bitset>
 
 using namespace std;
 
@@ -62,74 +58,47 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("3226.INP", "r")) return;
-    freopen("3226.INP", "r", stdin);
-    freopen("3226.OUT", "w", stdout);
+    if(!fopen("150.INP", "r")) return;
+    freopen("150.INP", "r", stdin);
+    freopen("150.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-int n,q;
-const int N = 2e5+2;
-int a[N];
 
-struct node{
-    ll sum,pref,suff,best;
-
-    node(ll _sum = 0, ll _pref = 0, ll _suff = 0, ll _best = 0) : sum(_sum), pref(_pref), suff(_suff), best(_best) {};
-    node operator+(const node& other){
-        ll sumres = sum  + other.sum;
-        ll prefres = max({pref, sum + other.pref});
-        ll suffres = max({other.suff, other.sum + suff});
-        ll bestres = max({best, other.best, suff + other.pref});
-        return node(sumres,prefres,suffres,bestres);
-    }
-};
-
-node st[4*N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void build(int id, int l, int r){
-    if(l == r){
-        st[id] = node(a[l], a[l], a[l], a[l]);
-        return;
-    }
 
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1;
-
-    build(lc,l,mid);
-    build(lc|1,mid+1,r);
-
-    st[id] = st[lc] + st[lc|1];
-}
-
-node get(int id, int l, int r, int u, int v){
-    if(l > v || r < u) return node(-2e15,-2e15,-2e15,-2e15);
-    if(l >= u && r <= v) return st[id];
-
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1;
-
-    return get(lc,l,mid,u,v) + get(lc|1,mid+1,r,u,v);
-}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    cin >> n;
+    int n,m;
+    cin >> n >> m;
 
-    for(int i = 1; i <= n; i++) cin >> a[i];
+    vvi dp(n+1, vi(m+1));
+    dp[1][1] = 0;
 
-    build(1,1,n);
+    for(int i = 2; i <= n; i++) dp[i][1] = dp[i-1][1] + 1;
+    for(int j = 2; j <= m; j++) dp[1][j] = dp[1][j-1] + 1;
 
-    cin >> q;
-    while(q--){
-        int l,r;
-        cin >> l >> r;
-        cout << get(1,1,n,l,r).best << '\n';
+    for(int i = 2; i <= n; i++){
+        for(int j = 2; j <= m; j++){
+            if(i == j) continue;
+            dp[i][j] = 1e9;
+            int &cur = dp[i][j];
+            for(int k = 1; k < i; k++){
+                cur = min(cur, dp[k][j] + dp[i-k][j]);
+            }
+            for(int k = 1; k < j; k++){
+                cur = min(cur, dp[i][k] + dp[i][j-k]);
+            }
+            cur++;
+        }
     }
+
+    cout << dp[n][m];
     
     return NAH_I_WOULD_WIN;
 }
