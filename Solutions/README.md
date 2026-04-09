@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-213/247-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Apr_09%2C_2026_--_11%3A41_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260409T1141&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-214/248-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Apr_09%2C_2026_--_15%3A46_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260409T1546&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 247
-- **Accepted:** 213
+- **Total Problems:** 248
+- **Accepted:** 214
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -33,14 +33,15 @@
 * [📂 PTNK (54)](#-ptnk-54)
   * [📂 Grade 10 (54)](#-grade-10-54)
     * [📂 Entrance Exam 260331 (8)](#-entrance-exam-260331-8)
+* [📂 SQRTOJ (1)](#-sqrtoj-1)
 * [📂 VNOJ (19)](#-vnoj-19)
 
 ---
-## 📂 [Solutions (247)](*%20%20%20%20submission:)
+## 📂 Solutions (248)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [MAIN - Subarray Sum Queries II](https://cses.fi/problemset/task/3226) | N/A | N/A | Apr 8, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 2 | Test2 | N/A | N/A | Apr 7, 2026 | [Code](test2.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 2 | Test2 | N/A | N/A | N/A | [Code](test2.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 3 | Test | N/A | N/A | Apr 7, 2026 | [Code](test.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
 ## 📂 [ACMICPC (4)](https://www.acmicpc.net)
@@ -363,6 +364,11 @@
 | 6 | Mpd | N/A | N/A | Mar 31, 2026 | [Code](PTNK/Grade%2010/Entrance_exam_260331/MPD.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 7 | RTOWER - Phá tháp | N/A | N/A | Mar 31, 2026 | [Code](PTNK/Grade%2010/Entrance_exam_260331/RTOWER.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 8 | SUBP - Dãy ngoặc | N/A | N/A | Mar 31, 2026 | [Code](PTNK/Grade%2010/Entrance_exam_260331/SUBP.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+
+## 📂 [SQRTOJ (1)](https://sqrtoj.edu.vn/)
+| # | Problem Name | Tags | Complexity | Date | Solution | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | [EDU017A - Olympic 30 tháng 4 năm 2026 - Khối 10 - Bài 1](https://sqrtoj.edu.vn/problem/edu017a) | N/A | N/A | Apr 9, 2026 | [Code](SQRTOJ/edu017a.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
 ## 📂 [VNOJ (19)](https://oj.vnoi.info/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
