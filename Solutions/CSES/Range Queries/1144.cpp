@@ -1,10 +1,10 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-08 09:42:44
+ *    created: 2026-04-09 11:18:11
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: Subarray Sum Queries II
- *    source: https://cses.fi/problemset/task/3226
+ *    title: Salary Queries
+ *    source: https://cses.fi/problemset/task/1144
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -58,55 +58,55 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("3226.INP", "r")) return;
-    freopen("3226.INP", "r", stdin);
-    freopen("3226.OUT", "w", stdout);
+    if(!fopen("1144.INP", "r")) return;
+    freopen("1144.INP", "r", stdin);
+    freopen("1144.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-int n,q;
+int nNode = 1;
 const int N = 2e5+2;
-int a[N];
 
 struct node{
-    ll sum,pref,suff,best;
+    int cnt, l, r;
 
-    node(ll _sum = 0, ll _pref = 0, ll _suff = 0, ll _best = 0) : sum(_sum), pref(_pref), suff(_suff), best(_best) {};
-    node operator+(const node& other){
-        ll sumres = sum  + other.sum;
-        ll prefres = max({pref, sum + other.pref});
-        ll suffres = max({other.suff, other.sum + suff});
-        ll bestres = max({best, other.best, suff + other.pref});
-        return node(sumres,prefres,suffres,bestres);
-    }
+    node(int _cnt = 0, int _l = 0, int _r = 0) : cnt(_cnt), l(_l), r(_r) {};
 };
 
-node st[4*N];
+vector<node> st(30*N);
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void build(int id, int l, int r){
+void update(int id, int l, int r, int pos, int val){
     if(l == r){
-        st[id] = node(a[l], a[l], a[l], a[l]);
+        st[id].cnt += val;
         return;
     }
 
     int mid = l + ((r-l)>>1);
-    int lc = id<<1;
 
-    build(lc,l,mid);
-    build(lc|1,mid+1,r);
+    if(pos <= mid){
+        if(!st[id].l) st[id].l = ++nNode;
+        update(st[id].l,l,mid,pos,val);    
+    }
+    else{
+        if(!st[id].r) st[id].r = ++nNode;
+        update(st[id].r, mid + 1, r, pos, val);
+    }
 
-    st[id] = st[lc] + st[lc|1];
+    st[id].cnt = st[st[id].l].cnt + st[st[id].r].cnt;
 }
 
-node get(int id, int l, int r, int u, int v){
-    if(l > v || r < u) return node(-2e15,-2e15,-2e15,-2e15);
-    if(l >= u && r <= v) return st[id];
+int query(int id, int l, int r, int u, int v){
+    if(l > v || r < u) return 0;
+    if(l >= u && r <= v) return st[id].cnt;
 
     int mid = l + ((r-l)>>1);
-    int lc = id<<1;
 
-    return get(lc,l,mid,u,v) + get(lc|1,mid+1,r,u,v);
+    int ans = 0;
+    if(st[id].l) ans += query(st[id].l,l,mid,u,v);
+    if(st[id].r) ans += query(st[id].r,mid+1,r,u,v);
+
+    return ans;
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -114,17 +114,30 @@ int main(){
     fastio;
     setup();
     
-    cin >> n;
+    int n,q;
+    cin >> n >> q;
 
-    for(int i = 1; i <= n; i++) cin >> a[i];
+    vi a(n+1);
+    for(int i = 1; i <= n; i++){
+        cin >> a[i];
+        update(1,1,1e9,a[i],1);
+    }
 
-    build(1,1,n);
-
-    cin >> q;
     while(q--){
-        int l,r;
-        cin >> l >> r;
-        cout << get(1,1,n,l,r).best << '\n';
+        char type;
+        cin >> type;
+        if(type == '!'){
+            int pos,val;
+            cin >> pos >> val;
+            update(1,1,1e9,a[pos],-1);
+            update(1,1,1e9,val,1);
+            a[pos] = val;
+        }
+        else{
+            int l,r;
+            cin >> l >> r;
+            cout << query(1,1,1e9,l,r) << '\n';
+        }
     }
     
     return NAH_I_WOULD_WIN;
