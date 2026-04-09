@@ -5,12 +5,12 @@
  * ----------------------------------------------------------
  *    title: Salary Queries
  *    source: https://cses.fi/problemset/task/1144
- *    submission: 
- *    status: WIP
+ *    submission: https://cses.fi/problemset/result/16849486/
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Segment Tree
+ *    complexity: O(n \log n)
+ *    note: Typical Dynamic Segment Tree
 **/
 
 #include <iostream>
