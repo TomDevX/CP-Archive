@@ -64,17 +64,103 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 2e5+2;
 
+struct node{
+    int maxn,minn;
+};
+node st[4*N];
+int a[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void build(int id, int l, int r){
+    if(l == r){
+        st[id].minn = st[id].maxn = a[l];
+        return;
+    }
 
+    int mid = l + ((r-l)>>1);
+    int lc = id<<1;
 
+    build(lc,l,mid);
+    build(lc|1,mid+1,r);
+
+    st[id].minn = min(st[lc].minn,st[lc|1].minn);
+    st[id].maxn = max(st[lc].maxn,st[lc|1].maxn);
+}
+
+int get_min(int id, int l, int r){
+    if(l == r) return l;
+    if(st[id].minn == -1) return -1;
+    int mid = l + ((r-l)>>1);
+    if(st[id].minn == st[id<<1].minn){
+        return get_min(id<<1,l,mid);
+    }
+    return get_min(id<<1|1,mid+1,r);
+}
+
+int get_max(int id, int l, int r){
+    if(l == r) return l;
+    if(st[id].maxn == -1) return -1;
+    int mid = l + ((r-l)>>1);
+    if(st[id].maxn == st[id<<1].maxn){
+        return get_max(id<<1,l,mid);
+    }
+    return get_max(id<<1|1,mid+1,r);
+}
+
+void update(int id, int l, int r, int u, int v){
+    if(l > v || r < u){
+        return;
+    }
+    if(l >= u && r <= v){
+        st[id].minn = st[id].maxn = -1;
+        return;
+    }
+
+    int mid = l + ((r-l)>>1);
+    int lc = id<<1;
+
+    update(lc,l,mid,u,v);
+    update(lc|1,mid+1,r,u,v);
+
+    if(st[id<<1].minn == -1 && st[id<<1|1].minn == -1){
+        st[id].minn = st[id].maxn = -1;
+    }
+    else if(st[id<<1].minn == -1){
+        st[id] = st[id<<1|1];
+    }
+    else if(st[id<<1|1].minn == -1){
+        st[id] = st[id<<1];
+    }
+    else{
+        st[id].minn = min(st[id<<1].minn,st[id<<1|1].minn);
+        st[id].maxn = max(st[id<<1].maxn,st[id<<1|1].maxn);
+    }
+}   
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    
+    int n;
+    cin >> n;
+    for(int i = 1; i <= n; i++){
+        cin >> a[i];
+    }
+    build(1,1,n);
+
+    int ans = 0;
+    while(true){
+        int x = get_min(1,1,n), y = get_max(1,1,n);
+        if(x == -1) break;
+        if(x > y) swap(x,y);
+        update(1,1,n,x,y);   
+        
+        ans++;
+    }
+
+    cout << ans;
     
     return NAH_I_WOULD_WIN;
 }
