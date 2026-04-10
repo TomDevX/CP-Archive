@@ -2,7 +2,7 @@
 
 ### 📊 Sorting and Searching Stats
 
-![Progress](https://img.shields.io/badge/Progress-3/3-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_10%2C_2026_--_08%3A42_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-3/3-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_10%2C_2026_--_11%3A01_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 3
 - **Solved (AC):** 3

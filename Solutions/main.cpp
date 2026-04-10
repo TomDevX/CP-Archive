@@ -1,135 +1,77 @@
-/**
- *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-08 09:42:44
- *    country: Vietnam - VNM
- * ----------------------------------------------------------
- *    title: Subarray Sum Queries II
- *    source: https://cses.fi/problemset/task/3226
- *    submission: 
- *    status: WIP
- * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
-**/
-
 #include <iostream>
 #include <vector>
+#include <bitset>
+#include <iomanip>
 #include <algorithm>
+#include <cmath>
 #include <cstdio>
 #include <utility>
-#include <stack>
 #include <cstring>
-#include <queue>
-#include <bitset>
-
-using namespace std;
-
-// --- [ DEBUGGING & LOCAL CONFIG ] ---
-#if __has_include("TomDev.h")
-    #include "TomDev.h"
-    #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
+#include <random>
+#include <fstream>
+#include <filesystem> // Use c++17
+#if __has_include("debuggingz.h")
+    #include "debuggingz.h"
+    #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n';
 #else
     #define dbg(x,i)
 #endif
-#define NAH_I_WOULD_WIN 0
 
-// --- [ MACROS ] ---
 #define all(x,bonus) (x).begin()+(bonus),(x).end()
-#define range(x,st,ed) (x).begin()+(st),(x).begin()+(ed)+1
-#define filter(x,bonus) (x).erase(unique((x).begin()+(bonus), (x).end()), (x).end())
-#define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
-#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
-#define fi first
-#define se second
-#define eb emplace_back
-#define sz(x) (int)(x).size()
 
-// --- [ TYPES & ALIASES ] ---
-using ll = long long;
-using ull = unsigned long long;
-using ld = long double;
-using pll = pair<long long,long long>;
-using pld = pair<long double,long double>;
-using pii = pair<int,int>;
-using pill = pair<int,long long>;
-using vi = vector<int>;
-using vvi = vector<vector<int>>;
-using vll = vector<long long>;
-using vvll = vector<vector<long long>>;
-using vpii = vector<pair<int,int>>;
-using vpill = vector<pair<int,long long>>;
-using vpll = vector<pair<long long,long long>>;
+using namespace std;
+namespace fs = filesystem;
 
-void setup(){
-    if(!fopen("3226.INP", "r")) return;
-    freopen("3226.INP", "r", stdin);
-    freopen("3226.OUT", "w", stdout);
+const string name = "BAI";
+#define TESTS 100
+
+random_device rd;
+mt19937 gen(rd());
+
+void fast(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
 }
 
-// ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-int n,q;
-const int N = 2e5+2;
-int a[N];
-
-struct node{
-    ll sum,pref,suff,best;
-
-    node(ll _sum = 0, ll _pref = 0, ll _suff = 0, ll _best = 0) : sum(_sum), pref(_pref), suff(_suff), best(_best) {};
-    node operator+(const node& other){
-        ll sumres = sum  + other.sum;
-        ll prefres = max({pref, sum + other.pref});
-        ll suffres = max({other.suff, other.sum + suff});
-        ll bestres = max({best, other.best, suff + other.pref});
-        return node(sumres,prefres,suffres,bestres);
-    }
-};
-
-node st[4*N];
-
-// ----------------------- [ FUNCTIONS ] -----------------------
-void build(int id, int l, int r){
-    if(l == r){
-        st[id] = node(a[l], a[l], a[l], a[l]);
-        return;
-    }
-
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1;
-
-    build(lc,l,mid);
-    build(lc|1,mid+1,r);
-
-    st[id] = st[lc] + st[lc|1];
+long long ranInt(long long l, long long r) {
+    uniform_int_distribution<long long> dis(l, r);
+    return dis(gen);
 }
 
-node get(int id, int l, int r, int u, int v){
-    if(l > v || r < u) return node(-2e15,-2e15,-2e15,-2e15);
-    if(l >= u && r <= v) return st[id];
+void sinh(fs::path &inp_path, int test) {
+    ofstream inp(inp_path);
 
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1;
+    // code
 
-    return get(lc,l,mid,u,v) + get(lc|1,mid+1,r,u,v);
+    inp.close();
 }
 
-// ----------------------- [ MAIN ] -----------------------
-int main(){
-    fastio;
-    setup();
-    
-    cin >> n;
+void gen_ans(const fs::path &inp_path, const fs::path &out_path) {
+    string trau_program = name + "_trau.exe";
+    string cmd = trau_program + " < " + inp_path.string() + " > " + out_path.string();
+    system(cmd.c_str());
+}
 
-    for(int i = 1; i <= n; i++) cin >> a[i];
+int main() {
+    fast();
+    fs::path cha = "DE";
+    fs::create_directory(cha);
+    fs::path root_path = cha/name;
+    fs::create_directory(root_path);
 
-    build(1,1,n);
+    for (int test = 1; test <= TESTS; test++) {
+        string test_dir_name = "TEST";
+        if (test < 10) test_dir_name += "0" + to_string(test);
+        else test_dir_name += to_string(test);
 
-    cin >> q;
-    while(q--){
-        int l,r;
-        cin >> l >> r;
-        cout << get(1,1,n,l,r).best << '\n';
+        fs::path test_path = root_path / test_dir_name;
+        fs::create_directory(test_path);
+
+        fs::path inp_path = test_path / (name + ".INP");
+        fs::path out_path = test_path / (name + ".OUT");
+
+        sinh(inp_path,test);
+        gen_ans(inp_path, out_path);
+        cout << "Test " << test << ": Completed!\n";
     }
-    
-    return NAH_I_WOULD_WIN;
 }
