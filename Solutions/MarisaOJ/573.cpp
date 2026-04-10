@@ -1,10 +1,10 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-09 23:13:49
+ *    created: 2026-04-08 21:32:42
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: Marisa
+ *    source: https://marisaoj.com/problem/573
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -18,6 +18,7 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
+#include <string>
 
 using namespace std;
 
@@ -58,13 +59,13 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("573.INP", "r")) return;
+    freopen("573.INP", "r", stdin);
+    freopen("573.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+const int MOD  = 1e9+7;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -74,10 +75,39 @@ int main(){
     fastio;
     setup();
     
-    int w;
-    cin >> w;
-    if(w > 2 && !(w&1)) cout << "YES";
-    else cout << "NO";
+    string s;
+    cin >> s;
+    int n = sz(s);
+    s = "#" + s;
+
+    string t = "#marisa";
+    int m = sz(t) - 1;
+
+    vvi dp(n+1,vi(m+1));
+    vvi cnt(n+1,vi(m+1));
+
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= m; j++){
+            if(s[i] == t[j]){
+                dp[i][j] = (dp[i-1][j-1] + 1)%MOD;
+                cnt[i][j] = cnt[i-1][j-1];
+            }
+            else{
+                if(dp[i][j-1] > dp[i-1][j]){
+                    cnt[i][j] = cnt[i][j-1];
+                    dp[i][j] = dp[i][j-1];
+                }
+                else if(dp[i-1][j] > dp[i][j-1]){
+                    cnt[i][j] = cnt[i-1][j];
+                    dp[i][j] = dp[i-1][j];
+                }
+                else{
+                    cnt[i][j] = (((cnt[i-1][j] + cnt[i][j-1])%MOD - cnt[i-1][j-1])%MOD + MOD)%MOD;
+                }
+            }
+        }
+    }
+    cout << cnt[n][m];
     
     return NAH_I_WOULD_WIN;
 }
