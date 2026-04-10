@@ -27,32 +27,27 @@ ll ranInt(ll l, ll r){
 void make(){
     ofstream inp("input.inp");
 
-    int n = ranInt(1,2e5), q = ranInt(1,2e5);
-    if(q&1) q++;
+    int n = ranInt(1,20);
+    inp << 0 << ' ' << n << '\n';
 
-    inp << n << ' ' << q << '\n';
-
-    cerr << n << '\n';
-
-    for(int i = 1; i <= n; i++){
-        inp << ranInt(1,1e6) << ' ';
-    }
-    inp << '\n';
-
-    for(; q > 0; q -= 2){
+    int q = ranInt(1,50);
+    while(q--){
         int type = ranInt(1,2);
-        int l = ranInt(1,n), r = ranInt(l,n);
-        int x = ranInt(1,1e6);
-        inp << type << ' ' << l << ' ' << r << ' ' << x << '\n';
-        l = ranInt(1,n), r = ranInt(l,n);
-        inp << 3 << ' ' << l << ' ' << r << '\n';
+        if(type == 1){
+            inp << type << ' ' << ranInt(0,n-1) << ' ' << ranInt(0,n-1) << ' ' << ranInt(1,100) << '\n';
+        }
+        else{
+            int x = ranInt(0,n-1), y = ranInt(0,n-1), u = ranInt(x,n-1), v = ranInt(y,n-1);
+            inp << type << ' ' << x << ' ' << y << ' ' << u << ' ' << v << '\n';
+        }
     }
+    inp << 3;
 
     inp.close();
 }
 
 bool check(){
-    string cmd = "CSES/\"Range Queries\"/1735 < input.inp > output.out";
+    string cmd = "VNOJ/nkmobile < input.inp > output.out";
     string cmd2 = "./trau < input.inp > output.ans";
     if(system(cmd.c_str())) return true;
     if(system(cmd2.c_str())) return true;

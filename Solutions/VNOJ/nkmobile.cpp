@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-11 00:02:45
+ *    created: 2026-04-10 23:49:20
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: IOI01 Mobiles
+ *    source: https://oj.vnoi.info/problem/nkmobile
+ *    submission: https://oj.vnoi.info/submission/12088963
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: BIT 2D
+ *    complexity: O(n^2 \log n^2)
+ *    note: Typical BIT 2D but remember to shift the base index to 1
 **/
 
 #include <iostream>
@@ -58,28 +58,39 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("trau.INP", "r")) return;
-    freopen("trau.INP", "r", stdin);
-    freopen("trau.OUT", "w", stdout);
+    if(!fopen("nkmobile.INP", "r")) return;
+    freopen("nkmobile.INP", "r", stdin);
+    freopen("nkmobile.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+int n;
 const int N = 1030;
-ll a[N][N];
+ll bit[N][N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 void update(int x, int y, int val){
-    a[x][y] += val;
+    for(; x <= n; x += x&-x){
+        int tmpy = y;
+        for(; tmpy <= n; tmpy += tmpy&-tmpy){
+            bit[x][tmpy] += val;
+        }
+    }
 }
 
-ll get(int x, int y, int u, int v){
+ll get(int x, int y){
     ll ans = 0;
-    for(int i = x; i <= u; i++){
-        for(int j = y; j <= v; j++){
-            ans += a[i][j];
+    for(; x; x -= x&-x){
+        int tmpy = y;
+        for(; tmpy; tmpy -= tmpy&-tmpy){
+            ans += bit[x][tmpy];
         }
     }
     return ans;
+}
+
+ll query(int x, int y, int u, int v){
+    return get(u,v) - get(u,y-1) - get(x-1,v) + get(x-1,y-1);
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -87,9 +98,9 @@ int main(){
     fastio;
     setup();
     
-    int rac, n;
+    int rac;
     cin >> rac >> n;
-    
+
     int type;
     while(cin >> type){
         if(type == 1){
@@ -102,7 +113,7 @@ int main(){
             int x,y,u,v;
             cin >> x >> y >> u >> v;
             x++,y++,u++,v++;
-            cout << get(x,y,u,v) << '\n';
+            cout << query(x,y,u,v) << '\n';
         }
         else return 0;
     }
