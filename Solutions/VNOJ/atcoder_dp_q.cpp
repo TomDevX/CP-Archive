@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-11 00:32:42
+ *    created: 2026-04-11 00:28:17
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Bài toán bông hoa
+ *    source: https://oj.vnoi.info/problem/atcoder_dp_q
+ *    submission: https://oj.vnoi.info/submission/12088968
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: DP, Segment Tree
+ *    complexity: O(n \log n)
+ *    note: At first, we dp this problem. dp[i] = a[i] + max(dp[1 -> j] which h[j] < h[i]), this takes us O(n^2) => Use segment tree on h[i] values to optimize
 **/
 
 #include <iostream>
@@ -58,16 +58,41 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("trau.INP", "r")) return;
-    freopen("trau.INP", "r", stdin);
-    freopen("trau.OUT", "w", stdout);
+    if(!fopen("atcoder_dp_q.INP", "r")) return;
+    freopen("atcoder_dp_q.INP", "r", stdin);
+    freopen("atcoder_dp_q.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 2e5+2;
 
+ll st[4*N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void update(int id, int l, int r, int pos, ll val){
+    if(l == r){
+        st[id] = max(st[id],val);
+        return;
+    }
 
+    int mid = l + ((r-l)>>1);
+    int lc = id<<1;
+
+    if(pos <= mid) update(lc,l,mid,pos,val);
+    else update(lc|1,mid+1,r,pos,val);
+
+    st[id] = max(st[lc],st[lc|1]);
+}
+
+ll get_max(int id, int l, int r ,int u, int v){
+    if(l > v || r < u) return 0;
+    if(l >= u && r <= v) return st[id];
+
+    int mid = l + ((r-l)>>1);
+    int lc = id<<1;
+
+    return max(get_max(lc,l,mid,u,v), get_max(lc|1,mid+1,r,u,v));
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
@@ -80,13 +105,13 @@ int main(){
     for(int i = 1; i <= n; i++) cin >> h[i];
     for(int i = 1; i <= n; i++) cin >> a[i];
 
-    vll dp(n+1);
+    ll ans = 0;
     for(int i = 1; i <= n; i++){
-        for(int j = 0; j < i; j++){
-            if(h[i] > h[j]) dp[i] = max(dp[i], a[i] + dp[j]);
-        }
+        ll x = a[i] + get_max(1,1,n,1,h[i]-1);
+        update(1,1,n,h[i],x);
+        ans = max(ans,x);
     }
-    cout << *max_element(all(dp,1));
+    cout << ans;
     
     return NAH_I_WOULD_WIN;
 }

@@ -27,27 +27,18 @@ ll ranInt(ll l, ll r){
 void make(){
     ofstream inp("input.inp");
 
-    int n = ranInt(1,20);
-    inp << 0 << ' ' << n << '\n';
+    int n = ranInt(1,100);
+    inp << n << '\n';
 
-    int q = ranInt(1,50);
-    while(q--){
-        int type = ranInt(1,2);
-        if(type == 1){
-            inp << type << ' ' << ranInt(0,n-1) << ' ' << ranInt(0,n-1) << ' ' << ranInt(1,100) << '\n';
-        }
-        else{
-            int x = ranInt(0,n-1), y = ranInt(0,n-1), u = ranInt(x,n-1), v = ranInt(y,n-1);
-            inp << type << ' ' << x << ' ' << y << ' ' << u << ' ' << v << '\n';
-        }
-    }
-    inp << 3;
+    for(int i = 1; i <= n; i++) inp << ranInt(1,n) << ' ';
+    inp << '\n';
+    for(int i = 1; i <= n; i++) inp << ranInt(1,1e9) << ' ';
 
     inp.close();
 }
 
 bool check(){
-    string cmd = "VNOJ/nkmobile < input.inp > output.out";
+    string cmd = "VNOJ/atcoder_dp_q < input.inp > output.out";
     string cmd2 = "./trau < input.inp > output.ans";
     if(system(cmd.c_str())) return true;
     if(system(cmd2.c_str())) return true;
