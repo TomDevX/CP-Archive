@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-11 00:32:42
+ *    created: 2026-04-11 01:01:06
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -64,29 +64,42 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+const int N = 2e5+2;
+ll a[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void update(int l, int r){
+    int cnt = 1;
+    for(int i = l; i <= r; i++){
+        a[i] += cnt;
+        cnt++;
+    }
+}
 
+ll get(int l, int r){
+    ll ans = 0;
+    for(int i = l; i <= r; i++) ans += a[i];
+    return ans;
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    int n;
-    cin >> n;
-    vi h(n+1), a(n+1);
-    for(int i = 1; i <= n; i++) cin >> h[i];
+    int n,q;
+    cin >> n >> q;
+
     for(int i = 1; i <= n; i++) cin >> a[i];
 
-    vll dp(n+1);
-    for(int i = 1; i <= n; i++){
-        for(int j = 0; j < i; j++){
-            if(h[i] > h[j]) dp[i] = max(dp[i], a[i] + dp[j]);
+    int type,l,r;
+    while(q--){
+        cin >> type >> l >> r;
+        if(type == 1){
+            update(l,r);
         }
+        else cout << get(l,r) << '\n';
     }
-    cout << *max_element(all(dp,1));
     
     return NAH_I_WOULD_WIN;
 }

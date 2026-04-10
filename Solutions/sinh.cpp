@@ -31,18 +31,21 @@ ll ranInt(ll l, ll r){
 void make(){
     ofstream inp("input.inp");
 
-    int n = ranInt(1,100);
-    inp << n << '\n';
+    int n = ranInt(1,100), q = ranInt(1,100);
+    inp << n << ' ' << q << '\n';
 
-    for(int i = 1; i <= n; i++) inp << ranInt(1,n) << ' ';
+    for(int i = 1; i <= n; i++) inp << ranInt(1,1000) << ' ';
     inp << '\n';
-    for(int i = 1; i <= n; i++) inp << ranInt(1,1e9) << ' ';
+    while(q--){
+        int l = ranInt(1,n), r = ranInt(l,n);
+        inp << ranInt(1,2) << ' ' << l << ' ' << r << '\n';
+    }
 
     inp.close();
 }
 
 bool check(){
-    string cmd = "VNOJ/BAI < input.inp > output.out";
+    string cmd = "CSES/\"Range Queries\"/1736 < input.inp > output.out";
     string cmd2 = "./trau < input.inp > output.ans";
     if(system(cmd.c_str())) return true;
     if(system(cmd2.c_str())) return true;
