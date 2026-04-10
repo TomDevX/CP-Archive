@@ -2,7 +2,7 @@
 
 ### 📊 Grade 10 Stats
 
-![Progress](https://img.shields.io/badge/Progress-45/56-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_08%2C_2026_--_21%3A31_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-45/56-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_10%2C_2026_--_23%3A47_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 56
 - **Solved (AC):** 45

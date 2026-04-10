@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-10 20:38:19
+ *    created: 2026-04-10 22:31:02
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -22,7 +22,7 @@
 using namespace std;
 
 // --- [ DEBUGGING & LOCAL CONFIG ] ---
-#if __has_include("TomDev.h")
+#if __has_include("TomDev.h") && defined(LOCAL)
     #include "TomDev.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
 #else
@@ -58,9 +58,9 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("trau.INP", "r")) return;
+    freopen("trau.INP", "r", stdin);
+    freopen("trau.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
@@ -74,7 +74,32 @@ int main(){
     fastio;
     setup();
     
-    
+    int n,q;
+    cin >> n >> q;
+    vll a(n+1);
+    for(int i = 1; i <= n; i++) cin >> a[i];
+
+    while(q--){
+        int type;
+        cin >> type;
+        if(type == 1){
+            int l,r,x;
+            cin >> l >> r >> x;
+            for(int j = l; j <= r; j++) a[j] += x;
+        }
+        else if(type == 2){
+            int l,r,x;
+            cin >> l >> r >> x;
+            for(int j = l; j <= r; j++) a[j] = x;
+        }
+        else{
+            int l,r;
+            cin >> l >> r;
+            ll ans = 0;
+            for(int j = l; j <= r; j++) ans += a[j];
+            cout << ans << '\n';
+        }
+    }
     
     return NAH_I_WOULD_WIN;
 }

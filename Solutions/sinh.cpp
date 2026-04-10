@@ -1,0 +1,74 @@
+#include <iostream>
+#include <random>
+#include <fstream>
+#include <cstdlib>
+#include <string>
+#include <cassert>
+#include <algorithm>
+#include <TomDev.h>
+
+using namespace std;
+
+#define ll long long
+
+random_device rd;
+mt19937_64 gen(rd());
+
+uniform_int_distribution<ll> dist(1,1e9);
+
+ll ranInt(ll l, ll r){
+    ll res = 0;
+    for(int i = 0; i < 4; i++){
+        res = (res << 15) ^ (dist(gen) & ((1LL << 15) - 1LL));
+    }
+    return l + res%(r-l+1);
+}
+
+void make(){
+    ofstream inp("input.inp");
+
+    int n = ranInt(1,2e5), q = ranInt(1,2e5);
+    if(q&1) q++;
+
+    inp << n << ' ' << q << '\n';
+
+    cerr << n << '\n';
+
+    for(int i = 1; i <= n; i++){
+        inp << ranInt(1,1e6) << ' ';
+    }
+    inp << '\n';
+
+    for(; q > 0; q -= 2){
+        int type = ranInt(1,2);
+        int l = ranInt(1,n), r = ranInt(l,n);
+        int x = ranInt(1,1e6);
+        inp << type << ' ' << l << ' ' << r << ' ' << x << '\n';
+        l = ranInt(1,n), r = ranInt(l,n);
+        inp << 3 << ' ' << l << ' ' << r << '\n';
+    }
+
+    inp.close();
+}
+
+bool check(){
+    string cmd = "CSES/\"Range Queries\"/1735 < input.inp > output.out";
+    string cmd2 = "./trau < input.inp > output.ans";
+    if(system(cmd.c_str())) return true;
+    if(system(cmd2.c_str())) return true;
+
+    return system("diff output.out output.ans");
+}
+
+int main(){
+    for(int test = 1; test <= 10; test++){
+        make();
+        if(!check()){
+            cout << "AC on test " << test << '\n';
+        }
+        else{
+            cout << "WA on test " << test << '\n';
+            return 0;
+        }
+    }
+}

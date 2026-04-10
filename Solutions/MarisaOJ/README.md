@@ -2,9 +2,9 @@
 
 ### 📊 MarisaOJ Stats
 
-![Progress](https://img.shields.io/badge/Progress-15/15-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_08%2C_2026_--_21%3A31_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-15/16-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_10%2C_2026_--_23%3A47_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
-- **Total Unique Problems:** 15
+- **Total Unique Problems:** 16
 - **Solved (AC):** 15
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
@@ -12,10 +12,10 @@
 ---
 ## 📌 Table of Contents
 
-* [📁 MarisaOJ (15)](#-marisaoj-15)
+* [📁 MarisaOJ (16)](#-marisaoj-16)
 
 ---
-## 📂 MarisaOJ (15)
+## 📂 MarisaOJ (16)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [74 - Brewing potion](https://account.marisaoj.com/problem/74) | `Greedy`, `Two Pointers` | $\mathcal{O}(n \log n)$ | Feb 22, 2026 | [Code](74.cpp) \| [Sub](https://account.marisaoj.com/submission/1094298) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -34,5 +34,6 @@
 | 14 | [165 - String occurences 2 - Z function Approach](https://marisaoj.com/problem/165) | `Z-function` | $\mathcal{O}(n + m)$ | Mar 22, 2026 | [Code](165_Zfunc.cpp) \| [Sub](https://marisaoj.com/submission/1132029) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 15 | [556 - Cucumber](https://account.marisaoj.com/problem/556) | `Greedy` | $\mathcal{O}(n \log n)$ | Feb 22, 2026 | [Code](556.cpp) \| [Sub](https://account.marisaoj.com/submission/1094391) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 16 | [572 - Buying tickets](https://marisaoj.com/problem/572) | `Dynamic Programming` | $\mathcal{O}(n)$ | Mar 05, 2026 | [Code](572.cpp) \| [Sub](https://marisaoj.com/submission/1111914) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 17 | [574 - Fences painting](https://marisaoj.com/problem/574) | `Dynamic Programming` | $\mathcal{O}(n)$ | Mar 09, 2026 | [Code](574.cpp) \| [Sub](https://marisaoj.com/submission/1117055) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 17 | [573 - Marisa](https://marisaoj.com/problem/573) | N/A | N/A | Apr 08, 2026 | [Code](573.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 18 | [574 - Fences painting](https://marisaoj.com/problem/574) | `Dynamic Programming` | $\mathcal{O}(n)$ | Mar 09, 2026 | [Code](574.cpp) \| [Sub](https://marisaoj.com/submission/1117055) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 

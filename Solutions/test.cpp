@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-07 21:04:41
+ *    created: 2026-04-10 21:54:49
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -18,7 +18,6 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
-#include <cstring>
 
 using namespace std;
 
@@ -65,133 +64,17 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-int n,q;
-const int N = 1e5+2;
-struct Query{
-    int l,r,rang,val;
 
-    Query(int _l = 0, int _r = 0, int _rang = 0, int _val = 0) : l(_l), r(_r), rang(_rang), val(_val) {};
-};
-Query queries[N];
-
-struct BITR{
-    ll bit[N][2];
-    int n;
-
-    BITR(int _n = 0) : n(_n) {
-        for(int i = 1; i <= n; i++) bit[i][0] = bit[i][1] = 0;
-    };
-
-    void build(vi &a){
-        for(int i = 1; i <= n; i++){
-            ll diff = a[i] - a[i-1];
-            ll d = 1LL*i*diff;
-
-            bit[i][0] += diff;
-            bit[i][1] += d;
-
-            int j = i + (i&-i);
-            if(j <= n){
-                bit[j][0] += bit[i][0];
-                bit[j][1] += bit[i][1];
-            }
-        }
-    }
-
-    void update_point(int id, int pos, int val){
-        for(;pos <= n; pos += pos&-pos){
-            bit[pos][id] += val;
-        }
-    }
-
-    void update_range(int l, int r, int val){
-        update_point(0,l,val);
-        update_point(0,r+1,-val*(r-l));
-        update_point(1,l,1LL*l*val);
-        update_point(1,r+1,1LL*-(r+1)*val*(r-l));
-    }
-
-    ll get(int pos){
-        ll suma = 0, sumb = 0;
-        int ori = pos;
-        for(; pos; pos -= pos&-pos){
-            suma += bit[pos][0];
-            sumb += bit[pos][1];
-        }
-        return 1LL*(ori+1)*suma - sumb;
-    }
-
-    ll query(int l, int r){
-        return get(r) - get(l-1);
-    }
-};
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-namespace subtask1{
-    bool check(){
-        for(int i = 1; i <= q; i++){
-            if(queries[i].l != queries[i].r) return false;
-        }
-        return true;
-    }
 
-    void solve(){
-        vll a(n+1);
-        for(int i = 1; i <= q; i++){
-            a[queries[i].l] += queries[i].val;
-        }
-        for(int i = 1; i <= n; i++) cout << a[i] << ' ';
-    }
-}
-
-namespace subtask2{
-    bool check(){
-        for(int i = 1; i <= q; i++){
-            if(queries[i].rang != 1) return false;
-        }
-        return true;
-    }
-
-    void solve(){
-        vll a(n+1);
-        for(int i = 1; i <= q; i++){
-            a[queries[i].l] += queries[i].val;
-            a[queries[i].r+1] -= (queries[i].r+1)*queries[i].val;
-        }
-        for(int i = 1; i <= n; i++){
-            a[i] += a[i-1];
-            cout << a[i] << ' ';
-        }
-    }
-}
-
-namespace subtask3{
-    void solve(){
-        vll a(n+1);
-        for(int i = 1; i <= q; i++){
-            int cnt = 0;
-            for(int j = queries[i].l; j <= queries[i].r; j += queries[i].rang){
-                a[j] += (cnt+1)*queries[i].val;
-                cnt++;
-            }
-        }
-        for(int i = 1; i <= n; i++) cout << a[i] << ' ';
-    }
-}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    cin >> n >> q;
-    for(int i = 1; i <= q; i++){
-        cin >> queries[i].l >> queries[i].r >> queries[i].rang >> queries[i].val;
-    }
-
-    if(subtask1::check()) return subtask1::solve(),0;
-    if(subtask2::check()) return subtask2::solve(),0;
-    subtask3::solve();
+    
     
     return NAH_I_WOULD_WIN;
 }
