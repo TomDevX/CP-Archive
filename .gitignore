@@ -13,6 +13,8 @@
 *.prob
 main.cpp
 test.cpp
+*__Generator.cpp
+*__Good.cpp
 
 
 .vscode/

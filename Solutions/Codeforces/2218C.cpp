@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-11 23:12:37
+ *    created: 2026-04-11 22:35:43
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -58,9 +58,9 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("2218C.INP", "r")) return;
+    freopen("2218C.INP", "r", stdin);
+    freopen("2218C.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
@@ -74,7 +74,23 @@ int main(){
     fastio;
     setup();
     
-    
+    int tc;
+    cin >> tc;
+    while(tc--){
+        int n;
+        cin >> n;
+        n *= 3;
+
+        int l = 1, r = n;
+
+        while(l < r){
+            cout << l << ' ' << r << ' ' << r-1 << ' ';
+            l++;
+            r -= 2;
+        }
+
+        cout << '\n';
+    }
     
     return NAH_I_WOULD_WIN;
 }
