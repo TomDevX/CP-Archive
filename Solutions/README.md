@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-230/268-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Apr_11%2C_2026_--_23%3A25_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260411T2325&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-231/268-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Apr_11%2C_2026_--_23%3A26_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260411T2326&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 268
-- **Accepted:** 230
+- **Accepted:** 231
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -272,7 +272,7 @@
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [64 - Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum) | `Dynamic Programming` | $\mathcal{O}(n \cdot m)$ | Feb 12, 2026 | [Code](Leetcode/64.cpp) \| [Sub](https://leetcode.com/problems/minimum-path-sum/submissions/1916094804) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 2 | [Reverse Integer](https://leetcode.com/problems/reverse-integer/) | N/A | N/A | Apr 11, 2026 | [Code](Leetcode/reverse-integer.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 2 | [REVERSE-INTEGER - Reverse Integer](https://leetcode.com/problems/reverse-integer/) | `Implementation` | $\mathcal{O}(digit(n))$ | Apr 11, 2026 | [Code](Leetcode/reverse-integer.cpp) \| [Sub](https://leetcode.com/problems/reverse-integer/submissions/1975578891/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [LQDOJ (6)](<<<<<<<%20HEAD)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |

@@ -3,14 +3,14 @@
  *    created: 2026-04-11 23:23:04
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Reverse Integer
+ *    source: https://leetcode.com/problems/reverse-integer/
+ *    submission: https://leetcode.com/problems/reverse-integer/submissions/1975578891/
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Implementation
+ *    complexity: O(digit(n))
+ *    note: Just do as the problem states
 **/
 
 class Solution {
