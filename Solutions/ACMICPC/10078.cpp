@@ -9,7 +9,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: DSU, MST, Graph
- *    complexity: O((n + m) + m \log m + q + \text{MAX_VAL})
+ *    complexity: O((n + m) + m \log m + q + \text{max value})
  *    note: Our goal is to get the highest edge as possible, but if we use Dijkstra, it would be too harsh for the edges' priority queue. So that, we need to remove some unecessary edges, we use MST (Kruskal), but not minimum this time, we use maximum edges to maximize the answer. After that, we don't need to Dijkstra anymore because there is now 1 only way from any node u to node v on the "MST" - we use DFS/BFS. The hard thing here is the edges constraint is too large to we need to implement economically - I tried to use 1D arrays instead of vectors or 2D.
 **/
 
