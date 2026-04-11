@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-11 01:23:32
+ *    created: 2026-04-11 16:37:23
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -75,14 +75,13 @@ int main(){
     setup();
     
     int n;
-    cin >> n;
+    cin>> n;
     vi a(n+1);
-    vll pref(n+1);
-    for(int i = 1; i <= n; i++){
-        cin >> a[i];
-        pref[i] = pref[i-1] + a[i];
-        cout << pref[i] << ' ';
-    }
+    for(int i =1 ; i <= n; i++) cin >> a[i];
+
+    for(int i = 1; i <= n;i++) cout << a[i];
+
+    
     
     return NAH_I_WOULD_WIN;
 }
