@@ -1,10 +1,10 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-11 01:23:32
+ *    created: 2026-04-11 01:25:19
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: Prefix Sum Queries
+ *    source: https://cses.fi/problemset/task/2166
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -58,13 +58,15 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("2166.INP", "r")) return;
+    freopen("2166.INP", "r", stdin);
+    freopen("2166.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+const int N = 2e5+2;
+int n;
+int a[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -74,15 +76,9 @@ int main(){
     fastio;
     setup();
     
-    int n;
-    cin >> n;
-    vi a(n+1);
-    vll pref(n+1);
-    for(int i = 1; i <= n; i++){
-        cin >> a[i];
-        pref[i] = pref[i-1] + a[i];
-        cout << pref[i] << ' ';
-    }
+    int q;
+    cin >> n >> q;
+    for(int i = 1; i <= n;)
     
     return NAH_I_WOULD_WIN;
 }
