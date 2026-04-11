@@ -5,12 +5,12 @@
  * ----------------------------------------------------------
  *    title: Dynamic Range Sum Queries
  *    source: https://cses.fi/problemset/task/1648
- *    submission: 
- *    status: WIP
+ *    submission: https://cses.fi/problemset/result/16686889/
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: BIT
+ *    complexity: O(n \log n)
+ *    note: Typical BIT
 **/
 
 #include <iostream>
