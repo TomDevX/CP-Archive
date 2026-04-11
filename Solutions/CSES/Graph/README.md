@@ -2,7 +2,7 @@
 
 ### 📊 Graph Stats
 
-![Progress](https://img.shields.io/badge/Progress-7/7-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_11%2C_2026_--_23%3A26_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-7/7-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_11%2C_2026_--_23%3A35_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 7
 - **Solved (AC):** 7
