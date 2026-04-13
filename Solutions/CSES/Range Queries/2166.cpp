@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-04 00:51:41
+ *    created: 2026-04-11 01:25:19
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: Hotel Queries
- *    source: https://cses.fi/problemset/task/1143
- *    submission: https://cses.fi/problemset/result/16790807/
- *    status: AC
+ *    title: Prefix Sum Queries
+ *    source: https://cses.fi/problemset/task/2166
+ *    submission: 
+ *    status: WIP
  * ----------------------------------------------------------
- *    tags: Walk on Segment Tree
- *    complexity: O(n \log n)
- *    note: Walk on Segment Tree = binary search but with the help of segment tree to query the value. So in this problem, segment tree help us query the max value, binary search to find the smallest index which fits the guests' requirements. 
+ *    tags: 
+ *    complexity: 
+ *    note: 
 **/
 
 #include <iostream>
@@ -18,12 +18,12 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
-#include <set>
+#include <cstring>
 
 using namespace std;
 
 // --- [ DEBUGGING & LOCAL CONFIG ] ---
-#if __has_include("TomDev.h")
+#if __has_include("TomDev.h") && defined(LOCAL)
     #include "TomDev.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
 #else
@@ -59,20 +59,22 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("1143.INP", "r")) return;
-    freopen("1143.INP", "r", stdin);
-    freopen("1143.OUT", "w", stdout);
+    if(!fopen("2166.INP", "r")) return;
+    freopen("2166.INP", "r", stdin);
+    freopen("2166.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 const int N = 2e5+2;
-int st[4*N];
+int n;
 int a[N];
+ll pref[N];
 
+ll st[4*N], t[4*N];
 // ----------------------- [ FUNCTIONS ] -----------------------
 void build(int id, int l, int r){
     if(l == r){
-        st[id] = a[l];
+        st[id] = pref[l];
         return;
     }
 
@@ -80,43 +82,52 @@ void build(int id, int l, int r){
     int lc = id<<1;
 
     build(lc,l,mid);
-    build(lc | 1, mid+1, r);
+    build(lc|1,mid+1,r);
 
     st[id] = max(st[lc], st[lc|1]);
 }
 
-int get(int id, int l, int r, int val){
+void down(int id){
+
+}
+
+void update(int id, int l, int r, int pos, int val){
     if(l == r){
-        if(st[id] >= val) return st[id] -= val,l; // this line is very important in case of n = 1
-        return 0;
+        t[id] += val;
+        st[id] += val;
+        return;
     }
-    
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1;
-    
-    int ans = 0;
-    if(st[lc] >= val) ans = get(lc,l,mid,val);
-    else if(st[lc|1] >= val) ans = get(lc|1,mid+1,r,val);
-    
-    st[id] = max(st[lc], st[lc|1]);
-    return ans;
 }
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
+    memset(st,-0x3f,sizeof(st));
     
-    int n,q;
+    int q;
     cin >> n >> q;
-    for(int i = 1; i <= n; i++) cin >> a[i];
+    for(int i = 1; i <= n; i++){
+        cin >> a[i];
+        pref[i] = pref[i-1] + a[i];
+    }
 
     build(1,1,n);
 
     while(q--){
-        int x;
-        cin >> x;
-        cout << get(1,1,n,x) << ' ';
+        int type;
+        cin >> type;
+        if(type == 1){
+            int pos,val;
+            cin >> pos >> val;
+            update(1,1,n,pos,a[pos]-val);
+            a[pos] = val;
+        }
+        else{
+            int l,r;
+            cin >> l >> r;
+            cout << get(1,1,n,l,r) << '\n';
+        }
     }
     
     return NAH_I_WOULD_WIN;

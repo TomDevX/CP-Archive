@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-26 12:10:51
+ *    created: 2026-03-20 16:15:09
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: Dynamic Range Sum Queries
- *    source: https://cses.fi/problemset/task/1648
- *    submission: https://cses.fi/problemset/result/16686889/
+ *    title: Reading
+ *    source: https://codeforces.com/contest/234/problem/B
+ *    submission: https://codeforces.com/contest/234/submission/370650351
  *    status: AC
  * ----------------------------------------------------------
- *    tags: BIT
+ *    tags: Sortings
  *    complexity: O(n \log n)
- *    note: Typical BIT
+ *    note: Just sort the array and get the k largest
 **/
 
 #include <iostream>
@@ -18,7 +18,6 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
-#include <cstring>
 
 using namespace std;
 
@@ -59,48 +58,13 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("1648.INP", "r")) return;
-    freopen("1648.INP", "r", stdin);
-    freopen("1648.OUT", "w", stdout);
+    if(!fopen("input.txt", "r")) return;
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 2e5+2;
-int n,q;
-struct BIT{
-    ll bit[N];
-    
-    BIT(){
-        memset(bit,0,sizeof(bit));
-    }
 
-    void build(vi& a){
-        for(int i = 1; i <= n; i++){
-            bit[i] += a[i];
-            if(i + (i & -i) <= n){
-                bit[i + (i & -i)] += bit[i];
-            }
-        }
-    }
-
-    void update(int pos, int val){
-        for(;pos <= n; pos += (pos & -pos)){
-            bit[pos] += val;
-        }
-    }
-
-    ll get(int pos){
-        ll ans = 0;
-        for(;pos; pos -= (pos & -pos)){
-            ans += bit[pos];
-        }
-        return ans;
-    }
-
-    ll query(int l, int r){
-        return get(r) - get(l-1);
-    }
-};
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -110,31 +74,17 @@ int main(){
     fastio;
     setup();
     
-    cin >> n >> q;
-    vi a(n+1);
-    BIT bit;
+    int n,k;
+    cin >> n >> k;
+    vpii a(n+1);
+    for(int i = 1; i <= n; i++) cin >> a[i].fi, a[i].se = i;
+    sort(rall(a,1));
 
-    for(int i = 1; i <= n; i++){
-        cin >> a[i];
-    }
-    bit.build(a);
-
-    while(q--){
-        int type;
-        cin >> type;
-        if(type == 1){
-            int k,u;
-            cin >> k >> u;
-            bit.update(k,u-a[k]);
-            a[k] = u;
-        }
-        else{
-            int l,r;
-            cin >> l >> r;
-            cout << bit.query(l,r) << '\n';
-        }
-    }
-
+    cout << a[k].fi << '\n';
+    vi ans;
+    for(int i = 1; i <= k; i++) ans.eb(a[i].se);
+    sort(all(ans,0));
+    for(int i : ans) cout << i << ' ';
     
     return NAH_I_WOULD_WIN;
 }

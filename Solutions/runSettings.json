@@ -1,0 +1,25 @@
+{
+  ".cpp": {
+    "compileCommand": [
+      "g++",
+      "-std=c++17",
+      "-O2",
+      "-Wall",
+      "-Wextra",
+      "-Wshadow",
+      "${file}",
+      "-o",
+      "${fileDirname}/${fileBasenameNoExtension}"
+    ],
+    "runCommand": [
+      "${fileDirname}/${fileBasenameNoExtension}"
+    ],
+    "debugCommand": [
+      "lldb", 
+      "--", 
+      "${fileDirname}/${fileBasenameNoExtension}"
+    ]
+  },
+  "goodSolutionFile": "${fileDirname}/${fileBasenameNoExtension}__Good${fileExtname}",
+  "generatorFile": "${fileDirname}/${fileBasenameNoExtension}__Generator${fileExtname}"
+}

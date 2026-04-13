@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 *
 !*.*
 !*/
@@ -7,29 +6,6 @@
 *.dSYM/
 **/.DS_Store
 
-# Compiled binaries (Nên chặn để Repo sạch hơn)
-*.exe
-*.app
-*.bin   
-*.idb
-*.prob
-
-
-# IDE/Editor specific files 
-.vscode/
-.idea/
-.cph/
-.cph
-=======
-*
-!*.*
-!*/
-# OS generated files
-.DS_Store
-*.dSYM/
-**/.DS_Store
-
-# Compiled binaries (Nên chặn để Repo sạch hơn)
 *.exe
 *.app
 *.bin   
@@ -37,12 +13,12 @@
 *.prob
 main.cpp
 test.cpp
+*__Generator.cpp
+*__Good.cpp
 
 
-# IDE/Editor specific files 
 .vscode/
 .idea/
 .cph/
 .cph
->>>>>>> 5fa6d33d83da482da2e14af83379253378ad3e97
 *.swp

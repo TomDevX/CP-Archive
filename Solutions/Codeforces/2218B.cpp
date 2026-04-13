@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-03-26 12:10:51
+ *    created: 2026-03-20 16:15:09
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: Dynamic Range Sum Queries
- *    source: https://cses.fi/problemset/task/1648
- *    submission: https://cses.fi/problemset/result/16686889/
+ *    title: The 67th 6-7 Integer Problem
+ *    source: https://codeforces.com/problemset/problem/2218/B
+ *    submission: https://codeforces.com/contest/2218/submission/370657307
  *    status: AC
  * ----------------------------------------------------------
- *    tags: BIT
+ *    tags: Math
  *    complexity: O(n \log n)
- *    note: Typical BIT
+ *    note: Just make the smallest numbers negative so we get the max sum
 **/
 
 #include <iostream>
@@ -18,7 +18,6 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
-#include <cstring>
 
 using namespace std;
 
@@ -59,48 +58,13 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("1648.INP", "r")) return;
-    freopen("1648.INP", "r", stdin);
-    freopen("1648.OUT", "w", stdout);
+    if(!fopen("go.INP", "r")) return;
+    freopen("go.INP", "r", stdin);
+    freopen("go.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 2e5+2;
-int n,q;
-struct BIT{
-    ll bit[N];
-    
-    BIT(){
-        memset(bit,0,sizeof(bit));
-    }
 
-    void build(vi& a){
-        for(int i = 1; i <= n; i++){
-            bit[i] += a[i];
-            if(i + (i & -i) <= n){
-                bit[i + (i & -i)] += bit[i];
-            }
-        }
-    }
-
-    void update(int pos, int val){
-        for(;pos <= n; pos += (pos & -pos)){
-            bit[pos] += val;
-        }
-    }
-
-    ll get(int pos){
-        ll ans = 0;
-        for(;pos; pos -= (pos & -pos)){
-            ans += bit[pos];
-        }
-        return ans;
-    }
-
-    ll query(int l, int r){
-        return get(r) - get(l-1);
-    }
-};
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -110,31 +74,17 @@ int main(){
     fastio;
     setup();
     
-    cin >> n >> q;
-    vi a(n+1);
-    BIT bit;
-
-    for(int i = 1; i <= n; i++){
-        cin >> a[i];
+    int tc;
+    cin >> tc;
+    int n = 7;
+    while(tc--){
+        vi a(n+1);
+        for(int i = 1; i <= n; i++) cin>>a[i];
+        sort(all(a,1));
+        ll sum = 0;
+        for(int i = 1; i <= 6; i++) sum -= a[i];
+        cout << sum + a[n] << '\n';
     }
-    bit.build(a);
-
-    while(q--){
-        int type;
-        cin >> type;
-        if(type == 1){
-            int k,u;
-            cin >> k >> u;
-            bit.update(k,u-a[k]);
-            a[k] = u;
-        }
-        else{
-            int l,r;
-            cin >> l >> r;
-            cout << bit.query(l,r) << '\n';
-        }
-    }
-
     
     return NAH_I_WOULD_WIN;
 }

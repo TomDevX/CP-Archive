@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-04 00:51:41
+ *    created: 2026-04-08 21:32:42
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: Hotel Queries
- *    source: https://cses.fi/problemset/task/1143
- *    submission: https://cses.fi/problemset/result/16790807/
- *    status: AC
+ *    title: Marisa
+ *    source: https://marisaoj.com/problem/573
+ *    submission: 
+ *    status: WIP
  * ----------------------------------------------------------
- *    tags: Walk on Segment Tree
- *    complexity: O(n \log n)
- *    note: Walk on Segment Tree = binary search but with the help of segment tree to query the value. So in this problem, segment tree help us query the max value, binary search to find the smallest index which fits the guests' requirements. 
+ *    tags: 
+ *    complexity: 
+ *    note: 
 **/
 
 #include <iostream>
@@ -18,7 +18,7 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
-#include <set>
+#include <string>
 
 using namespace std;
 
@@ -59,65 +59,55 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("1143.INP", "r")) return;
-    freopen("1143.INP", "r", stdin);
-    freopen("1143.OUT", "w", stdout);
+    if(!fopen("573.INP", "r")) return;
+    freopen("573.INP", "r", stdin);
+    freopen("573.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 2e5+2;
-int st[4*N];
-int a[N];
+const int MOD  = 1e9+7;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void build(int id, int l, int r){
-    if(l == r){
-        st[id] = a[l];
-        return;
-    }
 
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1;
-
-    build(lc,l,mid);
-    build(lc | 1, mid+1, r);
-
-    st[id] = max(st[lc], st[lc|1]);
-}
-
-int get(int id, int l, int r, int val){
-    if(l == r){
-        if(st[id] >= val) return st[id] -= val,l; // this line is very important in case of n = 1
-        return 0;
-    }
-    
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1;
-    
-    int ans = 0;
-    if(st[lc] >= val) ans = get(lc,l,mid,val);
-    else if(st[lc|1] >= val) ans = get(lc|1,mid+1,r,val);
-    
-    st[id] = max(st[lc], st[lc|1]);
-    return ans;
-}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    int n,q;
-    cin >> n >> q;
-    for(int i = 1; i <= n; i++) cin >> a[i];
+    string s;
+    cin >> s;
+    int n = sz(s);
+    s = "#" + s;
 
-    build(1,1,n);
+    string t = "#marisa";
+    int m = sz(t) - 1;
 
-    while(q--){
-        int x;
-        cin >> x;
-        cout << get(1,1,n,x) << ' ';
+    vvi dp(n+1,vi(m+1));
+    vvi cnt(n+1,vi(m+1));
+
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= m; j++){
+            if(s[i] == t[j]){
+                dp[i][j] = (dp[i-1][j-1] + 1)%MOD;
+                cnt[i][j] = cnt[i-1][j-1];
+            }
+            else{
+                if(dp[i][j-1] > dp[i-1][j]){
+                    cnt[i][j] = cnt[i][j-1];
+                    dp[i][j] = dp[i][j-1];
+                }
+                else if(dp[i-1][j] > dp[i][j-1]){
+                    cnt[i][j] = cnt[i-1][j];
+                    dp[i][j] = dp[i-1][j];
+                }
+                else{
+                    cnt[i][j] = (((cnt[i-1][j] + cnt[i][j-1])%MOD - cnt[i-1][j-1])%MOD + MOD)%MOD;
+                }
+            }
+        }
     }
+    cout << cnt[n][m];
     
     return NAH_I_WOULD_WIN;
 }
