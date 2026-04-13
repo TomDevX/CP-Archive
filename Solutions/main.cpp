@@ -1,77 +1,80 @@
+/**
+ *    author: TomDev - Tran Hoang Quan
+ *    created: 2026-04-10 11:06:31
+ *    country: Vietnam - VNM
+ * ----------------------------------------------------------
+ *    title: 
+ *    source: 
+ *    submission: 
+ *    status: WIP
+ * ----------------------------------------------------------
+ *    tags: 
+ *    complexity: 
+ *    note: 
+**/
+
 #include <iostream>
 #include <vector>
-#include <bitset>
-#include <iomanip>
 #include <algorithm>
-#include <cmath>
 #include <cstdio>
 #include <utility>
-#include <cstring>
-#include <random>
-#include <fstream>
-#include <filesystem> // Use c++17
-#if __has_include("debuggingz.h")
-    #include "debuggingz.h"
-    #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n';
+
+using namespace std;
+
+// --- [ DEBUGGING & LOCAL CONFIG ] ---
+#if __has_include("TomDev.h")
+    #include "TomDev.h"
+    #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
 #else
     #define dbg(x,i)
 #endif
+#define NAH_I_WOULD_WIN 0
 
+// --- [ MACROS ] ---
 #define all(x,bonus) (x).begin()+(bonus),(x).end()
+#define range(x,st,ed) (x).begin()+(st),(x).begin()+(ed)+1
+#define filter(x,bonus) (x).erase(unique((x).begin()+(bonus), (x).end()), (x).end())
+#define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
+#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define fi first
+#define se second
+#define eb emplace_back
+#define sz(x) (int)(x).size()
 
-using namespace std;
-namespace fs = filesystem;
+// --- [ TYPES & ALIASES ] ---
+using ll = long long;
+using ull = unsigned long long;
+using ld = long double;
+using pll = pair<long long,long long>;
+using pld = pair<long double,long double>;
+using pii = pair<int,int>;
+using pill = pair<int,long long>;
+using vi = vector<int>;
+using vvi = vector<vector<int>>;
+using vll = vector<long long>;
+using vvll = vector<vector<long long>>;
+using vpii = vector<pair<int,int>>;
+using vpill = vector<pair<int,long long>>;
+using vpll = vector<pair<long long,long long>>;
 
-const string name = "BAI";
-#define TESTS 100
-
-random_device rd;
-mt19937 gen(rd());
-
-void fast(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+void setup(){
+    if(!fopen("main.INP", "r")) return;
+    freopen("main.INP", "r", stdin);
+    freopen("main.OUT", "w", stdout);
 }
 
-long long ranInt(long long l, long long r) {
-    uniform_int_distribution<long long> dis(l, r);
-    return dis(gen);
-}
+// ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 
-void sinh(fs::path &inp_path, int test) {
-    ofstream inp(inp_path);
 
-    // code
+// ----------------------- [ FUNCTIONS ] -----------------------
 
-    inp.close();
-}
 
-void gen_ans(const fs::path &inp_path, const fs::path &out_path) {
-    string trau_program = name + "_trau.exe";
-    string cmd = trau_program + " < " + inp_path.string() + " > " + out_path.string();
-    system(cmd.c_str());
-}
-
-int main() {
-    fast();
-    fs::path cha = "DE";
-    fs::create_directory(cha);
-    fs::path root_path = cha/name;
-    fs::create_directory(root_path);
-
-    for (int test = 1; test <= TESTS; test++) {
-        string test_dir_name = "TEST";
-        if (test < 10) test_dir_name += "0" + to_string(test);
-        else test_dir_name += to_string(test);
-
-        fs::path test_path = root_path / test_dir_name;
-        fs::create_directory(test_path);
-
-        fs::path inp_path = test_path / (name + ".INP");
-        fs::path out_path = test_path / (name + ".OUT");
-
-        sinh(inp_path,test);
-        gen_ans(inp_path, out_path);
-        cout << "Test " << test << ": Completed!\n";
-    }
+// ----------------------- [ MAIN ] -----------------------
+int main(){
+    fastio;
+    setup();
+    
+    
+    
+    return NAH_I_WOULD_WIN;
 }
