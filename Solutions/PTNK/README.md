@@ -2,10 +2,10 @@
 
 ### 📊 PTNK Stats
 
-![Progress](https://img.shields.io/badge/Progress-44/57-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_14%2C_2026_--_12%3A27_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-46/61-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_14%2C_2026_--_15%3A23_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
-- **Total Unique Problems:** 57
-- **Solved (AC):** 44
+- **Total Unique Problems:** 61
+- **Solved (AC):** 46
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
 
@@ -14,6 +14,7 @@
 
   * [📁 Grade 10 (57)](#-grade-10-57)
     * [📁 Entrance_exam_260331 (8)](#-entrance_exam_260331-8)
+  * [📁 PTNKOJ (4)](#-ptnkoj-4)
 
 ---
 ### 📁 Grade 10 (57)
@@ -93,4 +94,12 @@
 | 6 | MPD | N/A | N/A | Mar 31, 2026 | [Code](Grade%2010/Entrance_exam_260331/MPD.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 7 | RTOWER - Phá tháp | N/A | N/A | Mar 31, 2026 | [Code](Grade%2010/Entrance_exam_260331/RTOWER.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 8 | SUBP - Dãy ngoặc | N/A | N/A | Mar 31, 2026 | [Code](Grade%2010/Entrance_exam_260331/SUBP.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+
+### 📁 PTNKOJ (4)
+| # | Problem Name | Tags | Complexity | Date | Solution | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | [TIN - MỞ QUÀ](https://ptnkoj.com/problem/tin_gift) | `DP Convex Hull Trick` | $\mathcal{O}(n)$ | Apr 14, 2026 | [Code](PTNKOJ/tin_gift.cpp) \| [Sub](https://ptnkoj.com/submission/182094) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 2 | [TIN - KHAI THÁC KHOÁNG SẢN](https://ptnkoj.com/problem/tin_mine) | `DP Convex Hull Trick` | $\mathcal{O}(n)$ | Apr 14, 2026 | [Code](PTNKOJ/tin_mine.cpp) \| [Sub](https://ptnkoj.com/submission/182149) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 3 | tin_mine__Generator | N/A | N/A | Apr 14, 2026 | [Code](PTNKOJ/tin_mine__Generator.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 4 | tin_mine__Good | N/A | N/A | Apr 14, 2026 | [Code](PTNKOJ/tin_mine__Good.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
