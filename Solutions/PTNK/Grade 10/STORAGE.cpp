@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-10 11:06:31
+ *    created: 2026-04-13 09:11:44
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: HỘP QUÀ
+ *    source: BT_20260403
  *    submission: 
- *    status: WIP
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Sorting, Two Pointers
+ *    complexity: O(n \log n)
+ *    note: Sort and put the biggest possible box into another nearest biggest box
 **/
 
 #include <iostream>
@@ -58,9 +58,9 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("STORAGE.INP", "r")) return;
+    freopen("STORAGE.INP", "r", stdin);
+    freopen("STORAGE.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
@@ -74,21 +74,24 @@ int main(){
     fastio;
     setup();
     
-    int l = 1, r = 1e9;
-    while(l < r){
-        int mid = l + ((r-l+1)>>1);
-        
-        cout << "? " << mid << endl;
+    int n,k;
+    cin >> n >> k;
+    ll sum = 0;
 
-        char type;
-        cin >> type;
+    vi a(n+1);
+    for(int i = 1; i <= n; i++) cin >> a[i], sum += a[i];
 
-        if(type == '<'){
-            r = mid-1;
+    sort(all(a,1));
+
+    int r = n;
+    for(int l = n-1; l >= 1; l--){
+        if(a[l] + k <= a[r]){
+            sum -= a[l];
+            r--;
         }
-        else l = mid;
     }
-    cout << "! " << l << endl;
+
+    cout << sum;
     
     return NAH_I_WOULD_WIN;
 }
