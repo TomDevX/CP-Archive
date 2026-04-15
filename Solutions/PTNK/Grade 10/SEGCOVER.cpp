@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-14 12:32:47
+ *    created: 2026-04-13 10:14:29
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -58,23 +58,43 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("SEGCOVER.INP", "r")) return;
+    freopen("SEGCOVER.INP", "r", stdin);
+    freopen("SEGCOVER.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-
+bool cmp(const pii& a, const pii& b){
+    if(a.se == b.se) return a.fi < b.fi;
+    return a.se < b.se;
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    
+    int n;
+    cin >> n;
+    vpii a(n+1);
+    for(int i = 1; i <= n; i++){
+        cin >> a[i].fi >> a[i].se;
+    }
+
+    sort(all(a,1),cmp);
+
+    int last_end = (int)-2e9;
+    int cnt = 0;
+    for(int i = 1; i <= n; i++){
+        if(a[i].fi >= last_end){
+            cnt++;
+            last_end = a[i].se;
+        }
+    }
+    cout << n-cnt;
     
     return NAH_I_WOULD_WIN;
 }

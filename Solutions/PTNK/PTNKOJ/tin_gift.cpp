@@ -1,23 +1,24 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-14 12:32:47
+ *    created: 2026-04-14 13:48:44
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: MỞ QUÀ
+ *    source: https://ptnkoj.com/problem/tin_gift
+ *    submission: https://ptnkoj.com/submission/182094
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: DP Convex Hull Trick
+ *    complexity: O(n)
+ *    note: Typical DP CHT
 **/
 
 #include <iostream>
 #include <vector>
-#include <algorithm>
+#include <algorithm>    
 #include <cstdio>
 #include <utility>
+#include <deque>
 
 using namespace std;
 
@@ -58,23 +59,62 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("tin_gift.INP", "r")) return;
+    freopen("tin_gift.INP", "r", stdin);
+    freopen("tin_gift.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 1e5+2;
+
+ll pref[N];
+ll dp[N];
+int a[N];
+deque<pll> dq;
 
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+ll f(ll m, ll b, ll x){
+    return m*x + b;
+}
 
+bool bad(pll l1, pll l2, pll l3){
+    return (l2.se - l1.se)*(l2.fi - l3.fi) >= (l3.se - l2.se)*(l1.fi - l2.fi);
+}
+
+void add(ll m, ll b){
+    pll l3 = {m,b};
+    while(sz(dq) >= 2 && bad(dq[sz(dq)-2], dq.back(), l3)){
+        dq.pop_back();
+    }
+    dq.push_back(l3);
+}
+
+ll query(ll x){
+    while(sz(dq) >= 2 && f(dq[0].fi, dq[0].se, x) >= f(dq[1].fi, dq[1].se,x)){
+        dq.pop_front();
+    }
+    return f(dq[0].fi,dq[0].se,x);
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
-    
-    
+
+    int n;
+    ll C;
+    cin >> n >> C;
+    for(int i = 1; i <= n; i++) cin >> a[i], pref[i] = a[i] + pref[i-1];
+
+    dp[0] = 0;
+    add(0, 0);
+    for(int i = 1; i <= n; i++){
+        dp[i] = query(pref[i]) + (pref[i]*pref[i]) + C;
+        add(-2*pref[i], dp[i] + pref[i]*pref[i]);
+    }
+
+    cout << dp[n];
     
     return NAH_I_WOULD_WIN;
 }
