@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-15 07:50:43
+ *    created: 2026-04-15 07:24:41
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Bài 19: Truy vấn
+ *    source: https://oj.vnoi.info/problem/gogovoi_coban_truyvan
+ *    submission: https://oj.vnoi.info/submission/12120390
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Dynamic Segment Tree
+ *    complexity: O(n \log n)
+ *    note: Typical Dynamic Segment Tree
 **/
 
 #include <iostream>
@@ -58,37 +58,74 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("gogovoi_coban_truyvan.INP", "r")) return;
+    freopen("gogovoi_coban_truyvan.INP", "r", stdin);
+    freopen("gogovoi_coban_truyvan.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 1e5+2;
 
+struct node{
+    int sum, left, right;
 
-// ----------------------- [ FUNCTIONS ] -----------------------    
+    node(int _sum = 0, int _left = 0, int _right = 0) : sum(_sum), left(_left), right(_right) {};
+};
 
+node st[30*N];
+int nNode = 2;
+
+// ----------------------- [ FUNCTIONS ] -----------------------
+ll get(int id, int l, int r, int u, int v){
+    if(l > v || r < u) return 0;
+    if(l >= u && r <= v){
+        return st[id].sum;
+    }
+
+    int mid = l + ((r-l)>>1);
+
+    ll ans = 0;
+    if(st[id].left) ans += get(st[id].left, l, mid, u,v);
+    if(st[id].right) ans += get(st[id].right, mid+1,r,u,v);
+
+    return ans;
+}
+
+void update(int id, int l, int r, int pos){
+    if(l == r){
+        st[id].sum++;
+        return;
+    }
+
+    int mid = l + ((r-l)>>1);
+
+    if(pos <= mid){
+        if(!st[id].left) st[id].left = nNode++;
+        update(st[id].left, l, mid, pos);
+    }
+    else{
+        if(!st[id].right) st[id].right = nNode++;
+        update(st[id].right, mid+1,r,pos);
+    }
+    
+    st[id].sum = 0;
+    if(st[id].left) st[id].sum += st[st[id].left].sum;
+    if(st[id].right) st[id].sum += st[st[id].right].sum;
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    int n;
-    cin >> n;
-    
-    ll x;
-    vll lis;
-    for(int i = 1; i <= n; i++){
+    int q;
+    cin >> q;
+    while(q--){
+        int x;
         cin >> x;
-        int it = lower_bound(all(lis,0), x) - lis.begin();
-        
-        cerr << "skibidi\n";
-        if(it >= sz(lis)) lis.eb(x);
-        else lis[it] = x;
+        cout << get(1,1,1e9,1,x-1) << '\n';
+        update(1,1,1e9,x);
     }
 
-    cout << sz(lis);
-    
     return NAH_I_WOULD_WIN;
 }
