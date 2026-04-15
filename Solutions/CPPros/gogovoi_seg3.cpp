@@ -1,10 +1,10 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-15 07:50:43
+ *    created: 2026-04-15 16:58:30
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: Diff
+ *    source: https://oj.vnoi.info/problem/gogovoi_seg3
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -58,15 +58,15 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("gogovoi_seg3.INP", "r")) return;
+    freopen("gogovoi_seg3.INP", "r", stdin);
+    freopen("gogovoi_seg3.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 
 
-// ----------------------- [ FUNCTIONS ] -----------------------    
+// ----------------------- [ FUNCTIONS ] -----------------------
 
 
 // ----------------------- [ MAIN ] -----------------------
@@ -74,21 +74,7 @@ int main(){
     fastio;
     setup();
     
-    int n;
-    cin >> n;
     
-    ll x;
-    vll lis;
-    for(int i = 1; i <= n; i++){
-        cin >> x;
-        int it = lower_bound(all(lis,0), x) - lis.begin();
-        
-        cerr << "skibidi\n";
-        if(it >= sz(lis)) lis.eb(x);
-        else lis[it] = x;
-    }
-
-    cout << sz(lis);
     
     return NAH_I_WOULD_WIN;
 }
