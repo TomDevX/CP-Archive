@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-14 12:32:47
+ *    created: 2026-04-15 07:24:41
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Bài 19: Truy vấn
+ *    source: https://oj.vnoi.info/problem/gogovoi_coban_truyvan
+ *    submission: https://oj.vnoi.info/submission/12120390
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Dynamic Segment Tree
+ *    complexity: O(n \log n)
+ *    note: Typical Dynamic Segment Tree
 **/
 
 #include <iostream>
@@ -58,41 +58,59 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("gogovoi_coban_truyvan.INP", "r")) return;
+    freopen("gogovoi_coban_truyvan.INP", "r", stdin);
+    freopen("gogovoi_coban_truyvan.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 const int N = 1e5+2;
-ll st[4*N];
+
+struct node{
+    int sum, left, right;
+
+    node(int _sum = 0, int _left = 0, int _right = 0) : sum(_sum), left(_left), right(_right) {};
+};
+
+node st[30*N];
+int nNode = 2;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void update(int id, int l, int r, int pos, int val){
+ll get(int id, int l, int r, int u, int v){
+    if(l > v || r < u) return 0;
+    if(l >= u && r <= v){
+        return st[id].sum;
+    }
+
+    int mid = l + ((r-l)>>1);
+
+    ll ans = 0;
+    if(st[id].left) ans += get(st[id].left, l, mid, u,v);
+    if(st[id].right) ans += get(st[id].right, mid+1,r,u,v);
+
+    return ans;
+}
+
+void update(int id, int l, int r, int pos){
     if(l == r){
-        st[id] = val;
+        st[id].sum++;
         return;
     }
 
     int mid = l + ((r-l)>>1);
-    int lc = id<<1;
 
     if(pos <= mid){
-        update(lc,l,mid,pos,val);
+        if(!st[id].left) st[id].left = nNode++;
+        update(st[id].left, l, mid, pos);
     }
-    else update(lc|1,mid+1,r,pos,val);
-
-    st[id] = st[lc] + st[lc|1];
-}
-
-ll get(int id, int l, int r, int u, int v){
-    if(l > v || r < u) return 0;
-    if(l >= u && r <= v) return st[id];
-
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1;
-
-    return get(lc,l,mid,u,v) + get(lc|1,mid+1,r,u,v);
+    else{
+        if(!st[id].right) st[id].right = nNode++;
+        update(st[id].right, mid+1,r,pos);
+    }
+    
+    st[id].sum = 0;
+    if(st[id].left) st[id].sum += st[st[id].left].sum;
+    if(st[id].right) st[id].sum += st[st[id].right].sum;
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -100,23 +118,14 @@ int main(){
     fastio;
     setup();
     
-    int n,q;
-    cin >> n >> q;
-
+    int q;
+    cin >> q;
     while(q--){
-        int type;
-        cin >> type;
-        if(type == 1){
-            int x,pos;
-            cin >> pos >> x;
-            update(1,1,n,pos,x);
-        }
-        else{
-            int l,r;
-            cin >> l >> r;
-            cout << get(1,1,n,l,r) << '\n';
-        }
+        int x;
+        cin >> x;
+        cout << get(1,1,1e9,1,x-1) << '\n';
+        update(1,1,1e9,x);
     }
-    
+
     return NAH_I_WOULD_WIN;
 }
