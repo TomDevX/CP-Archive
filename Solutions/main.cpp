@@ -14,7 +14,7 @@ LANG: C++
  *    status: WIP
  * ----------------------------------------------------------
  *    tags: Skibidi
- *    complexity: 
+ *    complexity: O(n \log n)
  *    note: 
 **/
 
