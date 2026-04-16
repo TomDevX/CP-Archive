@@ -60,7 +60,7 @@
 ## 📂 [Solutions (278)](*%20%20%20%20submission:)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [MAIN - gay](https://usaco.training/usacotext2?a=vD2rXTS4iDa&S=grade) | `Skibidi` | $\mathcal{O}(n \log n)$ | Apr 16, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 1 | Main | N/A | N/A | Apr 16, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 2 | Main  Generator | N/A | N/A | N/A | [Code](main__Generator.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 3 | Main  Good | N/A | N/A | N/A | [Code](main__Good.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 4 | Main  Interactor | N/A | N/A | Apr 11, 2026 | [Code](main__Interactor.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |

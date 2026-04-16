@@ -1,20 +1,15 @@
-/*
-ID: Quân Trần [hoangqu7]
-TASK: gay
-LANG: C++
-*/
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-16 21:37:28
+ *    created: 2026-04-16 21:38:15
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: gay
- *    source: https://usaco.training/usacotext2?a=vD2rXTS4iDa&S=grade
+ *    title: 
+ *    source: 
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
- *    tags: Skibidi
- *    complexity: O(n \log n)
+ *    tags: 
+ *    complexity: 
  *    note: 
 **/
 
