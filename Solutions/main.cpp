@@ -1,14 +1,19 @@
+/*
+ID: Quân Trần [hoangqu7]
+TASK: gay
+LANG: C++
+*/
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-15 22:31:45
+ *    created: 2026-04-16 21:37:28
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: gay
+ *    source: https://usaco.training/usacotext2?a=vD2rXTS4iDa&S=grade
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
- *    tags: 
+ *    tags: Skibidi
  *    complexity: 
  *    note: 
 **/
@@ -18,7 +23,6 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
-#include <functional>
 
 using namespace std;
 
@@ -75,22 +79,7 @@ int main(){
     fastio;
     setup();
     
-    int n;
-    cin >> n;
-    vi a(n+1);
-    for(int i = 1; i <= n; i++){
-        cin >> a[i];
-    }
-    sort(all(a,1), greater<int>());
-    ll sum = 0, ans = 0;
-    int cnt = 0;
-    for(int i = 1; i <= n; i++){
-        sum += a[i];
-        cnt++;
-        if(sum < 0) sum = cnt = 0;
-        else if(cnt&1) ans = max(ans,sum);
-    }
-    cout << (*max_element(all(a,1)) >= 0 ? ans : a[1]);
+    
     
     return NAH_I_WOULD_WIN;
 }

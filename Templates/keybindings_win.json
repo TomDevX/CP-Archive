@@ -1,0 +1,63 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "alt+q",
+        "command": "editor.action.insertSnippet"
+    },
+    // {
+    //     "key": "alt+enter",
+    //     "command": "code-runner.run",
+    // },
+    {
+        "key": "alt+enter",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Compile and Run cpp"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Compile and Run cpp without file"
+    },
+    {
+        "key": "alt+'",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Get compile file"
+    },
+    {
+        "key": "ctrl+alt+n",
+        "command": "-code-runner.run"
+    },
+    {
+        "key": "alt+backspace",
+        "command": "-workbench.action.chat.cancel"
+    },
+    {
+        "key": "alt+backspace",
+        "command": "editor.action.deleteLines",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "-editor.action.deleteLines",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+`",
+        "command": "workbench.action.terminal.killAll"
+    },
+    {
+        "key": "delete",
+        "command": "-workbench.action.terminal.killActiveTab",
+        "when": "terminalHasBeenCreated && terminalTabsFocus || terminalIsOpen && terminalTabsFocus || terminalProcessSupported && terminalTabsFocus"
+    },
+    {
+        "key": "shift+alt+enter",
+        "command": "fastolympiccoding.runAll",
+        "when": "view.fastolympiccoding.judge.visible"
+    },
+    {
+        "key": "shift+alt+'",
+        "command": "fastolympiccoding.startStressTest",
+        "when": "view.fastolympiccoding.stress.visible"
+    },
+]

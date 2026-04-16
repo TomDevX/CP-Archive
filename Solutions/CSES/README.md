@@ -2,10 +2,10 @@
 
 ### 📊 CSES Stats
 
-![Progress](https://img.shields.io/badge/Progress-32/36-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_15%2C_2026_--_22%3A31_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-33/36-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_16%2C_2026_--_21%3A37_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 36
-- **Solved (AC):** 32
+- **Solved (AC):** 33
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
 
@@ -60,7 +60,7 @@
 | 1 | [1143 - Hotel Queries](https://cses.fi/problemset/task/1143) | `Walk on Segment Tree` | $\mathcal{O}(n \log n)$ | Apr 04, 2026 | [Code](Range%20Queries/1143.cpp) \| [Sub](https://cses.fi/problemset/result/16790807/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [1144 - Salary Queries](https://cses.fi/problemset/task/1144) | `Segment Tree` | $\mathcal{O}(n \log n)$ | Apr 09, 2026 | [Code](Range%20Queries/1144.cpp) \| [Sub](https://cses.fi/problemset/result/16849486/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 3 | [1648 - Dynamic Range Sum Queries](https://cses.fi/problemset/task/1648) | `BIT` | $\mathcal{O}(n \log n)$ | Mar 26, 2026 | [Code](Range%20Queries/1648.cpp) \| [Sub](https://cses.fi/problemset/result/16686889/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 4 | [1734 - Distinct Values Queries](https://cses.fi/problemset/task/1734) | N/A | N/A | Apr 15, 2026 | [Code](Range%20Queries/1734.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 4 | [1734 - Distinct Values Queries](https://cses.fi/problemset/task/1734) | `BIT`, `Distinct Value` | $\mathcal{O}(n \log n)$ | Apr 15, 2026 | [Code](Range%20Queries/1734.cpp) \| [Sub](https://cses.fi/problemset/result/16918559/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 5 | [1735 - Range Updates and Sums](https://cses.fi/problemset/task/1735) | `Segment Tree Lazy` | $\mathcal{O}(n \log n)$ | Apr 10, 2026 | [Code](Range%20Queries/1735.cpp) \| [Sub](https://cses.fi/problemset/result/16866469/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 6 | [1736 - Polynomial Queries](https://cses.fi/problemset/task/1736) | `Segment Tree Lazy Polynominal` | $\mathcal{O}(n \log n)$ | Apr 11, 2026 | [Code](Range%20Queries/1736.cpp) \| [Sub](https://cses.fi/problemset/result/16867163/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 7 | [1749 - List Removals - Fenwick Tree (BIT) Approach](https://cses.fi/problemset/task/1749/) | `Walk on BIT` | $\mathcal{O}(n \log n)$ | Apr 04, 2026 | [Code](Range%20Queries/1749_BIT.cpp) \| [Sub](https://cses.fi/problemset/result/16793996) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
