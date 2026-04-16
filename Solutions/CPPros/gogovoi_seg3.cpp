@@ -64,7 +64,18 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 1e6+2;
 
+int pos[N], suff[N], a[N], f[N];
+
+struct Query{
+    int l,r;
+
+    Query(int _l = 0, int _r = 0) : l(_l), r(_r) {};
+    bool operator<(const Query& other){
+        return l < other.l;
+    }
+};
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -74,7 +85,24 @@ int main(){
     fastio;
     setup();
     
-    
+    int n,q;
+    cin >> n >> q;
+
+    for(int i = 1; i <= n; i++) cin >> a[i];
+    for(int i = n; i >= 1; i--){
+        if(pos[a[i]] == 0) suff[i] = n+1;
+        suff[i] = pos[a[i]];
+        pos[a[i]] = i;
+    }
+
+    vector<Query> queries(q+1);
+    for(int i = 1; i <= q; i++) cin >> queries[i].l >> queries[i].r;
+
+    sort(all(queries,1));
+
+    for(int i = 1; i <= q; i++){
+
+    }
     
     return NAH_I_WOULD_WIN;
 }
