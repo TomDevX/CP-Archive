@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-15 07:50:43
+ *    created: 2026-04-15 22:31:45
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -18,6 +18,7 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
+#include <functional>
 
 using namespace std;
 
@@ -66,7 +67,7 @@ void setup(){
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 
 
-// ----------------------- [ FUNCTIONS ] -----------------------    
+// ----------------------- [ FUNCTIONS ] -----------------------
 
 
 // ----------------------- [ MAIN ] -----------------------
@@ -76,19 +77,20 @@ int main(){
     
     int n;
     cin >> n;
-    
-    ll x;
-    vll lis;
+    vi a(n+1);
     for(int i = 1; i <= n; i++){
-        cin >> x;
-        int it = lower_bound(all(lis,0), x) - lis.begin();
-        
-        cerr << "skibidi\n";
-        if(it >= sz(lis)) lis.eb(x);
-        else lis[it] = x;
+        cin >> a[i];
     }
-
-    cout << sz(lis);
+    sort(all(a,1), greater<int>());
+    ll sum = 0, ans = 0;
+    int cnt = 0;
+    for(int i = 1; i <= n; i++){
+        sum += a[i];
+        cnt++;
+        if(sum < 0) sum = cnt = 0;
+        else if(cnt&1) ans = max(ans,sum);
+    }
+    cout << (*max_element(all(a,1)) >= 0 ? ans : a[1]);
     
     return NAH_I_WOULD_WIN;
 }
