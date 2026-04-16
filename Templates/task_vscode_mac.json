@@ -12,7 +12,7 @@
             "label": "Compile and Run cpp",
             "type": "shell",
             // Đã chuyển đổi các biến sang chuẩn VS Code và thêm ngoặc kép để tránh lỗi nếu tên thư mục có dấu cách
-            "command": "cd \"${fileDirname}\" && g++ -O2 -Wall -Wextra -Wshadow -Wfloat-equal -DLOCAL --std=c++14 \"${fileBasename}\" -o \"${fileBasenameNoExtension}\" && \"./${fileBasenameNoExtension}\" < /Users/tomimac/Documents/CP-Archive/Solutions/input.txt",
+            "command": "cd \"${fileDirname}\" && g++ -O2 -Wall -Wextra -Wshadow -Wfloat-equal -DLOCAL --std=c++14 \"${fileBasename}\" -o \"${fileBasenameNoExtension}\" && \"./${fileBasenameNoExtension}\" < /Users/tomimac/Documents/CP-Archive/Solutions/input.inp > /Users/tomimac/Documents/CP-Archive/Solutions/output.out",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -26,10 +26,10 @@
             "problemMatcher": ["$gcc"]
         },
         {
-            "label": "Compile and Run cpp with out file",
+            "label": "Compile and Run cpp without file",
             "type": "shell",
             // Đã chuyển đổi các biến sang chuẩn VS Code và thêm ngoặc kép để tránh lỗi nếu tên thư mục có dấu cách
-            "command": "cd \"${fileDirname}\" && g++ -O2 -Wall -Wextra -Wshadow -Wfloat-equal -DLOCAL --std=c++14 \"${fileBasename}\" -o \"${fileBasenameNoExtension}\" && \"./${fileBasenameNoExtension}\" < /Users/tomimac/Documents/CP-Archive/Solutions/input.txt > /Users/tomimac/Documents/CP-Archive/Solutions/output.txt",
+            "command": "cd \"${fileDirname}\" && g++ -O2 -Wall -Wextra -Wshadow -Wfloat-equal -DLOCAL --std=c++14 \"${fileBasename}\" -o \"${fileBasenameNoExtension}\" && \"./${fileBasenameNoExtension}\"",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -41,6 +41,22 @@
                 "showReuseMessage": false
             },
             "problemMatcher": ["$gcc"]
-        }
+        },
+        {
+            "label": "Get cpp run file",
+            "type": "shell",
+            "command": "cd \"${fileDirname}\" && g++ -O2 -Wall -Wextra -Wshadow -Wfloat-equal -std=c++14 \"${fileBasename}\" -o \"${fileBasenameNoExtension}\" && echo \"\\033[1;32mDONE\\033[0m\\n\"",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true,
+                "showReuseMessage": false
+            },
+            "problemMatcher": ["$gcc"]
+        },
 	]
 }

@@ -1,10 +1,10 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-15 16:58:30
+ *    created: 2026-04-15 18:43:16
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: Diff
- *    source: https://oj.vnoi.info/problem/gogovoi_seg3
+ *    title: Distinct Values Queries
+ *    source: https://cses.fi/problemset/task/1734
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -58,9 +58,9 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("gogovoi_seg3.INP", "r")) return;
-    freopen("gogovoi_seg3.INP", "r", stdin);
-    freopen("gogovoi_seg3.OUT", "w", stdout);
+    if(!fopen("1734.INP", "r")) return;
+    freopen("1734.INP", "r", stdin);
+    freopen("1734.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
