@@ -2,7 +2,7 @@
 
 ### 📊 Entrance_exam_260331 Stats
 
-![Progress](https://img.shields.io/badge/Progress-0/8-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_15%2C_2026_--_22%3A31_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-0/8-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_16%2C_2026_--_10%3A41_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 8
 - **Solved (AC):** 0
