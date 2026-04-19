@@ -1,10 +1,10 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-16 21:38:15
+ *    created: 2026-04-17 07:01:00
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: USACO 2021 US Open, GoldUSACO 2021 US Open, Gold - Problem 1. United Cows of Farmer John
+ *    source: https://usaco.org/index.php?page=viewproblem2&cpid=1137
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -58,13 +58,14 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("1137.INP", "r")) return;
+    freopen("1137.INP", "r", stdin);
+    freopen("1137.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+const int N = 2e5+2;
+int suff[N], pref[N], a[N], pos[N], ans1[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -74,7 +75,29 @@ int main(){
     fastio;
     setup();
     
-    
+    int n;
+    cin >> n;
+    for(int i = 1; i <= n; i++){
+        cin >> a[i];
+    }
+
+    for(int i = n; i >= 1; i--){
+        if(pos[a[i]] == 0) suff[i] = n+1;
+        else suff[i] = pos[a[i]];
+        pos[a[i]] = i;
+    }
+
+    for(int i = 1; i <= n; i++){
+        if(pos[a[i]] > i) pref[i] = 0;
+        else pref[i] = pos[a[i]];
+        pos[a[i]] = i;
+    }
+
+    for(int i = 1; i <= n; i++){
+        update(a[i],1);
+        if(suff[i] == n+1) ans1[i] = 0;
+        else ans1[i] = query();
+    }
     
     return NAH_I_WOULD_WIN;
-}   
+}
