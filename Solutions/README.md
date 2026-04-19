@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-239/278-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Apr_16%2C_2026_--_21%3A38_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260416T2138&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-240/279-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Apr_18%2C_2026_--_23%3A54_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260418T2354&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 278
-- **Accepted:** 239
+- **Total Problems:** 279
+- **Accepted:** 240
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -54,10 +54,11 @@
     * [📂 Entrance Exam 260331 (8)](#-entrance-exam-260331-8)
   * [📂 Ptnkoj (2)](#-ptnkoj-2)
 * [📂 SQRTOJ (1)](#-sqrtoj-1)
+* [📂 USACO (1)](#-usaco-1)
 * [📂 VNOJ (25)](#-vnoj-25)
 
 ---
-## 📂 [Solutions (278)](*%20%20%20%20submission:)
+## 📂 [Solutions (279)](*%20%20%20%20submission:)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Main | N/A | N/A | Apr 16, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -416,6 +417,11 @@
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [EDU017A - Olympic 30 tháng 4 năm 2026 - Khối 10 - Bài 1](https://sqrtoj.edu.vn/problem/edu017a) | N/A | N/A | Apr 9, 2026 | [Code](SQRTOJ/edu017a.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+
+## 📂 [USACO (1)](https://usaco.org/index.php?page=training)
+| # | Problem Name | Tags | Complexity | Date | Solution | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | [1137 - USACO 2021 US Open, Gold - Problem 1. United Cows of Farmer John](https://usaco.org/index.php?page=viewproblem2&cpid=1137) | `BIT` | $\mathcal{O}(n \log n)$ | Apr 18, 2026 | [Code](USACO/1137.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [VNOJ (25)](https://oj.vnoi.info/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |

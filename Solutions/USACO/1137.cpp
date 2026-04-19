@@ -1,5 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
+<<<<<<< HEAD
  *    created: 2026-04-17 07:01:00
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
@@ -11,6 +12,19 @@
  *    tags: 
  *    complexity: 
  *    note: 
+=======
+ *    created: 2026-04-18 23:40:12
+ *    country: Vietnam - VNM
+ * ----------------------------------------------------------
+ *    title: USACO 2021 US Open, Gold - Problem 1. United Cows of Farmer John
+ *    source: https://usaco.org/index.php?page=viewproblem2&cpid=1137
+ *    submission: 
+ *    status: AC
+ * ----------------------------------------------------------
+ *    tags: BIT
+ *    complexity: O(n \log n)
+ *    note: To get the right range, we need to ensure 2 conditions, let assume that we are processing value index r. suff[r] is nearest position to the right which has the same value as a[r], pref[r] is the same as suff[r] but on left side. Assume that at r, we choose l, we need to satisfy: l > pref[r] && r < suff[l]. To get that, we need to pre-processing r indices first, add them to event array, and update them like a diff array. And then just iterate through l and update diff array if satisfied.
+>>>>>>> dff8c24fec403cb3efcf9ed7e8fa28dcd06bb451
 **/
 
 #include <iostream>
@@ -65,16 +79,43 @@ void setup(){
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 const int N = 2e5+2;
+<<<<<<< HEAD
 int suff[N], pref[N], a[N], pos[N], ans1[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
+=======
+int n;
+
+vpii events[N];
+int a[N], suff[N], pref[N], pos[N], bit[N];
+
+// ----------------------- [ FUNCTIONS ] -----------------------
+void update(int x, int val){
+    for(; x <= n; x += x&-x){
+        bit[x] += val;
+    }
+}
+
+int get(int x){
+    int res = 0;
+    for(; x; x -= x&-x){
+        res += bit[x];
+    }
+    return res;
+}
+
+int query(int l, int r){
+    return get(r) - get(l-1);
+}
+>>>>>>> dff8c24fec403cb3efcf9ed7e8fa28dcd06bb451
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
+<<<<<<< HEAD
     int n;
     cin >> n;
     for(int i = 1; i <= n; i++){
@@ -98,6 +139,34 @@ int main(){
         if(suff[i] == n+1) ans1[i] = 0;
         else ans1[i] = query();
     }
+=======
+    cin >> n;
+    for(int i = 1; i <= n; i++) cin >> a[i];
+
+    for(int i = 1; i <= n; i++){
+        if(pos[a[i]]) pref[i] = pos[a[i]];
+        pos[a[i]] = i;
+    }
+
+    for(int i = 1; i <= n; i++) pos[a[i]] = n+1;
+    for(int i = n; i >= 1; i--){
+        suff[i] = pos[a[i]];
+        pos[a[i]] = i;
+    }
+
+    for(int r = 1; r <= n; r++){
+        events[pref[r]+1].eb(r,1);
+        events[r].eb(r,-1);
+    }
+
+    ll ans = 0;
+    for(int l = 1; l <= n; l++){
+        for(const pii &p : events[l]) update(p.fi,p.se);
+
+        ans += query(l+1,suff[l]-1);
+    }
+    cout << ans;
+>>>>>>> dff8c24fec403cb3efcf9ed7e8fa28dcd06bb451
     
     return NAH_I_WOULD_WIN;
 }
