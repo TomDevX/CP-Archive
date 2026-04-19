@@ -2,9 +2,9 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-237/279-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Apr_19%2C_2026_--_07%3A25_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260419T0725&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-237/280-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Apr_19%2C_2026_--_07%3A55_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260419T0755&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 279
+- **Total Problems:** 280
 - **Accepted:** 237
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
@@ -29,7 +29,7 @@
 * [📂 LQDOJ (6)](#-lqdoj-6)
 * [📂 Luogu (1)](#-luogu-1)
 * [📂 MarisaOJ (16)](#-marisaoj-16)
-* [📂 ojuz (1)](#-ojuz-1)
+* [📂 ojuz (2)](#-ojuz-2)
 * [📂 Project Euler (2)](#-project-euler-2)
 * [📂 PTNK (61)](#-ptnk-61)
   * [📂 Grade 10 (57)](#-grade-10-57)
@@ -40,7 +40,7 @@
 * [📂 VNOJ (27)](#-vnoj-27)
 
 ---
-## 📂 Solutions (279)
+## 📂 Solutions (280)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Main | N/A | N/A | Apr 16, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -298,10 +298,11 @@
 | 17 | [573 - Marisa](https://marisaoj.com/problem/573) | N/A | N/A | Apr 8, 2026 | [Code](MarisaOJ/573.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 18 | [574 - Fences painting](https://marisaoj.com/problem/574) | `Dynamic Programming` | $\mathcal{O}(n)$ | Mar 9, 2026 | [Code](MarisaOJ/574.cpp) \| [Sub](https://marisaoj.com/submission/1117055) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-## 📂 [ojuz (1)](https://oj.uz/)
+## 📂 [ojuz (2)](https://oj.uz/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [IOI12 - IOI 2012 - Scrivener](https://oj.uz/problem/view/IOI12_scrivener) | `Binary Lifting` | $\mathcal{O}(n \log n)$ | Mar 24, 2026 | [Code](ojuz/IOI12_scrivener.cpp) \| [Sub](https://oj.uz/submission/1341268) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | [COCI17 - COCI 2016/2017 - Contest 5 - Poklon](https://oj.uz/problem/view/COCI17_poklon) | N/A | N/A | Apr 19, 2026 | [Code](ojuz/COCI17_poklon.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 2 | [IOI12 - IOI 2012 - Scrivener](https://oj.uz/problem/view/IOI12_scrivener) | `Binary Lifting` | $\mathcal{O}(n \log n)$ | Mar 24, 2026 | [Code](ojuz/IOI12_scrivener.cpp) \| [Sub](https://oj.uz/submission/1341268) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [Project Euler (2)](https://projecteuler.net/about)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
