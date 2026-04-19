@@ -1,18 +1,5 @@
 /**
  *    author: TomDev - Tran Hoang Quan
-<<<<<<< HEAD
- *    created: 2026-04-17 07:01:00
- *    country: Vietnam - VNM
- * ----------------------------------------------------------
- *    title: USACO 2021 US Open, GoldUSACO 2021 US Open, Gold - Problem 1. United Cows of Farmer John
- *    source: https://usaco.org/index.php?page=viewproblem2&cpid=1137
- *    submission: 
- *    status: WIP
- * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
-=======
  *    created: 2026-04-18 23:40:12
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
@@ -24,7 +11,6 @@
  *    tags: BIT
  *    complexity: O(n \log n)
  *    note: To get the right range, we need to ensure 2 conditions, let assume that we are processing value index r. suff[r] is nearest position to the right which has the same value as a[r], pref[r] is the same as suff[r] but on left side. Assume that at r, we choose l, we need to satisfy: l > pref[r] && r < suff[l]. To get that, we need to pre-processing r indices first, add them to event array, and update them like a diff array. And then just iterate through l and update diff array if satisfied.
->>>>>>> dff8c24fec403cb3efcf9ed7e8fa28dcd06bb451
 **/
 
 #include <iostream>
@@ -79,12 +65,6 @@ void setup(){
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 const int N = 2e5+2;
-<<<<<<< HEAD
-int suff[N], pref[N], a[N], pos[N], ans1[N];
-
-// ----------------------- [ FUNCTIONS ] -----------------------
-
-=======
 int n;
 
 vpii events[N];
@@ -108,38 +88,12 @@ int get(int x){
 int query(int l, int r){
     return get(r) - get(l-1);
 }
->>>>>>> dff8c24fec403cb3efcf9ed7e8fa28dcd06bb451
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-<<<<<<< HEAD
-    int n;
-    cin >> n;
-    for(int i = 1; i <= n; i++){
-        cin >> a[i];
-    }
-
-    for(int i = n; i >= 1; i--){
-        if(pos[a[i]] == 0) suff[i] = n+1;
-        else suff[i] = pos[a[i]];
-        pos[a[i]] = i;
-    }
-
-    for(int i = 1; i <= n; i++){
-        if(pos[a[i]] > i) pref[i] = 0;
-        else pref[i] = pos[a[i]];
-        pos[a[i]] = i;
-    }
-
-    for(int i = 1; i <= n; i++){
-        update(a[i],1);
-        if(suff[i] == n+1) ans1[i] = 0;
-        else ans1[i] = query();
-    }
-=======
     cin >> n;
     for(int i = 1; i <= n; i++) cin >> a[i];
 
@@ -166,7 +120,6 @@ int main(){
         ans += query(l+1,suff[l]-1);
     }
     cout << ans;
->>>>>>> dff8c24fec403cb3efcf9ed7e8fa28dcd06bb451
     
     return NAH_I_WOULD_WIN;
 }
