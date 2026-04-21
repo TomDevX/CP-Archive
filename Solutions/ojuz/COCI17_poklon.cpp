@@ -8,9 +8,9 @@
  *    submission: https://oj.uz/submission/1355793
  *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: BIT
+ *    complexity: O(n \log n)
+ *    note: First, we sort our queries by l for easier processing. We do the sweep line and save the events on each l. We need the information of 1st emergence of a[i] on the right, 2nd + 3rd + 4th emergence. In the initial update, we add 1 to second emergence of each value count from the left to right. When the query with current l is done, we remove that l, when remove l, we add 1 to the 3nd emergence of a[i], -1 to 4th emergence (because it must be exactly 2 emergences), then we use BIT to get the sum in [l;r].
 **/
 
 #include <iostream>
