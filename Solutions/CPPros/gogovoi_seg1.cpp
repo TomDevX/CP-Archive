@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-16 21:38:15
+ *    created: 2026-04-21 23:23:49
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: Đế Chế
@@ -10,7 +10,7 @@
  * ----------------------------------------------------------
  *    tags: Sweep Line, BIT
  *    complexity: O(n \log n)
- *    note: PGE = Previous Greater Element, we find that by using stack. Then each time we iterate from n -> 1 and we reached PGE[i], we delete i from our count.
+ *    note: Now we sort the queries by R first. Let PGE(x) = Previous Greater Element of x, we use Stack to get PGE. Our current value will be counted if its query's L > PGE(cur), and our cur here is our current R in the iteration from 1 -> n. To get the answer, we get suffix sum from L to R with BIT, because we haven't update any index > R before we reach is so we can freely get suffix sum in [L;n]. When reach R, we add 1 to R in suffix sum and -1 to PGE(R) - so the contribution will be 0 or 1 depends on our L. Note that because this is suffix sum so our BIT iteration order is reversed, update() must be only affect to the left (because we're checking if L > PGE(i)) and get() only get the right.
 **/
 
 #include <iostream>
@@ -59,9 +59,9 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("gogovoi_seg1.INP", "r")) return;
+    freopen("gogovoi_seg1.INP", "r", stdin);
+    freopen("gogovoi_seg1.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
@@ -69,25 +69,18 @@ int n,q;
 const int N = 5e5+2;
 
 vpii queries[N];
-int bit[N], a[N], PGE[N], ans[N];
-vi off[N];
+int ans[N], bit[N], a[N], PGE[N];
 stack<int> st;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 void update(int pos, int val){
-    for(; pos <= n; pos += pos&-pos){
-        bit[pos] += val;
-    }
+    for(; pos ; pos -= pos&-pos) bit[pos] += val;
 }
 
 int get(int pos){
     int res = 0;
-    for(; pos; pos -= pos&-pos) res += bit[pos];
+    for(; pos <= n; pos += pos&-pos) res += bit[pos];
     return res;
-}
-
-int query(int l, int r){
-    return get(r) - get(l-1);
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -99,28 +92,26 @@ int main(){
     for(int i = 1; i <= n; i++){
         cin >> a[i];
         while(sz(st) && a[st.top()] < a[i]) st.pop();
-        if(sz(st)){
-            PGE[i] = st.top();
-            off[PGE[i]].eb(i);
-        }
-        update(i,1);
+        if(sz(st)) PGE[i] = st.top();
         st.push(i);
     }
 
     for(int i = 1; i <= q; i++){
         int l,r;
         cin >> l >> r;
-        queries[l].eb(r,i);
+        queries[r].eb(l,i);
     }
 
-    for(int i = n; i >= 1; i--){
-        for(int x : off[i]) update(x,-1);
-        for(const pii& p : queries[i]){
-            ans[p.se] = query(i, p.fi);
+    for(int r = 1; r <= n; r++){
+        update(r,1);
+        if(PGE[r]) update(PGE[r], -1);
+
+        for(const pii& p : queries[r]){
+            ans[p.se] = get(p.fi);
         }
     }
 
     for(int i = 1; i <= q; i++) cout << ans[i] << '\n';
     
     return NAH_I_WOULD_WIN;
-}   
+}
