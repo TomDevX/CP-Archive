@@ -5,7 +5,7 @@
  * ----------------------------------------------------------
  *    title: Đế Chế
  *    source: https://oj.vnoi.info/problem/gogovoi_seg1
- *    submission: 
+ *    submission: https://oj.vnoi.info/submission/12165705
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Sweep Line, BIT
