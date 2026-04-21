@@ -10,7 +10,7 @@
  * ----------------------------------------------------------
  *    tags: Sweep Line 1D
  *    complexity: O(n \log n)
- *    note: 
+ *    note: We use greedy + sweep line 1D. We sort each line by l, we then interate through all points from 1 to n, if the current line cover that point > k, we remove the lines that has biggest r (because the left of that line is already satisfied and we need to optimize for the unknown - the right).
 **/
 
 #include <iostream>
