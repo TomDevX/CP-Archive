@@ -10,7 +10,7 @@
  * ----------------------------------------------------------
  *    tags: Sweep Line 2D, BIT
  *    complexity: O(n \log n)
- *    note: 
+ *    note: We make every blue lines as a start and end of an event, (assume x1 < x2), x1 is start, x2 is end, each time we go pass an event, we add 1 to its y coordinate to the prefix sum (BIT). And then when we meet the red line, we make it as a query, we count how many blue lines at the current available blue lines. Remember to coordinate compress the coordinates
 **/
 
 #include <iostream>
