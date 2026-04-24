@@ -10,7 +10,7 @@
  * ----------------------------------------------------------
  *    tags: Geometry
  *    complexity: O(1)
- *    note: Typical cross product
+ *    note: Typical cross product. It is opposite with our game coordinate that if it is positive, it is on the left, and negative = right according to trigonometry
 **/
 
 #include <iostream>
