@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-16 21:38:15
+ *    created: 2026-04-24 21:08:49
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: Đế Chế
- *    source: https://oj.vnoi.info/problem/gogovoi_seg1
- *    submission: 
+ *    title: Polygon Area   
+ *    source: https://cses.fi/problemset/task/2191/
+ *    submission: https://cses.fi/problemset/result/16997561/
  *    status: AC
  * ----------------------------------------------------------
- *    tags: Sweep Line, BIT
- *    complexity: O(n \log n)
- *    note: PGE = Previous Greater Element, we find that by using stack. Then each time we iterate from n -> 1 and we reached PGE[i], we delete i from our count.
+ *    tags: Geometry
+ *    complexity: O(n)
+ *    note: To calculate the area, we can use shoelace formula, but we can also use cross product with a[i+1] and a[i] because after removing the bottom spare area of polygon, the result of that cross product is the leftover
 **/
 
 #include <iostream>
@@ -18,7 +18,7 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
-#include <stack>
+#include <cmath>
 
 using namespace std;
 
@@ -28,7 +28,7 @@ using namespace std;
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
 #else
     #define dbg(x,i)
-#endif  
+#endif
 #define NAH_I_WOULD_WIN 0
 
 // --- [ MACROS ] ---
@@ -59,68 +59,33 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("2191.INP", "r")) return;
+    freopen("2191.INP", "r", stdin);
+    freopen("2191.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-int n,q;
-const int N = 5e5+2;
 
-vpii queries[N];
-int bit[N], a[N], PGE[N], ans[N];
-vi off[N];
-stack<int> st;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void update(int pos, int val){
-    for(; pos <= n; pos += pos&-pos){
-        bit[pos] += val;
-    }
-}
 
-int get(int pos){
-    int res = 0;
-    for(; pos; pos -= pos&-pos) res += bit[pos];
-    return res;
-}
-
-int query(int l, int r){
-    return get(r) - get(l-1);
-}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    cin >> n >> q;
-    for(int i = 1; i <= n; i++){
-        cin >> a[i];
-        while(sz(st) && a[st.top()] < a[i]) st.pop();
-        if(sz(st)){
-            PGE[i] = st.top();
-            off[PGE[i]].eb(i);
-        }
-        update(i,1);
-        st.push(i);
-    }
+    int n;
+    cin >> n;
+    vpll a(n+1);
+    for(int i = 0; i < n; i++) cin >> a[i].fi >> a[i].se;
+    a[n] = a[0];
 
-    for(int i = 1; i <= q; i++){
-        int l,r;
-        cin >> l >> r;
-        queries[l].eb(r,i);
+    ll ans = 0;
+    for(int i = 0; i < n; i++){
+        ans += a[i+1].fi*a[i].se - a[i].fi*a[i+1].se;
     }
-
-    for(int i = n; i >= 1; i--){
-        for(int x : off[i]) update(x,-1);
-        for(const pii& p : queries[i]){
-            ans[p.se] = query(i, p.fi);
-        }
-    }
-
-    for(int i = 1; i <= q; i++) cout << ans[i] << '\n';
+    cout << abs(ans);
     
     return NAH_I_WOULD_WIN;
-}   
+}
