@@ -1,6 +1,6 @@
-# 📁 USACO Solutions
+# 📁 Geometry Solutions
 
-### 📊 USACO Stats
+### 📊 Geometry Stats
 
 ![Progress](https://img.shields.io/badge/Progress-1/1-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_24%2C_2026_--_21%3A07_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
@@ -12,11 +12,11 @@
 ---
 ## 📌 Table of Contents
 
-* [📁 USACO (1)](#-usaco-1)
+* [📁 Geometry (1)](#-geometry-1)
 
 ---
-## 📂 USACO (1)
+## 📂 Geometry (1)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [1137 - USACO 2021 US Open, Gold - Problem 1. United Cows of Farmer John](https://usaco.org/index.php?page=viewproblem2&cpid=1137) | `BIT` | $\mathcal{O}(n \log n)$ | Apr 18, 2026 | [Code](1137.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | [2189 - Point Location Test](https://cses.fi/problemset/task/2189) | `Geometry` | $\mathcal{O}(1)$ | Apr 24, 2026 | [Code](2189.cpp) \| [Sub](https://cses.fi/problemset/result/16997530/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
