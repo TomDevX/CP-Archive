@@ -2,10 +2,10 @@
 
 ### 📊 CSES Stats
 
-![Progress](https://img.shields.io/badge/Progress-35/38-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_24%2C_2026_--_21%3A12_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-36/39-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_24%2C_2026_--_22%3A08_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
-- **Total Unique Problems:** 38
-- **Solved (AC):** 35
+- **Total Unique Problems:** 39
+- **Solved (AC):** 36
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
 
@@ -14,7 +14,7 @@
 
   * [📁 Advanced Techniques (2)](#-advanced-techniques-2)
   * [📁 Dynamic Programming (12)](#-dynamic-programming-12)
-  * [📁 Geometry (2)](#-geometry-2)
+  * [📁 Geometry (3)](#-geometry-3)
   * [📁 Graph (7)](#-graph-7)
   * [📁 Range Queries (10)](#-range-queries-10)
   * [📁 Sliding Windơows Problem (2)](#-sliding-windơows-problem-2)
@@ -44,11 +44,12 @@
 | 12 | [3314 - Mountain Range](https://cses.fi/problemset/task/3314) | N/A | N/A | Feb 12, 2026 | [Code](Dynamic%20Programming/3314.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 13 | [3359 - Minimal Grid Path](https://cses.fi/problemset/task/3359) | `Dynamic Programming` | $\mathcal{O}(n \cdot m)$ | Feb 11, 2026 | [Code](Dynamic%20Programming/3359.cpp) \| [Sub](https://cses.fi/problemset/result/16238561/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-### 📁 Geometry (2)
+### 📁 Geometry (3)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [2189 - Point Location Test](https://cses.fi/problemset/task/2189) | `Geometry` | $\mathcal{O}(1)$ | Apr 24, 2026 | [Code](Geometry/2189.cpp) \| [Sub](https://cses.fi/problemset/result/16997530/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [2191 - Polygon Area](https://cses.fi/problemset/task/2191/) | `Geometry` | $\mathcal{O}(n)$ | Apr 24, 2026 | [Code](Geometry/2191.cpp) \| [Sub](https://cses.fi/problemset/result/16997561/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 3 | [2193 - Polygon Lattice Points](https://cses.fi/problemset/task/2193/) | `Geometry` | $\mathcal{O}(n)$ | Apr 24, 2026 | [Code](Geometry/2193.cpp) \| [Sub](https://cses.fi/problemset/result/16998036/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ### 📁 Graph (7)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
