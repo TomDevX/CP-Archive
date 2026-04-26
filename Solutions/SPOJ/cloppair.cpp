@@ -5,7 +5,7 @@
  * ----------------------------------------------------------
  *    title: Closest Point Pair
  *    source: https://www.spoj.com/problems/CLOPPAIR
- *    submission: https://www.spoj.com/status/ns=35707385#
+ *    submission: https://www.spoj.com/status/ns=35707394#
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Sweep Line, Data Structure
@@ -69,26 +69,27 @@ void setup(){
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 struct Point{
-    ll x,y,id;
+    ll x,y;
+    int id;
 
-    Point(int _x = 0, int _y = 0, int _id = 0) : x(_x), y(_y), id(_id) {};
+    Point(ll _x = 0, ll _y = 0, int _id = 0) : x(_x), y(_y), id(_id) {};
     bool operator<(const Point& o) const{
         return x < o.x;
     }
 };
 
-struct cmp {
-    bool operator()(const Point& A, const Point& B) const {
-        if (A.y != B.y) return A.y < B.y;
-        if (A.x != B.x) return A.x < B.x;
-        return A.id < B.id;
+struct cmp{
+    bool operator()(const Point& A, const Point& B) const{
+        if(A.y != B.y) return A.y < B.y;
+        return A.x < B.x;
     }
 };
+
 set<Point,cmp> st;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-ll dis(const Point& A, const Point& B) {
-    return 1LL*(A.x - B.x)*(A.x - B.x) + 1LL*(A.y - B.y)*(A.y - B.y);
+ll dis(const Point& A, const Point &B){
+    return (A.x - B.x)*(A.x - B.x) + (A.y - B.y)*(A.y - B.y);
 }
 
 
@@ -102,34 +103,37 @@ int main(){
     vector<Point> a(n+1);
     for(int i = 1; i <= n; i++) cin >> a[i].x >> a[i].y, a[i].id = i;
 
-    int L = 1;
     sort(all(a,1));
+
     ll ans = dis(a[1],a[2]);
     int id1 = a[1].id, id2 = a[2].id;
+    int L = 1;
 
     for(int i = 1; i <= n; i++){
-        ll d = sqrt(ans) + 1;
-        while(L < i && a[i].x - a[L].x > d){
+        ll d = sqrt(ans) + 1; // +1 to remove double error
+        while(L < i && a[i].x - a[L].x > d){ // filter old x
             st.erase(a[L]);
             L++;
         }
-        
+
         set<Point,cmp>::iterator it = st.upper_bound(Point((int)-1e9, a[i].y - d, a[i].id));
-        for(set<Point,cmp>::iterator cur = it; cur != st.end() && abs(a[i].y - (*cur).y) < d; cur++){
+        for(set<Point,cmp>::iterator cur = it; cur != st.end() && abs((*cur).y - a[i].y) < d; cur++){
             ll Dis = dis(*cur, a[i]);
             if(Dis < ans){
                 ans = Dis;
-                d = sqrt(ans) + 1;
                 id1 = (*cur).id, id2 = a[i].id;
+                d = sqrt(ans) + 1;
             }
         }
+
         st.insert(a[i]);
     }
 
     if(id1 > id2) swap(id1,id2);
 
-    cout << id1-1 << ' ' << id2-1 << ' ';
-    cout << fixed << setprecision(6) << sqrt(ans) << '\n';
+    // cout << id1-1 << ' ' << id2-1 << ' ';
+    // cout << fixed << setprecision(6) << sqrt(ans);
+    cout << ans;
     
     return NAH_I_WOULD_WIN;
 }
