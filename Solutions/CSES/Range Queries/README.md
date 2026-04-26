@@ -2,7 +2,7 @@
 
 ### 📊 Range Queries Stats
 
-![Progress](https://img.shields.io/badge/Progress-9/10-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_26%2C_2026_--_09%3A46_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-9/10-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_26%2C_2026_--_17%3A16_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 10
 - **Solved (AC):** 9
