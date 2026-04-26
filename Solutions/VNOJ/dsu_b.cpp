@@ -3,14 +3,14 @@
  *    created: 2026-04-26 19:43:42
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Giá trị tập
+ *    source: https://oj.vnoi.info/problem/dsu_b
+ *    submission: https://oj.vnoi.info/submission/12190979
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: DSU
+ *    complexity: O(\log n)
+ *    note: Still a typical DSU
 **/
 
 #include <iostream>
@@ -19,6 +19,8 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <numeric>
+#include <cstring>
 
 using namespace std;
 
@@ -65,17 +67,66 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+const int N = 3e5+2;
+int par[N], sz[N], minn[N], maxn[N], mem[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void init(){
+    iota(par + 1, par + N, 1);
+    iota(minn + 1, minn + N, 1);
+    iota(maxn + 1, maxn + N, 1);
+    fill(mem+1,mem + N, 1);
+}
 
+int find_set(int u){
+    if(u == par[u]) return u;
+    return par[u] = find_set(par[u]);
+}
+
+bool union_set(int a, int b){
+    a = find_set(a), b = find_set(b);
+    if(a == b) return true;
+
+    if(sz[a] < sz[b]) swap(a,b);
+
+    if(sz[a] == sz[b]) sz[a]++;
+    minn[a] = min(minn[a], minn[b]);
+    maxn[a] = max(maxn[a], maxn[b]);
+    mem[a] += mem[b];
+
+    par[b] = a;
+
+    return true;
+}
+
+void get(int u){
+    u = find_set(u);
+    cout << minn[u] << ' ' << maxn[u] << ' ' << mem[u] << '\n';
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
+    init();
     
-    
+    int n,q;
+    cin >> n >> q;
+
+    string type;
+    while(q--){
+        cin >> type;
+        if(type == "union"){
+            int a,b;
+            cin >> a >> b;
+            union_set(a,b);
+        }
+        else{
+            int x;
+            cin >> x;
+            get(x);
+        }
+    }
     
     return NAH_I_WOULD_WIN;
 }
