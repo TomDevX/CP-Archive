@@ -2,10 +2,10 @@
 
 ### 📊 CSES Stats
 
-![Progress](https://img.shields.io/badge/Progress-40/43-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_26%2C_2026_--_19%3A42_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-39/42-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Apr_26%2C_2026_--_19%3A43_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
-- **Total Unique Problems:** 43
-- **Solved (AC):** 40
+- **Total Unique Problems:** 42
+- **Solved (AC):** 39
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
 
@@ -16,7 +16,7 @@
   * [📁 Dynamic Programming (12)](#-dynamic-programming-12)
   * [📁 Geometry (6)](#-geometry-6)
   * [📁 Graph (7)](#-graph-7)
-  * [📁 Range Queries (11)](#-range-queries-11)
+  * [📁 Range Queries (10)](#-range-queries-10)
   * [📁 Sliding Windơows Problem (2)](#-sliding-windơows-problem-2)
   * [📁 Sorting and Searching (3)](#-sorting-and-searching-3)
 
@@ -65,7 +65,7 @@
 | 6 | [1673 - High Score](https://cses.fi/problemset/task/1673) | `Graph`, `Bellman Ford` | $\mathcal{O}(n \cdot m)$ | Feb 23, 2026 | [Code](Graph/1673.cpp) \| [Sub](https://cses.fi/problemset/result/16352395/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 7 | [1750 - Planets Queries I](https://cses.fi/problemset/task/1750) | `Binary Lifting` | $\mathcal{O}((n+q) \log n)$ | Mar 19, 2026 | [Code](Graph/1750.cpp) \| [Sub](https://cses.fi/problemset/result/16614664/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-### 📁 Range Queries (11)
+### 📁 Range Queries (10)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1143 - Hotel Queries](https://cses.fi/problemset/task/1143) | `Walk on Segment Tree` | $\mathcal{O}(n \log n)$ | Apr 04, 2026 | [Code](Range%20Queries/1143.cpp) \| [Sub](https://cses.fi/problemset/result/16790807/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -79,7 +79,6 @@
 | 9 | [2166 - Prefix Sum Queries](https://cses.fi/problemset/task/2166) | N/A | N/A | Apr 11, 2026 | [Code](Range%20Queries/2166.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 10 | [2184 - Missing Coin Sum Queries](https://cses.fi/problemset/task/2184) | `Sparse Table`, `MEX`, `bit` | $\mathcal{O}(n \log n \log a_i)$ | Mar 25, 2026 | [Code](Range%20Queries/2184.cpp) \| [Sub](https://cses.fi/problemset/result/16681741/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 11 | [3226 - Subarray Sum Queries II](https://cses.fi/problemset/task/3226) | `Segment Tree (Custom Operator)` | $\mathcal{O}(n \log n)$ | Apr 08, 2026 | [Code](Range%20Queries/3226.cpp) \| [Sub](https://cses.fi/problemset/result/16838741/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 12 | [DSU - Disjoint Sets Union](https://oj.vnoi.info/problem/dsu_a) | `DSU` | $\mathcal{O}(q \log n)$ | Apr 26, 2026 | [Code](Range%20Queries/dsu_a.cpp) \| [Sub](https://oj.vnoi.info/submission/12190836) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ### 📁 Sliding Windơows Problem (2)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
