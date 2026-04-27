@@ -2,11 +2,10 @@
   ".cpp": {
     "compileCommand": [
       "g++",
-      "-std=c++17",
+      "-std=c++14",
       "-O2",
-      "-Wall",
-      "-Wextra",
-      "-Wshadow",
+      "-pipe",
+      "-DONLINE_JUDGE",
       "${file}",
       "-o",
       "${fileDirname}/${fileBasenameNoExtension}"

@@ -9,7 +9,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: DSU
- *    complexity: O(\log n)
+ *    complexity: O(\alpha(n))
  *    note: Still a typical DSU
 **/
 

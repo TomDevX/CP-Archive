@@ -9,7 +9,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: DSU
- *    complexity: O(K \log \alpha(N))
+ *    complexity: O(K \alpha(N))
  *    note: Typical DSU but we need to apply Inclusion-Exclusion for the sum
 **/
 

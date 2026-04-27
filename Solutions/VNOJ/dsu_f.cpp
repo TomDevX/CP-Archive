@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-27 14:33:22
+ *    created: 2026-04-27 14:57:41
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: Cutting a graph
- *    source: https://oj.vnoi.info/problem/dsu_e
- *    submission: https://oj.vnoi.info/submission/12194751
+ *    title: Mọi người đang rời đi
+ *    source: https://oj.vnoi.info/problem/dsu_f
+ *    submission: https://oj.vnoi.info/submission/12194872
  *    status: AC
  * ----------------------------------------------------------
  *    tags: DSU
- *    complexity: O(q \alpha(n))
- *    note: Just reverse the queries and answer it offline
+ *    complexity: O(n \alpha(n))
+ *    note: Each parent is itself until we delete it so just change the parent to the right position
 **/
 
 #include <iostream>
@@ -60,20 +60,15 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("dsu_e.INP", "r")) return;
-    freopen("dsu_e.INP", "r", stdin);
-    freopen("dsu_e.OUT", "w", stdout);
+    if(!fopen("dsu_f.INP", "r")) return;
+    freopen("dsu_f.INP", "r", stdin);
+    freopen("dsu_f.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-struct Query{
-    bool type;
-    int a,b;
-
-    Query(bool _type = false, int _a = 0, int _b = 0, int _id = 0) : type(_type), a(_a), b(_b){};
-};
-const int N = 5e4+2;
-int par[N], sz[N];
+const int N = 1e6+2;
+int par[N];
+int n,q;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 void init(){
@@ -85,59 +80,26 @@ int find_set(int u){
     return par[u] = find_set(par[u]);
 }
 
-bool union_set(int a, int b){
-    a = find_set(a), b = find_set(b);
-    if(a == b) return true;
-
-    if(sz[a] < sz[b]) swap(a,b);
-    if(sz[a] == sz[b]) sz[a]++;
-    par[b] = a;
-
-    return false;
-}
-
-bool check(int a, int b){
-    return find_set(a) == find_set(b);
-}
-
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     init();
     
-    int n,m,q;
-    cin >> n >> m >> q;
+    cin >> n >> q;
 
-    for(int i = 1, tmp; i <= m; i++){
-        cin >> tmp >> tmp;
-    }
-
-    vector<Query> queries(q+1);
-    for(int i = 1; i <= q; i++){
-        string type;
-        int a,b;
-        cin >> type >> a >> b;
-        queries[i] = Query((type == "cut"),a,b,i);
-    }
-
-    reverse(all(queries,1));
-
-    vector<bool> ans;
-    ans.reserve(q);
-    for(int i = 1; i <= q; i++){
-        Query &Q = queries[i];
-        if(Q.type){
-            union_set(Q.a, Q.b);
+    while(q--){
+        char type;
+        int u;
+        cin >> type >> u;
+        
+        if(type == '-'){
+            par[u] = find_set(par[u]+1);
         }
         else{
-            ans.eb(check(Q.a,Q.b));
+            int ans = find_set(u);
+            cout << (ans == n+1 ? -1 : ans) << '\n';
         }
-    }
-
-    reverse(all(ans,0));
-    for(bool b : ans){
-        cout << (b ? "YES" : "NO") << '\n';
     }
     
     return NAH_I_WOULD_WIN;
