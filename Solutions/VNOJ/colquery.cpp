@@ -5,7 +5,7 @@
  * ----------------------------------------------------------
  *    title: Color query
  *    source: https://oj.vnoi.info/problem/colquery
- *    submission: https://oj.vnoi.info/submission/12195407
+ *    submission: https://oj.vnoi.info/submission/12195450
  *    status: AC
  * ----------------------------------------------------------
  *    tags: DSU
@@ -19,7 +19,7 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <map>
+#include <unordered_map>
 #include <numeric>
 #include <iterator>
 
@@ -72,7 +72,7 @@ const int N = 1e5+2;
 int c[N];
 
 int par[N];
-map<int,int> colors[N];
+unordered_map<int,int> colors[N]; // u can use map too but I'd like to take some risks
 int n,q;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
@@ -93,7 +93,7 @@ void union_set(int a, int b){
     if(sz(colors[a]) < sz(colors[b])) swap(a,b);
     for(const pair<int,int> &p : colors[b]) colors[a][p.fi] += p.se;
     par[b] = a;
-    map<int,int>().swap(colors[b]); // just some release for our unused memory
+    unordered_map<int,int>().swap(colors[b]); // just some release for our unused memory
 }
 
 // ----------------------- [ MAIN ] -----------------------
