@@ -1,5 +1,5 @@
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5+2;
+const int N = 125+2;
 int par[N], sz[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
@@ -14,14 +14,14 @@ int find_set(int u){
 
 bool union_set(int a, int b){
     a = find_set(a), b = find_set(b);
-    if(a == b) return true;
+    if(a == b) return false;
 
     if(sz[a] < sz[b]) swap(a,b);
 
     if(sz[a] == sz[b]) sz[a]++;
     par[b] = a;
 
-    return false;
+    return true;
 }
 
 bool get(int a, int b){
