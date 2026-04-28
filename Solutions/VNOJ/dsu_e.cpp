@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-27 16:02:35
+ *    created: 2026-04-27 14:33:22
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: Color query
- *    source: https://oj.vnoi.info/problem/colquery
- *    submission: https://oj.vnoi.info/submission/12195450
+ *    title: Cutting a graph
+ *    source: https://oj.vnoi.info/problem/dsu_e
+ *    submission: https://oj.vnoi.info/submission/12194751
  *    status: AC
  * ----------------------------------------------------------
  *    tags: DSU
- *    complexity: O(q \log n \alpha(n))
- *    note: Use map to count colors, also use small-to-large merging to reduce the time complexity. We can't use multiset because when it calculate the distance between upper_bound and lower_bound, it will get TLE cuz it's O(n)
+ *    complexity: O(q \alpha(n))
+ *    note: Just reverse the queries and answer it offline
 **/
 
 #include <iostream>
@@ -19,13 +19,8 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <ext/pb_ds/assoc_container.hpp>
-#include <unordered_map>
 #include <numeric>
-#include <iterator>
-#include <random>
 
-using namespace __gnu_pbds;
 using namespace std;
 
 // --- [ DEBUGGING & LOCAL CONFIG ] ---
@@ -48,7 +43,7 @@ using namespace std;
 #define eb emplace_back
 #define sz(x) (int)(x).size()
 
-// --- [ TYPES & ALIASES ] ---`
+// --- [ TYPES & ALIASES ] ---
 using ll = long long;
 using ull = unsigned long long;
 using ld = long double;
@@ -65,33 +60,24 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("colquery.INP", "r")) return;
-    freopen("colquery.INP", "r", stdin);
-    freopen("colquery.OUT", "w", stdout);
+    if(!fopen("dsu_e.INP", "r")) return;
+    freopen("dsu_e.INP", "r", stdin);
+    freopen("dsu_e.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5+2;
-int c[N];
+struct Query{
+    bool type;
+    int a,b;
 
-random_device rd;
-mt19937_64 gen(rd());
-uniform_int_distribution<ll> dis(1,1e18);
-const ll RAND = dis(gen);
-
-struct custom_hash{
-    int operator()(const int& x) const{
-        return (x^RAND);
-    }
+    Query(bool _type = false, int _a = 0, int _b = 0, int _id = 0) : type(_type), a(_a), b(_b){};
 };
-unordered_map<int, int, custom_hash> colors[N];
-int par[N];
-int n,q;
+const int N = 5e4+2;
+int par[N], sz[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 void init(){
-    iota(par + 1, par + n + 1, 1);
-    for(int i = 1; i <= n; i++) colors[i][c[i]]++;
+    iota(par + 1, par + N, 1);
 }
 
 int find_set(int u){
@@ -99,42 +85,59 @@ int find_set(int u){
     return par[u] = find_set(par[u]);
 }
 
-void union_set(int a, int b){
+bool union_set(int a, int b){
     a = find_set(a), b = find_set(b);
-    if(a == b) return;
+    if(a == b) return true;
 
-    if(sz(colors[a]) < sz(colors[b])) swap(a,b);
-    for(const pair<const int,int> &p : colors[b]) colors[a][p.fi] += p.se;
+    if(sz[a] < sz[b]) swap(a,b);
+    if(sz[a] == sz[b]) sz[a]++;
     par[b] = a;
-    unordered_map<int, int,custom_hash>().swap(colors[b]); // just some release for our unused memory
+
+    return false;
+}
+
+bool check(int a, int b){
+    return find_set(a) == find_set(b);
 }
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
-    
-    cin >> n >> q;
-    for(int i = 1; i <= n; i++) cin >> c[i];
     init();
+    
+    int n,m,q;
+    cin >> n >> m >> q;
 
-    while(q--){
-        int type;
-        cin >> type;
-        if(type == 1){
-            int a,b;
-            cin >> a >> b;
-            union_set(a,b);
+    for(int i = 1, tmp; i <= m; i++){
+        cin >> tmp >> tmp;
+    }
+
+    vector<Query> queries(q+1);
+    for(int i = 1; i <= q; i++){
+        string type;
+        int a,b;
+        cin >> type >> a >> b;
+        queries[i] = Query((type == "cut"),a,b,i);
+    }
+
+    reverse(all(queries,1));
+
+    vector<bool> ans;
+    ans.reserve(q);
+    for(int i = 1; i <= q; i++){
+        Query &Q = queries[i];
+        if(Q.type){
+            union_set(Q.a, Q.b);
         }
         else{
-            int u,col;
-            cin >> u >> col;
-            u = find_set(u);
-
-            unordered_map<int, int,custom_hash>::iterator it = colors[u].find(col);
-            if(it != colors[u].end()) cout << it->se << '\n';
-            else cout << "0\n";
+            ans.eb(check(Q.a,Q.b));
         }
+    }
+
+    reverse(all(ans,0));
+    for(bool b : ans){
+        cout << (b ? "YES" : "NO") << '\n';
     }
     
     return NAH_I_WOULD_WIN;

@@ -19,13 +19,10 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <ext/pb_ds/assoc_container.hpp>
 #include <unordered_map>
 #include <numeric>
 #include <iterator>
-#include <random>
 
-using namespace __gnu_pbds;
 using namespace std;
 
 // --- [ DEBUGGING & LOCAL CONFIG ] ---
@@ -48,7 +45,7 @@ using namespace std;
 #define eb emplace_back
 #define sz(x) (int)(x).size()
 
-// --- [ TYPES & ALIASES ] ---`
+// --- [ TYPES & ALIASES ] ---
 using ll = long long;
 using ull = unsigned long long;
 using ld = long double;
@@ -74,18 +71,8 @@ void setup(){
 const int N = 1e5+2;
 int c[N];
 
-random_device rd;
-mt19937_64 gen(rd());
-uniform_int_distribution<ll> dis(1,1e18);
-const ll RAND = dis(gen);
-
-struct custom_hash{
-    int operator()(const int& x) const{
-        return (x^RAND);
-    }
-};
-unordered_map<int, int, custom_hash> colors[N];
 int par[N];
+unordered_map<int,int> colors[N]; // u can use map too but I'd like to take some risks
 int n,q;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
@@ -104,9 +91,9 @@ void union_set(int a, int b){
     if(a == b) return;
 
     if(sz(colors[a]) < sz(colors[b])) swap(a,b);
-    for(const pair<const int,int> &p : colors[b]) colors[a][p.fi] += p.se;
+    for(const pair<int,int> &p : colors[b]) colors[a][p.fi] += p.se;
     par[b] = a;
-    unordered_map<int, int,custom_hash>().swap(colors[b]); // just some release for our unused memory
+    unordered_map<int,int>().swap(colors[b]); // just some release for our unused memory
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -131,8 +118,7 @@ int main(){
             cin >> u >> col;
             u = find_set(u);
 
-            unordered_map<int, int,custom_hash>::iterator it = colors[u].find(col);
-            if(it != colors[u].end()) cout << it->se << '\n';
+            if(colors[u].count(col)) cout << colors[u][col] << '\n';
             else cout << "0\n";
         }
     }

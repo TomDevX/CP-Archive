@@ -1,0 +1,198 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    "key": "ctrl+c",
+    "command": "workbench.action.terminal.clear",
+    "when": "terminalHasBeenCreated || terminalProcessSupported"
+  },
+  {
+    "key": "ctrl+down",
+    "command": "workbench.action.terminal.focus"
+  },
+  {
+    "key": "ctrl+up",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
+//   {
+//     "key": "cmd+enter",
+//     "command": "code-runner.run"
+//   },
+  {
+    "key": "cmd+enter",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Compile and Run cpp"
+  },
+  {
+    "key": "alt+enter",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Compile and Run cpp without file"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Get cpp run file"
+  },
+  {
+    "key": "ctrl+alt+n",
+    "command": "-code-runner.run"
+  },
+  {
+    "key": "alt+s",
+    "command": "toggle",
+    "when": "true",
+    "args": {
+        "id": "cody.autocomplete.enabled",
+        "value": [
+            {
+                "cody.autocomplete.enabled": true
+            },
+            {
+                "cody.autocomplete.enabled": false
+            }
+        ]
+    }
+  },
+    /*{
+        "key": "ctrl+s",
+        "command": "toggle",
+        "when": "true",
+        "args": {
+            "id": "cody.superCompletion.enabled",
+            "value": [
+                {
+                    "cody.superCompletion.enabled": true
+                },
+                {
+                    "cody.superCompletion.enabled": false
+                }
+            ]
+        }
+    },*/
+    {
+        "key": "ctrl+s",
+        "command": "toggle",
+        "when": "true",
+        "args": {
+            "id": "editor.quickSuggestions",
+            "value": [
+                {
+                    "editor.quickSuggestions": {
+                        "other": true,
+                        "comments": true,
+                        "strings": true
+                    }
+                },
+                {
+                    "editor.quickSuggestions": {
+                        "other": false,
+                        "comments": false,
+                        "strings": false
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "key": "alt+x",
+        "command": "cody.fixup.undoNearest",
+        "when": "cody.activated && cody.hasActionableEdit && !editorReadonly"
+    },
+    {
+        "key": "alt+z",
+        "command": "cody.fixup.cancelNearest",
+        "when": "cody.activated && cody.hasActionableEdit && !editorReadonly"
+    },
+    {
+        "key": "alt+q",
+        "command": "editor.action.insertSnippet"
+    },
+    {
+        "key": "shift+cmd+d",
+        "command": "-workbench.view.debug",
+        "when": "viewContainer.workbench.view.debug.enabled"
+    },
+    {
+        "key": "shift+cmd+d",
+        "command": "vscode-compcalc.calc"
+    },
+    {
+        "key": "alt+cmd+c",
+        "command": "-vscode-compcalc.calc"
+    },
+    {
+        "key": "cmd+i",
+        "command": "-continue.focusEdit"
+    },
+    {
+        "key": "cmd+l",
+        "command": "-continue.focusContinueInput"
+    },
+    {
+        "key": "cmd+l",
+        "command": "continue.focusContinueInputWithoutClear"
+    },
+    {
+        "key": "shift+cmd+l",
+        "command": "-continue.focusContinueInputWithoutClear"
+    },
+    {
+        "key": "alt+a",
+        "command": "continue.acceptDiff",
+        "when": "continue.diffVisible"
+    },
+    {
+        "key": "alt+x",
+        "command": "continue.rejectDiff",
+        "when": "continue.diffVisible"
+    },
+    {
+        "key": "shift+cmd+backspace",
+        "command": "-continue.rejectDiff",
+        "when": "continue.diffVisible"
+    },
+    {
+        "key": "alt+k",
+        "command": "github.copilot.chat.fix"
+    },
+    {
+        "key": "cmd+`",
+        "command": "workbench.action.terminal.killAll"
+    },
+    {
+        "key": "shift+alt+enter",
+        "command": "cph.runTestCases"
+    },
+    {
+        "key": "ctrl+alt+b",
+        "command": "-cph.runTestCases"
+    },
+    {
+        "key": "cmd+shift+enter",
+        "command": "fastolympiccoding.runAll",
+        "when": "view.fastolympiccoding.judge.visible"
+    },
+    {
+        "key": "ctrl+alt+b",
+        "command": "-fastolympiccoding.runAll",
+        "when": "view.fastolympiccoding.judge.visible"
+    },
+    {
+        "key": "alt+w",
+        "command": "fastolympiccoding.insertFileTemplate"
+    },
+    {
+        "key": "ctrl+alt+i",
+        "command": "-fastolympiccoding.insertFileTemplate"
+    },
+    {
+        "key": "shift+alt+'",
+        "command": "fastolympiccoding.startStressTest",
+        "when": "view.fastolympiccoding.stress.visible"
+    },
+    {
+        "key": "ctrl+alt+g",
+        "command": "-fastolympiccoding.startStressTest",
+        "when": "view.fastolympiccoding.stress.visible"
+    },
+]
