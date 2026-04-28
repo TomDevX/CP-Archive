@@ -160,7 +160,7 @@ int main(){
                     l2++;
                 }
 
-                if(Es[])
+                if(cur.se > E)
             }
 
             cout << (checked ? "YES" : "NO") << '\n';
