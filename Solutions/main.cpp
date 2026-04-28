@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-27 16:02:35
+ *    created: 2026-04-28 08:07:07
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: Color query
- *    source: https://oj.vnoi.info/problem/colquery
- *    submission: https://oj.vnoi.info/submission/12195450
- *    status: AC
+ *    title: 
+ *    source: 
+ *    submission: 
+ *    status: WIP
  * ----------------------------------------------------------
- *    tags: DSU
- *    complexity: O(q \log n \alpha(n))
- *    note: Use map to count colors, also use small-to-large merging to reduce the time complexity. We can't use multiset because when it calculate the distance between upper_bound and lower_bound, it will get TLE cuz it's O(n)
+ *    tags: 
+ *    complexity: 
+ *    note: 
 **/
 
 #include <iostream>
@@ -20,10 +20,6 @@
 #include <string>
 #include <utility>
 #include <ext/pb_ds/assoc_container.hpp>
-#include <unordered_map>
-#include <numeric>
-#include <iterator>
-#include <random>
 
 using namespace __gnu_pbds;
 using namespace std;
@@ -48,7 +44,7 @@ using namespace std;
 #define eb emplace_back
 #define sz(x) (int)(x).size()
 
-// --- [ TYPES & ALIASES ] ---`
+// --- [ TYPES & ALIASES ] ---
 using ll = long long;
 using ull = unsigned long long;
 using ld = long double;
@@ -65,77 +61,23 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("colquery.INP", "r")) return;
-    freopen("colquery.INP", "r", stdin);
-    freopen("colquery.OUT", "w", stdout);
+    if(!fopen("main.INP", "r")) return;
+    freopen("main.INP", "r", stdin);
+    freopen("main.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5+2;
-int c[N];
 
-random_device rd;
-mt19937_64 gen(rd());
-uniform_int_distribution<ll> dis(1,1e18);
-const ll RAND = dis(gen);
-
-struct custom_hash{
-    int operator()(const int& x) const{
-        return (x^RAND);
-    }
-};
-unordered_map<int, int, custom_hash> colors[N];
-int par[N];
-int n,q;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void init(){
-    iota(par + 1, par + n + 1, 1);
-    for(int i = 1; i <= n; i++) colors[i][c[i]]++;
-}
 
-int find_set(int u){
-    if(u == par[u]) return u;
-    return par[u] = find_set(par[u]);
-}
-
-void union_set(int a, int b){
-    a = find_set(a), b = find_set(b);
-    if(a == b) return;
-
-    if(sz(colors[a]) < sz(colors[b])) swap(a,b);
-    for(const pair<const int,int> &p : colors[b]) colors[a][p.fi] += p.se;
-    par[b] = a;
-    unordered_map<int, int,custom_hash>().swap(colors[b]); // just some release for our unused memory
-}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    cin >> n >> q;
-    for(int i = 1; i <= n; i++) cin >> c[i];
-    init();
-
-    while(q--){
-        int type;
-        cin >> type;
-        if(type == 1){
-            int a,b;
-            cin >> a >> b;
-            union_set(a,b);
-        }
-        else{
-            int u,col;
-            cin >> u >> col;
-            u = find_set(u);
-
-            unordered_map<int, int,custom_hash>::iterator it = colors[u].find(col);
-            if(it != colors[u].end()) cout << it->se << '\n';
-            else cout << "0\n";
-        }
-    }
+    
     
     return NAH_I_WOULD_WIN;
 }
