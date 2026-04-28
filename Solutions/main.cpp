@@ -18,7 +18,9 @@
 #include <algorithm>
 #include <cstdio>
 #include <utility>
+#include <ext/pb_ds/assoc_container.hpp>
 
+using namespace __gnu_pbds;
 using namespace std;
 
 // --- [ DEBUGGING & LOCAL CONFIG ] ---
@@ -41,7 +43,7 @@ using namespace std;
 #define eb emplace_back
 #define sz(x) (int)(x).size()
 
-// --- [ TYPES & ALIASES ] ---
+// --- [ TYPES & ALIASES ] ---`
 using ll = long long;
 using ull = unsigned long long;
 using ld = long double;
