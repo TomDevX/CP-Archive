@@ -8,9 +8,9 @@
  *    submission: https://codeforces.com/contest/2227/submission/373104180
  *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Math
+ *    complexity: O(n)
+ *    note: For a number to be divisible by 6, it must has prime factor of 2 and 3. So that, the optimal way is that we keep the elements with factor 2 together and elements with factor 3 together far from each other as much as possibe, for the one that is already divisible by 6, we can't change anything, so just put it in the edge (for less effection), choose the side of factor that has less elements
 **/
 
 #include <iostream>

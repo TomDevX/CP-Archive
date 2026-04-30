@@ -8,9 +8,9 @@
  *    submission: https://codeforces.com/contest/2227/submission/373109785
  *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Greedy
+ *    complexity: O(n)
+ *    note: We can greedily choose the whole subarray to rearrange, so our only condition is that open brackets = close brackets
 **/
 
 #include <iostream>

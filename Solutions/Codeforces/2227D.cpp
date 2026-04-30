@@ -10,7 +10,7 @@
  * ----------------------------------------------------------
  *    tags: Greedy, Implementation
  *    complexity: O(n)
- *    note: 
+ *    note: Every subarray that doesn't have 0 will have MEX 0, so our min answer is 1. So we just need to check the subarray that has 0, means that we check palindrome which has positions of 0 that play a role as the center of that subarray (2 cases), and the last cases is that the center of pos1 and pos2 of 0 element, get max mex of those 3 cases.
 **/
 
 #include <iostream>
