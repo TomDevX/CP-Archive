@@ -74,7 +74,25 @@ int main(){
     fastio;
     setup();
     
-    
-    
+    vi a = {0};
+    int x;
+    while(cin >> x){
+        a.eb(x);
+    }
+    int n = sz(a);
+    dbg(a,1);
+    vll prod(n+1,1);
+    for(int i = 1; i <= n; i++){
+        prod[i] = 1LL * a[i] * prod[i-1];
+    }
+
+    int ans = 0;
+    for(int i = 1; i <= n; i++){
+        for(int j = i; j <= n; j++){
+            if((prod[j] / prod[i-1])%6 == 0) dbg(j,i), ans++;
+        }
+    }
+    cout << ans;
+
     return NAH_I_WOULD_WIN;
 }

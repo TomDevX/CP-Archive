@@ -3,10 +3,10 @@
  *    created: 2026-04-30 21:35:46
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Party Monster
+ *    source: https://codeforces.com/contest/2227/problem/B
+ *    submission: https://codeforces.com/contest/2227/submission/373109785
+ *    status: AC
  * ----------------------------------------------------------
  *    tags: 
  *    complexity: 
@@ -19,7 +19,6 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <cstring>
 
 using namespace std;
 
@@ -66,71 +65,28 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5+2;
-int st[4*N];
+
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void rest(int n){
-    memset(st,-1,sizeof(st[0])*4*n);
-}
 
-void update(int id, int l, int r, int pos, int val){
-    if(l == r){
-        st[id] = val;
-        return;
-    }
-
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1;
-
-    if(pos <= mid) update(lc,l,mid,pos,val);
-    else update(lc|1,mid+1,r,pos,val);
-
-    st[id] = max(st[lc], st[lc]|1);
-}
-
-int get(int id, int l, int r, int pos){
-    if(l == r) return st[id];
-
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1;
-
-    if(pos <= mid) return get(lc,l,mid,pos);
-    return get(lc|1,mid+1,r,pos);
-}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    rest(N);
     int tc;
     cin >> tc;
     while(tc--){
         int n;
         cin >> n;
-        vi a(n+1), L(n+1);
-        vll sum(n+1), pref(n+1), suff(n+1);
-        for(int i = 1; i <= n; i++) cin >> a[i], sum[i] = sum[i-1] + a[i];
-
-        // pref
-        update(1,0,n,0,0);
-        pref[1] = 0;
-        update(1,0,n,a[1],1);
-        for(int i = 2; i <= n; i++){
-            int l = get(1,0,n,a[i]);
-            pref[i] = sum[i-1] - sum[l] - (i - l)*a[i] + pref[l];
-            update(1,0,n,a[i],i);
+        string s;
+        cin >> s;
+        int sum = 0;
+        for(int i = 0; i < n; i++){
+            sum += (s[i] == '(' ? 1 : -1);
         }
-
-        for(int i = 1; i <= n; i++){
-            
-        }
-
-        rest(n);
-        // main
-
+        cout << (sum == 0 ? "YES" : "NO") << '\n';
     }
     
     return NAH_I_WOULD_WIN;

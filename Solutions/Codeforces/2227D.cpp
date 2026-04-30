@@ -1,15 +1,15 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-30 21:35:46
+ *    created: 2026-05-01 00:29:29
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Palindromex
+ *    source: https://codeforces.com/contest/2227/problem/D
+ *    submission: https://codeforces.com/contest/2227/submission/373166203
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
+ *    tags: Greedy, Implementation
+ *    complexity: O(n)
  *    note: 
 **/
 
@@ -19,7 +19,8 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <cstring>
+#include <set>
+#include <bitset>
 
 using namespace std;
 
@@ -60,43 +61,26 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("2227D.INP", "r")) return;
+    freopen("2227D.INP", "r", stdin);
+    freopen("2227D.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5+2;
-int st[4*N];
+const int N = 2e5+2;
+int a[N];
+int n;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void rest(int n){
-    memset(st,-1,sizeof(st[0])*4*n);
-}
-
-void update(int id, int l, int r, int pos, int val){
-    if(l == r){
-        st[id] = val;
-        return;
+int mex(int l, int r){
+    static bitset<N> vis;
+    vis.reset();
+    for(; l >= 1 && r <= 2*n; l--,r++){
+        if(a[l] == a[r]) vis[a[l]] = 1;
+        else break;
     }
-
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1;
-
-    if(pos <= mid) update(lc,l,mid,pos,val);
-    else update(lc|1,mid+1,r,pos,val);
-
-    st[id] = max(st[lc], st[lc]|1);
-}
-
-int get(int id, int l, int r, int pos){
-    if(l == r) return st[id];
-
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1;
-
-    if(pos <= mid) return get(lc,l,mid,pos);
-    return get(lc|1,mid+1,r,pos);
+    for(int i = 0; i <= n; i++) if(!vis[i]) return i;
+    return n;
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -104,33 +88,20 @@ int main(){
     fastio;
     setup();
     
-    rest(N);
     int tc;
     cin >> tc;
     while(tc--){
-        int n;
         cin >> n;
-        vi a(n+1), L(n+1);
-        vll sum(n+1), pref(n+1), suff(n+1);
-        for(int i = 1; i <= n; i++) cin >> a[i], sum[i] = sum[i-1] + a[i];
-
-        // pref
-        update(1,0,n,0,0);
-        pref[1] = 0;
-        update(1,0,n,a[1],1);
-        for(int i = 2; i <= n; i++){
-            int l = get(1,0,n,a[i]);
-            pref[i] = sum[i-1] - sum[l] - (i - l)*a[i] + pref[l];
-            update(1,0,n,a[i],i);
+        pii pos = {0,0};
+        for(int i = 1; i <= 2*n; i++){
+            cin >> a[i];
+            if(a[i] == 0){
+                if(pos.fi) pos.se = i;
+                else pos.fi = i;
+            }
         }
 
-        for(int i = 1; i <= n; i++){
-            
-        }
-
-        rest(n);
-        // main
-
+        cout << max({mex(pos.fi,pos.fi), mex(pos.se,pos.se), mex((pos.se + pos.fi)>>1, (pos.se + pos.fi + 1)>>1)}) << '\n';
     }
     
     return NAH_I_WOULD_WIN;

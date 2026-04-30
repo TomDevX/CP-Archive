@@ -3,14 +3,14 @@
  *    created: 2026-04-30 21:35:46
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Koshary
+ *    source: https://codeforces.com/contest/2227/problem/A
+ *    submission: https://codeforces.com/contest/2227/submission/373070581
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Basic
+ *    complexity: O(1)
+ *    note: We will move the optimal way is that move by x first, then y. If both x and y are odd, we can't go to the destination because there is only 1 turn to move 1 stud
 **/
 
 #include <iostream>
@@ -19,7 +19,6 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <cstring>
 
 using namespace std;
 
@@ -66,71 +65,22 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5+2;
-int st[4*N];
+
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void rest(int n){
-    memset(st,-1,sizeof(st[0])*4*n);
-}
 
-void update(int id, int l, int r, int pos, int val){
-    if(l == r){
-        st[id] = val;
-        return;
-    }
-
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1;
-
-    if(pos <= mid) update(lc,l,mid,pos,val);
-    else update(lc|1,mid+1,r,pos,val);
-
-    st[id] = max(st[lc], st[lc]|1);
-}
-
-int get(int id, int l, int r, int pos){
-    if(l == r) return st[id];
-
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1;
-
-    if(pos <= mid) return get(lc,l,mid,pos);
-    return get(lc|1,mid+1,r,pos);
-}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    rest(N);
     int tc;
     cin >> tc;
     while(tc--){
-        int n;
-        cin >> n;
-        vi a(n+1), L(n+1);
-        vll sum(n+1), pref(n+1), suff(n+1);
-        for(int i = 1; i <= n; i++) cin >> a[i], sum[i] = sum[i-1] + a[i];
-
-        // pref
-        update(1,0,n,0,0);
-        pref[1] = 0;
-        update(1,0,n,a[1],1);
-        for(int i = 2; i <= n; i++){
-            int l = get(1,0,n,a[i]);
-            pref[i] = sum[i-1] - sum[l] - (i - l)*a[i] + pref[l];
-            update(1,0,n,a[i],i);
-        }
-
-        for(int i = 1; i <= n; i++){
-            
-        }
-
-        rest(n);
-        // main
-
+        int x,y;
+        cin >> x >> y;
+        cout << ((x&1) && (y&1) ? "NO" : "YES") << '\n';
     }
     
     return NAH_I_WOULD_WIN;

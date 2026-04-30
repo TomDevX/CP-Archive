@@ -1,15 +1,15 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-29 09:45:27
+ *    created: 2026-04-30 16:52:22
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: Đặc trưng của cây
  *    source: https://oj.vnoi.info/problem/gogovoi_nangcao_olp3g
- *    submission: 
- *    status: WIP
+ *    submission: https://oj.vnoi.info/submission/12215972
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
+ *    tags: DSU
+ *    complexity: O(n \log n + n + m)
  *    note: 
 **/
 
@@ -19,6 +19,9 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <cstring>
+#include <numeric>
+#include <bitset>
 
 using namespace std;
 
@@ -65,17 +68,101 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+int n;
+const int N = 1e6+2;
 
+int w[N], nodes[N], par[N], sz[N];
+bitset<N> vis;
+vi adj[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void init(){
+    iota(par + 1, par + n + 1, 1);
+    fill(sz + 1, sz + n + 1, 1);
+    vis.reset();
+}
 
+inline int find_set(int u){
+    if(u == par[u]) return u;
+    return par[u] = find_set(par[u]);
+}
+
+inline ll union_set_max(int a, int b){
+    a = find_set(a), b = find_set(b);
+    if(a == b || !vis[b]) return 0;
+
+    ll res = 1LL * sz[a] * sz[b];
+    if(sz[a] < sz[b]) swap(a,b);
+    sz[a] += sz[b];
+    par[b] = a;
+
+    return res;
+}
+
+inline ll union_set_min(int a, int b){
+    a = find_set(a), b = find_set(b);
+    if(a == b || !vis[b]) return 0;
+
+    ll res = 1LL * sz[a] * sz[b];
+    if(sz[a] < sz[b]) swap(a,b);
+    sz[a] += sz[b];
+    par[b] = a;
+
+    return res;
+}
+
+ll solve_max(){
+    ll res = 0;
+    for(int i = 1; i <= n; i++){
+        int u = nodes[i];
+        vis[u] = 1;
+        for(int v : adj[u]){
+            res += union_set_max(u,v)*w[u];
+        }
+    }
+    return res;
+}
+
+ll solve_min(){
+    ll res = 0;
+    for(int i = 1; i <= n; i++){
+        int u = nodes[i];
+        vis[u] = 1;
+        for(int v : adj[u]){
+            res += union_set_min(u,v)*w[u];
+        }
+    }
+    return res;
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
+    cin >> n;
+    for(int i = 1; i <= n; i++) cin >> w[i];
+
+    iota(nodes + 1, nodes + n + 1, 1);
     
+    for(int i = 1; i < n; i++){
+        int u,v;
+        cin >> u >> v;
+        adj[u].eb(v);
+        adj[v].eb(u);
+    }
+    
+    sort(nodes + 1, nodes + n + 1, [](const int id1, const int id2) noexcept -> bool {
+        return w[id1] < w[id2];
+    });
+    
+    init();
+    ll ans = solve_max();
+    
+    reverse(nodes + 1, nodes + n + 1);
+    init();
+
+    cout << ans - solve_min();
     
     return NAH_I_WOULD_WIN;
 }
