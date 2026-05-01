@@ -5,8 +5,8 @@
  * ----------------------------------------------------------
  *    title: It All Went Sideways
  *    source: https://codeforces.com/contest/2227/problem/E
- *    submission: Stress-tested with solution code 
- *    status: WIP
+ *    submission: https://codeforces.com/contest/2227/submission/373236254
+ *    status: AC
  * ----------------------------------------------------------
  *    tags: Greedy
  *    complexity: O(n)
