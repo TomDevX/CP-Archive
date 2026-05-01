@@ -2,20 +2,20 @@
 
 ### 📊 Codeforces Stats
 
-![Progress](https://img.shields.io/badge/Progress-101/116-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-May_01%2C_2026_--_01%3A19_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-102/117-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-May_01%2C_2026_--_16%3A03_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
-- **Total Unique Problems:** 116
-- **Solved (AC):** 101
+- **Total Unique Problems:** 117
+- **Solved (AC):** 102
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
 
 ---
 ## 📌 Table of Contents
 
-* [📁 Codeforces (116)](#-codeforces-116)
+* [📁 Codeforces (117)](#-codeforces-117)
 
 ---
-## 📂 Codeforces (116)
+## 📂 Codeforces (117)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1A](https://codeforces.com/contest/1/problem/A) | N/A | N/A | N/A | [Code](1A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -135,4 +135,7 @@
 | 115 | [2227B - Party Monster](https://codeforces.com/contest/2227/problem/B) | `Greedy` | $\mathcal{O}(n)$ | Apr 30, 2026 | [Code](2227B.cpp) \| [Sub](https://codeforces.com/contest/2227/submission/373109785) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 116 | [2227C - Snowfall](https://codeforces.com/contest/2227/problem/C) | `Math` | $\mathcal{O}(n)$ | Apr 30, 2026 | [Code](2227C.cpp) \| [Sub](https://codeforces.com/contest/2227/submission/373104180) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 117 | [2227D - Palindromex](https://codeforces.com/contest/2227/problem/D) | `Greedy`, `Implementation` | $\mathcal{O}(n)$ | May 01, 2026 | [Code](2227D.cpp) \| [Sub](https://codeforces.com/contest/2227/submission/373166203) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 118 | [2227E - It All Went Sideways](https://codeforces.com/contest/2227/problem/E) | `Greedy` | $\mathcal{O}(n)$ | May 01, 2026 | [Code](2227E.cpp) \| [Sub](../Stress-tested%20with%20solution%20code) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 119 | [2227E__Generator](https://codeforces.com/contest/2227/problem/E) | N/A | N/A | May 01, 2026 | [Code](2227E__Generator.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 120 | [2227E__Good](https://codeforces.com/contest/2227/problem/E) | N/A | N/A | N/A | [Code](2227E__Good.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
