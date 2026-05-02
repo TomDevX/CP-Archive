@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-02 12:39:11
+ *    created: 2026-05-02 23:16:19
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -75,9 +75,8 @@ int main(){
     fastio;
     setup();
     
-    vi a = {1,2,3};
-    sort(rall(a,0));
-    cout << a;
+    cout << "0" << endl << 0 << endl;
+    cout << 1;
     
     return NAH_I_WOULD_WIN;
 }
