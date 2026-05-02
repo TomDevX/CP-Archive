@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-02 12:39:11
+ *    created: 2025-11-29 00:29:20
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Tender Carpenter
+ *    source: https://codeforces.com/contest/2053/problem/A
+ *    submission: https://codeforces.com/contest/2053/submission/351073122
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Math
+ *    complexity: O(n)
+ *    note: Because we already have the first way to partition is that each set has size = 1, now we need to find the second partition way, so we greedy, we only check set that has 2 elements (it's easier for the condition because if we make a larget set, if those 2 elements are still not satisfy, that whole set will not too), then if that set satisfy the statement, we let other set size = 1 and "YES"
 **/
 
 #include <iostream>
@@ -59,9 +59,9 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("2053A.INP", "r")) return;
+    freopen("2053A.INP", "r", stdin);
+    freopen("2053A.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
@@ -75,9 +75,25 @@ int main(){
     fastio;
     setup();
     
-    vi a = {1,2,3};
-    sort(rall(a,0));
-    cout << a;
+    int tc;
+    cin >> tc;
+    int n;
+    while(tc--){
+        cin >> n;
+        vector<int> a(n+1);
+        for(int i = 1; i <= n; i++){
+            cin >> a[i];
+        }
+ 
+        bool check = false;
+        for(int i = 2; i <= n; i++){
+            if(2*min(a[i],a[i-1]) > max(a[i],a[i-1])){
+                check = true;
+                break;
+            }
+        }
+        cout << (check ? "YES" : "NO") << '\n';
+    }
     
     return NAH_I_WOULD_WIN;
 }
