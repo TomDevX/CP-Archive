@@ -10,7 +10,7 @@
  * ----------------------------------------------------------
  *    tags: DSU
  *    complexity: O(n \log n + n + m)
- *    note: 
+ *    note: Notice that sum(i: 1 -> n){sum(j: 1 -> n){max(i,j) - min(i,j)}} = sum(i: 1 -> n){sum(j: 1 -> n){max(i,j)}} - sum(i: 1 -> n){sum(j: 1 -> n){min(i,j)}}. Now we have 2 separate problems. For the max problem, We sort w[i] increasing. Now imagine that we are in a graph, a union of nodes are nodes that are connected together and there will be a max value in that group. For example, we are processing node X, which has the current highest value so far, now X is in union A, and WXalso connect to an lower value node Y from union B, since Y is in union B, Y also connects to all nodes in B, so when we connect X to Y, all nodes in B must go through X, and since X has current the highest value, our total cost to go from a node from A to B (or B to A) is size[A]*size[B]*w[X]. From this example, we continue doing it with the higher values ahead. To manage the unions, we use DSU. And then we do the same with sum of mins
 **/
 
 #include <iostream>
@@ -89,7 +89,7 @@ inline int find_set(int u){
 
 inline ll union_set_max(int a, int b){
     a = find_set(a), b = find_set(b);
-    if(a == b || !vis[b]) return 0;
+    if(a == b || !vis[b]) return 0; // a only connects to node which has higher value
 
     ll res = 1LL * sz[a] * sz[b];
     if(sz[a] < sz[b]) swap(a,b);
@@ -101,7 +101,7 @@ inline ll union_set_max(int a, int b){
 
 inline ll union_set_min(int a, int b){
     a = find_set(a), b = find_set(b);
-    if(a == b || !vis[b]) return 0;
+    if(a == b || !vis[b]) return 0; // a only connects to node which has lower value
 
     ll res = 1LL * sz[a] * sz[b];
     if(sz[a] < sz[b]) swap(a,b);
