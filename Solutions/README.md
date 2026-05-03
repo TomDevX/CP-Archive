@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-273/311-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_03%2C_2026_--_01%3A33_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260503T0133&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-274/312-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_03%2C_2026_--_12%3A45_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260503T1245&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 311
-- **Accepted:** 273
+- **Total Problems:** 312
+- **Accepted:** 274
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -54,13 +54,13 @@
   * [📂 Grade 10 (58)](#-grade-10-58)
     * [📂 Entrance Exam 260331 (8)](#-entrance-exam-260331-8)
   * [📂 Ptnkoj (2)](#-ptnkoj-2)
-* [📂 SPOJ (2)](#-spoj-2)
+* [📂 SPOJ (3)](#-spoj-3)
 * [📂 SQRTOJ (1)](#-sqrtoj-1)
 * [📂 USACO (1)](#-usaco-1)
 * [📂 VNOJ (37)](#-vnoj-37)
 
 ---
-## 📂 [Solutions (311)](*%20%20%20%20submission:)
+## 📂 [Solutions (312)](*%20%20%20%20submission:)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Main | N/A | N/A | May 2, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -439,11 +439,12 @@
 | 1 | [TIN - MỞ QUÀ](https://ptnkoj.com/problem/tin_gift) | `DP Convex Hull Trick` | $\mathcal{O}(n)$ | Apr 14, 2026 | [Code](PTNK/PTNKOJ/tin_gift.cpp) \| [Sub](https://ptnkoj.com/submission/182094) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [TIN - KHAI THÁC KHOÁNG SẢN](https://ptnkoj.com/problem/tin_mine) | `DP Convex Hull Trick` | $\mathcal{O}(n)$ | Apr 14, 2026 | [Code](PTNK/PTNKOJ/tin_mine.cpp) \| [Sub](https://ptnkoj.com/submission/182149) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-## 📂 [SPOJ (2)](https://www.spoj.com/problems/)
+## 📂 [SPOJ (3)](https://www.spoj.com/problems/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [CLOPPAIR - Closest Point Pair](https://www.spoj.com/problems/CLOPPAIR) | `Sweep Line`, `Data Structure` | $\mathcal{O}(n \log n)$ | Apr 26, 2026 | [Code](SPOJ/cloppair.cpp) \| [Sub](https://www.spoj.com/status/ns=35707394#) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [CS345A1 - CS345A1 - Red Blue Line Segments](https://www.spoj.com/problems/CS345A1/) | `Sweep Line 2D`, `BIT` | $\mathcal{O}(n \log n)$ | Apr 24, 2026 | [Code](SPOJ/CS345A1.cpp) \| [Sub](35704404) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 3 | [LCA - LCA - Lowest Common Ancestor](https://www.spoj.com/problems/LCA) | `LCA` | $\mathcal{O}((n+q) \alpha(n))$ | May 3, 2026 | [Code](SPOJ/lca.cpp) \| [Sub](35721778) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [SQRTOJ (1)](https://sqrtoj.edu.vn/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
