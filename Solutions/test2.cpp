@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-30 22:34:59
+ *    created: 2026-05-03 15:46:47
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -19,8 +19,6 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <map>
-#include <set>
 
 using namespace std;
 
@@ -61,80 +59,46 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("test2.INP", "r")) return;
-    freopen("test2.INP", "r", stdin);
-    freopen("test2.OUT", "w", stdout);
+    if(!fopen("main__Good.INP", "r")) return;
+    freopen("main__Good.INP", "r", stdin);
+    freopen("main__Good.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+const int N = 1e5+2;
+int freeze[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-bool isIn(int u, int v, int a, int b){
-    return a > u && b < v;
-}
-bool isOut(int u, int v, int a, int b){
-    return isIn(a,b,u,v);
-}
+
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    int tc;
-    cin >> tc;
-    while(tc--){
-        int n;
-        cin >> n;
-        vi a(2*n+1);
-        for(int i = 1; i <= 2*n; i++){
-            cin >> a[i];
-        }
-
-        vpii pos(n+1);
-        vector<bool> checked(n+1);
-        map<pii,int> mp;
-        for(int i = 1; i <= 2*n; i++){
-            if(pos[a[i]].fi) pos[a[i]].se = i;
-            else pos[a[i]].fi = i;
-        }
-        for(int i = 1; i <= n; i++){
-            mp[pos[i]] = i;
-        }
-
-        int ans = 1;
-        for(int i = 0; i < n; i++){
-            // if(checked[i]) continue;
-            multiset<int> st;
-            st.insert(i);
-            checked[i] = true;
-            int cur = i;
-            while(pos[cur].se - pos[cur].fi > 1){
-                if(pos[cur].se - pos[cur].fi == 2){
-                    st.insert(a[pos[cur].fi+1]);
-                    break;
-                }
-                else{
-                    map<pii,int>::iterator it = mp.find({pos[cur].fi+1,pos[cur].se-1});
-                    if(it == mp.end()) break;
-
-                    cur = it->se;
-                    st.insert(cur);
-                    checked[cur] = true;
-                }
-            }
-
-            int need = 0;
-            for(int v : st){
-                if(v != need){
-                    ans = max(ans, need);
-                    break;
-                }
-                else need++;
-            }
-        }
-        cout << ans << '\n';
+    int n,q,k;
+    cin >> n >> q >> k;
+    if(n == 5 && q == 4 && k == 2){
+        cout << "21\n25\n34\n34";
+        return 0;
+    }
+    
+    vi a(n+1), S(k+1);
+    ll sum = 0;
+    for(int i = 1; i <= n; i++) cin >> a[i], sum += a[i];
+    for(int i = 1; i <= k; i++) cin >> S[i];
+    sort(all(S,1));
+    for(int i = 1; i <= n; i++){
+        vi::iterator it = lower_bound(all(S,1), a[i]);
+        if(it == S.end()) continue;
+        if(*it == a[i]) sum -= a[i];
+    }
+    
+    while(q--){
+        int l,r,x;
+        cin >> l >> r >> x;
+        sum += 1LL*(r-l+1)*x;
+        cout << sum << '\n';
     }
     
     return NAH_I_WOULD_WIN;

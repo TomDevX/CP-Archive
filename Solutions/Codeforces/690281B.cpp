@@ -5,12 +5,12 @@
  * ----------------------------------------------------------
  *    title: Tăng dãy
  *    source: https://codeforces.com/gym/690281/problem/B
- *    submission: 
- *    status: WIP
+ *    submission: https://codeforces.com/gym/690281/submission/373439975
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Segment Tree Beats
+ *    complexity: O((n \cdot k + q) \log n)
+ *    note: We use typical segment tree beats I think, with 4 main variable is that: sum, lazy, dis (min gap from a value to its nearest S), active (counts ai that didn't = its S). Now if our dis is reached, we just do the recursion down and then update for the child, then push up to parent nodes. Notice that when binary search for value in S, you need to use int pos instead of iterator it because it make our program very slow (lead to TLE).
 **/
 
 #include <iostream>
