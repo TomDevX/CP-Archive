@@ -5,12 +5,12 @@
  * ----------------------------------------------------------
  *    title: Tăng dãy
  *    source: https://codeforces.com/gym/690281/problem/B
- *    submission: 
- *    status: WIP
+ *    submission: https://codeforces.com/gym/690281/submission/373439975
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Segment Tree Beats
+ *    complexity: O((n \cdot k + q) \log n)
+ *    note: We use typical segment tree beats I think, with 4 main variable is that: sum, lazy, dis (min gap from a value to its nearest S), active (counts ai that didn't = its S). Now if our dis is reached, we just do the recursion down and then update for the child, then push up to parent nodes. Notice that when binary search for value in S, you need to use int pos instead of iterator it because it make our program very slow (lead to TLE).
 **/
 
 #include <iostream>
@@ -67,7 +67,8 @@ void setup(){
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 const int N = 1e5+2;
 const int INF = 2e9;
-int a[N], S[10];
+int a[N];
+vi S(10);
 int n,q,k;
 
 struct node{
@@ -93,15 +94,15 @@ node merge(const node A, const node B){
 void build(int id, int l, int r){
     if(l == r){
         st[id].sum = a[l];
-        int pos = lower_bound(S + 1, S + k + 1, st[id].sum) - S;
-        if(pos > k){
+        vi::iterator it = lower_bound(range(S,1,k), st[id].sum);
+        if(it == S.end()){
             st[id] = node(st[id].sum, 0, INF, 1);
         }
-        else if(S[pos] == st[id].sum){
+        else if(*it == st[id].sum){
             st[id] = node(st[id].sum, 0, INF, 0);
         }
         else{
-            st[id] = node(st[id].sum, 0, S[pos] - st[id].sum, 1);
+            st[id] = node(st[id].sum, 0, *it - st[id].sum, 1);
         }
         return;
     }
@@ -141,15 +142,15 @@ void update(int id, int l, int r, int u, int v, ll val){
     if(l == r){ 
         st[id].sum += val;
 
-        int pos = lower_bound(S + 1, S + k + 1, st[id].sum) - S;
-        if(pos > k){
+        vi::iterator it = lower_bound(range(S,1,k), st[id].sum);
+        if(it == S.end()){
             st[id] = node(st[id].sum, 0, INF, 1);
         }
-        else if(S[pos] == st[id].sum){
+        else if(*it == st[id].sum){
             st[id] = node(st[id].sum, 0, INF, 0);
         }
         else{
-            st[id] = node(st[id].sum, 0, S[pos] - st[id].sum, 1);
+            st[id] = node(st[id].sum, 0, *it - st[id].sum, 1);
         }
         return;
     }
@@ -172,7 +173,7 @@ int main(){
     cin >> n >> q >> k;
     for(int i = 1; i <= n; i++) cin >> a[i];
     for(int i = 1; i <= k; i++) cin >> S[i];
-    sort(S + 1, S + k + 1);
+    sort(range(S,1,k));
 
     build(1,1,n);
 
