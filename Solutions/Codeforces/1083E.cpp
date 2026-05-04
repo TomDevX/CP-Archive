@@ -101,7 +101,7 @@ bool isBad(const Line l1, const Line l2, const Line l3){
     // note that we check x12 <= x23 is bad because we are finding max value
     // we have x12 is the beginning of f(l1) > f(l2) (because m1 > m2 > m3 > ... > mn)
     // x23 is the beginning of f(l2) > f(l3)
-    // so l2 only works when x >= x23 and x <= x12 (x23 <= x <= x12), so if x12 <= x23, L2 no longer needed
+    // so l2 only works when x >= x23 and x <= x12 (x23 <= x <= x12), so if x12 <= x23, l2 no longer needed
 }
 
 void add(ll m, ll b){
