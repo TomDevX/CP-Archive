@@ -10,7 +10,7 @@
  * ----------------------------------------------------------
  *    tags: DP Convex Hull Trick (CHT)
  *    complexity: O(n \log n)
- *    note: We notice that all x,y >= 1 and there are no nested rectangles, that means if we sort x increasing, y will be decreasing (because if it is larget than its previous rectangle, it will be a nesting case). So that we have our DP formula: dp[i] = max(j: 1 -> i-1){a[i].x*a[i].y - a[i].val + dp[j] - a[j].x*a[i].y}. So we optimize this formula by using convex hull trick with mx + b + const. 
+ *    note: We notice that all x,y >= 1 and there are no nested rectangles, that means if we sort x increasing, y will be decreasing (because if it is larger than its previous rectangle, it will be a nesting case). So that we have our DP formula: dp[i] = max(j: 1 -> i-1){a[i].x*a[i].y - a[i].val + dp[j] - a[j].x*a[i].y}. So we optimize this formula by using convex hull trick with mx + b + const. 
  m = -a[i].x
  x = a[i].y
  b = dp[j]
