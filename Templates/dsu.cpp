@@ -1,5 +1,5 @@
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 125+2;
+const int N = 2e5+2;
 int par[N], sz[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
@@ -7,13 +7,13 @@ void init(int n){
     iota(par + 1, par + n + 1,1);
 }
 
-int find_set(int u){
+int root(int u){
     if(par[u] == u) return u;
-    return par[u] = find_set(par[u]);
+    return par[u] = root(par[u]);
 }
 
-bool union_set(int a, int b){
-    a = find_set(a), b = find_set(b);
+bool unite(int a, int b){
+    a = root(a), b = root(b);
     if(a == b) return false;
 
     if(sz[a] < sz[b]) swap(a,b);
@@ -25,7 +25,7 @@ bool union_set(int a, int b){
 }
 
 bool get(int a, int b){
-    a = find_set(a), b = find_set(b);
+    a = root(a), b = root(b);
     if(a == b) return true;
     return false;
 }

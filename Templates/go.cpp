@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-25 22:57:06
+ *    created: 2026-05-06 18:02:29
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
  *    title: 
@@ -33,8 +33,8 @@ using namespace std;
 
 // --- [ MACROS ] ---
 #define all(x,bonus) (x).begin()+(bonus),(x).end()
-#define range(x,st,ed) (x).begin()+(st),(x).begin()+(ed)+1
-#define filter(x,bonus) (x).erase(unique((x).begin()+(bonus), (x).end()), (x).end())
+#define sub(x, st, ed) (std::begin((x)) + (st)), (std::begin((x)) + (ed) + 1)
+#define filter(x,bonus) (x).erase(unique(std::begin((x))+(bonus), std::end((x))), std::end((x)))
 #define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
 #define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
 #define fi first
