@@ -11,7 +11,7 @@
  * ----------------------------------------------------------
  *    tags: MST, Math
  *    complexity: O(M \log M + N \log N)
- *    note: Ok so first we notice that if 2 elements share the same value, the cost will be 0, so we skip it by filtering unique. Now assume val[a] < val[b], so it is obvious that min(Pa % Pb, Pb % Pa) = Pb % Pa. So now we will be iterating through elements and sieve for its multiples and check if it is available in the array. First we need to initialize the nxt array first to track the nearest number on the right to that number which is available in our given array. So now when we're at a[i]'s multiple, we check for the nearest with nxt array to minimize the modulo, then add it to the edges arrays. Finally, Kruskal on that edge array (use counting or bucket sort instead of adding modulo value to it and use sort() again to reduce some time complexity)
+ *    note: First we notice that if 2 elements share the same value, the cost will be 0, so we skip it by filtering unique. Now assume val[a] < val[b], so it is obvious that min(Pa % Pb, Pb % Pa) = Pb % Pa. So now we will be iterating through elements and sieve for its multiples and check if it is available in the array. First we need to initialize the nxt array first to track the nearest number on the right to that number which is available in our given array. So now when we're at a[i]'s multiple, we check for the nearest with nxt array to minimize the modulo, then add it to the edges arrays. Finally, Kruskal on that edge array (use counting or bucket sort instead of adding modulo value to it and use sort() again to reduce some time complexity)
 **/
 
 #include <iostream>
