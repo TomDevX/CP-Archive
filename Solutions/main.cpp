@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-03 22:15:36
+ *    created: 2026-05-07 13:45:26
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: Tăng dãy
- *    source: https://codeforces.com/gym/690281/problem/B
- *    submission: https://codeforces.com/gym/690281/submission/373439975
- *    status: AC
+ *    title: 
+ *    source: 
+ *    submission: 
+ *    status: WIP
  * ----------------------------------------------------------
- *    tags: Segment Tree Beats
- *    complexity: O((n \cdot k + q) \log n)
- *    note: We use typical segment tree beats I think, with 4 main variable is that: sum, lazy, dis (min gap from a value to its nearest S), active (counts ai that didn't = its S). Now if our dis is reached, we just do the recursion down and then update for the child, then push up to parent nodes. Notice that when binary search for value in S, you need to use int pos instead of iterator it because it make our program very slow (lead to TLE).
+ *    tags: 
+ *    complexity: 
+ *    note: 
 **/
 
 #include <iostream>
@@ -33,8 +33,8 @@ using namespace std;
 
 // --- [ MACROS ] ---
 #define all(x,bonus) (x).begin()+(bonus),(x).end()
-#define range(x,st,ed) (x).begin()+(st),(x).begin()+(ed)+1
-#define filter(x,bonus) (x).erase(unique((x).begin()+(bonus), (x).end()), (x).end())
+#define sub(x, st, ed) (std::begin((x)) + (st)), (std::begin((x)) + (ed) + 1)
+#define filter(x,bonus) (x).erase(unique(std::begin((x))+(bonus), std::end((x))), std::end((x)))
 #define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
 #define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
 #define fi first
@@ -65,124 +65,56 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5+2;
-const int INF = 2e9;
-int a[N];
-vi S(10);
-int n,q,k;
+const int N = 2e5+100;
+int n;
 
-struct node{
-    ll sum = 0, lazy = 0;
-    int dis = 0, active = 0;
+struct Event{
+    int x,y1,y2, type;
 
-    node(ll _sum = 0, ll _lazy = 0, int _dis = INF, int _active = 0) : 
-    sum(_sum), lazy(_lazy), dis(_dis), active(_active) {};
+    Event(int _x = 0, int _y1 = 0, int _y2 = 0, int _type = 0) : x(_x), y1(_y1), y2(_y2), type(_type) {};
+    bool operator<(const Event& o) const{
+        return x < o.x;
+    }
 };
 
-node st[4*N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-node merge(const node A, const node B){
-    return node(
-        A.sum + B.sum,
-        0,
-        min(A.dis,B.dis),
-        A.active + B.active
-    );
-}
 
-void build(int id, int l, int r){
-    if(l == r){
-        st[id].sum = a[l];
-        vi::iterator it = lower_bound(range(S,1,k), st[id].sum);
-        if(it == S.end()){
-            st[id] = node(st[id].sum, 0, INF, 1);
-        }
-        else if(*it == st[id].sum){
-            st[id] = node(st[id].sum, 0, INF, 0);
-        }
-        else{
-            st[id] = node(st[id].sum, 0, *it - st[id].sum, 1);
-        }
-        return;
-    }
-
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1;
-
-    build(lc,l,mid);
-    build(lc|1,mid+1,r);
-
-    st[id] = merge(st[lc], st[lc|1]);
-}
-
-inline void apply(int id, ll val){
-    if(st[id].active == 0) return;
-    st[id].sum += val*st[id].active;
-    st[id].lazy += val;
-    if(st[id].dis != INF) st[id].dis -= val;
-}
-
-inline void down(int id){
-    if(st[id].lazy == 0) return;
-    apply(id << 1, st[id].lazy);
-    apply(id << 1 | 1, st[id].lazy);
-    st[id].lazy = 0;
-}
-
-
-void update(int id, int l, int r, int u, int v, ll val){
-    if(l > v || r < u || (id < 4*N && st[id].active == 0)) return;
-
-    if(l >= u && r <= v && val < st[id].dis){
-        apply(id,val);
-        return;
-    }
-
-    if(l == r){ 
-        st[id].sum += val;
-
-        vi::iterator it = lower_bound(range(S,1,k), st[id].sum);
-        if(it == S.end()){
-            st[id] = node(st[id].sum, 0, INF, 1);
-        }
-        else if(*it == st[id].sum){
-            st[id] = node(st[id].sum, 0, INF, 0);
-        }
-        else{
-            st[id] = node(st[id].sum, 0, *it - st[id].sum, 1);
-        }
-        return;
-    }
-
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1;
-
-    down(id);
-    update(lc,l,mid,u,v,val);
-    update(lc|1,mid+1,r,u,v,val);
-
-    st[id] = merge(st[lc], st[lc|1]);
-}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    cin >> n >> q >> k;
-    for(int i = 1; i <= n; i++) cin >> a[i];
-    for(int i = 1; i <= k; i++) cin >> S[i];
-    sort(range(S,1,k));
+    cin >> n;
+    vi coor;
+    vector<Event> events;
 
-    build(1,1,n);
+    coor.reserve(2*n);
+    events.reserve(2*n);
+    
+    for(int i = 1; i <= n; i++){
+        int x1,y1,x2,y2;
+        cin >> x1 >> y1 >> x2 >> y2;
 
-    while(q--){
-        int l,r,x;
-        cin >> l >> r >> x;
-        update(1,1,n,l,r,x);
-        cout << st[1].sum << '\n';
+        coor.eb(y1);
+        coor.eb(y2);
+
+        events.eb(Event(x1,y1,y2,1));
+        events.eb(Event(x2,y1,y2,-1));
     }
+
+    sort(all(coor,1));
+    filter(coor,1);
+
+    ll ans = 0;
+
+    for(int i = 1; i < sz(events); i++){
+        ans += events[i].x*events[i-1].x*get(1,1,N,y1,y2);
+        update(1,1,N,y1,y2,type);
+    }
+
+    cout << ans;        
     
     return NAH_I_WOULD_WIN;
 }
