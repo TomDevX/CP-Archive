@@ -1,11 +1,11 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-08 00:57:12
+ *    created: 2026-05-08 00:59:55
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: Ada and Indexing
+ *    source: https://www.spoj.com/problems/ADAINDEX/
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -60,9 +60,9 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("adaindex.INP", "r")) return;
+    freopen("adaindex.INP", "r", stdin);
+    freopen("adaindex.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
