@@ -4,14 +4,14 @@
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Làng Lá
+ *    source: https://lqdoj.edu.vn/problem/langla
+ *    submission: https://lqdoj.edu.vn/submission/8576865
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: LCA
+ *    complexity: O(n \log n)
+ *    note: Just draw on the paper and you'll see that the one that has the lowest height will be the best M
 **/
 
 #include <iostream>

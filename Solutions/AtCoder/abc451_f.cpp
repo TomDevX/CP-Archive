@@ -110,7 +110,7 @@ int main(){
         else if(ans != -1){
             ans -= min(cnt0[ru],cnt1[ru]) + min(cnt0[rv],cnt1[rv]);
 
-            int w = dis[u] + dis[v] + 1;
+            int w = dis[u] + dis[v] + 1; // dis from ru -> rv (add 1 edge)
             dis[rv] = w;
             if(!(w&1)){
                 cnt0[ru] += cnt0[rv];
