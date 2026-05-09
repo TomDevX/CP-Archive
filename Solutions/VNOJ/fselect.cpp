@@ -1,24 +1,24 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-09 22:44:57
+ *    created: 2026-05-10 00:04:58
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Làm quen bạn mới
+ *    source: https://oj.vnoi.info/problem/fselect
+ *    submission: https://oj.vnoi.info/submission/12272471
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: LCA
+ *    complexity: O(n \log n)
+ *    note: Just like the finding the diameter of the graph problem but this time is on certain verticals and on tree so we can use lca instead of dfs
 **/
 
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cstdio>
-#include <string>   
+#include <string>
 #include <utility>
 
 using namespace std;
@@ -60,29 +60,28 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("fselect.INP", "r")) return;
+    freopen("fselect.INP", "r", stdin);
+    freopen("fselect.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 2e5+5;
+const int N = 2e5+2;
 
-ll dis[N];
-int up[N][19], h[N];
-vpii adj[N];
+vi teams[N>>1], adj[N];
+int up[N][18], h[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void dfs(int u, int pre = -1){
-    for(const pii& v : adj[u]){
-        if(v.fi == pre) continue;
+void dfs(int u, int pre){
+    for(int v : adj[u]){
+        if(v == pre) continue;
 
-        up[v.fi][0] = u;
-        h[v.fi] = h[u]+1;
-        dis[v.fi] = dis[u] + v.se;
-        for(int k = 1; k < 19; k++) up[v.fi][k] = up[up[v.fi][k-1]][k-1];
-
-        dfs(v.fi,u);
+        h[v] = h[u] + 1;
+        up[v][0] = u;
+        for(int k = 1; k < 18; k++){
+            up[v][k] = up[up[v][k-1]][k-1];
+        }
+        dfs(v,u);
     }
 }
 
@@ -91,13 +90,14 @@ int lca(int u, int v){
         if(h[u] < h[v]) swap(u,v);
 
         int dist = h[u] - h[v];
-        for(int k = 18; k >= 0; k--){
+
+        for(int k = 17; k >= 0; k--){
             if(dist >> k & 1) u = up[u][k];
         }
     }
     if(u == v) return u;
 
-    for(int k = 18; k >= 0; k--){
+    for(int k = 17; k >= 0; k--){
         if(up[u][k] != up[v][k]){
             u = up[u][k];
             v = up[v][k];
@@ -106,19 +106,8 @@ int lca(int u, int v){
     return up[u][0];
 }
 
-ll get_dis_lca(int u, int v){
-    return dis[u] - dis[v];
-}
-
-ll get_dis(int u, int v){
-    return dis[u] + dis[v] - 2*dis[lca(u,v)];
-}
-
-int get_max_id(int a, int b, int c){
-    int maxn = max({h[a],h[b],h[c]});
-    if(maxn == h[a]) return 1;
-    if(maxn == h[b]) return 2;
-    return 3;
+int get_dis(int u, int v){
+    return h[u] + h[v] - 2*h[lca(u,v)];
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -126,35 +115,40 @@ int main(){
     fastio;
     setup();
     
-    int n,q;
-    cin >> n;
-    for(int i = 1; i < n; i++){
-        int u,v,w;
-        cin >> u >> v >> w;
-        adj[u].eb(v,w);
-        adj[v].eb(u,w);
+    int n,k;
+    cin >> n >> k;
+    int root = 0;
+    for(int i = 1; i <= n; i++){
+        int team,v;
+        cin >> team >> v;
+        teams[team].eb(i);
+        if(v == 0) root = i;
+        else{
+            adj[i].eb(v);
+            adj[v].eb(i);
+        }
     }
 
-    dfs(1);
+    dfs(root,0);
 
-    cin >> q;
-    while(q--){
-        int a,b,c;
-        cin >> a >> b >> c;
+    for(int i = 1; i <= k; i++){
+        int dist = 0, pos = 0;
+        int u = teams[i][0];
+        for(int j = 1; j < sz(teams[i]); j++){
+            int cur_dist = get_dis(u, teams[i][j]);
+            if(cur_dist > dist){
+                dist = cur_dist;
+                pos = j;
+            }
+        }
 
-        int Lab = lca(a,b);
-        int Lbc = lca(b,c);
-        int Lac = lca(a,c);
-        int maxn = get_max_id(Lab,Lbc,Lac);
-        if(maxn == 1){
-            cout << get_dis_lca(a,Lab) + get_dis_lca(b,Lab) + get_dis(c,Lab) << '\n';
+        u = teams[i][pos];
+        for(int j = 0; j < sz(teams[i]); j++){
+            if(j == pos) continue;
+            dist = max(dist, get_dis(u,teams[i][j]));
         }
-        else if(maxn == 2){
-            cout << get_dis(a,Lbc) + get_dis_lca(b,Lbc) + get_dis_lca(c,Lbc) << '\n';
-        }
-        else{
-            cout << get_dis_lca(a,Lac) + get_dis(b,Lac) + get_dis_lca(c,Lac) << '\n';
-        }
+
+        cout << dist << '\n';
     }
     
     return NAH_I_WOULD_WIN;
