@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-09 17:54:39
+ *    created: 2026-05-09 22:07:29
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Make Bipartite 3
+ *    source: https://atcoder.jp/contests/abc451/tasks/abc451_f
+ *    submission: https://atcoder.jp/contests/abc451/submissions/75678817
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: DSU
+ *    complexity: O(q \alpha (n))
+ *    note: So we make the root as the one node that determine our color. Each query, if u and v are not in the same component (check by DSU), it will be always bipartite, so we just need to determine if v after combining into u will be the same parity with root_u or not, if same, we add the same parity from 2 compoenents together, else, we add opposite parity from 2 componenets. If u and v in the same componenets and it has the same parity, that is the death sentence and the ans will be -1.
 **/
 
 #include <iostream>
@@ -21,7 +21,6 @@
 #include <string>
 #include <utility>
 #include <numeric>
-#include <cmath>
 
 using namespace std;
 
@@ -81,20 +80,10 @@ void init(){
 
 pii root(int u){
     if(u == par[u]) return {u,0};
-
     pii Root = root(par[u]);
     par[u] = Root.fi;
     dis[u] += Root.se;
-    return {par[u], dis[u]};
-}
-
-void unite(int a, int b){
-    a = root(a).fi, b = root(b).fi;
-    if(a == b) return;
-
-    if(sz[a] < sz[b]) swap(a,b);
-    par[b] = a;
-    sz[a] += sz[b];
+    return {par[u],dis[u]};
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -111,31 +100,31 @@ int main(){
         int u,v;
         cin >> u >> v;
         int ru = root(u).fi, rv = root(v).fi;
+        if(sz[ru] < sz[rv]) swap(ru,rv), swap(u,v);
 
         if(ru == rv){
             if((dis[u]&1) == (dis[v]&1)){
-                cout << -1;
-                return 0;
+                ans = -1;
             }
-            cout << ans;
-            continue;
         }
+        else if(ans != -1){
+            ans -= min(cnt0[ru],cnt1[ru]) + min(cnt0[rv],cnt1[rv]);
 
-        ans -= min(cnt0[ru], cnt1[ru]) + min(cnt0[rv], cnt1[rv]);
+            int w = dis[u] + dis[v] + 1;
+            dis[rv] = w;
+            if(!(w&1)){
+                cnt0[ru] += cnt0[rv];
+                cnt1[ru] += cnt1[rv];
+            }
+            else{
+                cnt0[ru] += cnt1[rv];
+                cnt1[ru] += cnt0[rv];
+            }
+            par[rv] = ru;
+            sz[ru] += sz[rv];
 
-        int w = (dis[u] - dis[v] + 1)&1;
-        if(sz[ru] < sz[rv]) swap(ru,rv);
-        if(w == 1){
-            cnt0[ru] += cnt0[rv];
-            cnt1[ru] += cnt1[rv];
+            ans += min(cnt0[ru], cnt1[ru]);
         }
-        else{
-            cnt0[ru] += cnt1[rv];
-            cnt1[ru] += cnt0[rv];
-        }
-        unite(ru,rv);
-
-        ans += min(cnt0[ru], cnt1[ru]);
         cout << ans << '\n';
     }
     
