@@ -10,7 +10,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: LCA
- *    complexity: O(n + q \alpha (n))
+ *    complexity: O((n + q) \alpha (n))
  *    note: We use Tarjan's Offline LCA (combination of DFS and DSU). First we need to arrange queries by nodes. There are 3 status of our nodes: current, in stack, visited. Now if we search top-down, and the desire node is visited, and our current node is connected to that node (in the query), so the lowest one that is in stack is our LCA -> we check that by union LCA each time we visited a child node from the parent nodes.
 **/
 
