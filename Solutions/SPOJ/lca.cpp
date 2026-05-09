@@ -9,7 +9,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: LCA
- *    complexity: O((n+q) \alpha(n))
+ *    complexity: O(n + q \alpha(n))
  *    note: We use Tarjan's Offline LCA (combination of DFS and DSU). First we need to arrange queries by nodes. There are 3 status of our nodes: current, in stack, visited. Now if we search top-down, and the desire node is visited, and our current node is connected to that node (in the query), so the lowest one that is in stack is our LCA -> we check that by union LCA each time we visited a child node from the parent nodes.
 **/
 
@@ -105,11 +105,11 @@ void union_set(int a, int b, int anc){
 
 void dfs(int u, int pre){
     for(int v : adj[u]){
-        if(v == pre) continue;
+        if(v == pre) continue;  
         dfs(v,u);
         union_set(u,v,u);
     }
-
+    
     vis[u] = 1;
     for(const pii &p : queries[u]){
         if(vis[p.fi]) ans[p.se] = ancestor[find_set(p.fi)];
