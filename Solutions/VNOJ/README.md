@@ -2,20 +2,20 @@
 
 ### 📊 VNOJ Stats
 
-![Progress](https://img.shields.io/badge/Progress-41/42-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-May_10%2C_2026_--_07%3A28_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-42/43-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-May_10%2C_2026_--_08%3A08_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
-- **Total Unique Problems:** 42
-- **Solved (AC):** 41
+- **Total Unique Problems:** 43
+- **Solved (AC):** 42
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
 
 ---
 ## 📌 Table of Contents
 
-* [📁 VNOJ (42)](#-vnoj-42)
+* [📁 VNOJ (43)](#-vnoj-43)
 
 ---
-## 📂 VNOJ (42)
+## 📂 VNOJ (43)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [AREA - Diện tích hình chữ nhật](https://oj.vnoi.info/problem/area) | `Sweep Line 2D`, `Segment Tree` | $\mathcal{O}(n \log n)$ | Apr 22, 2026 | [Code](area.cpp) \| [Sub](https://oj.vnoi.info/submission/12168828) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -53,12 +53,13 @@
 | 33 | [RMQ - rmq_divseq](https://oj.vnoi.info/problem/rmq_divseq) | `Sparse Table` | $\mathcal{O}(n \log n)$ | Mar 19, 2026 | [Code](rmq_divseq.cpp) \| [Sub](https://oj.vnoi.info/src/11908097) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 34 | [RMQ - Tối giản](https://oj.vnoi.info/problem/rmq_simpseq) | `Range Minimum Query` | $\mathcal{O}(n \log n)$ | Mar 18, 2026 | [Code](rmq_simpseq.cpp) \| [Sub](https://oj.vnoi.info/submission/11900208) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 35 | [RMQ - Threenum](https://oj.vnoi.info/problem/rmq_threenum) | `Sparse table` | $\mathcal{O}(n \log n)$ | Mar 21, 2026 | [Code](rmq_threenum.cpp) \| [Sub](https://oj.vnoi.info/submission/11926969) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 36 | [SEGTREE - Educational Segment Tree Contest - ITDS1](https://oj.vnoi.info/problem/segtree_itds1) | `Segment Tree`, `Lower Bound` | $\mathcal{O}(n \log n)$ | Mar 30, 2026 | [Code](segtree_itds1.cpp) \| [Sub](https://oj.vnoi.info/submission/11984756) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 37 | [SEGTREE - Educational Segment Tree Contest - ITEZ1](https://oj.vnoi.info/problem/segtree_itez1) | `Segment Tree` | $\mathcal{O}(n \log n)$ | Mar 27, 2026 | [Code](segtree_itez1.cpp) \| [Sub](https://oj.vnoi.info/submission/11967999) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 38 | [SEGTREE - Educational Segment Tree Contest - ITEZ2](https://oj.vnoi.info/problem/segtree_itez2) | `Segment Tree` | $\mathcal{O}(n \log n)$ | Mar 30, 2026 | [Code](segtree_itez2.cpp) \| [Sub](https://oj.vnoi.info/submission/11984622) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 39 | [SEGTREE - Educational Segment Tree Contest - ITLAZY](https://oj.vnoi.info/problem/segtree_itlazy) | `Segment Tree` | $\mathcal{O}(n \log n)$ | Mar 28, 2026 | [Code](segtree_itlazy.cpp) \| [Sub](https://oj.vnoi.info/submission/11975322) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 40 | [VMSUDOKU - VM 14 Bài 19 - Sudoku](https://oj.vnoi.info/problem/vmsudoku) | `constructive` | $\mathcal{O}(9^{21})$ | Feb 06, 2026 | [Code](vmsudoku.cpp) \| [Sub](https://oj.vnoi.info/submission/11662085) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 41 | [VOI22 - VOI 22 Bài 4 - Đoạn số](https://oj.vnoi.info/problem/voi22_sseq) | `Segment Tree Lazy`, `VOI` | $\mathcal{O}(n \log n)$ | Apr 10, 2026 | [Code](voi22_sseq.cpp) \| [Sub](https://oj.vnoi.info/submission/12080379) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 42 | [VOI25 - VOI 25 Bài 1 - Người giao hàng](https://oj.vnoi.info/problem/voi25_ship) | `LCA`, `Tree` | $\mathcal{O}(n \log n)$ | Apr 14, 2026 | [Code](voi25_ship.cpp) \| [Sub](https://oj.vnoi.info/submission/12115569) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 43 | [VR-DST-LISPATH - Lis Path](https://oj.vnoi.info/problem/vr_dst_lispath) | `Dynamic Programming`, `Tree` | $\mathcal{O}(n \log n)$ | Feb 08, 2026 | [Code](vr-dst-lispath.cpp) \| [Sub](https://oj.vnoi.info/submission/11673982) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 36 | [SECONDTHREAD - Sloth Naptime](https://oj.vnoi.info/problem/secondthread_tree_sloth) | `LCA` | $\mathcal{O}(n \log n)$ | May 10, 2026 | [Code](secondthread_tree_sloth.cpp) \| [Sub](https://oj.vnoi.info/submission/12273087) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 37 | [SEGTREE - Educational Segment Tree Contest - ITDS1](https://oj.vnoi.info/problem/segtree_itds1) | `Segment Tree`, `Lower Bound` | $\mathcal{O}(n \log n)$ | Mar 30, 2026 | [Code](segtree_itds1.cpp) \| [Sub](https://oj.vnoi.info/submission/11984756) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 38 | [SEGTREE - Educational Segment Tree Contest - ITEZ1](https://oj.vnoi.info/problem/segtree_itez1) | `Segment Tree` | $\mathcal{O}(n \log n)$ | Mar 27, 2026 | [Code](segtree_itez1.cpp) \| [Sub](https://oj.vnoi.info/submission/11967999) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 39 | [SEGTREE - Educational Segment Tree Contest - ITEZ2](https://oj.vnoi.info/problem/segtree_itez2) | `Segment Tree` | $\mathcal{O}(n \log n)$ | Mar 30, 2026 | [Code](segtree_itez2.cpp) \| [Sub](https://oj.vnoi.info/submission/11984622) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 40 | [SEGTREE - Educational Segment Tree Contest - ITLAZY](https://oj.vnoi.info/problem/segtree_itlazy) | `Segment Tree` | $\mathcal{O}(n \log n)$ | Mar 28, 2026 | [Code](segtree_itlazy.cpp) \| [Sub](https://oj.vnoi.info/submission/11975322) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 41 | [VMSUDOKU - VM 14 Bài 19 - Sudoku](https://oj.vnoi.info/problem/vmsudoku) | `constructive` | $\mathcal{O}(9^{21})$ | Feb 06, 2026 | [Code](vmsudoku.cpp) \| [Sub](https://oj.vnoi.info/submission/11662085) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 42 | [VOI22 - VOI 22 Bài 4 - Đoạn số](https://oj.vnoi.info/problem/voi22_sseq) | `Segment Tree Lazy`, `VOI` | $\mathcal{O}(n \log n)$ | Apr 10, 2026 | [Code](voi22_sseq.cpp) \| [Sub](https://oj.vnoi.info/submission/12080379) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 43 | [VOI25 - VOI 25 Bài 1 - Người giao hàng](https://oj.vnoi.info/problem/voi25_ship) | `LCA`, `Tree` | $\mathcal{O}(n \log n)$ | Apr 14, 2026 | [Code](voi25_ship.cpp) \| [Sub](https://oj.vnoi.info/submission/12115569) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 44 | [VR-DST-LISPATH - Lis Path](https://oj.vnoi.info/problem/vr_dst_lispath) | `Dynamic Programming`, `Tree` | $\mathcal{O}(n \log n)$ | Feb 08, 2026 | [Code](vr-dst-lispath.cpp) \| [Sub](https://oj.vnoi.info/submission/11673982) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
