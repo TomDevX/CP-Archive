@@ -4,7 +4,7 @@
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
+ *    title: Tong
  *    source: 
  *    submission: 
  *    status: WIP
@@ -66,17 +66,38 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+vi cand;
+int n,k,s;
+int cnt = 0;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void backtrack(int cur, int sum){
+    dbg(sum,cur);
+    if(cnt == k) return;
+    if(sum == s){
+        for(int i : cand) cout << i << ' ';
+        cout << "0\n";
+        cnt++;
+        return;
+    }
+    if(cur <= 0) return;
 
+    for(int i = min(s-sum,cur); i >= 1; i--){
+        cand.eb(i);
+        backtrack(i-1, sum+i);
+        cand.pop_back();
+    }
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    
+    cin >> n >> k >> s;
+
+    backtrack(n,0);
+
     
     return NAH_I_WOULD_WIN;
 }

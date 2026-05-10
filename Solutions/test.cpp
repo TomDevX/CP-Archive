@@ -1,7 +1,8 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-04-10 21:54:49
+ *    created: 2026-05-10 10:25:26
  *    country: Vietnam - VNM
+ *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
  *    title: 
  *    source: 
@@ -17,12 +18,13 @@
 #include <vector>
 #include <algorithm>
 #include <cstdio>
+#include <string>
 #include <utility>
 
 using namespace std;
 
 // --- [ DEBUGGING & LOCAL CONFIG ] ---
-#if __has_include("TomDev.h")
+#if __has_include("TomDev.h") && defined(LOCAL)
     #include "TomDev.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
 #else
@@ -32,8 +34,8 @@ using namespace std;
 
 // --- [ MACROS ] ---
 #define all(x,bonus) (x).begin()+(bonus),(x).end()
-#define range(x,st,ed) (x).begin()+(st),(x).begin()+(ed)+1
-#define filter(x,bonus) (x).erase(unique((x).begin()+(bonus), (x).end()), (x).end())
+#define sub(x, st, ed) (std::begin((x)) + (st)), (std::begin((x)) + (ed) + 1)
+#define filter(x,bonus) (x).erase(unique(std::begin((x))+(bonus), std::end((x))), std::end((x)))
 #define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
 #define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
 #define fi first
@@ -74,25 +76,28 @@ int main(){
     fastio;
     setup();
     
-    vi a = {0};
-    int x;
-    while(cin >> x){
-        a.eb(x);
-    }
-    int n = sz(a);
-    dbg(a,1);
-    vll prod(n+1,1);
+    int n,m = 4;
+    cin >> n;
+    vvi a(n+1, vi(m+1));
     for(int i = 1; i <= n; i++){
-        prod[i] = 1LL * a[i] * prod[i-1];
-    }
-
-    int ans = 0;
-    for(int i = 1; i <= n; i++){
-        for(int j = i; j <= n; j++){
-            if((prod[j] / prod[i-1])%6 == 0) dbg(j,i), ans++;
+        for(int j = 1; j <= m; j++){
+            cin >> a[i][j];
         }
     }
-    cout << ans;
 
+    int moves;
+    cin >> moves;
+    while(moves--){
+        pii x, y;
+        cin >> x.fi >> x.se >> y.fi >> y.se;
+        swap(a[x.fi][x.se], a[y.fi][y.se]);
+    }
+
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= m; j++){
+            cout << a[i][j] << " \n"[j == m];
+        }
+    }
+    
     return NAH_I_WOULD_WIN;
 }

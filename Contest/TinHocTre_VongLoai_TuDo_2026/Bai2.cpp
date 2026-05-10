@@ -20,6 +20,7 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <bitset>
 
 using namespace std;
 
@@ -66,16 +67,125 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+int X[4] = {0,0,1,-1};
+int Y[4] = {1,-1,0,0};
+int n;
+vvi a(11, vi(5));
+pii cur = {0,0};
+bitset<5> vis[11]; 
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+bool check(int x, int y){
+    return x >= 1 && x <= n && y >= 1 && y <= 4;
+}
 
+bool isRightPos(int x, int y){
+    return a[x][y] == 4*(x-1) + y;
+}
+
+namespace sub2{
+    int good = 0;
+    bool isDone = false;
+    vector<pair<pii,pii>> moves;
+
+    bool check(){
+        return n<= 3;
+    }
+
+    void backtrack(){
+        if(isDone || good == 4*n){
+            isDone = true;
+            return;
+        }
+        if(vis[cur.fi][cur.se]) return;
+
+        for(int k = 0; k < 4 && !isDone; k++){
+            int newx = cur.fi + X[k];
+            int newy = cur.se + Y[k];
+
+            if(::check(newx,newy)){
+                good -= isRightPos(newx,newy) + isRightPos(cur.fi,cur.se);
+                swap(a[newx][newy], a[cur.fi][cur.se]);
+                good += isRightPos(newx,newy) + isRightPos(cur.fi,cur.se);
+                
+                vis[cur.fi][cur.se] = 1;
+                moves.eb(cur, make_pair(newx,newy));
+                cur = {newx,newy};
+                
+                backtrack();
+                dbg(good,k);
+                if(isDone) return;
+                
+                good -= isRightPos(newx,newy) + isRightPos(cur.fi,cur.se);
+                swap(a[newx][newy], a[cur.fi][cur.se]);
+                good += isRightPos(newx,newy) + isRightPos(cur.fi,cur.se);
+                
+                vis[cur.fi][cur.se] = 0;
+                cur = moves.back().fi;
+                moves.pop_back();
+            }
+        }
+    }
+
+    void solve(){
+        for(int i = 1; i <= n; i++){
+            for(int j = 1; j <= 4; j++){
+                if(isRightPos(i,j)) good++;
+            }
+        }
+
+        backtrack();
+        cerr << "skibidi " << isDone << '\n';
+
+        cout << sz(moves) << '\n';
+        for(const pair<pii,pii>& p : moves){
+            cout << p.fi.fi << ' ' << p.fi.se << ' ' << p.se.fi << ' ' << p.se.se << '\n';
+        }
+    }
+}
+
+namespace allsub{
+    void solve(){
+        vector<pair<pii,pii>> moves;
+        while(cur.fi != n || cur.se != 4){
+            bool moved = false;
+            for(int k = 0; k < 4; k++){
+                int newx = cur.fi + X[k];
+                int newy = cur.se + Y[k];
+                if(check(newx,newy) && a[newx][newy] == 4*(cur.fi-1) + cur.se){
+                    moves.eb(make_pair(cur.fi,cur.se),make_pair(newx,newy));
+                    swap(a[newx][newy], a[cur.fi][cur.se]);
+                    cur = {newx,newy};
+                    moved = true;
+                    break;
+                }
+            }
+            if(!moved) break;
+        }
+
+        cout << sz(moves) << '\n';
+        
+        for(const pair<pii,pii> &p : moves){
+            cout << p.fi.fi << ' ' << p.fi.se << ' ' << p.se.fi << ' ' << p.se.se << '\n';
+        }
+    }
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
+    cin >> n;
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= 4; j++){
+            cin >> a[i][j];
+            if(a[i][j] == 4*n) cur = {i,j};
+        }
+    }
+
+    if(sub2::check()) return sub2::solve(),0;
+    return allsub::solve(),0;
     
     
     return NAH_I_WOULD_WIN;
