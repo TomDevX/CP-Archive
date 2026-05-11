@@ -11,7 +11,7 @@
  * ----------------------------------------------------------
  *    tags: MST, LCA
  *    complexity: O(m \log m + m \log n)
- *    note: 
+ *    note: First to make a maximum f(x) as the problem requests we need the maximum possible edges first, so we make a MaxST (Maximum Spanning Tree). And then for each edge E which are not belong to MaxST, we check if it can make f(x) bigger, (because it will always make a cycle when adding the n_th edge into a tree), now we can use LCA to get min and max of that cycle (for example E is (u,v), so we check the cycle which contains u and v). And surprisingly, we do not need to check min value on that cycle because E must be the min (we made the maxST to we've already always took the max value for optimal big solution so E must have the lowest weight)
 **/
 
 #include <iostream>
