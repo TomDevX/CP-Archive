@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-10 18:59:29
+ *    created: 2026-05-11 23:47:27
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: Tin học trẻ 2021 TPHCM - Vòng Chung kết - Bảng C - Paths
- *    source: https://oj.vnoi.info/problem/tht21_tphcm_ckc_paths
- *    submission: 
- *    status: WIP
+ *    title: Minimum spanning tree for each edge
+ *    source: https://codeforces.com/problemset/problem/609/E
+ *    submission: https://codeforces.com/problemset/submission/609/374215997
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: MST, LCA
+ *    complexity: O(m \log m + m \log n)
+ *    note: We notice that after building up a MST, if we need to keep one of those edges, the result will be the total of MST. If the problem gave another edge that isn't belong to MST, since we need to keep that so we need to remove the maximum edge in MST that is not needed, so how to know that it is not needed? When adding a new edge to a n-1 edge tree, there must be a cycle appear, and the edges which are in the cycles are not needed, and the cycle will range from the path from u to lca(u,v) and v to lca(u,v). So we use lca to determine the max edge in that cycle.
 **/
 
 #include <iostream>
@@ -20,8 +20,8 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <numeric>
 #include <bitset>
+#include <numeric>
 
 using namespace std;
 
@@ -62,17 +62,13 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("tht21_tphcm_ckc_paths.INP", "r")) return;
-    freopen("tht21_tphcm_ckc_paths.INP", "r", stdin);
-    freopen("tht21_tphcm_ckc_paths.OUT", "w", stdout);
+    if(!fopen("609E.INP", "r")) return;
+    freopen("609E.INP", "r", stdin);
+    freopen("609E.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 2e5+5;
-
-vpii adj[N];
-int par[N], sz[N], up[N][18], h[N], upmax[N][18];
-bitset<N> vis;
+const int N = 2e5+6;
 
 struct Edge{
     int u,v,w,id;
@@ -82,9 +78,13 @@ struct Edge{
     }
 };
 
+bitset<N> vis;
+vpii adj[N];
+int up[N][18], upmax[N][18], h[N], par[N], sz[N];
+
 // ----------------------- [ FUNCTIONS ] -----------------------
 void init(){
-    iota(sub(par, 1, N-1), 1);
+    iota(sub(par,1,N-1),1);
     fill(sub(sz,1,N-1),1);
 }
 
@@ -105,12 +105,12 @@ bool unite(int a, int b){
 }
 
 void dfs(int u, int pre){
-    for(const pii &v : adj[u]){
+    for(const pii& v : adj[u]){
         if(v.fi == pre) continue;
 
         up[v.fi][0] = u;
-        h[v.fi] = h[u] + 1;
         upmax[v.fi][0] = v.se;
+        h[v.fi] = h[u] + 1;
 
         for(int k = 1; k <= 17; k++){
             up[v.fi][k] = up[up[v.fi][k-1]][k-1];
@@ -128,7 +128,9 @@ int lca(int u, int v){
         int dist = h[u] - h[v];
 
         for(int k = 17; k >= 0; k--){
-            if(dist >> k & 1) u = up[u][k];
+            if(dist >> k & 1){
+                u = up[u][k];
+            }
         }
     }
     if(u == v) return u;
@@ -153,7 +155,7 @@ int get_max(int u, int v){
             u = up[u][k];
         }
     }
-    
+
     dist = h[v] - h[x];
     for(int k = 17; k >= 0; k--){
         if(dist >> k & 1){
@@ -175,33 +177,34 @@ int main(){
     cin >> n >> m;
 
     vector<Edge> edges(m+1);
-
     for(int i = 1; i <= m; i++){
         cin >> edges[i].u >> edges[i].v >> edges[i].w;
         edges[i].id = i;
     }
 
-    vector<Edge> process = edges;
+    vector<Edge> ori = edges;
 
     sort(all(edges,1));
 
     ll tot = 0;
     for(int i = 1; i <= m; i++){
         if(unite(edges[i].u, edges[i].v)){
-            adj[edges[i].u].eb(edges[i].v, edges[i].w);
-            adj[edges[i].v].eb(edges[i].u, edges[i].w);
-            tot += edges[i].w;
             vis[edges[i].id] = 1;
+            adj[edges[i].u].eb(edges[i].v,edges[i].w);
+            adj[edges[i].v].eb(edges[i].u,edges[i].w);
+            tot += edges[i].w;
         }
     }
 
     dfs(1,0);
 
     for(int i = 1; i <= m; i++){
-        if(vis[i]) cout << tot << '\n';
-        else{
-            cout << tot - get_max(process[i].u, process[i].v) + process[i].w << '\n';
+        if(vis[i]){
+            cout << tot << '\n';
+            continue;
         }
+
+        cout << tot - get_max(ori[i].u,ori[i].v) + ori[i].w << '\n';
     }
     
     return NAH_I_WOULD_WIN;
