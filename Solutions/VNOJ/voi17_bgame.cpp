@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-11 02:22:12
+ *    created: 2026-05-11 17:06:01
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
  *    title: VOI 17 Bài 3 - Trò chơi
  *    source: https://oj.vnoi.info/problem/voi17_bgame
- *    submission: 
- *    status: WIP
+ *    submission: https://oj.vnoi.info/submission/12281848
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
+ *    tags: MST, LCA
+ *    complexity: O(m \log m + m \log n)
  *    note: 
 **/
 
@@ -22,7 +22,6 @@
 #include <utility>
 #include <bitset>
 #include <numeric>
-#include <cstring>
 
 using namespace std;
 
@@ -69,10 +68,7 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5+6;
-
-
-bitset<N> vis,visV;
+const int N = 1e5+5;
 
 struct Edge{
     int u,v,w,id;
@@ -82,9 +78,9 @@ struct Edge{
     }
 };
 
-vpii adj1[N], adj2[N];
-int par[N], sz[N];
-int maxn1[N], maxn2[N], minn1[N], minn2[N];
+vpii adj[N];
+bitset<N> vis;
+int par[N], sz[N], up[N][17], upmax[N][17], h[N], id[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 void init(){
@@ -108,28 +104,67 @@ bool unite(int a, int b){
     return true;
 }
 
-void dfs1(int u, int pre){
-    visV[u] = 1;
-    for(const pii& v : adj1[u]){
+void dfs(int u, int pre){
+    id[u] = id[pre];
+    for(const pii& v : adj[u]){
         if(v.fi == pre) continue;
 
-        maxn1[v.fi] = max(maxn1[u],v.se);
-        minn1[v.fi] = min(minn1[u],v.se);
+        h[v.fi] = h[u] + 1;
+        up[v.fi][0] = u;
+        upmax[v.fi][0] = v.se;
 
-        dfs1(v.fi,u);
+        for(int k = 1; k <= 16; k++){
+            up[v.fi][k] = up[up[v.fi][k-1]][k-1];
+            upmax[v.fi][k] = max(upmax[v.fi][k-1], upmax[up[v.fi][k-1]][k-1]);
+        }
+
+        dfs(v.fi,u);
     }
 }
 
-void dfs2(int u, int pre){
-    visV[u] = 1;
-    for(const pii& v : adj2[u]){
-        if(v.fi == pre) continue;
+int lca(int u, int v){
+    if(h[u] != h[v]){
+        if(h[u] < h[v]) swap(u,v);
 
-        maxn2[v.fi] = max(maxn2[u],v.se);
-        minn2[v.fi] = min(minn2[u],v.se);
-
-        dfs2(v.fi,u);
+        int dist = h[u] - h[v];
+        for(int k = 16; k >= 0; k--){
+            if(dist >> k & 1) u = up[u][k];
+        }
     }
+    if(u == v) return u;
+
+    for(int k = 16; k >= 0; k--){
+        if(up[u][k] != up[v][k]){
+            u = up[u][k];
+            v = up[v][k];
+        }
+    }
+    return up[u][0];
+}
+
+int get_max(int u, int v){
+    if(id[u] != id[v]) return -1e9;
+
+    int x = lca(u,v);
+
+    int dist = h[u] - h[x];
+    int maxn = 0;
+    for(int k = 16; k >= 0; k--){
+        if(dist >> k & 1){
+            maxn = max(maxn, upmax[u][k]);
+            u = up[u][k];
+        }
+    }
+
+    dist = h[v] - h[x];
+    for(int k = 16; k >= 0; k--){
+        if(dist >> k & 1){
+            maxn = max(maxn, upmax[v][k]);
+            v = up[v][k];
+        }
+    }
+
+    return maxn;
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -149,42 +184,24 @@ int main(){
 
     sort(all(edges,1));
 
-    memset(maxn1,-1,sizeof(maxn1));
-    memset(maxn2,-1,sizeof(maxn2));
-    memset(minn1,0x3f,sizeof(minn1));
-    memset(minn2,0x3f,sizeof(minn2));
+    for(int i = 1; i <= m; i++){
+        if(unite(edges[i].u,edges[i].v)){
+            adj[edges[i].u].eb(edges[i].v,edges[i].w);
+            adj[edges[i].v].eb(edges[i].u,edges[i].w);
+            vis[edges[i].id] = 1; 
+        }
+    }
 
-    for(int i = 1; i <= m; i++){
-        if(unite(edges[i].u, edges[i].v)){
-            adj1[edges[i].u].eb(edges[i].v, edges[i].w);
-            adj1[edges[i].v].eb(edges[i].u, edges[i].w);
-            vis[edges[i].id] = 1;
-        }
-    }
-    
-    init();
-    
-    for(int i = 1; i <= m; i++){
-        if(!vis[edges[i].id] && unite(edges[i].u, edges[i].v)){
-            adj2[edges[i].u].eb(edges[i].v, edges[i].w);
-            adj2[edges[i].v].eb(edges[i].u, edges[i].w);
-        }
-    }
-    
     for(int i = 1; i <= n; i++){
-        if(!visV[i]) dfs1(i,0);
-    }
-    visV.reset();
-    for(int i = 1; i <= n; i++){
-        if(!visV[i]) dfs2(i,0);
+        if(!id[i]) id[i] = i, dfs(i,i);
     }
 
     int ans = 0;
-    for(int i = 2; i <= n; i++){
-        if(maxn1[i] == maxn1[1] || maxn2[i] == maxn2[1] || minn1[i] == minn1[1] || minn2[i] == minn2[1]) continue;
-        ans = max(ans, max(maxn1[i], maxn2[i]) + min(minn1[i], minn2[i]));
+    for(int i = 1; i <= m; i++){
+        if(!vis[edges[i].id]){
+            ans = max(ans, get_max(edges[i].u,edges[i].v) + edges[i].w);
+        }
     }
-
     cout << ans;
     
     return NAH_I_WOULD_WIN;

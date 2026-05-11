@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-290/332-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_10%2C_2026_--_21%3A50_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260510T2150&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-296/337-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_11%2C_2026_--_20%3A58_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260511T2058&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 332
-- **Accepted:** 290
+- **Total Problems:** 337
+- **Accepted:** 296
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -14,7 +14,7 @@
 
 * [📂 .vscode (0)](#-vscode-0)
 * [📂 ACMICPC (4)](#-acmicpc-4)
-* [📂 AtCoder (1)](#-atcoder-1)
+* [📂 AtCoder (6)](#-atcoder-6)
 * [📂 CodeChef (1)](#-codechef-1)
 * [📂 Codeforces (121)](#-codeforces-121)
 * [📂 CPPros (6)](#-cppros-6)
@@ -40,13 +40,13 @@
 * [📂 SPOJ (6)](#-spoj-6)
 * [📂 SQRTOJ (1)](#-sqrtoj-1)
 * [📂 USACO (1)](#-usaco-1)
-* [📂 VNOJ (45)](#-vnoj-45)
+* [📂 VNOJ (46)](#-vnoj-46)
 
 ---
-## 📂 [Solutions (332)](*%20%20%20%20submission:)
+## 📂 [Solutions (337)](*%20%20%20%20submission:)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | Main | N/A | N/A | May 9, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 1 | [MAIN - VOI 17 Bài 3 - Trò chơi](https://oj.vnoi.info/problem/voi17_bgame) | N/A | N/A | May 11, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 2 | Main  Generator | N/A | N/A | May 3, 2026 | [Code](main__Generator.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 3 | Main  Good | N/A | N/A | May 3, 2026 | [Code](main__Good.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 4 | Main  Interactor | N/A | N/A | Apr 11, 2026 | [Code](main__Interactor.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -64,10 +64,15 @@
 | 3 | [10078 - Sightseeing](https://www.acmicpc.net/problem/10078) | `DSU`, `MST`, `Graph` | $\mathcal{O}((n + m) + m \log m + q + max(a[i]))$ | Feb 27, 2026 | [Code](ACMICPC/10078.cpp) \| [Sub](https://www.acmicpc.net/source/103344425) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 4 | [13982 - Shopping Multilingual](https://www.acmicpc.net/problem/13982) | `Binary Lifting`, `RMQ`, `Sparse Table` | $\mathcal{O}((n+q) \log n)$ | Mar 19, 2026 | [Code](ACMICPC/13982.cpp) \| [Sub](https://www.acmicpc.net/source/104101701) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-## 📂 [AtCoder (1)](https://atcoder.jp/home)
+## 📂 [AtCoder (6)](https://atcoder.jp/home)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [ABC451 - Make Bipartite 3](https://atcoder.jp/contests/abc451/tasks/abc451_f) | `DSU` | $\mathcal{O}(q \alpha (n))$ | May 9, 2026 | [Code](AtCoder/abc451_f.cpp) \| [Sub](https://atcoder.jp/contests/abc451/submissions/75678817) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 2 | [AWC0066 - Belt Conveyor](https://atcoder.jp/contests/awc0066/tasks/awc0066_a) | `Implementation` | $\mathcal{O}(n)$ | May 11, 2026 | [Code](AtCoder/awc0066_a.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75726964) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 3 | [AWC0066 - Smartphone Battery](https://atcoder.jp/contests/awc0066/tasks/awc0066_b) | `Implementation` | $\mathcal{O}(n \log n)$ | May 11, 2026 | [Code](AtCoder/awc0066_b.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75727255) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 4 | [AWC0066 - Discount Coupon](https://atcoder.jp/contests/awc0066/tasks/awc0066_c) | `Math` | $\mathcal{O}(n)$ | May 11, 2026 | [Code](AtCoder/awc0066_c.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75727434) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 5 | [AWC0066 - Splitting a Rope](https://atcoder.jp/contests/awc0066/tasks/awc0066_d) | `Binary Search` | $\mathcal{O}(n \cdot value \log (n \cdot value))$ | May 11, 2026 | [Code](AtCoder/awc0066_d.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75727624) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 6 | [AWC0066 - Average Score of Tourist Routes](https://atcoder.jp/contests/awc0066/tasks/awc0066_e) | `DP Bitmask` | $\mathcal{O}(n \cdot 2^n)$ | May 11, 2026 | [Code](AtCoder/awc0066_e.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75731335) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [CodeChef (1)](https://www.codechef.com/practice)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
@@ -455,7 +460,7 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1137 - USACO 2021 US Open, Gold - Problem 1. United Cows of Farmer John](https://usaco.org/index.php?page=viewproblem2&cpid=1137) | `BIT` | $\mathcal{O}(n \log n)$ | Apr 18, 2026 | [Code](USACO/1137.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-## 📂 [VNOJ (45)](https://oj.vnoi.info/)
+## 📂 [VNOJ (46)](https://oj.vnoi.info/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [AREA - Diện tích hình chữ nhật](https://oj.vnoi.info/problem/area) | `Sweep Line 2D`, `Segment Tree` | $\mathcal{O}(n \log n)$ | Apr 22, 2026 | [Code](VNOJ/area.cpp) \| [Sub](https://oj.vnoi.info/submission/12168828) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -501,7 +506,8 @@
 | 41 | [SEGTREE - Educational Segment Tree Contest - ITLAZY](https://oj.vnoi.info/problem/segtree_itlazy) | `Segment Tree` | $\mathcal{O}(n \log n)$ | Mar 28, 2026 | [Code](VNOJ/segtree_itlazy.cpp) \| [Sub](https://oj.vnoi.info/submission/11975322) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 42 | [THT21 - Tin học trẻ 2021 TPHCM - Vòng Chung kết - Bảng C - Paths](https://oj.vnoi.info/problem/tht21_tphcm_ckc_paths) | `MST`, `LCA` | $\mathcal{O}(m \log m + m \log n)$ | May 10, 2026 | [Code](VNOJ/tht21_tphcm_ckc_paths.cpp) \| [Sub](https://oj.vnoi.info/submission/12278254) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 43 | [VMSUDOKU - VM 14 Bài 19 - Sudoku](https://oj.vnoi.info/problem/vmsudoku) | `constructive` | $\mathcal{O}(9^{21})$ | Feb 6, 2026 | [Code](VNOJ/vmsudoku.cpp) \| [Sub](https://oj.vnoi.info/submission/11662085) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 44 | [VOI22 - VOI 22 Bài 4 - Đoạn số](https://oj.vnoi.info/problem/voi22_sseq) | `Segment Tree Lazy`, `VOI` | $\mathcal{O}(n \log n)$ | Apr 10, 2026 | [Code](VNOJ/voi22_sseq.cpp) \| [Sub](https://oj.vnoi.info/submission/12080379) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 45 | [VOI25 - VOI 25 Bài 1 - Người giao hàng](https://oj.vnoi.info/problem/voi25_ship) | `LCA`, `Tree` | $\mathcal{O}(n \log n)$ | Apr 14, 2026 | [Code](VNOJ/voi25_ship.cpp) \| [Sub](https://oj.vnoi.info/submission/12115569) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 46 | [VR-DST-LISPATH - Lis Path](https://oj.vnoi.info/problem/vr_dst_lispath) | `Dynamic Programming`, `Tree` | $\mathcal{O}(n \log n)$ | Feb 8, 2026 | [Code](VNOJ/vr-dst-lispath.cpp) \| [Sub](https://oj.vnoi.info/submission/11673982) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 44 | [VOI17 - VOI 17 Bài 3 - Trò chơi](https://oj.vnoi.info/problem/voi17_bgame) | `MST`, `LCA` | $\mathcal{O}(m \log m + m \log n)$ | May 11, 2026 | [Code](VNOJ/voi17_bgame.cpp) \| [Sub](https://oj.vnoi.info/submission/12281848) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 45 | [VOI22 - VOI 22 Bài 4 - Đoạn số](https://oj.vnoi.info/problem/voi22_sseq) | `Segment Tree Lazy`, `VOI` | $\mathcal{O}(n \log n)$ | Apr 10, 2026 | [Code](VNOJ/voi22_sseq.cpp) \| [Sub](https://oj.vnoi.info/submission/12080379) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 46 | [VOI25 - VOI 25 Bài 1 - Người giao hàng](https://oj.vnoi.info/problem/voi25_ship) | `LCA`, `Tree` | $\mathcal{O}(n \log n)$ | Apr 14, 2026 | [Code](VNOJ/voi25_ship.cpp) \| [Sub](https://oj.vnoi.info/submission/12115569) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 47 | [VR-DST-LISPATH - Lis Path](https://oj.vnoi.info/problem/vr_dst_lispath) | `Dynamic Programming`, `Tree` | $\mathcal{O}(n \log n)$ | Feb 8, 2026 | [Code](VNOJ/vr-dst-lispath.cpp) \| [Sub](https://oj.vnoi.info/submission/11673982) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
