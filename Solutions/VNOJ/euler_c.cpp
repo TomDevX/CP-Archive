@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-13 08:17:30
+ *    created: 2026-05-13 08:37:16
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Arcade Game
+ *    source: https://oj.vnoi.info/problem/euler_c
+ *    submission: https://oj.vnoi.info/submission/12292889
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Euler Tour, LCA
+ *    complexity: O(n \log n)
+ *    note: Each edge will contribute its value to all the path in its subtree, so we just need to use euler tour + BIT + lca to find the path. Make the lower height node as the value of that edge
 **/
 
 #include <iostream>
@@ -60,35 +60,59 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("euler_c.INP", "r")) return;
+    freopen("euler_c.INP", "r", stdin);
+    freopen("euler_c.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 3e5+5;
+const int N = 2e5+5;
 
-int h[N], up[N][19], st_min[N][19], st_max[N][19], tin[N], pos[N], lg[N];
+ll bit[N];
+int tin[N], tout[N], h[N], up[N][18];
 int timer = 0;
 vi adj[N];
+
+struct Edge{
+    int u,v,w;
+
+    Edge(int _u = 0, int _v = 0, int _w = 0) : u(_u), v(_v), w(_w) {};
+};
+
+Edge edges[N];
+int n;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 void dfs(int u, int pre){
     tin[u] = ++timer;
-    pos[timer] = u;
-
     for(int v : adj[u]){
         if(v == pre) continue;
 
-        up[v][0] = u;
         h[v] = h[u] + 1;
+        up[v][0] = u;
 
-        for(int k = 1; k <= 18; k++){
+        for(int k = 1; k <= 17; k++){
             up[v][k] = up[up[v][k-1]][k-1];
         }
 
         dfs(v,u);
     }
+    tout[u] = timer;
+}
+
+void update(int pos, int val){
+    for(; pos <= n; pos += pos&-pos) bit[pos] += val;
+}
+
+void update_range(int l, int r, int val){
+    update(l,val);
+    update(r+1,-val);
+}
+
+ll get(int pos){
+    ll res = 0;
+    for(; pos; pos -= pos&-pos) res += bit[pos];
+    return res;
 }
 
 int lca(int u, int v){
@@ -96,15 +120,14 @@ int lca(int u, int v){
         if(h[u] < h[v]) swap(u,v);
 
         int dist = h[u] - h[v];
-        for(int k = 18; k >= 0; k--){
-            if(dist >> k & 1){
-                u = up[u][k];
-            }
+
+        for(int k = 17; k >= 0; k--){
+            if(dist >> k & 1) u = up[u][k];
         }
     }
     if(u == v) return u;
 
-    for(int k = 18; k >= 0; k--){
+    for(int k = 17; k >= 0; k--){
         if(up[u][k] != up[v][k]){
             u = up[u][k];
             v = up[v][k];
@@ -113,14 +136,10 @@ int lca(int u, int v){
     return up[u][0];
 }
 
-int get_min(int l, int r){
-    int k = lg[r-l+1];
-    return min(st_min[l][k], st_min[r - (1 <<k) + 1][k]);
-}
+ll get_path(int u, int v){
+    int x = lca(u,v);
 
-int get_max(int l, int r){
-    int k = lg[r-l+1];
-    return max(st_max[l][k], st_max[r - (1 <<k) + 1][k]);
+    return get(tin[u]) + get(tin[v]) - 2*get(tin[x]);
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -128,41 +147,42 @@ int main(){
     fastio;
     setup();
     
-    int n;
     cin >> n;
-
-    for(int i = 2; i <= n; i++) lg[i] = lg[i>>1] + 1;
-
     for(int i = 1; i < n; i++){
-        int u,v;
-        cin >> u >> v;
+        int u,v,w;
+        cin >> u >> v >> w;
+
+        edges[i] = {u,v,w};
         adj[u].eb(v);
         adj[v].eb(u);
     }
 
     dfs(1,1);
 
-    for(int i = 1; i <= n; i++){
-        st_min[i][0] = st_max[i][0] = tin[i];
-    }
+    for(int i = 1; i < n; i++){
+        int u = edges[i].u, v = edges[i].v, w = edges[i].w;
+        if(h[u] < h[v]) swap(edges[i].u,edges[i].v), swap(u,v);
 
-    for(int j = 1; j <= 18; j++){
-        for(int i = 1; i + (1 << j) - 1 <= n; i++){
-            st_min[i][j] = min(st_min[i][j-1], st_min[i + (1 << (j-1))][j-1]);
-            st_max[i][j] = max(st_max[i][j-1], st_max[i + (1 << (j-1))][j-1]);
-        }
+        update_range(tin[u], tout[u], w);
     }
 
     int q;
     cin >> q;
+    int type;
     while(q--){
-        int l,r;
-        cin >> l >> r;
+        cin >> type;
+        if(type == 1){
+            int id,w;
+            cin >> id >> w;
 
-        int u = pos[get_min(l,r)];
-        int v = pos[get_max(l,r)];
-
-        cout << lca(u,v) << '\n';
+            update_range(tin[edges[id].u], tout[edges[id].u], w-edges[id].w);
+            edges[id].w = w;
+        }
+        else{
+            int u,v;
+            cin >> u >> v;
+            cout << get_path(u,v) << '\n';
+        }
     }
     
     return NAH_I_WOULD_WIN;
