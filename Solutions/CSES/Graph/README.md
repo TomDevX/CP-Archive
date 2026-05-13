@@ -2,11 +2,7 @@
 
 ### 📊 Graph Stats
 
-<<<<<<< HEAD
-![Progress](https://img.shields.io/badge/Progress-7/7-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-May_13%2C_2026_--_08%3A16_(GMT+7)-0078d4?style=for-the-badge&logo=github)
-=======
-![Progress](https://img.shields.io/badge/Progress-7/7-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-May_12%2C_2026_--_22%3A03_(GMT+7)-0078d4?style=for-the-badge&logo=github)
->>>>>>> 89d7a34bf20358aae8405daa8170a911586450a2
+![Progress](https://img.shields.io/badge/Progress-7/7-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-May_13%2C_2026_--_08%3A17_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 7
 - **Solved (AC):** 7
