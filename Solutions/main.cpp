@@ -77,9 +77,18 @@ struct Event{
     }
 };
 
+ll st[4*N];
+vi coor;
+vector<Event> events;
+
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-
+void update(int id, int l, int r, int u, int v, int type){
+    if(l > v || r < u) return;
+    if(l >= u && r <= v){
+        st[id] += coor[r] - coor[l];
+    }
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
@@ -87,8 +96,6 @@ int main(){
     setup();
     
     cin >> n;
-    vi coor;
-    vector<Event> events;
 
     coor.reserve(2*n);
     events.reserve(2*n);
@@ -100,18 +107,23 @@ int main(){
         coor.eb(y1);
         coor.eb(y2);
 
-        events.eb(Event(x1,y1,y2,1));
-        events.eb(Event(x2,y1,y2,-1));
+        events.eb(Event(x1,y1-1,y2,1));
+        events.eb(Event(x2,y1-1,y2,-1));
     }
 
     sort(all(coor,1));
     filter(coor,1);
+    for(int i = 1; i < sz(coor); i++){
+        L[i] = coor[i] - coor[i-1];
+    }
 
     ll ans = 0;
 
     for(int i = 1; i < sz(events); i++){
+        int y1 = lower_bound(all(coor,1),events[i].y1) - coor.begin();
+        int y2 = lower_bound(all(coor,1),events[i].y2) - coor.begin();
         ans += events[i].x*events[i-1].x*get(1,1,N,y1,y2);
-        update(1,1,N,y1,y2,type);
+        update(1,1,N,y1,y2,events[i].type);
     }
 
     cout << ans;        

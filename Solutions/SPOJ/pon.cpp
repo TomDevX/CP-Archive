@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-07 20:35:26
+ *    created: 2026-05-05 22:56:30
  *    country: Vietnam - VNM
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: PON - Prime or Not
+ *    source: https://www.spoj.com/problems/PON/
+ *    submission: https://www.spoj.com/status/ns=35727953#
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Miller Rabin
+ *    complexity: O(k \log^3 n)
+ *    note: Typical Miller Rabin
 **/
 
 #include <iostream>
@@ -33,8 +33,8 @@ using namespace std;
 
 // --- [ MACROS ] ---
 #define all(x,bonus) (x).begin()+(bonus),(x).end()
-#define sub(x, st, ed) (std::begin((x)) + (st)), (std::begin((x)) + (ed) + 1)
-#define filter(x,bonus) (x).erase(unique(std::begin((x))+(bonus), std::end((x))), std::end((x)))
+#define range(x,st,ed) (x).begin()+(st),(x).begin()+(ed)+1
+#define filter(x,bonus) (x).erase(unique((x).begin()+(bonus), (x).end()), (x).end())
 #define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
 #define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
 #define fi first
@@ -59,32 +59,78 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("test2.INP", "r")) return;
-    freopen("test2.INP", "r", stdin);
-    freopen("test2.OUT", "w", stdout);
+    if(!fopen("pon.INP", "r")) return;
+    freopen("pon.INP", "r", stdin);
+    freopen("pon.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+vi checkSet = {2,3,5,7,11,13,17,19,23,29,31,37};
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+ll mul(ll a, ll b, ll MOD){
+    ll res = 0;
+    while(b){
+        if(b&1) res = (res + a)%MOD;
+        a = (a+a)%MOD;
+        b >>= 1LL;
+    }
+    return res;
+}
 
+ll binpow(ll a, ll b, ll MOD){
+    ll res = 1;
+    while(b){
+        if(b&1) res = mul(res,a,MOD);
+        a = mul(a,a,MOD);
+        b >>= 1LL;
+    }
+    return res;
+}
+
+bool test(ll a, ll n, ll m, int k){
+    ll x = binpow(a,m,n);
+    if(x == 1 || x == n-1) return true;
+    for(int i = 1; i < k; i++){
+        x = mul(x,x,n);
+        if(x == n-1) return true;
+    }
+    return false;
+}
+
+bool MLRB(ll n){
+    if(n <= 1) return false;
+    if(n <= 3) return true;
+    if(n % 2 == 0 || n % 3 == 0) return false;
+    for(int a : checkSet) if(n == a) return true;
+
+    if(n < 41) return false;
+
+    ll m = n-1;
+    int k = 0;
+    while(!(m&1)){
+        m >>= 1;
+        k++;
+    }
+
+    for(int a : checkSet){
+        if(!test(a,n,m,k)) return false;
+    }
+    return true;
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    int n;
-    cin >> n;
-    vi a(n+1);
-    for(int i = 1; i <= n; i++){
-        cin >> a[i];
+    int tc;
+    cin >> tc;
+    while(tc--){
+        ll x;
+        cin >> x;
+        cout << (MLRB(x) ? "YES" : "NO") << '\n';
     }
-
-    sort(all(a,1));
-    for(int i = 1; i <= n; i++) cout << a[i] << ' ';
-    cout << endl;
     
     return NAH_I_WOULD_WIN;
 }

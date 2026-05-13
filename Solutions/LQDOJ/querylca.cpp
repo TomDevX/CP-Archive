@@ -1,16 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-07 20:35:26
+ *    created: 2026-05-13 07:17:10
  *    country: Vietnam - VNM
+ *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Truy vấn với LCA
+ *    source: https://lqdoj.edu.vn/problem/querylca
+ *    submission: https://lqdoj.edu.vn/submission/8591475
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: LCA
+ *    complexity: O(n \log^2 n + q \log n) 
+ *    note: Use sparse table to query lca on range
 **/
 
 #include <iostream>
@@ -59,16 +60,62 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("test2.INP", "r")) return;
-    freopen("test2.INP", "r", stdin);
-    freopen("test2.OUT", "w", stdout);
+    if(!fopen("querylca.INP", "r")) return;
+    freopen("querylca.INP", "r", stdin);
+    freopen("querylca.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 3e5+5;
 
+vi adj[N];
+int up[N][19], h[N], st[N][19], lg[N];
+int timer = 0;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void dfs(int u, int pre){
+    for(int v : adj[u]){
+        if(v == pre) continue;
 
+        h[v] = h[u] + 1;
+        up[v][0] = u;
+
+        for(int k = 1; k <= 18; k++){
+            up[v][k] = up[up[v][k-1]][k-1];
+        }
+
+        dfs(v,u);
+    }
+}
+
+int lca(int u, int v){
+    if(h[u] != h[v]){
+        if(h[u] < h[v]) swap(u,v);
+
+        int dist = h[u] - h[v];
+        
+        for(int k = 18; k >= 0; k--){
+            if(dist >> k & 1){
+                u = up[u][k];
+            }
+        }
+    }
+    if(u == v) return u;
+
+    for(int k = 18; k >= 0; k--){
+        if(up[u][k] != up[v][k]){
+            u = up[u][k];
+            v = up[v][k];
+        }
+    }
+
+    return up[u][0];
+}
+
+int get(int l, int r){
+    int k = lg[r-l+1];
+    return lca(st[l][k], st[r - (1 << k) + 1][k]);
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
@@ -77,14 +124,34 @@ int main(){
     
     int n;
     cin >> n;
-    vi a(n+1);
-    for(int i = 1; i <= n; i++){
-        cin >> a[i];
+
+    for(int i = 2; i <= n; i++) lg[i] = lg[i>>1] + 1;
+
+    for(int i = 1; i < n; i++){
+        int u,v;
+        cin >> u >> v;
+        adj[u].eb(v);
+        adj[v].eb(u);
     }
 
-    sort(all(a,1));
-    for(int i = 1; i <= n; i++) cout << a[i] << ' ';
-    cout << endl;
+    dfs(1,1);
+
+    for(int i = 1; i <= n; i++) st[i][0] = i;
+
+    for(int j = 1; j <= 18; j++){
+        for(int i = 1; i + (1 << j) - 1 <= n; i++){
+            st[i][j] = lca(st[i][j-1], st[i + (1 << (j-1))][j-1]);
+        }
+    }
+
+    int q;
+    cin >> q;
+    while(q--){
+        int l,r;
+        cin >> l >> r;
+
+        cout << get(l,r) << '\n';
+    }
     
     return NAH_I_WOULD_WIN;
 }
