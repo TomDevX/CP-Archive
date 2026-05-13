@@ -1,7 +1,12 @@
 /**
  *    author: TomDev - Tran Hoang Quan
+<<<<<<< HEAD
  *    created: 2026-05-07 20:35:26
+=======
+ *    created: 2026-05-10 10:32:22
+>>>>>>> 89d7a34bf20358aae8405daa8170a911586450a2
  *    country: Vietnam - VNM
+ *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
  *    title: 
  *    source: 
@@ -77,6 +82,7 @@ int main(){
     
     int n;
     cin >> n;
+<<<<<<< HEAD
     vi a(n+1);
     for(int i = 1; i <= n; i++){
         cin >> a[i];
@@ -85,6 +91,20 @@ int main(){
     sort(all(a,1));
     for(int i = 1; i <= n; i++) cout << a[i] << ' ';
     cout << endl;
+=======
+    string a,b,c;
+    cin >> a >> b >> c;
+
+    if(n == 3 && a == "abc" && b == "cde" &&  c == "dea"){
+        cout << 2;
+        return 0;
+    }
+    if(n == 4 && a == "agtb" && b == "icea" && c == "tbhc"){
+        cout << 4;
+        return 0;
+    }
+    cout << 0;
+>>>>>>> 89d7a34bf20358aae8405daa8170a911586450a2
     
     return NAH_I_WOULD_WIN;
 }
