@@ -134,7 +134,7 @@ int lca(int u, int v){
 int ask(int u, int v){
     int x = lca(u,v);
 
-    return get(tin[u]) ^ get(tin[v]) ^ val[lca(u,v)];
+    return get(tin[u]) ^ get(tin[v]) ^ val[lca(u,v)]; // they are all got XORed by the inclusion nodes (include lca), so we need to complement LCA's value back
 }
 
 // ----------------------- [ MAIN ] -----------------------
