@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-307/349-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_14%2C_2026_--_22%3A45_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260514T2245&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-308/350-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_15%2C_2026_--_15%3A41_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260515T1541&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 349
-- **Accepted:** 307
+- **Total Problems:** 350
+- **Accepted:** 308
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -39,11 +39,11 @@
   * [📂 Ptnkoj (4)](#-ptnkoj-4)
 * [📂 SPOJ (6)](#-spoj-6)
 * [📂 SQRTOJ (1)](#-sqrtoj-1)
-* [📂 USACO (2)](#-usaco-2)
+* [📂 USACO (3)](#-usaco-3)
 * [📂 VNOJ (54)](#-vnoj-54)
 
 ---
-## 📂 [Solutions (349)](*%20%20%20%20submission:)
+## 📂 [Solutions (350)](*%20%20%20%20submission:)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Main | N/A | N/A | May 13, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -457,11 +457,12 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [EDU017A - Olympic 30 tháng 4 năm 2026 - Khối 10 - Bài 1](https://sqrtoj.edu.vn/problem/edu017a) | N/A | N/A | Apr 9, 2026 | [Code](SQRTOJ/edu017a.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
-## 📂 [USACO (2)](https://usaco.org/index.php?page=training)
+## 📂 [USACO (3)](https://usaco.org/index.php?page=training)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [921 - Cow Land](https://usaco.org/index.php?page=viewproblem2&cpid=921) | `LCA`, `Euler Tour`, `BIT` | $\mathcal{O}(n \log n)$ | May 14, 2026 | [Code](USACO/921.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 2 | [1137 - USACO 2021 US Open, Gold - Problem 1. United Cows of Farmer John](https://usaco.org/index.php?page=viewproblem2&cpid=1137) | `BIT` | $\mathcal{O}(n \log n)$ | Apr 18, 2026 | [Code](USACO/1137.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | [696 - Promotion Counting](https://usaco.org/index.php?page=viewproblem2&cpid=696) | `Euler Tour`, `BIT` | $\mathcal{O}(n \log n)$ | May 14, 2026 | [Code](USACO/696.cpp) \| [Sub](https://oj.vnoi.info/submission/12307332) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 2 | [921 - Cow Land](https://usaco.org/index.php?page=viewproblem2&cpid=921) | `LCA`, `Euler Tour`, `BIT` | $\mathcal{O}(n \log n)$ | May 14, 2026 | [Code](USACO/921.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 3 | [1137 - USACO 2021 US Open, Gold - Problem 1. United Cows of Farmer John](https://usaco.org/index.php?page=viewproblem2&cpid=1137) | `BIT` | $\mathcal{O}(n \log n)$ | Apr 18, 2026 | [Code](USACO/1137.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [VNOJ (54)](https://oj.vnoi.info/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
