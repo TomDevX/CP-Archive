@@ -61,9 +61,9 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("696.INP", "r")) return;
-    freopen("696.INP", "r", stdin);
-    freopen("696.OUT", "w", stdout);
+    if(!fopen("promote.in", "r")) return;
+    freopen("promote.in", "r", stdin);
+    freopen("promote.out", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
