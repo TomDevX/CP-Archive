@@ -11,7 +11,7 @@
  * ----------------------------------------------------------
  *    tags: Euler Tour, Binary Search
  *    complexity: O(n \log n)
- *    note: First we need to turn our tree into array by using Euler Tour, but if we iterate through all query's child, it would take us O(n), so we classify our nodes into arrays and store with index of its height, each time we need a height, just binary search l and r for tin[u] and tout[u], then iterate on it. In the code I use map to save the old queries in case there's a test with the same queries appear which makes us O(n * q) complexity
+ *    note: First we need to turn our tree into array by using Euler Tour, but if we iterate through all query's child, it would take us O(n), so we classify our nodes into arrays and store with index of its height, each time we need a height, just binary search l and r for tin[u] and tout[u], then iterate on it. Also we can make the palindrome if we have maximum 1 character from a-z to be an odd number, so just check that.
 **/
 
 #include <iostream>

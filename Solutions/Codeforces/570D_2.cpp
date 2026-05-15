@@ -11,7 +11,7 @@
  * ----------------------------------------------------------
  *    tags: Bitmask, Graph
  *    complexity: O(n + q)
- *    note: 
+ *    note: To know if the characters is palindrome, we need to ensure that the maximum number of characters which appears odd times is 1. So we can check odd/even with bit, so we use bitmask (changing bit by using operator XOR ^). Our plan is to store the current mask value of each depth, and then DFS. When we reach u in the query, let ans[id] = current_mask[depth]. Then continue traversing the children nodes of u, when returning back to u, we XOR current_mask[depth] with ans[id] (with the current value of past current_mask[depth]), so that the previous path on that depth is cancelled because x ^ x = 0, so we only keep the result of subtree u, and just check if  maximum number of characters which appears odd times is 1 to answer Yes/No.
 **/
 
 #include <iostream>
