@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-317/359-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_17%2C_2026_--_22%3A53_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260517T2253&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-318/360-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_17%2C_2026_--_23%3A02_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260517T2302&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 359
-- **Accepted:** 317
+- **Total Problems:** 360
+- **Accepted:** 318
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -18,7 +18,7 @@
 * [📂 CodeChef (1)](#-codechef-1)
 * [📂 Codeforces (127)](#-codeforces-127)
 * [📂 CPPros (6)](#-cppros-6)
-* [📂 CSES (43)](#-cses-43)
+* [📂 CSES (44)](#-cses-44)
   * [📂 Advanced Techniques (2)](#-advanced-techniques-2)
   * [📂 Dynamic Programming (12)](#-dynamic-programming-12)
   * [📂 Geometry (6)](#-geometry-6)
@@ -26,7 +26,7 @@
   * [📂 Range Queries (10)](#-range-queries-10)
   * [📂 Sliding Windơows Problem (2)](#-sliding-windơows-problem-2)
   * [📂 Sorting And Searching (3)](#-sorting-and-searching-3)
-  * [📂 String (1)](#-string-1)
+  * [📂 String (2)](#-string-2)
 * [📂 IUHCoder (2)](#-iuhcoder-2)
 * [📂 Leetcode (2)](#-leetcode-2)
 * [📂 LQDOJ (10)](#-lqdoj-10)
@@ -44,7 +44,7 @@
 * [📂 VNOJ (56)](#-vnoj-56)
 
 ---
-## 📂 [Solutions (359)](*%20%20%20%20submission:)
+## 📂 [Solutions (360)](*%20%20%20%20submission:)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Main | N/A | N/A | May 16, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -299,10 +299,11 @@
 | 2 | [2216 - Collecting Numbers](https://cses.fi/problemset/task/2216) | `Implementation` | $\mathcal{O}(n)$ | Feb 10, 2026 | [Code](CSES/Sorting%20and%20Searching/2216.cpp) \| [Sub](https://cses.fi/problemset/result/16218047/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 3 | [2217 - Collecting Numbers II](https://cses.fi/problemset/task/2217) | `Adhoc` | $\mathcal{O}(n + m)$ | Feb 10, 2026 | [Code](CSES/Sorting%20and%20Searching/2217.cpp) \| [Sub](https://cses.fi/problemset/result/16218382/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-### 📁 String (1)
+### 📁 String (2)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [1732 - Finding Borders - Approach 1](https://cses.fi/problemset/task/1732) | `Z-func` | $\mathcal{O}(n)$ | May 17, 2026 | [Code](CSES/String/1732.cpp) \| [Sub](https://cses.fi/problemset/result/17204250/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | [1732-2 - Finding Borders - Approach 2](https://cses.fi/problemset/result/17204250/) | `Hash` | $\mathcal{O}(n)$ | May 17, 2026 | [Code](CSES/String/1732-2.cpp) \| [Sub](https://cses.fi/problemset/result/17204343/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 2 | [1732 - Finding Borders - Approach 1](https://cses.fi/problemset/task/1732) | `Z-func` | $\mathcal{O}(n)$ | May 17, 2026 | [Code](CSES/String/1732.cpp) \| [Sub](https://cses.fi/problemset/result/17204250/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [IUHCoder (2)](https://oj.iuhcoder.com/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
