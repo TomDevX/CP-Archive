@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-315/357-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_17%2C_2026_--_21%3A56_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260517T2156&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-316/358-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_17%2C_2026_--_22%3A40_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260517T2240&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 357
-- **Accepted:** 315
+- **Total Problems:** 358
+- **Accepted:** 316
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -28,7 +28,7 @@
   * [📂 Sorting And Searching (3)](#-sorting-and-searching-3)
 * [📂 IUHCoder (2)](#-iuhcoder-2)
 * [📂 Leetcode (2)](#-leetcode-2)
-* [📂 LQDOJ (9)](#-lqdoj-9)
+* [📂 LQDOJ (10)](#-lqdoj-10)
 * [📂 Luogu (1)](#-luogu-1)
 * [📂 MarisaOJ (16)](#-marisaoj-16)
 * [📂 ojuz (3)](#-ojuz-3)
@@ -43,7 +43,7 @@
 * [📂 VNOJ (56)](#-vnoj-56)
 
 ---
-## 📂 [Solutions (357)](*%20%20%20%20submission:)
+## 📂 [Solutions (358)](*%20%20%20%20submission:)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Main | N/A | N/A | May 16, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -310,18 +310,19 @@
 | 1 | [64 - Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum) | `Dynamic Programming` | $\mathcal{O}(n \cdot m)$ | Feb 12, 2026 | [Code](Leetcode/64.cpp) \| [Sub](https://leetcode.com/problems/minimum-path-sum/submissions/1916094804) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [REVERSE-INTEGER - Reverse Integer](https://leetcode.com/problems/reverse-integer/) | `Implementation` | $\mathcal{O}(digit(n))$ | Apr 11, 2026 | [Code](Leetcode/reverse-integer.cpp) \| [Sub](https://leetcode.com/problems/reverse-integer/submissions/1975578891/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-## 📂 [LQDOJ (9)](https://lqdoj.edu.vn/problems/)
+## 📂 [LQDOJ (10)](https://lqdoj.edu.vn/problems/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [CANDIES - Candies](https://lqdoj.edu.vn/problem/candies) | `Walk on BIT` | $\mathcal{O}(n \log n)$ | Apr 7, 2026 | [Code](LQDOJ/candies.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8372657) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [CANHGACBT - Canh gác bảo tàng](https://lqdoj.edu.vn/problem/canhgacbt) | `Segment Tree`, `Dynamic Programming` | $\mathcal{O}(n \log n)$ | Apr 4, 2026 | [Code](LQDOJ/canhgacbt.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8343061) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 3 | [LANGLA - Làng Lá](https://lqdoj.edu.vn/problem/langla) | `LCA` | $\mathcal{O}(n \log n)$ | May 9, 2026 | [Code](LQDOJ/langla.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8576865) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 4 | [LCA - Tổ Tiên Chung Gần Nhất](https://lqdoj.edu.vn/problem/lca) | `LCA` | $\mathcal{O}((n + q) \alpha (n))$ | May 9, 2026 | [Code](LQDOJ/lca.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8575057) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 5 | [QUERYLCA - Truy vấn với LCA](https://lqdoj.edu.vn/problem/querylca) | `LCA` | $\mathcal{O}(n \log^2 n + q \log n)$ | May 13, 2026 | [Code](LQDOJ/querylca.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8591475) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 6 | [QUERYSUM2 - Query-Sum 2](https://lqdoj.edu.vn/problem/querysum2) | `Fenwick Tree (BIT)` | $\mathcal{O}(n \log n)$ | Apr 2, 2026 | [Code](LQDOJ/querysum2.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8335727) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 7 | [QUERYSUM - Query-Sum](https://lqdoj.edu.vn/problem/querysum) | `Fenwick Tree` | $\mathcal{O}(n \log n)$ | Apr 1, 2026 | [Code](LQDOJ/querysum.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8320846) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 8 | Rangeupdatesandsums | N/A | N/A | Mar 31, 2026 | [Code](LQDOJ/rangeupdatesandsums.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 9 | [TRUNGVIQUE - MEDIAN QUERY](https://lqdoj.edu.vn/problem/trungvique) | `Mo's Algorithm`, `Sqrt Decomposition` | $\mathcal{O}(n \sqrt{q} + q \sqrt{MAX_VALUE})$ | Apr 5, 2026 | [Code](LQDOJ/trungvique.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8354767) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 3 | [EXTPALIN - Tạo palindrome](https://lqdoj.edu.vn/problem/extpalin) | `Hash` | $\mathcal{O}(n)$ | May 17, 2026 | [Code](LQDOJ/extpalin.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8614762) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 4 | [LANGLA - Làng Lá](https://lqdoj.edu.vn/problem/langla) | `LCA` | $\mathcal{O}(n \log n)$ | May 9, 2026 | [Code](LQDOJ/langla.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8576865) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 5 | [LCA - Tổ Tiên Chung Gần Nhất](https://lqdoj.edu.vn/problem/lca) | `LCA` | $\mathcal{O}((n + q) \alpha (n))$ | May 9, 2026 | [Code](LQDOJ/lca.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8575057) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 6 | [QUERYLCA - Truy vấn với LCA](https://lqdoj.edu.vn/problem/querylca) | `LCA` | $\mathcal{O}(n \log^2 n + q \log n)$ | May 13, 2026 | [Code](LQDOJ/querylca.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8591475) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 7 | [QUERYSUM2 - Query-Sum 2](https://lqdoj.edu.vn/problem/querysum2) | `Fenwick Tree (BIT)` | $\mathcal{O}(n \log n)$ | Apr 2, 2026 | [Code](LQDOJ/querysum2.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8335727) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 8 | [QUERYSUM - Query-Sum](https://lqdoj.edu.vn/problem/querysum) | `Fenwick Tree` | $\mathcal{O}(n \log n)$ | Apr 1, 2026 | [Code](LQDOJ/querysum.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8320846) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 9 | Rangeupdatesandsums | N/A | N/A | Mar 31, 2026 | [Code](LQDOJ/rangeupdatesandsums.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 10 | [TRUNGVIQUE - MEDIAN QUERY](https://lqdoj.edu.vn/problem/trungvique) | `Mo's Algorithm`, `Sqrt Decomposition` | $\mathcal{O}(n \sqrt{q} + q \sqrt{MAX_VALUE})$ | Apr 5, 2026 | [Code](LQDOJ/trungvique.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8354767) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [Luogu (1)](https://www.luogu.com.cn/problem/list)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
