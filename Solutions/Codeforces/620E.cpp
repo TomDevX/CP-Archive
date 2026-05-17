@@ -67,17 +67,122 @@ void setup(){
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 const int N = 4e5+5;
-int n,m;
+
+ll st[4*N], t[4*N];
+int val[N];
+vi adj[N];
+int tour[N], tin[N], tout[N];
+int timer = 0;
+
+int n;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void dfs(int u ,int pre){
+    tour[++timer] = val[u];
+    tin[u] = timer;
 
+    for(int v : adj[u]){
+        if(v == pre) continue;
+
+        dfs(v,u);
+    }
+
+    tout[u] = timer;
+}
+
+void build(int id, int l, int r){
+    if(l == r){
+        st[id] = (1 << tour[l]);
+        return;
+    }
+
+    int mid = l+((r-l)>>1);
+    int lc = id<<1;
+
+    build(lc,l,mid);
+    build(lc|1,mid+1,r);
+
+    st[id] = st[lc] | st[lc|1];
+}
+
+void down(int id){
+    int f = t[id];
+    if(f == 0) return;
+
+    t[id] = 0;
+
+    int lc = id<<1;
+
+    st[lc] = st[lc|1] = t[lc] = t[lc|1] = f;
+}
+
+void update(int id, int l, int r, int u, int v, int val){
+    if(l > v || r < u) return;
+    if(l >= u && r <= v){
+        st[id] = (1 << val);
+        t[id] = (1 << val);
+
+        return;
+    }
+
+    down(id);
+    int mid = l + ((r-l)>>1);
+    int lc = id<<1; 
+
+    update(lc,l,mid,u,v,val);
+    update(lc|1,mid+1,r,u,v,val);
+
+    st[id] = st[lc] | st[lc|1];
+}
+
+ll get(int id, int l, int r, int u, int v){
+    if(l > v || r < u) return 0;
+    if(l >= u && r <= v) return st[id];
+
+    down(id);
+    int mid = l + ((r-l)>>1);
+    int lc= id<<1;
+
+    return get(lc,l,mid,u,v) | get(lc|1,mid+1,r,u,v);
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
-    
-    cin >> n >> m;
+
+    int q;
+    cin >> n >> q;
+
+    for(int i = 1; i <= n; i++){
+        cin >> val[i];
+    }
+
+    for(int i = 1; i < n; i++){
+        int u,v;
+        cin >> u >> v;
+        adj[u].eb(v);
+        adj[v].eb(u);
+    }
+
+    dfs(1,1);
+    build(1,1,timer);
+
+    int type;
+    while(q--){
+        cin >> type;
+        if(type == 1){
+            int u,c;
+            cin >> u >> c;
+            update(1,1,timer,tin[u], tout[u], c);
+        }
+        else{
+            int u;
+            cin >> u;
+
+            cout << __builtin_popcountll(get(1,1,timer,tin[u], tout[u])) << '\n';
+        }
+    }
     
     return NAH_I_WOULD_WIN;
 }

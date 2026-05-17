@@ -6,12 +6,12 @@
  * ----------------------------------------------------------
  *    title: Remilia Plays Soku
  *    source: https://codeforces.com/contest/2228/problem/B
- *    submission: 
- *    status: WIP
+ *    submission: https://codeforces.com/problemset/submission/2228/374888959
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Game
+ *    complexity: O(1) 
+ *    note: Just the old distance + k is the answer, but also need to consider some small edge cases
 **/
 
 #include <iostream>
@@ -83,12 +83,15 @@ int main(){
         int n,x1,x2,k;
         cin >> n >> x1 >> x2 >> k;
 
-        x1 = (x1 - 1 + k)%n + 1;
-        x2 = (x2 - 1 + k)%n + 1;
-
+        if(n <= 3){
+            cout << 1 << '\n';
+            continue;
+        }
         if(x1 > x2) swap(x1,x2);
 
-        cout << min(abs(x1-x2), x1 + n - x2) + k << '\n';
+        int d = min(x2 - x1, x1 + n - x2);
+
+        cout << d + k << '\n';
     }
     
     return NAH_I_WOULD_WIN;

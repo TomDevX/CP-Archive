@@ -2,7 +2,7 @@
 
 ### 📊 Codeforces Stats
 
-![Progress](https://img.shields.io/badge/Progress-110/126-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-May_17%2C_2026_--_10%3A02_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-110/126-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-May_17%2C_2026_--_10%3A27_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 126
 - **Solved (AC):** 110
@@ -146,7 +146,7 @@
 | 126 | [2227E__Generator](https://codeforces.com/contest/2227/problem/E) | N/A | N/A | May 01, 2026 | [Code](2227E__Generator.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 127 | [2227E__Good](https://codeforces.com/contest/2227/problem/E) | N/A | N/A | N/A | [Code](2227E__Good.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 128 | [2228A - Marisa Steals Reimu's Takeout](https://codeforces.com/contest/2228/problem/A) | `Math` | $\mathcal{O}(1)$ | May 16, 2026 | [Code](2228A.cpp) \| [Sub](https://codeforces.com/problemset/submission/2228/374887464) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 129 | [2228B - Remilia Plays Soku](https://codeforces.com/contest/2228/problem/B) | N/A | N/A | May 16, 2026 | [Code](2228B.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 129 | [2228B - Remilia Plays Soku](https://codeforces.com/contest/2228/problem/B) | `Game` | $\mathcal{O}(1)$ | May 16, 2026 | [Code](2228B.cpp) \| [Sub](https://codeforces.com/problemset/submission/2228/374888959) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 130 | [2228B__Generator](https://codeforces.com/contest/2228/problem/B) | N/A | N/A | May 16, 2026 | [Code](2228B__Generator.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 131 | [2228B__Good](https://codeforces.com/contest/2228/problem/B) | N/A | N/A | N/A | [Code](2228B__Good.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 132 | [690281B - Tăng dãy](https://codeforces.com/gym/690281/problem/B) | `Segment Tree Beats` | $\mathcal{O}((n \cdot k + q) \log n)$ | May 03, 2026 | [Code](690281B.cpp) \| [Sub](https://codeforces.com/gym/690281/submission/373439975) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
