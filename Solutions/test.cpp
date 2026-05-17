@@ -106,7 +106,7 @@ int main(){
             if(sum_good + a[i] <= s){
                 sum_good += a[i];
                 prev_err = false;
-                continue;
+                continue;   
             }
             else{
                 if(sum_good){
