@@ -1,6 +1,6 @@
-# 📁 Luogu Solutions
+# 📁 String Solutions
 
-### 📊 Luogu Stats
+### 📊 String Stats
 
 ![Progress](https://img.shields.io/badge/Progress-1/1-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-May_17%2C_2026_--_22%3A53_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
@@ -12,11 +12,11 @@
 ---
 ## 📌 Table of Contents
 
-* [📁 Luogu (1)](#-luogu-1)
+* [📁 String (1)](#-string-1)
 
 ---
-## 📂 Luogu (1)
+## 📂 String (1)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [P6166 - [IOI 2012] scrivener](https://www.luogu.com.cn/problem/P6166) | `Binary Lifting` | $\mathcal{O}(n \log n)$ | Mar 24, 2026 | [Code](P6166.cpp) \| [Sub](https://www.luogu.com.cn/record/269308831) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | [1732 - Finding Borders - Approach 1](https://cses.fi/problemset/task/1732) | `Z-func` | $\mathcal{O}(n)$ | May 17, 2026 | [Code](1732.cpp) \| [Sub](https://cses.fi/problemset/result/17204250/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
