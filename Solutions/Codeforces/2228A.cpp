@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-16 22:15:59
+ *    created: 2026-05-16 23:24:03
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Marisa Steals Reimu's Takeout
+ *    source: https://codeforces.com/contest/2228/problem/A
+ *    submission: https://codeforces.com/problemset/submission/2228/374887464
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Math
+ *    complexity: O(1)
+ *    note: Consider all cases
 **/
 
 #include <iostream>
@@ -60,9 +60,9 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("2228A.INP", "r")) return;
+    freopen("2228A.INP", "r", stdin);
+    freopen("2228A.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
@@ -79,20 +79,32 @@ int main(){
     int tc;
     cin >> tc;
     while(tc--){
-        int n,k;
-        cin >> n >> k;
-        vi a(n+1), b(n+1);
-        for(int i = 1; i <= n; i++) cin >> a[i];
-        for(int i = 1; i <= n; i++) cin >> b[i];
-
-        bool good = true;
-        for(int i = 1; i < n; i++){
-            if(a[i] != b[i] && (abs(a[i] - a[i+1]) != k || a[i+1] != b[i])){
-                good = false;
-                break;
-            }
-            swap(a[i],a[i+1]);
+        int n;
+        cin >> n;
+        vi cnt(4);
+        for(int i = 1; i <= n; i++){
+            int x;
+            cin >> x;
+            cnt[x]++;
         }
+
+        ll ans = cnt[0];
+
+        if(cnt[1] >= cnt[2]){
+            ans += cnt[2];
+            cnt[1] -= cnt[2];
+            cnt[2] = 0;
+
+            ans += cnt[1]/3;
+        }
+        else{
+            ans += cnt[1];
+            cnt[2] -= cnt[1];
+
+            ans += cnt[2]/3;
+        }
+    
+        cout << ans << '\n';
     }
     
     return NAH_I_WOULD_WIN;

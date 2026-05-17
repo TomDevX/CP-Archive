@@ -1,11 +1,11 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-16 22:15:59
+ *    created: 2026-05-16 23:30:52
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: Remilia Plays Soku
+ *    source: https://codeforces.com/contest/2228/problem/B
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -20,6 +20,7 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <cmath>
 
 using namespace std;
 
@@ -60,9 +61,9 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("2228B.INP", "r")) return;
+    freopen("2228B.INP", "r", stdin);
+    freopen("2228B.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
@@ -79,20 +80,15 @@ int main(){
     int tc;
     cin >> tc;
     while(tc--){
-        int n,k;
-        cin >> n >> k;
-        vi a(n+1), b(n+1);
-        for(int i = 1; i <= n; i++) cin >> a[i];
-        for(int i = 1; i <= n; i++) cin >> b[i];
+        int n,x1,x2,k;
+        cin >> n >> x1 >> x2 >> k;
 
-        bool good = true;
-        for(int i = 1; i < n; i++){
-            if(a[i] != b[i] && (abs(a[i] - a[i+1]) != k || a[i+1] != b[i])){
-                good = false;
-                break;
-            }
-            swap(a[i],a[i+1]);
-        }
+        x1 = (x1 - 1 + k)%n + 1;
+        x2 = (x2 - 1 + k)%n + 1;
+
+        if(x1 > x2) swap(x1,x2);
+
+        cout << min(abs(x1-x2), x1 + n - x2) + k << '\n';
     }
     
     return NAH_I_WOULD_WIN;

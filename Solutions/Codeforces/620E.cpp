@@ -1,11 +1,11 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-16 22:15:59
+ *    created: 2026-05-17 00:06:55
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: New Year Tree
+ *    source: https://codeforces.com/problemset/problem/620/E
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -60,13 +60,14 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("620E.INP", "r")) return;
+    freopen("620E.INP", "r", stdin);
+    freopen("620E.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+const int N = 4e5+5;
+int n,m;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -76,24 +77,7 @@ int main(){
     fastio;
     setup();
     
-    int tc;
-    cin >> tc;
-    while(tc--){
-        int n,k;
-        cin >> n >> k;
-        vi a(n+1), b(n+1);
-        for(int i = 1; i <= n; i++) cin >> a[i];
-        for(int i = 1; i <= n; i++) cin >> b[i];
-
-        bool good = true;
-        for(int i = 1; i < n; i++){
-            if(a[i] != b[i] && (abs(a[i] - a[i+1]) != k || a[i+1] != b[i])){
-                good = false;
-                break;
-            }
-            swap(a[i],a[i+1]);
-        }
-    }
+    cin >> n >> m;
     
     return NAH_I_WOULD_WIN;
 }
