@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-311/354-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_17%2C_2026_--_10%3A27_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260517T1027&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-312/354-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_17%2C_2026_--_10%3A34_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260517T1034&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 354
-- **Accepted:** 311
+- **Accepted:** 312
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -133,7 +133,7 @@
 | 49 | [581A](https://codeforces.com/contest/581/problem/A) | N/A | N/A | N/A | [Code](Codeforces/581A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 50 | [609E - Minimum spanning tree for each edge](https://codeforces.com/problemset/problem/609/E) | `MST`, `LCA` | $\mathcal{O}(m \log m + m \log n)$ | May 11, 2026 | [Code](Codeforces/609E.cpp) \| [Sub](https://codeforces.com/problemset/submission/609/374215997) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 51 | [617A](https://codeforces.com/contest/617/problem/A) | N/A | N/A | N/A | [Code](Codeforces/617A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 52 | [620E - New Year Tree](https://codeforces.com/problemset/problem/620/E) | N/A | N/A | May 17, 2026 | [Code](Codeforces/620E.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 52 | [620E - New Year Tree](https://codeforces.com/problemset/problem/620/E) | `Segment Tree`, `Euler Tour`, `Bitmask` | $\mathcal{O}(n \log n)$ | May 17, 2026 | [Code](Codeforces/620E.cpp) \| [Sub](https://codeforces.com/contest/620/submission/374889233) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 53 | [630A](https://codeforces.com/contest/630/problem/A) | N/A | N/A | N/A | [Code](Codeforces/630A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 54 | [677A](https://codeforces.com/contest/677/problem/A) | N/A | N/A | N/A | [Code](Codeforces/677A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 55 | [705A](https://codeforces.com/contest/705/problem/A) | N/A | N/A | N/A | [Code](Codeforces/705A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |

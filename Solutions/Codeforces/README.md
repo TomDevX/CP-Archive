@@ -2,10 +2,10 @@
 
 ### 📊 Codeforces Stats
 
-![Progress](https://img.shields.io/badge/Progress-110/126-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-May_17%2C_2026_--_10%3A27_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-111/126-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-May_17%2C_2026_--_10%3A34_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 126
-- **Solved (AC):** 110
+- **Solved (AC):** 111
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
 
@@ -69,7 +69,7 @@
 | 49 | [581A](https://codeforces.com/contest/581/problem/A) | N/A | N/A | N/A | [Code](581A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 50 | [609E - Minimum spanning tree for each edge](https://codeforces.com/problemset/problem/609/E) | `MST`, `LCA` | $\mathcal{O}(m \log m + m \log n)$ | May 11, 2026 | [Code](609E.cpp) \| [Sub](https://codeforces.com/problemset/submission/609/374215997) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 51 | [617A](https://codeforces.com/contest/617/problem/A) | N/A | N/A | N/A | [Code](617A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 52 | [620E - New Year Tree](https://codeforces.com/problemset/problem/620/E) | N/A | N/A | May 17, 2026 | [Code](620E.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 52 | [620E - New Year Tree](https://codeforces.com/problemset/problem/620/E) | `Segment Tree`, `Euler Tour`, `Bitmask` | $\mathcal{O}(n \log n)$ | May 17, 2026 | [Code](620E.cpp) \| [Sub](https://codeforces.com/contest/620/submission/374889233) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 53 | [630A](https://codeforces.com/contest/630/problem/A) | N/A | N/A | N/A | [Code](630A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 54 | [677A](https://codeforces.com/contest/677/problem/A) | N/A | N/A | N/A | [Code](677A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 55 | [705A](https://codeforces.com/contest/705/problem/A) | N/A | N/A | N/A | [Code](705A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |

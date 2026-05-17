@@ -6,12 +6,12 @@
  * ----------------------------------------------------------
  *    title: New Year Tree
  *    source: https://codeforces.com/problemset/problem/620/E
- *    submission: 
- *    status: WIP
+ *    submission: https://codeforces.com/contest/620/submission/374889233
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Segment Tree, Euler Tour, Bitmask
+ *    complexity: O(n \log n)
+ *    note: We notice that color <= 60 so we can make a bitmask of 2^60 to represent a color, and to combine colors just use operator OR, to find number of distinct, just use builtin_popcount. Now to update we make an array with euler tour and lazy update with segment tree.
 **/
 
 #include <iostream>
@@ -92,7 +92,7 @@ void dfs(int u ,int pre){
 
 void build(int id, int l, int r){
     if(l == r){
-        st[id] = (1 << tour[l]);
+        st[id] = (1LL << tour[l]);
         return;
     }
 
@@ -106,7 +106,7 @@ void build(int id, int l, int r){
 }
 
 void down(int id){
-    int f = t[id];
+    ll f = t[id];
     if(f == 0) return;
 
     t[id] = 0;
@@ -116,11 +116,11 @@ void down(int id){
     st[lc] = st[lc|1] = t[lc] = t[lc|1] = f;
 }
 
-void update(int id, int l, int r, int u, int v, int val){
+void update(int id, int l, int r, int u, int v, int value){
     if(l > v || r < u) return;
     if(l >= u && r <= v){
-        st[id] = (1 << val);
-        t[id] = (1 << val);
+        st[id] = (1LL << value);
+        t[id] = (1LL << value);
 
         return;
     }
@@ -129,8 +129,8 @@ void update(int id, int l, int r, int u, int v, int val){
     int mid = l + ((r-l)>>1);
     int lc = id<<1; 
 
-    update(lc,l,mid,u,v,val);
-    update(lc|1,mid+1,r,u,v,val);
+    update(lc,l,mid,u,v,value);
+    update(lc|1,mid+1,r,u,v,value);
 
     st[id] = st[lc] | st[lc|1];
 }
