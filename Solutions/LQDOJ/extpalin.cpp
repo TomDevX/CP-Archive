@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-19 08:26:18
+ *    created: 2026-05-17 22:12:02
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Tạo palindrome
+ *    source: https://lqdoj.edu.vn/problem/extpalin
+ *    submission: https://lqdoj.edu.vn/submission/8614762
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Hash
+ *    complexity: O(n)
+ *    note: Just check for the best
 **/
 
 #include <iostream>
@@ -60,67 +60,85 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("extpalin.INP", "r")) return;
+    freopen("extpalin.INP", "r", stdin);
+    freopen("extpalin.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e6+5;
+const int N = 5e5+5;
 
 const ll MOD = 1234567891;
-ll hashA[N], POW[N];
-ll base = 31;
-string s;
+ll hashS[N], hashS_r[N], POW[N];
+int base = 31;
+
+string s,sR;
+
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void init(int n){
+void init(){
     POW[0] = 1;
-    for(int i = 1; i <= n; i++){
+    for(int i = 1; i < N; i++){
         POW[i] = (POW[i-1]*base)%MOD;
     }
 }
 
-void make_hash(int n){
+void make_hash(){
+    int n = sz(s)-1;
     for(int i = 1; i <= n; i++){
-        hashA[i] = (hashA[i-1]*base + s[i] - 'a' + 1)%MOD;
+        hashS[i] = (hashS[i-1]*base + s[i] - 'a' + 1)%MOD;
+    }
+
+    for(int i = 1; i <= n; i++){
+        hashS_r[i] = (hashS_r[i-1]*base + sR[i] - 'a' + 1)%MOD;
     }
 }
 
 ll get(int l, int r){
-    return ((hashA[r] - hashA[l-1]*POW[r-l+1])%MOD+ MOD)%MOD;
+    return ((hashS[r] - hashS[l-1]*POW[r-l+1])%MOD + MOD)%MOD;
+}
+
+ll getR(int l, int r){
+    return ((hashS_r[r] - hashS_r[l-1]*POW[r-l+1])%MOD + MOD)%MOD;
+}
+
+bool check(int x){
+    int n = sz(s)-1;
+    return get(n-x+1, n) == getR(1,x);
 }
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
+    init();
     
-    cin >> s;
-    
-    int n = sz(s);
-    s = '#' + s;
+    int tc;
+    cin >> tc;
+    while(tc--){
+        cin >> s;
+        int n = sz(s);
 
-    init(n);
-    make_hash(n);
+        sR = s;
+        reverse(all(sR,0));
+        s = "#" + s;
+        sR = "#" + sR;
 
-    for(int len = 1; len <= n; len++){
-        int ori = get(1,len);
+        make_hash();
 
-        bool good = true;
-        for(int i = len+1; i + len - 1 <= n; i++){
-            if(get(i, i + len - 1) != ori){
-                good = false;
+        for(int i = n; i >= 1; i--){
+            if(check(i)){
+                s.erase(0,1);
+                cout << s;
+                for(int j = n-i-1; j >= 0; j--){
+                    cout << s[j];
+                }
+                cout << '\n';
+
                 break;
             }
         }
 
-        if(n % len != 0){
-            int R = n%len;
-            good &= get(1,R) == get(n-R+1,n); 
-        }
-
-        if(good) cout << len << ' ';
     }
     
     return NAH_I_WOULD_WIN;

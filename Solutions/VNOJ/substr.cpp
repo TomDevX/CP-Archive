@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-19 08:26:18
+ *    created: 2026-05-17 21:49:47
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Xâu con
+ *    source: https://oj.vnoi.info/problem/substr
+ *    submission: https://oj.vnoi.info/submission/12330557
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Hash
+ *    complexity: O(n + m)
+ *    note: Basic hashing
 **/
 
 #include <iostream>
@@ -60,9 +60,9 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("substr.INP", "r")) return;
+    freopen("substr.INP", "r", stdin);
+    freopen("substr.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
@@ -71,24 +71,11 @@ const int N = 1e6+5;
 const ll MOD = 1234567891;
 ll hashA[N], POW[N];
 ll base = 31;
-string s;
+ll hashB = 0;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void init(int n){
-    POW[0] = 1;
-    for(int i = 1; i <= n; i++){
-        POW[i] = (POW[i-1]*base)%MOD;
-    }
-}
-
-void make_hash(int n){
-    for(int i = 1; i <= n; i++){
-        hashA[i] = (hashA[i-1]*base + s[i] - 'a' + 1)%MOD;
-    }
-}
-
-ll get(int l, int r){
-    return ((hashA[r] - hashA[l-1]*POW[r-l+1])%MOD+ MOD)%MOD;
+ll getA(int l, int r){
+    return ((hashA[r] - hashA[l-1]*POW[r-l+1])%MOD + MOD)%MOD;
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -96,31 +83,28 @@ int main(){
     fastio;
     setup();
     
-    cin >> s;
-    
-    int n = sz(s);
-    s = '#' + s;
+    string a,b;
+    cin >> a >> b;
+    int n = sz(a), m = sz(b);
+    a = "#" + a;
+    b = "#" + b;
 
-    init(n);
-    make_hash(n);
+    POW[0] = 1;
+    for(int i = 1; i <= n; i++){
+        POW[i] = (POW[i-1]*base)%MOD;
+    }
 
-    for(int len = 1; len <= n; len++){
-        int ori = get(1,len);
+    for(int i = 1; i <= n; i++){
+        hashA[i] = (hashA[i-1]*base + a[i] - 'a' + 1)%MOD;
+    }
+    for(int i = 1; i <= m; i++){
+        hashB = (hashB*base + b[i] - 'a' + 1)%MOD;
+    }
 
-        bool good = true;
-        for(int i = len+1; i + len - 1 <= n; i++){
-            if(get(i, i + len - 1) != ori){
-                good = false;
-                break;
-            }
+    for(int i = 1; i + m - 1 <= n; i++){
+        if(getA(i,i + m - 1) == hashB){
+            cout << i << ' ';
         }
-
-        if(n % len != 0){
-            int R = n%len;
-            good &= get(1,R) == get(n-R+1,n); 
-        }
-
-        if(good) cout << len << ' ';
     }
     
     return NAH_I_WOULD_WIN;

@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-17 00:06:55
+ *    created: 2026-05-17 20:45:28
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: New Year Tree
- *    source: https://codeforces.com/problemset/problem/620/E
- *    submission: https://codeforces.com/contest/620/submission/374889233
+ *    title: Propagating tree
+ *    source: https://codeforces.com/problemset/problem/383/C
+ *    submission: https://codeforces.com/contest/383/submission/374956458
  *    status: AC
  * ----------------------------------------------------------
- *    tags: Segment Tree, Euler Tour, Bitmask
+ *    tags: BIT, Euler Tour, Math
  *    complexity: O(n \log n)
- *    note: We notice that color <= 60 so we can make a bitmask of 2^60 to represent a color, and to combine colors just use operator OR, to find number of distinct, just use builtin_popcount. Now to update we make an array with euler tour and lazy update with segment tree.
+ *    note: So we notice that if that node has the same parity with u, it will get +val, else it will get -val. So how do we manage it? First we rule that parity of odd will get -val, and even will get +val. So when querying how do we know the correct answer? -> If the queried v node has parity of odd, we return -pref[v], else if even, return pref[u]. Why? Let's take an example that u is odd, and we -val to [tin[u], tout[u]]. And now v is odd too, so we turn answer to -pref[v] -> -(-val) = val, it returns to normal. If v is even, we don't switch the sign(v) so it is still -pref[v] => if not the same parity, it will get sign(-), else, we'll still get sign(+)
 **/
 
 #include <iostream>
@@ -20,6 +20,7 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <bitset>
 
 using namespace std;
 
@@ -60,32 +61,27 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("620E.INP", "r")) return;
-    freopen("620E.INP", "r", stdin);
-    freopen("620E.OUT", "w", stdout);
+    if(!fopen("383C.INP", "r")) return;
+    freopen("383C.INP", "r", stdin);
+    freopen("383C.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-<<<<<<< HEAD
+const int N = 2e5+5;
 
-
-// ----------------------- [ FUNCTIONS ] -----------------------
-
-=======
-const int N = 4e5+5;
-
-ll st[4*N], t[4*N];
-int val[N];
+int bit[N], a[N];
 vi adj[N];
-int tour[N], tin[N], tout[N];
+int tin[N], tout[N];
+bitset<N> parity;
+
 int timer = 0;
 
 int n;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void dfs(int u ,int pre){
-    tour[++timer] = val[u];
-    tin[u] = timer;
+void dfs(int u, int pre){
+    tin[u] = ++timer;
+    parity[u] = !parity[pre];
 
     for(int v : adj[u]){
         if(v == pre) continue;
@@ -96,78 +92,29 @@ void dfs(int u ,int pre){
     tout[u] = timer;
 }
 
-void build(int id, int l, int r){
-    if(l == r){
-        st[id] = (1LL << tour[l]);
-        return;
-    }
-
-    int mid = l+((r-l)>>1);
-    int lc = id<<1;
-
-    build(lc,l,mid);
-    build(lc|1,mid+1,r);
-
-    st[id] = st[lc] | st[lc|1];
+void update(int pos, int val){
+    for(; pos <= n; pos += pos&-pos) bit[pos] += val;
 }
 
-void down(int id){
-    ll f = t[id];
-    if(f == 0) return;
-
-    t[id] = 0;
-
-    int lc = id<<1;
-
-    st[lc] = st[lc|1] = t[lc] = t[lc|1] = f;
+void update_range(int l, int r, int val){
+    update(l,val);
+    update(r+1,-val);
 }
 
-void update(int id, int l, int r, int u, int v, int value){
-    if(l > v || r < u) return;
-    if(l >= u && r <= v){
-        st[id] = (1LL << value);
-        t[id] = (1LL << value);
-
-        return;
-    }
-
-    down(id);
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1; 
-
-    update(lc,l,mid,u,v,value);
-    update(lc|1,mid+1,r,u,v,value);
-
-    st[id] = st[lc] | st[lc|1];
+int get(int pos){
+    int res = 0;
+    for(; pos; pos -= pos&-pos) res += bit[pos];
+    return res;
 }
-
-ll get(int id, int l, int r, int u, int v){
-    if(l > v || r < u) return 0;
-    if(l >= u && r <= v) return st[id];
-
-    down(id);
-    int mid = l + ((r-l)>>1);
-    int lc= id<<1;
-
-    return get(lc,l,mid,u,v) | get(lc|1,mid+1,r,u,v);
-}
->>>>>>> 144b1a11e7923a50daccb80a0e9c94e5411a3aba
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
-<<<<<<< HEAD
     
-    w
-=======
-
     int q;
     cin >> n >> q;
-
-    for(int i = 1; i <= n; i++){
-        cin >> val[i];
-    }
+    for(int i = 1; i <= n; i++) cin >> a[i];
 
     for(int i = 1; i < n; i++){
         int u,v;
@@ -175,26 +122,29 @@ int main(){
         adj[u].eb(v);
         adj[v].eb(u);
     }
+    
+    dfs(1,0);
 
-    dfs(1,1);
-    build(1,1,timer);
-
-    int type;
     while(q--){
+        int type;
         cin >> type;
         if(type == 1){
-            int u,c;
-            cin >> u >> c;
-            update(1,1,timer,tin[u], tout[u], c);
-        }
+            int u,val;
+            cin >> u >> val;
+
+            if(!parity[u]) val = -val;   
+
+            update_range(tin[u], tout[u],val);
+        }   
         else{
             int u;
             cin >> u;
 
-            cout << __builtin_popcountll(get(1,1,timer,tin[u], tout[u])) << '\n';
+            int ans = get(tin[u]);
+
+            cout << a[u] + (parity[u] ? ans : -ans) << '\n';
         }
     }
->>>>>>> 144b1a11e7923a50daccb80a0e9c94e5411a3aba
     
     return NAH_I_WOULD_WIN;
 }

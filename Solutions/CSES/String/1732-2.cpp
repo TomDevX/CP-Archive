@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-19 08:26:18
+ *    created: 2026-05-17 22:53:21
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Finding Borders - Approach 2
+ *    source: https://cses.fi/problemset/result/17204250/
+ *    submission: https://cses.fi/problemset/result/17204343/
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Hash
+ *    complexity: O(n)
+ *    note: Typical Hash
 **/
 
 #include <iostream>
@@ -60,18 +60,17 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("1732-2.INP", "r")) return;
+    freopen("1732-2.INP", "r", stdin);
+    freopen("1732-2.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 const int N = 1e6+5;
 
-const ll MOD = 1234567891;
 ll hashA[N], POW[N];
-ll base = 31;
-string s;
+const ll MOD = 1234567891;
+int base = 31;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 void init(int n){
@@ -81,14 +80,16 @@ void init(int n){
     }
 }
 
-void make_hash(int n){
+void make_hash(string &s){
+    int n = sz(s)-1;
+
     for(int i = 1; i <= n; i++){
         hashA[i] = (hashA[i-1]*base + s[i] - 'a' + 1)%MOD;
     }
 }
 
 ll get(int l, int r){
-    return ((hashA[r] - hashA[l-1]*POW[r-l+1])%MOD+ MOD)%MOD;
+    return ((hashA[r] - hashA[l-1]*POW[r-l+1])%MOD + MOD)%MOD;
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -96,31 +97,18 @@ int main(){
     fastio;
     setup();
     
+    string s;
     cin >> s;
-    
     int n = sz(s);
-    s = '#' + s;
+    s = "#" + s;
 
     init(n);
-    make_hash(n);
+    make_hash(s);
 
-    for(int len = 1; len <= n; len++){
-        int ori = get(1,len);
-
-        bool good = true;
-        for(int i = len+1; i + len - 1 <= n; i++){
-            if(get(i, i + len - 1) != ori){
-                good = false;
-                break;
-            }
+    for(int i = n; i >= 2; i--){
+        if(get(i,n) == get(1,n-i+1)){
+            cout << n-i+1 << ' ';
         }
-
-        if(n % len != 0){
-            int R = n%len;
-            good &= get(1,R) == get(n-R+1,n); 
-        }
-
-        if(good) cout << len << ' ';
     }
     
     return NAH_I_WOULD_WIN;

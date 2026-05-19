@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-19 08:26:18
+ *    created: 2026-05-16 23:24:03
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Marisa Steals Reimu's Takeout
+ *    source: https://codeforces.com/contest/2228/problem/A
+ *    submission: https://codeforces.com/problemset/submission/2228/374887464
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Math
+ *    complexity: O(1)
+ *    note: Consider all cases
 **/
 
 #include <iostream>
@@ -60,67 +60,51 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("2228A.INP", "r")) return;
+    freopen("2228A.INP", "r", stdin);
+    freopen("2228A.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e6+5;
 
-const ll MOD = 1234567891;
-ll hashA[N], POW[N];
-ll base = 31;
-string s;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void init(int n){
-    POW[0] = 1;
-    for(int i = 1; i <= n; i++){
-        POW[i] = (POW[i-1]*base)%MOD;
-    }
-}
 
-void make_hash(int n){
-    for(int i = 1; i <= n; i++){
-        hashA[i] = (hashA[i-1]*base + s[i] - 'a' + 1)%MOD;
-    }
-}
-
-ll get(int l, int r){
-    return ((hashA[r] - hashA[l-1]*POW[r-l+1])%MOD+ MOD)%MOD;
-}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    cin >> s;
+    int tc;
+    cin >> tc;
+    while(tc--){
+        int n;
+        cin >> n;
+        vi cnt(4);
+        for(int i = 1; i <= n; i++){
+            int x;
+            cin >> x;
+            cnt[x]++;
+        }
+
+        ll ans = cnt[0];
+
+        if(cnt[1] >= cnt[2]){
+            ans += cnt[2];
+            cnt[1] -= cnt[2];
+            cnt[2] = 0;
+
+            ans += cnt[1]/3;
+        }
+        else{
+            ans += cnt[1];
+            cnt[2] -= cnt[1];
+
+            ans += cnt[2]/3;
+        }
     
-    int n = sz(s);
-    s = '#' + s;
-
-    init(n);
-    make_hash(n);
-
-    for(int len = 1; len <= n; len++){
-        int ori = get(1,len);
-
-        bool good = true;
-        for(int i = len+1; i + len - 1 <= n; i++){
-            if(get(i, i + len - 1) != ori){
-                good = false;
-                break;
-            }
-        }
-
-        if(n % len != 0){
-            int R = n%len;
-            good &= get(1,R) == get(n-R+1,n); 
-        }
-
-        if(good) cout << len << ' ';
+        cout << ans << '\n';
     }
     
     return NAH_I_WOULD_WIN;

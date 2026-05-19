@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-19 08:26:18
+ *    created: 2026-05-16 23:30:52
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Remilia Plays Soku
+ *    source: https://codeforces.com/contest/2228/problem/B
+ *    submission: https://codeforces.com/problemset/submission/2228/374888959
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Game
+ *    complexity: O(1) 
+ *    note: Just the old distance + k is the answer, but also need to consider some small edge cases
 **/
 
 #include <iostream>
@@ -20,6 +20,7 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <cmath>
 
 using namespace std;
 
@@ -60,67 +61,37 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("2228B.INP", "r")) return;
+    freopen("2228B.INP", "r", stdin);
+    freopen("2228B.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e6+5;
 
-const ll MOD = 1234567891;
-ll hashA[N], POW[N];
-ll base = 31;
-string s;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void init(int n){
-    POW[0] = 1;
-    for(int i = 1; i <= n; i++){
-        POW[i] = (POW[i-1]*base)%MOD;
-    }
-}
 
-void make_hash(int n){
-    for(int i = 1; i <= n; i++){
-        hashA[i] = (hashA[i-1]*base + s[i] - 'a' + 1)%MOD;
-    }
-}
-
-ll get(int l, int r){
-    return ((hashA[r] - hashA[l-1]*POW[r-l+1])%MOD+ MOD)%MOD;
-}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    cin >> s;
-    
-    int n = sz(s);
-    s = '#' + s;
+    int tc;
+    cin >> tc;
+    while(tc--){
+        int n,x1,x2,k;
+        cin >> n >> x1 >> x2 >> k;
 
-    init(n);
-    make_hash(n);
-
-    for(int len = 1; len <= n; len++){
-        int ori = get(1,len);
-
-        bool good = true;
-        for(int i = len+1; i + len - 1 <= n; i++){
-            if(get(i, i + len - 1) != ori){
-                good = false;
-                break;
-            }
+        if(n <= 3){
+            cout << 1 << '\n';
+            continue;
         }
+        if(x1 > x2) swap(x1,x2);
 
-        if(n % len != 0){
-            int R = n%len;
-            good &= get(1,R) == get(n-R+1,n); 
-        }
+        int d = min(x2 - x1, x1 + n - x2);
 
-        if(good) cout << len << ' ';
+        cout << d + k << '\n';
     }
     
     return NAH_I_WOULD_WIN;

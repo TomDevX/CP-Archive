@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-19 08:26:18
+ *    created: 2026-05-17 22:43:37
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Finding Borders - Approach 1
+ *    source: https://cses.fi/problemset/task/1732
+ *    submission: https://cses.fi/problemset/result/17204250/
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Z-func
+ *    complexity: O(n)
+ *    note: Typical Z-func
 **/
 
 #include <iostream>
@@ -60,35 +60,34 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("1732.INP", "r")) return;
+    freopen("1732.INP", "r", stdin);
+    freopen("1732.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e6+5;
 
-const ll MOD = 1234567891;
-ll hashA[N], POW[N];
-ll base = 31;
-string s;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void init(int n){
-    POW[0] = 1;
-    for(int i = 1; i <= n; i++){
-        POW[i] = (POW[i-1]*base)%MOD;
-    }
-}
+vi zf(string &s){
+    int n = sz(s);
 
-void make_hash(int n){
-    for(int i = 1; i <= n; i++){
-        hashA[i] = (hashA[i-1]*base + s[i] - 'a' + 1)%MOD;
-    }
-}
+    vi z(n);
 
-ll get(int l, int r){
-    return ((hashA[r] - hashA[l-1]*POW[r-l+1])%MOD+ MOD)%MOD;
+    for(int i = 1, l = 0, r = 1; i < n; i++){
+        if(i <= r){
+            z[i] = min(r-i+1, z[i-l]);
+        }
+
+        while(i < n && s[z[i]] == s[i + z[i]]) z[i]++;
+
+        if(i + z[i] - 1 > r){
+            l = i;
+            r = i + z[i] - 1;
+        }
+    }
+
+    return z;
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -96,31 +95,14 @@ int main(){
     fastio;
     setup();
     
+    string s;
     cin >> s;
-    
     int n = sz(s);
-    s = '#' + s;
 
-    init(n);
-    make_hash(n);
+    vi z = zf(s);
 
-    for(int len = 1; len <= n; len++){
-        int ori = get(1,len);
-
-        bool good = true;
-        for(int i = len+1; i + len - 1 <= n; i++){
-            if(get(i, i + len - 1) != ori){
-                good = false;
-                break;
-            }
-        }
-
-        if(n % len != 0){
-            int R = n%len;
-            good &= get(1,R) == get(n-R+1,n); 
-        }
-
-        if(good) cout << len << ' ';
+    for(int i = n-1; i >= 0; i--){
+        if(z[i] == n-i) cout << z[i] << ' ';
     }
     
     return NAH_I_WOULD_WIN;

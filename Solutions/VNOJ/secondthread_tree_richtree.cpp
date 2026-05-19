@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-17 00:06:55
+ *    created: 2026-05-17 10:36:49
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: New Year Tree
- *    source: https://codeforces.com/problemset/problem/620/E
- *    submission: https://codeforces.com/contest/620/submission/374889233
+ *    title: Filthy Rich Trees
+ *    source: https://oj.vnoi.info/problem/secondthread_tree_richtree
+ *    submission: https://oj.vnoi.info/submission/12326531
  *    status: AC
  * ----------------------------------------------------------
- *    tags: Segment Tree, Euler Tour, Bitmask
+ *    tags: Euler Tour, Big Num, BIT
  *    complexity: O(n \log n)
- *    note: We notice that color <= 60 so we can make a bitmask of 2^60 to represent a color, and to combine colors just use operator OR, to find number of distinct, just use builtin_popcount. Now to update we make an array with euler tour and lazy update with segment tree.
+ *    note: At first glance, this problem is probably euler tour, so first we do the DFS first. But this is the product, so our sum will go > 10^10. So to fix that, we need to accept the number error and use log2(pref[sum]). We also know that log2(b/a) = log2(b) - log2(a) and log2(a * b) = log2(a) + log2(b). So we can apply that to BIT, just same as original number but this time log2 so we just prefix sum on it. Because query() returns log2(bit1 * bit2 * bit3) so to get the rate between query_original(x) and query_original(y), we turn it into (2^{query(x)}/(2^{query(y)})) = 2^{query(x) - query(y)} (because query() returns log2 so the answer must have 2^)
 **/
 
 #include <iostream>
@@ -20,6 +20,8 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <iomanip>
+#include <cmath>
 
 using namespace std;
 
@@ -60,32 +62,24 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("620E.INP", "r")) return;
-    freopen("620E.INP", "r", stdin);
-    freopen("620E.OUT", "w", stdout);
+    if(!fopen("secondthread_tree_richtree.INP", "r")) return;
+    freopen("secondthread_tree_richtree.INP", "r", stdin);
+    freopen("secondthread_tree_richtree.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-<<<<<<< HEAD
+const int N = 3e5+5;
 
-
-// ----------------------- [ FUNCTIONS ] -----------------------
-
-=======
-const int N = 4e5+5;
-
-ll st[4*N], t[4*N];
-int val[N];
 vi adj[N];
-int tour[N], tin[N], tout[N];
+ld bit[N];
+int tin[N], tout[N];
+int a[N];
 int timer = 0;
-
 int n;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void dfs(int u ,int pre){
-    tour[++timer] = val[u];
-    tin[u] = timer;
+void dfs(int u, int pre){
+    tin[u] = ++timer;
 
     for(int v : adj[u]){
         if(v == pre) continue;
@@ -96,79 +90,32 @@ void dfs(int u ,int pre){
     tout[u] = timer;
 }
 
-void build(int id, int l, int r){
-    if(l == r){
-        st[id] = (1LL << tour[l]);
-        return;
+void update(int pos, ld val){
+    for(; pos <= n; pos += pos&-pos){
+        bit[pos] += val;
     }
-
-    int mid = l+((r-l)>>1);
-    int lc = id<<1;
-
-    build(lc,l,mid);
-    build(lc|1,mid+1,r);
-
-    st[id] = st[lc] | st[lc|1];
 }
 
-void down(int id){
-    ll f = t[id];
-    if(f == 0) return;
+ld get(int pos){
+    ld res = 0;
 
-    t[id] = 0;
+    if(pos <= 0) return 0;
 
-    int lc = id<<1;
+    for(; pos; pos -= pos&-pos) res += bit[pos];
 
-    st[lc] = st[lc|1] = t[lc] = t[lc|1] = f;
+    return res;
 }
 
-void update(int id, int l, int r, int u, int v, int value){
-    if(l > v || r < u) return;
-    if(l >= u && r <= v){
-        st[id] = (1LL << value);
-        t[id] = (1LL << value);
-
-        return;
-    }
-
-    down(id);
-    int mid = l + ((r-l)>>1);
-    int lc = id<<1; 
-
-    update(lc,l,mid,u,v,value);
-    update(lc|1,mid+1,r,u,v,value);
-
-    st[id] = st[lc] | st[lc|1];
+ld query(int l, int r){
+    return get(r) - get(l-1);
 }
-
-ll get(int id, int l, int r, int u, int v){
-    if(l > v || r < u) return 0;
-    if(l >= u && r <= v) return st[id];
-
-    down(id);
-    int mid = l + ((r-l)>>1);
-    int lc= id<<1;
-
-    return get(lc,l,mid,u,v) | get(lc|1,mid+1,r,u,v);
-}
->>>>>>> 144b1a11e7923a50daccb80a0e9c94e5411a3aba
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
-<<<<<<< HEAD
     
-    w
-=======
-
-    int q;
-    cin >> n >> q;
-
-    for(int i = 1; i <= n; i++){
-        cin >> val[i];
-    }
-
+    cin >> n;
     for(int i = 1; i < n; i++){
         int u,v;
         cin >> u >> v;
@@ -177,24 +124,32 @@ int main(){
     }
 
     dfs(1,1);
-    build(1,1,timer);
 
-    int type;
+    fill(sub(a,1,n),1);
+
+    int q;
+    cin >> q;
     while(q--){
+        int type;
         cin >> type;
         if(type == 1){
-            int u,c;
-            cin >> u >> c;
-            update(1,1,timer,tin[u], tout[u], c);
+            int u,val;
+            cin >> u >> val;
+            update(tin[u],log2l(val) - log2l(a[u]));
+            a[u] = val;
         }
         else{
-            int u;
-            cin >> u;
+            int x,y;
+            cin >> x >> y;
 
-            cout << __builtin_popcountll(get(1,1,timer,tin[u], tout[u])) << '\n';
+            ld ans = query(tin[x],tout[x]) - query(tin[y], tout[y]);
+
+            if(ans > log2l(1e9)){
+                cout << 1000000000 << '\n';
+            }
+            else cout << fixed << setprecision(7) << pow(2.0L, ans) << '\n';
         }
     }
->>>>>>> 144b1a11e7923a50daccb80a0e9c94e5411a3aba
     
     return NAH_I_WOULD_WIN;
 }

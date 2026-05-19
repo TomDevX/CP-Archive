@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-10 10:25:26
+ *    created: 2026-05-16 22:24:41
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
@@ -66,7 +66,10 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 5e5+5;
 
+int a[N];
+int n,k,s;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -76,27 +79,54 @@ int main(){
     fastio;
     setup();
     
-    int n,m = 4;
-    cin >> n;
-    vvi a(n+1, vi(m+1));
-    for(int i = 1; i <= n; i++){
-        for(int j = 1; j <= m; j++){
-            cin >> a[i][j];
-        }
-    }
+    int tc;
+    cin >> tc;
+    while(tc--){
+        cin >> n >> k >> s;
 
-    int moves;
-    cin >> moves;
-    while(moves--){
-        pii x, y;
-        cin >> x.fi >> x.se >> y.fi >> y.se;
-        swap(a[x.fi][x.se], a[y.fi][y.se]);
-    }
+        for(int i = 1; i <= n; i++) cin >> a[i];
 
-    for(int i = 1; i <= n; i++){
-        for(int j = 1; j <= m; j++){
-            cout << a[i][j] << " \n"[j == m];
+        int ans = 0, groups = 0;
+        bool prev_err = false;
+        ll sum_good = 0;
+
+        for(int i = 1; i <= n; i++){
+            if(k - groups == 1){
+                if(sum_good) ans++;
+                ll sum = 0;
+                for(int j = i; j <= n; j++){
+                    sum += a[j];
+                }
+                if(sum <= s){
+                    ans++;
+                }
+                break;
+            }
+
+            if(sum_good + a[i] <= s){
+                sum_good += a[i];
+                prev_err = false;
+                continue;   
+            }
+            else{
+                if(sum_good){
+                    ans++;
+                    groups++;
+                    sum_good = 0;
+                    if(a[i] > s){
+                        i--;
+                        break;
+                    }
+                }
+                else{
+                    if(prev_err) continue;
+                    prev_err = true;
+                    groups++;
+                }
+            }
         }
+
+        cout << ans << '\n';
     }
     
     return NAH_I_WOULD_WIN;
