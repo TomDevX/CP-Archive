@@ -1,11 +1,11 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-19 08:26:18
+ *    created: 2026-05-19 08:49:31
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: Palindrome dài nhất
+ *    source: https://oj.vnoi.info/problem/paliny
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -60,68 +60,62 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("paliny.INP", "r")) return;
+    freopen("paliny.INP", "r", stdin);
+    freopen("paliny.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e6+5;
+const int N = 5e4+5;
 
+ll hashS[N], POW[N];
 const ll MOD = 1234567891;
-ll hashA[N], POW[N];
 ll base = 31;
+
 string s;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void init(int n){
-    POW[0] = 1;
-    for(int i = 1; i <= n; i++){
-        POW[i] = (POW[i-1]*base)%MOD;
-    }
-}
 
-void make_hash(int n){
-    for(int i = 1; i <= n; i++){
-        hashA[i] = (hashA[i-1]*base + s[i] - 'a' + 1)%MOD;
-    }
-}
-
-ll get(int l, int r){
-    return ((hashA[r] - hashA[l-1]*POW[r-l+1])%MOD+ MOD)%MOD;
-}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
+    int n;
+    cin >> n;
     cin >> s;
-    
-    int n = sz(s);
     s = '#' + s;
 
-    init(n);
-    make_hash(n);
+    // one center
+    int l = 1, r = n, ans = 1;
+    while(l <= r){
+        int mid = l + ((r-l)>>1);
+        if(!(mid&1)) mid++;
 
-    for(int len = 1; len <= n; len++){
-        int ori = get(1,len);
-
-        bool good = true;
-        for(int i = len+1; i + len - 1 <= n; i+=len){
-            if(get(i, i + len - 1) != ori){
-                good = false;
-                break;
-            }
+        if(check(mid)){
+            l = mid+1;
+            ans= mid;
         }
-
-        if(n % len != 0){
-            int R = n%len;
-            good &= get(1,R) == get(n-R+1,n); 
-        }
-
-        if(good) cout << len << ' ';
+        else r = mid-1;
     }
+
+
+    // 2 center
+    int l = 1, r= n;
+    while(l <= r){
+        int mid = l + ((r-l)>>1);
+        if(mid&1) mid++;
+
+        if(check(mid)){
+            l = mid+1;
+            ans = max(ans,mid);
+        }
+        else r =  mid-1;
+    }
+
+    cout << ans;
+
 
     return NAH_I_WOULD_WIN;
 }
