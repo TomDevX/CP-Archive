@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-19 08:26:18
+ *    created: 2026-05-19 08:49:31
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Palindrome dài nhất
+ *    source: https://oj.vnoi.info/problem/paliny
+ *    submission: https://oj.vnoi.info/submission/12338521
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Hash
+ *    complexity: O(n \log n)
+ *    note: Just binary search on the length
 **/
 
 #include <iostream>
@@ -60,35 +60,57 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("paliny.INP", "r")) return;
+    freopen("paliny.INP", "r", stdin);
+    freopen("paliny.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e6+5;
+const int N = 5e4+5;
 
+ll hashS[N], hashSr[N], POW[N];
 const ll MOD = 1234567891;
-ll hashA[N], POW[N];
 ll base = 31;
-string s;
+
+string s, sR;
+int n;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void init(int n){
+void init(){
     POW[0] = 1;
     for(int i = 1; i <= n; i++){
         POW[i] = (POW[i-1]*base)%MOD;
     }
 }
 
-void make_hash(int n){
+void make_hash(){
+    sR = s;
+    reverse(all(sR,1));
+
     for(int i = 1; i <= n; i++){
-        hashA[i] = (hashA[i-1]*base + s[i] - 'a' + 1)%MOD;
+        hashS[i] = (hashS[i-1]*base + s[i] - 'a' + 1)%MOD;
+        hashSr[i] = (hashSr[i-1]*base + sR[i] - 'a' + 1)%MOD;
     }
 }
 
 ll get(int l, int r){
-    return ((hashA[r] - hashA[l-1]*POW[r-l+1])%MOD+ MOD)%MOD;
+    return ((hashS[r] - hashS[l-1]*POW[r-l+1])%MOD + MOD)%MOD;
+}
+
+ll getR(int l, int r){
+    l = n-l+1;
+    r = n-r+1;
+    swap(l,r);
+    return ((hashSr[r] - hashSr[l-1]*POW[r-l+1])%MOD + MOD)%MOD;
+}
+
+bool check(int len){
+    for(int i = 1; i + len - 1 <= n; i++){
+        int j = i + len - 1;
+        if(get(i, j) == getR(i,j)) return true;
+    }
+
+    return false;
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -96,37 +118,49 @@ int main(){
     fastio;
     setup();
     
+    cin >> n;
     cin >> s;
-    
-    int n = sz(s);
     s = '#' + s;
 
-    init(n);
-    make_hash(n);
-
-    for(int len = 1; len <= n; len++){
-        int ori = get(1,len);
-
-    init(n);
+    init();
     make_hash();
 
-    for(int k = 1; k <= n; k++){
-        ll base = get(1,k);
-        bool good = true;
-        for(int i = len+1; i + len - 1 <= n; i+=len){
-            if(get(i, i + len - 1) != ori){
-                good = false;
-                break;
-            }
-        }
+    // one center
+    int l = 1, r = n, ans = 1;
+    int prev = 0;
+    while(l <= r){
+        int mid = l + ((r-l)>>1);
+        if(!(mid&1)) mid++;
+        if(mid == prev) break;
+        prev = mid;
 
-        if(n % len != 0){
-            int R = n%len;
-            good &= get(1,R) == get(n-R+1,n); 
+        if(check(mid)){
+            l = mid+1;
+            ans = mid;
         }
-
-        if(good) cout << len << ' ';
+        else r = mid-1;
     }
+
+
+    // 2 center
+    l = 1, r = n;
+    prev = 0;
+    while(l <= r){
+        int mid = l + ((r-l)>>1);
+        if(mid&1) mid++;
+
+        if(mid == prev) break;
+        prev = mid;
+
+        if(check(mid)){
+            l = mid+1;
+            ans = max(ans,mid);
+        }
+        else r =  mid-1;
+    }
+
+    cout << ans;
+
 
     return NAH_I_WOULD_WIN;
 }

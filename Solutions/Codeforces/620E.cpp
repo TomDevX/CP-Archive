@@ -66,6 +66,12 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+<<<<<<< HEAD
+
+
+// ----------------------- [ FUNCTIONS ] -----------------------
+
+=======
 const int N = 4e5+5;
 
 ll st[4*N], t[4*N];
@@ -145,11 +151,16 @@ ll get(int id, int l, int r, int u, int v){
 
     return get(lc,l,mid,u,v) | get(lc|1,mid+1,r,u,v);
 }
+>>>>>>> 144b1a11e7923a50daccb80a0e9c94e5411a3aba
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
+<<<<<<< HEAD
+    
+    w
+=======
 
     int q;
     cin >> n >> q;
@@ -183,6 +194,7 @@ int main(){
             cout << __builtin_popcountll(get(1,1,timer,tin[u], tout[u])) << '\n';
         }
     }
+>>>>>>> 144b1a11e7923a50daccb80a0e9c94e5411a3aba
     
     return NAH_I_WOULD_WIN;
 }

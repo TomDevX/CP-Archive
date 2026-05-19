@@ -1,13 +1,13 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-19 08:26:18
+ *    created: 2026-05-13 11:22:51
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Cau mày (cây màu)
+ *    source: https://oj.vnoi.info/problem/euler_d
+ *    submission: https://oj.vnoi.info/submission/12293568
+ *    status: AC
  * ----------------------------------------------------------
  *    tags: 
  *    complexity: 
@@ -60,35 +60,49 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("euler_d.INP", "r")) return;
+    freopen("euler_d.INP", "r", stdin);
+    freopen("euler_d.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e6+5;
+const int N = 2e5+5;
 
-const ll MOD = 1234567891;
-ll hashA[N], POW[N];
-ll base = 31;
-string s;
+int n;
+int bit[N];
+int tour[N], tout[N];
+int c[N], sorted[N], pos[N], nxt[N];
+int ans[N];
+int timer = 0;
+vi adj[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void init(int n){
-    POW[0] = 1;
-    for(int i = 1; i <= n; i++){
-        POW[i] = (POW[i-1]*base)%MOD;
+void dfs(int u, int pre){
+    tour[++timer] = u;
+    for(int v : adj[u]){
+        if(v == pre) continue;
+        dfs(v,u);
     }
+    tout[u] = timer;
 }
 
-void make_hash(int n){
-    for(int i = 1; i <= n; i++){
-        hashA[i] = (hashA[i-1]*base + s[i] - 'a' + 1)%MOD;
-    }
+void update(int pos, int val){
+    for(; pos <= timer; pos += pos&-pos) bit[pos] += val;
 }
 
-ll get(int l, int r){
-    return ((hashA[r] - hashA[l-1]*POW[r-l+1])%MOD+ MOD)%MOD;
+void update_range(int l, int r, int val){
+    update(l,val);
+    update(r+1,-val);
+}
+
+int get(int pos){
+    int res = 0;
+    for(; pos; pos -= pos&-pos) res += bit[pos];
+    return res;
+}
+
+int query(int l, int r){
+    return get(r) - get(l-1);
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -96,37 +110,46 @@ int main(){
     fastio;
     setup();
     
-    cin >> s;
-    
-    int n = sz(s);
-    s = '#' + s;
+    cin >> n;
+    for(int i = 1; i <= n; i++) cin >> c[i], sorted[i] = c[i];
 
-    init(n);
-    make_hash(n);
+    sort(sub(sorted,1,n));
 
-    for(int len = 1; len <= n; len++){
-        int ori = get(1,len);
-
-    init(n);
-    make_hash();
-
-    for(int k = 1; k <= n; k++){
-        ll base = get(1,k);
-        bool good = true;
-        for(int i = len+1; i + len - 1 <= n; i+=len){
-            if(get(i, i + len - 1) != ori){
-                good = false;
-                break;
-            }
-        }
-
-        if(n % len != 0){
-            int R = n%len;
-            good &= get(1,R) == get(n-R+1,n); 
-        }
-
-        if(good) cout << len << ' ';
+    for(int i = 1; i <= n; i++){
+        c[i] = lower_bound(sub(sorted,1,n), c[i]) - sorted;
     }
 
+    for(int i = 1; i < n; i++){
+        int u,v;
+        cin >> u >> v;
+        adj[u].eb(v);
+        adj[v].eb(u);
+    }
+
+    dfs(1,1);
+
+    for(int i = timer; i >= 1; i--){
+        if(pos[c[tour[i]]]){
+            nxt[i] = pos[c[tour[i]]];
+        }
+        else nxt[i] = n+1;
+        pos[c[tour[i]]] = i;
+    }
+
+    for(int i = 1; i <= timer; i++){
+        if(pos[c[tour[i]]] == i){
+            update(i,1);
+        }
+    }
+
+    for(int i = 1; i <= timer; i++){
+        ans[tour[i]] = query(i, tout[tour[i]]);
+        update(i,-1);
+        
+        if(nxt[i] <= n) update(nxt[i],1);
+    }
+
+    for(int i = 1; i <= n; i++) cout << ans[i] << ' ';
+    
     return NAH_I_WOULD_WIN;
 }
