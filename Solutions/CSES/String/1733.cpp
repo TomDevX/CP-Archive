@@ -1,11 +1,11 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-18 21:26:34
+ *    created: 2026-05-17 23:24:10
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: Finding Periods
+ *    source: https://cses.fi/problemset/task/1733
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -60,9 +60,9 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("1733.INP", "r")) return;
+    freopen("1733.INP", "r", stdin);
+    freopen("1733.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
@@ -72,17 +72,18 @@ const ll MOD = 1234567891;
 ll hashA[N], POW[N];
 ll base = 31;
 
-string s;
-
 // ----------------------- [ FUNCTIONS ] -----------------------
 void init(int n){
     POW[0] = 1;
-    for(int i = 1; i <= n; i++) POW[i] = (POW[i-1]*base)%MOD;
+    for(int i = 1; i <= n; i++){
+        POW[i] = (POW[i-1]*base)%MOD;
+    }
 }
 
-void make_hash(){
-    int n = sz(s)-1;
-    for(int i =1 ; i <= n; i++){
+void make_hash(string &s){
+    int n = sz(s) - 1;
+
+    for(int i = 1; i <= n; i++){
         hashA[i] = (hashA[i-1]*base + s[i] - 'a' + 1)%MOD;
     }
 }
@@ -96,27 +97,16 @@ int main(){
     fastio;
     setup();
     
+    string s;
     cin >> s;
     int n = sz(s);
     s = "#" + s;
 
     init(n);
-    make_hash();
+    make_hash(s);
 
     for(int k = 1; k <= n; k++){
-        ll base = get(1,k);
-        bool good = true;
-        for(int i = k+1; i + k - 1 <= n; i += k){
-            if(get(i,i + k - 1) != base){
-                good = false;
-                break;
-            }
-        }
-        if(n % k != 0){
-            int len = n%k;
-            good &= get(1,len) == get(n-len+1,n);
-        }
-        if(good) cout << k << ' ';
+        if(get(1,n-k) == get(k+1,n)) cout << k << ' ';
     }
     
     return NAH_I_WOULD_WIN;
