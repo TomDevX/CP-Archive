@@ -99,7 +99,7 @@ struct Precompute {
 struct PolyHash{
     HashKey* h = nullptr;
     int len = 0;
-    const string& s ;
+    const string& s;
 
     PolyHash(const string& _s) : s(_s) {
         len = sz(s) - 1;

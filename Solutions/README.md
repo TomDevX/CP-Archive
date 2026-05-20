@@ -2,7 +2,7 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-323/366-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_20%2C_2026_--_16%3A44_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260520T1644&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-323/366-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_20%2C_2026_--_16%3A46_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260520T1646&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 366
 - **Accepted:** 323
@@ -544,6 +544,6 @@
 | 57 | [VOI17 - VOI 17 Bài 3 - Trò chơi](https://oj.vnoi.info/problem/voi17_bgame) | `MST`, `LCA` | $\mathcal{O}(m \log m + m \log n)$ | May 11, 2026 | [Code](VNOJ/voi17_bgame.cpp) \| [Sub](https://oj.vnoi.info/submission/12281848) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 58 | [VOI22 - VOI 22 Bài 4 - Đoạn số](https://oj.vnoi.info/problem/voi22_sseq) | `Segment Tree Lazy`, `VOI` | $\mathcal{O}(n \log n)$ | Apr 10, 2026 | [Code](VNOJ/voi22_sseq.cpp) \| [Sub](https://oj.vnoi.info/submission/12080379) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 59 | [VOI25 - VOI 25 Bài 1 - Người giao hàng](https://oj.vnoi.info/problem/voi25_ship) | `LCA`, `Tree` | $\mathcal{O}(n \log n)$ | Apr 14, 2026 | [Code](VNOJ/voi25_ship.cpp) \| [Sub](https://oj.vnoi.info/submission/12115569) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 60 | [VOSTR - VO 13 Bài 4 - Xử lý xâu](https://oj.vnoi.info/problem/vostr) | N/A | N/A | May 19, 2026 | [Code](VNOJ/vostr.cpp) \| [Sub](https://oj.vnoi.info/submission/12342748) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 60 | [VOSTR - VOI 13 Bài 4 - Xử lý xâu](https://oj.vnoi.info/problem/vostr) | `Hash` | $\mathcal{O}(n \log n)$ | May 19, 2026 | [Code](VNOJ/vostr.cpp) \| [Sub](https://oj.vnoi.info/submission/12342748) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 61 | [VR-DST-LISPATH - Lis Path](https://oj.vnoi.info/problem/vr_dst_lispath) | `Dynamic Programming`, `Tree` | $\mathcal{O}(n \log n)$ | Feb 8, 2026 | [Code](VNOJ/vr-dst-lispath.cpp) \| [Sub](https://oj.vnoi.info/submission/11673982) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 

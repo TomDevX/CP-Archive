@@ -4,14 +4,14 @@
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: VO 13 Bài 4 - Xử lý xâu
+ *    title: VOI 13 Bài 4 - Xử lý xâu
  *    source: https://oj.vnoi.info/problem/vostr
  *    submission: https://oj.vnoi.info/submission/12342748
  *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Hash
+ *    complexity: O(n \log n)
+ *    note: The one character which determine if the string is smaller/greater is the first different character. So now in order to improve time complexity, we just need to use binary search and hash to find the last same position of 2 strings, then we examine the first different character.
 **/
 
 #include <iostream>

@@ -31,17 +31,16 @@ void reset_pool(){
 struct PolyHash{
     HashKey *h = nullptr;
     int len = 0;
+    const string& s;
 
-    PolyHash(){};
-
-    PolyHash(const string &s){
-        len = sz(s)-1;
+    PolyHash(const string& _s) : s(_s) {
+        len = sz(s) - 1;
         h = &Hash[pool];
-        pool += (len+1);
+        pool += len+1;
 
         for(int i = 1; i <= len; i++){
-            h[i].h1 = (h[i].h1*base + s[i] - 'a' + 1)%MOD1;
-            h[i].h2 = (h[i].h2*base + s[i] - 'a' + 1)%MOD2;
+            h[i].h1 = (h[i-1].h1*base + s[i] - 'a' + 1)%MOD1;
+            h[i].h2 = (h[i-1].h2*base + s[i] - 'a' + 1)%MOD2;
         }
     }
 
