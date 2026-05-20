@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-321/364-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_19%2C_2026_--_21%3A32_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260519T2132&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-323/366-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_20%2C_2026_--_16%3A44_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260520T1644&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 364
-- **Accepted:** 321
+- **Total Problems:** 366
+- **Accepted:** 323
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -18,7 +18,7 @@
 * [📂 CodeChef (1)](#-codechef-1)
 * [📂 Codeforces (127)](#-codeforces-127)
 * [📂 CPPros (6)](#-cppros-6)
-* [📂 CSES (45)](#-cses-45)
+* [📂 CSES (46)](#-cses-46)
   * [📂 Advanced Techniques (2)](#-advanced-techniques-2)
   * [📂 Dynamic Programming (12)](#-dynamic-programming-12)
   * [📂 Geometry (6)](#-geometry-6)
@@ -26,7 +26,7 @@
   * [📂 Range Queries (10)](#-range-queries-10)
   * [📂 Sliding Windơows Problem (2)](#-sliding-windơows-problem-2)
   * [📂 Sorting And Searching (3)](#-sorting-and-searching-3)
-  * [📂 String (3)](#-string-3)
+  * [📂 String (4)](#-string-4)
 * [📂 IUHCoder (2)](#-iuhcoder-2)
 * [📂 Leetcode (2)](#-leetcode-2)
 * [📂 LQDOJ (10)](#-lqdoj-10)
@@ -41,13 +41,13 @@
 * [📂 SPOJ (6)](#-spoj-6)
 * [📂 SQRTOJ (1)](#-sqrtoj-1)
 * [📂 USACO (3)](#-usaco-3)
-* [📂 VNOJ (59)](#-vnoj-59)
+* [📂 VNOJ (60)](#-vnoj-60)
 
 ---
-## 📂 [Solutions (364)](*%20%20%20%20submission:)
+## 📂 [Solutions (366)](*%20%20%20%20submission:)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | Main | N/A | N/A | May 19, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 1 | Main | N/A | N/A | May 20, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 2 | Main  Generator | N/A | N/A | May 3, 2026 | [Code](main__Generator.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 3 | Main  Good | N/A | N/A | May 3, 2026 | [Code](main__Good.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 4 | Main  Interactor | N/A | N/A | Apr 11, 2026 | [Code](main__Interactor.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -299,12 +299,13 @@
 | 2 | [2216 - Collecting Numbers](https://cses.fi/problemset/task/2216) | `Implementation` | $\mathcal{O}(n)$ | Feb 10, 2026 | [Code](CSES/Sorting%20and%20Searching/2216.cpp) \| [Sub](https://cses.fi/problemset/result/16218047/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 3 | [2217 - Collecting Numbers II](https://cses.fi/problemset/task/2217) | `Adhoc` | $\mathcal{O}(n + m)$ | Feb 10, 2026 | [Code](CSES/Sorting%20and%20Searching/2217.cpp) \| [Sub](https://cses.fi/problemset/result/16218382/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-### 📁 String (3)
+### 📁 String (4)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [1732-2 - Finding Borders - Approach 2](https://cses.fi/problemset/result/17204250/) | `Hash` | $\mathcal{O}(n)$ | May 17, 2026 | [Code](CSES/String/1732-2.cpp) \| [Sub](https://cses.fi/problemset/result/17204343/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 2 | [1732 - Finding Borders - Approach 1](https://cses.fi/problemset/task/1732) | `Z-func` | $\mathcal{O}(n)$ | May 17, 2026 | [Code](CSES/String/1732.cpp) \| [Sub](https://cses.fi/problemset/result/17204250/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 3 | [1733 - Finding Periods](https://cses.fi/problemset/task/1733) | N/A | N/A | May 17, 2026 | [Code](CSES/String/1733.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 1 | [1110 - Minimal Rotation](https://cses.fi/problemset/task/1110) | `Hash` | $\mathcal{O}(n \log n)$ | May 20, 2026 | [Code](CSES/String/1110.cpp) \| [Sub](https://cses.fi/problemset/result/17233962/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 2 | [1732-2 - Finding Borders - Approach 2](https://cses.fi/problemset/result/17204250/) | `Hash` | $\mathcal{O}(n)$ | May 17, 2026 | [Code](CSES/String/1732-2.cpp) \| [Sub](https://cses.fi/problemset/result/17204343/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 3 | [1732 - Finding Borders - Approach 1](https://cses.fi/problemset/task/1732) | `Z-func` | $\mathcal{O}(n)$ | May 17, 2026 | [Code](CSES/String/1732.cpp) \| [Sub](https://cses.fi/problemset/result/17204250/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 4 | [1733 - Finding Periods](https://cses.fi/problemset/task/1733) | N/A | N/A | May 17, 2026 | [Code](CSES/String/1733.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
 ## 📂 [IUHCoder (2)](https://oj.iuhcoder.com/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
@@ -481,7 +482,7 @@
 | 2 | [921 - Cow Land](https://usaco.org/index.php?page=viewproblem2&cpid=921) | `LCA`, `Euler Tour`, `BIT` | $\mathcal{O}(n \log n)$ | May 14, 2026 | [Code](USACO/921.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 3 | [1137 - USACO 2021 US Open, Gold - Problem 1. United Cows of Farmer John](https://usaco.org/index.php?page=viewproblem2&cpid=1137) | `BIT` | $\mathcal{O}(n \log n)$ | Apr 18, 2026 | [Code](USACO/1137.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-## 📂 [VNOJ (59)](https://oj.vnoi.info/)
+## 📂 [VNOJ (60)](https://oj.vnoi.info/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [AREA - Diện tích hình chữ nhật](https://oj.vnoi.info/problem/area) | `Sweep Line 2D`, `Segment Tree` | $\mathcal{O}(n \log n)$ | Apr 22, 2026 | [Code](VNOJ/area.cpp) \| [Sub](https://oj.vnoi.info/submission/12168828) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -543,5 +544,6 @@
 | 57 | [VOI17 - VOI 17 Bài 3 - Trò chơi](https://oj.vnoi.info/problem/voi17_bgame) | `MST`, `LCA` | $\mathcal{O}(m \log m + m \log n)$ | May 11, 2026 | [Code](VNOJ/voi17_bgame.cpp) \| [Sub](https://oj.vnoi.info/submission/12281848) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 58 | [VOI22 - VOI 22 Bài 4 - Đoạn số](https://oj.vnoi.info/problem/voi22_sseq) | `Segment Tree Lazy`, `VOI` | $\mathcal{O}(n \log n)$ | Apr 10, 2026 | [Code](VNOJ/voi22_sseq.cpp) \| [Sub](https://oj.vnoi.info/submission/12080379) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 59 | [VOI25 - VOI 25 Bài 1 - Người giao hàng](https://oj.vnoi.info/problem/voi25_ship) | `LCA`, `Tree` | $\mathcal{O}(n \log n)$ | Apr 14, 2026 | [Code](VNOJ/voi25_ship.cpp) \| [Sub](https://oj.vnoi.info/submission/12115569) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 60 | [VR-DST-LISPATH - Lis Path](https://oj.vnoi.info/problem/vr_dst_lispath) | `Dynamic Programming`, `Tree` | $\mathcal{O}(n \log n)$ | Feb 8, 2026 | [Code](VNOJ/vr-dst-lispath.cpp) \| [Sub](https://oj.vnoi.info/submission/11673982) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 60 | [VOSTR - VO 13 Bài 4 - Xử lý xâu](https://oj.vnoi.info/problem/vostr) | N/A | N/A | May 19, 2026 | [Code](VNOJ/vostr.cpp) \| [Sub](https://oj.vnoi.info/submission/12342748) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 61 | [VR-DST-LISPATH - Lis Path](https://oj.vnoi.info/problem/vr_dst_lispath) | `Dynamic Programming`, `Tree` | $\mathcal{O}(n \log n)$ | Feb 8, 2026 | [Code](VNOJ/vr-dst-lispath.cpp) \| [Sub](https://oj.vnoi.info/submission/11673982) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 

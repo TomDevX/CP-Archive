@@ -1,13 +1,13 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-20 15:43:00
+ *    created: 2026-05-19 22:02:57
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: VO 13 Bài 4 - Xử lý xâu
+ *    source: https://oj.vnoi.info/problem/vostr
+ *    submission: https://oj.vnoi.info/submission/12342748
+ *    status: AC
  * ----------------------------------------------------------
  *    tags: 
  *    complexity: 
@@ -60,23 +60,95 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("vostr.INP", "r")) return;
+    freopen("vostr.INP", "r", stdin);
+    freopen("vostr.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 1e6+5;
 
+int n,m;
+string a,b;
+
+const ll MOD = 1234567891;
+ll POW[N], hashA[N], hashB[N];
+ll base = 31;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void make_hash(){
+    POW[0] = 1;
+    for(int i = 1; i <= max(n,m); i++){
+        POW[i] = (POW[i-1]*base)%MOD;
+    }
 
+    for(int i = 1; i <= n; i++){
+        hashA[i] = (hashA[i-1]*base + a[i] - 'a' + 1)%MOD;
+    }
+    for(int i = 1; i <= m; i++){
+        hashB[i] = (hashB[i-1]*base + b[i] - 'a' + 1)%MOD;
+    };
+}
+
+ll getA(int l, int r){
+    return ((hashA[r] - hashA[l-1]*POW[r-l+1])%MOD + MOD)%MOD;
+}
+
+ll getB(int l, int r){
+    return ((hashB[r] - hashB[l-1]*POW[r-l+1])%MOD + MOD)%MOD;
+}
+
+int longest_pref(int l, int r, int u, int v){
+    int L = 0, R = min(v-u,r-l), ans = 0;
+
+    while(L <= R){
+        int mid = L + ((R-L)>>1);
+
+        if(getA(l, l + mid) == getB(u, u + mid)){
+            ans = mid;
+            L = mid+1;
+        }
+        else R = mid-1;
+    }
+    return ans;
+}
+
+char check(int l, int r, int u, int v){
+    if(r-l == v-u){
+        if(getA(l,r) == getB(u,v)) return '=';
+        int idx = longest_pref(l,r,u,v);
+        return (a[l + idx + 1] < b[u + idx + 1] ? '<' : '>');
+    }
+    if(r-l < v-u){
+        int idx = longest_pref(l,r,u, u + (r-l));
+        return (l + idx == r || a[l + idx+1] < b[u + idx+1] ? '<' : '>');
+    }
+
+
+    int idx = longest_pref(l,l + (v-u),u, v);
+    return (u + idx == v || a[l + idx+1] < b[u + idx+1] ? '<' : '>');
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    
+    cin >> n >> m;
+    cin >> a >> b;
+    a = '#' + a;
+    b = '#' + b;
+
+    make_hash();
+
+    int q;
+    cin >> q;
+    while(q--){
+        int l,r,u,v;
+        cin >> l >> r >> u >> v;
+
+        cout << check(l,r,u,v);
+    }
     
     return NAH_I_WOULD_WIN;
 }
