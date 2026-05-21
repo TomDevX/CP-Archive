@@ -11,7 +11,7 @@
  * ----------------------------------------------------------
  *    tags: Hash
  *    complexity: O(n \log n)
- *    note: Notice that we can check every possible circle by doubling the string, so now we double it and check every k. If a == b, we have n ways, else if they only have 1 difference, we have 1 way. To check if they are equal -> use hash. To check if they only have 1 difference, we check there LCP and LCS with hash.
+ *    note: Notice that we can check every possible circle by doubling the string, so now we double it and check every k. If a == b, we have n ways, else if they only have 1 difference (we can only change 1 character), we have 1 way. To check if they are equal -> use hash. To check if they only have 1 difference, we check there LCP and LCS with hash.
 **/
 
 #include <iostream>
