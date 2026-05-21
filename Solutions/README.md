@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-326/370-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_21%2C_2026_--_16%3A55_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260521T1655&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-327/370-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_21%2C_2026_--_22%3A36_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260521T2236&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 370
-- **Accepted:** 326
+- **Accepted:** 327
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -513,7 +513,7 @@
 | 25 | [EULER - Cau mày (cây màu)](https://oj.vnoi.info/problem/euler_d) | N/A | N/A | May 13, 2026 | [Code](VNOJ/euler_d.cpp) \| [Sub](https://oj.vnoi.info/submission/12293568) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 26 | [EULER - Two Piece](https://oj.vnoi.info/problem/euler_e) | `LCA`, `Tree Diameter` | $\mathcal{O}(n \log n)$ | May 14, 2026 | [Code](VNOJ/euler_e.cpp) \| [Sub](https://oj.vnoi.info/submission/12303918) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 27 | [EULER - Fast Lowest Common Ancestor](https://oj.vnoi.info/problem/euler_g) | `Euler Tour`, `LCA` | $\mathcal{O}(n \log n)$ | May 14, 2026 | [Code](VNOJ/euler_g.cpp) \| [Sub](https://oj.vnoi.info/submission/12304449) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 28 | [FC051 - ANAGRAM](https://oj.vnoi.info/problem/fc051_anagram) | N/A | N/A | May 21, 2026 | [Code](VNOJ/fc051_anagram.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 28 | [FC051 - ANAGRAM](https://oj.vnoi.info/problem/fc051_anagram) | `Hash` | $\mathcal{O}((n + m) \log n)$ | May 21, 2026 | [Code](VNOJ/fc051_anagram.cpp) \| [Sub](https://oj.vnoi.info/submission/12355090) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 29 | [FCB048 - XORQ](https://oj.vnoi.info/problem/fcb048_xorq) | `Segment Tree Lazy` | $\mathcal{O}(n \cdot \log n \cdot  \log a[i] \cdot n)$ | Apr 14, 2026 | [Code](VNOJ/fcb048_xorq.cpp) \| [Sub](https://oj.vnoi.info/submission/12115017) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 30 | [FSELECT - Làm quen bạn mới](https://oj.vnoi.info/problem/fselect) | `LCA` | $\mathcal{O}(n \log n)$ | May 10, 2026 | [Code](VNOJ/fselect.cpp) \| [Sub](https://oj.vnoi.info/submission/12272471) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 31 | [FWATER - Tưới nước đồng cỏ](https://oj.vnoi.info/problem/fwater) | `MST` | $\mathcal{O}(n \log n)$ | May 6, 2026 | [Code](VNOJ/fwater.cpp) \| [Sub](https://oj.vnoi.info/submission/12251173) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
