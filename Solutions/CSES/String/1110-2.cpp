@@ -4,14 +4,14 @@
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Minimal Rotation - Approach 2
+ *    source: https://cses.fi/problemset/task/1110/
+ *    submission: https://cses.fi/problemset/result/17246433/
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Booth's algorithm
+ *    complexity: O(n)
+ *    note: Booth's algorithm
 **/
 
 #include <iostream>

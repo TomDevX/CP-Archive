@@ -165,14 +165,12 @@ int main(){
 
     for(int k = 0; k < n; k++){
         int lcp = ha.LCP(1 + k, n + k, hb);
-        int lcs = ha.LCS(1 + k, n + k, hb);
+        // int lcs = ha.LCS(1 + k, n + k, hb);
 
-        dbg(lcp,lcs);
-
-        if(lcp + lcs == 2*n){
+        if(lcp == n){
             ans += n;
         }
-        else if(lcp + lcs == n-1){
+        else if(lcp == n-1 || ha.get(lcp + k + 2, n + k) == hb.get(lcp+2,n)){
             ans++;
         }
     }

@@ -1,11 +1,11 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-21 16:33:12
+ *    created: 2026-05-21 15:30:45
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: ANAGRAM
+ *    source: https://oj.vnoi.info/problem/fc051_anagram
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -60,43 +60,75 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("fc051_anagram.INP", "r")) return;
+    freopen("fc051_anagram.INP", "r", stdin);
+    freopen("fc051_anagram.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 4005;
 
+int pref[2][N][26];
+int (&prefA)[N][26] = pref[0];
+int (&prefB)[N][26] = pref[1];
+int n,m;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+bool check(int len){
+    for(int i = 1; i + len - 1 <= n; i++){
+        int ir = i + len - 1;
+        for(int j = 1; j + len - 1 <= m; j++){
+            int jr = j + len - 1;
+            bool good = true;
 
+            for(int c = 0; c < 26; c++){
+                if(prefA[ir][c] - prefA[i-1][c] != prefB[jr][c] - prefB[j-1][c]){
+                    good = false;
+                    break;
+                }
+            }
+
+            if(good) return true;
+        }
+    }
+    return false;
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    string s;
-    cin >> s;
-    int n = sz(s);
-    string t = s + s;
+    string a,b;
+    cin >> a >> b;
+    n = sz(a), m = sz(b);
+    a = "#" + a;
+    b = "#" + b;
 
-    int i = 0, j = 1;
-    while(i < n && j < n){
-        int k = 0;
-        while(k < n && t[i + k] == t[j+k]) k++;
-
-        if(k == n) break;
-
-        if(t[i + k] < t[j + k]){
-            j += k + 1;
+    for(int i = 1; i <= n; i++){
+        prefA[i][a[i] - 'a']++;
+        for(int j = 0; j < 26; j++){
+            prefA[i][j] += prefA[i-1][j];
         }
-        else i += k + 1;
-
-        if(i == j) j++;
+    }
+    for(int i = 1; i <= m; i++){
+        prefB[i][b[i] - 'a']++;
+        for(int j = 0; j < 26; j++){
+            prefB[i][j] += prefB[i-1][j];
+        }
     }
 
-    cout << t.substr(i,n);
+    int l = 1, r = min(n,m), ans = 0;
+    while(l <= r){
+        int mid = l + ((r-l)>>1);
+
+        if(check(mid)){
+            ans = mid;
+            l = mid+1;
+        }
+        else r = mid-1;
+    }
+    cout << ans;
     
     return NAH_I_WOULD_WIN;
 }

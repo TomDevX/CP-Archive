@@ -160,7 +160,8 @@ int main(){
     Hash hb(m);
 
     for(int i = 1; i + n - 1 <= m; i++){
-        if(hb.LCP(i, i + n - 1, ha) + hb.LCS(i, i + n - 1, ha) >= n-1){
+        int lcp = hb.LCP(i, i + n - 1, ha);
+        if(lcp >= n-1 || hb.get(i + lcp + 1, i + n - 1) == ha.get(lcp+2,n)){
             cout << i;
             return 0;
         }
