@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-327/370-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_21%2C_2026_--_22%3A36_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260521T2236&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-328/371-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_22%2C_2026_--_09%3A50_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260522T0950&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 370
-- **Accepted:** 327
+- **Total Problems:** 371
+- **Accepted:** 328
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -18,7 +18,7 @@
 * [📂 CodeChef (1)](#-codechef-1)
 * [📂 Codeforces (127)](#-codeforces-127)
 * [📂 CPPros (6)](#-cppros-6)
-* [📂 CSES (47)](#-cses-47)
+* [📂 CSES (48)](#-cses-48)
   * [📂 Advanced Techniques (2)](#-advanced-techniques-2)
   * [📂 Dynamic Programming (12)](#-dynamic-programming-12)
   * [📂 Geometry (6)](#-geometry-6)
@@ -26,7 +26,7 @@
   * [📂 Range Queries (10)](#-range-queries-10)
   * [📂 Sliding Windơows Problem (2)](#-sliding-windơows-problem-2)
   * [📂 Sorting And Searching (3)](#-sorting-and-searching-3)
-  * [📂 String (5)](#-string-5)
+  * [📂 String (6)](#-string-6)
 * [📂 IUHCoder (2)](#-iuhcoder-2)
 * [📂 Leetcode (2)](#-leetcode-2)
 * [📂 LQDOJ (10)](#-lqdoj-10)
@@ -44,7 +44,7 @@
 * [📂 VNOJ (63)](#-vnoj-63)
 
 ---
-## 📂 [Solutions (370)](*%20%20%20%20submission:)
+## 📂 [Solutions (371)](*%20%20%20%20submission:)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Main | N/A | N/A | May 21, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -299,7 +299,7 @@
 | 2 | [2216 - Collecting Numbers](https://cses.fi/problemset/task/2216) | `Implementation` | $\mathcal{O}(n)$ | Feb 10, 2026 | [Code](CSES/Sorting%20and%20Searching/2216.cpp) \| [Sub](https://cses.fi/problemset/result/16218047/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 3 | [2217 - Collecting Numbers II](https://cses.fi/problemset/task/2217) | `Adhoc` | $\mathcal{O}(n + m)$ | Feb 10, 2026 | [Code](CSES/Sorting%20and%20Searching/2217.cpp) \| [Sub](https://cses.fi/problemset/result/16218382/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-### 📁 String (5)
+### 📁 String (6)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1110-2 - Minimal Rotation - Approach 2](https://cses.fi/problemset/task/1110/) | `Booth's algorithm` | $\mathcal{O}(n)$ | May 21, 2026 | [Code](CSES/String/1110-2.cpp) \| [Sub](https://cses.fi/problemset/result/17246433/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -307,6 +307,7 @@
 | 3 | [1732-2 - Finding Borders - Approach 2](https://cses.fi/problemset/result/17204250/) | `Hash` | $\mathcal{O}(n)$ | May 17, 2026 | [Code](CSES/String/1732-2.cpp) \| [Sub](https://cses.fi/problemset/result/17204343/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 4 | [1732 - Finding Borders - Approach 1](https://cses.fi/problemset/task/1732) | `Z-func` | $\mathcal{O}(n)$ | May 17, 2026 | [Code](CSES/String/1732.cpp) \| [Sub](https://cses.fi/problemset/result/17204250/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 5 | [1733 - Finding Periods](https://cses.fi/problemset/task/1733) | N/A | N/A | May 17, 2026 | [Code](CSES/String/1733.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 6 | [2420 - Palindrome Queries](https://cses.fi/problemset/task/2420) | `Hash`, `Segment Tree` | $\mathcal{O}(n \log n)$ | May 21, 2026 | [Code](CSES/String/2420.cpp) \| [Sub](https://cses.fi/problemset/result/17253771/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [IUHCoder (2)](https://oj.iuhcoder.com/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
