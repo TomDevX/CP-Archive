@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-08 00:24:59
+ *    created: 2026-05-22 16:07:30
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
@@ -33,8 +33,8 @@ using namespace std;
 #define NAH_I_WOULD_WIN 0
 
 // --- [ MACROS ] ---
-#define all(x,bonus) (x).begin()+(bonus),(x).end()
-#define sub(x, st, ed) (std::begin((x)) + (st)), (std::begin((x)) + (ed) + 1)
+#define all(x,bonus) std::begin(x)+(bonus), std::end(x)
+#define sub(x, st, ed) std::begin((x)) + (st), std::begin((x)) + (ed) + 1
 #define filter(x,bonus) (x).erase(unique(std::begin((x))+(bonus), std::end((x))), std::end((x)))
 #define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
 #define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
