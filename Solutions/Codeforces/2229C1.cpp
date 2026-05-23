@@ -1,13 +1,13 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-23 23:54:31
+ *    created: 2026-05-23 22:02:48
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: We Be Flipping (Easy Version)
+ *    source: https://codeforces.com/contest/2229/problem/C1
+ *    submission: https://codeforces.com/contest/2229/submission/375817986
+ *    status: AC
  * ----------------------------------------------------------
  *    tags: 
  *    complexity: 
@@ -60,9 +60,9 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("test2.INP", "r")) return;
-    freopen("test2.INP", "r", stdin);
-    freopen("test2.OUT", "w", stdout);
+    if(!fopen("2229C1.INP", "r")) return;
+    freopen("2229C1.INP", "r", stdin);
+    freopen("2229C1.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
@@ -76,8 +76,34 @@ int main(){
     fastio;
     setup();
     
-    bool changed = true;
-    cout << ((1 > 1)^changed);
+    int tc;
+    cin >> tc;
+    
+    int n;
+    while(tc--){
+        cin >> n;
+
+        vector<bool> a(n+1);
+        int x;
+        for(int i = 1; i <= n; i++){
+            cin >> x;
+            if(x > 0) a[i] = 1;
+            else a[i] = 0;
+        }
+
+        vi moves;
+        int changed = 0;
+        for(int i = n; i >= 1; i--){
+            if((a[i] ^ changed)&1){
+                moves.eb(i);
+                changed = !changed;
+            }
+        }
+
+        cout << sz(moves) << '\n';
+        for(int i : moves) cout << i << ' ';
+        cout << '\n';
+    }
     
     return NAH_I_WOULD_WIN;
 }

@@ -5,7 +5,7 @@
             "label": "Compile and Run cpp",
             "type": "shell",
             // Đã chuyển đổi các biến sang chuẩn VS Code và thêm ngoặc kép để tránh lỗi nếu tên thư mục có dấu cách
-            "command": "cd \"${fileDirname}\" && g++ -O2 -Wall -Wextra -Wshadow -Wfloat-equal -DLOCAL --std=c++14 \"${fileBasename}\" -o \"${fileBasenameNoExtension}\" && \"./${fileBasenameNoExtension}\" < /home/TomDev/CP-Archive/Solutions/input.inp > /home/TomDev/CP-Archive/Solutions/output.out",
+            "command": "cd \"${fileDirname}\" && g++ -O2 -pipe -Wall -Wextra -Wshadow -Wfloat-equal -DLOCAL --std=c++14 \"${fileBasename}\" -o \"${fileBasenameNoExtension}\" && \"./${fileBasenameNoExtension}\" < /home/TomDev/CP-Archive/Solutions/input.inp > /home/TomDev/CP-Archive/Solutions/output.out",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -22,7 +22,7 @@
             "label": "Compile and Run cpp without file",
             "type": "shell",
             // Đã chuyển đổi các biến sang chuẩn VS Code và thêm ngoặc kép để tránh lỗi nếu tên thư mục có dấu cách
-            "command": "cd \"${fileDirname}\" && g++ -O2 -Wall -Wextra -Wshadow -Wfloat-equal -DLOCAL --std=c++14 \"${fileBasename}\" -o \"${fileBasenameNoExtension}\" && \"./${fileBasenameNoExtension}\"",
+            "command": "cd \"${fileDirname}\" && g++ -O2 -pipe -Wall -Wextra -Wshadow -Wfloat-equal -DLOCAL --std=c++14 \"${fileBasename}\" -o \"${fileBasenameNoExtension}\" && \"./${fileBasenameNoExtension}\"",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -39,7 +39,7 @@
             "label": "Get compile file",
             "type": "shell",
             // Đã chuyển đổi các biến sang chuẩn VS Code và thêm ngoặc kép để tránh lỗi nếu tên thư mục có dấu cách
-            "command": "cd \"${fileDirname}\" && g++ -O2 --std=c++14 \"${fileBasename}\" -o \"${fileBasenameNoExtension}\" && echo \"\\033[32mDONE\\033[0m\"",
+            "command": "cd \"${fileDirname}\" && g++ -O2 -pipe --std=c++14 \"${fileBasename}\" -o \"${fileBasenameNoExtension}\" && echo \"\\033[32mDONE\\033[0m\"",
             "group": {
                 "kind": "build",
                 "isDefault": true

@@ -1,8 +1,8 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-22 22:35:57
+ *    created: 2026-05-23 23:45:20
  *    country: Vietnam - VNM
- *    My Repo: github.com/TomDevX/CP-Archive
+ *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
  *    title: 
  *    source: 
@@ -66,9 +66,7 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 2e5+5;
 
-int a[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -78,17 +76,22 @@ int main(){
     fastio;
     setup();
     
-    int tc;
-    cin >> tc;
+    int n;
+    cin >> n;
+    vi a(n+1);
+    for(int i = 1; i <= n; i++) cin >> a[i];
 
-    while(tc--){
-        int n,m;
-        cin >> n >> m;
-
-        for(int i = 1; i <= m; i++) cin >> a[i];
-
-        
+    int k;
+    cin >> k;
+    for(int i = 1; i <= k; i++){
+        int pos;
+        cin >> pos;
+        for(int j = 1; j <= pos; j++) a[j] = -a[j];
     }
+
+    ll sum = 0;
+    for(int i = 1; i <= n; i++) sum += a[i];
+    cout << sum;
     
     return NAH_I_WOULD_WIN;
 }

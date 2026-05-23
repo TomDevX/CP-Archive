@@ -1,81 +1,95 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
+#define ll long long
 
+void open()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
 
-
-
-struct Node {
-   bool en;
-   int c[26];
-   Node() {
-       en = 0;
-       for(int i = 0; i < 26; i++) c[i] = -1; // nếu từ Node hiện tại mình đi theo cạnh i thì chưa link đến đâu cả.
-       // Node => cạnh a hỏi c[0] == -1 <=> chưa có nút đó => tạo thêm nút mới
-                       //    c[0] != -1 <=> mình đã có rồi => đi xuống
-   }
-};
-vector<Node> trie;
-
-
-// nút của a ở vị trí 5 => trie[5]
-
-
-void new_node() {
-   trie.push_back(Node());
 }
 
+int t;
 
-void add_string(const string &s) {
-   int pos = 0; // vị trí của nút root trong trie
+void sol()
+{
+    if(!fopen("input.inp", "r")) return;
+    freopen("input.inp", "r", stdin);
+    freopen("output.out", "w", stdout);
+    ll n;
+    cin>>n;
+    vector<ll> a(n+5);
+    vector<ll> notprefix(n+5);
+    bool ok1=0,ok2=0;
+    ll t = 0;
+    for(int i =0;i<n;i++)
+    {
+        cin>>a[i];
+        if(a[i]>0)ok1=1;
+        else ok2=1;
+        t = t + a[i];
+    }
+    if(ok1==0 || ok2==0)
+    {
+        cout<<0<<'\n'<<'\n';
+        return;
+    }
 
+    notprefix[n]=0;
+    for(int i = n-1;i>=0;i--)
+    {
+        notprefix[i]=notprefix[i+1]+a[i];
+    }
 
-   // nếu code như này thì nút root sẽ ko bao giờ thay đổi gì hết.
-   // nếu muốn thay đổi cả root => cnt[root]++;
+    vector<ll> ans,tmp;
+    bool ok = 0;
+    ll i = 0;
+    ll sumtmp=0;
+    while(a[i]>0)
+    {
+        sumtmp = sumtmp+a[i];
+        i++;
+    }
+    ll pre_Loves_Only_You = i;
+    while(i<n)
+    {
+        while(i<n&&a[i]<0)
+        {
+            sumtmp-=a[i];
+            i++;
+        }
+        if(i==n)break;
+        if(pre_Loves_Only_You != 0)tmp.push_back(pre_Loves_Only_You);
+        tmp.push_back(i+1);
+        pre_Loves_Only_You = i;
 
-
-   for(int i = 0; i < s.size(); i++) {
-       int val = s[i] - 'a';
-       if(trie[pos].c[val] == -1) {
-           // cạnh này chưa tồn tại => mình phải tạo thêm
-           new_node(); // tạo thêm 1 nút mới
-           trie[pos].c[val] = (int)trie.size() - 1; // tạo cầu thang
-       }
-       pos = trie[pos].c[val];
-   }
-   trie[pos].en = 1;
+        if(sumtmp-a[i]+notprefix[i+1]>t)
+        {
+            t = sumtmp-a[i]+notprefix[i+1];
+            while(ans.size()<tmp.size())
+            {
+                ans.push_back(tmp[ans.size()]);
+            }
+        }
+        sumtmp+=a[i];
+        i++;
+    }
+        cout<<ans.size()<<'\n';
+        for(auto &it : ans)
+        {
+            cout<<it<<" ";
+        }
+        cout<<'\n';
 }
 
-
-
-
-// dfs
-int ans = 0;
-void dfs(int u, int sum) {
-   if(trie[u].en) sum++;
-   ans = max(ans, sum);
-   for(int i = 0; i < 26; i++) {
-       if(trie[u].c[i] != -1) {
-           dfs(trie[u].c[i], sum);
-       }
-   }
-}
-
-
-int n, m;
 int main() {
-   ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-   cin >> n;
+   // open();
+    cin>>t;
+    while(t--)
+    {
+        sol();
 
+    }
 
-   // luôn luôn phải tạo nút gốc đầu tiên
-   new_node();
-   for(int i = 1; i <= n; i++) {
-       string s; cin >> s;
-       add_string(s);
-   }
-
-
-   dfs(0, 0);
-   cout << ans;
 }

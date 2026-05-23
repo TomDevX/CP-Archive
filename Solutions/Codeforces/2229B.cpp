@@ -1,13 +1,13 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-23 23:54:31
+ *    created: 2026-05-23 21:46:45
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Absolute Cinema
+ *    source: https://codeforces.com/contest/2229/problem/B
+ *    submission: https://codeforces.com/contest/2229/submission/375813279
+ *    status: AC
  * ----------------------------------------------------------
  *    tags: 
  *    complexity: 
@@ -60,13 +60,13 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("test2.INP", "r")) return;
-    freopen("test2.INP", "r", stdin);
-    freopen("test2.OUT", "w", stdout);
+    if(!fopen("2229B.INP", "r")) return;
+    freopen("2229B.INP", "r", stdin);
+    freopen("2229B.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+const int N = 1e5+5;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -76,8 +76,30 @@ int main(){
     fastio;
     setup();
     
-    bool changed = true;
-    cout << ((1 > 1)^changed);
+    int tc;
+    cin >> tc;
+
+    int n;
+    while(tc--){
+        cin >> n;
+
+        vi a(n+1), b(n+1);
+        for(int i = 1; i <= n; i++) cin >> a[i];
+        for(int i = 1; i <= n; i++) cin >> b[i];
+
+        int maxn = 0;
+        for(int i = 1; i <= n; i++){
+            if(a[i] > b[i]) swap(a[i],b[i]);
+        }
+
+        ll ans = 0;
+        for(int i = 1; i <= n; i++){
+            maxn = max(maxn, a[i]);
+            ans += b[i];
+        }
+
+        cout << ans + maxn << '\n';
+    }
     
     return NAH_I_WOULD_WIN;
 }

@@ -1,13 +1,13 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-23 23:54:31
+ *    created: 2026-05-24 00:16:33
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: We Be Flipping (Hard Version)
+ *    source: https://codeforces.com/contest/2229/problem/C2
+ *    submission: https://codeforces.com/contest/2229/submission/375848874
+ *    status: AC
  * ----------------------------------------------------------
  *    tags: 
  *    complexity: 
@@ -20,6 +20,7 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <cmath>
 
 using namespace std;
 
@@ -60,13 +61,13 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("test2.INP", "r")) return;
-    freopen("test2.INP", "r", stdin);
-    freopen("test2.OUT", "w", stdout);
+    if(!fopen("2229C2.INP", "r")) return;
+    freopen("2229C2.INP", "r", stdin);
+    freopen("2229C2.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+const int N = 2e5+5;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -76,8 +77,60 @@ int main(){
     fastio;
     setup();
     
-    bool changed = true;
-    cout << ((1 > 1)^changed);
+    int tc;
+    cin >> tc;
+    while(tc--){
+        int n;
+        cin >> n;
+
+        vi a(n+1);
+        vll pref(n+1), suff(n+2);
+        vector<bool> sign(n+1);
+
+        ll ans = 0;
+        int pos = 0;
+
+        for(int i = 1; i <= n; i++){
+            cin >> a[i];
+            ans += a[i];
+            pref[i] = pref[i-1] + abs(a[i]);
+            sign[i] = (a[i] > 0);
+        }
+
+        for(int i = n; i >= 1; i--){
+            suff[i] = suff[i+1] + a[i];
+        }
+
+        for(int i = 1; i <= n; i++){
+            if(a[i] > 0){
+                ll sum = pref[i-1] - a[i] + suff[i+1];
+                if(sum > ans){
+                    ans = sum;
+                    pos = i;
+                }
+            }
+        }
+
+        if(pos == 0){
+            cout << "0\n\n";
+            continue;
+        }
+
+        vi moves;
+        int changed = 0;
+        for(int i = pos-1; i >= 1; i--){
+            if((sign[i] ^ changed)&1){
+                moves.eb(i);
+                changed = !changed;
+            }
+        }
+
+        dbg(ans,tc);
+
+        cout << sz(moves) + 1 << '\n';
+        for(int i : moves) cout << i << ' ';
+        cout << pos << '\n';
+    }
     
     return NAH_I_WOULD_WIN;
 }

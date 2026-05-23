@@ -1,11 +1,11 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-23 23:54:31
+ *    created: 2026-05-23 20:53:21
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: Trie - PREFIX
+ *    source: https://lqdoj.edu.vn/problem/prefix
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -60,24 +60,73 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("test2.INP", "r")) return;
-    freopen("test2.INP", "r", stdin);
-    freopen("test2.OUT", "w", stdout);
+    if(!fopen("prefix.INP", "r")) return;
+    freopen("prefix.INP", "r", stdin);
+    freopen("prefix.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 2e6+5;
 
+ll ans = 0;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+struct Trie{
+    int child[N][26];
+    int exi[N], cnt[N];
+    int pool = 0;
 
+    Trie(){
+        alloc();
+    }
+
+    int alloc() noexcept {
+        return ++pool;
+    }
+
+    void add(const string& s) noexcept {
+        int u = 1;
+
+        for(char ch : s){
+            int c = ch - 'a';
+            if(!child[u][c]) child[u][c] = alloc();
+            u = child[u][c];
+            cnt[u]++;
+        }
+        exi[u]++;
+    }
+
+    void dfs(int u) noexcept{
+        ans += exi[u]*(cnt[u] - exi[u]);
+        ans += exi[u]*((exi[u]-1)>>1LL);
+        for(int c = 0; c < 26; c++){
+            int v = child[u][c];
+            if(v){
+                dfs(v);
+            }
+        }
+    }
+};
+
+Trie trie;
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    bool changed = true;
-    cout << ((1 > 1)^changed);
+    int n;
+    cin >> n;
+
+    string s;
+    for(int i = 1; i <= n; i++){
+        cin >> s;
+        trie.add(s);
+    }
+
+    trie.dfs(1);
+
+    cout << ans+1 << '\n';
     
     return NAH_I_WOULD_WIN;
 }

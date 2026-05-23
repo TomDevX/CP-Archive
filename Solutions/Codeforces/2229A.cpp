@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-23 23:54:31
+ *    created: 2026-05-23 21:36:04
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Slimes on a Line
+ *    source: https://codeforces.com/contest/2229/problem/A
+ *    submission: https://codeforces.com/contest/2229/submission/375784609
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Math
+ *    complexity: O(n)
+ *    note: Because we need to get the max distance so our only needed number is max and min number, just get the mid of it and it will be the most optimized
 **/
 
 #include <iostream>
@@ -20,6 +20,7 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <cmath>
 
 using namespace std;
 
@@ -60,9 +61,9 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("test2.INP", "r")) return;
-    freopen("test2.INP", "r", stdin);
-    freopen("test2.OUT", "w", stdout);
+    if(!fopen("2229A.INP", "r")) return;
+    freopen("2229A.INP", "r", stdin);
+    freopen("2229A.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
@@ -76,8 +77,36 @@ int main(){
     fastio;
     setup();
     
-    bool changed = true;
-    cout << ((1 > 1)^changed);
+    int tc;
+    cin >> tc;
+
+    int n;
+    while(tc--){
+        cin >> n;
+        vi a(n+1);
+        int minn = 1e9, maxn = 0;
+        for(int i = 1; i <= n; i++){
+            cin >> a[i];
+            minn = min(minn, a[i]);
+            maxn = max(maxn, a[i]);
+        }
+
+        int mid = minn + ((maxn - minn)>>1);
+        int ans = 0;
+
+        for(int i = 1; i <= n; i++){
+            ans = max(ans, abs(mid - a[i]));
+        }
+
+        mid++;
+        int ans2 = 0;
+
+        for(int i = 1; i <= n; i++){
+            ans2 = max(ans2, abs(mid - a[i]));
+        }
+
+        cout << min(ans,ans2) << '\n';
+    }
     
     return NAH_I_WOULD_WIN;
 }
