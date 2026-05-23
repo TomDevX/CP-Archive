@@ -2,7 +2,7 @@
  *    author: TomDev - Tran Hoang Quan
  *    created: 2026-05-22 22:56:39
  *    country: Vietnam - VNM
- *    My Repo: github.com/TomDevX/CP-Archive
+ *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
  *    title: 
  *    source: 

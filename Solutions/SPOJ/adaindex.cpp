@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-08 00:59:55
+ *    created: 2026-05-23 18:13:16
  *    country: Vietnam - VNM
- *    My Repo: github.com/TomDevX/CP-Archive
+ *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: Ada and Indexing
+ *    title: ADAINDEX - Ada and Indexing
  *    source: https://www.spoj.com/problems/ADAINDEX/
- *    submission: 
- *    status: WIP
+ *    submission: https://www.spoj.com/status/ns=35771587#
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Trie
+ *    complexity: O(n)
+ *    note: Typical Trie
 **/
 
 #include <iostream>
@@ -20,6 +20,7 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <cstring>
 
 using namespace std;
 
@@ -33,8 +34,8 @@ using namespace std;
 #define NAH_I_WOULD_WIN 0
 
 // --- [ MACROS ] ---
-#define all(x,bonus) (x).begin()+(bonus),(x).end()
-#define sub(x, st, ed) (std::begin((x)) + (st)), (std::begin((x)) + (ed) + 1)
+#define all(x,bonus) std::begin(x)+(bonus), std::end(x)
+#define sub(x, st, ed) std::begin((x)) + (st), std::begin((x)) + (ed) + 1
 #define filter(x,bonus) (x).erase(unique(std::begin((x))+(bonus), std::end((x))), std::end((x)))
 #define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
 #define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
@@ -66,7 +67,55 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 1e6+5;
 
+struct Trie{
+    int child[N][26];
+    int cnt[N];
+    int exist[N];
+    int pool = -1;
+
+    Trie(){
+        alloc();
+    };
+
+    int alloc() noexcept{
+        int id = ++pool;
+        exist[id] = cnt[id] = 0;
+        memset(child[id], -1, 26 * sizeof(int));
+        return id;
+    }
+
+    void add(const string &s) noexcept {
+        int u = 0;
+        for(char ch : s){
+            int c = ch-'a';
+            if(child[u][c] == -1){
+                child[u][c] = alloc();
+            }
+            u = child[u][c];
+            cnt[u]++;
+        }
+        exist[u]++;
+    }
+
+    int find(const string& s) const noexcept {
+        int u = 0;
+        for(char ch : s){
+            int c = ch - 'a';
+            if(child[u][c] == -1) return 0;
+            u = child[u][c];
+        }
+        return u;
+    }
+
+    int count(const string &s) const noexcept {
+        int u = find(s);
+        return cnt[u];
+    }
+};
+
+Trie trie;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -76,7 +125,20 @@ int main(){
     fastio;
     setup();
     
-    
+    int n,q;
+    cin >> n >> q;
+
+    string s;
+    for(int i = 1; i <= n; i++){
+        cin >> s;
+        trie.add(s);
+    }
+
+    while(q--){
+        string s;
+        cin >> s;
+        cout << trie.count(s) << '\n';
+    }
     
     return NAH_I_WOULD_WIN;
 }
