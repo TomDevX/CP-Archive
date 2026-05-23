@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-22 22:56:39
+ *    created: 2026-05-23 08:55:18
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Palindromic Subsequences
+ *    source: https://codeforces.com/contest/2056/problem/C
+ *    submission: https://codeforces.com/contest/2056/submission/375701984
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Adhoc
+ *    complexity: O(n) 
+ *    note: To make the most palindrome possible, f(a) must be smallest, and the smallest we can make is 3 by just putting 1 -> n-2 and then "1 2" at last, we can make palindromes with 1 2 1, 1 3 1, 1 4 1,... 2 3 2, 2 4 2, 2 5 2,... -> which will make absolutely more than n, but in case of 6, it can't so just copy the example
 **/
 
 #include <iostream>
@@ -60,15 +60,13 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("2056C.INP", "r")) return;
+    freopen("2056C.INP", "r", stdin);
+    freopen("2056C.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 20;
 
-int a[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -80,18 +78,17 @@ int main(){
     
     int tc;
     cin >> tc;
-
     while(tc--){
         int n;
         cin >> n;
 
-        for(int i = 1; i <= n/2; i++){
-            cout << i << ' ';
-            a[i] = i;
-            cerr << a[i] << ' ';
+        if(n == 6){
+            cout << "1 1 2 3 1 2\n";
         }
-        for(int i = n/2 + 1; i <= n; i++) cout << a[n - i + 1] << ' ';
-        cout << '\n';
+        else{
+            for(int i = 1; i <= n-2; i++) cout << i << ' ';
+            cout << "1 2\n";
+        }
     }
     
     return NAH_I_WOULD_WIN;

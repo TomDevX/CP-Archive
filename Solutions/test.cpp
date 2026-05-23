@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-16 22:24:41
+ *    created: 2026-05-22 22:35:57
  *    country: Vietnam - VNM
  *    My Repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
@@ -33,8 +33,8 @@ using namespace std;
 #define NAH_I_WOULD_WIN 0
 
 // --- [ MACROS ] ---
-#define all(x,bonus) (x).begin()+(bonus),(x).end()
-#define sub(x, st, ed) (std::begin((x)) + (st)), (std::begin((x)) + (ed) + 1)
+#define all(x,bonus) std::begin(x)+(bonus), std::end(x)
+#define sub(x, st, ed) std::begin((x)) + (st), std::begin((x)) + (ed) + 1
 #define filter(x,bonus) (x).erase(unique(std::begin((x))+(bonus), std::end((x))), std::end((x)))
 #define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
 #define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
@@ -66,10 +66,9 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 5e5+5;
+const int N = 2e5+5;
 
 int a[N];
-int n,k,s;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -81,52 +80,14 @@ int main(){
     
     int tc;
     cin >> tc;
+
     while(tc--){
-        cin >> n >> k >> s;
+        int n,m;
+        cin >> n >> m;
 
-        for(int i = 1; i <= n; i++) cin >> a[i];
+        for(int i = 1; i <= m; i++) cin >> a[i];
 
-        int ans = 0, groups = 0;
-        bool prev_err = false;
-        ll sum_good = 0;
-
-        for(int i = 1; i <= n; i++){
-            if(k - groups == 1){
-                if(sum_good) ans++;
-                ll sum = 0;
-                for(int j = i; j <= n; j++){
-                    sum += a[j];
-                }
-                if(sum <= s){
-                    ans++;
-                }
-                break;
-            }
-
-            if(sum_good + a[i] <= s){
-                sum_good += a[i];
-                prev_err = false;
-                continue;   
-            }
-            else{
-                if(sum_good){
-                    ans++;
-                    groups++;
-                    sum_good = 0;
-                    if(a[i] > s){
-                        i--;
-                        break;
-                    }
-                }
-                else{
-                    if(prev_err) continue;
-                    prev_err = true;
-                    groups++;
-                }
-            }
-        }
-
-        cout << ans << '\n';
+        
     }
     
     return NAH_I_WOULD_WIN;
