@@ -1,7 +1,7 @@
-const int N = 1e6+5;
-const int MOD1 = 1234567891;
-const int MOD2 = 1e9+4567;
-const int MAXS = 2;
+constexpr int N = 1e6+5;
+constexpr int MOD1 = 1234567891;
+constexpr int MOD2 = 1e9+4567;
+constexpr int MAXS = 2;
 int base = 31;
 
 struct HashKey{

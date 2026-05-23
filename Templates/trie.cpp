@@ -87,7 +87,6 @@ struct Trie {
 
 // ================= [Single Trie] =================
 struct Trie {
-    // 1. Đóng gói toàn bộ hạ tầng bộ nhớ vào nội bộ Struct
     int child[MAX_TRIE_NODES][26];
     int cnt[MAX_TRIE_NODES];
     int exist[MAX_TRIE_NODES];
@@ -97,26 +96,23 @@ struct Trie {
     
     int root;
 
-    // 2. Hàm reset kho của riêng instance này
-    void reset_pool() noexcept {
+    inline void reset_pool() noexcept {
         pool = tail = 0;
         exist[0] = cnt[0] = 0;
-        memset(child[0], -1, sizeof(child[0]));
+        for(int i = 0; i < 26; i++) child[0][i] = -1;
     }
 
-    // 3. Hàm cấp phát nội bộ
-    int alloc() noexcept {
+    inline int alloc() noexcept {
         int id = (tail > 0) ? bin[--tail] : ++pool;
         exist[id] = cnt[id] = 0;
-        memset(child[id], -1, sizeof(child[id]));
+        for(int i = 0; i < 26; i++) child[id][i] = -1;
         return id;
     }
 
-    void free_node(int id) noexcept {
+    inline void free_node(int id) noexcept {
         bin[tail++] = id;
     }
 
-    // 4. Các hàm thao tác logic gọi thẳng mảng nội bộ, không cần "mem." hay tiền tố gì cả
     void init() noexcept {
         root = alloc();
     }

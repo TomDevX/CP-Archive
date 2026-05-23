@@ -6,12 +6,12 @@
  * ----------------------------------------------------------
  *    title: Finding Periods
  *    source: https://cses.fi/problemset/task/1733
- *    submission: 
- *    status: WIP
+ *    submission: https://cses.fi/problemset/result/17204580/
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Hash
+ *    complexity: O(n)
+ *    note: For a period with size of k to be a true period, we need s[i] = s[i + k] for every i <= n - k => We just need to move all string by k and check if they are equal to their peer (i + k)
 **/
 
 #include <iostream>

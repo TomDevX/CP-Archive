@@ -82,7 +82,7 @@ struct Trie{
     int alloc() noexcept{
         int id = ++pool;
         exist[id] = cnt[id] = 0;
-        memset(child[id], -1, 26 * sizeof(int));
+        for(int i = 0; i < 26; i++) child[id][i] = -1;
         return id;
     }
 

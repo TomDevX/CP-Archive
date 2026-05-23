@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-23 18:13:16
+ *    created: 2026-05-23 20:22:25
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: ADAINDEX - Ada and Indexing
- *    source: https://www.spoj.com/problems/ADAINDEX/
- *    submission: https://www.spoj.com/status/ns=35771587#
- *    status: AC
+ *    title: Chuỗi từ
+ *    source: https://oj.vnoi.info/problem/chain2
+ *    submission: 
+ *    status: WIP
  * ----------------------------------------------------------
- *    tags: Trie
- *    complexity: O(n)
- *    note: Typical Trie
+ *    tags: 
+ *    complexity: 
+ *    note: 
 **/
 
 #include <iostream>
@@ -20,7 +20,6 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <cstring>
 
 using namespace std;
 
@@ -61,60 +60,13 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("adaindex.INP", "r")) return;
-    freopen("adaindex.INP", "r", stdin);
-    freopen("adaindex.OUT", "w", stdout);
+    if(!fopen("chain2.INP", "r")) return;
+    freopen("chain2.INP", "r", stdin);
+    freopen("chain2.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e6+5;
 
-
-struct Trie{
-    int child[N][26];
-    int cnt[N];
-    int pool = -1;
-    
-    Trie(){
-        alloc();
-    };
-
-    inline int alloc() noexcept{
-        int id = ++pool;
-        cnt[id] = 0;
-        for(int i = 0; i < 26; i++) child[id][i] = -1;
-        return id;
-    }
-
-    inline void add(const string &s) noexcept {
-        int u = 0;
-        for(char ch : s){
-            int c = ch-'a';
-            if(child[u][c] == -1){
-                child[u][c] = alloc();
-            }
-            u = child[u][c];
-            cnt[u]++;
-        }
-    }
-
-    inline int find(const string& s) const noexcept {
-        int u = 0;
-        for(char ch : s){
-            int c = ch - 'a';
-            if(child[u][c] == -1) return 0;
-            u = child[u][c];
-        }
-        return u;
-    }
-
-    inline int count(const string &s) const noexcept {
-        int u = find(s);
-        return cnt[u];
-    }
-};
-
-Trie trie;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -124,21 +76,13 @@ int main(){
     fastio;
     setup();
     
-    int n,q;
-    cin >> n >> q;
+    int n;
+    cin >> n;
 
     string s;
     for(int i = 1; i <= n; i++){
         cin >> s;
-        trie.add(s);
-    }
-
-    ll ans = 0;
-
-    while(q--){
-        string s;
-        cin >> s;
-        cout << trie.count(s) << '\n';
+        
     }
     
     return NAH_I_WOULD_WIN;
