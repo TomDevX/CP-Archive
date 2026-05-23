@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-334/375-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_23%2C_2026_--_20%3A37_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260523T2037&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-336/376-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_23%2C_2026_--_20%3A51_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260523T2051&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 375
-- **Accepted:** 334
+- **Total Problems:** 376
+- **Accepted:** 336
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -44,10 +44,10 @@
 * [📂 VNOJ (64)](#-vnoj-64)
 
 ---
-## 📂 [Solutions (375)](*%20%20%20%20submission:)
+## 📂 [Solutions (376)](*%20%20%20%20submission:)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [MAIN - ADAINDEX - Ada and Indexing](https://www.spoj.com/problems/ADAINDEX/) | `Trie` | $\mathcal{O}(n)$ | May 23, 2026 | [Code](main.cpp) \| [Sub](https://www.spoj.com/status/ns=35771587#) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | Main | N/A | N/A | N/A | [Code](main.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | Main  Generator | N/A | N/A | May 3, 2026 | [Code](main__Generator.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 3 | Main  Good | N/A | N/A | May 3, 2026 | [Code](main__Good.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 4 | Main  Interactor | N/A | N/A | Apr 11, 2026 | [Code](main__Interactor.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -498,7 +498,7 @@
 | 5 | [BRACKET - BRACKET](https://oj.vnoi.info/problem/bedao_r14_bracket) | `RMQ` | $\mathcal{O}(n \log n + q)$ | Mar 18, 2026 | [Code](VNOJ/BRACKET.cpp) \| [Sub](https://oj.vnoi.info/submission/11905547) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 6 | [C11PRIME1 - Số nguyên tố (#1 Approach)](https://oj.vnoi.info/problem/c11prime) | `Number Theory` | $\mathcal{O}(n^{1/4})$ | Feb 9, 2026 | [Code](VNOJ/c11prime1.cpp) \| [Sub](https://oj.vnoi.info/submission/11678299) | ![TLE](https://img.shields.io/static/v1?label=&message=%20%20%20TLE%20%20%20&color=dfb317&style=for-the-badge) |
 | 7 | [C11PRIME2 - Số nguyên tố (#2 Approach)](https://oj.vnoi.info/problem/c11prime) | `Number Theory` | $\mathcal{O}(60 \cdot \log(10^9) \cdot 12 \cdot \log^3(n))$ | Feb 9, 2026 | [Code](VNOJ/c11prime2.cpp) \| [Sub](https://oj.vnoi.info/submission/11679434) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 8 | [CHAIN2 - Chuỗi từ](https://oj.vnoi.info/problem/chain2) | N/A | N/A | May 23, 2026 | [Code](VNOJ/chain2.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 8 | [CHAIN2 - Chuỗi từ](https://oj.vnoi.info/problem/chain2) | `Trie` | $\mathcal{O}(n)$ | May 23, 2026 | [Code](VNOJ/chain2.cpp) \| [Sub](https://oj.vnoi.info/submission/12364982) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 9 | [COCI1617 - COCI 2016/2017 - Contest 6 - Sirni](https://oj.vnoi.info/problem/coci1617_r6_sirni) | `MST`, `Math` | $\mathcal{O}(M \log M + N \log N)$ | May 7, 2026 | [Code](VNOJ/coci1617_r6_sirni.cpp) \| [Sub](https://oj.vnoi.info/submission/12259781) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 10 | [COCI1920 - COCI 2019/2020 - Contest 5 - Putovanje](https://oj.vnoi.info/problem/coci1920_r5_putovanje) | `LCA`, `Diff array on Tree` | $\mathcal{O}(n \log n)$ | May 11, 2026 | [Code](VNOJ/coci1920_r5_putovanje.cpp) \| [Sub](https://oj.vnoi.info/submission/12285138) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 11 | [COLQUERY - Color query](https://oj.vnoi.info/problem/colquery) | `DSU` | $\mathcal{O}(q \log n \alpha(n))$ | Apr 27, 2026 | [Code](VNOJ/colquery.cpp) \| [Sub](https://oj.vnoi.info/submission/12195450) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |

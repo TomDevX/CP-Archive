@@ -6,12 +6,12 @@
  * ----------------------------------------------------------
  *    title: Chuỗi từ
  *    source: https://oj.vnoi.info/problem/chain2
- *    submission: 
- *    status: WIP
+ *    submission: https://oj.vnoi.info/submission/12364982
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Trie
+ *    complexity: O(n)
+ *    note: Just dfs down the trie tree and check
 **/
 
 #include <iostream>
@@ -66,10 +66,51 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 3e5;
 
+int ans = 0;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+struct Trie{
+    int child[N][26];
+    int exist[N];
+    int pool = 0;
 
+    Trie(){
+        alloc();
+    };
+
+    int alloc() noexcept{
+        return ++pool;
+    }
+
+    void add(const string& s) noexcept{
+        int u = 1;
+
+        for(char ch : s){
+            int c = ch - 'a';
+            if(!child[u][c]){
+                child[u][c] = alloc();
+            }
+            u = child[u][c];
+        }
+        exist[u] = 1;
+    }
+
+    void dfs(int u, int cnt){
+        bool ended = true;
+        for(int c = 0; c < 26; c++){
+            int v = child[u][c];
+            if(v){
+                dfs(v, cnt + (exist[v] > 0));
+                ended = false;
+            }
+        }
+        if(ended) ans = max(ans,cnt);
+    }
+};
+
+Trie trie;
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
@@ -82,8 +123,12 @@ int main(){
     string s;
     for(int i = 1; i <= n; i++){
         cin >> s;
-        
+        trie.add(s);
     }
+
+    trie.dfs(1,0);
+
+    cout << ans << '\n';
     
     return NAH_I_WOULD_WIN;
 }
