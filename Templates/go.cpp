@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-23 16:51:47
+ *    created: 2026-05-24 15:44:53
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
@@ -55,6 +55,8 @@ using vi = vector<int>;
 using vvi = vector<vector<int>>;
 using vll = vector<long long>;
 using vvll = vector<vector<long long>>;
+using vb = vector<bool>;
+using vs = vector<string>;
 using vpii = vector<pair<int,int>>;
 using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;

@@ -2,7 +2,7 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-340/381-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_24%2C_2026_--_09%3A58_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260524T0958&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-340/381-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_24%2C_2026_--_21%3A06_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260524T2106&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 381
 - **Accepted:** 340
@@ -47,14 +47,14 @@
 ## 📂 [Solutions (381)](*%20%20%20%20submission:)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | Main | N/A | N/A | N/A | [Code](main.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | Main | N/A | N/A | May 24, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 2 | Main  Generator | N/A | N/A | May 3, 2026 | [Code](main__Generator.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 3 | Main  Good | N/A | N/A | May 24, 2026 | [Code](main__Good.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 4 | Main  Interactor | N/A | N/A | Apr 11, 2026 | [Code](main__Interactor.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 5 | Runtime | N/A | N/A | N/A | [Code](runtime.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 6 | Sinh | N/A | N/A | N/A | [Code](sinh.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 7 | Test2 | N/A | N/A | May 23, 2026 | [Code](test2.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 8 | Test | N/A | N/A | May 23, 2026 | [Code](test.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 8 | Test | N/A | N/A | May 24, 2026 | [Code](test.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 9 | Trau | N/A | N/A | Apr 11, 2026 | [Code](trau.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
 ## 📂 [ACMICPC (4)](https://www.acmicpc.net)
@@ -337,7 +337,7 @@
 | 4 | [EXTPALIN - Tạo palindrome](https://lqdoj.edu.vn/problem/extpalin) | `Hash` | $\mathcal{O}(n)$ | May 17, 2026 | [Code](LQDOJ/extpalin.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8614762) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 5 | [LANGLA - Làng Lá](https://lqdoj.edu.vn/problem/langla) | `LCA` | $\mathcal{O}(n \log n)$ | May 9, 2026 | [Code](LQDOJ/langla.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8576865) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 6 | [LCA - Tổ Tiên Chung Gần Nhất](https://lqdoj.edu.vn/problem/lca) | `LCA` | $\mathcal{O}((n + q) \alpha (n))$ | May 9, 2026 | [Code](LQDOJ/lca.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8575057) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 7 | [PREFIX - Trie - PREFIX](https://lqdoj.edu.vn/problem/prefix) | N/A | N/A | May 23, 2026 | [Code](LQDOJ/prefix.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 7 | [PREFIX - Trie - PREFIX](https://lqdoj.edu.vn/problem/prefix) | `Trie` | $\mathcal{O}(n)$ | May 23, 2026 | [Code](LQDOJ/prefix.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8646073) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 8 | [QUERYLCA - Truy vấn với LCA](https://lqdoj.edu.vn/problem/querylca) | `LCA` | $\mathcal{O}(n \log^2 n + q \log n)$ | May 13, 2026 | [Code](LQDOJ/querylca.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8591475) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 9 | [QUERYSUM2 - Query-Sum 2](https://lqdoj.edu.vn/problem/querysum2) | `Fenwick Tree (BIT)` | $\mathcal{O}(n \log n)$ | Apr 2, 2026 | [Code](LQDOJ/querysum2.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8335727) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 10 | [QUERYSUM - Query-Sum](https://lqdoj.edu.vn/problem/querysum) | `Fenwick Tree` | $\mathcal{O}(n \log n)$ | Apr 1, 2026 | [Code](LQDOJ/querysum.cpp) \| [Sub](https://lqdoj.edu.vn/submission/8320846) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |

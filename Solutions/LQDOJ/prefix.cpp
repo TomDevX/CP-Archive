@@ -6,12 +6,12 @@
  * ----------------------------------------------------------
  *    title: Trie - PREFIX
  *    source: https://lqdoj.edu.vn/problem/prefix
- *    submission: 
- *    status: WIP
+ *    submission: https://lqdoj.edu.vn/submission/8646073
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Trie
+ *    complexity: O(n)
+ *    note: If we use n*(n+1)/2 formula here, it may count overlapping each other, so now we just better count the current one (also need to consider the case many string ended at that trie node)
 **/
 
 #include <iostream>
@@ -73,7 +73,7 @@ ll ans = 0;
 // ----------------------- [ FUNCTIONS ] -----------------------
 struct Trie{
     int child[N][26];
-    int exi[N], cnt[N];
+    int exi[N];
     int pool = 0;
 
     Trie(){
@@ -91,18 +91,20 @@ struct Trie{
             int c = ch - 'a';
             if(!child[u][c]) child[u][c] = alloc();
             u = child[u][c];
-            cnt[u]++;
         }
         exi[u]++;
     }
 
-    void dfs(int u) noexcept{
-        ans += exi[u]*(cnt[u] - exi[u]);
-        ans += exi[u]*((exi[u]-1)>>1LL);
+    void dfs(int u, int cnt) const noexcept {
+        if(exi[u]){
+            cnt -= exi[u];
+            ans += 1LL*exi[u]*cnt + 1LL*exi[u]*(exi[u]-1)/2;
+            cnt += exi[u];
+        }
         for(int c = 0; c < 26; c++){
             int v = child[u][c];
             if(v){
-                dfs(v);
+                dfs(v, cnt + exi[v]);
             }
         }
     }
@@ -124,9 +126,9 @@ int main(){
         trie.add(s);
     }
 
-    trie.dfs(1);
+    trie.dfs(1,0);
 
-    cout << ans+1 << '\n';
+    cout << ans << '\n';
     
     return NAH_I_WOULD_WIN;
 }
