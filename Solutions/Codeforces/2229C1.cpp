@@ -11,7 +11,7 @@
  * ----------------------------------------------------------
  *    tags: Adhoc, Math
  *    complexity: O(n)
- *    note: 
+ *    note: Because each swap you can turn i into negative so just do it normally
 **/
 
 #include <iostream>
