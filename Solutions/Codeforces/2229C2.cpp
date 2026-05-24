@@ -9,8 +9,8 @@
  *    submission: https://codeforces.com/contest/2229/submission/375848874
  *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
+ *    tags: Adhoc, Math
+ *    complexity: O(n)
  *    note: 
 **/
 

@@ -9,9 +9,9 @@
  *    submission: https://codeforces.com/contest/2229/submission/375813279
  *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Adhoc
+ *    complexity: O(n)
+ *    note: Cuz all b will contribute to sum so we need to swap all largest number to b, and get the max of the smallest
 **/
 
 #include <iostream>

@@ -2,7 +2,7 @@
 
 ### 📊 Codeforces Stats
 
-![Progress](https://img.shields.io/badge/Progress-119/134-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-May_24%2C_2026_--_02%3A09_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-119/134-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-May_24%2C_2026_--_09%3A57_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 134
 - **Solved (AC):** 119
@@ -154,8 +154,8 @@
 | 134 | [2228B__Generator](https://codeforces.com/contest/2228/problem/B) | N/A | N/A | May 16, 2026 | [Code](2228B__Generator.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 135 | [2228B__Good](https://codeforces.com/contest/2228/problem/B) | N/A | N/A | N/A | [Code](2228B__Good.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 136 | [2229A - Slimes on a Line](https://codeforces.com/contest/2229/problem/A) | `Math` | $\mathcal{O}(n)$ | May 23, 2026 | [Code](2229A.cpp) \| [Sub](https://codeforces.com/contest/2229/submission/375784609) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 137 | [2229B - Absolute Cinema](https://codeforces.com/contest/2229/problem/B) | N/A | N/A | May 23, 2026 | [Code](2229B.cpp) \| [Sub](https://codeforces.com/contest/2229/submission/375813279) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 138 | [2229C1 - We Be Flipping (Easy Version)](https://codeforces.com/contest/2229/problem/C1) | N/A | N/A | May 23, 2026 | [Code](2229C1.cpp) \| [Sub](https://codeforces.com/contest/2229/submission/375817986) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 139 | [2229C2 - We Be Flipping (Hard Version)](https://codeforces.com/contest/2229/problem/C2) | N/A | N/A | May 24, 2026 | [Code](2229C2.cpp) \| [Sub](https://codeforces.com/contest/2229/submission/375848874) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 137 | [2229B - Absolute Cinema](https://codeforces.com/contest/2229/problem/B) | `Adhoc` | $\mathcal{O}(n)$ | May 23, 2026 | [Code](2229B.cpp) \| [Sub](https://codeforces.com/contest/2229/submission/375813279) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 138 | [2229C1 - We Be Flipping (Easy Version)](https://codeforces.com/contest/2229/problem/C1) | `Adhoc`, `Math` | $\mathcal{O}(n)$ | May 23, 2026 | [Code](2229C1.cpp) \| [Sub](https://codeforces.com/contest/2229/submission/375817986) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 139 | [2229C2 - We Be Flipping (Hard Version)](https://codeforces.com/contest/2229/problem/C2) | `Adhoc`, `Math` | $\mathcal{O}(n)$ | May 24, 2026 | [Code](2229C2.cpp) \| [Sub](https://codeforces.com/contest/2229/submission/375848874) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 140 | [690281B - Tăng dãy](https://codeforces.com/gym/690281/problem/B) | `Segment Tree Beats` | $\mathcal{O}((n \cdot k + q) \log n)$ | May 03, 2026 | [Code](690281B.cpp) \| [Sub](https://codeforces.com/gym/690281/submission/373439975) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
