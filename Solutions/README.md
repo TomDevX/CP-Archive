@@ -2,7 +2,7 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-340/381-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_24%2C_2026_--_09%3A57_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260524T0957&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-340/381-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-May_24%2C_2026_--_09%3A58_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260524T0958&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 381
 - **Accepted:** 340

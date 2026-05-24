@@ -11,7 +11,7 @@
  * ----------------------------------------------------------
  *    tags: Adhoc, Math
  *    complexity: O(n)
- *    note: 
+ *    note: The best strategy is to calculate all possible areas to make numbers positive (like C1, switch 1 -> i-1 to negative and sacrifice i)
 **/
 
 #include <iostream>
