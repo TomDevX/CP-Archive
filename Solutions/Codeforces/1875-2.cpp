@@ -4,14 +4,14 @@
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: Jellyfish and Mex
+ *    title: Jellyfish and Mex - Approach 2
  *    source: https://codeforces.com/contest/1875/problem/D
- *    submission: https://codeforces.com/contest/1875/submission/375989918
+ *    submission: https://codeforces.com/contest/1875/submission/375994406
  *    status: AC
  * ----------------------------------------------------------
- *    tags: Dynamic Programming
- *    complexity: O(n^2)
- *    note: We need to consider which is the current MEX and which number we should cut, so we use DP
+ *    tags: Dynamic Programming, Convex Hull Trick
+ *    complexity: O(n \log n)
+ *    note: Like approach 1 but optimize with convex hull trick
 **/
 
 #include <iostream>
