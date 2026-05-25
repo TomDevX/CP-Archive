@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-24 21:30:49
+ *    created: 2026-05-25 10:06:09
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Jellyfish and Mex
+ *    source: https://codeforces.com/contest/1875/problem/D
+ *    submission: https://codeforces.com/contest/1875/submission/375989918
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Dynamic Programming
+ *    complexity: O(n^2)
+ *    note: We need to consider which is the current MEX and which number we should cut, so we use DP
 **/
 
 #include <iostream>
@@ -62,13 +62,13 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("1875D.INP", "r")) return;
+    freopen("1875D.INP", "r", stdin);
+    freopen("1875D.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+const ll INF = 2e18;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -78,16 +78,32 @@ int main(){
     fastio;
     setup();
     
-    int  tc;
+    int tc;
     cin >> tc;
     while(tc--){
         int n;
         cin >> n;
-        vi a(n+1), b(n+1);
-        for(int i = 1; i <= n; i++) cin >> a[i];
-        for(int i = 1; i <= n; i++) cin >> b[i];
 
-        
+        vi cnt(n+1);
+        for(int i = 1; i <= n; i++){
+            int x;
+            cin >> x;
+            if(x < n) cnt[x]++;
+        }
+
+        int mex = 0;
+        while(cnt[mex]) mex++;
+
+        vll dp(n+1,INF);
+        dp[mex] = 0;
+
+        for(int cur_mex = mex; cur_mex; cur_mex--){
+            for(int i = 0; i < cur_mex; i++){
+                dp[i] = min(dp[i], dp[cur_mex] + cur_mex*(cnt[i]-1) + i); // +i because cur_mex turned to i
+            }
+        }
+
+        cout << dp[0] << '\n';
     }
     
     return NAH_I_WOULD_WIN;
