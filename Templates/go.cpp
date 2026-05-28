@@ -1,11 +1,11 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-24 15:44:53
+ *    created: $date$ $time$
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: $name$
+ *    source: $url$ 
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------

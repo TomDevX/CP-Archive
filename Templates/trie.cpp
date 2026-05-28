@@ -12,13 +12,13 @@ struct TriePool {
     inline void reset() noexcept {
         pool = tail = 0;
         exist[0] = cnt[0] = 0;
-        memset(child[0], -1, 26 * sizeof(int));
+        for(int i = 0; i < 26; i++) child[0][i] = -1;
     }
 
     inline int alloc() noexcept {
         int id = (tail > 0) ? bin[--tail] : ++pool;
         exist[id] = cnt[id] = 0;
-        memset(child[id], -1, 26 * sizeof(int));
+        for(int i = 0; i < 26; i++) child[id][i] = -1;
         return id;
     }
 
