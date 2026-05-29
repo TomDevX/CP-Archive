@@ -2,7 +2,7 @@
 
 ### 📊 PTNKOJ Stats
 
-![Progress](https://img.shields.io/badge/Progress-3/4-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-May_29%2C_2026_--_10%3A50_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-3/4-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-May_29%2C_2026_--_11%3A12_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 4
 - **Solved (AC):** 3
