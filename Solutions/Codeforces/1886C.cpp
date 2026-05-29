@@ -4,13 +4,13 @@
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Decreasing String
+ *    source: https://codeforces.com/problemset/problem/1886/C
+ *    submission: https://codeforces.com/problemset/submission/1886/376537342
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
+ *    tags: String, Stack
+ *    complexity: O(n)
  *    note: 
 **/
 

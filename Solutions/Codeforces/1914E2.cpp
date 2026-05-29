@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-29 21:27:09
+ *    created: 2026-05-29 20:55:58
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Game with Marbles (Hard Version)
+ *    source: https://codeforces.com/contest/1914/problem/E2
+ *    submission: https://codeforces.com/contest/1914/submission/376538446
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Math
+ *    complexity: O(n \log n)
+ *    note: Just sort with the comparison between the best diff to take with both Alice and Bob
 **/
 
 #include <iostream>
@@ -20,7 +20,6 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <stack>
 
 using namespace std;
 
@@ -69,7 +68,17 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 2e5+5;
 
+struct box{
+    int a,b;
+
+    box(int _a = 0, int _b = 0) : a(_a), b(_b) {};
+};
+
+bool cmp(const box& x, const box& y) {
+    return x.a - 1 + x.b > y.a - 1 + y.b;
+}
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -82,47 +91,26 @@ int main(){
     int tc;
     cin >> tc;
     while(tc--){
-        string s;
-        cin >> s;
-        ll pos;
-        cin >> pos;
+        int n;
+        cin >> n;
+        vector<box> a(n+1);
 
-        stack<int> st;
-        st.push(0);
-
-        int ssize = sz(s);
-
-        for(int i = 1; i < sz(s) && pos > ssize; i++){
-            if(st.empty() || s[i] >= s[st.top()]){
-                st.push(i);
-            }
-            else{
-                while(pos > ssize && !st.empty() && s[i] < s[st.top()]){
-                    s[st.top()] = '#';
-                    st.pop();
-                    pos -= ssize;
-                    ssize--;
-                }
-                st.push(i);
-            }
+        for(int i = 1; i <= n; i++){
+            cin >> a[i].a;
+        }
+        for(int i = 1; i <= n; i++){
+            cin >> a[i].b;
         }
 
-        int idx = sz(s) - 1;
-        while(pos > ssize){
-            while(s[idx] == '#') idx--;
-            s[idx--] = '#';
-            pos -= ssize;
-            ssize--;
+        sort(all(a,1),cmp);
+
+        ll suma = 0, sumb = 0;
+        for(int i = 1; i <= n; i++){
+            if(i&1) suma += a[i].a - 1;
+            else sumb += a[i].b - 1;
         }
 
-        int cnt = 0;
-        for(int i = 0; i < sz(s); i++){
-            if(s[i] != '#') cnt++;
-            if(cnt == pos){
-                cout << s[i];
-                break;
-            }
-        }
+        cout << suma - sumb << '\n';
     }
     
     return NAH_I_WOULD_WIN;

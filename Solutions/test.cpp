@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-24 23:01:34
+ *    created: 2026-05-29 22:12:55
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
@@ -78,7 +78,9 @@ int main(){
     fastio;
     setup();
     
-    
+    string s;
+    cin >> s;
+    cout << s[40];
     
     return NAH_I_WOULD_WIN;
 }
