@@ -11,7 +11,7 @@
  * ----------------------------------------------------------
  *    tags: String, Stack
  *    complexity: O(n)
- *    note: 
+ *    note: We notice that our optimized way is to delete the character that is to the far left to be smaller than the old one -> compare s[i] with s[i+1]. But how do we delete it without getting O(n) complexity? -> Use stack to store past available elements. To count efficiently, just pos -= current_string_size
 **/
 
 #include <iostream>
