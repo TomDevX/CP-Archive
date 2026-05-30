@@ -97,15 +97,15 @@ struct Trie {
     int root;
 
     inline void reset_pool() noexcept {
-        pool = tail = 0;
+        pool = tail = 1;
         exist[0] = cnt[0] = 0;
-        for(int i = 0; i < 26; i++) nxt[0][i] = -1;
+        for(int i = 0; i < 26; i++) nxt[0][i] = 0;
     }
 
     inline int alloc() noexcept {
-        int id = (tail > 0) ? bin[--tail] : ++pool;
+        int id = (tail > 1) ? bin[--tail] : ++pool;
         exist[id] = cnt[id] = 0;
-        for(int i = 0; i < 26; i++) nxt[id][i] = -1;
+        for(int i = 0; i < 26; i++) nxt[id][i] = 0;
         return id;
     }
 
@@ -139,23 +139,22 @@ struct Trie {
     }
 
     void del(const string& s) noexcept {
-        int target = find(s);
-        if (target == 0 || !exist[target]) return;
+        if(!find(s)) return;
 
         int u = root;
         for (size_t i = 0; i < s.size(); ++i) {
             int c = s[i] - 'a';
             int v = nxt[u][c];
             cnt[v]--;
+
             if (cnt[v] == 0) {
-                nxt[u][c] = -1;
-                int rem = v;
+                nxt[u][c] = 0;
                 for (size_t j = i + 1; j < s.size(); ++j) {
-                    int nxt_rem = nxt[rem][s[j] - 'a'];
-                    free_node(rem);
-                    rem = nxt_rem;
+                    int rem = nxt[v][s[j] - 'a'];
+                    free_node(v);
+                    v = rem;
                 }
-                free_node(rem);
+                free_node(v);
                 return;
             }
             u = v;

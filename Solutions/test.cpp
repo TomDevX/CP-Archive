@@ -83,7 +83,7 @@ int main(){
     multiset<int> st = {10,20,30,40,50};
     multiset<int>::iterator it = next(st.begin(),2);
     cout << *it;
-    st.erase(30);
+    it = st.erase(30);
     st.insert(25);
     cout << *it;
     
