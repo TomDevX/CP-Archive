@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-29 22:12:55
+ *    created: 2026-05-30 10:49:57
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
@@ -20,6 +20,8 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <set>
+#include <iterator>
 
 using namespace std;
 
@@ -78,9 +80,12 @@ int main(){
     fastio;
     setup();
     
-    string s;
-    cin >> s;
-    cout << s[40];
+    multiset<int> st = {10,20,30,40,50};
+    multiset<int>::iterator it = next(st.begin(),2);
+    cout << *it;
+    st.erase(30);
+    st.insert(25);
+    cout << *it;
     
     return NAH_I_WOULD_WIN;
 }

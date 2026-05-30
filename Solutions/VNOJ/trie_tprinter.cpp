@@ -11,7 +11,7 @@
  * ----------------------------------------------------------
  *    tags: Trie
  *    complexity: O(n)
- *    note: 
+ *    note: Just like normal backtrack but on Trie. We prefer the one with less characters => less deletion.
 **/
 
 #include <iostream>
