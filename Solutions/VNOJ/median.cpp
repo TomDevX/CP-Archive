@@ -4,14 +4,14 @@
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: Phần tử trung vị
+ *    title: Phần tử trung vị - Approach 1
  *    source: https://oj.vnoi.info/problem/median
- *    submission: 
- *    status: WIP
+ *    submission: https://oj.vnoi.info/submission/12401351
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Trie
+ *    complexity: O(n)
+ *    note: Use trie and kth element to find median
 **/
 
 #include <iostream>
@@ -68,7 +68,7 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int MOD = 65535, N = 3e4+5;
+const int MOD = 65536, N = 3e4+5;
 int seed,mul,add,n,k;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
@@ -85,6 +85,7 @@ struct Trie{
 
     void reset() noexcept {
         tail = pool = 1;
+        cnt[1] = exi[1] = 0;
         for(int i = 0; i < 10; i++) nxt[pool][i] = 0;
     }
 
@@ -126,35 +127,37 @@ struct Trie{
 
     void del(int x){
         string s = toStr(x);
-
+        
         int u = 1;
         for(int i = 0; i < 5; i++){
             int c = s[i] - '0';
+            int v = nxt[u][c];
+            
+            cnt[v]--;
+            
+            if(!cnt[v]){
+                nxt[u][c] = 0;
 
-            cnt[nxt[u][c]]--;
-
-            if(!cnt[nxt[u][c]]){
-                for(int j = i; j < 5; j++){
-                    int rem = nxt[u][s[j] - '0'];
-                    nxt[u][s[j] - '0'] = 0;
-                    if(u > 1) free(u);
-                    u = rem;
+                for(int j = i+1; j < 5; j++){
+                    int rem = nxt[v][s[j] - '0'];
+                    free(v);
+                    v = rem;
                 }
-                free(u);
-
+                free(v);
+                
                 return;
             }
-
-            u = nxt[u][c];
+            
+            u = v;
         }
         exi[u]--;
     }
-
+    
     int find_dict(int pos){
         int res = 0;
+        int u = 1;
 
-        for(int u = 1; pos > exi[u];){
-            pos -= exi[u];
+        for(int i = 0; i < 5; i++){
             for(int c = 0; c < 10; c++){
                 if(!nxt[u][c]) continue;
                 if(pos <= cnt[nxt[u][c]]){
@@ -182,23 +185,23 @@ int main(){
     for(int t = 1; t <= tc; t++){
         cin >> seed >> mul >> add >> n >> k;
 
-        ll l = seed, r = seed;
-        trie.add(l);
-        for(int i = 1; i < k; i++){
-            r = jump(r);
-            trie.add(r);
+        vi a(n);
+        a[0] = seed;
+        for(int i = 1; i < n; i++) {
+            a[i] = (1LL * a[i-1] * mul + add) % MOD;
+        }
+
+        for(int i = 0; i < k; i++){
+            trie.add(a[i]);
         }
 
         ll ans = trie.find_dict((k + 1)>>1);
 
         for(int i = k; i < n; i++){
-            trie.del(l);
-            l = jump(l);
-            
-            r = jump(r);
-            trie.add(r);
+            trie.del(a[i - k]);
+            trie.add(a[i]); 
 
-            ans = (ans + trie.find_dict((k + 1)>>1))%MOD;
+            ans += trie.find_dict((k + 1)>>1);
         }
 
         cout << "Case #" << t << ": " << ans << '\n';

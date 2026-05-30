@@ -161,4 +161,22 @@ struct Trie {
         }
         exist[u]--;
     }
+
+    string find_dict(int pos){
+        string res;
+
+        for(int u = 1; pos > exi[u];){
+            for(int c = 0; c < 26; c++){
+                if(!nxt[u][c]) continue;
+                if(pos <= cnt[nxt[u][c]]){
+                    res += (c + 'a');
+                    u = nxt[u][c];
+                    break;
+                }
+                pos -= cnt[nxt[u][c]];
+            }
+        }
+
+        return res;
+    }
 };
