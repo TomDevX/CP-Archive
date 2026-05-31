@@ -1,62 +1,99 @@
+/**
+ *    author: TomDev - Tran Hoang Quan
+ *    created: 2026-05-31 15:57:47
+ *    country: Vietnam - VNM
+ *    repo: github.com/TomDevX/CP-Archive
+ * ----------------------------------------------------------
+ *    title: 
+ *    source: 
+ *    submission: 
+ *    status: WIP
+ * ----------------------------------------------------------
+ *    tags: 
+ *    complexity: 
+ *    note: 
+**/
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <cstdio>
+#include <string>
+#include <utility>
 
 using namespace std;
 
-void solve() {
-    int n;
-    if (!(cin >> n)) return;
+// --- [ DEBUGGING & LOCAL CONFIG ] ---
+#if __has_include("TomDev.h") && defined(LOCAL)
+    #include "TomDev.h"
+    #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
+#else
+    #define dbg(x,i)
+#endif
+#define NAH_I_WOULD_WIN 0
 
-    // 1. Tìm tất cả các ước của n
-    vector<int> divs;
-    for (int i = 1; i * i <= n; i++) {
-        if (n % i == 0) {
-            divs.push_back(i);
-            if (i * i != n) divs.push_back(n / i);
-        }
-    }
-    
-    // 2. Sắp xếp tăng dần
-    sort(divs.begin(), divs.end());
-    
-    // 3. Tham lam phân nhóm
-    vector<vector<int>> groups;
-    for (int x : divs) {
-        bool placed = false;
-        for (auto &g : groups) {
-            if (x % g.back() == 0) {
-                g.push_back(x);
-                placed = true;
-                break;
-            }
-        }
-        if (!placed) {
-            groups.push_back({x});
-        }
-    }
-    
-    // 4. In theo đúng format yêu cầu
-    cout << groups.size() << '\n';
-    for (const auto &g : groups) {
-        cout << g.size() << ' ';
-        for (size_t i = 0; i < g.size(); i++) {
-            cout << g[i] << ' ';
-        }
-        cout << '\n';
-    }
+// --- [ MACROS ] ---
+#define all(x,bonus) std::begin(x)+(bonus), std::end(x)
+#define sub(x, st, ed) std::begin((x)) + (st), std::begin((x)) + (ed) + 1
+#define filter(x,bonus) (x).erase(unique(std::begin((x))+(bonus), std::end((x))), std::end((x)))
+#define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
+#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define fi first
+#define se second
+#define eb emplace_back
+#define sz(x) (int)(x).size()
+
+// --- [ TYPES & ALIASES ] ---
+using ll = long long;
+using ull = unsigned long long;
+using ld = long double;
+using pll = pair<long long,long long>;
+using pld = pair<long double,long double>;
+using pii = pair<int,int>;
+using pill = pair<int,long long>;
+using vi = vector<int>;
+using vvi = vector<vector<int>>;
+using vll = vector<long long>;
+using vvll = vector<vector<long long>>;
+using vb = vector<bool>;
+using vs = vector<string>;
+using vpii = vector<pair<int,int>>;
+using vpill = vector<pair<int,long long>>;
+using vpll = vector<pair<long long,long long>>;
+
+void setup(){
+    if(!fopen("main.INP", "r")) return;
+    freopen("main.INP", "r", stdin);
+    freopen("main.OUT", "w", stdout);
 }
 
-int main() {
-    // Tối ưu I/O tốc độ cao
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+// ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 1e5+5;
+
+int cnt[N];
+ll dp[N];
+
+// ----------------------- [ FUNCTIONS ] -----------------------
+
+
+// ----------------------- [ MAIN ] -----------------------
+int main(){
+    fastio;
+    setup();
     
-    int t;
-    if (cin >> t) {
-        while (t--) {
-            solve();
-        }
+    int n;
+    cin >> n;
+
+    for(int i = 1; i <= n; i++){
+        int x;
+        cin >> x;
+        cnt[x]++;
     }
-    return 0;
+
+    for(int i = 1; i < N; i++){
+        dp[i] = max(dp[i-1], dp[i-2] + 1LL*cnt[i]*i);
+    }
+    cout << *max_element(all(dp,1));
+    
+    return NAH_I_WOULD_WIN;
 }
