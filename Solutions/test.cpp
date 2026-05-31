@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-30 10:49:57
+ *    created: 2026-05-30 20:56:42
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
@@ -20,8 +20,6 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <set>
-#include <iterator>
 
 using namespace std;
 
@@ -70,22 +68,47 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 5e5+5;
 
+int ans[N], cnt[N];
+bool vis[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void precompute(){
+    ans[1] = 1;
+    for(int i =2; i < N; i++) ans[i] = 2;
+    for(int i = 2; i < N; i++){
+        for(int j = i*2; j < N; j += i){
+            if(ans[j] == ans[i]) ans[j]++;
+        }
+    }
 
+    for(int i = 1; i < N; i++){
+        if(!vis[ans[i]]){
+            cnt[i]++;
+            vis[ans[i]] = 1;
+        }
+        cnt[i] += cnt[i-1];
+        if(i < 5) dbg(cnt[i],i);
+    }
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
+    precompute();
     
-    multiset<int> st = {10,20,30,40,50};
-    multiset<int>::iterator it = next(st.begin(),2);
-    cout << *it;
-    it = st.erase(30);
-    st.insert(25);
-    cout << *it;
+    int tc;
+    cin >> tc;
+    while(tc--){
+        int n;
+        cin >> n;
+
+        cout << cnt[n] << '\n';
+        for(int i = 1; i <= n; i++) cout << ans[i] << ' ';
+        cout << '\n';
+    }
     
     return NAH_I_WOULD_WIN;
 }

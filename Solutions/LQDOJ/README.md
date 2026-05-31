@@ -2,7 +2,7 @@
 
 ### 📊 LQDOJ Stats
 
-![Progress](https://img.shields.io/badge/Progress-11/12-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-May_30%2C_2026_--_17%3A45_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-11/12-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-May_31%2C_2026_--_15%3A01_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 12
 - **Solved (AC):** 11

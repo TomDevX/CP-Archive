@@ -1,129 +1,62 @@
-/**
- *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-29 21:27:09
- *    country: Vietnam - VNM
- *    repo: github.com/TomDevX/CP-Archive
- * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
- * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
-**/
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <cstdio>
-#include <string>
-#include <utility>
-#include <stack>
 
 using namespace std;
 
-// --- [ DEBUGGING & LOCAL CONFIG ] ---
-#if __has_include("TomDev.h") && defined(LOCAL)
-    #include "TomDev.h"
-    #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
-#else
-    #define dbg(x,i)
-#endif
-#define NAH_I_WOULD_WIN 0
+void solve() {
+    int n;
+    if (!(cin >> n)) return;
 
-// --- [ MACROS ] ---
-#define all(x,bonus) std::begin(x)+(bonus), std::end(x)
-#define sub(x, st, ed) std::begin((x)) + (st), std::begin((x)) + (ed) + 1
-#define filter(x,bonus) (x).erase(unique(std::begin((x))+(bonus), std::end((x))), std::end((x)))
-#define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
-#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
-#define fi first
-#define se second
-#define eb emplace_back
-#define sz(x) (int)(x).size()
-
-// --- [ TYPES & ALIASES ] ---
-using ll = long long;
-using ull = unsigned long long;
-using ld = long double;
-using pll = pair<long long,long long>;
-using pld = pair<long double,long double>;
-using pii = pair<int,int>;
-using pill = pair<int,long long>;
-using vi = vector<int>;
-using vvi = vector<vector<int>>;
-using vll = vector<long long>;
-using vvll = vector<vector<long long>>;
-using vb = vector<bool>;
-using vs = vector<string>;
-using vpii = vector<pair<int,int>>;
-using vpill = vector<pair<int,long long>>;
-using vpll = vector<pair<long long,long long>>;
-
-void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
-}
-
-// ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
-
-// ----------------------- [ FUNCTIONS ] -----------------------
-
-
-// ----------------------- [ MAIN ] -----------------------
-int main(){
-    fastio;
-    setup();
-    
-    int tc;
-    cin >> tc;
-    while(tc--){
-        string s;
-        cin >> s;
-        ll pos;
-        cin >> pos;
-
-        stack<int> st;
-        st.push(0);
-
-        int ssize = sz(s);
-
-        for(int i = 1; i < sz(s) && pos > ssize; i++){
-            if(st.empty() || s[i] >= s[st.top()]){
-                st.push(i);
-            }
-            else{
-                while(pos > ssize && !st.empty() && s[i] < s[st.top()]){
-                    s[st.top()] = '#';
-                    st.pop();
-                    pos -= ssize;
-                    ssize--;
-                }
-                st.push(i);
-            }
-        }
-
-        int idx = sz(s) - 1;
-        while(pos > ssize){
-            while(s[idx] == '#') idx--;
-            s[idx--] = '#';
-            pos -= ssize;
-            ssize--;
-        }
-
-        int cnt = 0;
-        for(int i = 0; i < sz(s); i++){
-            if(s[i] != '#') cnt++;
-            if(cnt == pos){
-                cout << s[i];
-                break;
-            }
+    // 1. Tìm tất cả các ước của n
+    vector<int> divs;
+    for (int i = 1; i * i <= n; i++) {
+        if (n % i == 0) {
+            divs.push_back(i);
+            if (i * i != n) divs.push_back(n / i);
         }
     }
     
-    return NAH_I_WOULD_WIN;
+    // 2. Sắp xếp tăng dần
+    sort(divs.begin(), divs.end());
+    
+    // 3. Tham lam phân nhóm
+    vector<vector<int>> groups;
+    for (int x : divs) {
+        bool placed = false;
+        for (auto &g : groups) {
+            if (x % g.back() == 0) {
+                g.push_back(x);
+                placed = true;
+                break;
+            }
+        }
+        if (!placed) {
+            groups.push_back({x});
+        }
+    }
+    
+    // 4. In theo đúng format yêu cầu
+    cout << groups.size() << '\n';
+    for (const auto &g : groups) {
+        cout << g.size() << ' ';
+        for (size_t i = 0; i < g.size(); i++) {
+            cout << g[i] << ' ';
+        }
+        cout << '\n';
+    }
+}
+
+int main() {
+    // Tối ưu I/O tốc độ cao
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    
+    int t;
+    if (cin >> t) {
+        while (t--) {
+            solve();
+        }
+    }
+    return 0;
 }
