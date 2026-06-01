@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-30 17:46:03
+ *    created: 2026-06-01 16:21:46
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: Phần tử trung vị - Approach 3
- *    source: https://oj.vnoi.info/problem/median
- *    submission: 
- *    status: WIP
+ *    title: Tổng XOR lớn nhất
+ *    source: https://oj.vnoi.info/problem/gogovoi_sumxor
+ *    submission: https://oj.vnoi.info/submission/12415495
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Trie
+ *    complexity: O(n \log maxn)
+ *    note: Trie on bit
 **/
 
 #include <iostream>
@@ -20,8 +20,6 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <set>
-#include <iterator>
 
 using namespace std;
 
@@ -64,14 +62,51 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("median-3.INP", "r")) return;
-    freopen("median-3.INP", "r", stdin);
-    freopen("median-3.OUT", "w", stdout);
+    if(!fopen("gogovoi_sumxor.INP", "r")) return;
+    freopen("gogovoi_sumxor.INP", "r", stdin);
+    freopen("gogovoi_sumxor.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int MOD = 65536;
+const int N = 3e6+5;
 
+struct Trie{
+    int nxt[N][2];
+    int cnt[N], exi[N];
+    int pool = 1;
+
+    int alloc() noexcept{
+        return ++pool;
+    }
+
+    void add(int x) noexcept{
+        int u = 1;
+        for(int i = 29; i >= 0; i--){
+            int c = (x >> i & 1);
+            if(!nxt[u][c]) nxt[u][c] = alloc();
+            u = nxt[u][c];
+            cnt[u]++;
+        }
+        exi[u]++;
+    }
+
+    int get_best_xor(int x) const noexcept{
+        int u = 1;
+        int res = 0;
+        for(int i = 29; i >= 0; i--){
+            int c = (x >> i & 1);
+            if(nxt[u][c^1]){
+                u = nxt[u][c^1];
+                res += (1 << i);
+            }
+            else u = nxt[u][c];
+        }
+
+        return res;
+    }
+};
+
+Trie trie;
 // ----------------------- [ FUNCTIONS ] -----------------------
 
 
@@ -80,32 +115,22 @@ int main(){
     fastio;
     setup();
     
-    int tc;
-    cin >> tc;
-    for(int t = 1 ; t <= tc; t++){
-        int seed,mul,add,n,k;
-        cin >> seed >> mul >> add >> n >> k;
+    int n;
+    cin >> n;
+    vi a(n+1);
+    for(int i = 1; i <= n; i++) cin >> a[i];
+    vi pref(n+1);
 
-        vi a(n+1);
-        a[1] = seed;
-        for(int i = 2; i <= n; i++){
-            a[i] = (1LL*a[i-1]*mul + add)%MOD;
-        }
+    trie.add(0);
+    int ans = 0;
 
-        multiset<int> st;
-        for(int i = 1; i <= k; i++) st.insert(a[i]);
-
-        multiset<int>::iterator it = next(st.begin(), ((k+1)>>1) - 1);
-
-        ll ans = *it;
-
-        for(int i = k + 1; i <= n; i++){
-            st.erase(st.find(a[i-k]));
-            if(sz(st)&1){
-                
-            }
-        }
+    for(int i = 1; i <= n; i++){
+        pref[i] = pref[i-1]^a[i];
+        ans = max(ans, trie.get_best_xor(pref[i]));
+        trie.add(pref[i]);
     }
+
+    cout << ans;
     
     return NAH_I_WOULD_WIN;
 }

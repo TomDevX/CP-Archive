@@ -179,4 +179,46 @@ struct Trie {
 
         return res;
     }
+
+    void add(int x) noexcept{
+        int u = 1;
+        for(int i = LG; i >= 0; i--){
+            int c = (x >> i & 1);
+            if(!nxt[u][c]) nxt[u][c] = alloc();
+            u = nxt[u][c];
+            cnt[u]++;
+        }
+        exi[u]++;
+    }
+
+    int get_best_xor(int x) const noexcept{
+        int u = 1;
+        int res = 0;
+        for(int i = LG; i >= 0; i--){
+            int c = (x >> i & 1);
+            if(nxt[u][c^1]){
+                u = nxt[u][c^1];
+                res += (1 << i);
+            }
+            else u = nxt[u][c];
+        }
+
+        return res;
+    }
+
+    int smaller_x(int x) const noexcept {
+        int u = 1;
+        int res = 0;
+
+        for(int i = LG; i >= 0; i--){
+            int c = (x >> i) & 1;
+            for(int i = 0; i < c; i++){
+                if(!nxt[u][i]) continue;
+                res += cnt[nxt[u][i]];
+            }
+            u = nxt[u][c];
+        }
+
+        return res;
+    }
 };
