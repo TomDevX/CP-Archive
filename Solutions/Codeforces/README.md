@@ -2,10 +2,10 @@
 
 ### 📊 Codeforces Stats
 
-![Progress](https://img.shields.io/badge/Progress-126/143-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jun_01%2C_2026_--_23%3A19_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-127/143-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jun_01%2C_2026_--_23%3A21_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 143
-- **Solved (AC):** 126
+- **Solved (AC):** 127
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
 
@@ -137,7 +137,7 @@
 | 117 | [2107A - LRC and VIP](https://codeforces.com/contest/2107/problem/A) | `Greedy` | $\mathcal{O}(n)$ | May 29, 2026 | [Code](2107A.cpp) \| [Sub](https://codeforces.com/contest/2107/submission/376538760) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 118 | [2121C](https://codeforces.com/contest/2121/problem/C) | N/A | N/A | Mar 06, 2026 | [Code](2121C.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 119 | [2170B - Addition on a Segment](https://codeforces.com/contest/2170/problem/B) | N/A | N/A | Mar 02, 2026 | [Code](2170B.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 120 | [2176B](https://codeforces.com/problemset/problem/2176/B) | N/A | N/A | Jun 01, 2026 | [Code](2176B.cpp) \| [Sub](https://codeforces.com/problemset/submission/2176/376904264) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 120 | [2176B - Optimal Shifts](https://codeforces.com/problemset/problem/2176/B) | `Greedy` | $\mathcal{O}(n)$ | Jun 01, 2026 | [Code](2176B.cpp) \| [Sub](https://codeforces.com/problemset/submission/2176/376904264) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 121 | [2182C](https://codeforces.com/contest/2182/problem/C) | N/A | N/A | Jun 01, 2026 | [Code](2182C.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 122 | [2185C - Shifted MEX](https://codeforces.com/problemset/problem/2185/C) | `Implementation`, `Adhoc` | $\mathcal{O}(n \log n)$ | Feb 28, 2026 | [Code](2185C.cpp) \| [Sub](https://codeforces.com/problemset/submission/2185/364781791) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 123 | [2185C - Shifted MEX](https://codeforces.com/problemset/problem/2185/C) | `Implementation`, `Adhoc` | $\mathcal{O}(n^2)$ | Feb 28, 2026 | [Code](2185C_2.cpp) \| [Sub](https://codeforces.com/problemset/submission/2185/364782560) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |

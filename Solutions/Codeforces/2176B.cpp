@@ -4,14 +4,14 @@
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
+ *    title: Optimal Shifts
  *    source: https://codeforces.com/problemset/problem/2176/B
  *    submission: https://codeforces.com/problemset/submission/2176/376904264
- *    status: WIP
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Greedy
+ *    complexity: O(n)
+ *    note: Because it doesn't costs us when transforming current state to 1s, so the min time for the current 0 to be 1 is its nearest 1 on the left, so we get the maximum of that for our answer
 **/
 
 #include <iostream>
