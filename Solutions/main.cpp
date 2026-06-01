@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-25 10:06:09
+ *    created: 2026-05-27 15:28:29
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: Jellyfish and Mex
- *    source: https://codeforces.com/contest/1875/problem/D
- *    submission: https://codeforces.com/contest/1875/submission/375989918
- *    status: AC
+ *    title: 
+ *    source: 
+ *    submission: 
+ *    status: WIP
  * ----------------------------------------------------------
- *    tags: Dynamic Programming
- *    complexity: O(n^2)
- *    note: We need to consider which is the current MEX and which number we should cut, so we use DP
+ *    tags: 
+ *    complexity: 
+ *    note: 
 **/
 
 #include <iostream>
@@ -20,7 +20,6 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <deque>
 
 using namespace std;
 
@@ -63,94 +62,25 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("1875D.INP", "r")) return;
-    freopen("1875D.INP", "r", stdin);
-    freopen("1875D.OUT", "w", stdout);
+    if(!fopen("main.INP", "r")) return;
+    freopen("main.INP", "r", stdin);
+    freopen("main.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const ll INF = 2e18;
 
-struct Line{
-    ll m, b;
-
-    Line(ll _m = 0, ll _b = 0) : m(_m), b(_b) {};
-};
-
-deque<Line> dq;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-ll f(Line L, ll x){
-    return L.m*x + L.b;
-}
 
-bool isBad(Line& l1, Line& l2, Line& l3){
-    return (l1.m - l2.m)*(l2.b - l3.b) >= (l2.m - l3.m)*(l1.b - l2.b);
-}
-
-ll query(ll x){
-    int l = 0, r = sz(dq)-1;
-    ll ans = f(dq[0],x);
-    while(l <= r){
-        int mid = l + ((r-l)>>1);
-
-        if(mid + 1 < sz(dq)){
-            if(f(dq[mid],x) >= f(dq[mid+1],x)){
-                ans = f(dq[mid+1],x);
-                l = mid+1;
-            }
-            else{
-                ans = f(dq[mid],x);
-                r = mid-1;
-            }
-        }
-        else{
-            return min(ans, f(dq[mid],x));
-        }
-    }
-    return ans;
-}
-
-void add(ll m, ll b){
-    Line cur = Line(m,b);
-    while(sz(dq) >= 2 && isBad(dq[sz(dq) - 2], dq.back(), cur)) dq.pop_back();
-    dq.push_back(cur);
-}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    int tc;
-    cin >> tc;
-    while(tc--){
-        int n;
-        cin >> n;
-        dq.clear();
-
-        vi cnt(n+1);
-        for(int i = 1; i <= n; i++){
-            int x;
-            cin >> x;
-            if(x < n) cnt[x]++;
-        }
-
-        int mex = 0;
-        while(cnt[mex]) mex++;
-
-        vll dp(n+1,INF);
-        dp[mex] = 0;
-
-        add(mex,0);
-
-        for(int i = mex-1; i >= 0; i--){
-            dp[i] = query(cnt[i]-1) + i;
-            add(i, dp[i]);
-        }
-
-        cout << dp[0] << '\n';
-    }
+    ll a,b;
+    cin >> a >> b;
+    cout <<a + b;
     
     return NAH_I_WOULD_WIN;
 }
