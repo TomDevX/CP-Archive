@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-01 09:16:13
+ *    created: 2026-06-01 08:32:09
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: Các số “hơi nguyên tố”
+ *    source: DT 01-06-2026.pdf
  *    submission: 
- *    status: WIP
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Digit, Implementation
+ *    complexity: O(n)
+ *    note: All number with size < n can be all obtained with 1 -> x. So we just need to consider the case size of n
 **/
 
 #include <iostream>
@@ -20,6 +20,7 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <cstring>
 
 using namespace std;
 
@@ -62,30 +63,59 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("likeprime.INP", "r")) return;
+    freopen("likeprime.INP", "r", stdin);
+    freopen("likeprime.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 
-
 // ----------------------- [ FUNCTIONS ] -----------------------
-bool is_snt(int x){
-    for(int i = 2; i * i <= x; i++){
-        if(x%i == 0) return false;
+bool is_kinda_snt(const string& s){
+    int sum = 1;
+    for(char ch : s){
+        int c = ch - '0';
+        sum *= c;
+        if(sum > 7 || sum == 0) return false;
     }
-    return x >= 2;
+
+    return sum == 2 || sum == 3 || sum == 5 || sum == 7;
 }
 
-bool check(int x){
-    int sum = 1;
-    while(x){
-        sum *= x%10;
-        x /= 10;
+ll solve(const string& s){
+    int n = sz(s);
+    ll res = 0;
+
+    int diff = n;
+    for(int i = 0; i < n; i++){
+        if(s[i] != '1'){
+            diff = i;
+            break;
+        }
     }
 
-    return is_snt(sum);
+    for(int pos = 0; pos < n; pos++){
+        for(int p : {2,3,5,7}){
+            if(diff < pos){
+                if(s[diff] > '1') res++;
+            }
+            else{
+                if(p + '0' < s[pos]) res++;
+                else if(p + '0' == s[pos]){
+                    bool ok = true;
+                    for(int i = pos+1; i < n; i++){
+                        if(s[i] != '1'){
+                            if(s[i] < '1') ok = false;
+                            break;
+                        }
+                    }
+                    res += ok;
+                }
+            }
+        }
+    }
+
+    return res + 2LL*n*(n-1);
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -93,13 +123,10 @@ int main(){
     fastio;
     setup();
     
-    int l,r;
-    cin >> l >> r;
-    for(int i = 1; i <= r; i++){
-        if(check(i)) cout << i << '\n';
-    }
-
-    dbg(check(121),121);
+    string l,r;
+    cin >> l;
+    cin >> r;
+    cout << solve(r) - solve(l) + is_kinda_snt(l);
     
     return NAH_I_WOULD_WIN;
 }
