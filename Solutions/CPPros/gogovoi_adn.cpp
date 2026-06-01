@@ -1,21 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
-<<<<<<< HEAD
- *    created: 2026-05-27 15:28:29
-=======
- *    created: 2026-05-31 15:57:47
->>>>>>> ea92d66d09a48ff9f374d4752f30d74a9a9e21ca
+ *    created: 2026-05-29 10:54:49
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Chuỗi ADN
+ *    source: https://oj.vnoi.info/problem/gogovoi_adn
+ *    submission: https://oj.vnoi.info/submission/12394803
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Trie
+ *    complexity: O(n)
+ *    note: Just traverse through the trie to count the best way
 **/
 
 #include <iostream>
@@ -66,16 +62,60 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("gogovoi_adn.INP", "r")) return;
+    freopen("gogovoi_adn.INP", "r", stdin);
+    freopen("gogovoi_adn.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5+5;
+const int N = 2.5e6;
 
-int cnt[N];
-ll dp[N];
+ll ans = 0;
+
+struct Trie{
+    int nxt[N][4];
+    int cnt[N];
+    int pool = 1;
+
+    void reset_pool() noexcept {
+        pool = 1;
+        for(int i = 0; i < 4; i++) nxt[pool][i] = 0;
+    }
+
+    int getID(char c) const noexcept {
+        if(c == 'A') return 0;
+        if(c == 'C') return 1;
+        if(c == 'G') return 2;
+        return 3;
+    }
+
+    int alloc() noexcept{
+        ++pool;
+        cnt[pool] = 0;
+        for(int i = 0; i < 4; i++) nxt[pool][i] = 0;
+        return pool;
+    }
+
+    void add(const string& s) noexcept {
+        int u = 1;
+
+        for(char ch : s){
+            int c = getID(ch);
+            if(!nxt[u][c]) nxt[u][c] = alloc();
+            u = nxt[u][c];
+            cnt[u]++;
+        }
+    }
+
+    void dfs(int u, int passed){
+        ans = max(ans, 1LL*passed*cnt[u]);
+        for(int c = 0; c < 4; c++){
+            if(nxt[u][c]) dfs(nxt[u][c],passed+1);
+        }
+    }
+};
+
+Trie trie;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -85,19 +125,24 @@ int main(){
     fastio;
     setup();
     
-    int n;
-    cin >> n;
+    int tc;
+    cin >> tc;
+    for(int t  = 1; t <= tc; t++){
+        trie.reset_pool();
+        ans = 0;
 
-    for(int i = 1; i <= n; i++){
-        int x;
-        cin >> x;
-        cnt[x]++;
-    }
+        int n;
+        cin >> n;
 
-    for(int i = 1; i < N; i++){
-        dp[i] = max(dp[i-1], dp[i-2] + 1LL*cnt[i]*i);
+        string s;
+        for(int i = 1; i <= n; i++){
+            cin >> s;
+            trie.add(s);
+        }
+
+        trie.dfs(1,0);
+        cout << "Case " << t << ": " << ans << '\n';
     }
-    cout << *max_element(all(dp,1));
     
     return NAH_I_WOULD_WIN;
 }

@@ -16,7 +16,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 
 - [ ] **First Prize** - Tin Học Trẻ Southern Region (Category C1)
 - [ ] **Second Prize** - Tin Học Trẻ National (Category C1)
-- [ ] **Candidate Master** on Codeforces (Current Rating: [![Codeforce](https://mosesxu.ca/judge-badge/codeforces/tomdev)](https://codeforces.com/profile/tomdev))
+- [ ] **Candidate Master** on Codeforces (Current Rating: [![Codeforces Rating of @TomDev](https://cfrating.baoshuo.dev/rating?username=TomDev&style=flat)](https://codeforces.com/profile/TomDev))
 
 ## 📂 Directory Structure
 

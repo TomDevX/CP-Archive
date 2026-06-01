@@ -1,21 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
-<<<<<<< HEAD
- *    created: 2026-05-27 15:28:29
-=======
- *    created: 2026-05-31 15:57:47
->>>>>>> ea92d66d09a48ff9f374d4752f30d74a9a9e21ca
+ *    created: 2026-05-29 20:47:56
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: LRC and VIP
+ *    source: https://codeforces.com/contest/2107/problem/A
+ *    submission: https://codeforces.com/contest/2107/submission/376538760
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Greedy
+ *    complexity: O(n)
+ *    note: It's always a Yes unless all elements are the same, just take the max element (for not to be same with any gcd) as one group and the others as 1 group
 **/
 
 #include <iostream>
@@ -72,10 +68,7 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5+5;
 
-int cnt[N];
-ll dp[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -85,19 +78,35 @@ int main(){
     fastio;
     setup();
     
-    int n;
-    cin >> n;
+    int tc;
+    cin >> tc;
 
-    for(int i = 1; i <= n; i++){
-        int x;
-        cin >> x;
-        cnt[x]++;
-    }
+    while(tc--){
+        int n;
+        cin >> n;
+        vi a(n+1);
 
-    for(int i = 1; i < N; i++){
-        dp[i] = max(dp[i-1], dp[i-2] + 1LL*cnt[i]*i);
+        int maxn = 0;
+        for(int i = 1; i <= n; i++) cin >> a[i], maxn = max(maxn, a[i]);
+
+        bool all_same = true;
+        for(int i = 2; i <= n; i++){
+            if(a[i] != a[i-1]){
+                all_same = false;
+                break;
+            }
+        }
+
+        if(all_same) cout << "No\n";
+        else{
+            cout << "Yes\n";
+            for(int i = 1; i <= n; i++){
+                if(a[i] == maxn) cout << 2 << ' ';
+                else cout << 1 << ' ';
+            }
+            cout << '\n';
+        }
     }
-    cout << *max_element(all(dp,1));
     
     return NAH_I_WOULD_WIN;
 }

@@ -1,15 +1,11 @@
 /**
  *    author: TomDev - Tran Hoang Quan
-<<<<<<< HEAD
- *    created: 2026-05-27 15:28:29
-=======
- *    created: 2026-05-31 15:57:47
->>>>>>> ea92d66d09a48ff9f374d4752f30d74a9a9e21ca
+ *    created: 2026-05-30 17:46:03
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: Phần tử trung vị - Approach 3
+ *    source: https://oj.vnoi.info/problem/median
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -24,6 +20,8 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <set>
+#include <iterator>
 
 using namespace std;
 
@@ -66,16 +64,13 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("median-3.INP", "r")) return;
+    freopen("median-3.INP", "r", stdin);
+    freopen("median-3.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5+5;
-
-int cnt[N];
-ll dp[N];
+const int MOD = 65536;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -85,19 +80,32 @@ int main(){
     fastio;
     setup();
     
-    int n;
-    cin >> n;
+    int tc;
+    cin >> tc;
+    for(int t = 1 ; t <= tc; t++){
+        int seed,mul,add,n,k;
+        cin >> seed >> mul >> add >> n >> k;
 
-    for(int i = 1; i <= n; i++){
-        int x;
-        cin >> x;
-        cnt[x]++;
-    }
+        vi a(n+1);
+        a[1] = seed;
+        for(int i = 2; i <= n; i++){
+            a[i] = (1LL*a[i-1]*mul + add)%MOD;
+        }
 
-    for(int i = 1; i < N; i++){
-        dp[i] = max(dp[i-1], dp[i-2] + 1LL*cnt[i]*i);
+        multiset<int> st;
+        for(int i = 1; i <= k; i++) st.insert(a[i]);
+
+        multiset<int>::iterator it = next(st.begin(), ((k+1)>>1) - 1);
+
+        ll ans = *it;
+
+        for(int i = k + 1; i <= n; i++){
+            st.erase(st.find(a[i-k]));
+            if(sz(st)&1){
+                
+            }
+        }
     }
-    cout << *max_element(all(dp,1));
     
     return NAH_I_WOULD_WIN;
 }

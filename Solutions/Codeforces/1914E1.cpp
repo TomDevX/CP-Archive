@@ -1,21 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
-<<<<<<< HEAD
- *    created: 2026-05-27 15:28:29
-=======
- *    created: 2026-05-31 15:57:47
->>>>>>> ea92d66d09a48ff9f374d4752f30d74a9a9e21ca
+ *    created: 2026-05-29 20:55:58
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Game with Marbles (Easy Version)
+ *    source: https://codeforces.com/contest/1914/problem/E1
+ *    submission: https://codeforces.com/contest/1914/submission/376538605
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Math
+ *    complexity: O(n \log n)
+ *    note: Just sort with the comparison between the best diff to take with both Alice and Bob
 **/
 
 #include <iostream>
@@ -72,10 +68,17 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5+5;
+const int N = 2e5+5;
 
-int cnt[N];
-ll dp[N];
+struct box{
+    int a,b;
+
+    box(int _a = 0, int _b = 0) : a(_a), b(_b) {};
+};
+
+bool cmp(const box& x, const box& y) {
+    return x.a - 1 + x.b > y.a - 1 + y.b;
+}
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -85,19 +88,30 @@ int main(){
     fastio;
     setup();
     
-    int n;
-    cin >> n;
+    int tc;
+    cin >> tc;
+    while(tc--){
+        int n;
+        cin >> n;
+        vector<box> a(n+1);
 
-    for(int i = 1; i <= n; i++){
-        int x;
-        cin >> x;
-        cnt[x]++;
-    }
+        for(int i = 1; i <= n; i++){
+            cin >> a[i].a;
+        }
+        for(int i = 1; i <= n; i++){
+            cin >> a[i].b;
+        }
 
-    for(int i = 1; i < N; i++){
-        dp[i] = max(dp[i-1], dp[i-2] + 1LL*cnt[i]*i);
+        sort(all(a,1),cmp);
+
+        ll suma = 0, sumb = 0;
+        for(int i = 1; i <= n; i++){
+            if(i&1) suma += a[i].a - 1;
+            else sumb += a[i].b - 1;
+        }
+
+        cout << suma - sumb << '\n';
     }
-    cout << *max_element(all(dp,1));
     
     return NAH_I_WOULD_WIN;
 }

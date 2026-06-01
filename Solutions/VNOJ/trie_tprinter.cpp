@@ -1,21 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
-<<<<<<< HEAD
- *    created: 2026-05-27 15:28:29
-=======
- *    created: 2026-05-31 15:57:47
->>>>>>> ea92d66d09a48ff9f374d4752f30d74a9a9e21ca
+ *    created: 2026-05-29 11:17:21
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Type Printer
+ *    source: https://oj.vnoi.info/problem/trie_tprinter
+ *    submission: https://oj.vnoi.info/submission/12394968
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Trie
+ *    complexity: O(n)
+ *    note: Just like normal backtrack but on Trie. We prefer the one with less characters => less deletion.
 **/
 
 #include <iostream>
@@ -66,16 +62,62 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("trie_tprinter.INP", "r")) return;
+    freopen("trie_tprinter.INP", "r", stdin);
+    freopen("trie_tprinter.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5+5;
+const int N = 2e6+5;
 
-int cnt[N];
-ll dp[N];
+vector<char> moves;
+
+struct Trie{
+    int nxt[N][26];
+    int exi[N];
+    int h[N];
+    int pool = 1;
+
+    int alloc() noexcept {
+        return ++pool;
+    }
+
+    void add(const string& s) noexcept {
+        int u = 1;
+        for(char ch : s){
+            int c = ch - 'a';
+            if(!nxt[u][c]) nxt[u][c] = alloc();
+            u = nxt[u][c];
+        }
+        exi[u]++;
+    }
+
+    int make_h(int u) noexcept {
+        for(int c = 0; c < 26; c++){
+            if(nxt[u][c]) h[u] = max(h[u], make_h(nxt[u][c]) + 1);
+        }
+        return h[u];
+    }
+
+    void dfs(int u) const noexcept{
+        for(int i = 1; i <= exi[u]; i++) moves.eb('P');
+        vpii prior;
+        for(int c = 0; c < 26; c++){
+            if(nxt[u][c]){
+                prior.eb(h[nxt[u][c]], c);
+            }
+        }
+        sort(all(prior,0), [](const pii& a, const pii& b){return a.fi < b.fi;});
+
+        for(const pii& p : prior){
+            moves.eb(p.se + 'a');
+            dfs(nxt[u][p.se]);
+        }
+        moves.eb('-');
+    }
+};
+
+Trie trie;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -87,17 +129,21 @@ int main(){
     
     int n;
     cin >> n;
+    string s;
 
     for(int i = 1; i <= n; i++){
-        int x;
-        cin >> x;
-        cnt[x]++;
+        cin >> s;
+        trie.add(s);
     }
 
-    for(int i = 1; i < N; i++){
-        dp[i] = max(dp[i-1], dp[i-2] + 1LL*cnt[i]*i);
-    }
-    cout << *max_element(all(dp,1));
+    trie.make_h(1);
+
+    trie.dfs(1);
+
+    while(moves.back() == '-') moves.pop_back();
+
+    cout << sz(moves) << '\n';
+    for(char move : moves) cout << move;
     
     return NAH_I_WOULD_WIN;
 }

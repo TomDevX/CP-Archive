@@ -1,21 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
-<<<<<<< HEAD
- *    created: 2026-05-27 15:28:29
-=======
- *    created: 2026-05-31 15:57:47
->>>>>>> ea92d66d09a48ff9f374d4752f30d74a9a9e21ca
+ *    created: 2026-05-29 09:45:21
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Tin mật
+ *    source: https://oj.vnoi.info/problem/sec
+ *    submission: https://oj.vnoi.info/submission/12394516
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Trie
+ *    complexity: O(n)
+ *    note: If the string in the first set ended, it may be our queried string -> +1. If our queried string ended, which string takes queried string as prefix will get +1
 **/
 
 #include <iostream>
@@ -66,16 +62,30 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("sec.INP", "r")) return;
+    freopen("sec.INP", "r", stdin);
+    freopen("sec.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5+5;
+const int N = 5e5+5;
 
-int cnt[N];
-ll dp[N];
+struct Trie{
+    int child[N][2];
+    int cnt[N];
+    int exi[N];
+    int pool = 0;
+
+    Trie(){
+        alloc();
+    }
+
+    int alloc() noexcept {
+        return ++pool;
+    }
+};
+
+Trie trie;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -85,19 +95,51 @@ int main(){
     fastio;
     setup();
     
-    int n;
-    cin >> n;
+    int n,q;
+    cin >> n >> q;
 
     for(int i = 1; i <= n; i++){
-        int x;
-        cin >> x;
-        cnt[x]++;
+        int m;
+        cin >> m;
+        int c;
+        
+        // trie.add()
+        int u = 1;
+        for(int j = 1; j <= m; j++){
+            cin >> c;
+            if(!trie.child[u][c]) trie.child[u][c] = trie.alloc();
+            u = trie.child[u][c];
+            trie.cnt[u]++;
+        }
+        trie.exi[u]++;
     }
 
-    for(int i = 1; i < N; i++){
-        dp[i] = max(dp[i-1], dp[i-2] + 1LL*cnt[i]*i);
+    while(q--){
+        int m;
+        cin >> m;
+
+        int ans = 0;
+        int c;
+        bool good = true;
+        
+        // trie.count();
+        int u = 1;
+        for(int i = 1; i <= m; i++){
+            cin >> c;
+
+            if(!good) continue;
+            if(!trie.child[u][c]){
+                good = false;
+                continue;
+            }
+
+            u = trie.child[u][c];
+            if(trie.exi[u]) ans += trie.exi[u];
+        }
+        ans += (good ? trie.cnt[u] - trie.exi[u] : 0);
+
+        cout << ans << '\n';
     }
-    cout << *max_element(all(dp,1));
     
     return NAH_I_WOULD_WIN;
 }

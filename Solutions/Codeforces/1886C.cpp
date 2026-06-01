@@ -1,21 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
-<<<<<<< HEAD
- *    created: 2026-05-27 15:28:29
-=======
- *    created: 2026-05-31 15:57:47
->>>>>>> ea92d66d09a48ff9f374d4752f30d74a9a9e21ca
+ *    created: 2026-05-29 21:27:09
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Decreasing String
+ *    source: https://codeforces.com/problemset/problem/1886/C
+ *    submission: https://codeforces.com/problemset/submission/1886/376537342
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: String, Stack
+ *    complexity: O(n)
+ *    note: We notice that our optimized way is to delete the character that is to the far left to be smaller than the old one -> compare s[i] with s[i+1]. But how do we delete it without getting O(n) complexity? -> Use stack to store past available elements. To count efficiently, just pos -= current_string_size
 **/
 
 #include <iostream>
@@ -24,6 +20,7 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <stack>
 
 using namespace std;
 
@@ -72,10 +69,7 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5+5;
 
-int cnt[N];
-ll dp[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -85,19 +79,51 @@ int main(){
     fastio;
     setup();
     
-    int n;
-    cin >> n;
+    int tc;
+    cin >> tc;
+    while(tc--){
+        string s;
+        cin >> s;
+        ll pos;
+        cin >> pos;
 
-    for(int i = 1; i <= n; i++){
-        int x;
-        cin >> x;
-        cnt[x]++;
-    }
+        stack<int> st;
+        st.push(0);
 
-    for(int i = 1; i < N; i++){
-        dp[i] = max(dp[i-1], dp[i-2] + 1LL*cnt[i]*i);
+        int ssize = sz(s);
+
+        for(int i = 1; i < sz(s) && pos > ssize; i++){
+            if(st.empty() || s[i] >= s[st.top()]){
+                st.push(i);
+            }
+            else{
+                while(pos > ssize && !st.empty() && s[i] < s[st.top()]){
+                    s[st.top()] = '#';
+                    st.pop();
+                    pos -= ssize;
+                    ssize--;
+                }
+                st.push(i);
+            }
+        }
+
+        int idx = sz(s) - 1;
+        while(pos > ssize){
+            while(s[idx] == '#') idx--;
+            s[idx--] = '#';
+            pos -= ssize;
+            ssize--;
+        }
+
+        int cnt = 0;
+        for(int i = 0; i < sz(s); i++){
+            if(s[i] != '#') cnt++;
+            if(cnt == pos){
+                cout << s[i];
+                break;
+            }
+        }
     }
-    cout << *max_element(all(dp,1));
     
     return NAH_I_WOULD_WIN;
 }

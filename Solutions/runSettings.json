@@ -14,10 +14,11 @@
       "${fileDirname}/${fileBasenameNoExtension}"
     ],
     "debugCommand": [
-      "lldb", 
-      "--", 
+      "lldb",
+      "--",
       "${fileDirname}/${fileBasenameNoExtension}"
-    ]
+    ],
+    "debugAttachConfig": "GDB: Attach"
   },
   "goodSolutionFile": "${fileDirname}/${fileBasenameNoExtension}__Good${fileExtname}",
   "generatorFile": "${fileDirname}/${fileBasenameNoExtension}__Generator${fileExtname}"

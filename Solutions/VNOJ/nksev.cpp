@@ -6,12 +6,12 @@
  * ----------------------------------------------------------
  *    title: Tách từ
  *    source: https://oj.vnoi.info/problem/nksev
- *    submission: 
- *    status: WIP
+ *    submission: https://oj.vnoi.info/submission/12393469
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Trie
+ *    complexity: O(n*100)
+ *    note: First, this problem divide the string into parts, so we think of dp. If ok([i,j]) then dp[i] += dp[j] where dp[i] = ways to make string [1,i]. Now to check ok(substr), we can use hash with map, but it will be O(|S|*100*log2(n)) -> TLE. Notice that max size of each elements is only 100, so we can iterate on each i -> O(|S|*100). So how do we check? We make a trie of elements, and when iterating back we check how many are they (remember to reverse all elements string before adding them in)
 **/
 
 #include <iostream>
@@ -68,7 +68,36 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 4e5+5, M = 3e5+5;
+const ll MOD = 1337377;
 
+struct Trie{
+    int child[N][26];
+    int exi[N];
+    int pool = 0;
+
+    int root = 1;
+
+    Trie(){alloc();};
+
+    int alloc() noexcept {
+        return ++pool;
+    }
+
+    void add(const string& s) noexcept {
+        int u = 1;
+        for(char ch : s){
+            char c = ch - 'a';
+            if(!child[u][c]) child[u][c] = alloc();
+            u = child[u][c];
+        }
+        exi[u]++;
+    }
+};
+
+Trie trie;
+
+ll dp[M];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -78,7 +107,30 @@ int main(){
     fastio;
     setup();
     
-    
+    string s;
+    cin >> s;
+
+    int n;
+    cin >> n;
+    string random_kid;
+    for(int i = 1; i <= n; i++){
+        cin >> random_kid;
+        reverse(all(random_kid,0));
+        trie.add(random_kid);
+    }
+
+    for(int i = 0; i < sz(s); i++){
+        int u = 1;
+
+        for(int j = i; j >= 0 && i - j < 100; j--){
+            if(trie.child[u][s[j] - 'a']) u = trie.child[u][s[j] - 'a'];
+            else break;
+            
+            dp[i] = (dp[i] + (j > 0 ? dp[j-1]*trie.exi[u] : 1LL*trie.exi[u]))%MOD;
+        }
+    }
+
+    cout << dp[sz(s)-1];
     
     return NAH_I_WOULD_WIN;
 }

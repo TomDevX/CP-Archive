@@ -1,21 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
-<<<<<<< HEAD
- *    created: 2026-05-27 15:28:29
-=======
- *    created: 2026-05-31 15:57:47
->>>>>>> ea92d66d09a48ff9f374d4752f30d74a9a9e21ca
+ *    created: 2026-05-30 17:31:42
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Phần tử trung vị - Approach 2
+ *    source: https://oj.vnoi.info/problem/median
+ *    submission: https://oj.vnoi.info/submission/12401447
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: BIT, Binary Lifting
+ *    complexity: O(n \log n)
+ *    note: Use binary lifting to find median
 **/
 
 #include <iostream>
@@ -24,6 +20,7 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <cstring>
 
 using namespace std;
 
@@ -66,38 +63,69 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("median-2.INP", "r")) return;
+    freopen("median-2.INP", "r", stdin);
+    freopen("median-2.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5+5;
+const int MOD = 65536, N = 65540;
 
-int cnt[N];
-ll dp[N];
-
+int bit[N];
 // ----------------------- [ FUNCTIONS ] -----------------------
+void update(int pos, int val){
+    for(;pos < N; pos += pos&-pos) bit[pos] += val;
+}
 
+int find_kth(int k){
+    int pos = 0;
+
+    for(int exp = 17; exp >= 0; exp--){
+        int nxt = pos + (1 << exp);
+        if(nxt >= N) continue;
+        if(bit[nxt] < k){
+            pos = nxt;
+            k -= bit[pos];
+        }
+    }
+
+    return pos+1-1;
+}
 
 // ----------------------- [ MAIN ] -----------------------
 int main(){
     fastio;
     setup();
     
-    int n;
-    cin >> n;
+    int tc;
+    cin >> tc;
+    for(int t = 1; t <= tc; t++){
+        int seed,mul,add,n,k;
+        cin >> seed >> mul >> add >> n >> k;
 
-    for(int i = 1; i <= n; i++){
-        int x;
-        cin >> x;
-        cnt[x]++;
-    }
+        vi a(n+1);
+        a[1] = seed;
+        for(int i = 2; i <= n; i++){
+            a[i] = (1LL*a[i-1]*mul + add)%MOD;
+        }
 
-    for(int i = 1; i < N; i++){
-        dp[i] = max(dp[i-1], dp[i-2] + 1LL*cnt[i]*i);
+        for(int i = 1; i <= k; i++){
+            update(a[i]+1,1);
+        }
+
+        ll ans = find_kth((k+1)>>1);
+
+        for(int i = k + 1; i <= n; i++){
+            update(a[i-k]+1,-1);
+            update(a[i]+1,1);
+
+            ans += find_kth((k+1)>>1);
+        }
+
+        cout << "Case #" << t << ": " << ans << '\n';
+
+        memset(bit,0,sizeof(bit));
     }
-    cout << *max_element(all(dp,1));
     
     return NAH_I_WOULD_WIN;
 }

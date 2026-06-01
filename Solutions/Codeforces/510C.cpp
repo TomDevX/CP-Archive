@@ -1,21 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
-<<<<<<< HEAD
- *    created: 2026-05-27 15:28:29
-=======
- *    created: 2026-05-31 15:57:47
->>>>>>> ea92d66d09a48ff9f374d4752f30d74a9a9e21ca
+ *    created: 2026-05-30 14:41:38
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Fox And Names
+ *    source: https://codeforces.com/problemset/problem/510/C
+ *    submission: https://codeforces.com/problemset/submission/510/376594618
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Topo Sort
+ *    complexity: O(n^3)
+ *    note: Topo the alphabet
 **/
 
 #include <iostream>
@@ -24,6 +20,7 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <queue>
 
 using namespace std;
 
@@ -66,16 +63,17 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("510C.INP", "r")) return;
+    freopen("510C.INP", "r", stdin);
+    freopen("510C.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5+5;
+const int N = 30;
 
-int cnt[N];
-ll dp[N];
+vi adj[N];
+int deg_in[N];
+bool vis[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -87,17 +85,59 @@ int main(){
     
     int n;
     cin >> n;
-
+    vs a(n+1);
     for(int i = 1; i <= n; i++){
-        int x;
-        cin >> x;
-        cnt[x]++;
+        cin >> a[i];
     }
 
-    for(int i = 1; i < N; i++){
-        dp[i] = max(dp[i-1], dp[i-2] + 1LL*cnt[i]*i);
+    for(int i = 1; i < n; i++){
+        for(int j = i + 1; j <= n; j++){
+            bool diff = false;
+            for(int k = 0; k < min(sz(a[i]), sz(a[j])); k++){
+                if(a[i][k] != a[j][k]){
+                    diff = true;
+                    adj[a[i][k] - 'a'].eb(a[j][k] - 'a');
+                    deg_in[a[j][k] - 'a']++;
+                    break;
+                }
+            }
+            if(!diff && sz(a[i]) >= sz(a[j])){
+                cout << "Impossible";
+                return 0;
+            }
+        }
     }
-    cout << *max_element(all(dp,1));
+
+    string trace;
+    queue<int> qu;
+    for(int i = 0; i < 26; i++){
+        if(deg_in[i] == 0){
+            qu.push(i);
+        }
+    }
+
+    int cnt = 0;
+
+    while(!qu.empty()){
+        int u = qu.front();
+        qu.pop();
+        trace += (u + 'a');
+        cnt++;
+
+        for(int v : adj[u]){
+            deg_in[v]--;
+            if(deg_in[v] == 0){
+                qu.push(v);
+            }
+        }
+    }
+
+    if(cnt != 26){
+        cout << "Impossible";
+        return 0;
+    }
+
+    for(char c : trace) cout << c;
     
     return NAH_I_WOULD_WIN;
 }

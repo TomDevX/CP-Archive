@@ -2,7 +2,7 @@ constexpr int MAXN = 2e6 + 5;
 
 // =================== [Multi Trie] =====================
 struct TriePool {
-    int child[MAXN][26];
+    int nxt[MAXN][26];
     int cnt[MAXN];
     int exist[MAXN];
     int pool;
@@ -12,13 +12,13 @@ struct TriePool {
     inline void reset() noexcept {
         pool = tail = 0;
         exist[0] = cnt[0] = 0;
-        memset(child[0], -1, 26 * sizeof(int));
+        for(int i = 0; i < 26; i++) nxt[0][i] = -1;
     }
 
     inline int alloc() noexcept {
         int id = (tail > 0) ? bin[--tail] : ++pool;
         exist[id] = cnt[id] = 0;
-        memset(child[id], -1, 26 * sizeof(int));
+        for(int i = 0; i < 26; i++) nxt[id][i] = -1;
         return id;
     }
 
@@ -43,8 +43,8 @@ struct Trie {
         int u = root;
         for (char ch : s) {
             int c = ch - 'a';
-            if (mem.child[u][c] == -1) mem.child[u][c] = mem.alloc();
-            u = mem.child[u][c];
+            if (mem.nxt[u][c] == -1) mem.nxt[u][c] = mem.alloc();
+            u = mem.nxt[u][c];
             mem.cnt[u]++;
         }
         mem.exist[u]++;
@@ -54,8 +54,8 @@ struct Trie {
         int u = root;
         for (char ch : s) {
             int c = ch - 'a';
-            if (mem.child[u][c] == -1) return 0;
-            u = mem.child[u][c];
+            if (mem.nxt[u][c] == -1) return 0;
+            u = mem.nxt[u][c];
         }
         return u;
     }
@@ -65,15 +65,15 @@ struct Trie {
         int u = root;
         for (int i = 0; i < s.size(); ++i) {
             int c = s[i] - 'a';
-            int v = mem.child[u][c];
+            int v = mem.nxt[u][c];
             mem.cnt[v]--;
             if (mem.cnt[v] == 0) {
-                mem.child[u][c] = -1;
+                mem.nxt[u][c] = -1;
                 int rem = v;
                 for (int j = i + 1; j < s.size(); ++j) {
-                    int child_rem = mem.child[rem][s[j] - 'a'];
+                    int nxt_rem = mem.nxt[rem][s[j] - 'a'];
                     mem.free(rem);
-                    rem = child_rem;
+                    rem = nxt_rem;
                 }
                 mem.free(rem);
                 return;
@@ -87,7 +87,7 @@ struct Trie {
 
 // ================= [Single Trie] =================
 struct Trie {
-    int child[MAX_TRIE_NODES][26];
+    int nxt[MAX_TRIE_NODES][26];
     int cnt[MAX_TRIE_NODES];
     int exist[MAX_TRIE_NODES];
     int bin[MAX_TRIE_NODES];
@@ -97,15 +97,15 @@ struct Trie {
     int root;
 
     inline void reset_pool() noexcept {
-        pool = tail = 0;
+        pool = tail = 1;
         exist[0] = cnt[0] = 0;
-        for(int i = 0; i < 26; i++) child[0][i] = -1;
+        for(int i = 0; i < 26; i++) nxt[0][i] = 0;
     }
 
     inline int alloc() noexcept {
-        int id = (tail > 0) ? bin[--tail] : ++pool;
+        int id = (tail > 1) ? bin[--tail] : ++pool;
         exist[id] = cnt[id] = 0;
-        for(int i = 0; i < 26; i++) child[id][i] = -1;
+        for(int i = 0; i < 26; i++) nxt[id][i] = 0;
         return id;
     }
 
@@ -121,8 +121,8 @@ struct Trie {
         int u = root;
         for (char ch : s) {
             int c = ch - 'a';
-            if (child[u][c] == -1) child[u][c] = alloc();
-            u = child[u][c];
+            if (nxt[u][c] == -1) nxt[u][c] = alloc();
+            u = nxt[u][c];
             cnt[u]++;
         }
         exist[u]++;
@@ -132,34 +132,51 @@ struct Trie {
         int u = root;
         for (char ch : s) {
             int c = ch - 'a';
-            if (child[u][c] == -1) return 0;
-            u = child[u][c];
+            if (nxt[u][c] == -1) return 0;
+            u = nxt[u][c];
         }
         return u;
     }
 
     void del(const string& s) noexcept {
-        int target = find(s);
-        if (target == 0 || !exist[target]) return;
+        if(!find(s)) return;
 
         int u = root;
         for (size_t i = 0; i < s.size(); ++i) {
             int c = s[i] - 'a';
-            int v = child[u][c];
+            int v = nxt[u][c];
             cnt[v]--;
+
             if (cnt[v] == 0) {
-                child[u][c] = -1;
-                int rem = v;
+                nxt[u][c] = 0;
                 for (size_t j = i + 1; j < s.size(); ++j) {
-                    int child_rem = child[rem][s[j] - 'a'];
-                    free_node(rem);
-                    rem = child_rem;
+                    int rem = nxt[v][s[j] - 'a'];
+                    free_node(v);
+                    v = rem;
                 }
-                free_node(rem);
+                free_node(v);
                 return;
             }
             u = v;
         }
         exist[u]--;
+    }
+
+    string find_dict(int pos){
+        string res;
+
+        for(int u = 1; pos > exi[u];){
+            for(int c = 0; c < 26; c++){
+                if(!nxt[u][c]) continue;
+                if(pos <= cnt[nxt[u][c]]){
+                    res += (c + 'a');
+                    u = nxt[u][c];
+                    break;
+                }
+                pos -= cnt[nxt[u][c]];
+            }
+        }
+
+        return res;
     }
 };
