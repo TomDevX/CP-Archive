@@ -6,8 +6,8 @@
  * ----------------------------------------------------------
  *    title: Phép XOR
  *    source: https://oj.vnoi.info/problem/gogovoi_phepxor
- *    submission: 
- *    status: WIP
+ *    submission: https://oj.vnoi.info/submission/12412823
+ *    status: AC
  * ----------------------------------------------------------
  *    tags: 
  *    complexity: 

@@ -2,10 +2,10 @@
 
 ### 📊 Grade 10 Stats
 
-![Progress](https://img.shields.io/badge/Progress-46/58-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jun_01%2C_2026_--_06%3A37_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-45/58-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jun_01%2C_2026_--_08%3A31_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 58
-- **Solved (AC):** 46
+- **Solved (AC):** 45
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
 
@@ -36,13 +36,13 @@
 | 15 | [FIB - FIB](BT_20260316.pdf) | `Matrix Exponentiation` | $\mathcal{O}(\log R + \log L)$ | Mar 16, 2026 | [Code](FIB.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 16 | [FIBSQR - FIBSQR](BT_20260316.pdf) | `Matrix Exponentiation` | $\mathcal{O}(\log n)$ | Mar 16, 2026 | [Code](FIBSQR.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 17 | FISHER | N/A | N/A | Jan 13, 2026 | [Code](FISHER.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 18 | HOLIDAYS | N/A | N/A | Dec 08, 2025 | [Code](HOLIDAYS.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 19 | [JOB - JOB](BT_20260223.pdf) | N/A | N/A | Feb 23, 2026 | [Code](JOB.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 20 | KRUSKAL | N/A | N/A | Dec 01, 2025 | [Code](KRUSKAL.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 21 | KRUSKAP.INP | N/A | N/A | N/A | [Code](KRUSKAP.INP.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 22 | [LCA2 - LCA2](LCA1.pdf) | `LCA` | N/A | Feb 24, 2026 | [Code](LCA2.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 23 | [LCA - LCA](LCA1.pdf) | `LCA` | $\mathcal{O}(n \log 19 + (n-1) + q \log 19)$ | Feb 24, 2026 | [Code](LCA.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 24 | main | N/A | N/A | Jan 30, 2026 | [Code](main.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 18 | [GRASSHOPPER - Châu chấu 2D](DT%2001-06-2026.pdf) | `Math` | $\mathcal{O}(1)$ | Jun 01, 2026 | [Code](grasshopper.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 19 | HOLIDAYS | N/A | N/A | Dec 08, 2025 | [Code](HOLIDAYS.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 20 | [JOB - JOB](BT_20260223.pdf) | N/A | N/A | Feb 23, 2026 | [Code](JOB.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 21 | KRUSKAL | N/A | N/A | Dec 01, 2025 | [Code](KRUSKAL.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 22 | KRUSKAP.INP | N/A | N/A | N/A | [Code](KRUSKAP.INP.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 23 | [LCA2 - LCA2](LCA1.pdf) | `LCA` | N/A | Feb 24, 2026 | [Code](LCA2.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 24 | [LCA - LCA](LCA1.pdf) | `LCA` | $\mathcal{O}(n \log 19 + (n-1) + q \log 19)$ | Feb 24, 2026 | [Code](LCA.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 25 | [MARATHON - MARATHON](LCA2.pdf) | `LCA` | $\mathcal{O}(n \log n)$ | Mar 03, 2026 | [Code](MARATHON.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 26 | [MINMM - MINMM](BT_20260226.pdf) | N/A | N/A | Feb 26, 2026 | [Code](MINMM.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 27 | MINQUERY | N/A | N/A | Jan 20, 2026 | [Code](MINQUERY.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -64,13 +64,13 @@
 | 43 | SALARY | N/A | N/A | Jan 20, 2026 | [Code](SALARY.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 44 | [SBORDER - CHUỖI BIÊN - Z-function](BT_20260330.pdf) | `Z-function`, `String Matching` | $\mathcal{O}(n)$ | Mar 30, 2026 | [Code](SBORDER_zfunc.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 45 | SEGCOVER | N/A | N/A | Apr 13, 2026 | [Code](SEGCOVER.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 46 | [SIMILARITY - Độ tương đồng](BT_20260406.pdf) | `Z-function` | $\mathcal{O}(n + m)$ | Apr 06, 2026 | [Code](SIMILARITY.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 47 | [STORAGE - HỘP QUÀ](BT_20260403.pdf) | `Sorting`, `Two Pointers` | $\mathcal{O}(n \log n)$ | Apr 13, 2026 | [Code](STORAGE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 48 | [STRINGKC - STRINGKC](BT_20260226.pdf) | N/A | N/A | Feb 26, 2026 | [Code](STRINGKC.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 49 | SUM | N/A | N/A | Jan 13, 2026 | [Code](SUM.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 50 | SUMXOR | N/A | N/A | Jan 12, 2026 | [Code](SUMXOR.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 51 | [SWINDOW - CỬA SỔ VĂN BẢN](BT_20260330.pdf) | `Z-function`, `String Matching` | $\mathcal{O}(n)$ | Mar 30, 2026 | [Code](SWINDOW.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 52 | test | N/A | N/A | Jan 18, 2026 | [Code](test.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 46 | SEGCOVER__Good | N/A | N/A | Apr 13, 2026 | [Code](SEGCOVER__Good.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 47 | [SIMILARITY - Độ tương đồng](BT_20260406.pdf) | `Z-function` | $\mathcal{O}(n + m)$ | Apr 06, 2026 | [Code](SIMILARITY.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 48 | [STORAGE - HỘP QUÀ](BT_20260403.pdf) | `Sorting`, `Two Pointers` | $\mathcal{O}(n \log n)$ | Apr 13, 2026 | [Code](STORAGE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 49 | [STRINGKC - STRINGKC](BT_20260226.pdf) | N/A | N/A | Feb 26, 2026 | [Code](STRINGKC.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 50 | SUM | N/A | N/A | Jan 13, 2026 | [Code](SUM.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 51 | SUMXOR | N/A | N/A | Jan 12, 2026 | [Code](SUMXOR.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 52 | [SWINDOW - CỬA SỔ VĂN BẢN](BT_20260330.pdf) | `Z-function`, `String Matching` | $\mathcal{O}(n)$ | Mar 30, 2026 | [Code](SWINDOW.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 53 | TICKET | N/A | N/A | Jan 13, 2026 | [Code](TICKET.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 54 | TICKET_DKK | N/A | N/A | N/A | [Code](TICKET_DKK.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 55 | [TOURIST - Tourist](LCA4.pdf) | `LCA` | $\mathcal{O}(n \log n)$ | Mar 17, 2026 | [Code](Tourist.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
