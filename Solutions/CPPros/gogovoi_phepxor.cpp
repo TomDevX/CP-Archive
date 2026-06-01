@@ -9,9 +9,9 @@
  *    submission: https://oj.vnoi.info/submission/12412823
  *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Trie
+ *    complexity: O(n)
+ *    note: Just find the best for every bit each element
 **/
 
 #include <iostream>
