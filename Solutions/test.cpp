@@ -1,114 +1,22 @@
-/**
- *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-30 20:56:42
- *    country: Vietnam - VNM
- *    repo: github.com/TomDevX/CP-Archive
- * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
- * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
-**/
-
 #include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cstdio>
-#include <string>
-#include <utility>
+#include <array>
 
 using namespace std;
 
-// --- [ DEBUGGING & LOCAL CONFIG ] ---
-#if __has_include("TomDev.h") && defined(LOCAL)
-    #include "TomDev.h"
-    #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
-#else
-    #define dbg(x,i)
-#endif
-#define NAH_I_WOULD_WIN 0
+constexpr int N = 10;
 
-// --- [ MACROS ] ---
-#define all(x,bonus) std::begin(x)+(bonus), std::end(x)
-#define sub(x, st, ed) std::begin((x)) + (st), std::begin((x)) + (ed) + 1
-#define filter(x,bonus) (x).erase(unique(std::begin((x))+(bonus), std::end((x))), std::end((x)))
-#define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
-#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
-#define fi first
-#define se second
-#define eb emplace_back
-#define sz(x) (int)(x).size()
-
-// --- [ TYPES & ALIASES ] ---
-using ll = long long;
-using ull = unsigned long long;
-using ld = long double;
-using pll = pair<long long,long long>;
-using pld = pair<long double,long double>;
-using pii = pair<int,int>;
-using pill = pair<int,long long>;
-using vi = vector<int>;
-using vvi = vector<vector<int>>;
-using vll = vector<long long>;
-using vvll = vector<vector<long long>>;
-using vb = vector<bool>;
-using vs = vector<string>;
-using vpii = vector<pair<int,int>>;
-using vpill = vector<pair<int,long long>>;
-using vpll = vector<pair<long long,long long>>;
-
-void setup(){
-    if(!fopen("test.INP", "r")) return;
-    freopen("test.INP", "r", stdin);
-    freopen("test.OUT", "w", stdout);
-}
-
-// ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 5e5+5;
-
-int ans[N], cnt[N];
-bool vis[N];
-
-// ----------------------- [ FUNCTIONS ] -----------------------
-void precompute(){
-    ans[1] = 1;
-    for(int i =2; i < N; i++) ans[i] = 2;
-    for(int i = 2; i < N; i++){
-        for(int j = i*2; j < N; j += i){
-            if(ans[j] == ans[i]) ans[j]++;
-        }
+// Khởi tạo std::array tại compile-time bằng Lambda gọi ngay lập tức ()
+constexpr std::array<int, N> cnt = []() {
+    std::array<int, N> temp{}; // Khởi tạo mảng tạm bằng 0
+    for (int i = 0; i < N; ++i) {
+        temp[i] = i * 2; // Logic tính toán tùy ý (Ví dụ: x2)
     }
+    return temp; // Bắt buộc phải return mảng tạm này
+}(); // Cặp dấu () ở đây để thực thi Lambda ngay lập tức lúc dịch code
 
-    for(int i = 1; i < N; i++){
-        if(!vis[ans[i]]){
-            cnt[i]++;
-            vis[ans[i]] = 1;
-        }
-        cnt[i] += cnt[i-1];
-        if(i < 5) dbg(cnt[i],i);
-    }
-}
-
-// ----------------------- [ MAIN ] -----------------------
-int main(){
-    fastio;
-    setup();
-    precompute();
-    
-    int tc;
-    cin >> tc;
-    while(tc--){
-        int n;
-        cin >> n;
-
-        cout << cnt[n] << '\n';
-        for(int i = 1; i <= n; i++) cout << ans[i] << ' ';
-        cout << '\n';
-    }
-    
-    return NAH_I_WOULD_WIN;
+int main() {
+    // Truy cập mượt mà như mảng thường, tốc độ O(1) ở Runtime
+    cout << cnt[5] << '\n'; // In ra 10
+    cout << cnt[8] << '\n'; // In ra 16
+    return 0;
 }

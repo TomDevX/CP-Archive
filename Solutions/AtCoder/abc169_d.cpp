@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-01 20:41:00
+ *    created: 2026-06-01 21:12:42
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Div Game
+ *    source: https://atcoder.jp/contests/abc169/tasks/abc169_d
+ *    submission: https://atcoder.jp/contests/abc169/submissions/76333546
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Math
+ *    complexity: O(\sqrt(n)})
+ *    note: Just make the most expo for the lowest prime factor as possible, like 2^1, 2^2, 2^3...
 **/
 
 #include <iostream>
@@ -62,9 +62,9 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("abc169_d.INP", "r")) return;
+    freopen("abc169_d.INP", "r", stdin);
+    freopen("abc169_d.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
@@ -80,8 +80,9 @@ int main(){
     
     ll n;
     cin >> n;
+
     int ans = 0;
-    for(int i = 2; 1LL*i*i <= n; i++){
+    for(ll i = 2; i * i <= n; i++){
         if(n%i != 0) continue;
 
         int cnt = 0;
@@ -97,7 +98,6 @@ int main(){
             e++;
         }
     }
-
     cout << ans + (n > 1);
     
     return NAH_I_WOULD_WIN;

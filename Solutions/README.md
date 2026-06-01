@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-358/399-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jun_01%2C_2026_--_17%3A19_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260601T1719&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-360/400-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jun_01%2C_2026_--_21%3A19_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260601T2119&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 399
-- **Accepted:** 358
+- **Total Problems:** 400
+- **Accepted:** 360
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -14,7 +14,7 @@
 
 * [📂 .vscode (0)](#-vscode-0)
 * [📂 ACMICPC (4)](#-acmicpc-4)
-* [📂 AtCoder (6)](#-atcoder-6)
+* [📂 AtCoder (7)](#-atcoder-7)
 * [📂 CodeChef (1)](#-codechef-1)
 * [📂 Codeforces (140)](#-codeforces-140)
 * [📂 CPPros (11)](#-cppros-11)
@@ -44,7 +44,7 @@
 * [📂 VNOJ (69)](#-vnoj-69)
 
 ---
-## 📂 [Solutions (399)](*%20%20%20%20submission:)
+## 📂 [Solutions (400)](*%20%20%20%20submission:)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Main | N/A | N/A | Jun 1, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -54,7 +54,7 @@
 | 5 | Runtime | N/A | N/A | N/A | [Code](runtime.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 6 | Sinh | N/A | N/A | N/A | [Code](sinh.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 7 | Test2 | N/A | N/A | May 23, 2026 | [Code](test2.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 8 | Test | N/A | N/A | May 30, 2026 | [Code](test.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 8 | Test | N/A | N/A | N/A | [Code](test.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 9 | Trau | N/A | N/A | Apr 11, 2026 | [Code](trau.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
 ## 📂 [ACMICPC (4)](https://www.acmicpc.net)
@@ -65,15 +65,16 @@
 | 3 | [10078 - Sightseeing](https://www.acmicpc.net/problem/10078) | `DSU`, `MST`, `Graph` | $\mathcal{O}((n + m) + m \log m + q + max(a[i]))$ | Feb 27, 2026 | [Code](ACMICPC/10078.cpp) \| [Sub](https://www.acmicpc.net/source/103344425) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 4 | [13982 - Shopping Multilingual](https://www.acmicpc.net/problem/13982) | `Binary Lifting`, `RMQ`, `Sparse Table` | $\mathcal{O}((n+q) \log n)$ | Mar 19, 2026 | [Code](ACMICPC/13982.cpp) \| [Sub](https://www.acmicpc.net/source/104101701) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-## 📂 [AtCoder (6)](https://atcoder.jp/home)
+## 📂 [AtCoder (7)](https://atcoder.jp/home)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [ABC451 - Make Bipartite 3](https://atcoder.jp/contests/abc451/tasks/abc451_f) | `DSU` | $\mathcal{O}(q \alpha (n))$ | May 9, 2026 | [Code](AtCoder/abc451_f.cpp) \| [Sub](https://atcoder.jp/contests/abc451/submissions/75678817) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 2 | [AWC0066 - Belt Conveyor](https://atcoder.jp/contests/awc0066/tasks/awc0066_a) | `Implementation` | $\mathcal{O}(n)$ | May 11, 2026 | [Code](AtCoder/awc0066_a.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75726964) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 3 | [AWC0066 - Smartphone Battery](https://atcoder.jp/contests/awc0066/tasks/awc0066_b) | `Implementation` | $\mathcal{O}(n \log n)$ | May 11, 2026 | [Code](AtCoder/awc0066_b.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75727255) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 4 | [AWC0066 - Discount Coupon](https://atcoder.jp/contests/awc0066/tasks/awc0066_c) | `Math` | $\mathcal{O}(n)$ | May 11, 2026 | [Code](AtCoder/awc0066_c.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75727434) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 5 | [AWC0066 - Splitting a Rope](https://atcoder.jp/contests/awc0066/tasks/awc0066_d) | `Binary Search` | $\mathcal{O}(n \cdot value \log (n \cdot value))$ | May 11, 2026 | [Code](AtCoder/awc0066_d.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75727624) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 6 | [AWC0066 - Average Score of Tourist Routes](https://atcoder.jp/contests/awc0066/tasks/awc0066_e) | `DP Bitmask` | $\mathcal{O}(n \cdot 2^n)$ | May 11, 2026 | [Code](AtCoder/awc0066_e.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75731335) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | [ABC169 - Div Game](https://atcoder.jp/contests/abc169/tasks/abc169_d) | `Math` | $\mathcal{O}(\sqrt(n)})$ | Jun 1, 2026 | [Code](AtCoder/abc169_d.cpp) \| [Sub](https://atcoder.jp/contests/abc169/submissions/76333546) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 2 | [ABC451 - Make Bipartite 3](https://atcoder.jp/contests/abc451/tasks/abc451_f) | `DSU` | $\mathcal{O}(q \alpha (n))$ | May 9, 2026 | [Code](AtCoder/abc451_f.cpp) \| [Sub](https://atcoder.jp/contests/abc451/submissions/75678817) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 3 | [AWC0066 - Belt Conveyor](https://atcoder.jp/contests/awc0066/tasks/awc0066_a) | `Implementation` | $\mathcal{O}(n)$ | May 11, 2026 | [Code](AtCoder/awc0066_a.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75726964) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 4 | [AWC0066 - Smartphone Battery](https://atcoder.jp/contests/awc0066/tasks/awc0066_b) | `Implementation` | $\mathcal{O}(n \log n)$ | May 11, 2026 | [Code](AtCoder/awc0066_b.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75727255) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 5 | [AWC0066 - Discount Coupon](https://atcoder.jp/contests/awc0066/tasks/awc0066_c) | `Math` | $\mathcal{O}(n)$ | May 11, 2026 | [Code](AtCoder/awc0066_c.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75727434) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 6 | [AWC0066 - Splitting a Rope](https://atcoder.jp/contests/awc0066/tasks/awc0066_d) | `Binary Search` | $\mathcal{O}(n \cdot value \log (n \cdot value))$ | May 11, 2026 | [Code](AtCoder/awc0066_d.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75727624) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 7 | [AWC0066 - Average Score of Tourist Routes](https://atcoder.jp/contests/awc0066/tasks/awc0066_e) | `DP Bitmask` | $\mathcal{O}(n \cdot 2^n)$ | May 11, 2026 | [Code](AtCoder/awc0066_e.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75731335) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [CodeChef (1)](https://www.codechef.com/practice)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
