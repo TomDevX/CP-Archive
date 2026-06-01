@@ -162,6 +162,30 @@ struct Trie {
         exist[u]--;
     }
 
+    void del(int x) noexcept{
+        int u = 1;
+        for(int i = LG; i >= 0; i--){
+            int c = (x >> i & 1);
+            
+            int v = nxt[u][c];
+
+            if(--cnt[v] == 0){
+                nxt[u][c] = 0;
+                for(int j = i - 1; j >= 0; j--){
+                    c = (x >> j & 1);
+                    int rem = nxt[v][c];
+                    nxt[v][c] = 0;
+                    free(v);
+                    v = rem;
+                }
+                free(v);
+                return;
+            }
+
+            u = v;
+        }
+    }
+
     string find_dict(int pos){
         string res;
 
