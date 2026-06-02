@@ -1,11 +1,11 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: $date$ $time$
+ *    created: 2026-06-02 08:51:51
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: $name$
- *    source: $url$ 
+ *    title: 
+ *    source: 
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -74,11 +74,19 @@ void setup(){
 
 
 // ----------------------- [ MAIN ] -----------------------
+void __TomDev(){
+    
+}
+
 int main(){
     fastio;
     setup();
-    
-    
-    
+
+    int tc = 1;
+    //cin >> tc;
+    for(int t = 1; t <= tc; t++)
+    {
+        __TomDev();
+    }
     return NAH_I_WOULD_WIN;
 }
