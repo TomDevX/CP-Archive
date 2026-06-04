@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-01 20:41:00
+ *    created: 2026-06-04 14:56:51
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
@@ -62,6 +62,9 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
+    #if !defined(LOCAL)
+        freopen("/dev/null", "w", stderr);
+    #endif
     if(!fopen("main.INP", "r")) return;
     freopen("main.INP", "r", stdin);
     freopen("main.OUT", "w", stdout);
@@ -74,31 +77,22 @@ void setup(){
 
 
 // ----------------------- [ MAIN ] -----------------------
+void __TomDev(){
+    int n;
+    cin >> n;
+    if(n%400 == 0 || (n%4 == 0 && n%100 != 0)) cout << "YES";
+    else cout << "NO";
+}
+
 int main(){
     fastio;
     setup();
-    
-    ll n;
-    cin >> n;
-    int ans = 0;
-    for(int i = 2; 1LL*i*i <= n; i++){
-        if(n%i != 0) continue;
 
-        int cnt = 0;
-        while(n%i == 0){
-            cnt++;
-            n /= i;
-        }
-
-        int e = 1;
-        while(cnt >= e){
-            ans++;
-            cnt -= e;
-            e++;
-        }
+    int tc = 1;
+    //cin >> tc;
+    for(int t = 1; t <= tc; t++)
+    {
+        __TomDev();
     }
-
-    cout << ans + (n > 1);
-    
     return NAH_I_WOULD_WIN;
 }
