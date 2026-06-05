@@ -14,3 +14,14 @@ struct custom_hash_pair{
         return (x.fi*31 + x.se)^RAND;
     }
 };
+
+struct custom_hash_vector_pair {
+    int operator()(const vector<pair<int, int>>& v) const {
+        int seed = 0;
+        for (const auto& p : v) {
+            seed ^= p.first + 0x9e3779b9 + (seed << 6) + (seed >> 2);
+            seed ^= p.second + 0x9e3779b9 + (seed << 6) + (seed >> 2);
+        }
+        return seed;
+    }
+};

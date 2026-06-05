@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-03 00:41:20
+ *    created: 2026-06-04 18:03:04
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
@@ -86,7 +86,7 @@ int main(){
     setup();
 
     int tc = 1;
-    // cin >> tc;
+    //cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
         __TomDev();
