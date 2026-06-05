@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-367/410-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jun_06%2C_2026_--_02%3A59_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260606T0259&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-368/411-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jun_06%2C_2026_--_03%3A11_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260606T0311&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 410
-- **Accepted:** 367
+- **Total Problems:** 411
+- **Accepted:** 368
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -18,11 +18,11 @@
 * [📂 CodeChef (1)](#-codechef-1)
 * [📂 Codeforces (146)](#-codeforces-146)
 * [📂 CPPros (11)](#-cppros-11)
-* [📂 CSES (50)](#-cses-50)
+* [📂 CSES (51)](#-cses-51)
   * [📂 Advanced Techniques (2)](#-advanced-techniques-2)
   * [📂 Dynamic Programming (12)](#-dynamic-programming-12)
   * [📂 Geometry (6)](#-geometry-6)
-  * [📂 Graph (9)](#-graph-9)
+  * [📂 Graph (10)](#-graph-10)
   * [📂 Range Queries (10)](#-range-queries-10)
   * [📂 Sliding Windơows Problem (2)](#-sliding-windơows-problem-2)
   * [📂 Sorting And Searching (3)](#-sorting-and-searching-3)
@@ -46,7 +46,7 @@
 * [📂 VNOJ (69)](#-vnoj-69)
 
 ---
-## 📂 Solutions (410)
+## 📂 Solutions (411)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Main | N/A | N/A | Jun 6, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -289,7 +289,7 @@
 | 5 | [2192 - Point in Polygon](https://cses.fi/problemset/task/2192/) | `Geometry` | $\mathcal{O}(n)$ | Apr 24, 2026 | [Code](CSES/Geometry/2192.cpp) \| [Sub](https://cses.fi/problemset/result/16998419/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 6 | [2193 - Polygon Lattice Points](https://cses.fi/problemset/task/2193/) | `Geometry` | $\mathcal{O}(n)$ | Apr 24, 2026 | [Code](CSES/Geometry/2193.cpp) \| [Sub](https://cses.fi/problemset/result/16998036/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-### 📁 Graph (9)
+### 📁 Graph (10)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1192 - Counting Rooms](https://cses.fi/problemset/task/1192/) | `BFS`, `flood fill` | $\mathcal{O}(V+E)$ | Aug 9, 2025 | [Code](CSES/Graph/1192_Counting_Rooms.cpp) \| [Sub](https://cses.fi/paste/96f91e45fb63bc5dd6975e/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -300,7 +300,8 @@
 | 6 | [1673 - High Score](https://cses.fi/problemset/task/1673) | `Graph`, `Bellman Ford` | $\mathcal{O}(n \cdot m)$ | Feb 23, 2026 | [Code](CSES/Graph/1673.cpp) \| [Sub](https://cses.fi/problemset/result/16352395/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 7 | [1679 - Course Schedule](https://cses.fi/problemset/task/1679/) | `Topo Sort` | $\mathcal{O}(n)$ | Jun 6, 2026 | [Code](CSES/Graph/1679.cpp) \| [Sub](https://cses.fi/problemset/result/17444915/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 8 | [1680 - Longest Flight Route](https://cses.fi/problemset/task/1680) | `Topo Sort`, `DP on DAG` | $\mathcal{O}(n)$ | Jun 6, 2026 | [Code](CSES/Graph/1680.cpp) \| [Sub](https://cses.fi/problemset/result/17445496/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 9 | [1750 - Planets Queries I](https://cses.fi/problemset/task/1750) | `Binary Lifting` | $\mathcal{O}((n+q) \log n)$ | Mar 19, 2026 | [Code](CSES/Graph/1750.cpp) \| [Sub](https://cses.fi/problemset/result/16614664/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 9 | [1681 - Game Routes](https://cses.fi/problemset/task/1681) | `Topo Sort`, `DP on DAG` | $\mathcal{O}(n)$ | Jun 6, 2026 | [Code](CSES/Graph/1681.cpp) \| [Sub](https://cses.fi/problemset/result/17445572/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 10 | [1750 - Planets Queries I](https://cses.fi/problemset/task/1750) | `Binary Lifting` | $\mathcal{O}((n+q) \log n)$ | Mar 19, 2026 | [Code](CSES/Graph/1750.cpp) \| [Sub](https://cses.fi/problemset/result/16614664/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ### 📁 Range Queries (10)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
