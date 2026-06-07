@@ -1,11 +1,11 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-02 08:52:46
+ *    created: 2026-06-07 21:39:24
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: DÃY TĂNG DẦN 
- *    source: EQUALS
+ *    title: Euclid, Sequence and Two Numbers
+ *    source: https://codeforces.com/contest/2234/problem/A
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -20,7 +20,6 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <cassert>
 
 using namespace std;
 
@@ -66,86 +65,40 @@ void setup(){
     #if !defined(LOCAL)
         freopen("/dev/null", "w", stderr);
     #endif
-    if(!fopen("EQUALS.INP", "r")) return;
-    freopen("EQUALS.INP", "r", stdin);
-    freopen("EQUALS.OUT", "w", stdout);
+    if(!fopen("2234A.INP", "r")) return;
+    freopen("2234A.INP", "r", stdin);
+    freopen("2234A.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e6+5, INF = 2e9;
 
-int a[N], pos[N], pre[N];
-int dp[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-bool is_good(int x){
-    return x != INF;
-}
+
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
     int n;
     cin >> n;
 
-    for(int i = 1; i <= n; i++) cin >> a[i];
+    vi b(n+1);
+    for(int i = 1; i <= n; i++) cin >> b[i];
 
-    for(int i = 1; i <= n; i++){
-        if(!pos[a[i]]) pos[a[i]] = i;
-    }
+    sort(rall(b,1));
 
-    for(int i = 1; i <= n; i++) dp[i] = INF;
-    dp[0] = 0;
-
-    for(int i = 1; i <= n; i++){
-        if(is_good(dp[i-1]) && a[i] >= a[i-1]){
-            pre[i] = i-1;
-            dp[i] = dp[i-1];
-        }
-
-        if(pos[a[i]] > 0){
-            if(is_good(dp[pos[a[i]]-1]) && a[i] >= a[pos[a[i]]-1]){
-                if(dp[pos[a[i]]-1] + 1 < dp[i]){
-                    dp[i] = dp[pos[a[i]] - 1] + 1;
-                    pre[i] = pos[a[i]] - 1;
-                }
-            }
-        }
-        
-        // if(is_good(dp[pos[a[i]] - 1]) && a[i] >= a[pos[a[i]]-1] && dp[pos[a[i]] - 1] + 1 < dp[i]){
-        //     dp[i] = dp[pos[a[i]] - 1] + 1;
-        //     pre[i] = pos[a[i]] - 1;
-        // }
-
-        // changing pos
-        if(is_good(dp[i-1]) && (dp[i-1] < dp[pos[a[i]] - 1] || pos[a[i]] == 0)){
-            pos[a[i]] = i;
-        }
-
-        // pos[a[i]] = i;
-    }
-
-    for(int i = 1; i <= n; i++) cerr << dp[i] << ' ';
-    cerr << '\n';
-
-    assert(dp[n] <= INF);
-    if(dp[n] == INF){
-        cout << -1;
+    if(n <= 2){
+        cout << b[1] << ' ' << b[2] << '\n';
         return;
     }
 
-    vpii trace;
-    int cur = n;
-    while(cur > 0){
-        if(pre[cur] != cur-1) trace.eb(pre[cur] + 1, cur);
-        cur = pre[cur];
+    for(int i = 3; i <= n; i++){
+        if(b[i] != (b[i-2] + b[i-1])%b[i-1]){
+            cout << -1 << '\n';
+            return;
+        }
     }
 
-
-    cout << dp[n] << '\n';
-
-    for(int i = sz(trace) - 1; i >= 0; i--){
-        cout << trace[i].fi << ' ' << trace[i].se << '\n';
-    }
+    cout << b[1] << ' ' << b[2] << '\n';
 }
 
 int main(){
@@ -153,7 +106,7 @@ int main(){
     setup();
 
     int tc = 1;
-    // cin >> tc;
+    cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
         __TomDev();

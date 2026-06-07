@@ -14,3 +14,15 @@ struct custom_hash_pair{
         return (x.fi*31 + x.se)^RAND;
     }
 };
+
+const unsigned int SPLIT = (1ULL << 32) / (1.0L*((1 + sqrt(5))/2));
+struct custom_hash{
+    int operator()(const vpii& a) const{
+        unsigned int seed = RAND;
+        for(const pii& p : a){
+            seed ^= p.fi + RAND + SPLIT + (seed << 6) + (seed >> 2);
+            seed ^= p.se + RAND + SPLIT + (seed << 6) + (seed >> 2);
+        }
+        return seed;
+    }
+};

@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-02 08:52:46
+ *    created: 2026-06-04 15:17:02
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: DÃY TĂNG DẦN 
- *    source: EQUALS
- *    submission: 
- *    status: WIP
+ *    title: Product 1 Modulo N
+ *    source: https://codeforces.com/problemset/problem/1514/C
+ *    submission: https://codeforces.com/problemset/submission/1514/377256308
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Math
+ *    complexity: O(n)
+ *    note: We have 2 main observations: 1. Only if gcd(x,n) == 1 can contribute to the product because if it shares the same factor, there will always be that factor in the final product | 2. Because if gcd(a,n) == 1 && gcd(b,n) == 1 => gcd(a*b,n) = 1. So if the final product modulo N (P) != 1 => P < N && gcd(P,N) = 1 => we are already choose every number which has gcd(x,N) = 1 so P must be one of them, so just remove it and we'll get the remainder of 1
 **/
 
 #include <iostream>
@@ -20,7 +20,7 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <cassert>
+#include <bitset>
 
 using namespace std;
 
@@ -66,20 +66,24 @@ void setup(){
     #if !defined(LOCAL)
         freopen("/dev/null", "w", stderr);
     #endif
-    if(!fopen("EQUALS.INP", "r")) return;
-    freopen("EQUALS.INP", "r", stdin);
-    freopen("EQUALS.OUT", "w", stdout);
+    if(!fopen("1514C.INP", "r")) return;
+    freopen("1514C.INP", "r", stdin);
+    freopen("1514C.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e6+5, INF = 2e9;
+const int N = 1e5+5;
 
-int a[N], pos[N], pre[N];
-int dp[N];
+bitset<N> chose;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-bool is_good(int x){
-    return x != INF;
+int gcd(int a, int b){
+    while(b){
+        int tmp = a%b;
+        a = b;
+        b = tmp;
+    }
+    return a;
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -87,65 +91,18 @@ void __TomDev(){
     int n;
     cin >> n;
 
-    for(int i = 1; i <= n; i++) cin >> a[i];
-
-    for(int i = 1; i <= n; i++){
-        if(!pos[a[i]]) pos[a[i]] = i;
-    }
-
-    for(int i = 1; i <= n; i++) dp[i] = INF;
-    dp[0] = 0;
-
-    for(int i = 1; i <= n; i++){
-        if(is_good(dp[i-1]) && a[i] >= a[i-1]){
-            pre[i] = i-1;
-            dp[i] = dp[i-1];
+    chose[1] = 1;
+    ll cur = 1;
+    for(int i = 2; i < n; i++){
+        if(gcd(i,n) == 1){
+            chose[i] = 1;
+            cur = (cur*i)%n;
         }
-
-        if(pos[a[i]] > 0){
-            if(is_good(dp[pos[a[i]]-1]) && a[i] >= a[pos[a[i]]-1]){
-                if(dp[pos[a[i]]-1] + 1 < dp[i]){
-                    dp[i] = dp[pos[a[i]] - 1] + 1;
-                    pre[i] = pos[a[i]] - 1;
-                }
-            }
-        }
-        
-        // if(is_good(dp[pos[a[i]] - 1]) && a[i] >= a[pos[a[i]]-1] && dp[pos[a[i]] - 1] + 1 < dp[i]){
-        //     dp[i] = dp[pos[a[i]] - 1] + 1;
-        //     pre[i] = pos[a[i]] - 1;
-        // }
-
-        // changing pos
-        if(is_good(dp[i-1]) && (dp[i-1] < dp[pos[a[i]] - 1] || pos[a[i]] == 0)){
-            pos[a[i]] = i;
-        }
-
-        // pos[a[i]] = i;
     }
 
-    for(int i = 1; i <= n; i++) cerr << dp[i] << ' ';
-    cerr << '\n';
-
-    assert(dp[n] <= INF);
-    if(dp[n] == INF){
-        cout << -1;
-        return;
-    }
-
-    vpii trace;
-    int cur = n;
-    while(cur > 0){
-        if(pre[cur] != cur-1) trace.eb(pre[cur] + 1, cur);
-        cur = pre[cur];
-    }
-
-
-    cout << dp[n] << '\n';
-
-    for(int i = sz(trace) - 1; i >= 0; i--){
-        cout << trace[i].fi << ' ' << trace[i].se << '\n';
-    }
+    if(cur != 1) chose[cur] = 0;
+    cout << chose.count() << '\n';
+    for(int i = 1; i < n; i++) if(chose[i]) cout << i << ' ';
 }
 
 int main(){
@@ -153,7 +110,7 @@ int main(){
     setup();
 
     int tc = 1;
-    // cin >> tc;
+    //cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
         __TomDev();

@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-02 08:52:46
+ *    created: 2026-06-06 02:59:41
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: DÃY TĂNG DẦN 
- *    source: EQUALS
- *    submission: 
- *    status: WIP
+ *    title: Game Routes
+ *    source: https://cses.fi/problemset/task/1681
+ *    submission: https://cses.fi/problemset/result/17445572/
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Topo Sort, DP on DAG
+ *    complexity: O(n)
+ *    note: You can either dp on dag with dp[n] = 1 trick and other = -1 or topo sort them and dp normally
 **/
 
 #include <iostream>
@@ -20,7 +20,7 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <cassert>
+#include <cstring>
 
 using namespace std;
 
@@ -66,86 +66,49 @@ void setup(){
     #if !defined(LOCAL)
         freopen("/dev/null", "w", stderr);
     #endif
-    if(!fopen("EQUALS.INP", "r")) return;
-    freopen("EQUALS.INP", "r", stdin);
-    freopen("EQUALS.OUT", "w", stdout);
+    if(!fopen("1681.INP", "r")) return;
+    freopen("1681.INP", "r", stdin);
+    freopen("1681.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e6+5, INF = 2e9;
+const int N = 1e5+5;
+const ll MOD = 1e9+7;
 
-int a[N], pos[N], pre[N];
-int dp[N];
+vi adj[N];
+ll dp[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-bool is_good(int x){
-    return x != INF;
+int dfs(int u){
+    if(dp[u] != -1) return dp[u];
+    dp[u] = -2;
+
+    for(int v : adj[u]){
+        if(dfs(v) > 0){
+            dp[u] = max(dp[u], 0LL);
+            dp[u] = (dp[u] + dp[v]) % MOD;
+        }
+    }
+
+    return dp[u];
 }
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    int n;
-    cin >> n;
-
-    for(int i = 1; i <= n; i++) cin >> a[i];
-
-    for(int i = 1; i <= n; i++){
-        if(!pos[a[i]]) pos[a[i]] = i;
+    int n,m;
+    cin >> n >> m;
+    for(int i = 1; i <= m; i++){
+        int u,v;
+        cin >> u >> v;
+        adj[u].eb(v);
     }
 
-    for(int i = 1; i <= n; i++) dp[i] = INF;
-    dp[0] = 0;
+    memset(dp,-1,sizeof(dp));
 
-    for(int i = 1; i <= n; i++){
-        if(is_good(dp[i-1]) && a[i] >= a[i-1]){
-            pre[i] = i-1;
-            dp[i] = dp[i-1];
-        }
+    dp[n] = 1;
+    dfs(1);
 
-        if(pos[a[i]] > 0){
-            if(is_good(dp[pos[a[i]]-1]) && a[i] >= a[pos[a[i]]-1]){
-                if(dp[pos[a[i]]-1] + 1 < dp[i]){
-                    dp[i] = dp[pos[a[i]] - 1] + 1;
-                    pre[i] = pos[a[i]] - 1;
-                }
-            }
-        }
-        
-        // if(is_good(dp[pos[a[i]] - 1]) && a[i] >= a[pos[a[i]]-1] && dp[pos[a[i]] - 1] + 1 < dp[i]){
-        //     dp[i] = dp[pos[a[i]] - 1] + 1;
-        //     pre[i] = pos[a[i]] - 1;
-        // }
-
-        // changing pos
-        if(is_good(dp[i-1]) && (dp[i-1] < dp[pos[a[i]] - 1] || pos[a[i]] == 0)){
-            pos[a[i]] = i;
-        }
-
-        // pos[a[i]] = i;
-    }
-
-    for(int i = 1; i <= n; i++) cerr << dp[i] << ' ';
-    cerr << '\n';
-
-    assert(dp[n] <= INF);
-    if(dp[n] == INF){
-        cout << -1;
-        return;
-    }
-
-    vpii trace;
-    int cur = n;
-    while(cur > 0){
-        if(pre[cur] != cur-1) trace.eb(pre[cur] + 1, cur);
-        cur = pre[cur];
-    }
-
-
-    cout << dp[n] << '\n';
-
-    for(int i = sz(trace) - 1; i >= 0; i--){
-        cout << trace[i].fi << ' ' << trace[i].se << '\n';
-    }
+    cout << max(0LL,dp[1]);
 }
 
 int main(){
@@ -153,7 +116,7 @@ int main(){
     setup();
 
     int tc = 1;
-    // cin >> tc;
+    //cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
         __TomDev();

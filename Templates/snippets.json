@@ -216,7 +216,7 @@
             "    setup();",
             "    \n\t${0}\n\t",
             "    return NAH_I_WOULD_WIN;",
-            "}",
+            "}"
     ],
     "description": "CP code file full libraries"
     },
@@ -285,6 +285,9 @@
         "using vpll = vector<pair<long long,long long>>;",
         "",
         "void setup(){",
+        "    #if !defined(LOCAL)",
+        "    \tfreopen(\"/dev/null\", \"w\", stderr);",
+        "    #endif",
         "    if(!fopen(\"${TM_FILENAME_BASE}.INP\", \"r\")) return;",
         "    freopen(\"${TM_FILENAME_BASE}.INP\", \"r\", stdin);",
         "    freopen(\"${TM_FILENAME_BASE}.OUT\", \"w\", stdout);",
@@ -310,7 +313,7 @@
         "    \t__TomDev();",
         "    }",
         "    return NAH_I_WOULD_WIN;",
-        "}",
+        "}"
     ],
     "description": "CP code file"
 },
@@ -321,6 +324,7 @@
         " *    author: TomDev - Tran Hoang Quan",
         " *    created: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
         " *    country: Vietnam - VNM",
+        " *    repo: github.com/TomDevX/CP-Archive",
         " * ----------------------------------------------------------",
         " *    title: $1",
         " *    source: $2",
@@ -330,7 +334,7 @@
         " *    tags: ",
         " *    complexity: ",
         " *    note: ",
-        "**/\n",
+        "**/\n"
     ],
     "description": "CP code file"
 },
@@ -619,7 +623,7 @@
             "    fastio;",
             "    setup();\n",
             "\t",
-            "}",
+            "}"
         ],
         "description": "CP code file"
         },
@@ -896,7 +900,7 @@
             " *    author: TomDev",
             " *    created: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
             " *    country: Vietnam",
-            " **/\n",
+            " **/\n"
 		]
 	},
 	"Array_Basic": {
@@ -918,7 +922,7 @@
 	"fast": {
 		"prefix": "definefast",
 		"body": [
-			"#define fast() (ios_base::sync_with_stdio(false),cin.tie(nullptr)),cout.tie(nullptr);\n",
+			"#define fast() (ios_base::sync_with_stdio(false),cin.tie(nullptr)),cout.tie(nullptr);\n"
 		]
 	},
     "headdefine": {
@@ -979,13 +983,13 @@
       "    cin.tie(nullptr);",
       "    cout.tie(nullptr);",
       "}\n"
-    ],
+    ]
     },
     "Hash Pack": {
     "prefix": "hashpack",
     "body": [
         "const vector<int> MOD = {(int)1e9 + 2277, (int)1e9 + 5277, (int)1e9 + 8277, (int)1e9+ 9277};",
-        "const int base = 300 + rand() % 300;",
+        "const int base = 300 + rand() % 300;"
     ],
     "description": "Sets up fast I/O for competitive programming"
     },
@@ -1001,7 +1005,7 @@
     "random": {
 		"prefix": "headrandom",
 		"body": [
-			"#include <random>",
+			"#include <random>"
 		]
 	},
 
@@ -1024,7 +1028,7 @@
 		"body": [
 			"#include <algorithm> // sort and math",
 			"#include <cmath> //advance math",
-			"#include <numeric> // some math",
+			"#include <numeric> // some math"
 		]
 	},
 	"Sort and Find": {
@@ -1037,7 +1041,7 @@
 		"prefix": "headadvancemath",
 		"body": [
 			"#include <cmath> //advance math",
-			"#include <numeric> // some math",
+			"#include <numeric> // some math"
 		]
 	},
 	"iomanip": {
@@ -1056,7 +1060,7 @@
 	"Split value": {
 		"prefix": "headsplitvalue",
 		"body": [
-			"#include <sstream> // split string",
+			"#include <sstream> // split string"
 		]
 	},
 	"advance file": {
@@ -1084,7 +1088,7 @@
             "void closefile(){",
             "\tfclose(stdin);",
             "\tfclose(stdout);",
-            "}\n",
+            "}\n"
 		]
 	},
 
@@ -1098,7 +1102,7 @@
             "void closefile(){",
             "\tfclose(stdin);",
             "\tfclose(stdout);",
-            "}\n",
+            "}\n"
         ],
         "description": "Opens input and output files with a given name."
     },
@@ -1106,21 +1110,21 @@
     "max value": {
 		"prefix": "headmaxvalue",
 		"body": [
-			"<climits> // MAX",
+			"<climits> // MAX"
 		]
 	},
 
     "error": {
 		"prefix": "headerror",
 		"body": [
-			"#include <stdexcept> // For std::runtime_error",
+			"#include <stdexcept> // For std::runtime_error"
 		]
 	},
 
     "function": {
 		"prefix": "headfunctional",
 		"body": [
-			"#include <functional> // For std::greater",
+			"#include <functional> // For std::greater"
 		]
 	},
 
@@ -1132,7 +1136,7 @@
             "\tuniform_int_distribution<> int_dis(1, 100);",
             "\tuniform_real_distribution<> real_dis(0.0, 1.0);\n",
             "\tint random_int = int_dis(gen);",
-            "\tdouble random_real = real_dis(gen);\n",
+            "\tdouble random_real = real_dis(gen);\n"
         ],
         "description": "Generates random integer and real number using C++ random library."
     },
@@ -1544,5 +1548,5 @@
             "#define debug(...) cout << \"[\" << #__VA_ARGS__ << \"]: \", debug_out(__VA_ARGS__)"
         ],
         "description": "Debug function for competitive programming"
-    },
+    }
 }

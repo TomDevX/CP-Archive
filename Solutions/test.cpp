@@ -1,22 +1,118 @@
+/**
+ *    author: TomDev - Tran Hoang Quan
+ *    created: 2026-06-07 21:56:03
+ *    country: Vietnam - VNM
+ *    repo: github.com/TomDevX/CP-Archive
+ * ----------------------------------------------------------
+ *    title: 
+ *    source: 
+ *    submission: 
+ *    status: WIP
+ * ----------------------------------------------------------
+ *    tags: 
+ *    complexity: 
+ *    note: 
+**/
+
 #include <iostream>
-#include <array>
+#include <vector>
+#include <algorithm>
+#include <cstdio>
+#include <string>
+#include <utility>
 
 using namespace std;
 
-constexpr int N = 10;
+// --- [ DEBUGGING & LOCAL CONFIG ] ---
+#if __has_include("TomDev.h") && defined(LOCAL)
+    #include "TomDev.h"
+    #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
+#else
+    #define dbg(x,i)
+#endif
+#define NAH_I_WOULD_WIN 0
 
-// Khởi tạo std::array tại compile-time bằng Lambda gọi ngay lập tức ()
-constexpr std::array<int, N> cnt = []() {
-    std::array<int, N> temp{}; // Khởi tạo mảng tạm bằng 0
-    for (int i = 0; i < N; ++i) {
-        temp[i] = i * 2; // Logic tính toán tùy ý (Ví dụ: x2)
+// --- [ MACROS ] ---
+#define all(x,bonus) std::begin(x)+(bonus), std::end(x)
+#define sub(x, st, ed) std::begin((x)) + (st), std::begin((x)) + (ed) + 1
+#define filter(x,bonus) (x).erase(unique(std::begin((x))+(bonus), std::end((x))), std::end((x)))
+#define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
+#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define fi first
+#define se second
+#define eb emplace_back
+#define sz(x) (int)(x).size()
+
+// --- [ TYPES & ALIASES ] ---
+using ll = long long;
+using ull = unsigned long long;
+using ld = long double;
+using pll = pair<long long,long long>;
+using pld = pair<long double,long double>;
+using pii = pair<int,int>;
+using pill = pair<int,long long>;
+using vi = vector<int>;
+using vvi = vector<vector<int>>;
+using vll = vector<long long>;
+using vvll = vector<vector<long long>>;
+using vb = vector<bool>;
+using vs = vector<string>;
+using vpii = vector<pair<int,int>>;
+using vpill = vector<pair<int,long long>>;
+using vpll = vector<pair<long long,long long>>;
+
+void setup(){
+    #if !defined(LOCAL)
+        freopen("/dev/null", "w", stderr);
+    #endif
+    if(!fopen("test.INP", "r")) return;
+    freopen("test.INP", "r", stdin);
+    freopen("test.OUT", "w", stdout);
+}
+
+// ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+
+
+// ----------------------- [ FUNCTIONS ] -----------------------
+bool ispalin(int x){
+    string s;
+    while(x){
+        s += (x%10 + '0');
+        x /= 10;
     }
-    return temp; // Bắt buộc phải return mảng tạm này
-}(); // Cặp dấu () ở đây để thực thi Lambda ngay lập tức lúc dịch code
+    int n = sz(s);
+    for(int i = 0; i < n/2; i++){
+        if(s[i] != s[n-i-1]) return false;
+    }
+    return true;
+}
 
-int main() {
-    // Truy cập mượt mà như mảng thường, tốc độ O(1) ở Runtime
-    cout << cnt[5] << '\n'; // In ra 10
-    cout << cnt[8] << '\n'; // In ra 16
-    return 0;
+// ----------------------- [ MAIN ] -----------------------
+void __TomDev(){
+    for(int n = 1; n <= 100000; n++){
+        bool printed = false;
+        for(int b = (int)(n/12) * 12; b >= 0; b -= 12){
+            if(ispalin(n-b)){
+                cout << n << ": " << n-b << ' ' << b << '\n';
+                printed = true;
+                break;
+            }
+        }
+        if(!printed){
+            cout << n << ": -1\n";
+        }
+    }
+}
+
+int main(){
+    fastio;
+    setup();
+
+    int tc = 1;
+    //cin >> tc;
+    for(int t = 1; t <= tc; t++)
+    {
+        __TomDev();
+    }
+    return NAH_I_WOULD_WIN;
 }

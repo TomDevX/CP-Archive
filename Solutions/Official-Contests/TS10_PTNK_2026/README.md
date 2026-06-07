@@ -1,6 +1,6 @@
-# 📁 SQRTOJ Solutions
+# 📁 TS10_PTNK_2026 Solutions
 
-### 📊 SQRTOJ Stats
+### 📊 TS10_PTNK_2026 Stats
 
 ![Progress](https://img.shields.io/badge/Progress-0/1-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jun_08%2C_2026_--_01%3A29_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
@@ -12,11 +12,11 @@
 ---
 ## 📌 Table of Contents
 
-* [📁 SQRTOJ (1)](#-sqrtoj-1)
+* [📁 TS10_PTNK_2026 (1)](#-ts10_ptnk_2026-1)
 
 ---
-## 📂 SQRTOJ (1)
+## 📂 TS10_PTNK_2026 (1)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [EDU017A - Olympic 30 tháng 4 năm 2026 - Khối 10 - Bài 1](https://sqrtoj.edu.vn/problem/edu017a) | N/A | N/A | Apr 09, 2026 | [Code](edu017a.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 1 | [STRING - Xáo trộn xâu](https://oj.iuhcoder.com/problem/ptnk26_p1) | N/A | N/A | Jun 04, 2026 | [Code](STRING.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 

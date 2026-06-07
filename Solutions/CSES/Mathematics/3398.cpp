@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-02 08:52:46
+ *    created: 2026-06-07 15:35:19
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: DÃY TĂNG DẦN 
- *    source: EQUALS
- *    submission: 
- *    status: WIP
+ *    title: Permutation Rounds
+ *    source: https://cses.fi/problemset/task/3398
+ *    submission: https://cses.fi/problemset/result/17461968/
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Math
+ *    complexity: O(n \log n)
+ *    note: First, we need to find the needed steps of each element to go back to its original place first, and it will make a cycle, every elements in that cycle takes the same steps to go back to their base index. So we just need to get the lcm of all cycle -> all cycle can return to its original position. Since lcm can be very large and we need to get lcm by using a*b/gcd which costs us inversion to calculate gcd, we go back to the original meaning of lcm is that getting the max power of that factor. So we factorize the number using sieve with O(\log n) then get their max power
 **/
 
 #include <iostream>
@@ -20,7 +20,8 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <cassert>
+#include <numeric>
+#include <bitset>
 
 using namespace std;
 
@@ -66,86 +67,85 @@ void setup(){
     #if !defined(LOCAL)
         freopen("/dev/null", "w", stderr);
     #endif
-    if(!fopen("EQUALS.INP", "r")) return;
-    freopen("EQUALS.INP", "r", stdin);
-    freopen("EQUALS.OUT", "w", stdout);
+    if(!fopen("main.INP", "r")) return;
+    freopen("main.INP", "r", stdin);
+    freopen("main.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e6+5, INF = 2e9;
+const int N = 2e5+5;
+const ll MOD = 1e9+7;
 
-int a[N], pos[N], pre[N];
-int dp[N];
+int sang[N];
+int maxpow[N];
+bitset<N> vis;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-bool is_good(int x){
-    return x != INF;
+void sieve(){
+    iota(all(sang,2),2);
+    for(int i = 2; i*i < N; i++){
+        if(sang[i] != i) continue;
+        for(int j = i*i; j < N; j+=i){
+            sang[j] = i;
+        }
+    }
+}
+
+void phantich(int n){
+    while(n > 1){
+        int p = sang[n];
+        int mu = 0;
+        while(n%p == 0){
+            mu++;
+            n /= p;
+        }
+
+        maxpow[p] = max(maxpow[p], mu);
+    }
+}
+
+ll binpow(int a, int k){
+    ll res = 1;
+    while(k){
+        if(k&1) res = (res*a)%MOD;
+        a = (a*a)%MOD;
+        k >>= 1;
+    }
+    return res;
 }
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
+    sieve();
+
     int n;
     cin >> n;
-
-    for(int i = 1; i <= n; i++) cin >> a[i];
+    vi pos(n+1);
+    for(int i = 1; i <= n; i++){
+        cin >> pos[i];
+    }
 
     for(int i = 1; i <= n; i++){
-        if(!pos[a[i]]) pos[a[i]] = i;
+        if(!vis[i]){
+            int cur = i;
+            int steps = 0;
+            do{
+                cur = pos[cur];
+                vis[cur] = 1;
+                steps++;
+            }while(cur != i);
+            phantich(steps);
+        }
     }
 
-    for(int i = 1; i <= n; i++) dp[i] = INF;
-    dp[0] = 0;
-
+    ll ans = 1;
     for(int i = 1; i <= n; i++){
-        if(is_good(dp[i-1]) && a[i] >= a[i-1]){
-            pre[i] = i-1;
-            dp[i] = dp[i-1];
+        if(sang[i] == i){
+            ans = (ans*binpow(i,maxpow[i]))%MOD;
         }
-
-        if(pos[a[i]] > 0){
-            if(is_good(dp[pos[a[i]]-1]) && a[i] >= a[pos[a[i]]-1]){
-                if(dp[pos[a[i]]-1] + 1 < dp[i]){
-                    dp[i] = dp[pos[a[i]] - 1] + 1;
-                    pre[i] = pos[a[i]] - 1;
-                }
-            }
-        }
-        
-        // if(is_good(dp[pos[a[i]] - 1]) && a[i] >= a[pos[a[i]]-1] && dp[pos[a[i]] - 1] + 1 < dp[i]){
-        //     dp[i] = dp[pos[a[i]] - 1] + 1;
-        //     pre[i] = pos[a[i]] - 1;
-        // }
-
-        // changing pos
-        if(is_good(dp[i-1]) && (dp[i-1] < dp[pos[a[i]] - 1] || pos[a[i]] == 0)){
-            pos[a[i]] = i;
-        }
-
-        // pos[a[i]] = i;
     }
 
-    for(int i = 1; i <= n; i++) cerr << dp[i] << ' ';
-    cerr << '\n';
-
-    assert(dp[n] <= INF);
-    if(dp[n] == INF){
-        cout << -1;
-        return;
-    }
-
-    vpii trace;
-    int cur = n;
-    while(cur > 0){
-        if(pre[cur] != cur-1) trace.eb(pre[cur] + 1, cur);
-        cur = pre[cur];
-    }
-
-
-    cout << dp[n] << '\n';
-
-    for(int i = sz(trace) - 1; i >= 0; i--){
-        cout << trace[i].fi << ' ' << trace[i].se << '\n';
-    }
+    cout << ans;
 }
 
 int main(){
@@ -153,7 +153,7 @@ int main(){
     setup();
 
     int tc = 1;
-    // cin >> tc;
+    //cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
         __TomDev();

@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-02 08:52:46
+ *    created: 2026-06-06 01:34:49
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: DÃY TĂNG DẦN 
- *    source: EQUALS
- *    submission: 
- *    status: WIP
+ *    title: Course Schedule
+ *    source: https://cses.fi/problemset/task/1679/
+ *    submission: https://cses.fi/problemset/result/17444915/
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Topo Sort
+ *    complexity: O(n)
+ *    note: Just topo sort
 **/
 
 #include <iostream>
@@ -20,7 +20,8 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <cassert>
+#include <queue>
+#include <bitset>
 
 using namespace std;
 
@@ -66,86 +67,69 @@ void setup(){
     #if !defined(LOCAL)
         freopen("/dev/null", "w", stderr);
     #endif
-    if(!fopen("EQUALS.INP", "r")) return;
-    freopen("EQUALS.INP", "r", stdin);
-    freopen("EQUALS.OUT", "w", stdout);
+    if(!fopen("1679.INP", "r")) return;
+    freopen("1679.INP", "r", stdin);
+    freopen("1679.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e6+5, INF = 2e9;
+const int N = 1e5+5;
 
-int a[N], pos[N], pre[N];
-int dp[N];
+vi adj[N];
+int deg_in[N];
+bitset<N> vis, inqueue;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-bool is_good(int x){
-    return x != INF;
-}
+
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    int n;
-    cin >> n;
+    int n,m;
+    cin >> n >> m;
 
-    for(int i = 1; i <= n; i++) cin >> a[i];
-
-    for(int i = 1; i <= n; i++){
-        if(!pos[a[i]]) pos[a[i]] = i;
+    for(int i = 1; i <= m; i++){
+        int u,v;
+        cin >> u >> v;
+        deg_in[v]++;
+        adj[u].eb(v);
     }
 
-    for(int i = 1; i <= n; i++) dp[i] = INF;
-    dp[0] = 0;
-
+    queue<int> qu;
     for(int i = 1; i <= n; i++){
-        if(is_good(dp[i-1]) && a[i] >= a[i-1]){
-            pre[i] = i-1;
-            dp[i] = dp[i-1];
-        }
+        if(!deg_in[i]) qu.push(i), inqueue[i] = 1;
+    }
 
-        if(pos[a[i]] > 0){
-            if(is_good(dp[pos[a[i]]-1]) && a[i] >= a[pos[a[i]]-1]){
-                if(dp[pos[a[i]]-1] + 1 < dp[i]){
-                    dp[i] = dp[pos[a[i]] - 1] + 1;
-                    pre[i] = pos[a[i]] - 1;
-                }
+    vi ans;
+
+    while(!qu.empty()){
+        int u = qu.front();
+        qu.pop();
+
+        ans.eb(u);
+
+        inqueue[u] = 0;
+        vis[u] = 1;
+
+        for(int v : adj[u]){
+            if(vis[v]){
+                cout << "IMPOSSIBLE";
+                return;
+            }
+            if(inqueue[v]) continue;
+
+            if(--deg_in[v] == 0){
+                qu.push(v);
+                inqueue[v] = 1;
             }
         }
-        
-        // if(is_good(dp[pos[a[i]] - 1]) && a[i] >= a[pos[a[i]]-1] && dp[pos[a[i]] - 1] + 1 < dp[i]){
-        //     dp[i] = dp[pos[a[i]] - 1] + 1;
-        //     pre[i] = pos[a[i]] - 1;
-        // }
-
-        // changing pos
-        if(is_good(dp[i-1]) && (dp[i-1] < dp[pos[a[i]] - 1] || pos[a[i]] == 0)){
-            pos[a[i]] = i;
-        }
-
-        // pos[a[i]] = i;
     }
 
-    for(int i = 1; i <= n; i++) cerr << dp[i] << ' ';
-    cerr << '\n';
-
-    assert(dp[n] <= INF);
-    if(dp[n] == INF){
-        cout << -1;
+    if(sz(ans) != n){
+        cout << "IMPOSSIBLE";
         return;
     }
 
-    vpii trace;
-    int cur = n;
-    while(cur > 0){
-        if(pre[cur] != cur-1) trace.eb(pre[cur] + 1, cur);
-        cur = pre[cur];
-    }
-
-
-    cout << dp[n] << '\n';
-
-    for(int i = sz(trace) - 1; i >= 0; i--){
-        cout << trace[i].fi << ' ' << trace[i].se << '\n';
-    }
+    for(int u : ans) cout << u << ' ';
 }
 
 int main(){
@@ -153,7 +137,7 @@ int main(){
     setup();
 
     int tc = 1;
-    // cin >> tc;
+    //cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
         __TomDev();
