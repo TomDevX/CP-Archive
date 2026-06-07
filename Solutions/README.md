@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-369/412-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jun_07%2C_2026_--_15%3A48_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260607T1548&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-370/413-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jun_07%2C_2026_--_16%3A27_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260607T1627&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 412
-- **Accepted:** 369
+- **Total Problems:** 413
+- **Accepted:** 370
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -18,12 +18,12 @@
 * [📂 CodeChef (1)](#-codechef-1)
 * [📂 Codeforces (146)](#-codeforces-146)
 * [📂 CPPros (11)](#-cppros-11)
-* [📂 CSES (52)](#-cses-52)
+* [📂 CSES (53)](#-cses-53)
   * [📂 Advanced Techniques (2)](#-advanced-techniques-2)
   * [📂 Dynamic Programming (12)](#-dynamic-programming-12)
   * [📂 Geometry (6)](#-geometry-6)
   * [📂 Graph (10)](#-graph-10)
-  * [📂 Mathematics (1)](#-mathematics-1)
+  * [📂 Mathematics (2)](#-mathematics-2)
   * [📂 Range Queries (10)](#-range-queries-10)
   * [📂 Sliding Windơows Problem (2)](#-sliding-windơows-problem-2)
   * [📂 Sorting And Searching (3)](#-sorting-and-searching-3)
@@ -47,7 +47,7 @@
 * [📂 VNOJ (69)](#-vnoj-69)
 
 ---
-## 📂 Solutions (412)
+## 📂 Solutions (413)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Main | N/A | N/A | Jun 7, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -304,10 +304,11 @@
 | 9 | [1681 - Game Routes](https://cses.fi/problemset/task/1681) | `Topo Sort`, `DP on DAG` | $\mathcal{O}(n)$ | Jun 6, 2026 | [Code](CSES/Graph/1681.cpp) \| [Sub](https://cses.fi/problemset/result/17445572/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 10 | [1750 - Planets Queries I](https://cses.fi/problemset/task/1750) | `Binary Lifting` | $\mathcal{O}((n+q) \log n)$ | Mar 19, 2026 | [Code](CSES/Graph/1750.cpp) \| [Sub](https://cses.fi/problemset/result/16614664/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-### 📁 Mathematics (1)
+### 📁 Mathematics (2)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [3398 - Permutation Rounds](https://cses.fi/problemset/task/3398) | `Math` | $\mathcal{O}(n \log n)$ | Jun 7, 2026 | [Code](CSES/Mathematics/3398.cpp) \| [Sub](https://cses.fi/problemset/result/17461968/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | [1081 - Common Divisors](https://cses.fi/problemset/task/1081/) | `Math` | $\mathcal{O}(n \log n)$ | Jun 7, 2026 | [Code](CSES/Mathematics/1081.cpp) \| [Sub](https://cses.fi/problemset/result/17462328/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 2 | [3398 - Permutation Rounds](https://cses.fi/problemset/task/3398) | `Math` | $\mathcal{O}(n \log n)$ | Jun 7, 2026 | [Code](CSES/Mathematics/3398.cpp) \| [Sub](https://cses.fi/problemset/result/17461968/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ### 📁 Range Queries (10)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
