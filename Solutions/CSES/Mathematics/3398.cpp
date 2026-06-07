@@ -4,14 +4,14 @@
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Permutation Rounds
+ *    source: https://cses.fi/problemset/task/3398
+ *    submission: https://cses.fi/problemset/result/17461968/
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Math
+ *    complexity: O(n \log n)
+ *    note: First, we need to find the needed steps of each element to go back to its original place first, and it will make a cycle, every elements in that cycle takes the same steps to go back to their base index. So we just need to get the lcm of all cycle -> all cycle can return to its original position. Since lcm can be very large and we need to get lcm by using a*b/gcd which costs us inversion to calculate gcd, we go back to the original meaning of lcm is that getting the max power of that factor. So we factorize the number using sieve with O(\log n) then get their max power
 **/
 
 #include <iostream>
@@ -137,11 +137,11 @@ void __TomDev(){
             phantich(steps);
         }
     }
-    ll ans = 0;
 
+    ll ans = 1;
     for(int i = 1; i <= n; i++){
         if(sang[i] == i){
-            ans += binpow(i,maxpow[i]);
+            ans = (ans*binpow(i,maxpow[i]))%MOD;
         }
     }
 

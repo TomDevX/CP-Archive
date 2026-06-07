@@ -2,10 +2,10 @@
 
 ### 📊 CSES Stats
 
-![Progress](https://img.shields.io/badge/Progress-50/51-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jun_06%2C_2026_--_03%3A11_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-51/52-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jun_07%2C_2026_--_15%3A48_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
-- **Total Unique Problems:** 51
-- **Solved (AC):** 50
+- **Total Unique Problems:** 52
+- **Solved (AC):** 51
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
 
@@ -16,6 +16,7 @@
   * [📁 Dynamic Programming (12)](#-dynamic-programming-12)
   * [📁 Geometry (6)](#-geometry-6)
   * [📁 Graph (10)](#-graph-10)
+  * [📁 Mathematics (1)](#-mathematics-1)
   * [📁 Range Queries (10)](#-range-queries-10)
   * [📁 Sliding Windơows Problem (2)](#-sliding-windơows-problem-2)
   * [📁 Sorting and Searching (3)](#-sorting-and-searching-3)
@@ -68,6 +69,11 @@
 | 8 | [1680 - Longest Flight Route](https://cses.fi/problemset/task/1680) | `Topo Sort`, `DP on DAG` | $\mathcal{O}(n)$ | Jun 06, 2026 | [Code](Graph/1680.cpp) \| [Sub](https://cses.fi/problemset/result/17445496/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 9 | [1681 - Game Routes](https://cses.fi/problemset/task/1681) | `Topo Sort`, `DP on DAG` | $\mathcal{O}(n)$ | Jun 06, 2026 | [Code](Graph/1681.cpp) \| [Sub](https://cses.fi/problemset/result/17445572/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 10 | [1750 - Planets Queries I](https://cses.fi/problemset/task/1750) | `Binary Lifting` | $\mathcal{O}((n+q) \log n)$ | Mar 19, 2026 | [Code](Graph/1750.cpp) \| [Sub](https://cses.fi/problemset/result/16614664/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+
+### 📁 Mathematics (1)
+| # | Problem Name | Tags | Complexity | Date | Solution | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | [3398 - Permutation Rounds](https://cses.fi/problemset/task/3398) | `Math` | $\mathcal{O}(n \log n)$ | Jun 07, 2026 | [Code](Mathematics/3398.cpp) \| [Sub](https://cses.fi/problemset/result/17461968/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ### 📁 Range Queries (10)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
