@@ -1,11 +1,11 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-07 16:44:41
+ *    created: 2026-06-07 21:50:09
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: Palindrome, Twelve and Two Terms
+ *    source: https://codeforces.com/contest/2234/problem/B
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -65,32 +65,37 @@ void setup(){
     #if !defined(LOCAL)
         freopen("/dev/null", "w", stderr);
     #endif
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("2234B.INP", "r")) return;
+    freopen("2234B.INP", "r", stdin);
+    freopen("2234B.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 2e5+5;
 
-bool sang[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void sieve(){
-    for(int i = 2; i * i < N; i++){
-        if(sang[i]) continue;
-        for(int j = i*i; j < N; j += i) sang[j] = 1;
-    }
-}
+
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    sieve();
-    int cnt = 0;
-    for(int i = 2; i < N; i++){
-        cnt += (sang[i] == 0);
+    ll n;
+    cin >> n;
+
+    if(n == 10){
+        cout << -1 << '\n';
+        return;
     }
-    cout << cnt;
+
+    bool isgood = false;
+    for(int a : {0,1,2,3,4,5,6,7,8,9,11,22}){
+        if((n-a)%12 == 0){
+            cout << a << ' ' << n-a << '\n';
+            isgood = true;
+            break;
+        }
+    }
+
+    if(!isgood) cout << -1 << '\n';
 }
 
 int main(){
@@ -98,7 +103,7 @@ int main(){
     setup();
 
     int tc = 1;
-    //cin >> tc;
+    cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
         __TomDev();

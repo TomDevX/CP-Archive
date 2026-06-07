@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-370/413-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jun_07%2C_2026_--_16%3A27_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260607T1627&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-369/417-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jun_08%2C_2026_--_01%3A29_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260608T0129&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 413
-- **Accepted:** 370
+- **Total Problems:** 417
+- **Accepted:** 369
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -16,7 +16,7 @@
 * [📂 ACMICPC (4)](#-acmicpc-4)
 * [📂 AtCoder (7)](#-atcoder-7)
 * [📂 CodeChef (1)](#-codechef-1)
-* [📂 Codeforces (146)](#-codeforces-146)
+* [📂 Codeforces (150)](#-codeforces-150)
 * [📂 CPPros (11)](#-cppros-11)
 * [📂 CSES (53)](#-cses-53)
   * [📂 Advanced Techniques (2)](#-advanced-techniques-2)
@@ -47,7 +47,7 @@
 * [📂 VNOJ (69)](#-vnoj-69)
 
 ---
-## 📂 Solutions (413)
+## 📂 [Solutions (417)](*%20%20%20%20submission:)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | Main | N/A | N/A | Jun 7, 2026 | [Code](main.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -57,7 +57,7 @@
 | 5 | Runtime | N/A | N/A | N/A | [Code](runtime.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 6 | Sinh | N/A | N/A | N/A | [Code](sinh.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 7 | Test2 | N/A | N/A | May 23, 2026 | [Code](test2.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 8 | Test | N/A | N/A | N/A | [Code](test.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 8 | Test | N/A | N/A | Jun 7, 2026 | [Code](test.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 9 | Trau | N/A | N/A | Apr 11, 2026 | [Code](trau.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
 ## 📂 [ACMICPC (4)](https://www.acmicpc.net)
@@ -84,7 +84,7 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [UPDTREE - Updating Edges on Trees](https://www.codechef.com/problems/UPDTREE) | `LCA`, `Different array on tree` | $\mathcal{O}(n \log n)$ | Mar 25, 2026 | [Code](CodeChef/UPDTREE.cpp) \| [Sub](https://www.codechef.com/viewsolution/1252458834) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-## 📂 [Codeforces (146)](https://codeforces.com/)
+## 📂 [Codeforces (150)](https://codeforces.com/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1A](https://codeforces.com/contest/1/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -240,7 +240,11 @@
 | 151 | [2229B - Absolute Cinema](https://codeforces.com/contest/2229/problem/B) | `Adhoc` | $\mathcal{O}(n)$ | May 23, 2026 | [Code](Codeforces/2229B.cpp) \| [Sub](https://codeforces.com/contest/2229/submission/375813279) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 152 | [2229C1 - We Be Flipping (Easy Version)](https://codeforces.com/contest/2229/problem/C1) | `Adhoc`, `Math` | $\mathcal{O}(n)$ | May 23, 2026 | [Code](Codeforces/2229C1.cpp) \| [Sub](https://codeforces.com/contest/2229/submission/375817986) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 153 | [2229C2 - We Be Flipping (Hard Version)](https://codeforces.com/contest/2229/problem/C2) | `Adhoc`, `Math` | $\mathcal{O}(n)$ | May 24, 2026 | [Code](Codeforces/2229C2.cpp) \| [Sub](https://codeforces.com/contest/2229/submission/375848874) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 154 | [690281B - Tăng dãy](https://codeforces.com/gym/690281/problem/B) | `Segment Tree Beats` | $\mathcal{O}((n \cdot k + q) \log n)$ | May 3, 2026 | [Code](Codeforces/690281B.cpp) \| [Sub](https://codeforces.com/gym/690281/submission/373439975) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 154 | [2234A - Euclid, Sequence and Two Numbers](https://codeforces.com/contest/2234/problem/A) | N/A | N/A | Jun 7, 2026 | [Code](Codeforces/2234A.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 155 | [2234B - Palindrome, Twelve and Two Terms](https://codeforces.com/contest/2234/problem/B) | N/A | N/A | Jun 7, 2026 | [Code](Codeforces/2234B.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 156 | [2234C - Vessels, Heights and Two Versions (Easy Version)](https://codeforces.com/contest/2234/problem/C) | N/A | N/A | Jun 7, 2026 | [Code](Codeforces/2234C.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 157 | [2234D - XOR, Expression and Two Binary Numbers](https://codeforces.com/contest/2234/problem/D) | N/A | N/A | Jun 7, 2026 | [Code](Codeforces/2234D.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 158 | [690281B - Tăng dãy](https://codeforces.com/gym/690281/problem/B) | `Segment Tree Beats` | $\mathcal{O}((n \cdot k + q) \log n)$ | May 3, 2026 | [Code](Codeforces/690281B.cpp) \| [Sub](https://codeforces.com/gym/690281/submission/373439975) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [CPPros (11)](https://oj.vnoi.info/organization/gogovoi)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |

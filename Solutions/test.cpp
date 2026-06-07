@@ -1,12 +1,118 @@
-#include <iostream>
-#include <numbers> // Required for mathematical constants
+/**
+ *    author: TomDev - Tran Hoang Quan
+ *    created: 2026-06-07 21:56:03
+ *    country: Vietnam - VNM
+ *    repo: github.com/TomDevX/CP-Archive
+ * ----------------------------------------------------------
+ *    title: 
+ *    source: 
+ *    submission: 
+ *    status: WIP
+ * ----------------------------------------------------------
+ *    tags: 
+ *    complexity: 
+ *    note: 
+**/
 
-int main() {
-    // Double precision constant
-    double golden_ratio = std::numbers::phi; 
-    std::cout << "Golden Ratio: " << golden_ratio << "\n";
-    
-    // Float precision variant
-    float golden_ratio_f = std::numbers::phi_v<float>;
-    return 0;
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cstdio>
+#include <string>
+#include <utility>
+
+using namespace std;
+
+// --- [ DEBUGGING & LOCAL CONFIG ] ---
+#if __has_include("TomDev.h") && defined(LOCAL)
+    #include "TomDev.h"
+    #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
+#else
+    #define dbg(x,i)
+#endif
+#define NAH_I_WOULD_WIN 0
+
+// --- [ MACROS ] ---
+#define all(x,bonus) std::begin(x)+(bonus), std::end(x)
+#define sub(x, st, ed) std::begin((x)) + (st), std::begin((x)) + (ed) + 1
+#define filter(x,bonus) (x).erase(unique(std::begin((x))+(bonus), std::end((x))), std::end((x)))
+#define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
+#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define fi first
+#define se second
+#define eb emplace_back
+#define sz(x) (int)(x).size()
+
+// --- [ TYPES & ALIASES ] ---
+using ll = long long;
+using ull = unsigned long long;
+using ld = long double;
+using pll = pair<long long,long long>;
+using pld = pair<long double,long double>;
+using pii = pair<int,int>;
+using pill = pair<int,long long>;
+using vi = vector<int>;
+using vvi = vector<vector<int>>;
+using vll = vector<long long>;
+using vvll = vector<vector<long long>>;
+using vb = vector<bool>;
+using vs = vector<string>;
+using vpii = vector<pair<int,int>>;
+using vpill = vector<pair<int,long long>>;
+using vpll = vector<pair<long long,long long>>;
+
+void setup(){
+    #if !defined(LOCAL)
+        freopen("/dev/null", "w", stderr);
+    #endif
+    if(!fopen("test.INP", "r")) return;
+    freopen("test.INP", "r", stdin);
+    freopen("test.OUT", "w", stdout);
+}
+
+// ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+
+
+// ----------------------- [ FUNCTIONS ] -----------------------
+bool ispalin(int x){
+    string s;
+    while(x){
+        s += (x%10 + '0');
+        x /= 10;
+    }
+    int n = sz(s);
+    for(int i = 0; i < n/2; i++){
+        if(s[i] != s[n-i-1]) return false;
+    }
+    return true;
+}
+
+// ----------------------- [ MAIN ] -----------------------
+void __TomDev(){
+    for(int n = 1; n <= 100000; n++){
+        bool printed = false;
+        for(int b = (int)(n/12) * 12; b >= 0; b -= 12){
+            if(ispalin(n-b)){
+                cout << n << ": " << n-b << ' ' << b << '\n';
+                printed = true;
+                break;
+            }
+        }
+        if(!printed){
+            cout << n << ": -1\n";
+        }
+    }
+}
+
+int main(){
+    fastio;
+    setup();
+
+    int tc = 1;
+    //cin >> tc;
+    for(int t = 1; t <= tc; t++)
+    {
+        __TomDev();
+    }
+    return NAH_I_WOULD_WIN;
 }

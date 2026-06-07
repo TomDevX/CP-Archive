@@ -1,11 +1,11 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-07 16:44:41
+ *    created: 2026-06-07 21:39:24
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: Euclid, Sequence and Two Numbers
+ *    source: https://codeforces.com/contest/2234/problem/A
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -65,32 +65,40 @@ void setup(){
     #if !defined(LOCAL)
         freopen("/dev/null", "w", stderr);
     #endif
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("2234A.INP", "r")) return;
+    freopen("2234A.INP", "r", stdin);
+    freopen("2234A.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 2e5+5;
 
-bool sang[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void sieve(){
-    for(int i = 2; i * i < N; i++){
-        if(sang[i]) continue;
-        for(int j = i*i; j < N; j += i) sang[j] = 1;
-    }
-}
+
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    sieve();
-    int cnt = 0;
-    for(int i = 2; i < N; i++){
-        cnt += (sang[i] == 0);
+    int n;
+    cin >> n;
+
+    vi b(n+1);
+    for(int i = 1; i <= n; i++) cin >> b[i];
+
+    sort(rall(b,1));
+
+    if(n <= 2){
+        cout << b[1] << ' ' << b[2] << '\n';
+        return;
     }
-    cout << cnt;
+
+    for(int i = 3; i <= n; i++){
+        if(b[i] != (b[i-2] + b[i-1])%b[i-1]){
+            cout << -1 << '\n';
+            return;
+        }
+    }
+
+    cout << b[1] << ' ' << b[2] << '\n';
 }
 
 int main(){
@@ -98,7 +106,7 @@ int main(){
     setup();
 
     int tc = 1;
-    //cin >> tc;
+    cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
         __TomDev();
