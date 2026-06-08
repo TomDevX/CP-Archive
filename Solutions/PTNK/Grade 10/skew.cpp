@@ -74,8 +74,9 @@ void setup(){
 const int N = 3e5+5;
 
 int a[N];
-ll pref[N];
-int prefmin[N], suffmin[N];
+ll pref[N], suff[N];
+ll pref_max_sum[N], suff_max_sum[N];
+int pref_min[N], suff_min[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
@@ -86,25 +87,31 @@ void __TomDev(){
     cin >> n >> k;
 
     for(int i = 1; i <= n; i++) cin >> a[i];
-    fill(sub(prefmin,0,n+1), 1e9);
-    fill(sub(suffmin,0,n+1), 1e9);
-
-    for(int i = 1; i <= n; i++){
-        pref[i] = pref[i-1] + a[i];
-        prefmin[i] = min(prefmin[i-1], a[i]);
-    }
-
-    for(int i = n; i >= 1; i--){
-        suffmin[i] = min(suffmin[i+1], a[i]);
-    }
+    fill(sub(pref_min,0,n+1), 1e9);
+    fill(sub(suff_min,0,n+1), 1e9);
 
     int big_size = n-k+1;
 
-    ll ans = 0;
-    for(int i = big_size; i <= n; i++){
-        ans = max(ans, pref[i] - pref[i-big_size] - min(prefmin[i-big_size], suffmin[i+1]));
+    for(int i = 1; i <= n; i++){
+        pref[i] = pref[i-1] + a[i];
+        pref_max_sum[i] = max(pref_max_sum[i-1],pref[i] - pref[max(i-big_size,0)]);
+        pref_min[i] = min(pref_min[i-1], a[i]);
     }
-    cout << ans << '\n';
+
+    for(int i = n; i >= 1; i--){
+        suff[i] = suff[i+1] + a[i];
+        suff_max_sum[i] = max(suff_max_sum[i+1], suff[i] - suff[min(i+big_size,n+1)]);
+        suff_min[i] = min(suff_min[i+1], a[i]);
+    }
+
+    ll ans = 0;
+    for(int i = 1; i <= n; i++){
+        if(min(pref_min[i-1], suff_min[i+1]) >= a[i]){
+            ans = max(ans, max(pref_max_sum[i-1], suff_max_sum[i+1]) - a[i]);
+        }
+    }
+
+    cout << ans;
 }
 
 int main(){
