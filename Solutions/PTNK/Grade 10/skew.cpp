@@ -1,10 +1,10 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-08 08:28:31
+ *    created: 2026-06-08 09:42:45
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: Hiệu hai bình phương
+ *    title: Phân chia lệch
  *    source: DT 08-06-2026.pdf
  *    submission: 
  *    status: WIP
@@ -65,22 +65,46 @@ void setup(){
     #if !defined(LOCAL)
         freopen("/dev/null", "w", stderr);
     #endif
-    if(!fopen("SUBSQUARE.INP", "r")) return;
-    freopen("SUBSQUARE.INP", "r", stdin);
-    freopen("SUBSQUARE.OUT", "w", stdout);
+    if(!fopen("skew.INP", "r")) return;
+    freopen("skew.INP", "r", stdin);
+    freopen("skew.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 3e5+5;
 
+int a[N];
+ll pref[N];
+int prefmin[N], suffmin[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    for(int i = 1; i <= 100; i++){
-        cout << (i+1)*(i+1) - i*i << '\n';
+    int n,k;
+    cin >> n >> k;
+
+    for(int i = 1; i <= n; i++) cin >> a[i];
+    fill(sub(prefmin,0,n+1), 1e9);
+    fill(sub(suffmin,0,n+1), 1e9);
+
+    for(int i = 1; i <= n; i++){
+        pref[i] = pref[i-1] + a[i];
+        prefmin[i] = min(prefmin[i-1], a[i]);
     }
+
+    for(int i = n; i >= 1; i--){
+        suffmin[i] = min(suffmin[i+1], a[i]);
+    }
+
+    int big_size = n-k+1;
+
+    ll ans = 0;
+    for(int i = big_size; i <= n; i++){
+        ans = max(ans, pref[i] - pref[i-big_size] - min(prefmin[i-big_size], suffmin[i+1]));
+    }
+    cout << ans << '\n';
 }
 
 int main(){

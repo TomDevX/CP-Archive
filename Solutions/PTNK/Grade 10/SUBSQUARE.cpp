@@ -7,7 +7,7 @@
  *    title: Hiệu hai bình phương
  *    source: DT 08-06-2026.pdf
  *    submission: 
- *    status: WIP
+ *    status: AC
  * ----------------------------------------------------------
  *    tags: 
  *    complexity: 
@@ -20,6 +20,7 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <cmath>
 
 using namespace std;
 
@@ -78,9 +79,32 @@ void setup(){
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    for(int i = 1; i <= 100; i++){
-        cout << (i+1)*(i+1) - i*i << '\n';
+    ll d,l,r;
+    cin >> d >> l >> r;
+    // l = ceil(sqrt(l));
+    // r = sqrt(r);
+
+    int ans = 0;
+
+    for(int i = 1; i * i <= d; i++){
+        // i = y - x
+        // j = y + x
+        if(d%i == 0){
+            int j = d/i;
+
+            if((j-i)&1 || (i + j)&1) continue;
+
+            int y = (i + j)/2;
+            int x = (j - i)/2;
+            if(1LL*x*x >= l && 1LL*y*y <= r) ans++;
+
+            cerr << i << ' ' << j << '\n';
+            cerr << x << ' ' << y << '\n';
+            cerr << '\n';
+        }
     }
+
+    cout << ans;
 }
 
 int main(){
