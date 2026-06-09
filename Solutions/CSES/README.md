@@ -2,9 +2,9 @@
 
 ### 📊 CSES Stats
 
-![Progress](https://img.shields.io/badge/Progress-52/53-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jun_08%2C_2026_--_23%3A30_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-52/54-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jun_09%2C_2026_--_10%3A24_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
-- **Total Unique Problems:** 53
+- **Total Unique Problems:** 54
 - **Solved (AC):** 52
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
@@ -19,7 +19,7 @@
   * [📁 Mathematics (2)](#-mathematics-2)
   * [📁 Range Queries (10)](#-range-queries-10)
   * [📁 Sliding Windơows Problem (2)](#-sliding-windơows-problem-2)
-  * [📁 Sorting and Searching (3)](#-sorting-and-searching-3)
+  * [📁 Sorting and Searching (4)](#-sorting-and-searching-4)
   * [📁 String (6)](#-string-6)
 
 ---
@@ -99,12 +99,13 @@
 | 1 | [1076 - Sliding Window Median](https://cses.fi/problemset/task/1076) | `Walk on BIT` | $\mathcal{O}(n \log n)$ | Apr 05, 2026 | [Code](Sliding%20Windơows%20Problem/1076.cpp) \| [Sub](https://cses.fi/problemset/result/16803462/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [3220 - Sliding Window Sum](https://cses.fi/problemset/task/3220) | `Sliding Windows` | $\mathcal{O}(n)$ | May 03, 2026 | [Code](Sliding%20Windơows%20Problem/3220.cpp) \| [Sub](https://cses.fi/problemset/result/17062878/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-### 📁 Sorting and Searching (3)
+### 📁 Sorting and Searching (4)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [1645 - Nearest Smaller Values](https://cses.fi/problemset/task/1645) | `Adhoc` | $\mathcal{O}(n)$ | Feb 18, 2026 | [Code](Sorting%20and%20Searching/1645.cpp) \| [Sub](https://cses.fi/problemset/result/16306582/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 2 | [2216 - Collecting Numbers](https://cses.fi/problemset/task/2216) | `Implementation` | $\mathcal{O}(n)$ | Feb 10, 2026 | [Code](Sorting%20and%20Searching/2216.cpp) \| [Sub](https://cses.fi/problemset/result/16218047/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 3 | [2217 - Collecting Numbers II](https://cses.fi/problemset/task/2217) | `Adhoc` | $\mathcal{O}(n + m)$ | Feb 10, 2026 | [Code](Sorting%20and%20Searching/2217.cpp) \| [Sub](https://cses.fi/problemset/result/16218382/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | [1085 - Array Division](https://cses.fi/problemset/task/1085) | N/A | N/A | Jun 09, 2026 | [Code](Sorting%20and%20Searching/1085.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 2 | [1645 - Nearest Smaller Values](https://cses.fi/problemset/task/1645) | `Adhoc` | $\mathcal{O}(n)$ | Feb 18, 2026 | [Code](Sorting%20and%20Searching/1645.cpp) \| [Sub](https://cses.fi/problemset/result/16306582/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 3 | [2216 - Collecting Numbers](https://cses.fi/problemset/task/2216) | `Implementation` | $\mathcal{O}(n)$ | Feb 10, 2026 | [Code](Sorting%20and%20Searching/2216.cpp) \| [Sub](https://cses.fi/problemset/result/16218047/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 4 | [2217 - Collecting Numbers II](https://cses.fi/problemset/task/2217) | `Adhoc` | $\mathcal{O}(n + m)$ | Feb 10, 2026 | [Code](Sorting%20and%20Searching/2217.cpp) \| [Sub](https://cses.fi/problemset/result/16218382/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ### 📁 String (6)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |

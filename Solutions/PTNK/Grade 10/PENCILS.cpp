@@ -4,10 +4,10 @@
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: CÁC HỘP BÚT CHÌ 
+ *    source: DuTuyen_20260609.pdf
  *    submission: 
- *    status: WIP
+ *    status: AC
  * ----------------------------------------------------------
  *    tags: 
  *    complexity: 
@@ -89,37 +89,19 @@ int get(int pos){
     return res;
 }
 
-bool check(int diff) {
-    fill(bit + 1, bit + n + 1, 0);
-    
-    for(int i = 1; i <= n; i++) {
-        int pos_se = lower_bound(sub(max_sorted, 1, n), a[i].se) - max_sorted;
-        update(pos_se, 1);
+bool check(int diff){
+    fill(sub(bit,1,n),0);
+
+    for(int i = 1; i <= n; i++){
+        update(a[i].se,1);
     }
 
-    int left_ptr = 1; 
-    int current_boxes_in_bit = n; // Biến duy trì tổng số hộp đang có trong BIT
-
-    for(int i = 1; i <= n; i++) {
-        int L = a[i].fi;
-        int R = L + diff;
-
-        while(left_ptr <= n && a[left_ptr].fi < L) {
-            int pos_se = lower_bound(sub(max_sorted, 1, n), a[left_ptr].se) - max_sorted;
-            update(pos_se, -1); 
-            left_ptr++;
-            current_boxes_in_bit--; // Giảm tổng số lượng hộp khi xóa khỏi BIT
-        }
-
-        // Tìm vị trí đầu tiên > R để đếm số hộp vi phạm biên phải
-        int pos_R = upper_bound(sub(max_sorted, 1, n), R) - max_sorted;
-        int invalid_right = get(pos_R); 
-
-        // Số hộp hợp lệ = Tổng số hộp trong BIT - Số hộp vi phạm biên phải
-        int valid_boxes = current_boxes_in_bit - invalid_right;
-        
-        if (valid_boxes >= k) return true;
+    for(int i = 1; i <= n; i++){
+        int pos = upper_bound(sub(max_sorted,1,n), a[i].fi + diff) - max_sorted;
+        if(n - get(pos) - i + 1 >= k) return true;
+        update(a[i].se,-1);
     }
+
     return false;
 }
 
@@ -147,15 +129,15 @@ void __TomDev(){
     sort(sub(min_sorted,1,n));
     sort(sub(max_sorted,1,n));
 
-    for(int i = 1; i <= n; i++) update(lower_bound(sub(max_sorted,1,n),max_sorted[i]) - max_sorted, 1);
+    for(int i = 1; i <= n; i++) a[i].se = lower_bound(sub(max_sorted,1,n),a[i].se) - max_sorted;
 
     int l = 0, r = 1e9, ans = 1e9;
     while(l <= r){
         int mid = l + ((r-l)>>1);
 
         if(check(mid)){
-            r = mid-1;
             ans = mid;
+            r = mid-1;
         }
         else l = mid+1;
     }
