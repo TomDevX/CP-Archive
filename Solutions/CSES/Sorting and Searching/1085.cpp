@@ -6,12 +6,12 @@
  * ----------------------------------------------------------
  *    title: Array Division
  *    source: https://cses.fi/problemset/task/1085
- *    submission: 
- *    status: WIP
+ *    submission: https://cses.fi/problemset/result/17482976/
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Binary Search on Answer
+ *    complexity: O(n \log n)
+ *    note: Just binary search on the min sum and check if it is valid
 **/
 
 #include <iostream>
@@ -92,7 +92,7 @@ bool check(ll lim){
 
     if(sum) cnt++;
 
-    return cnt >= k;
+    return cnt <= k;
 }
 
 // ----------------------- [ MAIN ] -----------------------
