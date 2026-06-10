@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-09 09:11:38
+ *    created: 2026-06-09 21:01:07
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
@@ -65,102 +65,24 @@ void setup(){
     #if !defined(LOCAL)
         freopen("/dev/null", "w", stderr);
     #endif
-    if(!fopen("PENCILS.INP", "r")) return;
-    freopen("PENCILS.INP", "r", stdin);
-    freopen("PENCILS.OUT", "w", stdout);
+    if(!fopen("main.INP", "r")) return;
+    freopen("main.INP", "r", stdin);
+    freopen("main.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e5+5;
 
-pii a[N];
-int min_sorted[N], max_sorted[N];
-int bit[N];
-int n,k;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void update(int pos, int val){
-    for(; pos; pos -= pos&-pos) bit[pos] += val;
-}
 
-int get(int pos){
-    int res = 0;
-    for(; pos <= n; pos += pos&-pos) res += bit[pos];
-    return res;
-}
-
-bool check(int diff) {
-    fill(bit + 1, bit + n + 1, 0);
-    
-    for(int i = 1; i <= n; i++) {
-        int pos_se = lower_bound(sub(max_sorted, 1, n), a[i].se) - max_sorted;
-        update(pos_se, 1);
-    }
-
-    int left_ptr = 1; 
-    int current_boxes_in_bit = n; // Biến duy trì tổng số hộp đang có trong BIT
-
-    for(int i = 1; i <= n; i++) {
-        int L = a[i].fi;
-        int R = L + diff;
-
-        while(left_ptr <= n && a[left_ptr].fi < L) {
-            int pos_se = lower_bound(sub(max_sorted, 1, n), a[left_ptr].se) - max_sorted;
-            update(pos_se, -1); 
-            left_ptr++;
-            current_boxes_in_bit--; // Giảm tổng số lượng hộp khi xóa khỏi BIT
-        }
-
-        // Tìm vị trí đầu tiên > R để đếm số hộp vi phạm biên phải
-        int pos_R = upper_bound(sub(max_sorted, 1, n), R) - max_sorted;
-        int invalid_right = get(pos_R); 
-
-        // Số hộp hợp lệ = Tổng số hộp trong BIT - Số hộp vi phạm biên phải
-        int valid_boxes = current_boxes_in_bit - invalid_right;
-        
-        if (valid_boxes >= k) return true;
-    }
-    return false;
-}
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    cin >> n >> k;
-
-    for(int i = 1; i <= n; i++){
-        a[i] = {1e9,0};
-        int m;
-        cin >> m;
-        for(int j = 1,  x; j <= m; j++){
-            cin >> x;
-            a[i].fi = min(a[i].fi, x);
-            a[i].se = max(a[i].se, x);
-        }
-        min_sorted[i] = a[i].fi;
-        max_sorted[i] = a[i].se;
-    }   
-
-    sort(sub(a,1,n), [](const pii& x, const pii& y){
-        return x.fi < y.fi;
-    });
-
-    sort(sub(min_sorted,1,n));
-    sort(sub(max_sorted,1,n));
-
-    for(int i = 1; i <= n; i++) update(lower_bound(sub(max_sorted,1,n),max_sorted[i]) - max_sorted, 1);
-
-    int l = 0, r = 1e9, ans = 1e9;
-    while(l <= r){
-        int mid = l + ((r-l)>>1);
-
-        if(check(mid)){
-            r = mid-1;
-            ans = mid;
-        }
-        else l = mid+1;
-    }
-
-    cout << ans;
+    int n;
+    cin >> n;
+    for(int i = 1; i <= n; i++) cin >> a[i];
+    sort(all(a,1));
+    for(int i = 1; i <= n; i++) cout << a[i];
 }
 
 int main(){

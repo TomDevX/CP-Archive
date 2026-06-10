@@ -6,12 +6,12 @@
  * ----------------------------------------------------------
  *    title: Orac and LCM
  *    source: https://codeforces.com/contest/1349/problem/A
- *    submission: 
- *    status: WIP
+ *    submission: https://codeforces.com/contest/1349/submission/377986037
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Math
+ *    complexity: O(n \log maxn)
+ *    note: Just draw out the gcd of all LCMs with small tests and we can see some math observations below
 **/
 
 #include <iostream>
@@ -125,9 +125,15 @@ void __TomDev(){
 
     ll ans = 1;
     for(int i = 2; i < N; i++){
-        if(sang[i] == i){
+        if(sz(mu[i])){
             sort(all(mu[i],0));
-            ans *= binpow(i, (sz(mu[i]) < 2 ? 0 : mu[i][1]));
+            int mu_size = sz(mu[i]);
+
+            int tot = mu_size;
+            if(mu_size == n){ // if all numbers contain the factor, the gcd will be the second smallest
+                ans *= binpow(i,mu[i][1]);
+            }
+            else if(mu_size == n-1) ans *= binpow(i, mu[i][0]); // if only 1 number doesn't contain this factor, gcd will be the smallest
         }
     }
 

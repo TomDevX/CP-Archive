@@ -2,10 +2,10 @@
 
 ### 📊 Codeforces Stats
 
-![Progress](https://img.shields.io/badge/Progress-130/151-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jun_09%2C_2026_--_16%3A45_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-131/151-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jun_10%2C_2026_--_18%3A27_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 151
-- **Solved (AC):** 130
+- **Solved (AC):** 131
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
 
@@ -90,7 +90,7 @@
 | 70 | [1225D - Power Products](https://codeforces.com/contest/1225/problem/D) | `Math` | $\mathcal{O}(n \log maxn)$ | Jun 04, 2026 | [Code](1225D.cpp) \| [Sub](https://codeforces.com/contest/1225/submission/377373976) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 71 | [1328A](https://codeforces.com/contest/1328/problem/A) | N/A | N/A | N/A | [Code](1328A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 72 | [1335A](https://codeforces.com/contest/1335/problem/A) | N/A | N/A | N/A | [Code](1335A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 73 | [1349A - Orac and LCM](https://codeforces.com/contest/1349/problem/A) | N/A | N/A | Jun 09, 2026 | [Code](1349A.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 73 | [1349A - Orac and LCM](https://codeforces.com/contest/1349/problem/A) | `Math` | $\mathcal{O}(n \log maxn)$ | Jun 09, 2026 | [Code](1349A.cpp) \| [Sub](https://codeforces.com/contest/1349/submission/377986037) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 74 | [1352A](https://codeforces.com/contest/1352/problem/A) | N/A | N/A | N/A | [Code](1352A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 75 | [1399A](https://codeforces.com/contest/1399/problem/A) | N/A | N/A | N/A | [Code](1399A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 76 | [1409A](https://codeforces.com/contest/1409/problem/A) | N/A | N/A | N/A | [Code](1409A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |

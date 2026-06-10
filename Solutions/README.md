@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-371/422-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jun_09%2C_2026_--_16%3A45_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260609T1645&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-372/422-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jun_10%2C_2026_--_18%3A27_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260610T1827&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 422
-- **Accepted:** 371
+- **Accepted:** 372
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -156,7 +156,7 @@
 | 70 | [1225D - Power Products](https://codeforces.com/contest/1225/problem/D) | `Math` | $\mathcal{O}(n \log maxn)$ | Jun 4, 2026 | [Code](Codeforces/1225D.cpp) \| [Sub](https://codeforces.com/contest/1225/submission/377373976) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 71 | [1328A](https://codeforces.com/contest/1328/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1328A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 72 | [1335A](https://codeforces.com/contest/1335/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1335A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 73 | [1349A - Orac and LCM](https://codeforces.com/contest/1349/problem/A) | N/A | N/A | Jun 9, 2026 | [Code](Codeforces/1349A.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 73 | [1349A - Orac and LCM](https://codeforces.com/contest/1349/problem/A) | `Math` | $\mathcal{O}(n \log maxn)$ | Jun 9, 2026 | [Code](Codeforces/1349A.cpp) \| [Sub](https://codeforces.com/contest/1349/submission/377986037) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 74 | [1352A](https://codeforces.com/contest/1352/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1352A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 75 | [1399A](https://codeforces.com/contest/1399/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1399A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 76 | [1409A](https://codeforces.com/contest/1409/problem/A) | N/A | N/A | N/A | [Code](Codeforces/1409A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
