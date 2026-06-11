@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-09 21:01:07
+ *    created: 2026-06-11 02:20:27
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
@@ -53,7 +53,7 @@ using pii = pair<int,int>;
 using pill = pair<int,long long>;
 using vi = vector<int>;
 using vvi = vector<vector<int>>;
-using vll = vector<long long>;
+using vll = vector<long long>;  
 using vvll = vector<vector<long long>>;
 using vb = vector<bool>;
 using vs = vector<string>;
@@ -80,9 +80,7 @@ void setup(){
 void __TomDev(){
     int n;
     cin >> n;
-    for(int i = 1; i <= n; i++) cin >> a[i];
-    sort(all(a,1));
-    for(int i = 1; i <= n; i++) cout << a[i];
+    cout << n;
 }
 
 int main(){

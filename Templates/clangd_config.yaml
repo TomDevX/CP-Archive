@@ -1,18 +1,18 @@
 Diagnostics:
   UnusedIncludes: None
   MissingIncludes: Strict
-Completion:
-  AllScopes: false
-  ArgumentLists: None
-InlayHints:
-  BlockEnd: false
-  Designators: false
-  Enabled: true
-  ParameterNames: false
-  DeducedTypes: false
-  DefaultArguments: false
-  TypeNameLimit: 24
 CompileFlags:
-  Add: ["-DLOCAL"]
+  Add: 
+    - -std=c++17
+    - -Wall
+    - -Wextra
+    - -Wshadow
+    - -Wno-unused-variable
+    - -march=native
+    - -DLOCAL
+    - -O2 # Tối ưu hóa để clangd hiểu các đoạn code phức tạp nhanh hơn
+  Remove: [-W*] # Loại bỏ các flag cũ không cần thiết
+
 Index:
-  StandardLibrary: true
+  Background: Build # Cho phép lập chỉ mục ở chế độ nền
+  Threads: 0
