@@ -6,7 +6,7 @@
  * ----------------------------------------------------------
  *    title: Maximum of GCDs
  *    source: https://www.codechef.com/problems/KSIZEGCD
- *    submission: https://www.codechef.com/viewsolution/1288254544
+ *    submission: https://www.codechef.com/viewsolution/1288288964
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Math
@@ -86,7 +86,7 @@ int gcd(int x, int b){
 }
 
 // ----------------------- [ MAIN ] -----------------------
-void __TomDev(){
+void __TomDev(int tc){
     int n;
     cin >> n;
     
@@ -133,7 +133,7 @@ int main(){
     cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
-        __TomDev();
+        __TomDev(t);
     }
     return NAH_I_WOULD_WIN;
 }

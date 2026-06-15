@@ -4,17 +4,22 @@
       "g++",
       "-std=c++14",
       "-O2",
+      "-Wall",
       "-pipe",
       "-static",
       "-lm",
+      "-Wno-unused-result",
+      "-Wno-unused-parameter",
       "-DONLINE_JUDGE",
-      "-march=native",
+      "-Wl,-z,stack-size=66060288",
       "${file}",
       "-o",
       "${fileDirname}/${fileBasenameNoExtension}"
     ],
     "runCommand": [
-      "${fileDirname}/${fileBasenameNoExtension}"
+      "bash",
+      "-c",
+      "\"${fileDirname}/${fileBasenameNoExtension}\" || exit $?"
     ],
     "debugCommand": [
       "lldb",

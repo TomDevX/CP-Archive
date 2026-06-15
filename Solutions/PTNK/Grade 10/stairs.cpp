@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-14 23:24:10
+ *    created: 2026-06-15 09:46:23
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
@@ -65,20 +65,45 @@ void setup(){
     #if !defined(LOCAL)
         freopen("/dev/null", "w", stderr);
     #endif
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("stairs.INP", "r")) return;
+    freopen("stairs.INP", "r", stdin);
+    freopen("stairs.OUT", "w", stdout);
 }
 
-// ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+// ----------------------- [ CONFIG & CONSTANTS ] --------- --------------
+const int N = 2e5+5;
 
+int n,m;
+
+vector<vector<char>> a;
+vvi pref_max;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    
+    cin >> n >> m;
+
+    a.resize(n+2, vector<char>(m+2));
+    pref_max.resize(n+2, vi(m+2));
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= m; j++) cin >> a[i][j];
+    }
+
+    for(int i = 1; i <= n; i++){
+        for(int j = m; j >= 1; j--){
+            pref_max[i][j] = (a[i][j] == '1' ? pref_max[i][j+1] + 1 : 0);
+        }
+    }
+
+    int ans = 0;
+    for(int j = 1; j <= m; j++){
+        int pre = 0;
+        for(int i = 1; i <= n; i++){
+            
+        }
+    }
 }
 
 int main(){

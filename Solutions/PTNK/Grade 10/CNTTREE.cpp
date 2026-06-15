@@ -1,11 +1,11 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-14 23:24:10
+ *    created: 2026-06-12 08:09:14
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: CNTTREE
+ *    source: 26JUN_PTNK_.pdf
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -65,9 +65,9 @@ void setup(){
     #if !defined(LOCAL)
         freopen("/dev/null", "w", stderr);
     #endif
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if (freopen("CNTTREE.INP", "r", stdin)){
+        (void)!freopen("CNTTREE.OUT", "w", stdout);
+    }
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
@@ -77,7 +77,7 @@ void setup(){
 
 
 // ----------------------- [ MAIN ] -----------------------
-void __TomDev(){
+void __TomDev(int tc){
     
 }
 
@@ -89,7 +89,7 @@ int main(){
     //cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
-        __TomDev();
+        __TomDev(t);
     }
     return NAH_I_WOULD_WIN;
 }

@@ -188,21 +188,41 @@ std::ostream& operator<<(std::ostream& out, const std::tuple<Types...>& value) {
 #include <sys/resource.h>
 
 struct Statistic_Tracker {
+    double initial_mem;
+
+    // Hàm khởi tạo: Chụp lại lượng bộ nhớ nền ban đầu của hệ thống
+    Statistic_Tracker() {
+        struct rusage usage;
+        getrusage(RUSAGE_SELF, &usage);
+        initial_mem = convert_to_mb(usage.ru_maxrss);
+    }
+
+    // Hàm hủy: Tính toán lượng RAM thực tế tiêu thụ và in kết quả
     ~Statistic_Tracker() {
         struct rusage usage;
         getrusage(RUSAGE_SELF, &usage);
-        double time = 1.0 * clock() / CLOCKS_PER_SEC;
+        double current_mem = convert_to_mb(usage.ru_maxrss);
         
-        double mem = usage.ru_maxrss;
-        #ifdef __APPLE__
-            mem /= (1024.0 * 1024.0);
-        #else
-            mem /= 1024.0;
-        #endif
+        // Khấu trừ bộ nhớ nền, nếu âm hoặc quá nhỏ thì đưa về 0
+        double actual_mem = current_mem - initial_mem;
+        if (actual_mem < 0.01) actual_mem = 0.00;
+
+        double time = 1.0 * clock() / CLOCKS_PER_SEC;
 
         std::cerr << "\033[1;32m\n--------------------------------\033[0m\n";
         std::cerr << "\033[1;32mNAH I'D WIN!\033[0m | ";
         std::cerr << "\033[1;33mTime: " << std::fixed << std::setprecision(3) << time << "s\033[0m | ";
-        std::cerr << "\033[1;36mMem: " << std::fixed << std::setprecision(2) << mem << "MB\033[0m\n";
+        std::cerr << "\033[1;36mMem: " << std::fixed << std::setprecision(2) << actual_mem << "MB\033[0m\n";
+    }
+
+private:
+    // Hàm phụ trợ chuyển đổi đơn vị chuẩn theo OS
+    inline double convert_to_mb(long rss_value) {
+        double mem = rss_value;
+        #ifdef __APPLE__
+            return mem / (1024.0 * 1024.0); // macOS: Bytes -> MB
+        #else
+            return mem / 1024.0;            // Linux/WSL: KB -> MB
+        #endif
     }
 } __TomDev_will_AK_VOI;

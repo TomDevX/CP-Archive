@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-05-23 23:54:31
+ *    created: 2026-06-13 01:30:42
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
@@ -20,6 +20,7 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <cstring>
 
 using namespace std;
 
@@ -55,29 +56,44 @@ using vi = vector<int>;
 using vvi = vector<vector<int>>;
 using vll = vector<long long>;
 using vvll = vector<vector<long long>>;
+using vb = vector<bool>;
+using vs = vector<string>;
 using vpii = vector<pair<int,int>>;
 using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
+    #if !defined(LOCAL)
+        freopen("/dev/null", "w", stderr);
+    #endif
     if(!fopen("test2.INP", "r")) return;
     freopen("test2.INP", "r", stdin);
     freopen("test2.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 100;
 
+int a[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
 
 // ----------------------- [ MAIN ] -----------------------
+void __TomDev(){
+    memset(a,1,sizeof(a));
+    cout << a[1] << ' ' << a[2];
+}
+
 int main(){
     fastio;
     setup();
-    
-    bool changed = true;
-    cout << ((1 > 1)^changed);
-    
+
+    int tc = 1;
+    //cin >> tc;
+    for(int t = 1; t <= tc; t++)
+    {
+        __TomDev();
+    }
     return NAH_I_WOULD_WIN;
 }

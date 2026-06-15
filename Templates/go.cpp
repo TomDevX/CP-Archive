@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-04 18:03:04
+ *    created: 2026-06-11 17:18:23
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
@@ -65,9 +65,9 @@ void setup(){
     #if !defined(LOCAL)
         freopen("/dev/null", "w", stderr);
     #endif
-    if(!fopen("go.INP", "r")) return;
-    freopen("go.INP", "r", stdin);
-    freopen("go.OUT", "w", stdout);
+    if (freopen("go.INP", "r", stdin)){
+        (void)!freopen("go.OUT", "w", stdout);
+    }
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
@@ -77,7 +77,7 @@ void setup(){
 
 
 // ----------------------- [ MAIN ] -----------------------
-void __TomDev(){
+void __TomDev(int tc){
     
 }
 
@@ -89,7 +89,7 @@ int main(){
     //cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
-        __TomDev();
+        __TomDev(t);
     }
     return NAH_I_WOULD_WIN;
 }
