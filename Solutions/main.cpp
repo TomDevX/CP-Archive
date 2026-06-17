@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-14 23:24:10
+ *    created: 2026-06-17 09:13:17
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
@@ -20,6 +20,8 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <bitset>
+#include <stack>
 
 using namespace std;
 
@@ -71,14 +73,82 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int M = 4e5+5, N = 2e5+5;
 
+struct Edge{
+    int u,v,s;
+
+    Edge(int _u = 0, int _v = 0, int _s = 0) : u(_u), v(_v), s(_s) {};
+};
+
+Edge E[M];
+vi adj[N];
+
+bitset<N> del;
+bitset<M> bad;
+int low[N], num[N], group[N];
+int cnt = 0, scc = 0;
+int st[N];
+int top = 0;
+int n,m;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void rest(int n, int m){
+    for(int i = 1; i <= n; i++){
+        adj[i].clear();
+        low[i] = num[i] = del[i] = 0;
+        group[i] = 0;
+    }
+    for(int i = 1; i <= m; i++) bad[i] = 0;
+    top = scc = 0;
+}
+
+void tarjan(int u){
+    num[u] = low[u] = ++cnt;
+    st[++top] = u;
+
+    for(int v : adj[u]){
+        if(del[v] || v == n) continue;
+        if(num[v] == 0) tarjan(v),low[u] = min(low[u], low[v]);
+        else low[u] = min(low[u],num[v]);
+    }
+    if(low[u] == num[u]){
+        int v = 0;
+        scc++;
+        do{
+            v = st[top--];
+            del[v] = 1;
+            group[v] = scc;
+        }while(v != u);
+    }
+}
 
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
+    cin >> n >> m;
+    rest(n,m);
     
+    for(int i = 1; i <= m; i++){
+        cin >> E[i].u >> E[i].v >> E[i].s;
+        adj[E[i].u].eb(E[i].v);
+    }
+
+    for(int i = 1; i < n; i++){
+        if(!num[i]) tarjan(i);
+    }
+
+    for(int i = 1; i <= m; i++){
+        if(E[i].s == -1) bad[i] = 1;
+    }
+
+    for(int i = 1; i <= m; i++){
+        if(E[i].s > -1 && !bad[E[i].s] && group[E[i].u] == group[E[i].v]){
+            cout << "YES\n";
+            return;
+        }
+    }
+    cout << "NO\n";
 }
 
 int main(){
@@ -86,7 +156,7 @@ int main(){
     setup();
 
     int tc = 1;
-    //cin >> tc;
+    cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
         __TomDev();

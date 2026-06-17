@@ -77,7 +77,6 @@ def extract_metadata(file_path):
                     elif lower_line.startswith("submission:"):
                         val = clean_line[11:].strip()
                         if val: meta["submission"] = val # Giữ nguyên URL hoặc path
-                    # ... (các phần khác giữ nguyên) ...
                     elif lower_line.startswith("created:"):
                         val = clean_line[8:].strip()
                         if val:
@@ -109,7 +108,9 @@ def get_status_badge(status_code):
 
 def auto_generate_link(file_path):
     path_parts = file_path.replace('\\', '/').split('/')
-    filename = path_parts[-1].replace('.cpp', '').upper()
+    filename = path_parts[-1]
+    filename = re.sub(r'\.(cpp|c)$', '', filename, flags=re.IGNORECASE).upper()
+    
     for part in reversed(path_parts[:-1]):
         up = part.upper()
         if "CODEFORCES" in up or "CF" in up:
@@ -128,7 +129,7 @@ def count_problems_in_subtree(directory):
     for root, dirs, files in os.walk(directory):
         dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
         for file in files:
-            if file.endswith('.cpp'):
+            if file.endswith('.cpp') or file.endswith('.c'):
                 full_path = os.path.join(root, file)
                 meta = extract_metadata(full_path)
                 prob_link = meta["source"] or auto_generate_link(full_path)
@@ -183,9 +184,9 @@ def generate_single_readme(target_dir):
     # Quét các folder con để lấy dữ liệu bài tập
     for root, dirs, files in os.walk(target_dir):
         dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
-        cpp_files = [f for f in files if f.endswith('.cpp')]
-        if cpp_files:
-            folder_data.append((root, cpp_files))
+        sol_files = [f for f in files if f.endswith('.cpp') or f.endswith('.c')]
+        if sol_files:
+            folder_data.append((root, sol_files))
             
     folder_data.sort(key=lambda x: natural_sort_key(x[0]))
     
@@ -214,7 +215,6 @@ def generate_single_readme(target_dir):
             meta = extract_metadata(full_path)
             
             # 1. XỬ LÝ LINK BÀI TẬP (SOURCE)
-            # Link có thể là URL hoặc path tuyệt đối (từ hàm extract_metadata đã fix)
             prob_link = meta["source"] or auto_generate_link(full_path)
             if prob_link:
                 if not str(prob_link).startswith("http"):
@@ -224,13 +224,12 @@ def generate_single_readme(target_dir):
                 prob_link = str(prob_link).replace(' ', '%20')
             
             # 2. XỬ LÝ TÊN HIỂN THỊ
-            filename_no_ext = file.replace('.cpp', '')
+            filename_no_ext = re.sub(r'\.(cpp|c)$', '', file, flags=re.IGNORECASE)
             file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
             prob_title = f"{file_id} - {meta['title']}" if meta["title"] else filename_no_ext
             name_md = f"[{prob_title}]({prob_link})" if prob_link else prob_title
             
-            # 3. XỬ LÝ LINK CODE (File .cpp)
-            # Link code luôn tương đối so với file README này
+            # 3. XỬ LÝ LINK CODE (File .cpp hoặc .c)
             rel_code_path = os.path.relpath(full_path, target_dir).replace('\\', '/').replace(' ', '%20')
             sol_md = f"[Code]({rel_code_path})"
             

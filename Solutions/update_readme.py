@@ -37,21 +37,19 @@ def get_oj_link_from_file(folder_path):
                 with open(file_path, 'r', encoding='utf-8') as f:
                     content = f.read().strip()
                     if file_name.endswith('.url'):
-                        # Lấy mọi thứ sau URL=
                         match = re.search(r'URL=(.+)', content)
                         if match: return match.group(1).strip().replace(' ', '%20')
-                    if content: # Chỉ cần có chữ là lấy
+                    if content:
                         return content.split('\n')[0].strip().replace(' ', '%20')
             except Exception: pass
 
-    # Quét trực tiếp file .cpp
+    # Quét trực tiếp file .cpp hoặc .c
     try:
         for file_name in os.listdir(folder_path):
-            if file_name.endswith('.cpp'):
+            if file_name.endswith('.cpp') or file_name.endswith('.c'):
                 file_path = os.path.join(folder_path, file_name)
                 with open(file_path, 'r', encoding='utf-8') as f:
                     header_content = "".join([next(f) for _ in range(20) if f])
-                    # Regex lấy mọi thứ từ source: đến hết dòng, loại bỏ dấu sao kết thúc
                     source_match = re.search(r'source:\s*(.+)', header_content)
                     if source_match:
                         val = source_match.group(1).split('\n')[0].strip().rstrip('*').strip()
@@ -72,7 +70,6 @@ def create_slug(text):
     return slug
 
 def extract_metadata(file_path):
-    # BASE_DIR là thư mục gốc chứa README.md
     meta = {"source": None, "submission": None, "tags": "N/A", "complexity": "N/A", "title": None, "date": "N/A", "status": "AC"}
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
@@ -96,18 +93,14 @@ def extract_metadata(file_path):
                         if any(x in val for x in ["IN PROGRESS", "WIP"]): meta["status"] = "WIP"
                         elif val in STATUS_MAP: meta["status"] = val
                     
-                    # --- FIX: TỰ ĐỘNG CHUYỂN VỀ ĐƯỜNG DẪN GỐC ---
                     elif lower_line.startswith("source:"):
                         val = clean_line[7:].strip()
                         if val:
                             if val.startswith("http"):
                                 meta["source"] = val
                             else:
-                                # Loại bỏ ./ nếu lỡ tay viết
                                 clean_val = val.lstrip('./')
-                                # Lấy đường dẫn tuyệt đối của file PDF dựa trên vị trí file .cpp
                                 abs_source = os.path.abspath(os.path.join(os.path.dirname(file_path), clean_val))
-                                # Chuyển về đường dẫn tương đối so với thư mục gốc (BASE_DIR)
                                 rel_to_root = os.path.relpath(abs_source, BASE_DIR).replace('\\', '/')
                                 meta["source"] = rel_to_root.replace(' ', '%20')
                     
@@ -116,7 +109,6 @@ def extract_metadata(file_path):
                         if val:
                             if val.startswith("http"): meta["submission"] = val
                             else: meta["submission"] = val.replace(' ', '%20')
-                    # --------------------------------------------
 
                     elif lower_line.startswith("created:"):
                         val = clean_line[8:].strip()
@@ -150,7 +142,9 @@ def get_status_badge(status_code):
 
 def auto_generate_link(file_path):
     path_parts = file_path.replace('\\', '/').split('/')
-    filename = path_parts[-1].replace('.cpp', '').upper()
+    filename = path_parts[-1]
+    filename = re.sub(r'\.(cpp|c)$', '', filename, flags=re.IGNORECASE).upper()
+    
     for part in reversed(path_parts[:-1]):
         up = part.upper()
         if "CODEFORCES" in up or "CF" in up:
@@ -165,14 +159,13 @@ def auto_generate_link(file_path):
     return None
 
 def count_problems_recursive(directory):
-    """Count unique problems recursively."""
-    folder_unique_ids = {} # {path: set(prob_ids)}
+    folder_unique_ids = {}
     
     for root, dirs, files in os.walk(directory):
         dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
         
         for file in files:
-            if file.endswith('.cpp'):
+            if file.endswith('.cpp') or file.endswith('.c'):
                 full_path = os.path.join(root, file)
                 meta = extract_metadata(full_path)
                 
@@ -192,7 +185,6 @@ def count_problems_recursive(directory):
     return {path: len(s) for path, s in folder_unique_ids.items()}
 
 def run_sub_scripts():
-    """Execute update_readme_child.py if it exists in the root_dir."""
     target_script = "update_readme_child.py"
     script_path = os.path.join(root_dir, target_script)
     
@@ -222,10 +214,8 @@ def generate_readme():
         print(f"❌ Source directory {root_dir} does not exist.")
         return
 
-    # Step 1: Count unique problems
     folder_counts = count_problems_recursive(root_dir)
 
-    # Step 2: Traverse, filter, and generate content
     folder_data = []
     added_to_toc = set()
 
@@ -249,9 +239,10 @@ def generate_readme():
                     toc_content += f"{indent}* [📂 {title_with_count}](#-{create_slug(title_with_count)})\n"
                     added_to_toc.add(current_path)
 
-        cpp_files = [f for f in files if f.endswith('.cpp')]
-        if cpp_files:
-            folder_data.append((root, cpp_files))
+        # Lọc cả file .cpp và .c
+        sol_files = [f for f in files if f.endswith('.cpp') or f.endswith('.c')]
+        if sol_files:
+            folder_data.append((root, sol_files))
 
     folder_data.sort(key=lambda x: natural_sort_key(x[0]))
 
@@ -284,7 +275,8 @@ def generate_readme():
             if prob_id not in unique_problems or STATUS_MAP[current_status]['prio'] > STATUS_MAP[unique_problems[prob_id]]['prio']:
                 unique_problems[prob_id] = current_status
             
-            filename_no_ext = file.replace('.cpp', '')
+            # Xóa cả đuôi .cpp và .c khi lấy tên gốc
+            filename_no_ext = re.sub(r'\.(cpp|c)$', '', file, flags=re.IGNORECASE)
             file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
             
             if meta["title"]:

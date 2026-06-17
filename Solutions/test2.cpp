@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-13 01:30:42
+ *    created: 2026-06-16 10:32:44
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
@@ -20,7 +20,6 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <cstring>
 
 using namespace std;
 
@@ -72,17 +71,24 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 100;
 
-int a[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    memset(a,1,sizeof(a));
-    cout << a[1] << ' ' << a[2];
+    ll n;
+    cin >> n;
+    n++;
+
+    ll ans = 0;
+    for(int i = 1; i <= n; i++){
+        for(int size = 2; size <= n-i+1; size++){
+            ans += (n-i)/(size-1);
+        }
+    }
+    cout << ans + n << '\n';
 }
 
 int main(){
@@ -90,7 +96,7 @@ int main(){
     setup();
 
     int tc = 1;
-    //cin >> tc;
+    cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
         __TomDev();
