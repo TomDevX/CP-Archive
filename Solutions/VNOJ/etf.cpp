@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-19 17:08:52
+ *    created: 2026-06-19 18:03:05
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Phi hàm Euler
+ *    source: https://oj.vnoi.info/problem/etf
+ *    submission: https://oj.vnoi.info/submission/12521263
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Math
+ *    complexity: O(n \log\log n)
+ *    note: Normal euler phi
 **/
 
 #include <iostream>
@@ -65,28 +65,43 @@ void setup(){
     #if !defined(LOCAL)
         freopen("/dev/null", "w", stderr);
     #endif
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("etf.INP", "r")) return;
+    freopen("etf.INP", "r", stdin);
+    freopen("etf.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 1e6+5;
 
+int phi[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void sieve(){
+    for(int i = 1; i < N; i++) phi[i] = i;
 
+    for(int i = 2; i < N; i++){
+        if(phi[i] == i){ // phi[i] is prime
+            for(int j = i; j < N; j += i){
+                phi[j] = phi[j] - phi[j]/i; // (1 - 1/p)
+            }
+        }
+    }
+}
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    
+    int n;
+    cin >> n;
+    cout << phi[n] << '\n';
 }
 
 int main(){
     fastio;
     setup();
+    sieve();
 
     int tc = 1;
-    //cin >> tc;
+    cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
         __TomDev();

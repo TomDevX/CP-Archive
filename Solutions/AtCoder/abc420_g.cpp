@@ -1,11 +1,11 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-19 17:08:52
+ *    created: 2026-06-19 17:09:30
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: sqrt(n²+n+X)
+ *    source: https://atcoder.jp/contests/abc420/tasks/abc420_g
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -65,9 +65,9 @@ void setup(){
     #if !defined(LOCAL)
         freopen("/dev/null", "w", stderr);
     #endif
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("abc420_g.INP", "r")) return;
+    freopen("abc420_g.INP", "r", stdin);
+    freopen("abc420_g.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
@@ -78,6 +78,9 @@ void setup(){
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
+    ll x;
+    cin >> x;
+
     
 }
 

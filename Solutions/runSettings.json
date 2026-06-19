@@ -28,6 +28,35 @@
     ],
     "debugAttachConfig": "GDB: Attach"
   },
+  ".c": {
+    "compileCommand": [
+      "gcc",
+      "-std=c11",
+      "-O2",
+      "-Wall",
+      "-pipe",
+      "-static",
+      "-lm",
+      "-Wno-unused-result",
+      "-Wno-unused-parameter",
+      "-DONLINE_JUDGE",
+      "-Wl,-z,stack-size=66060288",
+      "${file}",
+      "-o",
+      "${fileDirname}/${fileBasenameNoExtension}"
+    ],
+    "runCommand": [
+      "bash",
+      "-c",
+      "\"${fileDirname}/${fileBasenameNoExtension}\" || exit $?"
+    ],
+    "debugCommand": [
+      "lldb",
+      "--",
+      "${fileDirname}/${fileBasenameNoExtension}"
+    ],
+    "debugAttachConfig": "GDB: Attach"
+  },
   "goodSolutionFile": "${fileDirname}/${fileBasenameNoExtension}__Good${fileExtname}",
   "generatorFile": "${fileDirname}/${fileBasenameNoExtension}__Generator${fileExtname}"
 }
