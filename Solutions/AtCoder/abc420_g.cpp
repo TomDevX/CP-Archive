@@ -6,12 +6,18 @@
  * ----------------------------------------------------------
  *    title: sqrt(n²+n+X)
  *    source: https://atcoder.jp/contests/abc420/tasks/abc420_g
- *    submission: 
- *    status: WIP
+ *    submission: https://atcoder.jp/contests/abc420/submissions/76789480
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: Math
+ *    complexity: O(\sqrt{X})
+ *    note: We need to have some formula shifting here:
+ 1. Let \sqrt{n^2 + n + X} = m => n^2 + n + X = m^2 => 4n^2 + 4n + 4X = 4m^2 => (2n + 1)^2 - 1 + 4X = 4m^2 (Force to be a quadratic with 4n^2 + 4n + 1 = (2n + 1)^2, so we +1 and -1)
+ 2. We have A^2 - B^2 = (A - B)(A + B) (identity) => (2n + 1 - 2m)(2n + 1 + 2m) = 1 - 4X
+ 3. Let d = 2n + 1 + 2m and C = 1 - 4X => 2n + 1 - 2m = C/d
+ 4. We have 2n + 1 - 2m + 2n + 1 + 2m = C/d + d => 4n + 2 = C/d + d => n = (C/d + d - 2)/4 (1)
+ 5. Finally, we just need to iterate 1 -> \sqrt{X} to find all d and then => value of n with formula 1
+ Note: Since n can be negative so d can be negative so we need to add(-d) too
 **/
 
 #include <iostream>
@@ -20,6 +26,7 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <cmath>
 
 using namespace std;
 
@@ -71,17 +78,35 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+vll ans;
+ll C;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-
+void add(ll d){
+    ll ele = (C/d + d - 2)/4;
+    ans.eb(ele);
+}
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
     ll x;
     cin >> x;
 
-    
+    C = 1-4*x;
+
+    ll V = abs(C);
+
+    for(ll d = 1; d * d <= V; d++){
+        if(V%d != 0) continue;
+
+        add(d);
+        add(-d);
+    }
+
+    sort(all(ans,0));
+
+    cout << sz(ans) << '\n';
+    for(ll i : ans) cout << i << ' ';
 }
 
 int main(){
