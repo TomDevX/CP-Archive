@@ -10,7 +10,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Trie
- *    complexity: O(n*100)
+ *    complexity: O(|S|*100)
  *    note: First, this problem divide the string into parts, so we think of dp. If ok([i,j]) then dp[i] += dp[j] where dp[i] = ways to make string [1,i]. Now to check ok(substr), we can use hash with map, but it will be O(|S|*100*log2(n)) -> TLE. Notice that max size of each elements is only 100, so we can iterate on each i -> O(|S|*100). So how do we check? We make a trie of elements, and when iterating back we check how many are they (remember to reverse all elements string before adding them in)
 **/
 

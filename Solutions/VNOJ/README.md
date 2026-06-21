@@ -2,7 +2,7 @@
 
 ### 📊 VNOJ Stats
 
-![Progress](https://img.shields.io/badge/Progress-69/70-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jun_20%2C_2026_--_09%3A21_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-69/70-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jun_21%2C_2026_--_16%3A57_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 70
 - **Solved (AC):** 69
@@ -65,7 +65,7 @@
 | 45 | [MTWALK - Mountain Walking](https://oj.vnoi.info/problem/mtwalk) | `Binary Search`, `Matrix` | $\mathcal{O}(n^2 \cdot \text{MAX_VAL} \log \text{MAX_VAL})$ | May 12, 2026 | [Code](mtwalk.cpp) \| [Sub](https://oj.vnoi.info/src/12290611) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 46 | [NKMOBILE - IOI01 Mobiles](https://oj.vnoi.info/problem/nkmobile) | `BIT 2D` | $\mathcal{O}(n^2 \log n^2)$ | Apr 10, 2026 | [Code](nkmobile.cpp) \| [Sub](https://oj.vnoi.info/submission/12088963) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 47 | [NKRACING - Vòng đua F1](https://oj.vnoi.info/problem/nkracing) | `MST` | $\mathcal{O}(n \log n)$ | May 06, 2026 | [Code](nkracing.cpp) \| [Sub](https://oj.vnoi.info/submission/12250760) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 48 | [NKSEV - Tách từ](https://oj.vnoi.info/problem/nksev) | `Trie` | $\mathcal{O}(n*100)$ | May 25, 2026 | [Code](nksev.cpp) \| [Sub](https://oj.vnoi.info/submission/12393469) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 48 | [NKSEV - Tách từ](https://oj.vnoi.info/problem/nksev) | `Trie` | $\mathcal{O}(|S|*100)$ | May 25, 2026 | [Code](nksev.cpp) \| [Sub](https://oj.vnoi.info/submission/12393469) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 49 | [ORDERSET - Order statistic set](https://oj.vnoi.info/problem/orderset) | `Trie` | $\mathcal{O}(n)$ | May 31, 2026 | [Code](orderset.cpp) \| [Sub](https://oj.vnoi.info/submission/12412425) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 50 | [PALINY - Palindrome dài nhất](https://oj.vnoi.info/problem/paliny) | `Hash` | $\mathcal{O}(n \log n)$ | May 19, 2026 | [Code](paliny.cpp) \| [Sub](https://oj.vnoi.info/submission/12338521) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 51 | [PWALK - PWALK](https://oj.vnoi.info/problem/pwalk) | `LCA` | $\mathcal{O}(n \log n)$ | Mar 03, 2026 | [Code](PWALK.cpp) \| [Sub](https://oj.vnoi.info/submission/11787434) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |

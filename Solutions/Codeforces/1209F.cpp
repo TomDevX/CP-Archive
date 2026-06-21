@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-21 01:24:45
+ *    created: 2026-06-21 14:20:40
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Koala and Notebook
+ *    source: https://codeforces.com/contest/1209/problem/F
+ *    submission: https://codeforces.com/contest/1209/submission/379680947
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    note: 
+ *    tags: BFS, Graph
+ *    complexity: O(n + m \log_10 m)
+ *    note: We notice that this is a basic Lexicographical BFS traversal problem. We just need to group the one which have the best prefix into 1 group, and then iterate digits from 0 -> 9 and let them in the queue and update (and also lock because this is BFS not Dijkstra) their distance value.
 **/
 
 #include <iostream>
@@ -20,6 +20,7 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <bitset>
 
 using namespace std;
 
@@ -65,21 +66,88 @@ void setup(){
     #if !defined(LOCAL)
         freopen("/dev/null", "w", stderr);
     #endif
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("1209F.INP", "r")) return;
+    freopen("1209F.INP", "r", stdin);
+    freopen("1209F.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const ll MOD = 1337377;
-const int N = 3e5+5;
+const ll MOD = 1e9+7;
+const int N = 1300005;
+
+int n,m;
+ll dis[N];
+int virt;
+int st[N];
+int top_st = -1;
+vi adj[N][10];
+vi qu[N];
+bitset<N> vis;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void add(int u, int v, int w){
+    while(w){
+        st[++top_st] = w%10;
+        w /= 10;
+    }
 
+    int cur = u;
+    while(top_st > 0){
+        adj[cur][st[top_st--]].eb(++virt);
+        cur = virt;
+    }
+
+    adj[cur][st[top_st--]].eb(v);
+}
+
+void bfs(int src){
+    int top = 0, tot = 0;
+    qu[0] = {1};
+    vis[1] = 1;
+
+    while(top <= tot){
+        vi cur = qu[top++];
+
+        vi nxt[10];
+
+        for(int d = 0; d <= 9; d++){
+            for(int u : cur){
+                for(int v : adj[u][d]){
+                    if(vis[v]) continue;
+
+                    vis[v] = 1;
+
+                    dis[v] = (dis[u] * 10 + d)%MOD;
+
+                    nxt[d].eb(v);
+                }
+            }
+        }
+
+        for(int d = 0; d <= 9; d++){
+            if(!nxt[d].empty()) qu[++tot] = nxt[d];
+        }
+    }
+
+}
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    
+    cin >> n >> m;
+    virt = n;
+
+    for(int w = 1; w <= m; w++){
+        int u,v;
+        cin >> u >> v;
+        add(u,v,w);
+        add(v,u,w);
+    }
+
+    bfs(1);
+
+    for(int u = 2; u <= n; u++){
+        cout << dis[u] << '\n';
+    }
 }
 
 int main(){
