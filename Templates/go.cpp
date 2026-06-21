@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-11 17:18:23
+ *    created: 2026-06-21 22:45:10
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
@@ -11,6 +11,7 @@
  * ----------------------------------------------------------
  *    tags: 
  *    complexity: 
+ *    metacognition: 
  *    note: 
 **/
 
@@ -65,9 +66,9 @@ void setup(){
     #if !defined(LOCAL)
         freopen("/dev/null", "w", stderr);
     #endif
-    if (freopen("go.INP", "r", stdin)){
-        (void)!freopen("go.OUT", "w", stdout);
-    }
+    if(!fopen("go.INP", "r")) return;
+    freopen("go.INP", "r", stdin);
+    freopen("go.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
@@ -77,7 +78,7 @@ void setup(){
 
 
 // ----------------------- [ MAIN ] -----------------------
-void __TomDev(int tc){
+void __TomDev(){
     
 }
 
@@ -89,7 +90,7 @@ int main(){
     //cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
-        __TomDev(t);
+        __TomDev();
     }
     return NAH_I_WOULD_WIN;
 }
