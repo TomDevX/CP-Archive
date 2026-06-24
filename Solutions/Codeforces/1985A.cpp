@@ -1,18 +1,18 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-22 09:16:12
+ *    created: 2026-06-24 23:24:55
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Creating Words
+ *    source: https://codeforces.com/contest/1985/problem/A
+ *    submission: https://codeforces.com/contest/1985/submission/380039600
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    metacognition: 
- *    note: 
+ *    tags: Implementation
+ *    complexity: O(1)
+ *    metacognition: Ehh, just swap it maybe?
+ *    note: Just swap it
 **/
 
 #include <iostream>
@@ -66,9 +66,9 @@ void setup(){
     #if !defined(LOCAL)
         freopen("/dev/null", "w", stderr);
     #endif
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("1985A.INP", "r")) return;
+    freopen("1985A.INP", "r", stdin);
+    freopen("1985A.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
@@ -79,7 +79,11 @@ void setup(){
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    
+    string a,b;
+    cin >> a >> b;
+    swap(a[0], b[0]);
+
+    cout << a << ' ' << b << '\n';  
 }
 
 int main(){
@@ -87,7 +91,7 @@ int main(){
     setup();
 
     int tc = 1;
-    //cin >> tc;
+    cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
         __TomDev();
