@@ -1,18 +1,18 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-25 23:41:01
+ *    created: 2026-06-26 01:35:54
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Fence
+ *    source: https://codeforces.com/contest/363/problem/B
+ *    submission: https://codeforces.com/contest/363/submission/380152828
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    metacognition: 
- *    note: 
+ *    tags: Math
+ *    complexity: O(n) 
+ *    metacognition: Use prefix sum and get min
+ *    note: Just use prefix sum to check
 **/
 
 #include <iostream>
@@ -66,57 +66,42 @@ void setup(){
     #if !defined(LOCAL)
         freopen("/dev/null", "w", stderr);
     #endif
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("363B.INP", "r")) return;
+    freopen("363B.INP", "r", stdin);
+    freopen("363B.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 2e6+5;
-const ll MOD = 1e9+7;
 
-ll fac[N], inv[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-ll binpow(ll a, ll k){
-    ll res = 1;
-    while(k){
-        if(k&1) res = (res*a)%MOD;
-        a = (a*a)%MOD;
-        k >>= 1;
-    }
-    return res;
-}
 
-void preprocess(){
-    fac[0] = 1;
-    for(int i = 1; i < N; i++) fac[i] = (fac[i-1]*i)%MOD;
-
-    inv[N-1] = binpow(fac[N-1], MOD-2);
-
-    for(int i = N-2; i >= 0; i--){
-        inv[i] = (inv[i+1]*(i+1))%MOD;
-    }
-}
-
-ll findC(int n, int k){
-    if(n < 0 || k < 0 || k > n) return 0;
-    if(k == 0) return 1;
-    return ((fac[n]*inv[n-k])%MOD*inv[k])%MOD;
-}
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    int n,S;
-    cin >> n >> S;
+    int n,k;
+    cin >> n >> k;
+    vi a(n+1);
+    vll pref(n+1);
 
-    cout << findC(n + S - 1, n-1);
+    for(int i = 1; i <= n; i++){
+        cin >> a[i];
+        pref[i] = pref[i-1] + a[i];
+    }
+
+    int pos = 1;
+    for(int i = 2; i + k - 1 <= n; i++){
+        if(pref[pos + k - 1] - pref[pos-1] > pref[i + k - 1] - pref[i-1]){
+            pos = i;
+        }
+    }
+
+    cout << pos;
 }
 
 int main(){
     fastio;
     setup();
-    preprocess();
 
     int tc = 1;
     //cin >> tc;
