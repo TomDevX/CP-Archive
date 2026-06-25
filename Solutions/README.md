@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-379/428-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jun_25%2C_2026_--_00%3A10_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260625T0010&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-380/428-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jun_25%2C_2026_--_23%3A32_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260625T2332&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 428
-- **Accepted:** 379
+- **Accepted:** 380
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -314,7 +314,7 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1081 - Common Divisors](https://cses.fi/problemset/task/1081/) | `Math` | $\mathcal{O}(n \log n)$ | Jun 7, 2026 | [Code](CSES/Mathematics/1081.cpp) \| [Sub](https://cses.fi/problemset/result/17462328/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [1082 - Sum of Divisors](https://cses.fi/problemset/task/1082) | `Math` | $\mathcal{O}(\sqrt{n})$ | Jun 14, 2026 | [Code](CSES/Mathematics/1082.cpp) \| [Sub](https://cses.fi/problemset/result/17568179/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 3 | [2182 - Divisor Analysis](https://cses.fi/problemset/task/2182/) | N/A | N/A | Jun 24, 2026 | [Code](CSES/Mathematics/2182.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 3 | [2182 - Divisor Analysis](https://cses.fi/problemset/task/2182/) | `Math` | $\mathcal{O}(n \log k)$ | Jun 24, 2026 | [Code](CSES/Mathematics/2182.cpp) \| [Sub](https://cses.fi/problemset/result/17688457/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 4 | [3398 - Permutation Rounds](https://cses.fi/problemset/task/3398) | `Math` | $\mathcal{O}(n \log n)$ | Jun 7, 2026 | [Code](CSES/Mathematics/3398.cpp) \| [Sub](https://cses.fi/problemset/result/17461968/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ### 📁 Range Queries (10)

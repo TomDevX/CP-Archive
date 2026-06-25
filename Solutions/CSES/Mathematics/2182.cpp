@@ -6,13 +6,13 @@
  * ----------------------------------------------------------
  *    title: Divisor Analysis
  *    source: https://cses.fi/problemset/task/2182/
- *    submission: 
- *    status: WIP
+ *    submission: https://cses.fi/problemset/result/17688457/
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    metacognition: 
- *    note: 
+ *    tags: Math
+ *    complexity: O(n \log k)
+ *    metacognition: We already know the formula of getting cnt of divisors, sum of divisors and product of divisors through prime factors so it must be easy -> But how about the product of divisors which have formula of n^(cnt/2)? It will have a div 2 right there and we need to consider the cases -> if cnt (not modulo) is even => We can easily divide it (but we need to find 1 even number in it and divide it by 2 before contributing to cnt because cnt is already modulo and we cant divide on modulo with a %(MOD-1) for the exponential) | we know that n is contribution of its fac and each's exponential => if cnt is odd number, it means that the all original exponential is even => we can divide their original value by 2 and add it through prod of factors to make n^(cnt/2) through its factors
+ *    note: It is easy for the cnt and sum. But for product, we can't divide 2 easily (n^(cnt/2)). If cnt is even, we just need to find 1 contributor (factor + 1) which is even and divide it and count n^cnt | If cnt = odd, means that all original factors are even (because there's no even in (factors + 1)) => n^(cnt/2) = (p1^a1 * p2^a2 * ... * p3^ak)^(cnt/2) = p1^(a1*cnt/2) * p2^(a2*cnt/2) * ... * pk^(ak*cnt/2) - because a1,a2,...,ak has original value so we can divide by 2 normally. (Notice: For the exponential modulo, it must be MOD-1 because of Fermat's Little Theorem or phi rule of modulo)
 **/
 
 #include <iostream>
@@ -77,13 +77,23 @@ const ll MOD = 1e9+7;
 
 pii factors[N];
 
-ll cnt_fac = 0, sum_fac = 0, prod_fac = 0;
+ll cnt_fac = 1, sum_fac = 1, prod_fac = 1;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 ll norm(ll x){
     x %= MOD;
     if(x < 0) x += MOD;
     return x;
+}
+
+ll binpow(ll a, ll k){
+    ll res = 1;
+    while(k){
+        if(k&1) res = (res*a)%MOD;
+        a = (a*a)%MOD;
+        k >>= 1;
+    }
+    return res;
 }
 
 // ----------------------- [ MAIN ] -----------------------
@@ -95,16 +105,42 @@ void __TomDev(){
         cin >> factors[i].fi >> factors[i].se;
     }
 
-    bool is_even = true;
+    bool is_even = false;
     for(int i = 1; i <= n; i++){
         cnt_fac = (cnt_fac*(factors[i].se + 1))%MOD;
-        sum_fac = (sum_fac*((norm(binpow(factors[i].fi, factors[i].se + 1) - 1)) * binpow(factors[i].fi - 1, MOD-2) % MOD));
-        if((factors[i].se + 1) % 2 == 0) is_even = false;
+        sum_fac = (sum_fac*((norm(binpow(factors[i].fi, factors[i].se + 1) - 1)) * binpow(factors[i].fi - 1, MOD-2) % MOD))%MOD;
+        if((factors[i].se + 1) % 2 == 0) is_even = true;
+    }
+
+    ll cnt = 1;
+    for(int i = 1; i <= n; i++){
+        cnt = (cnt*(factors[i].se + 1))%(MOD-1);
     }
 
     if(is_even){
+        bool is_div = false;
+        ll mu = 1, x = 1;
         
+        for(int i = 1; i <= n; i++){
+            if(!is_div && (factors[i].se + 1)%2 == 0){
+                mu = (mu * ((factors[i].se + 1)>>1))%(MOD-1);
+                is_div = true;
+            }
+            else mu = (mu * (factors[i].se + 1))%(MOD-1);
+
+            x = (x * binpow(factors[i].fi, factors[i].se))%MOD;
+        }
+
+        prod_fac = binpow(x,mu);
     }
+    else{
+        for(int i = 1; i <= n; i++){
+            ll new_fac = binpow(factors[i].fi, ((factors[i].se>>1)*cnt)%(MOD-1));
+            prod_fac = (prod_fac*new_fac)%MOD;
+        }
+    }
+
+    cout << cnt_fac << ' ' << sum_fac << ' ' << prod_fac;
 }
 
 int main(){
