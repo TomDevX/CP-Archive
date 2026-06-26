@@ -1,11 +1,11 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-26 02:07:52
+ *    created: 2026-06-26 16:45:46
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: Tập hợp gần nhau
+ *    source: https://oj.vnoi.info/problem/gogovoi_advanced_combin_bai4
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -25,8 +25,8 @@
 using namespace std;
 
 // --- [ DEBUGGING & LOCAL CONFIG ] ---
-#if __has_include(<TomDev.h>) && defined(LOCAL)
-    #include <TomDev.h>
+#if __has_include("TomDev.h") && defined(LOCAL)
+    #include "TomDev.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
 #else
     #define dbg(x,i)
@@ -66,9 +66,9 @@ void setup(){
     #if !defined(LOCAL)
         freopen("/dev/null", "w", stderr);
     #endif
-    if(!fopen("test2.INP", "r")) return;
-    freopen("test2.INP", "r", stdin);
-    freopen("test2.OUT", "w", stdout);
+    if(!fopen("gogovoi_advanced_combin_bai4.INP", "r")) return;
+    freopen("gogovoi_advanced_combin_bai4.INP", "r", stdin);
+    freopen("gogovoi_advanced_combin_bai4.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
@@ -79,14 +79,14 @@ void setup(){
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    dbg(1,1);
+    
 }
 
 int main(){
     fastio;
     setup();
 
-    int tc = 1;                 
+    int tc = 1;
     //cin >> tc;
     for(int t = 1; t <= tc; t++)
     {

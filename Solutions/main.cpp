@@ -1,18 +1,19 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-25 23:41:01
+ *    created: 2026-06-26 16:45:56
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Tập hợp gần nhau
+ *    source: https://oj.vnoi.info/problem/gogovoi_advanced_combin_bai4
+ *    submission: https://oj.vnoi.info/submission/12576438
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    metacognition: 
- *    note: 
+ *    tags: Math, BIT
+ *    complexity: O(n \log n)
+ *    metacognition: Considering the max and min on array is hard => Fix 1 element as max value and count element x which a[i] - k <= x <= a[i] (can count fast using BIT, or two pointers) => Then pick the combinatorics from this
+ - Mistakes: Must get (number_of_x)C(m-1), not (number_of_x)C(m) because we've already fix a[i] so we just need to pick another m-1 numbers from it
+ *    note: Fix 1 element for every index from 1 -> i (sort the array first to ensure i will always be the max value) => Count satisfy elements (a[i] - k <= x <= a[i]) using BIT or 2 pointer => Get the combinatorics of it from the formula (satisfied elemnts)C(m-1) (m - 1 because already included a[i])
 **/
 
 #include <iostream>
@@ -72,10 +73,13 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 2e6+5;
+const int N = 2e5+5;
 const ll MOD = 1e9+7;
 
 ll fac[N], inv[N];
+int bit[N];
+int a[N];
+int n,m,k;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 ll binpow(ll a, ll k){
@@ -83,7 +87,7 @@ ll binpow(ll a, ll k){
     while(k){
         if(k&1) res = (res*a)%MOD;
         a = (a*a)%MOD;
-        k >>= 1;
+        k>>=1;
     }
     return res;
 }
@@ -93,24 +97,44 @@ void preprocess(){
     for(int i = 1; i < N; i++) fac[i] = (fac[i-1]*i)%MOD;
 
     inv[N-1] = binpow(fac[N-1], MOD-2);
-
-    for(int i = N-2; i >= 0; i--){
-        inv[i] = (inv[i+1]*(i+1))%MOD;
-    }
+    for(int i = N-2; i >= 0; i--) inv[i] = (inv[i+1]*(i+1))%MOD;
 }
 
-ll findC(int n, int k){
+ll getC(int n, int k){
     if(n < 0 || k < 0 || k > n) return 0;
-    if(k == 0) return 1;
-    return ((fac[n]*inv[n-k])%MOD*inv[k])%MOD;
+    return ((fac[n]*inv[n-k]%MOD)*inv[k])%MOD;
+}
+
+void update(int pos){
+    for(; pos <= n; pos += pos&-pos) bit[pos]++;
+}
+
+int get(int pos){
+    int res = 0;
+    for(; pos; pos -= pos&-pos) res += bit[pos];
+    return res;
+}
+
+int query(int l, int r){
+    return get(r) - get(l-1);
 }
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    int n,S;
-    cin >> n >> S;
+    cin >> n >> m >> k;
+    for(int i = 1; i <= n; i++){
+        cin >> a[i];
+    }
+    sort(sub(a,1,n));
 
-    cout << findC(n + S - 1, n-1);
+    ll ans = 0;
+    for(int i = 1; i <= n; i++){
+        int avail = query(max(1,a[i]-k), a[i]);
+        ans = (ans+getC(avail,m-1))%MOD;
+        update(a[i]);
+    }
+
+    cout << ans;
 }
 
 int main(){
