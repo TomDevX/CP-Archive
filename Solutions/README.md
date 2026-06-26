@@ -2,7 +2,7 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-383/430-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jun_26%2C_2026_--_17%3A21_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260626T1721&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-383/430-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jun_26%2C_2026_--_17%3A22_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260626T1722&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 430
 - **Accepted:** 383
@@ -253,7 +253,7 @@
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [GOGOVOI - Chuỗi ADN](https://oj.vnoi.info/problem/gogovoi_adn) | `Trie` | $\mathcal{O}(n)$ | May 29, 2026 | [Code](CPPros/gogovoi_adn.cpp) \| [Sub](https://oj.vnoi.info/submission/12394803) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 2 | [GOGOVOI - Tập hợp gần nhau](https://oj.vnoi.info/problem/gogovoi_advanced_combin_bai4) | N/A | N/A | Jun 26, 2026 | [Code](CPPros/gogovoi_advanced_combin_bai4.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 2 | [GOGOVOI - Tập hợp gần nhau](https://oj.vnoi.info/problem/gogovoi_advanced_combin_bai4) | `Math`, `BIT` | $\mathcal{O}(n \log n)$ | Jun 26, 2026 | [Code](CPPros/gogovoi_advanced_combin_bai4.cpp) \| [Sub](https://oj.vnoi.info/submission/12576438) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 3 | [GOGOVOI - Bài 19: Truy vấn](https://oj.vnoi.info/problem/gogovoi_coban_truyvan) | `Dynamic Segment Tree` | $\mathcal{O}(n \log n)$ | Apr 15, 2026 | [Code](CPPros/gogovoi_coban_truyvan.cpp) \| [Sub](https://oj.vnoi.info/submission/12120390) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 4 | [GOGOVOI - Đa tập](https://oj.vnoi.info/problem/gogovoi_multiset) | `Trie` | $\mathcal{O}(n \log maxn)$ | Jun 1, 2026 | [Code](CPPros/gogovoi_multiset.cpp) \| [Sub](https://oj.vnoi.info/submission/12415693) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 5 | [GOGOVOI - COLORFUL ARRAY](https://oj.vnoi.info/problem/gogovoi_nangcao_clflarr) | `DSU` | $\mathcal{O}(n \alpha (n))$ | May 1, 2026 | [Code](CPPros/gogovoi_nangcao_clflarr.cpp) \| [Sub](https://oj.vnoi.info/submission/12221072) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
