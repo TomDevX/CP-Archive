@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-16 10:32:44
+ *    created: 2026-06-26 02:07:52
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
@@ -11,6 +11,7 @@
  * ----------------------------------------------------------
  *    tags: 
  *    complexity: 
+ *    metacognition: 
  *    note: 
 **/
 
@@ -24,8 +25,8 @@
 using namespace std;
 
 // --- [ DEBUGGING & LOCAL CONFIG ] ---
-#if __has_include("TomDev.h") && defined(LOCAL)
-    #include "TomDev.h"
+#if defined(LOCAL) && __has_include(<TomDev.h>)
+    #include <TomDev.h>
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
 #else
     #define dbg(x,i)
@@ -78,17 +79,7 @@ void setup(){
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    ll n;
-    cin >> n;
-    n++;
-
-    ll ans = 0;
-    for(int i = 1; i <= n; i++){
-        for(int size = 2; size <= n-i+1; size++){
-            ans += (n-i)/(size-1);
-        }
-    }
-    cout << ans + n << '\n';
+    dbg(1,1);
 }
 
 int main(){
@@ -96,7 +87,7 @@ int main(){
     setup();
 
     int tc = 1;
-    cin >> tc;
+    //cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
         __TomDev();
