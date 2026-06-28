@@ -17,9 +17,7 @@
       "${fileDirname}/${fileBasenameNoExtension}"
     ],
     "runCommand": [
-      "bash",
-      "-c",
-      "\"${fileDirname}/${fileBasenameNoExtension}\" || exit $?"
+      "${fileDirname}/${fileBasenameNoExtension}"
     ],
     "debugCommand": [
       "lldb",

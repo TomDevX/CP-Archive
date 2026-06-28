@@ -1,16 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-18 12:26:13
+ *    created: 2026-06-27 21:37:01
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Another Popcount Problem
+ *    source: https://codeforces.com/contest/2240/problem/A
+ *    submission: https://codeforces.com/contest/2240/submission/380379723
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
+ *    tags: Math, Greedy, Bit
+ *    complexity: O(\log n)
+ *    metacognition: 
  *    note: 
 **/
 
@@ -26,9 +27,9 @@ using namespace std;
 // --- [ DEBUGGING & LOCAL CONFIG ] ---
 #if __has_include("TomDev.h") && defined(LOCAL)
     #include "TomDev.h"
-    #define dbg(x) cerr << "L" << __LINE__ << ": " << #x << " = " << (x) << '\n'
+    #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
 #else
-    #define dbg(x)
+    #define dbg(x,i)
 #endif
 #define NAH_I_WOULD_WIN 0
 
@@ -65,50 +66,39 @@ void setup(){
     #if !defined(LOCAL)
         freopen("/dev/null", "w", stderr);
     #endif
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("2240A.INP", "r")) return;
+    freopen("2240A.INP", "r", stdin);
+    freopen("2240A.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-ll get_sum(ll l, ll r){
-    return (r-l+1)*(r + l)/2LL;
-}
+
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    ll n;
-    cin >> n;
+    int n,k;
+    cin >> n >> k;
 
-    // (n - l*d + 1)*number_of_divisor(l*d)
-
-    ll sum1 = 0;
-    for(ll l = 1,r; l <= n; l = r+1){
-        ll q = n/l;
-        r = min(n,n/q);
-
-        sum1 += (r-l+1)*q;
-    }
-    sum1 *= (n+1);
-
-    ll sum2 = 0;
-    for(ll l = 1, r; l <= n; l = r+1){
-        ll q = n/l;
-        r = min(n,n/q);
-
-        ll pairs = q*(q+1)/2LL;
-        sum2 += get_sum(l,r)*pairs;
+    int x = 1;
+    
+    ll ans = 0;
+    while(n >= x*k){
+        ans += k;
+        n -= x*k;
+        x <<= 1;
     }
 
-    cout << sum1 - sum2 + n + 1 << '\n';
+    ans += (n/x);
+
+    cout << ans << '\n';
 }
 
 int main(){
     fastio;
-    setup();
+    // setup();
 
     int tc = 1;
     cin >> tc;

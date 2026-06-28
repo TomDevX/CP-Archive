@@ -1,16 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-18 12:26:13
+ *    created: 2026-06-27 23:23:44
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Binary Typewriter
+ *    source: https://codeforces.com/contest/2103/problem/B
+ *    submission: https://codeforces.com/contest/2103/submission/380368850
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
+ *    tags: Greedy
+ *    complexity: O(n)
+ *    metacognition: Oh this is easy, just count it normally >< wait we can reverse a substring? => Mistake in reading statement -> Just need to consider the 2 digit at the start and end of substring because the switches in that substring would be the same even reversed, we can maximum reduce to switches => Now count the switches, if 
  *    note: 
 **/
 
@@ -26,9 +27,9 @@ using namespace std;
 // --- [ DEBUGGING & LOCAL CONFIG ] ---
 #if __has_include("TomDev.h") && defined(LOCAL)
     #include "TomDev.h"
-    #define dbg(x) cerr << "L" << __LINE__ << ": " << #x << " = " << (x) << '\n'
+    #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
 #else
-    #define dbg(x)
+    #define dbg(x,i)
 #endif
 #define NAH_I_WOULD_WIN 0
 
@@ -65,45 +66,37 @@ void setup(){
     #if !defined(LOCAL)
         freopen("/dev/null", "w", stderr);
     #endif
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("2103B.INP", "r")) return;
+    freopen("2103B.INP", "r", stdin);
+    freopen("2103B.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-ll get_sum(ll l, ll r){
-    return (r-l+1)*(r + l)/2LL;
-}
+
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    ll n;
+    int n;
     cin >> n;
+    string s;
+    cin >> s;
+    s = '0' + s;
 
-    // (n - l*d + 1)*number_of_divisor(l*d)
-
-    ll sum1 = 0;
-    for(ll l = 1,r; l <= n; l = r+1){
-        ll q = n/l;
-        r = min(n,n/q);
-
-        sum1 += (r-l+1)*q;
-    }
-    sum1 *= (n+1);
-
-    ll sum2 = 0;
-    for(ll l = 1, r; l <= n; l = r+1){
-        ll q = n/l;
-        r = min(n,n/q);
-
-        ll pairs = q*(q+1)/2LL;
-        sum2 += get_sum(l,r)*pairs;
+    int ans = 0;
+    for(int i = 1; i <= n; i++){
+        if(s[i] != s[i-1]) ans++;
     }
 
-    cout << sum1 - sum2 + n + 1 << '\n';
+    if(ans >= 3){
+        cout << ans-2+n << '\n';
+    }
+    else if(ans == 2){
+        cout << ans-1 + n << '\n';
+    }
+    else cout << ans + n << '\n';
 }
 
 int main(){
