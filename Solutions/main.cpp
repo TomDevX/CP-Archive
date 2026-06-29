@@ -2,7 +2,7 @@
 using namespace std;
 
 vector<int> Rice_Prime;
-const long long MAX = 1000000000LL;
+const int MAX = 1e9;
 const int WHEEL = 3 * 5 * 7 * 11 * 13;
 const int N_SMALL_PRIMES = 6536;
 const int SIEVE_SPAN = WHEEL * 64;
@@ -54,6 +54,7 @@ void update_sieve(int offset)
 
 void sieve()
 {
+    Rice_Prime.reserve(5.1e7);
     for (int i = 0; i < 64; ++i)
         ONES[i] = 1ULL << i;
 
@@ -100,7 +101,7 @@ void sieve()
                     break;
                 if (p <= MAX)
                 {
-                    Rice_Prime.push_back(p);
+                    Rice_Prime.emplace_back(p);
                 }
                 x ^= (-x & x);
             }
@@ -109,43 +110,109 @@ void sieve()
 }
 
 const int N = 1e9 + 1;
-bitset<N> sang;
+bitset<N> nt;
 vector<int> primes;
 
-void sieve2()
+void sieve2(const int Nmax = N)
 {
-    primes.reserve(5.1e8);
+    primes.reserve(5.1e7);
     primes.emplace_back(2);
-    int SQRT = sqrt(N);
+    int SQRT = sqrt(Nmax);
     for (int i = 3; i <= SQRT; i += 2)
     {
-        if (!sang[i])
-            continue;
+        if (nt[i]) // 0 = so nguyen to
+        continue;
         for (int j = i * i; j < N; j += (i << 1))
-            sang[j] = 1;
-    }
-
-    for (int i = 3; i < N; i += 2)
-    {
-        if (!sang[i])
-            primes.emplace_back(i);
-    }
+        nt[j] = 1;
 }
-
-void sieve3()
+for (int i = 3; i < Nmax; i += 2)
 {
+    if (!nt[i])
+    primes.emplace_back(i);
 }
+}
+
+// Các thông số của bánh xe
+// Bội của các số nguyên tố bé
+const int wheel_size = 2 * 3 * 5;
+const int num_offsets = 8;
+// Tập các số dư
+const int wheel_offsets[] = {1, 7, 11, 13, 17, 19, 23, 29};
+// Thứ tự của 1 số trong offsets
+int num_in_offsets[wheel_size];
+
+// vị trí trong mảng is_prime
+int pos(const int &v){
+    return v / wheel_size * num_offsets + num_in_offsets[v % wheel_size] - 1;
+}
+
+void sieve_with_wheel(){
+    primes.reserve(5.1e7);
+    for (int i = 0; i < num_offsets; i++)
+        num_in_offsets[wheel_offsets[i]] = i + 1;
+
+    nt[pos(1)] = true; // Số 1 là hợp số
+
+    long long SQRT = sqrt(N);
+    // Duyệt i sao cho u có thể đạt tới sqrt(N)
+    for (long long i = 0; i <= SQRT; i += wheel_size) {
+        for (int j = 0; j < num_offsets; ++j) {
+            long long u = i + wheel_offsets[j];
+            if (u > SQRT) break;
+            
+            if (!nt[pos(u)]) {
+                // Ép kiểu long long cho v để tránh tràn số int
+                for (long long v = u * u; v < N; v += u) {
+                    if (num_in_offsets[v % wheel_size]) {
+                        nt[pos(v)] = true;
+                    }
+                }
+            }
+        }
+    }
+
+    primes.emplace_back(2);
+    primes.emplace_back(3);
+    primes.emplace_back(5);
+
+    for (long long i = 0; i < N; i += wheel_size) {
+        for (int j = 0; j < num_offsets; ++j) {
+            long long u = i + wheel_offsets[j];
+            if (u >= N) break;
+            if (u > 5 && !nt[pos(u)]) {
+                primes.emplace_back(u);
+            }
+        }
+    }
+}
+
 
 int main()
 {
+    cout << "=================== " << N << " benchmark ====================\n";
     auto start = std::chrono::high_resolution_clock::now();
-    sieve2();
+    sieve();    
     auto stop = std::chrono::high_resolution_clock::now();
-
-    // Tính toán thời gian chạy (ở đây đang dùng milliseconds - mili giây)
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-
+    cout << "God sieve:\n";
     std::cout << "Thoi gian chay: " << duration.count() << " ms" << std::endl;
-    cout << primes.size() << '\n';
-    std::cout << "hehe";
+    cout << "Result: " << Rice_Prime.size() << '\n';
+
+    start = std::chrono::high_resolution_clock::now();
+    sieve2();    
+    stop = std::chrono::high_resolution_clock::now();
+    duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+    cout << "Normal sieve:\n";
+    std::cout << "Thoi gian chay: " << duration.count() << " ms" << std::endl;
+    cout << "Result: " << primes.size() << '\n';
+    
+    primes.clear();
+    nt.reset();
+    start = std::chrono::high_resolution_clock::now();
+    sieve_with_wheel();    
+    stop = std::chrono::high_resolution_clock::now();
+    duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+    cout << "Wheel sieve:\n";
+    std::cout << "Thoi gian chay: " << duration.count() << " ms" << std::endl;
+    cout << "Result: " << primes.size() << '\n';
 }
