@@ -2,7 +2,7 @@
 
 ### 📊 VNOJ Stats
 
-![Progress](https://img.shields.io/badge/Progress-69/70-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jun_30%2C_2026_--_02%3A16_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-69/70-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jun_30%2C_2026_--_02%3A17_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 70
 - **Solved (AC):** 69

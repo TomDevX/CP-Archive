@@ -1,18 +1,39 @@
 Diagnostics:
   UnusedIncludes: None
   MissingIncludes: Strict
+
+---
+
+If:
+  Match: [.*\.cpp$]
+
 CompileFlags:
+  Remove:
+    - -Wunused-variable
+    - -Wunused-parameter
+    - -Wunused-result
   Add: 
-    - -std=c++17
+    - -std=c++14
+    - -pipe
     - -Wall
     - -Wextra
     - -Wshadow
     - -Wno-unused-variable
+    - -Wno-unused-parameter
+    - -Wno-unused-result
+    - -Wno-unused-but-set-variable
+    - -Wfloat-equal
     - -march=native
     - -DLOCAL
-    - -O2 # Tối ưu hóa để clangd hiểu các đoạn code phức tạp nhanh hơn
-  Remove: [-W*] # Loại bỏ các flag cũ không cần thiết
-
+    - -O2
+    - -I/usr/include
 Index:
-  Background: Build # Cho phép lập chỉ mục ở chế độ nền
+  Background: Build
   Threads: 0
+
+---
+
+If:
+  Match: [.*\.c$]
+CompileFlags:
+  Add: [-std=c11]

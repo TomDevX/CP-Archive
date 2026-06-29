@@ -4,11 +4,36 @@
         {
             "label": "Compile and Run cpp",
             "type": "shell",
-            // Đã chuyển đổi các biến sang chuẩn VS Code và thêm ngoặc kép để tránh lỗi nếu tên thư mục có dấu cách
-            "command": "cd \"${fileDirname}\" && g++ -O2 -pipe -Wall -Wextra -Wshadow -Wfloat-equal -DLOCAL --std=c++14 \"${fileBasename}\" -o \"${fileBasenameNoExtension}\" && \"./${fileBasenameNoExtension}\" < /home/TomDev/CP-Archive/Solutions/input.inp > /home/TomDev/CP-Archive/Solutions/output.out",
+            "command": "g++ -O2 -pipe -static -march=native -std=c++14 \"${fileBasename}\" -o \"${fileBasenameNoExtension}\" -Wall -Wextra -Wshadow -Wfloat-equal -Wno-unused-result -Wno-unused-parameter -DLOCAL -lm && \"./${fileBasenameNoExtension}\" < /home/CP-Archive/Solutions/input.inp > /home/CP-Archive/Solutions/output.out",
             "group": {
                 "kind": "build",
                 "isDefault": true
+            },
+            "options": {
+                "cwd": "${fileDirname}",
+                // "shell": {
+                //     "executable": "/bin/bash",
+                //     "args": ["--norc","-c"]
+                // }
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true,
+                "showReuseMessage": false
+            },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Compile and Run C",
+            "type": "shell",
+            "command": "cd \"${fileDirname}\" && gcc -O2 -pipe -static -Wall -Wextra -Wshadow -Wfloat-equal -Wno-unused-result -Wno-unused-parameter -DLOCAL -lm -march=native --std=c11 \"${fileBasename}\" -o \"${fileBasenameNoExtension}\" && time ./\"${fileBasenameNoExtension}\" < /home/CP-Archive/Solutions/input.inp > /home/CP-Archive/Solutions/output.out",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${fileDirname}",
             },
             "presentation": {
                 "reveal": "always",
@@ -21,11 +46,32 @@
         {
             "label": "Compile and Run cpp without file",
             "type": "shell",
-            // Đã chuyển đổi các biến sang chuẩn VS Code và thêm ngoặc kép để tránh lỗi nếu tên thư mục có dấu cách
-            "command": "cd \"${fileDirname}\" && g++ -O2 -pipe -Wall -Wextra -Wshadow -Wfloat-equal -DLOCAL --std=c++14 \"${fileBasename}\" -o \"${fileBasenameNoExtension}\" && \"./${fileBasenameNoExtension}\"",
+            "command": "g++ -O2 -pipe -static -march=native -std=c++14 \"${fileBasename}\" -o \"${fileBasenameNoExtension}\" -Wall -Wextra -Wshadow -Wfloat-equal -Wno-unused-result -Wno-unused-parameter -DLOCAL -lm && \"./${fileBasenameNoExtension}\"",
             "group": {
                 "kind": "build",
                 "isDefault": true
+            },
+            "options": {
+                "cwd": "${fileDirname}",
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true,
+                "showReuseMessage": false
+            },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Compile and Run C without file",
+            "type": "shell",
+            "command": "cd \"${fileDirname}\" && gcc -O2 -pipe -static -Wall -Wextra -Wshadow -Wfloat-equal -Wno-unused-parameter -DLOCAL -lm --std=c11 \"${fileBasename}\" -o \"${fileBasenameNoExtension}\" && time \"./${fileBasenameNoExtension}\"",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${fileDirname}",
             },
             "presentation": {
                 "reveal": "always",
@@ -36,13 +82,34 @@
             "problemMatcher": ["$gcc"]
         },
 		{
-            "label": "Get compile file",
+            "label": "Get compile file cpp",
             "type": "shell",
-            // Đã chuyển đổi các biến sang chuẩn VS Code và thêm ngoặc kép để tránh lỗi nếu tên thư mục có dấu cách
-            "command": "cd \"${fileDirname}\" && g++ -O2 -pipe --std=c++14 \"${fileBasename}\" -o \"${fileBasenameNoExtension}\" && echo \"\\033[32mDONE\\033[0m\"",
+            "command": "g++ -O2 -pipe -static -march=native -lm -std=c++14 \"${fileBasename}\" -o \"${fileBasenameNoExtension}\"",
             "group": {
                 "kind": "build",
                 "isDefault": true
+            },
+            "options": {
+                "cwd": "${fileDirname}",
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared",
+                "clear": true,
+                "showReuseMessage": false
+            },
+            "problemMatcher": ["$gcc"]
+        },
+		{
+            "label": "Get compile file C",
+            "type": "shell",
+            "command": "cd \"${fileDirname}\" && gcc -O2 -pipe -static -Wno-unused-parameter -lm --std=c11 \"${fileBasename}\" -o time \"${fileBasenameNoExtension}\"",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${fileDirname}",
             },
             "presentation": {
                 "reveal": "always",
