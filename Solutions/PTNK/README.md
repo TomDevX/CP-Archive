@@ -2,7 +2,7 @@
 
 ### 📊 PTNK Stats
 
-![Progress](https://img.shields.io/badge/Progress-51/68-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jun_30%2C_2026_--_20%3A12_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-51/68-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jun_30%2C_2026_--_20%3A13_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 68
 - **Solved (AC):** 51
