@@ -2,7 +2,7 @@
 
 ### 📊 TS10_PTNK_2026 Stats
 
-![Progress](https://img.shields.io/badge/Progress-0/1-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jun_30%2C_2026_--_20%3A04_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-0/1-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jun_30%2C_2026_--_20%3A06_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 1
 - **Solved (AC):** 0
