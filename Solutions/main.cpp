@@ -54,7 +54,7 @@ void update_sieve(int offset)
 
 void sieve()
 {
-    Rice_Prime.reserve(5.1e7);
+    Rice_Prime.reserve(5.8e6);
     for (int i = 0; i < 64; ++i)
         ONES[i] = 1ULL << i;
 
@@ -147,7 +147,7 @@ int pos(const int &v){
 }
 
 void sieve_with_wheel(){
-    primes.reserve(5.1e7);
+    // primes.reserve(5.1e7);
     for (int i = 0; i < num_offsets; i++)
         num_in_offsets[wheel_offsets[i]] = i + 1;
 
