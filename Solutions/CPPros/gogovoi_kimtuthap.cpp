@@ -9,10 +9,11 @@
  *    submission: https://oj.vnoi.info/submission/12617368
  *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    metacognition: 
- *    note: 
+ *    tags: Math, Pascal
+ *    complexity: O(n)
+ *    metacognition: Calculate all cells >< O(n*(n+1)/2) -> Related to pascal, turn each cell into math formula: current cell = -(ai + a{i+1})%3 with ai = value at the below floor at index i. Then use Pascal formula to calculate each element at bottom floor's contributions to the sum to the cell at top floor (target)
+ *    note: Notice that this is Pascal triangle, so we can know each cell's contribution to the top cell. Just understand that each cell can either move left or right when going up, and suppose that we're at the top cell, we can either go left/right, but we need to go right exactly i-1 time to reach cell i at the bottom, so the left turns automatically are (N-1) - (i-1) (because go through N-1 floors). So we need to choose i floor to turn right which is (N-1)C(i) (but in the code I use 1-base-indexed so I do (N-1)C(i-1)). Total contribution of index i cell is (-1)^{N-1} * sum(1 -> n){(N-1)C(i-1) * a[i]} | we have -1 because our current cell = -(ai + a{i+1})%3 of the below floor (use to determine the problem statement requirement is that different color = other color and same color = still same color). And then just get and mod 3 and turn into 'B', 'W', 'R'
+ Tips: infer the current cell = -(ai + a{i+1})%3 by we have colors 'B', 'W', 'R' equivalent to 0,1,2 and we have 0 + 1 + 2 = 0 (mod 3) => -(sum of 2 other color) = the other one | by the way if they are the same => p1 + p2 + x = 0 (mod 3) => x = -(p1 + p2) (mod 3). What a coincidence.
 **/
 
 #include <iostream>
