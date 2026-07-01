@@ -190,13 +190,13 @@ void sieve_with_wheel(){
 int main()
 {
     cout << "=================== " << N << " benchmark ====================\n";
-    auto start = std::chrono::high_resolution_clock::now();
-    sieve();    
-    auto stop = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    cout << "God sieve:\n";
-    std::cout << "Thoi gian chay: " << duration.count() << " ms" << std::endl;
-    cout << "Result: " << Rice_Prime.size() << '\n';
+    // auto start = std::chrono::high_resolution_clock::now();
+    // sieve();    
+    // auto stop = std::chrono::high_resolution_clock::now();
+    // auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+    // cout << "God sieve:\n";
+    // std::cout << "Thoi gian chay: " << duration.count() << " ms" << std::endl;
+    // cout << "Result: " << Rice_Prime.size() << '\n';
 
     start = std::chrono::high_resolution_clock::now();
     sieve2();    

@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-394/441-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jun_30%2C_2026_--_20%3A13_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260630T2013&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-398/446-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jul_01%2C_2026_--_23%3A51_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260701T2351&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 441
-- **Accepted:** 394
+- **Total Problems:** 446
+- **Accepted:** 398
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -13,10 +13,10 @@
 ## 📌 Table of Contents
 
 * [📂 ACMICPC (4)](#-acmicpc-4)
-* [📂 AtCoder (8)](#-atcoder-8)
+* [📂 AtCoder (9)](#-atcoder-9)
 * [📂 CodeChef (2)](#-codechef-2)
 * [📂 Codeforces (162)](#-codeforces-162)
-* [📂 CPPros (15)](#-cppros-15)
+* [📂 CPPros (16)](#-cppros-16)
 * [📂 CSES (57)](#-cses-57)
   * [📂 Advanced Techniques (2)](#-advanced-techniques-2)
   * [📂 Dynamic Programming (12)](#-dynamic-programming-12)
@@ -36,17 +36,17 @@
   * [📂 Ts10 Ptnk 2026 (1)](#-ts10-ptnk-2026-1)
 * [📂 ojuz (3)](#-ojuz-3)
 * [📂 Project Euler (2)](#-project-euler-2)
-* [📂 PTNK (68)](#-ptnk-68)
+* [📂 PTNK (71)](#-ptnk-71)
   * [📂 Grade 10 (64)](#-grade-10-64)
     * [📂 Entrance Exam 260331 (8)](#-entrance-exam-260331-8)
-  * [📂 Ptnkoj (4)](#-ptnkoj-4)
+  * [📂 Ptnkoj (7)](#-ptnkoj-7)
 * [📂 SPOJ (5)](#-spoj-5)
 * [📂 SQRTOJ (1)](#-sqrtoj-1)
 * [📂 USACO (3)](#-usaco-3)
 * [📂 VNOJ (70)](#-vnoj-70)
 
 ---
-## 📂 [Solutions (441)](https://atcoder.jp/contests/abc420/tasks/abc420_g)
+## 📂 [Solutions (446)](https://atcoder.jp/contests/abc420/tasks/abc420_g)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [MAIN - sqrt(n²+n+X)](https://atcoder.jp/contests/abc420/tasks/abc420_g) | N/A | N/A | Jun 19, 2026 | [Code](main.c) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -66,17 +66,18 @@
 | 3 | [10078 - Sightseeing](https://www.acmicpc.net/problem/10078) | `DSU`, `MST`, `Graph` | $\mathcal{O}((n + m) + m \log m + q + max(a[i]))$ | Feb 27, 2026 | [Code](ACMICPC/10078.cpp) \| [Sub](https://www.acmicpc.net/source/103344425) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 4 | [13982 - Shopping Multilingual](https://www.acmicpc.net/problem/13982) | `Binary Lifting`, `RMQ`, `Sparse Table` | $\mathcal{O}((n+q) \log n)$ | Mar 19, 2026 | [Code](ACMICPC/13982.cpp) \| [Sub](https://www.acmicpc.net/source/104101701) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-## 📂 [AtCoder (8)](https://atcoder.jp/home)
+## 📂 [AtCoder (9)](https://atcoder.jp/home)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [ABC169 - Div Game](https://atcoder.jp/contests/abc169/tasks/abc169_d) | `Math` | $\mathcal{O}(\sqrt(n)})$ | Jun 1, 2026 | [Code](AtCoder/abc169_d.cpp) \| [Sub](https://atcoder.jp/contests/abc169/submissions/76333546) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [ABC420 - sqrt(n²+n+X)](https://atcoder.jp/contests/abc420/tasks/abc420_g) | `Math` | $\mathcal{O}(\sqrt{X})$ | Jun 19, 2026 | [Code](AtCoder/abc420_g.cpp) \| [Sub](https://atcoder.jp/contests/abc420/submissions/76789480) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 3 | [ABC451 - Make Bipartite 3](https://atcoder.jp/contests/abc451/tasks/abc451_f) | `DSU` | $\mathcal{O}(q \alpha (n))$ | May 9, 2026 | [Code](AtCoder/abc451_f.cpp) \| [Sub](https://atcoder.jp/contests/abc451/submissions/75678817) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 4 | [AWC0066 - Belt Conveyor](https://atcoder.jp/contests/awc0066/tasks/awc0066_a) | `Implementation` | $\mathcal{O}(n)$ | May 11, 2026 | [Code](AtCoder/awc0066_a.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75726964) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 5 | [AWC0066 - Smartphone Battery](https://atcoder.jp/contests/awc0066/tasks/awc0066_b) | `Implementation` | $\mathcal{O}(n \log n)$ | May 11, 2026 | [Code](AtCoder/awc0066_b.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75727255) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 6 | [AWC0066 - Discount Coupon](https://atcoder.jp/contests/awc0066/tasks/awc0066_c) | `Math` | $\mathcal{O}(n)$ | May 11, 2026 | [Code](AtCoder/awc0066_c.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75727434) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 7 | [AWC0066 - Splitting a Rope](https://atcoder.jp/contests/awc0066/tasks/awc0066_d) | `Binary Search` | $\mathcal{O}(n \cdot value \log (n \cdot value))$ | May 11, 2026 | [Code](AtCoder/awc0066_d.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75727624) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 8 | [AWC0066 - Average Score of Tourist Routes](https://atcoder.jp/contests/awc0066/tasks/awc0066_e) | `DP Bitmask` | $\mathcal{O}(n \cdot 2^n)$ | May 11, 2026 | [Code](AtCoder/awc0066_e.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75731335) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 4 | [ARC117 - Tricolor Pyramid](https://atcoder.jp/contests/arc117/tasks/arc117_c) | `Math`, `Pascal` | $\mathcal{O}(n)$ | Jul 1, 2026 | [Code](AtCoder/arc117_c.cpp) \| [Sub](https://atcoder.jp/contests/arc117/submissions/77114069) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 5 | [AWC0066 - Belt Conveyor](https://atcoder.jp/contests/awc0066/tasks/awc0066_a) | `Implementation` | $\mathcal{O}(n)$ | May 11, 2026 | [Code](AtCoder/awc0066_a.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75726964) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 6 | [AWC0066 - Smartphone Battery](https://atcoder.jp/contests/awc0066/tasks/awc0066_b) | `Implementation` | $\mathcal{O}(n \log n)$ | May 11, 2026 | [Code](AtCoder/awc0066_b.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75727255) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 7 | [AWC0066 - Discount Coupon](https://atcoder.jp/contests/awc0066/tasks/awc0066_c) | `Math` | $\mathcal{O}(n)$ | May 11, 2026 | [Code](AtCoder/awc0066_c.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75727434) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 8 | [AWC0066 - Splitting a Rope](https://atcoder.jp/contests/awc0066/tasks/awc0066_d) | `Binary Search` | $\mathcal{O}(n \cdot value \log (n \cdot value))$ | May 11, 2026 | [Code](AtCoder/awc0066_d.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75727624) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 9 | [AWC0066 - Average Score of Tourist Routes](https://atcoder.jp/contests/awc0066/tasks/awc0066_e) | `DP Bitmask` | $\mathcal{O}(n \cdot 2^n)$ | May 11, 2026 | [Code](AtCoder/awc0066_e.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75731335) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [CodeChef (2)](https://www.codechef.com/practice)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
@@ -254,24 +255,25 @@
 | 165 | [2240A - Another Popcount Problem](https://codeforces.com/contest/2240/problem/A) | `Math`, `Greedy`, `Bit` | $\mathcal{O}(\log n)$ | Jun 27, 2026 | [Code](Codeforces/2240A.cpp) \| [Sub](https://codeforces.com/contest/2240/submission/380379723) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 166 | [690281B - Tăng dãy](https://codeforces.com/gym/690281/problem/B) | `Segment Tree Beats` | $\mathcal{O}((n \cdot k + q) \log n)$ | May 3, 2026 | [Code](Codeforces/690281B.cpp) \| [Sub](https://codeforces.com/gym/690281/submission/373439975) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-## 📂 [CPPros (15)](https://oj.vnoi.info/organization/gogovoi)
+## 📂 [CPPros (16)](https://oj.vnoi.info/organization/gogovoi)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [C11BC2 - Robin](https://oj.vnoi.info/problem/c11bc2) | `Tree`, `BFS`, `DFS` | $\mathcal{O}(n + q)$ | Jun 26, 2026 | [Code](CPPros/c11bc2.cpp) \| [Sub](https://oj.vnoi.info/submission/12579540) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [GOGOVOI - Chuỗi ADN](https://oj.vnoi.info/problem/gogovoi_adn) | `Trie` | $\mathcal{O}(n)$ | May 29, 2026 | [Code](CPPros/gogovoi_adn.cpp) \| [Sub](https://oj.vnoi.info/submission/12394803) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 3 | [GOGOVOI - Tập hợp gần nhau](https://oj.vnoi.info/problem/gogovoi_advanced_combin_bai4) | `Math`, `BIT` | $\mathcal{O}(n \log n)$ | Jun 26, 2026 | [Code](CPPros/gogovoi_advanced_combin_bai4.cpp) \| [Sub](https://oj.vnoi.info/submission/12576438) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 4 | [GOGOVOI - Bài 19: Truy vấn](https://oj.vnoi.info/problem/gogovoi_coban_truyvan) | `Dynamic Segment Tree` | $\mathcal{O}(n \log n)$ | Apr 15, 2026 | [Code](CPPros/gogovoi_coban_truyvan.cpp) \| [Sub](https://oj.vnoi.info/submission/12120390) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 5 | [GOGOVOI - Không thuộc về nhau](https://oj.vnoi.info/problem/gogovoi_kokenhau) | `Math` | $\mathcal{O}(1)$ | Jun 26, 2026 | [Code](CPPros/gogovoi_kokenhau.cpp) \| [Sub](https://oj.vnoi.info/submission/12578687) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 6 | [GOGOVOI - Đa tập](https://oj.vnoi.info/problem/gogovoi_multiset) | `Trie` | $\mathcal{O}(n \log maxn)$ | Jun 1, 2026 | [Code](CPPros/gogovoi_multiset.cpp) \| [Sub](https://oj.vnoi.info/submission/12415693) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 7 | [GOGOVOI - COLORFUL ARRAY](https://oj.vnoi.info/problem/gogovoi_nangcao_clflarr) | `DSU` | $\mathcal{O}(n \alpha (n))$ | May 1, 2026 | [Code](CPPros/gogovoi_nangcao_clflarr.cpp) \| [Sub](https://oj.vnoi.info/submission/12221072) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 8 | [GOGOVOI - Đặc trưng của cây](https://oj.vnoi.info/problem/gogovoi_nangcao_olp3g) | `DSU` | $\mathcal{O}(n \log n + n + m)$ | Apr 30, 2026 | [Code](CPPros/gogovoi_nangcao_olp3g.cpp) \| [Sub](https://oj.vnoi.info/submission/12215972) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 9 | [GOGOVOI - Phép XOR](https://oj.vnoi.info/problem/gogovoi_phepxor) | `Trie` | $\mathcal{O}(n)$ | May 31, 2026 | [Code](CPPros/gogovoi_phepxor.cpp) \| [Sub](https://oj.vnoi.info/submission/12412823) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 10 | [GOGOVOI - Phone Number](https://oj.vnoi.info/problem/gogovoi_phonenumber) | `Trie` | $\mathcal{O}(n)$ | May 29, 2026 | [Code](CPPros/gogovoi_phonenumber.cpp) \| [Sub](https://oj.vnoi.info/submission/12394655) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 11 | [GOGOVOI - Đế Chế](https://oj.vnoi.info/problem/gogovoi_seg1) | `Sweep Line`, `BIT` | $\mathcal{O}(n \log n)$ | Apr 21, 2026 | [Code](CPPros/gogovoi_seg1.cpp) \| [Sub](https://oj.vnoi.info/submission/12165705) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 12 | [GOGOVOI - Dư đoạn](https://oj.vnoi.info/problem/gogovoi_seg2) | `Sweep Line 1D` | $\mathcal{O}(n \log n)$ | Apr 21, 2026 | [Code](CPPros/gogovoi_seg2.cpp) \| [Sub](https://oj.vnoi.info/submission/12162887) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 13 | [GOGOVOI - Tổng XOR lớn nhất](https://oj.vnoi.info/problem/gogovoi_sumxor) | `Trie` | $\mathcal{O}(n \log maxn)$ | Jun 1, 2026 | [Code](CPPros/gogovoi_sumxor.cpp) \| [Sub](https://oj.vnoi.info/submission/12415495) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 14 | [GOGOVOI - Tạo xâu II](https://oj.vnoi.info/problem/gogovoi_tohopbai1) | `Math` | $\mathcal{O}(|S|)$ | Jun 26, 2026 | [Code](CPPros/gogovoi_tohopbai1.cpp) \| [Sub](https://oj.vnoi.info/submission/12578465) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 15 | [PRODUCT - product](https://oj.vnoi.info/problem/product) | `Two Pointes` | $\mathcal{O}(n)$ | Feb 23, 2026 | [Code](CPPros/product.cpp) \| [Sub](https://oj.vnoi.info/submission/11801553) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 5 | [GOGOVOI - Kim tự tháp](https://oj.vnoi.info/problem/gogovoi_kimtuthap) | N/A | N/A | Jul 1, 2026 | [Code](CPPros/gogovoi_kimtuthap.cpp) \| [Sub](https://oj.vnoi.info/submission/12617368) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 6 | [GOGOVOI - Không thuộc về nhau](https://oj.vnoi.info/problem/gogovoi_kokenhau) | `Math` | $\mathcal{O}(1)$ | Jun 26, 2026 | [Code](CPPros/gogovoi_kokenhau.cpp) \| [Sub](https://oj.vnoi.info/submission/12578687) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 7 | [GOGOVOI - Đa tập](https://oj.vnoi.info/problem/gogovoi_multiset) | `Trie` | $\mathcal{O}(n \log maxn)$ | Jun 1, 2026 | [Code](CPPros/gogovoi_multiset.cpp) \| [Sub](https://oj.vnoi.info/submission/12415693) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 8 | [GOGOVOI - COLORFUL ARRAY](https://oj.vnoi.info/problem/gogovoi_nangcao_clflarr) | `DSU` | $\mathcal{O}(n \alpha (n))$ | May 1, 2026 | [Code](CPPros/gogovoi_nangcao_clflarr.cpp) \| [Sub](https://oj.vnoi.info/submission/12221072) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 9 | [GOGOVOI - Đặc trưng của cây](https://oj.vnoi.info/problem/gogovoi_nangcao_olp3g) | `DSU` | $\mathcal{O}(n \log n + n + m)$ | Apr 30, 2026 | [Code](CPPros/gogovoi_nangcao_olp3g.cpp) \| [Sub](https://oj.vnoi.info/submission/12215972) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 10 | [GOGOVOI - Phép XOR](https://oj.vnoi.info/problem/gogovoi_phepxor) | `Trie` | $\mathcal{O}(n)$ | May 31, 2026 | [Code](CPPros/gogovoi_phepxor.cpp) \| [Sub](https://oj.vnoi.info/submission/12412823) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 11 | [GOGOVOI - Phone Number](https://oj.vnoi.info/problem/gogovoi_phonenumber) | `Trie` | $\mathcal{O}(n)$ | May 29, 2026 | [Code](CPPros/gogovoi_phonenumber.cpp) \| [Sub](https://oj.vnoi.info/submission/12394655) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 12 | [GOGOVOI - Đế Chế](https://oj.vnoi.info/problem/gogovoi_seg1) | `Sweep Line`, `BIT` | $\mathcal{O}(n \log n)$ | Apr 21, 2026 | [Code](CPPros/gogovoi_seg1.cpp) \| [Sub](https://oj.vnoi.info/submission/12165705) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 13 | [GOGOVOI - Dư đoạn](https://oj.vnoi.info/problem/gogovoi_seg2) | `Sweep Line 1D` | $\mathcal{O}(n \log n)$ | Apr 21, 2026 | [Code](CPPros/gogovoi_seg2.cpp) \| [Sub](https://oj.vnoi.info/submission/12162887) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 14 | [GOGOVOI - Tổng XOR lớn nhất](https://oj.vnoi.info/problem/gogovoi_sumxor) | `Trie` | $\mathcal{O}(n \log maxn)$ | Jun 1, 2026 | [Code](CPPros/gogovoi_sumxor.cpp) \| [Sub](https://oj.vnoi.info/submission/12415495) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 15 | [GOGOVOI - Tạo xâu II](https://oj.vnoi.info/problem/gogovoi_tohopbai1) | `Math` | $\mathcal{O}(|S|)$ | Jun 26, 2026 | [Code](CPPros/gogovoi_tohopbai1.cpp) \| [Sub](https://oj.vnoi.info/submission/12578465) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 16 | [PRODUCT - product](https://oj.vnoi.info/problem/product) | `Two Pointes` | $\mathcal{O}(n)$ | Feb 23, 2026 | [Code](CPPros/product.cpp) \| [Sub](https://oj.vnoi.info/submission/11801553) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ### 📁 Advanced Techniques (2)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
@@ -530,13 +532,16 @@
 | 7 | RTOWER - Phá tháp | N/A | N/A | Mar 31, 2026 | [Code](PTNK/Grade%2010/Entrance_exam_260331/RTOWER.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 8 | SUBP - Dãy ngoặc | N/A | N/A | Mar 31, 2026 | [Code](PTNK/Grade%2010/Entrance_exam_260331/SUBP.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
-### 📁 Ptnkoj (4)
+### 📁 Ptnkoj (7)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [TIN - MỞ QUÀ](https://ptnkoj.com/problem/tin_gift) | `DP Convex Hull Trick` | $\mathcal{O}(n)$ | Apr 14, 2026 | [Code](PTNK/PTNKOJ/tin_gift.cpp) \| [Sub](https://ptnkoj.com/submission/182094) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 2 | [TIN - KẾT BẠN](https://ptnkoj.com/problem/tin_ketban) | `DSU`, `Parallel Binary Search` | $\mathcal{O}(n \log^2 n)$ | May 5, 2026 | [Code](PTNK/PTNKOJ/tin_ketban.cpp) \| [Sub](https://ptnkoj.com/submission/182209) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 3 | [TIN - KHAI THÁC KHOÁNG SẢN](https://ptnkoj.com/problem/tin_mine) | `DP Convex Hull Trick` | $\mathcal{O}(n)$ | Apr 14, 2026 | [Code](PTNK/PTNKOJ/tin_mine.cpp) \| [Sub](https://ptnkoj.com/submission/182149) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 4 | [TIN - THU THẬP](https://ptnkoj.com/problem/tin_thuthap) | N/A | N/A | May 5, 2026 | [Code](PTNK/PTNKOJ/tin_thuthap.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 1 | [TIN - CẮT DÃY](https://ptnkoj.com/problem/tin_catday) | N/A | N/A | Jul 1, 2026 | [Code](PTNK/PTNKOJ/tin_catday.cpp) \| [Sub](https://ptnkoj.com/submission/182667) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 2 | [TIN - MỞ QUÀ](https://ptnkoj.com/problem/tin_gift) | `DP Convex Hull Trick` | $\mathcal{O}(n)$ | Apr 14, 2026 | [Code](PTNK/PTNKOJ/tin_gift.cpp) \| [Sub](https://ptnkoj.com/submission/182094) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 3 | [TIN - GỘP SỎI](https://ptnkoj.com/problem/tin_gopsoi) | `DP` | N/A | Jul 1, 2026 | [Code](PTNK/PTNKOJ/tin_gopsoi.cpp) \| [Sub](https://ptnkoj.com/submission/182668) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 4 | [TIN - KẾT BẠN](https://ptnkoj.com/problem/tin_ketban) | `DSU`, `Parallel Binary Search` | $\mathcal{O}(n \log^2 n)$ | May 5, 2026 | [Code](PTNK/PTNKOJ/tin_ketban.cpp) \| [Sub](https://ptnkoj.com/submission/182209) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 5 | [TIN - KHAI THÁC KHOÁNG SẢN](https://ptnkoj.com/problem/tin_mine) | `DP Convex Hull Trick` | $\mathcal{O}(n)$ | Apr 14, 2026 | [Code](PTNK/PTNKOJ/tin_mine.cpp) \| [Sub](https://ptnkoj.com/submission/182149) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 6 | [TIN - PHÍ PHÂN ĐOẠN](https://ptnkoj.com/problem/tin_online) | N/A | N/A | Jul 1, 2026 | [Code](PTNK/PTNKOJ/tin_online.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 7 | [TIN - THU THẬP](https://ptnkoj.com/problem/tin_thuthap) | N/A | N/A | May 5, 2026 | [Code](PTNK/PTNKOJ/tin_thuthap.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
 ## 📂 [SPOJ (5)](https://www.spoj.com/problems/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
