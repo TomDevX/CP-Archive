@@ -2,20 +2,20 @@
 
 ### 📊 MarisaOJ Stats
 
-![Progress](https://img.shields.io/badge/Progress-15/16-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_02%2C_2026_--_00%3A57_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-16/17-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_02%2C_2026_--_01%3A10_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
-- **Total Unique Problems:** 16
-- **Solved (AC):** 15
+- **Total Unique Problems:** 17
+- **Solved (AC):** 16
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
 
 ---
 ## 📌 Table of Contents
 
-* [📁 MarisaOJ (16)](#-marisaoj-16)
+* [📁 MarisaOJ (17)](#-marisaoj-17)
 
 ---
-## 📂 MarisaOJ (16)
+## 📂 MarisaOJ (17)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [74 - Brewing potion](https://account.marisaoj.com/problem/74) | `Greedy`, `Two Pointers` | $\mathcal{O}(n \log n)$ | Feb 22, 2026 | [Code](74.cpp) \| [Sub](https://account.marisaoj.com/submission/1094298) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -36,4 +36,5 @@
 | 16 | [572 - Buying tickets](https://marisaoj.com/problem/572) | `Dynamic Programming` | $\mathcal{O}(n)$ | Mar 05, 2026 | [Code](572.cpp) \| [Sub](https://marisaoj.com/submission/1111914) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 17 | [573 - Marisa](https://marisaoj.com/problem/573) | N/A | N/A | Apr 08, 2026 | [Code](573.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 18 | [574 - Fences painting](https://marisaoj.com/problem/574) | `Dynamic Programming` | $\mathcal{O}(n)$ | Mar 09, 2026 | [Code](574.cpp) \| [Sub](https://marisaoj.com/submission/1117055) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 19 | [620 - Just a Nim game](https://marisaoj.com/problem/620) | `Game Theory`, `Nim` | $\mathcal{O}(n)$ | Jul 02, 2026 | [Code](620.cpp) \| [Sub](https://marisaoj.com/submission/1270501) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
