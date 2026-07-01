@@ -2,7 +2,7 @@
 
 ### 📊 Codeforces Stats
 
-![Progress](https://img.shields.io/badge/Progress-143/163-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_02%2C_2026_--_00%3A20_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-143/163-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_02%2C_2026_--_00%3A57_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 163
 - **Solved (AC):** 143
@@ -140,7 +140,7 @@
 | 120 | [1996C](https://codeforces.com/contest/1996/problem/C) | N/A | N/A | N/A | [Code](1996C.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 121 | [1996D](https://codeforces.com/contest/1996/problem/D) | N/A | N/A | N/A | [Code](1996D.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 122 | [1997A](https://codeforces.com/contest/1997/problem/A) | N/A | N/A | N/A | [Code](1997A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 123 | [1997B](https://codeforces.com/contest/1997/problem/B) | N/A | N/A | N/A | [Code](1997B.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 123 | [1997B - Make Three Regions](https://codeforces.com/contest/1997/problem/B) | `Implementation`, `Trick` | $\mathcal{O}(n)$ | Jul 02, 2026 | [Code](1997B.cpp) \| [Sub](https://codeforces.com/contest/1997/submission/380946387) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 124 | [2009A - Minimize!](https://codeforces.com/problemset/problem/2009/A) | `Math` | $\mathcal{O}(1)$ | Mar 20, 2026 | [Code](2009A.cpp) \| [Sub](https://codeforces.com/problemset/submission/2009/367454867) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 125 | [2039C1 - Shohag Loves XOR (Easy Version)](https://codeforces.com/contest/2039/problem/C1) | `Math`, `Bit` | $\mathcal{O}(x)$ | Mar 04, 2026 | [Code](2039C1.cpp) \| [Sub](https://codeforces.com/gym/676327/submission/365315587) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 126 | [2053A - Tender Carpenter](https://codeforces.com/contest/2053/problem/A) | `Math` | $\mathcal{O}(n)$ | Nov 29, 2025 | [Code](2053A.cpp) \| [Sub](https://codeforces.com/contest/2053/submission/351073122) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |

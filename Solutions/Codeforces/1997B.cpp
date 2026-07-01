@@ -1,114 +1,113 @@
+/**
+ *    author: TomDev - Tran Hoang Quan
+ *    created: 2026-07-02 00:42:41
+ *    country: Vietnam - VNM
+ *    repo: github.com/TomDevX/CP-Archive
+ * ----------------------------------------------------------
+ *    title: Make Three Regions
+ *    source: https://codeforces.com/contest/1997/problem/B
+ *    submission: https://codeforces.com/contest/1997/submission/380946387
+ *    status: AC
+ * ----------------------------------------------------------
+ *    tags: Implementation, Trick
+ *    complexity: O(n)
+ *    metacognition: We have some fixed rules for the chosen cell because at first there is guaranteed that AT MOST 1 connected region
+ *    note: Because there are at most 1 connected region at start so there is only 2 cases that we can block are - each case is just the flipped version of the other case:
+ ...
+ x.x
+ and
+ x.x
+ ...
+**/
+
 #include <iostream>
 #include <vector>
-#include <string>
 #include <algorithm>
-#include <set>
+#include <cstdio>
+#include <string>
+#include <utility>
 
 using namespace std;
 
-class UnionFind {
-public:
-    UnionFind(int n) : parent(n), rank(n, 0) {
-        for (int i = 0; i < n; ++i) {
-            parent[i] = i;
-        }
-    }
+// --- [ DEBUGGING & LOCAL CONFIG ] ---
+#if __has_include("TomDev.h") && defined(LOCAL)
+    #include "TomDev.h"
+    #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
+#else
+    #define dbg(x,i)
+#endif
+#define NAH_I_WOULD_WIN 0
 
-    int find(int x) {
-        if (parent[x] != x) {
-            parent[x] = find(parent[x]);
-        }
-        return parent[x];
-    }
+// --- [ MACROS ] ---
+#define all(x,bonus) std::begin(x)+(bonus), std::end(x)
+#define sub(x, st, ed) std::begin((x)) + (st), std::begin((x)) + (ed) + 1
+#define filter(x,bonus) (x).erase(unique(std::begin((x))+(bonus), std::end((x))), std::end((x)))
+#define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
+#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define fi first
+#define se second
+#define eb emplace_back
+#define sz(x) (int)(x).size()
 
-    void unite(int x, int y) {
-        int rootX = find(x);
-        int rootY = find(y);
+// --- [ TYPES & ALIASES ] ---
+using ll = long long;
+using ull = unsigned long long;
+using ld = long double;
+using pll = pair<long long,long long>;
+using pld = pair<long double,long double>;
+using pii = pair<int,int>;
+using pill = pair<int,long long>;
+using vi = vector<int>;
+using vvi = vector<vector<int>>;
+using vll = vector<long long>;
+using vvll = vector<vector<long long>>;
+using vb = vector<bool>;
+using vs = vector<string>;
+using vpii = vector<pair<int,int>>;
+using vpill = vector<pair<int,long long>>;
+using vpll = vector<pair<long long,long long>>;
 
-        if (rootX != rootY) {
-            if (rank[rootX] > rank[rootY]) {
-                parent[rootY] = rootX;
-            } else if (rank[rootX] < rank[rootY]) {
-                parent[rootX] = rootY;
-            } else {
-                parent[rootY] = rootX;
-                ++rank[rootX];
-            }
-        }
-    }
-
-private:
-    vector<int> parent;
-    vector<int> rank;
-};
-
-int toIndex(int row, int col, int n) {
-    return row * n + col;
+void setup(){
+    #if !defined(LOCAL)
+        freopen("/dev/null", "w", stderr);
+    #endif
+    if(!fopen("1997B.INP", "r")) return;
+    freopen("1997B.INP", "r", stdin);
+    freopen("1997B.OUT", "w", stdout);
 }
 
-bool inBounds(int row, int col, int n) {
-    return row >= 0 && row < 2 && col >= 0 && col < n;
+// ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+
+
+// ----------------------- [ FUNCTIONS ] -----------------------
+
+
+// ----------------------- [ MAIN ] -----------------------
+void __TomDev(){
+    int n;
+    cin >> n;
+    string a,b;
+    cin >> a;
+    cin >> b;
+
+    int ans = 0;
+    for(int i = 1; i < n-1; i++){
+        if(a[i] == '.' && b[i] == '.' && b[i-1] == 'x' && b[i+1] == 'x' && a[i-1] == '.' && a[i+1] == '.') ans++;
+        if(a[i] == '.' && b[i] == '.' && a[i-1] == 'x' && a[i+1] == 'x' && b[i-1] == '.' && b[i+1] == '.') ans++;
+    }
+
+    cout << ans << '\n';
 }
 
-int countRegions(const vector<string> &grid, int n) {
-    UnionFind uf(2 * n);
-    vector<pair<int, int>> directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
-    
-    for (int i = 0; i < 2; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (grid[i][j] == '.') {
-                for (const auto& dir : directions) {
-                    int ni = i + dir.first;
-                    int nj = j + dir.second;
-                    if (inBounds(ni, nj, n) && grid[ni][nj] == '.') {
-                        uf.unite(toIndex(i, j, n), toIndex(ni, nj, n));
-                    }
-                }
-            }
-        }
+int main(){
+    fastio;
+    setup();
+
+    int tc = 1;
+    cin >> tc;
+    for(int t = 1; t <= tc; t++)
+    {
+        __TomDev();
     }
-
-    set<int> uniqueParents;
-    for (int i = 0; i < 2; ++i) {
-        for (int j = 0; j < n; ++j) {
-            if (grid[i][j] == '.') {
-                uniqueParents.insert(uf.find(toIndex(i, j, n)));
-            }
-        }
-    }
-
-    return uniqueParents.size();
-}
-
-int main() {
-    int t;
-    cin >> t;
-
-    while (t--) {
-        int n;
-        cin >> n;
-
-        vector<string> grid(2);
-        for (int i = 0; i < 2; ++i) {
-            cin >> grid[i];
-        }
-
-        int initialRegions = countRegions(grid, n);
-        int criticalCells = 0;
-
-        for (int i = 0; i < 2; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (grid[i][j] == '.') {
-                    grid[i][j] = 'x';
-                    int newRegions = countRegions(grid, n);
-                    if (newRegions == 3) {
-                        criticalCells++;
-                    }
-                    grid[i][j] = '.';
-                }
-            }
-        }
-
-        cout << criticalCells << endl;
-    }
+    return NAH_I_WOULD_WIN;
 }
