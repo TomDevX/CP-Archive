@@ -18,7 +18,7 @@ inline int test(uint64_t *s, int o) { return (s[o >> 6] & ONES[o & 63]) == 0; }
 
 void update_sieve(int offset)
 {
-    for (int i = 0, k; i < SIEVE_SIZE; i += k)
+    for (int i = 0, k; i < SIEVE_SIZE; i += k)  
     {
         k = std::min(WHEEL, SIEVE_SIZE - i);
         memcpy(si + i, pattern, sizeof(*pattern) * k);
@@ -190,13 +190,13 @@ void sieve_with_wheel(){
 int main()
 {
     cout << "=================== " << N << " benchmark ====================\n";
-    // auto start = std::chrono::high_resolution_clock::now();
-    // sieve();    
-    // auto stop = std::chrono::high_resolution_clock::now();
-    // auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    // cout << "God sieve:\n";
-    // std::cout << "Thoi gian chay: " << duration.count() << " ms" << std::endl;
-    // cout << "Result: " << Rice_Prime.size() << '\n';
+    auto start = std::chrono::high_resolution_clock::now();
+    sieve();    
+    auto stop = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+    cout << "God sieve:\n";
+    std::cout << "Thoi gian chay: " << duration.count() << " ms" << std::endl;
+    cout << "Result: " << Rice_Prime.size() << '\n';
 
     start = std::chrono::high_resolution_clock::now();
     sieve2();    
