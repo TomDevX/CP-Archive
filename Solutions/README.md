@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-400/448-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jul_02%2C_2026_--_01%3A10_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260702T0110&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-401/449-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jul_02%2C_2026_--_10%3A34_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260702T1034&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 448
-- **Accepted:** 400
+- **Total Problems:** 449
+- **Accepted:** 401
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -28,6 +28,7 @@
   * [📂 Sorting And Searching (4)](#-sorting-and-searching-4)
   * [📂 String (6)](#-string-6)
 * [📂 IUHCoder (2)](#-iuhcoder-2)
+* [📂 Kattis (1)](#-kattis-1)
 * [📂 Leetcode (3)](#-leetcode-3)
 * [📂 LQDOJ (12)](#-lqdoj-12)
 * [📂 Luogu (1)](#-luogu-1)
@@ -46,7 +47,7 @@
 * [📂 VNOJ (70)](#-vnoj-70)
 
 ---
-## 📂 [Solutions (448)](https://atcoder.jp/contests/abc420/tasks/abc420_g)
+## 📂 [Solutions (449)](https://atcoder.jp/contests/abc420/tasks/abc420_g)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [MAIN - sqrt(n²+n+X)](https://atcoder.jp/contests/abc420/tasks/abc420_g) | N/A | N/A | Jun 19, 2026 | [Code](main.c) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -376,6 +377,11 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [K20EDU27 - Nearest Smaller Values](https://oj.iuhcoder.com/problem/k20edu27) | `Adhoc` | $\mathcal{O}(n)$ | Feb 18, 2026 | [Code](IUHCoder/k20edu27.cpp) \| [Sub](https://oj.iuhcoder.com/submission/197354) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [VISAO65 - Công ty đa cấp](https://oj.iuhcoder.com/problem/visao65) | N/A | N/A | Feb 18, 2026 | [Code](IUHCoder/visao65.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+
+## 📂 [Kattis (1)](https://open.kattis.com/)
+| # | Problem Name | Tags | Complexity | Date | Solution | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | [SNIM - S-Nim](https://open.kattis.com/problems/snim) | `Game theory`, `Grundy` | $\mathcal{O}(n*k)$ | Jul 2, 2026 | [Code](Kattis/snim.cpp) \| [Sub](https://open.kattis.com/submissions/19875434) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [Leetcode (3)](https://leetcode.com/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
