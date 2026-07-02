@@ -2,7 +2,7 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-402/450-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jul_02%2C_2026_--_12%3A32_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260702T1232&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-402/450-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jul_02%2C_2026_--_20%3A51_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260702T2051&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 450
 - **Accepted:** 402
@@ -70,7 +70,7 @@
 ## 📂 [AtCoder (9)](https://atcoder.jp/home)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [ABC169 - Div Game](https://atcoder.jp/contests/abc169/tasks/abc169_d) | `Math` | $\mathcal{O}(\sqrt(n)})$ | Jun 1, 2026 | [Code](AtCoder/abc169_d.cpp) \| [Sub](https://atcoder.jp/contests/abc169/submissions/76333546) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | [ABC169 - Div Game](https://atcoder.jp/contests/abc169/tasks/abc169_d) | `Math` | $\mathcal{O}(\sqrt(n))$ | Jun 1, 2026 | [Code](AtCoder/abc169_d.cpp) \| [Sub](https://atcoder.jp/contests/abc169/submissions/76333546) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [ABC420 - sqrt(n²+n+X)](https://atcoder.jp/contests/abc420/tasks/abc420_g) | `Math` | $\mathcal{O}(\sqrt{X})$ | Jun 19, 2026 | [Code](AtCoder/abc420_g.cpp) \| [Sub](https://atcoder.jp/contests/abc420/submissions/76789480) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 3 | [ABC451 - Make Bipartite 3](https://atcoder.jp/contests/abc451/tasks/abc451_f) | `DSU` | $\mathcal{O}(q \alpha (n))$ | May 9, 2026 | [Code](AtCoder/abc451_f.cpp) \| [Sub](https://atcoder.jp/contests/abc451/submissions/75678817) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 4 | [ARC117 - Tricolor Pyramid](https://atcoder.jp/contests/arc117/tasks/arc117_c) | `Math`, `Pascal` | $\mathcal{O}(n)$ | Jul 1, 2026 | [Code](AtCoder/arc117_c.cpp) \| [Sub](https://atcoder.jp/contests/arc117/submissions/77114069) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |

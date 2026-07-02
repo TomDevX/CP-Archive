@@ -10,7 +10,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Math
- *    complexity: O(\sqrt(n)})
+ *    complexity: O(\sqrt(n))
  *    note: Just make the most expo for the lowest prime factor as possible, like 2^1, 2^2, 2^3...
 **/
 
