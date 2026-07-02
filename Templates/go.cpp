@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-06-29 08:52:10
+ *    created: 2026-07-01 08:38:16
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
@@ -29,7 +29,7 @@ using namespace std;
     #include "TomDev.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
 #else
-    #define dbg(x)
+    #define dbg(x,i)
 #endif
 #define NAH_I_WOULD_WIN 0
 
