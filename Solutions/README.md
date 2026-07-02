@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-401/449-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jul_02%2C_2026_--_11%3A06_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260702T1106&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-402/450-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jul_02%2C_2026_--_12%3A32_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260702T1232&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 449
-- **Accepted:** 401
+- **Total Problems:** 450
+- **Accepted:** 402
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -32,7 +32,7 @@
 * [📂 Leetcode (3)](#-leetcode-3)
 * [📂 LQDOJ (12)](#-lqdoj-12)
 * [📂 Luogu (1)](#-luogu-1)
-* [📂 MarisaOJ (17)](#-marisaoj-17)
+* [📂 MarisaOJ (18)](#-marisaoj-18)
 * [📂 Official-Contests (1)](#-official-contests-1)
   * [📂 Ts10 Ptnk 2026 (1)](#-ts10-ptnk-2026-1)
 * [📂 ojuz (3)](#-ojuz-3)
@@ -47,7 +47,7 @@
 * [📂 VNOJ (70)](#-vnoj-70)
 
 ---
-## 📂 [Solutions (449)](https://atcoder.jp/contests/abc420/tasks/abc420_g)
+## 📂 [Solutions (450)](https://atcoder.jp/contests/abc420/tasks/abc420_g)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [MAIN - sqrt(n²+n+X)](https://atcoder.jp/contests/abc420/tasks/abc420_g) | N/A | N/A | Jun 19, 2026 | [Code](main.c) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -411,7 +411,7 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [P6166 - [IOI 2012] scrivener](https://www.luogu.com.cn/problem/P6166) | `Binary Lifting` | $\mathcal{O}(n \log n)$ | Mar 24, 2026 | [Code](Luogu/P6166.cpp) \| [Sub](https://www.luogu.com.cn/record/269308831) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-## 📂 [MarisaOJ (17)](https://marisaoj.com/)
+## 📂 [MarisaOJ (18)](https://marisaoj.com/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [74 - Brewing potion](https://account.marisaoj.com/problem/74) | `Greedy`, `Two Pointers` | $\mathcal{O}(n \log n)$ | Feb 22, 2026 | [Code](MarisaOJ/74.cpp) \| [Sub](https://account.marisaoj.com/submission/1094298) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -433,6 +433,7 @@
 | 17 | [573 - Marisa](https://marisaoj.com/problem/573) | N/A | N/A | Apr 8, 2026 | [Code](MarisaOJ/573.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 18 | [574 - Fences painting](https://marisaoj.com/problem/574) | `Dynamic Programming` | $\mathcal{O}(n)$ | Mar 9, 2026 | [Code](MarisaOJ/574.cpp) \| [Sub](https://marisaoj.com/submission/1117055) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 19 | [620 - Just a Nim game](https://marisaoj.com/problem/620) | `Game Theory`, `Nim` | $\mathcal{O}(n)$ | Jul 2, 2026 | [Code](MarisaOJ/620.cpp) \| [Sub](https://marisaoj.com/submission/1270501) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 20 | [623 - Just a Nim game?](https://marisaoj.com/problem/623) | `Game Theory`, `Misere Nim` | $\mathcal{O}(n)$ | Jul 2, 2026 | [Code](MarisaOJ/623.cpp) \| [Sub](https://marisaoj.com/submission/1270916) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ### 📁 Ts10 Ptnk 2026 (1)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
