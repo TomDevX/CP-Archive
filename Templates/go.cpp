@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-07-01 08:38:16
+ *    created: 2026-07-02 11:20:59
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
@@ -63,9 +63,6 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    #if !defined(LOCAL)
-        freopen("/dev/null", "w", stderr);
-    #endif
     if(!fopen("go.INP", "r")) return;
     freopen("go.INP", "r", stdin);
     freopen("go.OUT", "w", stdout);
