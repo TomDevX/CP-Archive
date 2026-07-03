@@ -2,10 +2,10 @@
 
 ### 📊 CSES Stats
 
-![Progress](https://img.shields.io/badge/Progress-57/59-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_04%2C_2026_--_00%3A13_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-58/60-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_04%2C_2026_--_00%3A31_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
-- **Total Unique Problems:** 59
-- **Solved (AC):** 57
+- **Total Unique Problems:** 60
+- **Solved (AC):** 58
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
 
@@ -16,7 +16,7 @@
   * [📁 Dynamic Programming (12)](#-dynamic-programming-12)
   * [📁 Geometry (6)](#-geometry-6)
   * [📁 Graph (10)](#-graph-10)
-  * [📁 Mathematics (7)](#-mathematics-7)
+  * [📁 Mathematics (8)](#-mathematics-8)
   * [📁 Range Queries (10)](#-range-queries-10)
   * [📁 Sliding Windơows Problem (2)](#-sliding-windơows-problem-2)
   * [📁 Sorting and Searching (4)](#-sorting-and-searching-4)
@@ -70,16 +70,17 @@
 | 9 | [1681 - Game Routes](https://cses.fi/problemset/task/1681) | `Topo Sort`, `DP on DAG` | $\mathcal{O}(n)$ | Jun 06, 2026 | [Code](Graph/1681.cpp) \| [Sub](https://cses.fi/problemset/result/17445572/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 10 | [1750 - Planets Queries I](https://cses.fi/problemset/task/1750) | `Binary Lifting` | $\mathcal{O}((n+q) \log n)$ | Mar 19, 2026 | [Code](Graph/1750.cpp) \| [Sub](https://cses.fi/problemset/result/16614664/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-### 📁 Mathematics (7)
+### 📁 Mathematics (8)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [1081 - Common Divisors](https://cses.fi/problemset/task/1081/) | `Math` | $\mathcal{O}(n \log n)$ | Jun 07, 2026 | [Code](Mathematics/1081.cpp) \| [Sub](https://cses.fi/problemset/result/17462328/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 2 | [1082 - Sum of Divisors](https://cses.fi/problemset/task/1082) | `Math` | $\mathcal{O}(\sqrt{n})$ | Jun 14, 2026 | [Code](Mathematics/1082.cpp) \| [Sub](https://cses.fi/problemset/result/17568179/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 3 | [1099 - Stair Game](https://cses.fi/problemset/task/1099) | N/A | N/A | Jul 03, 2026 | [Code](Mathematics/1099.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 4 | [1802B - Settlement of Guinea Pigs](https://codeforces.com/contest/1802/problem/B) | `Implementation` | $\mathcal{O}(n)$ | Jul 03, 2026 | [Code](Mathematics/1802B.cpp) \| [Sub](https://codeforces.com/contest/1802/submission/381162052) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 5 | [2064 - Bracket Sequences I](https://cses.fi/problemset/task/2064) | `Math`, `Catalan` | $\mathcal{O}(n)$ | Jun 30, 2026 | [Code](Mathematics/2064.cpp) \| [Sub](https://cses.fi/problemset/result/17761466/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 6 | [2182 - Divisor Analysis](https://cses.fi/problemset/task/2182/) | `Math` | $\mathcal{O}(n \log k)$ | Jun 24, 2026 | [Code](Mathematics/2182.cpp) \| [Sub](https://cses.fi/problemset/result/17688457/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 7 | [3398 - Permutation Rounds](https://cses.fi/problemset/task/3398) | `Math` | $\mathcal{O}(n \log n)$ | Jun 07, 2026 | [Code](Mathematics/3398.cpp) \| [Sub](https://cses.fi/problemset/result/17461968/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | [1008B - Turn the Rectangles](https://codeforces.com/contest/1008/problem/B) | `Implementation` | $\mathcal{O}(n)$ | Jul 04, 2026 | [Code](Mathematics/1008B.cpp) \| [Sub](https://codeforces.com/contest/1008/submission/381165532) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 2 | [1081 - Common Divisors](https://cses.fi/problemset/task/1081/) | `Math` | $\mathcal{O}(n \log n)$ | Jun 07, 2026 | [Code](Mathematics/1081.cpp) \| [Sub](https://cses.fi/problemset/result/17462328/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 3 | [1082 - Sum of Divisors](https://cses.fi/problemset/task/1082) | `Math` | $\mathcal{O}(\sqrt{n})$ | Jun 14, 2026 | [Code](Mathematics/1082.cpp) \| [Sub](https://cses.fi/problemset/result/17568179/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 4 | [1099 - Stair Game](https://cses.fi/problemset/task/1099) | N/A | N/A | Jul 03, 2026 | [Code](Mathematics/1099.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 5 | [1802B - Settlement of Guinea Pigs](https://codeforces.com/contest/1802/problem/B) | `Implementation` | $\mathcal{O}(n)$ | Jul 03, 2026 | [Code](Mathematics/1802B.cpp) \| [Sub](https://codeforces.com/contest/1802/submission/381162052) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 6 | [2064 - Bracket Sequences I](https://cses.fi/problemset/task/2064) | `Math`, `Catalan` | $\mathcal{O}(n)$ | Jun 30, 2026 | [Code](Mathematics/2064.cpp) \| [Sub](https://cses.fi/problemset/result/17761466/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 7 | [2182 - Divisor Analysis](https://cses.fi/problemset/task/2182/) | `Math` | $\mathcal{O}(n \log k)$ | Jun 24, 2026 | [Code](Mathematics/2182.cpp) \| [Sub](https://cses.fi/problemset/result/17688457/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 8 | [3398 - Permutation Rounds](https://cses.fi/problemset/task/3398) | `Math` | $\mathcal{O}(n \log n)$ | Jun 07, 2026 | [Code](Mathematics/3398.cpp) \| [Sub](https://cses.fi/problemset/result/17461968/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ### 📁 Range Queries (10)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
