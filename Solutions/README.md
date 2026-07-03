@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-404/452-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jul_03%2C_2026_--_22%3A37_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260703T2237&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-405/454-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jul_04%2C_2026_--_00%3A13_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260704T0013&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 452
-- **Accepted:** 404
+- **Total Problems:** 454
+- **Accepted:** 405
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -17,12 +17,12 @@
 * [📂 CodeChef (2)](#-codechef-2)
 * [📂 Codeforces (163)](#-codeforces-163)
 * [📂 CPPros (18)](#-cppros-18)
-* [📂 CSES (57)](#-cses-57)
+* [📂 CSES (59)](#-cses-59)
   * [📂 Advanced Techniques (2)](#-advanced-techniques-2)
   * [📂 Dynamic Programming (12)](#-dynamic-programming-12)
   * [📂 Geometry (6)](#-geometry-6)
   * [📂 Graph (10)](#-graph-10)
-  * [📂 Mathematics (5)](#-mathematics-5)
+  * [📂 Mathematics (7)](#-mathematics-7)
   * [📂 Range Queries (10)](#-range-queries-10)
   * [📂 Sliding Windơows Problem (2)](#-sliding-windơows-problem-2)
   * [📂 Sorting And Searching (4)](#-sorting-and-searching-4)
@@ -47,7 +47,7 @@
 * [📂 VNOJ (70)](#-vnoj-70)
 
 ---
-## 📂 [Solutions (452)](https://atcoder.jp/contests/abc420/tasks/abc420_g)
+## 📂 [Solutions (454)](https://atcoder.jp/contests/abc420/tasks/abc420_g)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [MAIN - sqrt(n²+n+X)](https://atcoder.jp/contests/abc420/tasks/abc420_g) | N/A | N/A | Jun 19, 2026 | [Code](main.c) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -326,14 +326,16 @@
 | 9 | [1681 - Game Routes](https://cses.fi/problemset/task/1681) | `Topo Sort`, `DP on DAG` | $\mathcal{O}(n)$ | Jun 6, 2026 | [Code](CSES/Graph/1681.cpp) \| [Sub](https://cses.fi/problemset/result/17445572/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 10 | [1750 - Planets Queries I](https://cses.fi/problemset/task/1750) | `Binary Lifting` | $\mathcal{O}((n+q) \log n)$ | Mar 19, 2026 | [Code](CSES/Graph/1750.cpp) \| [Sub](https://cses.fi/problemset/result/16614664/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-### 📁 Mathematics (5)
+### 📁 Mathematics (7)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1081 - Common Divisors](https://cses.fi/problemset/task/1081/) | `Math` | $\mathcal{O}(n \log n)$ | Jun 7, 2026 | [Code](CSES/Mathematics/1081.cpp) \| [Sub](https://cses.fi/problemset/result/17462328/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [1082 - Sum of Divisors](https://cses.fi/problemset/task/1082) | `Math` | $\mathcal{O}(\sqrt{n})$ | Jun 14, 2026 | [Code](CSES/Mathematics/1082.cpp) \| [Sub](https://cses.fi/problemset/result/17568179/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 3 | [2064 - Bracket Sequences I](https://cses.fi/problemset/task/2064) | `Math`, `Catalan` | $\mathcal{O}(n)$ | Jun 30, 2026 | [Code](CSES/Mathematics/2064.cpp) \| [Sub](https://cses.fi/problemset/result/17761466/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 4 | [2182 - Divisor Analysis](https://cses.fi/problemset/task/2182/) | `Math` | $\mathcal{O}(n \log k)$ | Jun 24, 2026 | [Code](CSES/Mathematics/2182.cpp) \| [Sub](https://cses.fi/problemset/result/17688457/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 5 | [3398 - Permutation Rounds](https://cses.fi/problemset/task/3398) | `Math` | $\mathcal{O}(n \log n)$ | Jun 7, 2026 | [Code](CSES/Mathematics/3398.cpp) \| [Sub](https://cses.fi/problemset/result/17461968/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 3 | [1099 - Stair Game](https://cses.fi/problemset/task/1099) | N/A | N/A | Jul 3, 2026 | [Code](CSES/Mathematics/1099.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 4 | [1802B - Settlement of Guinea Pigs](https://codeforces.com/contest/1802/problem/B) | `Implementation` | $\mathcal{O}(n)$ | Jul 3, 2026 | [Code](CSES/Mathematics/1802B.cpp) \| [Sub](https://codeforces.com/contest/1802/submission/381162052) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 5 | [2064 - Bracket Sequences I](https://cses.fi/problemset/task/2064) | `Math`, `Catalan` | $\mathcal{O}(n)$ | Jun 30, 2026 | [Code](CSES/Mathematics/2064.cpp) \| [Sub](https://cses.fi/problemset/result/17761466/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 6 | [2182 - Divisor Analysis](https://cses.fi/problemset/task/2182/) | `Math` | $\mathcal{O}(n \log k)$ | Jun 24, 2026 | [Code](CSES/Mathematics/2182.cpp) \| [Sub](https://cses.fi/problemset/result/17688457/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 7 | [3398 - Permutation Rounds](https://cses.fi/problemset/task/3398) | `Math` | $\mathcal{O}(n \log n)$ | Jun 7, 2026 | [Code](CSES/Mathematics/3398.cpp) \| [Sub](https://cses.fi/problemset/result/17461968/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ### 📁 Range Queries (10)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
