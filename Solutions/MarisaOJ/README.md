@@ -2,7 +2,7 @@
 
 ### 📊 MarisaOJ Stats
 
-![Progress](https://img.shields.io/badge/Progress-17/18-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_02%2C_2026_--_21%3A03_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-17/18-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_03%2C_2026_--_22%3A37_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 18
 - **Solved (AC):** 17
