@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-07-03 23:02:39
+ *    created: 2026-07-04 16:15:13
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: Stair Game
- *    source: https://cses.fi/problemset/task/1099
- *    submission: https://cses.fi/problemset/result/17810407/
- *    status: AC
+ *    title: Grundy's Game
+ *    source: https://cses.fi/problemset/task/2207
+ *    submission: 
+ *    status: WIP
  * ----------------------------------------------------------
- *    tags: Game theory, Nim
- *    complexity: O(n)
+ *    tags: 
+ *    complexity: 
  *    metacognition: 
  *    note: 
 **/
@@ -63,9 +63,9 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("1099.INP", "r")) return;
-    freopen("1099.INP", "r", stdin);
-    freopen("1099.OUT", "w", stdout);
+    if(!fopen("2207.INP", "r")) return;
+    freopen("2207.INP", "r", stdin);
+    freopen("2207.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
@@ -78,13 +78,10 @@ void setup(){
 void __TomDev(){
     int n;
     cin >> n;
-    ll x;
-    ll ans = 0;
-    for(int i = 1; i <= n; i++){
-        cin >> x;
-        if(!(i&1)) ans ^= x;
+    if(n&1){
+        cout << "second\n";
     }
-    cout << (ans == 0 ? "second" : "first") << '\n';
+    else cout << "first\n";
 }
 
 int main(){

@@ -1,18 +1,18 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-07-03 23:02:39
+ *    created: 2026-07-06 08:15:17
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: Stair Game
- *    source: https://cses.fi/problemset/task/1099
- *    submission: https://cses.fi/problemset/result/17810407/
+ *    title: Bài 1: Đếm số bội 1
+ *    source: https://oj.vnoi.info/problem/gogovoi_nangcao_demsoboi1
+ *    submission: https://oj.vnoi.info/submission/12651929
  *    status: AC
  * ----------------------------------------------------------
- *    tags: Game theory, Nim
- *    complexity: O(n)
- *    metacognition: 
- *    note: 
+ *    tags: Math, Inclusion-Exclusion
+ *    complexity: O(2^\text{prime})
+ *    metacognition: Instead of finding the inclusion-exclusion in range 1 -> k, we only need to find the primes in it using bitmask inclusion-exclusion
+ *    note: Only process primes in range 1 -> k 
 **/
 
 #include <iostream>
@@ -63,28 +63,63 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("1099.INP", "r")) return;
-    freopen("1099.INP", "r", stdin);
-    freopen("1099.OUT", "w", stdout);
+    if(!fopen("gogovoi_nangcao_demsoboi1.INP", "r")) return;
+    freopen("gogovoi_nangcao_demsoboi1.INP", "r", stdin);
+    freopen("gogovoi_nangcao_demsoboi1.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 51;
 
+int sang[N];
+vi primes;
+int k;
+ll n;
+int prime_sz = 0;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void precalc(int k){
+    for(int i = 2; i * i <= k; i++){
+        if(sang[i]) continue;
+        for(int j = i * i; j <= k; j += i) sang[j] = 1;
+    }
 
+    for(int i = 2; i <= k; i++){
+        if(!sang[i]) primes.eb(i), prime_sz++;
+    }
+}
+
+ll gcd(ll a, ll b){
+    while(b){
+        ll tmp = a%b;
+        a = b;
+        b = tmp;
+    }
+    return a;
+}
+
+ll lcm(ll a, ll b){
+    return a/gcd(a,b) * b;
+}
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    int n;
-    cin >> n;
-    ll x;
+    cin >> n >> k;
+    precalc(k);
+
     ll ans = 0;
-    for(int i = 1; i <= n; i++){
-        cin >> x;
-        if(!(i&1)) ans ^= x;
+
+    for(int mask = 1; mask < (1 << prime_sz); mask++){
+        ll cur = 1;
+        for(int i = 0; i < prime_sz; i++){
+            if(mask >> i & 1){
+                cur  = lcm(cur, primes[i]);
+            }
+        }
+        if(__builtin_popcount(mask)&1) ans += n/cur;
+        else ans -= n/cur;
     }
-    cout << (ans == 0 ? "second" : "first") << '\n';
+    cout << ans << '\n';
 }
 
 int main(){
@@ -92,7 +127,7 @@ int main(){
     setup();
 
     int tc = 1;
-    cin >> tc;
+    //cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
         __TomDev();
