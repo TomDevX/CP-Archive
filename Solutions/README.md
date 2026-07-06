@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-408/457-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jul_06%2C_2026_--_08%3A50_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260706T0850&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-409/459-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jul_06%2C_2026_--_11%3A06_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260706T1106&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 457
-- **Accepted:** 408
+- **Total Problems:** 459
+- **Accepted:** 409
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -16,7 +16,7 @@
 * [📂 AtCoder (9)](#-atcoder-9)
 * [📂 CodeChef (2)](#-codechef-2)
 * [📂 Codeforces (163)](#-codeforces-163)
-* [📂 CPPros (19)](#-cppros-19)
+* [📂 CPPros (20)](#-cppros-20)
 * [📂 CSES (61)](#-cses-61)
   * [📂 Advanced Techniques (2)](#-advanced-techniques-2)
   * [📂 Dynamic Programming (12)](#-dynamic-programming-12)
@@ -37,8 +37,8 @@
   * [📂 Ts10 Ptnk 2026 (1)](#-ts10-ptnk-2026-1)
 * [📂 ojuz (3)](#-ojuz-3)
 * [📂 Project Euler (2)](#-project-euler-2)
-* [📂 PTNK (71)](#-ptnk-71)
-  * [📂 Grade 10 (64)](#-grade-10-64)
+* [📂 PTNK (72)](#-ptnk-72)
+  * [📂 Grade 10 (65)](#-grade-10-65)
     * [📂 Entrance Exam 260331 (8)](#-entrance-exam-260331-8)
   * [📂 Ptnkoj (7)](#-ptnkoj-7)
 * [📂 SPOJ (5)](#-spoj-5)
@@ -47,7 +47,7 @@
 * [📂 VNOJ (70)](#-vnoj-70)
 
 ---
-## 📂 [Solutions (457)](https://atcoder.jp/contests/abc420/tasks/abc420_g)
+## 📂 [Solutions (459)](https://atcoder.jp/contests/abc420/tasks/abc420_g)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [MAIN - sqrt(n²+n+X)](https://atcoder.jp/contests/abc420/tasks/abc420_g) | N/A | N/A | Jun 19, 2026 | [Code](main.c) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
@@ -257,7 +257,7 @@
 | 166 | [2240A - Another Popcount Problem](https://codeforces.com/contest/2240/problem/A) | `Math`, `Greedy`, `Bit` | $\mathcal{O}(\log n)$ | Jun 27, 2026 | [Code](Codeforces/2240A.cpp) \| [Sub](https://codeforces.com/contest/2240/submission/380379723) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 167 | [690281B - Tăng dãy](https://codeforces.com/gym/690281/problem/B) | `Segment Tree Beats` | $\mathcal{O}((n \cdot k + q) \log n)$ | May 3, 2026 | [Code](Codeforces/690281B.cpp) \| [Sub](https://codeforces.com/gym/690281/submission/373439975) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-## 📂 [CPPros (19)](https://oj.vnoi.info/organization/gogovoi)
+## 📂 [CPPros (20)](https://oj.vnoi.info/organization/gogovoi)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [C11BC2 - Robin](https://oj.vnoi.info/problem/c11bc2) | `Tree`, `BFS`, `DFS` | $\mathcal{O}(n + q)$ | Jun 26, 2026 | [Code](CPPros/c11bc2.cpp) \| [Sub](https://oj.vnoi.info/submission/12579540) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -271,14 +271,15 @@
 | 9 | [GOGOVOI - Đa tập](https://oj.vnoi.info/problem/gogovoi_multiset) | `Trie` | $\mathcal{O}(n \log maxn)$ | Jun 1, 2026 | [Code](CPPros/gogovoi_multiset.cpp) \| [Sub](https://oj.vnoi.info/submission/12415693) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 10 | [GOGOVOI - COLORFUL ARRAY](https://oj.vnoi.info/problem/gogovoi_nangcao_clflarr) | `DSU` | $\mathcal{O}(n \alpha (n))$ | May 1, 2026 | [Code](CPPros/gogovoi_nangcao_clflarr.cpp) \| [Sub](https://oj.vnoi.info/submission/12221072) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 11 | [GOGOVOI - Bài 1: Đếm số bội 1](https://oj.vnoi.info/problem/gogovoi_nangcao_demsoboi1) | `Math`, `Inclusion-Exclusion` | $\mathcal{O}(2^\text{prime})$ | Jul 6, 2026 | [Code](CPPros/gogovoi_nangcao_demsoboi1.cpp) \| [Sub](https://oj.vnoi.info/submission/12651929) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 12 | [GOGOVOI - Đặc trưng của cây](https://oj.vnoi.info/problem/gogovoi_nangcao_olp3g) | `DSU` | $\mathcal{O}(n \log n + n + m)$ | Apr 30, 2026 | [Code](CPPros/gogovoi_nangcao_olp3g.cpp) \| [Sub](https://oj.vnoi.info/submission/12215972) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 13 | [GOGOVOI - Phép XOR](https://oj.vnoi.info/problem/gogovoi_phepxor) | `Trie` | $\mathcal{O}(n)$ | May 31, 2026 | [Code](CPPros/gogovoi_phepxor.cpp) \| [Sub](https://oj.vnoi.info/submission/12412823) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 14 | [GOGOVOI - Phone Number](https://oj.vnoi.info/problem/gogovoi_phonenumber) | `Trie` | $\mathcal{O}(n)$ | May 29, 2026 | [Code](CPPros/gogovoi_phonenumber.cpp) \| [Sub](https://oj.vnoi.info/submission/12394655) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 15 | [GOGOVOI - Đế Chế](https://oj.vnoi.info/problem/gogovoi_seg1) | `Sweep Line`, `BIT` | $\mathcal{O}(n \log n)$ | Apr 21, 2026 | [Code](CPPros/gogovoi_seg1.cpp) \| [Sub](https://oj.vnoi.info/submission/12165705) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 16 | [GOGOVOI - Dư đoạn](https://oj.vnoi.info/problem/gogovoi_seg2) | `Sweep Line 1D` | $\mathcal{O}(n \log n)$ | Apr 21, 2026 | [Code](CPPros/gogovoi_seg2.cpp) \| [Sub](https://oj.vnoi.info/submission/12162887) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 17 | [GOGOVOI - Tổng XOR lớn nhất](https://oj.vnoi.info/problem/gogovoi_sumxor) | `Trie` | $\mathcal{O}(n \log maxn)$ | Jun 1, 2026 | [Code](CPPros/gogovoi_sumxor.cpp) \| [Sub](https://oj.vnoi.info/submission/12415495) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 18 | [GOGOVOI - Tạo xâu II](https://oj.vnoi.info/problem/gogovoi_tohopbai1) | `Math` | $\mathcal{O}(|S|)$ | Jun 26, 2026 | [Code](CPPros/gogovoi_tohopbai1.cpp) \| [Sub](https://oj.vnoi.info/submission/12578465) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 19 | [PRODUCT - product](https://oj.vnoi.info/problem/product) | `Two Pointes` | $\mathcal{O}(n)$ | Feb 23, 2026 | [Code](CPPros/product.cpp) \| [Sub](https://oj.vnoi.info/submission/11801553) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 12 | [GOGOVOI - Bài 2: Đếm số bội 2](https://oj.vnoi.info/problem/gogovoi_nangcao_demsoboi2) | N/A | N/A | Jul 6, 2026 | [Code](CPPros/gogovoi_nangcao_demsoboi2.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 13 | [GOGOVOI - Đặc trưng của cây](https://oj.vnoi.info/problem/gogovoi_nangcao_olp3g) | `DSU` | $\mathcal{O}(n \log n + n + m)$ | Apr 30, 2026 | [Code](CPPros/gogovoi_nangcao_olp3g.cpp) \| [Sub](https://oj.vnoi.info/submission/12215972) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 14 | [GOGOVOI - Phép XOR](https://oj.vnoi.info/problem/gogovoi_phepxor) | `Trie` | $\mathcal{O}(n)$ | May 31, 2026 | [Code](CPPros/gogovoi_phepxor.cpp) \| [Sub](https://oj.vnoi.info/submission/12412823) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 15 | [GOGOVOI - Phone Number](https://oj.vnoi.info/problem/gogovoi_phonenumber) | `Trie` | $\mathcal{O}(n)$ | May 29, 2026 | [Code](CPPros/gogovoi_phonenumber.cpp) \| [Sub](https://oj.vnoi.info/submission/12394655) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 16 | [GOGOVOI - Đế Chế](https://oj.vnoi.info/problem/gogovoi_seg1) | `Sweep Line`, `BIT` | $\mathcal{O}(n \log n)$ | Apr 21, 2026 | [Code](CPPros/gogovoi_seg1.cpp) \| [Sub](https://oj.vnoi.info/submission/12165705) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 17 | [GOGOVOI - Dư đoạn](https://oj.vnoi.info/problem/gogovoi_seg2) | `Sweep Line 1D` | $\mathcal{O}(n \log n)$ | Apr 21, 2026 | [Code](CPPros/gogovoi_seg2.cpp) \| [Sub](https://oj.vnoi.info/submission/12162887) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 18 | [GOGOVOI - Tổng XOR lớn nhất](https://oj.vnoi.info/problem/gogovoi_sumxor) | `Trie` | $\mathcal{O}(n \log maxn)$ | Jun 1, 2026 | [Code](CPPros/gogovoi_sumxor.cpp) \| [Sub](https://oj.vnoi.info/submission/12415495) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 19 | [GOGOVOI - Tạo xâu II](https://oj.vnoi.info/problem/gogovoi_tohopbai1) | `Math` | $\mathcal{O}(|S|)$ | Jun 26, 2026 | [Code](CPPros/gogovoi_tohopbai1.cpp) \| [Sub](https://oj.vnoi.info/submission/12578465) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 20 | [PRODUCT - product](https://oj.vnoi.info/problem/product) | `Two Pointes` | $\mathcal{O}(n)$ | Feb 23, 2026 | [Code](CPPros/product.cpp) \| [Sub](https://oj.vnoi.info/submission/11801553) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ### 📁 Advanced Techniques (2)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
@@ -460,81 +461,82 @@
 | 1 | [6 - Sum Square Difference](https://projecteuler.net/problem=6) | `Level 0` | $\mathcal{O}(1)$ | Feb 6, 2026 | [Code](Project%20Euler/6.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [7 - 10 001st Prime](https://projecteuler.net/problem=7) | `Level 0` | $\mathcal{O}(n \log \log n)$ | Feb 6, 2026 | [Code](Project%20Euler/7.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-### 📁 Grade 10 (64)
+### 📁 Grade 10 (65)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [ANCES - ANCES](PTNK/Grade%2010/LCA1.pdf) | `LCA` | $\mathcal{O}(n \log 19 + (n-1) + \log 19)$ | Feb 24, 2026 | [Code](PTNK/Grade%2010/ANCES.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | Ando | N/A | N/A | Jan 12, 2026 | [Code](PTNK/Grade%2010/ANDO.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 3 | Anime 2 | N/A | N/A | N/A | [Code](PTNK/Grade%2010/ANIME_2.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 4 | [BASESTRING - Xâu cơ sở](PTNK/Grade%2010/BT_20260406.pdf) | `String` | $\mathcal{O}(1)$ | Apr 6, 2026 | [Code](PTNK/Grade%2010/BASESTRING.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 5 | [BLACKBOX - BLACKBOX](PTNK/Grade%2010/BT_20260223.pdf) | N/A | N/A | Feb 24, 2026 | [Code](PTNK/Grade%2010/BLACKBOX.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 6 | Catch | N/A | N/A | Dec 8, 2025 | [Code](PTNK/Grade%2010/CATCH.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 7 | [CHORDS - DÂY CUNG](PTNK/Grade%2010/Olp_20260330) | N/A | N/A | Mar 31, 2026 | [Code](PTNK/Grade%2010/CHORDS.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 8 | [CNTTREE - CNTTREE](PTNK/Grade%2010/26JUN_PTNK_.pdf) | N/A | N/A | Jun 12, 2026 | [Code](PTNK/Grade%2010/CNTTREE.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 9 | Correction | N/A | N/A | Jan 19, 2026 | [Code](PTNK/Grade%2010/CORRECTION.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 10 | [CPATH - CPATH](PTNK/Grade%2010/BT_20260302.pdf) | N/A | N/A | Mar 2, 2026 | [Code](PTNK/Grade%2010/CPATH.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 11 | Delcol | N/A | N/A | Jan 6, 2026 | [Code](PTNK/Grade%2010/DELCOL.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 12 | Dijkstra | N/A | N/A | Dec 1, 2025 | [Code](PTNK/Grade%2010/DIJKSTRA.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 13 | Dsf | N/A | N/A | Dec 2, 2025 | [Code](PTNK/Grade%2010/DSF.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 14 | [EQUALS - DÃY TĂNG DẦN](PTNK/Grade%2010/EQUALS) | N/A | N/A | Jun 2, 2026 | [Code](PTNK/Grade%2010/EQUALS.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 15 | Equaltriple | N/A | N/A | Dec 8, 2025 | [Code](PTNK/Grade%2010/EQUALTRIPLE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 16 | [FIB3 - FIB3](PTNK/Grade%2010/BT_20260316.pdf) | `Matrix Exponentiation` | $\mathcal{O}(\log n)$ | Mar 16, 2026 | [Code](PTNK/Grade%2010/FIB3.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 17 | [FIB - FIB](PTNK/Grade%2010/BT_20260316.pdf) | `Matrix Exponentiation` | $\mathcal{O}(\log R + \log L)$ | Mar 16, 2026 | [Code](PTNK/Grade%2010/FIB.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 18 | [FIBSQR - FIBSQR](PTNK/Grade%2010/BT_20260316.pdf) | `Matrix Exponentiation` | $\mathcal{O}(\log n)$ | Mar 16, 2026 | [Code](PTNK/Grade%2010/FIBSQR.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 19 | Fisher | N/A | N/A | Jan 13, 2026 | [Code](PTNK/Grade%2010/FISHER.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 20 | [GCOINS - GOM XU VÀNG](PTNK/Grade%2010/DuTuyen_20260624.pdf) | N/A | N/A | Jun 24, 2026 | [Code](PTNK/Grade%2010/GCOINS.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 21 | [GCOINS - GOM XU VÀNG](PTNK/Grade%2010/DuTuyen_20260624.pdf) | N/A | N/A | Jun 24, 2026 | [Code](PTNK/Grade%2010/GCOINS__Good.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 22 | [GRASSHOPPER - Châu chấu 2D](PTNK/Grade%2010/DT%2001-06-2026.pdf) | `Math` | $\mathcal{O}(1)$ | Jun 1, 2026 | [Code](PTNK/Grade%2010/grasshopper.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 23 | Holidays | N/A | N/A | Dec 8, 2025 | [Code](PTNK/Grade%2010/HOLIDAYS.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 24 | [JOB - JOB](PTNK/Grade%2010/BT_20260223.pdf) | N/A | N/A | Feb 23, 2026 | [Code](PTNK/Grade%2010/JOB.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 25 | Kruskal | N/A | N/A | Dec 1, 2025 | [Code](PTNK/Grade%2010/KRUSKAL.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 26 | Kruskap.Inp | N/A | N/A | N/A | [Code](PTNK/Grade%2010/KRUSKAP.INP.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 27 | [LCA2 - LCA2](PTNK/Grade%2010/LCA1.pdf) | `LCA` | N/A | Feb 24, 2026 | [Code](PTNK/Grade%2010/LCA2.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 28 | [LCA - LCA](PTNK/Grade%2010/LCA1.pdf) | `LCA` | $\mathcal{O}(n \log 19 + (n-1) + q \log 19)$ | Feb 24, 2026 | [Code](PTNK/Grade%2010/LCA.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 29 | [LIKEPRIME - Các số “hơi nguyên tố”](PTNK/Grade%2010/DT%2001-06-2026.pdf) | `Digit`, `Implementation` | $\mathcal{O}(n)$ | Jun 1, 2026 | [Code](PTNK/Grade%2010/likeprime.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 30 | [MARATHON - MARATHON](PTNK/Grade%2010/LCA2.pdf) | `LCA` | $\mathcal{O}(n \log n)$ | Mar 3, 2026 | [Code](PTNK/Grade%2010/MARATHON.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 31 | [MINMM - MINMM](PTNK/Grade%2010/BT_20260226.pdf) | N/A | N/A | Feb 26, 2026 | [Code](PTNK/Grade%2010/MINMM.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 32 | Minquery | N/A | N/A | Jan 20, 2026 | [Code](PTNK/Grade%2010/MINQUERY.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 33 | Modseq | N/A | N/A | Jan 19, 2026 | [Code](PTNK/Grade%2010/MODSEQ.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 34 | Mstone | N/A | N/A | Dec 30, 2025 | [Code](PTNK/Grade%2010/MSTONE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 35 | Necklace | N/A | N/A | Dec 30, 2025 | [Code](PTNK/Grade%2010/NECKLACE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 36 | Os | N/A | N/A | Jan 13, 2026 | [Code](PTNK/Grade%2010/OS.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 37 | Os Dkk | N/A | N/A | N/A | [Code](PTNK/Grade%2010/OS_DKK.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 38 | Paint | N/A | N/A | Dec 2, 2025 | [Code](PTNK/Grade%2010/PAINT.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 39 | Pands | N/A | N/A | Jan 12, 2026 | [Code](PTNK/Grade%2010/PANDS.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 40 | [PENCILS - CÁC HỘP BÚT CHÌ](PTNK/Grade%2010/DuTuyen_20260609.pdf) | N/A | N/A | Jun 9, 2026 | [Code](PTNK/Grade%2010/PENCILS.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 41 | [PIER - Bến tàu](PTNK/Grade%2010/KT_20260323.pdf) | N/A | N/A | Mar 23, 2026 | [Code](PTNK/Grade%2010/PIER.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 42 | [POVISICE - PROVISICE](PTNK/Grade%2010/LCA2.pdf) | `Euler Tour`, `Tree`, `Fenwick Tree` | $\mathcal{O}(n \log n)$ | Mar 3, 2026 | [Code](PTNK/Grade%2010/POVISICE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 43 | Prim | N/A | N/A | Dec 1, 2025 | [Code](PTNK/Grade%2010/prim.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 44 | Program | N/A | N/A | Dec 30, 2025 | [Code](PTNK/Grade%2010/PROGRAM.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 45 | Promote | N/A | N/A | Jan 21, 2026 | [Code](PTNK/Grade%2010/promote.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 46 | [PWALK - PWALK](https://oj.vnoi.info/problem/pwalk) | `LCA` | $\mathcal{O}(n \log n)$ | Mar 3, 2026 | [Code](PTNK/Grade%2010/PWALK.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 47 | Query | N/A | N/A | Jan 13, 2026 | [Code](PTNK/Grade%2010/QUERY.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 48 | [REPOSE - NGHỈ NGƠI CHẤT LƯỢNG](PTNK/Grade%2010/DT%2029-06-2026.pdf) | `Implementation` | $\mathcal{O}(n)$ | Jun 29, 2026 | [Code](PTNK/Grade%2010/repose.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 49 | Roads | N/A | N/A | Jan 5, 2026 | [Code](PTNK/Grade%2010/ROADS.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 50 | Salary | N/A | N/A | Jan 20, 2026 | [Code](PTNK/Grade%2010/SALARY.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 51 | [SBORDER - CHUỖI BIÊN - Z-function](PTNK/Grade%2010/BT_20260330.pdf) | `Z-function`, `String Matching` | $\mathcal{O}(n)$ | Mar 30, 2026 | [Code](PTNK/Grade%2010/SBORDER_zfunc.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 52 | Segcover | N/A | N/A | Apr 13, 2026 | [Code](PTNK/Grade%2010/SEGCOVER.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 53 | [SIMILARITY - Độ tương đồng](PTNK/Grade%2010/BT_20260406.pdf) | `Z-function` | $\mathcal{O}(n + m)$ | Apr 6, 2026 | [Code](PTNK/Grade%2010/SIMILARITY.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 54 | [SKEW - Phân chia lệch](PTNK/Grade%2010/DT%2008-06-2026.pdf) | N/A | N/A | Jun 8, 2026 | [Code](PTNK/Grade%2010/skew.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 55 | Stairs | N/A | N/A | Jun 15, 2026 | [Code](PTNK/Grade%2010/stairs.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 56 | [STORAGE - HỘP QUÀ](PTNK/Grade%2010/BT_20260403.pdf) | `Sorting`, `Two Pointers` | $\mathcal{O}(n \log n)$ | Apr 13, 2026 | [Code](PTNK/Grade%2010/STORAGE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 57 | [STRINGKC - STRINGKC](PTNK/Grade%2010/BT_20260226.pdf) | N/A | N/A | Feb 26, 2026 | [Code](PTNK/Grade%2010/STRINGKC.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 58 | [SUBSQUARE - Hiệu hai bình phương](PTNK/Grade%2010/DT%2008-06-2026.pdf) | N/A | N/A | Jun 8, 2026 | [Code](PTNK/Grade%2010/SUBSQUARE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 59 | Sum | N/A | N/A | Jan 13, 2026 | [Code](PTNK/Grade%2010/SUM.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 60 | Sumxor | N/A | N/A | Jan 12, 2026 | [Code](PTNK/Grade%2010/SUMXOR.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 61 | [SWINDOW - CỬA SỔ VĂN BẢN](PTNK/Grade%2010/BT_20260330.pdf) | `Z-function`, `String Matching` | $\mathcal{O}(n)$ | Mar 30, 2026 | [Code](PTNK/Grade%2010/SWINDOW.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 62 | Ticket | N/A | N/A | Jan 13, 2026 | [Code](PTNK/Grade%2010/TICKET.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 63 | Ticket Dkk | N/A | N/A | N/A | [Code](PTNK/Grade%2010/TICKET_DKK.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 64 | [TOURIST - Tourist](PTNK/Grade%2010/LCA4.pdf) | `LCA` | $\mathcal{O}(n \log n)$ | Mar 17, 2026 | [Code](PTNK/Grade%2010/Tourist.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 65 | [TRAVEL - TRAVEL](PTNK/Grade%2010/BT_20260226) | `DSU`, `MST`, `Graph` | $\mathcal{O}(n + m \log m + q)$ | Feb 27, 2026 | [Code](PTNK/Grade%2010/TRAVEL.cpp) \| [Sub](TRAVEL_submission.log) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 66 | [TREEDGE - TREEDGE](PTNK/Grade%2010/LCA4.pdf) | `LCA` | $\mathcal{O}(n \log n)$ | Mar 17, 2026 | [Code](PTNK/Grade%2010/TREEDGE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 67 | [TSP - HÀNH TRÌNH RẺ NHẤT](PTNK/Grade%2010/KT_20260323.pdf) | N/A | N/A | Mar 23, 2026 | [Code](PTNK/Grade%2010/TSP.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 68 | Twoarr | N/A | N/A | Jan 19, 2026 | [Code](PTNK/Grade%2010/TWOARR.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 69 | [UPDTREE2 - UPDTREE2](PTNK/Grade%2010/LCA5.pdf) | `LCA`, `Different array on tree` | $\mathcal{O}(n \log n)$ | Mar 25, 2026 | [Code](PTNK/Grade%2010/UPDTREE2.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 70 | [UPDTREE - UPDTREE](PTNK/Grade%2010/LCA4.pdf) | `Graph` | $\mathcal{O}(n)$ | Mar 17, 2026 | [Code](PTNK/Grade%2010/UPDTREE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 71 | [VOTREE - VOTREE](PTNK/Grade%2010/LCA5.pdf) | `Sparse table`, `LCA` | $\mathcal{O}(n \log n)$ | Mar 24, 2026 | [Code](PTNK/Grade%2010/VOTREE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 72 | Xorsum | N/A | N/A | Jan 13, 2026 | [Code](PTNK/Grade%2010/XORSUM.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 5 | [BITONIC - DÃY SỐ BITONIC](PTNK/Grade%2010/DT%2006-07-2026.pdf) | N/A | N/A | Jul 6, 2026 | [Code](PTNK/Grade%2010/bitonic.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 6 | [BLACKBOX - BLACKBOX](PTNK/Grade%2010/BT_20260223.pdf) | N/A | N/A | Feb 24, 2026 | [Code](PTNK/Grade%2010/BLACKBOX.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 7 | Catch | N/A | N/A | Dec 8, 2025 | [Code](PTNK/Grade%2010/CATCH.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 8 | [CHORDS - DÂY CUNG](PTNK/Grade%2010/Olp_20260330) | N/A | N/A | Mar 31, 2026 | [Code](PTNK/Grade%2010/CHORDS.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 9 | [CNTTREE - CNTTREE](PTNK/Grade%2010/26JUN_PTNK_.pdf) | N/A | N/A | Jun 12, 2026 | [Code](PTNK/Grade%2010/CNTTREE.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 10 | Correction | N/A | N/A | Jan 19, 2026 | [Code](PTNK/Grade%2010/CORRECTION.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 11 | [CPATH - CPATH](PTNK/Grade%2010/BT_20260302.pdf) | N/A | N/A | Mar 2, 2026 | [Code](PTNK/Grade%2010/CPATH.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 12 | Delcol | N/A | N/A | Jan 6, 2026 | [Code](PTNK/Grade%2010/DELCOL.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 13 | Dijkstra | N/A | N/A | Dec 1, 2025 | [Code](PTNK/Grade%2010/DIJKSTRA.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 14 | Dsf | N/A | N/A | Dec 2, 2025 | [Code](PTNK/Grade%2010/DSF.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 15 | [EQUALS - DÃY TĂNG DẦN](PTNK/Grade%2010/EQUALS) | N/A | N/A | Jun 2, 2026 | [Code](PTNK/Grade%2010/EQUALS.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 16 | Equaltriple | N/A | N/A | Dec 8, 2025 | [Code](PTNK/Grade%2010/EQUALTRIPLE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 17 | [FIB3 - FIB3](PTNK/Grade%2010/BT_20260316.pdf) | `Matrix Exponentiation` | $\mathcal{O}(\log n)$ | Mar 16, 2026 | [Code](PTNK/Grade%2010/FIB3.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 18 | [FIB - FIB](PTNK/Grade%2010/BT_20260316.pdf) | `Matrix Exponentiation` | $\mathcal{O}(\log R + \log L)$ | Mar 16, 2026 | [Code](PTNK/Grade%2010/FIB.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 19 | [FIBSQR - FIBSQR](PTNK/Grade%2010/BT_20260316.pdf) | `Matrix Exponentiation` | $\mathcal{O}(\log n)$ | Mar 16, 2026 | [Code](PTNK/Grade%2010/FIBSQR.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 20 | Fisher | N/A | N/A | Jan 13, 2026 | [Code](PTNK/Grade%2010/FISHER.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 21 | [GCOINS - GOM XU VÀNG](PTNK/Grade%2010/DuTuyen_20260624.pdf) | N/A | N/A | Jun 24, 2026 | [Code](PTNK/Grade%2010/GCOINS.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 22 | [GCOINS - GOM XU VÀNG](PTNK/Grade%2010/DuTuyen_20260624.pdf) | N/A | N/A | Jun 24, 2026 | [Code](PTNK/Grade%2010/GCOINS__Good.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 23 | [GRASSHOPPER - Châu chấu 2D](PTNK/Grade%2010/DT%2001-06-2026.pdf) | `Math` | $\mathcal{O}(1)$ | Jun 1, 2026 | [Code](PTNK/Grade%2010/grasshopper.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 24 | Holidays | N/A | N/A | Dec 8, 2025 | [Code](PTNK/Grade%2010/HOLIDAYS.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 25 | [JOB - JOB](PTNK/Grade%2010/BT_20260223.pdf) | N/A | N/A | Feb 23, 2026 | [Code](PTNK/Grade%2010/JOB.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 26 | Kruskal | N/A | N/A | Dec 1, 2025 | [Code](PTNK/Grade%2010/KRUSKAL.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 27 | Kruskap.Inp | N/A | N/A | N/A | [Code](PTNK/Grade%2010/KRUSKAP.INP.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 28 | [LCA2 - LCA2](PTNK/Grade%2010/LCA1.pdf) | `LCA` | N/A | Feb 24, 2026 | [Code](PTNK/Grade%2010/LCA2.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 29 | [LCA - LCA](PTNK/Grade%2010/LCA1.pdf) | `LCA` | $\mathcal{O}(n \log 19 + (n-1) + q \log 19)$ | Feb 24, 2026 | [Code](PTNK/Grade%2010/LCA.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 30 | [LIKEPRIME - Các số “hơi nguyên tố”](PTNK/Grade%2010/DT%2001-06-2026.pdf) | `Digit`, `Implementation` | $\mathcal{O}(n)$ | Jun 1, 2026 | [Code](PTNK/Grade%2010/likeprime.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 31 | [MARATHON - MARATHON](PTNK/Grade%2010/LCA2.pdf) | `LCA` | $\mathcal{O}(n \log n)$ | Mar 3, 2026 | [Code](PTNK/Grade%2010/MARATHON.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 32 | [MINMM - MINMM](PTNK/Grade%2010/BT_20260226.pdf) | N/A | N/A | Feb 26, 2026 | [Code](PTNK/Grade%2010/MINMM.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 33 | Minquery | N/A | N/A | Jan 20, 2026 | [Code](PTNK/Grade%2010/MINQUERY.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 34 | Modseq | N/A | N/A | Jan 19, 2026 | [Code](PTNK/Grade%2010/MODSEQ.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 35 | Mstone | N/A | N/A | Dec 30, 2025 | [Code](PTNK/Grade%2010/MSTONE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 36 | Necklace | N/A | N/A | Dec 30, 2025 | [Code](PTNK/Grade%2010/NECKLACE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 37 | Os | N/A | N/A | Jan 13, 2026 | [Code](PTNK/Grade%2010/OS.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 38 | Os Dkk | N/A | N/A | N/A | [Code](PTNK/Grade%2010/OS_DKK.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 39 | Paint | N/A | N/A | Dec 2, 2025 | [Code](PTNK/Grade%2010/PAINT.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 40 | Pands | N/A | N/A | Jan 12, 2026 | [Code](PTNK/Grade%2010/PANDS.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 41 | [PENCILS - CÁC HỘP BÚT CHÌ](PTNK/Grade%2010/DuTuyen_20260609.pdf) | N/A | N/A | Jun 9, 2026 | [Code](PTNK/Grade%2010/PENCILS.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 42 | [PIER - Bến tàu](PTNK/Grade%2010/KT_20260323.pdf) | N/A | N/A | Mar 23, 2026 | [Code](PTNK/Grade%2010/PIER.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 43 | [POVISICE - PROVISICE](PTNK/Grade%2010/LCA2.pdf) | `Euler Tour`, `Tree`, `Fenwick Tree` | $\mathcal{O}(n \log n)$ | Mar 3, 2026 | [Code](PTNK/Grade%2010/POVISICE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 44 | Prim | N/A | N/A | Dec 1, 2025 | [Code](PTNK/Grade%2010/prim.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 45 | Program | N/A | N/A | Dec 30, 2025 | [Code](PTNK/Grade%2010/PROGRAM.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 46 | Promote | N/A | N/A | Jan 21, 2026 | [Code](PTNK/Grade%2010/promote.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 47 | [PWALK - PWALK](https://oj.vnoi.info/problem/pwalk) | `LCA` | $\mathcal{O}(n \log n)$ | Mar 3, 2026 | [Code](PTNK/Grade%2010/PWALK.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 48 | Query | N/A | N/A | Jan 13, 2026 | [Code](PTNK/Grade%2010/QUERY.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 49 | [REPOSE - NGHỈ NGƠI CHẤT LƯỢNG](PTNK/Grade%2010/DT%2029-06-2026.pdf) | `Implementation` | $\mathcal{O}(n)$ | Jun 29, 2026 | [Code](PTNK/Grade%2010/repose.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 50 | Roads | N/A | N/A | Jan 5, 2026 | [Code](PTNK/Grade%2010/ROADS.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 51 | Salary | N/A | N/A | Jan 20, 2026 | [Code](PTNK/Grade%2010/SALARY.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 52 | [SBORDER - CHUỖI BIÊN - Z-function](PTNK/Grade%2010/BT_20260330.pdf) | `Z-function`, `String Matching` | $\mathcal{O}(n)$ | Mar 30, 2026 | [Code](PTNK/Grade%2010/SBORDER_zfunc.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 53 | Segcover | N/A | N/A | Apr 13, 2026 | [Code](PTNK/Grade%2010/SEGCOVER.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 54 | [SIMILARITY - Độ tương đồng](PTNK/Grade%2010/BT_20260406.pdf) | `Z-function` | $\mathcal{O}(n + m)$ | Apr 6, 2026 | [Code](PTNK/Grade%2010/SIMILARITY.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 55 | [SKEW - Phân chia lệch](PTNK/Grade%2010/DT%2008-06-2026.pdf) | N/A | N/A | Jun 8, 2026 | [Code](PTNK/Grade%2010/skew.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 56 | Stairs | N/A | N/A | Jun 15, 2026 | [Code](PTNK/Grade%2010/stairs.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 57 | [STORAGE - HỘP QUÀ](PTNK/Grade%2010/BT_20260403.pdf) | `Sorting`, `Two Pointers` | $\mathcal{O}(n \log n)$ | Apr 13, 2026 | [Code](PTNK/Grade%2010/STORAGE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 58 | [STRINGKC - STRINGKC](PTNK/Grade%2010/BT_20260226.pdf) | N/A | N/A | Feb 26, 2026 | [Code](PTNK/Grade%2010/STRINGKC.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 59 | [SUBSQUARE - Hiệu hai bình phương](PTNK/Grade%2010/DT%2008-06-2026.pdf) | N/A | N/A | Jun 8, 2026 | [Code](PTNK/Grade%2010/SUBSQUARE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 60 | Sum | N/A | N/A | Jan 13, 2026 | [Code](PTNK/Grade%2010/SUM.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 61 | Sumxor | N/A | N/A | Jan 12, 2026 | [Code](PTNK/Grade%2010/SUMXOR.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 62 | [SWINDOW - CỬA SỔ VĂN BẢN](PTNK/Grade%2010/BT_20260330.pdf) | `Z-function`, `String Matching` | $\mathcal{O}(n)$ | Mar 30, 2026 | [Code](PTNK/Grade%2010/SWINDOW.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 63 | Ticket | N/A | N/A | Jan 13, 2026 | [Code](PTNK/Grade%2010/TICKET.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 64 | Ticket Dkk | N/A | N/A | N/A | [Code](PTNK/Grade%2010/TICKET_DKK.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 65 | [TOURIST - Tourist](PTNK/Grade%2010/LCA4.pdf) | `LCA` | $\mathcal{O}(n \log n)$ | Mar 17, 2026 | [Code](PTNK/Grade%2010/Tourist.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 66 | [TRAVEL - TRAVEL](PTNK/Grade%2010/BT_20260226) | `DSU`, `MST`, `Graph` | $\mathcal{O}(n + m \log m + q)$ | Feb 27, 2026 | [Code](PTNK/Grade%2010/TRAVEL.cpp) \| [Sub](TRAVEL_submission.log) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 67 | [TREEDGE - TREEDGE](PTNK/Grade%2010/LCA4.pdf) | `LCA` | $\mathcal{O}(n \log n)$ | Mar 17, 2026 | [Code](PTNK/Grade%2010/TREEDGE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 68 | [TSP - HÀNH TRÌNH RẺ NHẤT](PTNK/Grade%2010/KT_20260323.pdf) | N/A | N/A | Mar 23, 2026 | [Code](PTNK/Grade%2010/TSP.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 69 | Twoarr | N/A | N/A | Jan 19, 2026 | [Code](PTNK/Grade%2010/TWOARR.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 70 | [UPDTREE2 - UPDTREE2](PTNK/Grade%2010/LCA5.pdf) | `LCA`, `Different array on tree` | $\mathcal{O}(n \log n)$ | Mar 25, 2026 | [Code](PTNK/Grade%2010/UPDTREE2.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 71 | [UPDTREE - UPDTREE](PTNK/Grade%2010/LCA4.pdf) | `Graph` | $\mathcal{O}(n)$ | Mar 17, 2026 | [Code](PTNK/Grade%2010/UPDTREE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 72 | [VOTREE - VOTREE](PTNK/Grade%2010/LCA5.pdf) | `Sparse table`, `LCA` | $\mathcal{O}(n \log n)$ | Mar 24, 2026 | [Code](PTNK/Grade%2010/VOTREE.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 73 | Xorsum | N/A | N/A | Jan 13, 2026 | [Code](PTNK/Grade%2010/XORSUM.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ### 📁 Entrance Exam 260331 (8)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
