@@ -2,10 +2,10 @@
 
 ### 📊 CPPros Stats
 
-![Progress](https://img.shields.io/badge/Progress-20/21-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_06%2C_2026_--_23%3A10_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-21/21-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_08%2C_2026_--_21%3A02_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 21
-- **Solved (AC):** 20
+- **Solved (AC):** 21
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
 
@@ -29,7 +29,7 @@
 | 9 | [GOGOVOI - Đa tập](https://oj.vnoi.info/problem/gogovoi_multiset) | `Trie` | $\mathcal{O}(n \log maxn)$ | Jun 01, 2026 | [Code](gogovoi_multiset.cpp) \| [Sub](https://oj.vnoi.info/submission/12415693) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 10 | [GOGOVOI - COLORFUL ARRAY](https://oj.vnoi.info/problem/gogovoi_nangcao_clflarr) | `DSU` | $\mathcal{O}(n \alpha (n))$ | May 01, 2026 | [Code](gogovoi_nangcao_clflarr.cpp) \| [Sub](https://oj.vnoi.info/submission/12221072) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 11 | [GOGOVOI - Bài 1: Đếm số bội 1](https://oj.vnoi.info/problem/gogovoi_nangcao_demsoboi1) | `Math`, `Inclusion-Exclusion` | $\mathcal{O}(2^\text{prime})$ | Jul 06, 2026 | [Code](gogovoi_nangcao_demsoboi1.cpp) \| [Sub](https://oj.vnoi.info/submission/12651929) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 12 | [GOGOVOI - Bài 2: Đếm số bội 2](https://oj.vnoi.info/problem/gogovoi_nangcao_demsoboi2) | N/A | N/A | Jul 06, 2026 | [Code](gogovoi_nangcao_demsoboi2.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 12 | [GOGOVOI - Bài 2: Đếm số bội 2](https://oj.vnoi.info/problem/gogovoi_nangcao_demsoboi2) | `Inclusion-Exclusion`, `Math` | $\mathcal{O}(2 ^ n)$ | Jul 06, 2026 | [Code](gogovoi_nangcao_demsoboi2.cpp) \| [Sub](https://oj.vnoi.info/submission/12653314) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 13 | [GOGOVOI - Diện tích hình chữ nhật](https://oj.vnoi.info/problem/gogovoi_nangcao_hinhchunhat) | `Bitmask`, `Inclusion-Exclusion` | $\mathcal{O}(2^n)$ | Jul 06, 2026 | [Code](gogovoi_nangcao_hinhchunhat.cpp) \| [Sub](https://oj.vnoi.info/submission/12659816) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 14 | [GOGOVOI - Đặc trưng của cây](https://oj.vnoi.info/problem/gogovoi_nangcao_olp3g) | `DSU` | $\mathcal{O}(n \log n + n + m)$ | Apr 30, 2026 | [Code](gogovoi_nangcao_olp3g.cpp) \| [Sub](https://oj.vnoi.info/submission/12215972) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 15 | [GOGOVOI - Phép XOR](https://oj.vnoi.info/problem/gogovoi_phepxor) | `Trie` | $\mathcal{O}(n)$ | May 31, 2026 | [Code](gogovoi_phepxor.cpp) \| [Sub](https://oj.vnoi.info/submission/12412823) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |

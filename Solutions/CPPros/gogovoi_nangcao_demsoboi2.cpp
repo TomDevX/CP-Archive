@@ -6,13 +6,13 @@
  * ----------------------------------------------------------
  *    title: Bài 2: Đếm số bội 2
  *    source: https://oj.vnoi.info/problem/gogovoi_nangcao_demsoboi2
- *    submission: 
- *    status: WIP
+ *    submission: https://oj.vnoi.info/submission/12653314
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    metacognition: 
- *    note: 
+ *    tags: Inclusion-Exclusion, Math
+ *    complexity: O(2 ^ n)
+ *    metacognition: Need to use special formula of Inclusion-Exclusion to count elements which are in exactly k sets, means that we only add 1 if the element belongs to exactly k sets, and the with the other sizes we need to add 0. But we can also count the redundant so we need to consider the exclusion like the original formula. So there are C^k_m ways to choose k set from m set which contains a random element x. So we just multiply that to every Sum of set with size m
+ *    note: Use specified formula to count elements that are in exactly k sets
 **/
 
 #include <iostream>
