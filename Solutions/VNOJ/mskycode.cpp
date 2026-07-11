@@ -10,7 +10,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Math, Inclusion-Exclusion
- *    complexity: O(n*sqrt(n) + nlogn)
+ *    complexity: O(n*sqrt(n) + n\logn)
  *    metacognition: We can count the divisors of each elements by iterating through their divisor and +1 to the counter. In each divisor d, we need to know how many four elements combo has the gcd of it = d. So only count the counter of d is not enough because maybe it's just a normal divisor instead of gcd. So we need to subtract out the counter of it with its multiple's calculated answers (iterate d decreasingly). To know how many combos available in the current counter, we use Combinatorics ((counter)C(4))
  *    note: Count the divisor appear in each elements, and count how many four elements combo are in it using nCk. Though we need to exclusion out the divisor's multiples's answer because they are already counted as gcd of those combos.
 **/

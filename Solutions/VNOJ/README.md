@@ -2,7 +2,7 @@
 
 ### 📊 VNOJ Stats
 
-![Progress](https://img.shields.io/badge/Progress-70/71-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_11%2C_2026_--_21%3A57_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-70/71-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_11%2C_2026_--_21%3A59_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 71
 - **Solved (AC):** 70
@@ -62,7 +62,7 @@
 | 42 | [LUBENICA - Lubenica](https://oj.vnoi.info/problem/lubenica) | `LCA` | $\mathcal{O}(n \log n)$ | May 10, 2026 | [Code](lubenica.cpp) \| [Sub](https://oj.vnoi.info/submission/12274687) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 43 | [MEDIAN-2 - Phần tử trung vị - Approach 2](https://oj.vnoi.info/problem/median) | `BIT`, `Binary Lifting` | $\mathcal{O}(n \log n)$ | May 30, 2026 | [Code](median-2.cpp) \| [Sub](https://oj.vnoi.info/submission/12401447) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 44 | [MEDIAN - Phần tử trung vị - Approach 1](https://oj.vnoi.info/problem/median) | `Trie` | $\mathcal{O}(n)$ | May 30, 2026 | [Code](median.cpp) \| [Sub](https://oj.vnoi.info/submission/12401351) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 45 | [MSKYCODE - Sky Code](https://oj.vnoi.info/problem/mskycode) | `Math`, `Inclusion-Exclusion` | $\mathcal{O}(n*sqrt(n) + nlogn)$ | Jul 11, 2026 | [Code](mskycode.cpp) \| [Sub](https://oj.vnoi.info/submission/12702560) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 45 | [MSKYCODE - Sky Code](https://oj.vnoi.info/problem/mskycode) | `Math`, `Inclusion-Exclusion` | $\mathcal{O}(n*sqrt(n) + n\logn)$ | Jul 11, 2026 | [Code](mskycode.cpp) \| [Sub](https://oj.vnoi.info/submission/12702560) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 46 | [MTWALK - Mountain Walking](https://oj.vnoi.info/problem/mtwalk) | `Binary Search`, `Matrix` | $\mathcal{O}(n^2 \cdot \text{MAX_VAL} \log \text{MAX_VAL})$ | May 12, 2026 | [Code](mtwalk.cpp) \| [Sub](https://oj.vnoi.info/src/12290611) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 47 | [NKMOBILE - IOI01 Mobiles](https://oj.vnoi.info/problem/nkmobile) | `BIT 2D` | $\mathcal{O}(n^2 \log n^2)$ | Apr 10, 2026 | [Code](nkmobile.cpp) \| [Sub](https://oj.vnoi.info/submission/12088963) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 48 | [NKRACING - Vòng đua F1](https://oj.vnoi.info/problem/nkracing) | `MST` | $\mathcal{O}(n \log n)$ | May 06, 2026 | [Code](nkracing.cpp) \| [Sub](https://oj.vnoi.info/submission/12250760) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
