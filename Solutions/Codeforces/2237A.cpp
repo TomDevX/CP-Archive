@@ -9,10 +9,10 @@
  *    submission: https://codeforces.com/contest/2237/submission/381867843
  *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    metacognition: 
- *    note: 
+ *    tags: Implementation
+ *    complexity: O(n)
+ *    metacognition: Just find the current minimum number from 1 -> i and the current tower will be that min number
+ *    note: Get the min number to cut the left to right towers and add to the answer
 **/
 
 #include <iostream>
