@@ -9,10 +9,10 @@
  *    submission: https://codeforces.com/contest/2236/submission/381868185
  *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    metacognition: 
- *    note: 
+ *    tags: Implementaiton
+ *    complexity: O(n)
+ *    metacognition: Prioritize the current index to change it to 0 because we can only change the right one
+ *    note: Prioritize to change the current index and check
 **/
 
 #include <iostream>

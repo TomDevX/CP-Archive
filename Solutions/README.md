@@ -2,7 +2,7 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-419/468-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jul_11%2C_2026_--_22%3A08_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260711T2208&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-419/468-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jul_11%2C_2026_--_22%3A10_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260711T2210&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 468
 - **Accepted:** 419
@@ -257,7 +257,7 @@
 | 164 | [2234B - Palindrome, Twelve and Two Terms](https://codeforces.com/contest/2234/problem/B) | N/A | N/A | Jun 7, 2026 | [Code](Codeforces/2234B.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 165 | [2234C - Vessels, Heights and Two Versions (Easy Version)](https://codeforces.com/contest/2234/problem/C) | N/A | N/A | Jun 7, 2026 | [Code](Codeforces/2234C.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 166 | [2234D - XOR, Expression and Two Binary Numbers](https://codeforces.com/contest/2234/problem/D) | N/A | N/A | Jun 7, 2026 | [Code](Codeforces/2234D.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 167 | [2236B - Tatar TV Show](https://codeforces.com/contest/2236/problem/B) | N/A | N/A | Jul 9, 2026 | [Code](Codeforces/2236B.cpp) \| [Sub](https://codeforces.com/contest/2236/submission/381868185) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 167 | [2236B - Tatar TV Show](https://codeforces.com/contest/2236/problem/B) | `Implementaiton` | $\mathcal{O}(n)$ | Jul 9, 2026 | [Code](Codeforces/2236B.cpp) \| [Sub](https://codeforces.com/contest/2236/submission/381868185) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 168 | [2237A - Destroying Towers](https://codeforces.com/contest/2237/problem/A) | `Implementation` | $\mathcal{O}(n)$ | Jul 9, 2026 | [Code](Codeforces/2237A.cpp) \| [Sub](https://codeforces.com/contest/2237/submission/381867843) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 169 | [2238A - Another Puzzle from Papyrus](https://codeforces.com/contest/2238/problem/A) | `Greedy` | $\mathcal{O}(n\logn)$ | Jul 9, 2026 | [Code](Codeforces/2238A.cpp) \| [Sub](https://codeforces.com/contest/2238/submission/381867579) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 170 | [2238B - Crimson Triples](https://codeforces.com/contest/2238/problem/B) | N/A | N/A | Jul 9, 2026 | [Code](Codeforces/2238B.cpp) \| [Sub](https://codeforces.com/contest/2238/submission/381872884) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
