@@ -6,13 +6,13 @@
  * ----------------------------------------------------------
  *    title: Compromise 
  *    source: https://atcoder.jp/contests/abc466/tasks/abc466_a
- *    submission: 
- *    status: WIP
+ *    submission: https://atcoder.jp/contests/abc466/submissions/77397428
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
+ *    tags: Implementation
+ *    complexity: O(n)
  *    metacognition: 
- *    note: 
+ *    note: Just get the minimum number and check
 **/
 
 #include <iostream>

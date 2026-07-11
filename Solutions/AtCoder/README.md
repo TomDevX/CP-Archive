@@ -2,10 +2,10 @@
 
 ### 📊 AtCoder Stats
 
-![Progress](https://img.shields.io/badge/Progress-9/11-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_11%2C_2026_--_21%3A47_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-10/11-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_11%2C_2026_--_21%3A48_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 11
-- **Solved (AC):** 9
+- **Solved (AC):** 10
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
 
@@ -21,7 +21,7 @@
 | 1 | [ABC169 - Div Game](https://atcoder.jp/contests/abc169/tasks/abc169_d) | `Math` | $\mathcal{O}(\sqrt{n})$ | Jun 01, 2026 | [Code](abc169_d.cpp) \| [Sub](https://atcoder.jp/contests/abc169/submissions/76333546) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [ABC420 - sqrt(n²+n+X)](https://atcoder.jp/contests/abc420/tasks/abc420_g) | `Math` | $\mathcal{O}(\sqrt{X})$ | Jun 19, 2026 | [Code](abc420_g.cpp) \| [Sub](https://atcoder.jp/contests/abc420/submissions/76789480) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 3 | [ABC451 - Make Bipartite 3](https://atcoder.jp/contests/abc451/tasks/abc451_f) | `DSU` | $\mathcal{O}(q \alpha (n))$ | May 09, 2026 | [Code](abc451_f.cpp) \| [Sub](https://atcoder.jp/contests/abc451/submissions/75678817) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 4 | [ABC466 - Compromise](https://atcoder.jp/contests/abc466/tasks/abc466_a) | N/A | N/A | Jul 11, 2026 | [Code](abc466_a.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 4 | [ABC466 - Compromise](https://atcoder.jp/contests/abc466/tasks/abc466_a) | `Implementation` | $\mathcal{O}(n)$ | Jul 11, 2026 | [Code](abc466_a.cpp) \| [Sub](https://atcoder.jp/contests/abc466/submissions/77397428) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 5 | [ABC466 - Representative Balls](https://atcoder.jp/contests/abc466/tasks/abc466_b) | N/A | N/A | Jul 11, 2026 | [Code](abc466_b.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 6 | [ARC117 - Tricolor Pyramid](https://atcoder.jp/contests/arc117/tasks/arc117_c) | `Math`, `Pascal` | $\mathcal{O}(n)$ | Jul 01, 2026 | [Code](arc117_c.cpp) \| [Sub](https://atcoder.jp/contests/arc117/submissions/77114069) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 7 | [AWC0066 - Belt Conveyor](https://atcoder.jp/contests/awc0066/tasks/awc0066_a) | `Implementation` | $\mathcal{O}(n)$ | May 11, 2026 | [Code](awc0066_a.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75726964) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
