@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-418/468-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jul_11%2C_2026_--_21%3A48_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260711T2148&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-419/468-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jul_11%2C_2026_--_21%3A57_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260711T2157&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 468
-- **Accepted:** 418
+- **Accepted:** 419
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -74,7 +74,7 @@
 | 2 | [ABC420 - sqrt(n²+n+X)](https://atcoder.jp/contests/abc420/tasks/abc420_g) | `Math` | $\mathcal{O}(\sqrt{X})$ | Jun 19, 2026 | [Code](AtCoder/abc420_g.cpp) \| [Sub](https://atcoder.jp/contests/abc420/submissions/76789480) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 3 | [ABC451 - Make Bipartite 3](https://atcoder.jp/contests/abc451/tasks/abc451_f) | `DSU` | $\mathcal{O}(q \alpha (n))$ | May 9, 2026 | [Code](AtCoder/abc451_f.cpp) \| [Sub](https://atcoder.jp/contests/abc451/submissions/75678817) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 4 | [ABC466 - Compromise](https://atcoder.jp/contests/abc466/tasks/abc466_a) | `Implementation` | $\mathcal{O}(n)$ | Jul 11, 2026 | [Code](AtCoder/abc466_a.cpp) \| [Sub](https://atcoder.jp/contests/abc466/submissions/77397428) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 5 | [ABC466 - Representative Balls](https://atcoder.jp/contests/abc466/tasks/abc466_b) | N/A | N/A | Jul 11, 2026 | [Code](AtCoder/abc466_b.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 5 | [ABC466 - Representative Balls](https://atcoder.jp/contests/abc466/tasks/abc466_b) | `Implementation` | $\mathcal{O}(n)$ | Jul 11, 2026 | [Code](AtCoder/abc466_b.cpp) \| [Sub](https://atcoder.jp/contests/abc466/submissions/77398181) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 6 | [ARC117 - Tricolor Pyramid](https://atcoder.jp/contests/arc117/tasks/arc117_c) | `Math`, `Pascal` | $\mathcal{O}(n)$ | Jul 1, 2026 | [Code](AtCoder/arc117_c.cpp) \| [Sub](https://atcoder.jp/contests/arc117/submissions/77114069) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 7 | [AWC0066 - Belt Conveyor](https://atcoder.jp/contests/awc0066/tasks/awc0066_a) | `Implementation` | $\mathcal{O}(n)$ | May 11, 2026 | [Code](AtCoder/awc0066_a.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75726964) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 8 | [AWC0066 - Smartphone Battery](https://atcoder.jp/contests/awc0066/tasks/awc0066_b) | `Implementation` | $\mathcal{O}(n \log n)$ | May 11, 2026 | [Code](AtCoder/awc0066_b.cpp) \| [Sub](https://atcoder.jp/contests/awc0066/submissions/75727255) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |

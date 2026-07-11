@@ -6,13 +6,13 @@
  * ----------------------------------------------------------
  *    title: Representative Balls  
  *    source: https://atcoder.jp/contests/abc466/tasks/abc466_b
- *    submission: 
- *    status: WIP
+ *    submission: https://atcoder.jp/contests/abc466/submissions/77398181
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
+ *    tags: Implementation
+ *    complexity: O(n)
  *    metacognition: 
- *    note: 
+ *    note: Just count it
 **/
 
 #include <iostream>
