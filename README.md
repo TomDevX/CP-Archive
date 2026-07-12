@@ -17,7 +17,7 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 ~~- [ ] **First Prize** - Tin Học Trẻ Southern Region (Category C1)~~ (Failed)
 ~~- [ ] **Second Prize** - Tin Học Trẻ National (Category C1)~~ (Failed)
 - [ ] **Candidate Master** on Codeforces (Current Rating: [![Codeforces Rating of @TomDev](https://cfrating.baoshuo.dev/rating?username=TomDev&style=flat)](https://codeforces.com/profile/TomDev))
-- [ ] **VNOI Cup** - Top 10 VNOI Cup 202
+- [ ] **VNOI Cup** - Top 25 VNOI Cup 2027
 
 ## 📂 Directory Structure
 
