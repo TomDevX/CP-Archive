@@ -2,7 +2,7 @@
 
 ### 📊 Codeforces Stats
 
-![Progress](https://img.shields.io/badge/Progress-148/168-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_11%2C_2026_--_22%3A10_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-148/168-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_12%2C_2026_--_16%3A30_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 168
 - **Solved (AC):** 148
@@ -187,7 +187,7 @@
 | 167 | [2236B - Tatar TV Show](https://codeforces.com/contest/2236/problem/B) | `Implementaiton` | $\mathcal{O}(n)$ | Jul 09, 2026 | [Code](2236B.cpp) \| [Sub](https://codeforces.com/contest/2236/submission/381868185) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 168 | [2237A - Destroying Towers](https://codeforces.com/contest/2237/problem/A) | `Implementation` | $\mathcal{O}(n)$ | Jul 09, 2026 | [Code](2237A.cpp) \| [Sub](https://codeforces.com/contest/2237/submission/381867843) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 169 | [2238A - Another Puzzle from Papyrus](https://codeforces.com/contest/2238/problem/A) | `Greedy` | $\mathcal{O}(n\logn)$ | Jul 09, 2026 | [Code](2238A.cpp) \| [Sub](https://codeforces.com/contest/2238/submission/381867579) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 170 | [2238B - Crimson Triples](https://codeforces.com/contest/2238/problem/B) | N/A | N/A | Jul 09, 2026 | [Code](2238B.cpp) \| [Sub](https://codeforces.com/contest/2238/submission/381872884) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 170 | [2238B - Crimson Triples](https://codeforces.com/contest/2238/problem/B) | `Math` | $\mathcal{O}(n)$ | Jul 09, 2026 | [Code](2238B.cpp) \| [Sub](https://codeforces.com/contest/2238/submission/381872884) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 171 | [2240A - Another Popcount Problem](https://codeforces.com/contest/2240/problem/A) | `Math`, `Greedy`, `Bit` | $\mathcal{O}(\log n)$ | Jun 27, 2026 | [Code](2240A.cpp) \| [Sub](https://codeforces.com/contest/2240/submission/380379723) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 172 | [690281B - Tăng dãy](https://codeforces.com/gym/690281/problem/B) | `Segment Tree Beats` | $\mathcal{O}((n \cdot k + q) \log n)$ | May 03, 2026 | [Code](690281B.cpp) \| [Sub](https://codeforces.com/gym/690281/submission/373439975) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 

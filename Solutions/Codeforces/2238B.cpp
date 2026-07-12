@@ -9,9 +9,9 @@
  *    submission: https://codeforces.com/contest/2238/submission/381872884
  *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    metacognition: 
+ *    tags: Math
+ *    complexity: O(n)
+ *    metacognition: notice that b <= a and b <= c, a and c have the same roles. They all have the relationship as the divisor of each other ones
  *    note: 
 **/
 
