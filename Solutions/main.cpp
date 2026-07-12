@@ -1,218 +1,120 @@
-#include <bits/stdc++.h>
+/**
+ *    author: TomDev - Tran Hoang Quan
+ *    created: 2026-07-12 16:48:59
+ *    country: Vietnam - VNM
+ *    repo: github.com/TomDevX/CP-Archive
+ * ----------------------------------------------------------
+ *    title: Bài 5: Đếm cặp số nguyên tố cùng nhau
+ *    source: https://oj.vnoi.info/problem/gogovoi_nangcao_ntcungnhau
+ *    submission: 
+ *    status: WIP
+ * ----------------------------------------------------------
+ *    tags: 
+ *    complexity: 
+ *    metacognition: 
+ *    note: 
+**/
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cstdio>
+#include <string>
+#include <utility>
+
 using namespace std;
 
-vector<int> Rice_Prime;
-const int MAX = 1e9;
-const int WHEEL = 3 * 5 * 7 * 11 * 13;
-const int N_SMALL_PRIMES = 6536;
-const int SIEVE_SPAN = WHEEL * 64;
-const int SIEVE_SIZE = SIEVE_SPAN / 128 + 1;
+// --- [ DEBUGGING & LOCAL CONFIG ] ---
+#if __has_include("TomDev.h") && defined(LOCAL)
+    #include "TomDev.h"
+    #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
+#else
+    #define dbg(x,i)
+#endif
+#define NAH_I_WOULD_WIN 0
 
-uint64_t ONES[64];
-int small_primes[N_SMALL_PRIMES];
-uint64_t si[SIEVE_SIZE];
-uint64_t pattern[WHEEL];
+// --- [ MACROS ] ---
+#define all(x,bonus) std::begin(x)+(bonus), std::end(x)
+#define sub(x, st, ed) std::begin((x)) + (st), std::begin((x)) + (ed) + 1
+#define filter(x,bonus) (x).erase(unique(std::begin((x))+(bonus), std::end((x))), std::end((x)))
+#define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
+#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
+#define fi first
+#define se second
+#define eb emplace_back
+#define sz(x) (int)(x).size()
 
-inline void mark(uint64_t *s, int o) { s[o >> 6] |= ONES[o & 63]; }
-inline int test(uint64_t *s, int o) { return (s[o >> 6] & ONES[o & 63]) == 0; }
+// --- [ TYPES & ALIASES ] ---
+using ll = long long;
+using ull = unsigned long long;
+using ld = long double;
+using pll = pair<long long,long long>;
+using pld = pair<long double,long double>;
+using pii = pair<int,int>;
+using pill = pair<int,long long>;
+using vi = vector<int>;
+using vvi = vector<vector<int>>;
+using vll = vector<long long>;
+using vvll = vector<vector<long long>>;
+using vb = vector<bool>;
+using vs = vector<string>;
+using vpii = vector<pair<int,int>>;
+using vpill = vector<pair<int,long long>>;
+using vpll = vector<pair<long long,long long>>;
 
-void update_sieve(int offset)
-{
-    for (int i = 0, k; i < SIEVE_SIZE; i += k)  
-    {
-        k = std::min(WHEEL, SIEVE_SIZE - i);
-        memcpy(si + i, pattern, sizeof(*pattern) * k);
-    }
-
-    if (offset == 0)
-    {
-        si[0] |= ONES[0];
-        si[0] &= ~(ONES[1] | ONES[2] | ONES[3] | ONES[5] | ONES[6]);
-    }
-
-    for (int i = 0; i < N_SMALL_PRIMES; ++i)
-    {
-        int j = small_primes[i] * small_primes[i];
-        if (j > offset + SIEVE_SPAN - 1)
-            break;
-        if (j > offset)
-            j = (j - offset) >> 1;
-        else
-        {
-            j = small_primes[i] - offset % small_primes[i];
-            if ((j & 1) == 0)
-                j += small_primes[i];
-            j >>= 1;
-        }
-        while (j < SIEVE_SPAN / 2)
-        {
-            mark(si, j);
-            j += small_primes[i];
-        }
-    }
+void setup(){
+    if(!fopen("gogovoi_nangcao_ntcungnhau.INP", "r")) return;
+    freopen("gogovoi_nangcao_ntcungnhau.INP", "r", stdin);
+    freopen("gogovoi_nangcao_ntcungnhau.OUT", "w", stdout);
 }
 
-void sieve()
-{
-    Rice_Prime.reserve(5.8e6);
-    for (int i = 0; i < 64; ++i)
-        ONES[i] = 1ULL << i;
+// ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 1e5+2, M = 1e6+2;
 
-    for (int i = 3; i < 256; i += 2)
-    {
-        if (test(si, i >> 1))
-        {
-            for (int j = i * i / 2; j < 32768; j += i)
-                mark(si, j);
-        }
+int a[N];
+ll cnt[M];
+
+// ----------------------- [ FUNCTIONS ] -----------------------
+ll nck(ll x){
+    return x*(x-1)/2;
+}
+
+// ----------------------- [ MAIN ] -----------------------
+void __TomDev(){
+    int n;
+    cin >> n;
+
+    int max_val = 0;
+
+    for(int i = 1; i <= n; i++){
+        cin >> a[i];
+        cnt[a[i]]++;
+        max_val = max(max_val, a[i]);
     }
-    {
-        int m = 0;
-        for (int i = 8; i < 32768; ++i)
-        {
-            if (test(si, i))
-                small_primes[m++] = i * 2 + 1;
-        }
-        assert(m == N_SMALL_PRIMES);
-    }
 
-    for (int i = 1; i < WHEEL * 64; i += 3)
-        mark(pattern, i);
-    for (int i = 2; i < WHEEL * 64; i += 5)
-        mark(pattern, i);
-    for (int i = 3; i < WHEEL * 64; i += 7)
-        mark(pattern, i);
-    for (int i = 5; i < WHEEL * 64; i += 11)
-        mark(pattern, i);
-    for (int i = 6; i < WHEEL * 64; i += 13)
-        mark(pattern, i);
-
-    for (int offset = 0; offset < MAX; offset += SIEVE_SPAN)
-    {
-        update_sieve(offset);
-
-        for (uint32_t j = 0; j < SIEVE_SIZE; j++)
-        {
-            uint64_t x = ~si[j];
-            while (x)
-            {
-                uint32_t p = offset + (j << 7) + (__builtin_ctzll(x) << 1) + 1;
-                if (p > offset + SIEVE_SPAN - 1)
-                    break;
-                if (p <= MAX)
-                {
-                    Rice_Prime.emplace_back(p);
-                }
-                x ^= (-x & x);
-            }
-        }
-    }
-}
-
-const int N = 1e9 + 1;
-bitset<N> nt;
-vector<int> primes;
-
-void sieve2(const int Nmax = N)
-{
-    primes.reserve(5.1e7);
-    primes.emplace_back(2);
-    int SQRT = sqrt(Nmax);
-    for (int i = 3; i <= SQRT; i += 2)
-    {
-        if (nt[i]) // 0 = so nguyen to
-        continue;
-        for (int j = i * i; j < N; j += (i << 1))
-        nt[j] = 1;
-}
-for (int i = 3; i < Nmax; i += 2)
-{
-    if (!nt[i])
-    primes.emplace_back(i);
-}
-}
-
-// Các thông số của bánh xe
-// Bội của các số nguyên tố bé
-const int wheel_size = 2 * 3 * 5;
-const int num_offsets = 8;
-// Tập các số dư
-const int wheel_offsets[] = {1, 7, 11, 13, 17, 19, 23, 29};
-// Thứ tự của 1 số trong offsets
-int num_in_offsets[wheel_size];
-
-// vị trí trong mảng is_prime
-int pos(const int &v){
-    return v / wheel_size * num_offsets + num_in_offsets[v % wheel_size] - 1;
-}
-
-void sieve_with_wheel(){
-    // primes.reserve(5.1e7);
-    for (int i = 0; i < num_offsets; i++)
-        num_in_offsets[wheel_offsets[i]] = i + 1;
-
-    nt[pos(1)] = true; // Số 1 là hợp số
-
-    long long SQRT = sqrt(N);
-    // Duyệt i sao cho u có thể đạt tới sqrt(N)
-    for (long long i = 0; i <= SQRT; i += wheel_size) {
-        for (int j = 0; j < num_offsets; ++j) {
-            long long u = i + wheel_offsets[j];
-            if (u > SQRT) break;
-            
-            if (!nt[pos(u)]) {
-                // Ép kiểu long long cho v để tránh tràn số int
-                for (long long v = u * u; v < N; v += u) {
-                    if (num_in_offsets[v % wheel_size]) {
-                        nt[pos(v)] = true;
-                    }
-                }
-            }
+    for(int d = 1; d <= max_val; d++){
+        for(int j = d << 1; j <= max_val; j += d){
+            cnt[d] += cnt[j];
         }
     }
 
-    primes.emplace_back(2);
-    primes.emplace_back(3);
-    primes.emplace_back(5);
-
-    for (long long i = 0; i < N; i += wheel_size) {
-        for (int j = 0; j < num_offsets; ++j) {
-            long long u = i + wheel_offsets[j];
-            if (u >= N) break;
-            if (u > 5 && !nt[pos(u)]) {
-                primes.emplace_back(u);
-            }
-        }
+    for(int i = max_val; i >= 1; i--){
+        cnt[i] = nck(cnt[i]);
+        for(int d = i << 1; d <= max_val; d += i) cnt[i] -= cnt[d];
     }
+
+    cout << cnt[1];
 }
 
+int main(){
+    fastio;
+    setup();
 
-int main()
-{
-    cout << "=================== " << N << " benchmark ====================\n";
-    auto start = std::chrono::high_resolution_clock::now();
-    sieve();    
-    auto stop = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    cout << "God sieve:\n";
-    std::cout << "Thoi gian chay: " << duration.count() << " ms" << std::endl;
-    cout << "Result: " << Rice_Prime.size() << '\n';
-
-    start = std::chrono::high_resolution_clock::now();
-    sieve2();    
-    stop = std::chrono::high_resolution_clock::now();
-    duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    cout << "Normal sieve:\n";
-    std::cout << "Thoi gian chay: " << duration.count() << " ms" << std::endl;
-    cout << "Result: " << primes.size() << '\n';
-    
-    primes.clear();
-    nt.reset();
-    start = std::chrono::high_resolution_clock::now();
-    sieve_with_wheel();    
-    stop = std::chrono::high_resolution_clock::now();
-    duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    cout << "Wheel sieve:\n";
-    std::cout << "Thoi gian chay: " << duration.count() << " ms" << std::endl;
-    cout << "Result: " << primes.size() << '\n';
+    int tc = 1;
+    //cin >> tc;
+    for(int t = 1; t <= tc; t++)
+    {
+        __TomDev();
+    }
+    return NAH_I_WOULD_WIN;
 }
