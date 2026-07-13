@@ -11,8 +11,8 @@
  * ----------------------------------------------------------
  *    tags: Math, Inclusion-Exclusion
  *    complexity: O(n + S)
- *    metacognition: 
- *    note: 
+ *    metacognition: This is a typical Euler candy problem. But now it has a lower restrictions => Count Euler normally but subtract out the cases which violate the restriction (which is xi > ai), but if we only subtract on each case of violation, it will be wrong because it will overcount some child set cases. So we need to use inclusion-exclusion, we want to first put the chosen elements to violate and then count the cases. Also we notice that the H limit for every elements are the same so we don't need to do bitmask but use Combinatorics (choose k violations from n elements) and multiply it with the ways to choose. Also need to update H = H - L to make it 0 index based
+ *    note: Use inclusion - exclusion with euler candy counting
 **/
 
 #include <iostream>
