@@ -1,18 +1,18 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-07-15 16:55:36
+ *    created: 2026-07-15 15:27:28
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Hoán vị không bất động
+ *    source: https://oj.vnoi.info/problem/tht21_kvc_permu
+ *    submission: https://oj.vnoi.info/submission/12735516
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    metacognition: 
- *    note: 
+ *    tags: Inclusion-Exclusion, Math
+ *    complexity: O(m + T)
+ *    metacognition: We just need to calculate the permutation as n! as normal, then remove out the violated cases. So we need to remove the cases which have at least 1 violation, but after removing it, we accidentally add too much for the 2 violations, 3 violations cases => apply inclusion-exclusion combine with Combinatorics to avoid bitmask 
+ *    note: We remove violated permutations from n! permutations. To count the violated permutations, we use inclusion-exclusion to count only 1 case of each violation numbers
 **/
 
 #include <iostream>
@@ -63,54 +63,88 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("tht21_kvc_permu.INP", "r")) return;
+    freopen("tht21_kvc_permu.INP", "r", stdin);
+    freopen("tht21_kvc_permu.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-int n;
+const int N = 1e5+2;
+const ll MOD = 1e9+7;
+
+int avail[N];
+ll fac[N], inv[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-int Ask(int idx){
-    if(idx == n+1 || idx == 0) return (int)2e9;
-    cout << "? " << idx << endl;
-    int res;
-    cin >> res;
+ll binpow(ull x, ll k){
+    ull res = 1;
+    while(k){
+        if(k&1) res = (res*x)%MOD;
+        x = (x*x)%MOD;
+        k >>= 1;
+    }
     return res;
 }
 
-void Answer(int idx){
-    cout << "! " << idx << endl;
+void precalc(){
+    fac[0] = 1;
+    for(int i = 1; i < N; i++) fac[i] = (fac[i-1]*i)%MOD;
+
+    inv[N-1] = binpow(fac[N-1],MOD-2);
+
+    for(int i = N-2; i >= 0; i--){
+        inv[i] = (inv[i+1]*(i+1))%MOD;
+    }
+}
+
+ll norm(ll x){
+    x %= MOD;
+    if(x < 0) x += MOD;
+    return x;
+}
+
+ll nck(int n, int k){
+    if(k > n) return 0;
+    return (fac[n]*inv[n-k])%MOD*inv[k]%MOD;
 }
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    cin >> n;
+    int m,T;
+    cin >> m >> T;
+    for(int i = 1; i <= T; i++){
+        int l,r;
+        cin >> l >> r;
+        avail[l]++;
+        avail[r+1]--;
+    }
 
-    int l = 1, r = n, ans = 0;
-    while(l <= r){
-        int mid = l + ((r-l)>>1);
+    int affected = 0;
 
-        int cur = Ask(mid);
-        int nxt = Ask(mid+1);
+    for(int i = 1; i <= m; i++){
+        avail[i] += avail[i-1];
+        if(avail[i] > 0) affected++;
+    }
 
-        if(cur > nxt){
-            ans = mid+1;
-            l = mid+1;
+    ll ans = fac[m];
+
+    // dbg(inv[1],inv[N-1]);
+    for(int i = 1; i <= affected; i++){
+        if(i&1){
+            ans = norm(ans - norm(nck(affected,i)*fac[m-i]));
         }
         else{
-            ans = mid;
-            r = mid-1;
+            ans = norm(ans + norm(nck(affected,i)*fac[m-i]));
         }
     }
 
-    Answer(ans);
+    cout << ans;
 }
 
 int main(){
     fastio;
     setup();
+    precalc();
 
     int tc = 1;
     //cin >> tc;
