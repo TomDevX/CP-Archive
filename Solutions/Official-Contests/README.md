@@ -2,7 +2,7 @@
 
 ### 📊 Official-Contests Stats
 
-![Progress](https://img.shields.io/badge/Progress-0/1-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_17%2C_2026_--_18%3A26_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-0/1-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_17%2C_2026_--_18%3A28_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 1
 - **Solved (AC):** 0

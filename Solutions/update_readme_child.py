@@ -43,10 +43,9 @@ def create_slug(text):
     return slug
 
 def minify_latex(latex_str):
-    # Step 1: Replace LaTeX commands followed by space with command{}
-    latex_str = re.sub(r'(\\[a-zA-Z]+)\s+', r'\1{}', latex_str)
-    # Step 2: Remove all remaining spaces
-    latex_str = re.sub(r'\s+', '', latex_str)
+    # We no longer need to strip all spaces because wrapping in ${{ ... }}$
+    # prevents line breaks completely at the KaTeX/MathJax level.
+    latex_str = re.sub(r'\s+', ' ', latex_str).strip()
     return latex_str
 
 def escape_markdown_table_cell(text):
@@ -113,10 +112,10 @@ def extract_metadata(file_path):
                             # CRITICAL FIX: Convert pipe '|' to LaTeX '\vert ' (with a trailing space) to prevent compiling errors in GitHub Markdown
                             safe_val = val.replace('|', '\\vert ')
                             if any(p in safe_val for p in ["\\mathcal{O}", "\\Theta", "\\Omega"]):
-                                raw_latex = f"${safe_val}$"
+                                raw_latex = f"${{{safe_val}}}$"
                             else:
                                 inner = re.sub(r'^[Oo]\s*\((.*)\)$', r'\1', safe_val).strip()
-                                raw_latex = f"$\\mathcal{{O}}({inner})$"
+                                raw_latex = f"${{\\mathcal{{O}}({inner})}}$"
                             meta["complexity"] = minify_latex(raw_latex)
     except Exception: pass
     return meta

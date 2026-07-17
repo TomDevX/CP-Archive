@@ -2,7 +2,7 @@
 
 ### 📊 USACO Stats
 
-![Progress](https://img.shields.io/badge/Progress-3/3-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_17%2C_2026_--_18%3A26_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-3/3-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_17%2C_2026_--_18%3A28_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 3
 - **Solved (AC):** 3
@@ -18,7 +18,7 @@
 ## 📂 USACO (3)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [696 - Promotion Counting](https://usaco.org/index.php?page=viewproblem2&cpid=696) | `Euler Tour`, `BIT` | $\mathcal{O}(n\log{}n)$ | May&nbsp;14,&nbsp;2026 | [Code](696.cpp) \| [Sub](https://oj.vnoi.info/submission/12307332) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 2 | [921 - Cow Land](https://usaco.org/index.php?page=viewproblem2&cpid=921) | `LCA`, `Euler Tour`, `BIT` | $\mathcal{O}(n\log{}n)$ | May&nbsp;14,&nbsp;2026 | [Code](921.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 3 | [1137 - USACO 2021 US Open, Gold - Problem 1. United Cows of Farmer John](https://usaco.org/index.php?page=viewproblem2&cpid=1137) | `BIT` | $\mathcal{O}(n\log{}n)$ | Apr&nbsp;18,&nbsp;2026 | [Code](1137.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | [696 - Promotion Counting](https://usaco.org/index.php?page=viewproblem2&cpid=696) | `Euler Tour`, `BIT` | ${\mathcal{O}(n \log n)}$ | May&nbsp;14,&nbsp;2026 | [Code](696.cpp) \| [Sub](https://oj.vnoi.info/submission/12307332) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 2 | [921 - Cow Land](https://usaco.org/index.php?page=viewproblem2&cpid=921) | `LCA`, `Euler Tour`, `BIT` | ${\mathcal{O}(n \log n)}$ | May&nbsp;14,&nbsp;2026 | [Code](921.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 3 | [1137 - USACO 2021 US Open, Gold - Problem 1. United Cows of Farmer John](https://usaco.org/index.php?page=viewproblem2&cpid=1137) | `BIT` | ${\mathcal{O}(n \log n)}$ | Apr&nbsp;18,&nbsp;2026 | [Code](1137.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
