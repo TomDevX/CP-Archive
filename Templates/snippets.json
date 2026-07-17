@@ -331,8 +331,9 @@
         " * ----------------------------------------------------------",
         " *    tags: ",
         " *    complexity: ",
+        " *    metacognition: ",
         " *    note: ",
-        "**/\n"
+        "**/\n",
     ],
     "description": "CP code file"
 },

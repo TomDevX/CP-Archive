@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-423/469-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jul_17%2C_2026_--_22%3A11_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260717T2211&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-424/470-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jul_17%2C_2026_--_22%3A21_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260717T2221&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 469
-- **Accepted:** 423
+- **Total Problems:** 470
+- **Accepted:** 424
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -41,7 +41,7 @@
   * [📂 Grade 10 (66)](#-grade-10-66)
     * [📂 Entrance Exam 260331 (8)](#-entrance-exam-260331-8)
   * [📂 Ptnkoj (7)](#-ptnkoj-7)
-* [📂 SPOJ (6)](#-spoj-6)
+* [📂 SPOJ (7)](#-spoj-7)
 * [📂 SQRTOJ (1)](#-sqrtoj-1)
 * [📂 USACO (3)](#-usaco-3)
 * [📂 VNOJ (73)](#-vnoj-73)
@@ -563,7 +563,7 @@
 | 6 | [TIN - PHÍ PHÂN ĐOẠN](https://ptnkoj.com/problem/tin_online) | N/A | N/A | Jul&nbsp;1,&nbsp;2026 | [Code](PTNK/PTNKOJ/tin_online.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 7 | [TIN - THU THẬP](https://ptnkoj.com/problem/tin_thuthap) | N/A | N/A | May&nbsp;5,&nbsp;2026 | [Code](PTNK/PTNKOJ/tin_thuthap.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 
-## 📂 [SPOJ (6)](https://www.spoj.com/problems/)
+## 📂 [SPOJ (7)](https://www.spoj.com/problems/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [ADAINDEX - ADAINDEX - Ada and Indexing](https://www.spoj.com/problems/ADAINDEX/) | `Trie` | ${\mathcal{O}(n)}$ | May&nbsp;23,&nbsp;2026 | [Code](SPOJ/adaindex.cpp) \| [Sub](https://www.spoj.com/status/ns=35771587#) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -571,7 +571,8 @@
 | 3 | [CS345A1 - CS345A1 - Red Blue Line Segments](https://www.spoj.com/problems/CS345A1/) | `Sweep Line 2D`, `BIT` | ${\mathcal{O}(n \log n)}$ | Apr&nbsp;24,&nbsp;2026 | [Code](SPOJ/CS345A1.cpp) \| [Sub](35704404) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 4 | [KPRIMESB - Almost Prime Numbers Again](https://www.spoj.com/problems/KPRIMESB/) | `Math`, `Inclusion-Exclusion` | ${\mathcal{O}(2^k)}$ | Jul&nbsp;12,&nbsp;2026 | [Code](SPOJ/kprimesb.cpp) \| [Sub](https://www.spoj.com/status/ns=35853772) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 5 | [LCA - LCA - Lowest Common Ancestor](https://www.spoj.com/problems/LCA) | `LCA` | ${\mathcal{O}((n + q) \alpha (n))}$ | May&nbsp;3,&nbsp;2026 | [Code](SPOJ/lca.cpp) \| [Sub](35721778) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 6 | [PON - PON - Prime or Not](https://www.spoj.com/problems/PON/) | `Miller Rabin` | ${\mathcal{O}(k \log^3 n)}$ | May&nbsp;5,&nbsp;2026 | [Code](SPOJ/pon.cpp) \| [Sub](https://www.spoj.com/status/ns=35727953#) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 6 | [MOMOS - MOMOS - FEASTOFPIGS](https://www.spoj.com/problems/MOMOS/) | `Math`, `Inclusion-Exclusion` | ${\mathcal{O}(n \log n + 2^n)}$ | Jul&nbsp;17,&nbsp;2026 | [Code](SPOJ/MOMOS.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 7 | [PON - PON - Prime or Not](https://www.spoj.com/problems/PON/) | `Miller Rabin` | ${\mathcal{O}(k \log^3 n)}$ | May&nbsp;5,&nbsp;2026 | [Code](SPOJ/pon.cpp) \| [Sub](https://www.spoj.com/status/ns=35727953#) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [SQRTOJ (1)](https://sqrtoj.edu.vn/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |

@@ -5,8 +5,8 @@
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
  *    title: MOMOS - FEASTOFPIGS
- *    source: https://oj.vnoi.info/problem/gogovoi_momos
- *    submission: https://oj.vnoi.info/submission/12760950
+ *    source: https://www.spoj.com/problems/MOMOS/
+ *    submission: 
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Math, Inclusion-Exclusion
@@ -14,6 +14,7 @@
  *    metacognition: Make it into 2 cases, iterate through multipliers with n <= 1e6 and inclusion-exclusion with n <= 1e14 cuz k <= 20. Remember to use backtrack with Pruning to reduce the LCM operations
  *    note: Using sieve multipliers check for n <= 1e6 and inclusion-exclusion with backtracking with Pruning with n <= 1e14
 **/
+
 
 #include <iostream>
 #include <vector>
