@@ -10,7 +10,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: BFS, Graph
- *    complexity: O(n + m \log_10 m)
+ *    complexity: O(n + m \log_{10} m)
  *    metacognition: Thought of Dijkstra (trace the shortest path) + Trie (to define the smaller value) or storing using string) -> But this seems too complicated in time complexity because need to use heap (it need to store and compare too many strings)
  *    note: Notice that each edge u -> v will have a weight of its index in the edges. So that, we can do normally do shortest path on this graph. But weight! The weight will be add up by digits, not total, so it will be integer overflow, and we can't even use modulo to compare (as the statement stated). So we have another way, now we can chop down the weights using virtual nodes (like from u -> v we have edge = 123 => u -1-> virt_1 -2-> virt_2 -3-> v) => when traversing the graph, we need to prefer the smallest digit as possible, and then reaching the vertex, fix its distance as dis[v] = (dis[u] * 10 + d)%MOD (with MOD = 1e9+7). So the best way for us to traverse the graph using this method is Lexicographical BFS. So we need to consider the total digits of the current distance AND the current digit => We need to combine a bit of Dial algorithm in this BFS (using buckets to store digits). Since we need to consider both current distance digits + current digit. We use vector to group nodes with the same number of digits into the queue, and to find the next most optimized step, we check from digit 0 -> 9 and continue grouping the new ones.
 **/

@@ -136,7 +136,7 @@ def extract_metadata(file_path):
                     elif lower_line.startswith("complexity:"):
                         val = clean_line[11:].strip()
                         if val:
-                            # CRITICAL FIX: Convert pipe '|' to LaTeX '\vert' to prevent breaking Markdown tables
+                            # CRITICAL FIX: Convert pipe '|' to LaTeX '\vert ' (with a trailing space) to prevent compiling errors in GitHub Markdown
                             safe_val = val.replace('|', '\\vert ')
                             if any(p in safe_val for p in ["\\mathcal{O}", "\\Theta", "\\Omega"]):
                                 meta["complexity"] = f"${safe_val}$"
@@ -304,7 +304,7 @@ def generate_readme():
             sol_md = f"[Code]({rel_sol_path})"
             if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
             
-            table += f"| {i} | {name_md} | {meta['tags']} | {meta['complexity']} | {meta['date']} | {sol_md} | {get_status_badge(meta['status'])} |\n"
+            table += f"| {i} | {name_md} | {meta['tags']} | <nobr>{meta['complexity']}</nobr> | <nobr>{meta['date']}</nobr> | {sol_md} | {get_status_badge(meta['status'])} |\n"
                 
         main_content += table + "\n"
         
