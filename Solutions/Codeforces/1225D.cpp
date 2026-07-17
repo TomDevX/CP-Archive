@@ -10,7 +10,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Math
- *    complexity: O(n \log \max(n))
+ *    complexity: O(n \log \text{max}(n))
  *    note: Only prime factors with total exponential (after added 2 factors of 2 numbers together) that modulo k = 0 can be added. To count, store those factors in a map, here I used a devil method to optimize for speed (just dont care about it), to find the needed factors, just get k - p_i
 **/
 

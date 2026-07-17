@@ -2,7 +2,7 @@
 
 ### 📊 Codeforces Stats
 
-![Progress](https://img.shields.io/badge/Progress-148/168-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_17%2C_2026_--_18%3A39_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-148/168-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_17%2C_2026_--_18%3A52_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 168
 - **Solved (AC):** 148
@@ -93,10 +93,10 @@
 | 73 | [1118B - Tanya and Candies](https://codeforces.com/contest/1118/problem/B) | `Implementation` | ${\mathcal{O}(n)}$ | Jun&nbsp;30,&nbsp;2026 | [Code](1118B.cpp) \| [Sub](https://codeforces.com/contest/1118/submission/380633450) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 74 | [1154A](https://codeforces.com/contest/1154/problem/A) | N/A | N/A | N/A | [Code](1154A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 75 | [1209F - Koala and Notebook](https://codeforces.com/contest/1209/problem/F) | `BFS`, `Graph` | ${\mathcal{O}(n + m \log_{10} m)}$ | Jun&nbsp;21,&nbsp;2026 | [Code](1209F.cpp) \| [Sub](https://codeforces.com/contest/1209/submission/379680947) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 76 | [1225D - Power Products](https://codeforces.com/contest/1225/problem/D) | `Math` | ${\mathcal{O}(n \log \max(n))}$ | Jun&nbsp;04,&nbsp;2026 | [Code](1225D.cpp) \| [Sub](https://codeforces.com/contest/1225/submission/377373976) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 76 | [1225D - Power Products](https://codeforces.com/contest/1225/problem/D) | `Math` | ${\mathcal{O}(n \log \text{max}(n))}$ | Jun&nbsp;04,&nbsp;2026 | [Code](1225D.cpp) \| [Sub](https://codeforces.com/contest/1225/submission/377373976) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 77 | [1328A](https://codeforces.com/contest/1328/problem/A) | N/A | N/A | N/A | [Code](1328A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 78 | [1335A](https://codeforces.com/contest/1335/problem/A) | N/A | N/A | N/A | [Code](1335A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 79 | [1349A - Orac and LCM](https://codeforces.com/contest/1349/problem/A) | `Math` | ${\mathcal{O}(n \log \max(n))}$ | Jun&nbsp;09,&nbsp;2026 | [Code](1349A.cpp) \| [Sub](https://codeforces.com/contest/1349/submission/377986037) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 79 | [1349A - Orac and LCM](https://codeforces.com/contest/1349/problem/A) | `Math` | ${\mathcal{O}(n \log \text{max}(n))}$ | Jun&nbsp;09,&nbsp;2026 | [Code](1349A.cpp) \| [Sub](https://codeforces.com/contest/1349/submission/377986037) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 80 | [1352A](https://codeforces.com/contest/1352/problem/A) | N/A | N/A | N/A | [Code](1352A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 81 | [1399A](https://codeforces.com/contest/1399/problem/A) | N/A | N/A | N/A | [Code](1399A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 82 | [1409A](https://codeforces.com/contest/1409/problem/A) | N/A | N/A | N/A | [Code](1409A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |

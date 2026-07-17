@@ -10,7 +10,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Trie
- *    complexity: O(n \log maxn)
+ *    complexity: O(n \log \text{max}(n))
  *    note: Typical trie
 **/
 
