@@ -11,17 +11,38 @@
     {
         "key": "alt+enter",
         "command": "workbench.action.tasks.runTask",
-        "args": "Compile and Run cpp"
+        "args": "Compile and Run cpp",
+        "when": "editorLangId == cpp"
+    },
+    {
+        "key": "alt+enter",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Compile and Run C",
+        "when": "editorLangId == c"
     },
     {
         "key": "ctrl+enter",
         "command": "workbench.action.tasks.runTask",
-        "args": "Compile and Run cpp without file"
+        "args": "Compile and Run cpp without file",
+        "when": "editorLangId == cpp"
+    },
+    {
+        "key": "ctrl+enter",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Compile and Run C without file",
+        "when": "editorLangId == c"
     },
     {
         "key": "alt+'",
         "command": "workbench.action.tasks.runTask",
-        "args": "Get compile file"
+        "args": "Get compile file cpp",
+        "when": "editorLangId == cpp"
+    },
+    {
+        "key": "alt+'",
+        "command": "workbench.action.tasks.runTask",
+        "args": "Get compile file C",
+        "when": "editorLangId == c"
     },
     {
         "key": "ctrl+alt+n",
@@ -59,5 +80,15 @@
         "key": "shift+alt+'",
         "command": "fastolympiccoding.startStressTest",
         "when": "view.fastolympiccoding.stress.visible"
+    },
+    {
+        "key": "alt+`",
+        "command": "-workbench.action.editorDictation.start",
+        "when": "hasSpeechProvider && !editorReadonly && !speechToTextInProgress"
+    },
+    {
+        "key": "alt+enter",
+        "command": "code-runner.run",
+        "when": "config.code-runner.showRunIconInEditorTitleMenu && (editorLangId != cpp && editorLangId != c)"
     },
 ]
