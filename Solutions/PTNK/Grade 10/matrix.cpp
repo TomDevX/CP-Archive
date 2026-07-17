@@ -10,7 +10,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Math
- *    complexity: O(n\log\logn)
+ *    complexity: O(n \log \log n)
  *    metacognition: Maybe if the number is prime, it must != group with number 1 >< but the array has many elements not just 1 to n -> For x/y = p, number of x's prime factor must = number of y's prime factor + 1 (that one is the prime number p), so it means that the team will be the parity of x's number of prime factor
  *    note: Separate the team by the parity of that element's number of prime factors in order to make it number of x's prime factor != number of y's prime factor + 1
 **/

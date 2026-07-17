@@ -10,7 +10,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Tree, Math, Inclusion-Exclusion
- *    complexity: O(m + \text{max_value} \log \text{max_value} \cdot \alpha(n))
+ *    complexity: O(m + \max(a[i]) \log \max(a[i]) \cdot \alpha(n))
  *    metacognition: Can't count gcd = 1 directly because it is very hard. Instead we can count the paths with gcd > 1 and then use exclusion to remove it out. To do that, we iterate through possible GCD values decreasing (N -> 1) and count how many paths take them as their GCD. To count how many paths take them as their GCD, we need to count the size of the componenets which all of its values divisible by GCD, and then add all the possible math through the formula size * (size-1) / 2. But now in this code I use DSU to mark the componenets so I can freely use sz[u]*sz[v] on each union for shortcuts instead of waiting for the final size (remember that paths with only 1 node counts tho). But after counting like that we're not sure if GCD is gcd of some of those paths or not, so we need to subtract out the cnt[multiplies of GCD] (exclusion). In this code I also precompute edges with divisors/gcd and nodes with divisors/gcd for easier DSU reset and calculations
  *    note: Count paths with gcd > 1 and use inclusion-exclusion on GCDs values to get gcd = 1. To count the path which take each GCD values as their gcd we use DSU and size*(size-1)/2 formula
 **/

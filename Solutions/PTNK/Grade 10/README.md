@@ -2,7 +2,7 @@
 
 ### 📊 Grade 10 Stats
 
-![Progress](https://img.shields.io/badge/Progress-50/66-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_17%2C_2026_--_18%3A20_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-50/66-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_17%2C_2026_--_18%3A24_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 66
 - **Solved (AC):** 50
@@ -50,7 +50,7 @@
 | 29 | [LCA - LCA](LCA1.pdf) | `LCA` | <nobr>$\mathcal{O}(n \log 19 + (n-1) + q \log 19)$</nobr> | <nobr>Feb 24, 2026</nobr> | [Code](LCA.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 30 | [LIKEPRIME - Các số “hơi nguyên tố”](DT%2001-06-2026.pdf) | `Digit`, `Implementation` | <nobr>$\mathcal{O}(n)$</nobr> | <nobr>Jun 01, 2026</nobr> | [Code](likeprime.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 31 | [MARATHON - MARATHON](LCA2.pdf) | `LCA` | <nobr>$\mathcal{O}(n \log n)$</nobr> | <nobr>Mar 03, 2026</nobr> | [Code](MARATHON.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 32 | [MATRIX - PHÂN CHIA MẢNG](DT%2013-07-2026.pdf) | `Math` | <nobr>$\mathcal{O}(n\log\logn)$</nobr> | <nobr>Jul 13, 2026</nobr> | [Code](matrix.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 32 | [MATRIX - PHÂN CHIA MẢNG](DT%2013-07-2026.pdf) | `Math` | <nobr>$\mathcal{O}(n \log \log n)$</nobr> | <nobr>Jul 13, 2026</nobr> | [Code](matrix.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 33 | [MINMM - MINMM](BT_20260226.pdf) | N/A | <nobr>N/A</nobr> | <nobr>Feb 26, 2026</nobr> | [Code](MINMM.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 34 | MINQUERY | N/A | <nobr>N/A</nobr> | <nobr>Jan 20, 2026</nobr> | [Code](MINQUERY.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 35 | MODSEQ | N/A | <nobr>N/A</nobr> | <nobr>Jan 19, 2026</nobr> | [Code](MODSEQ.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
