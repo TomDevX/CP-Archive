@@ -10,7 +10,7 @@ README_FILE = os.path.join(BASE_DIR, 'README.md')
 root_dir = os.path.join(BASE_DIR, 'Solutions') if os.path.isdir(os.path.join(BASE_DIR, 'Solutions')) else BASE_DIR
 
 EXCLUDE_DIRS = {'.git', '.github', '.assets', 'venv', '__pycache__', '.cph'}
-CITY_ID = 218 
+CITY_ID = 218 # Ho Chi Minh City
 
 STATUS_MAP = {
     "AC": {"full": "Accepted", "color": "4c1", "prio": 4},        
@@ -19,6 +19,7 @@ STATUS_MAP = {
     "WIP": {"full": "Work In Progress", "color": "007ec6", "prio": 1},     
 }
 
+# --- HELPERS ---
 def natural_sort_key(s):
     return [int(text) if text.isdigit() else text.lower()
             for text in re.split('([0-9]+)', s)]
@@ -34,6 +35,14 @@ def escape_markdown_table_cell(text):
     if not text: 
         return ""
     return text.replace('|', '\\|')
+
+def minify_latex(latex_str):
+    """
+    Normalizes multiple spaces into a single space. 
+    Wrapping in ${{ ... }}$ will guarantee the browser treats it as an unbreakable block.
+    """
+    latex_str = re.sub(r'\s+', ' ', latex_str).strip()
+    return latex_str
 
 def get_oj_link_from_file(folder_path):
     link_files = ['link.txt', 'oj.txt', 'source.url']
@@ -76,12 +85,6 @@ def create_slug(text):
     slug = re.sub(r'[^\w\-]', '', slug)
     return slug
 
-def minify_latex(latex_str):
-    # We no longer need to strip all spaces because wrapping in ${{ ... }}$
-    # prevents line breaks completely at the KaTeX/MathJax level.
-    latex_str = re.sub(r'\s+', ' ', latex_str).strip()
-    return latex_str
-
 def extract_metadata(file_path):
     meta = {"source": None, "submission": None, "tags": "N/A", "complexity": "N/A", "title": None, "date": "N/A", "status": "AC"}
     try:
@@ -101,7 +104,6 @@ def extract_metadata(file_path):
                     if lower_line.startswith("title:"):
                         val = clean_line[6:].strip()
                         if val: 
-                            # Safe escape for titles containing '|'
                             meta["title"] = escape_markdown_table_cell(val)
                     elif lower_line.startswith("status:"):
                         val = clean_line[7:].strip().upper()
@@ -136,7 +138,6 @@ def extract_metadata(file_path):
                     elif lower_line.startswith("tags:"):
                         val = clean_line[5:].strip()
                         if val:
-                            # Safe escape for tags containing '|'
                             tags = [f"`{escape_markdown_table_cell(t.strip())}`" for t in val.split(',') if t.strip()]
                             meta["tags"] = ", ".join(tags)
                     elif lower_line.startswith("complexity:"):
@@ -183,6 +184,10 @@ def count_problems_recursive(directory):
     for root, dirs, files in os.walk(directory):
         dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
         
+        # Bỏ qua hoàn toàn các tệp nằm trực tiếp tại thư mục gốc Solutions/
+        if os.path.relpath(root, directory) == ".":
+            continue
+            
         for file in files:
             if file.endswith('.cpp') or file.endswith('.c'):
                 full_path = os.path.join(root, file)
@@ -242,6 +247,7 @@ def generate_readme():
         dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
         rel_path = os.path.relpath(root, root_dir)
         
+        # Bỏ qua thư mục gốc để lọc bỏ toàn bộ file lẻ bên ngoài
         if rel_path != ".":
             parts = rel_path.split(os.sep)
             for i in range(len(parts)):
@@ -258,10 +264,10 @@ def generate_readme():
                     toc_content += f"{indent}* [📂 {title_with_count}](#-{create_slug(title_with_count)})\n"
                     added_to_toc.add(current_path)
 
-        # Lọc cả file .cpp và .c
-        sol_files = [f for f in files if f.endswith('.cpp') or f.endswith('.c')]
-        if sol_files:
-            folder_data.append((root, sol_files))
+            # Lọc cả file .cpp và .c (Chỉ thu thập khi nằm trong các thư mục con của OJ)
+            sol_files = [f for f in files if f.endswith('.cpp') or f.endswith('.c')]
+            if sol_files:
+                folder_data.append((root, sol_files))
 
     folder_data.sort(key=lambda x: natural_sort_key(x[0]))
 
@@ -303,8 +309,6 @@ def generate_readme():
             else:
                 display_name = format_display_name(filename_no_ext) 
             
-            # Prevent pipe leakage from problem names
-            display_name = escape_markdown_table_cell(display_name)
             name_md = f"[{display_name}]({prob_link})" if prob_link else display_name
             
             rel_sol_path = os.path.relpath(full_path, BASE_DIR).replace('\\', '/').replace(' ', '%20')
