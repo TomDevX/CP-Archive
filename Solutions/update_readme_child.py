@@ -42,6 +42,13 @@ def create_slug(text):
     slug = re.sub(r'[^\w\-]', '', slug)
     return slug
 
+def minify_latex(latex_str):
+    # Step 1: Replace LaTeX commands followed by space with command{}
+    latex_str = re.sub(r'(\\[a-zA-Z]+)\s+', r'\1{}', latex_str)
+    # Step 2: Remove all remaining spaces
+    latex_str = re.sub(r'\s+', '', latex_str)
+    return latex_str
+
 def escape_markdown_table_cell(text):
     """
     Escapes the pipe symbol '|' to prevent breaking Markdown tables.
@@ -106,10 +113,11 @@ def extract_metadata(file_path):
                             # CRITICAL FIX: Convert pipe '|' to LaTeX '\vert ' (with a trailing space) to prevent compiling errors in GitHub Markdown
                             safe_val = val.replace('|', '\\vert ')
                             if any(p in safe_val for p in ["\\mathcal{O}", "\\Theta", "\\Omega"]):
-                                meta["complexity"] = f"${safe_val}$"
+                                raw_latex = f"${safe_val}$"
                             else:
                                 inner = re.sub(r'^[Oo]\s*\((.*)\)$', r'\1', safe_val).strip()
-                                meta["complexity"] = f"$\\mathcal{{O}}({inner})$"
+                                raw_latex = f"$\\mathcal{{O}}({inner})$"
+                            meta["complexity"] = minify_latex(raw_latex)
     except Exception: pass
     return meta
 
@@ -240,13 +248,7 @@ def generate_single_readme(target_dir):
             filename_no_ext = re.sub(r'\.(cpp|c)$', '', file, flags=re.IGNORECASE)
             file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
             
-            if meta["title"]:
-                prob_title = f"{file_id} - {meta['title']}"
-            else:
-                prob_title = format_display_name(filename_no_ext)
-                
-            # Safe escape for problem titles containing '|' in cell
-            prob_title = escape_markdown_table_cell(prob_title)
+            prob_title = f"{file_id} - {meta['title']}" if meta["title"] else filename_no_ext
             name_md = f"[{prob_title}]({prob_link})" if prob_link else prob_title
             
             # 3. XỬ LÝ LINK CODE (File .cpp hoặc .c)
@@ -260,7 +262,10 @@ def generate_single_readme(target_dir):
                     sub_link = os.path.relpath(sub_link, target_dir).replace('\\', '/').replace(' ', '%20')
                 sol_md += f" \\| [Sub]({sub_link})"
             
-            table += f"| {idx} | {name_md} | {meta['tags']} | <nobr>{meta['complexity']}</nobr> | <nobr>{meta['date']}</nobr> | {sol_md} | {get_status_badge(meta['status'])} |\n"
+            # Escape spaces in date for unbreakable rendering in GitHub tables
+            safe_date = meta['date'].replace(' ', '&nbsp;')
+            
+            table += f"| {idx} | {name_md} | {meta['tags']} | {meta['complexity']} | {safe_date} | {sol_md} | {get_status_badge(meta['status'])} |\n"
         
         main_tables += table + "\n"
 

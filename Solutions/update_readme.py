@@ -76,6 +76,13 @@ def create_slug(text):
     slug = re.sub(r'[^\w\-]', '', slug)
     return slug
 
+def minify_latex(latex_str):
+    # Step 1: Replace LaTeX commands followed by space with command{}
+    latex_str = re.sub(r'(\\[a-zA-Z]+)\s+', r'\1{}', latex_str)
+    # Step 2: Remove all remaining spaces
+    latex_str = re.sub(r'\s+', '', latex_str)
+    return latex_str
+
 def extract_metadata(file_path):
     meta = {"source": None, "submission": None, "tags": "N/A", "complexity": "N/A", "title": None, "date": "N/A", "status": "AC"}
     try:
@@ -139,10 +146,11 @@ def extract_metadata(file_path):
                             # CRITICAL FIX: Convert pipe '|' to LaTeX '\vert ' (with a trailing space) to prevent compiling errors in GitHub Markdown
                             safe_val = val.replace('|', '\\vert ')
                             if any(p in safe_val for p in ["\\mathcal{O}", "\\Theta", "\\Omega"]):
-                                meta["complexity"] = f"${safe_val}$"
+                                raw_latex = f"${safe_val}$"
                             else:
                                 inner = re.sub(r'^[Oo]\s*\((.*)\)$', r'\1', safe_val).strip()
-                                meta["complexity"] = f"$\\mathcal{{O}}({inner})$"
+                                raw_latex = f"$\\mathcal{{O}}({inner})$"
+                            meta["complexity"] = minify_latex(raw_latex)
     except Exception: pass
     return meta
 
@@ -304,7 +312,10 @@ def generate_readme():
             sol_md = f"[Code]({rel_sol_path})"
             if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
             
-            table += f"| {i} | {name_md} | {meta['tags']} | <nobr>{meta['complexity']}</nobr> | <nobr>{meta['date']}</nobr> | {sol_md} | {get_status_badge(meta['status'])} |\n"
+            # Escape spaces in date for unbreakable rendering in GitHub tables
+            safe_date = meta['date'].replace(' ', '&nbsp;')
+            
+            table += f"| {i} | {name_md} | {meta['tags']} | {meta['complexity']} | {safe_date} | {sol_md} | {get_status_badge(meta['status'])} |\n"
                 
         main_content += table + "\n"
         
