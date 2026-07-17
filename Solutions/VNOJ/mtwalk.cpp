@@ -10,7 +10,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Binary Search, Matrix
- *    complexity: O(n^2 \cdot \text{MAX_VAL} \log \text{MAX_VAL})
+ *    complexity: O(n^2 \cdot \text{MAX VALUE} \log \text{MAX VALUE})
  *    note: Just binary search to find the range that the value should be in
 **/
 
