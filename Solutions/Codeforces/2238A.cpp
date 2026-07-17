@@ -10,7 +10,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Greedy
- *    complexity: O(n\logn)
+ *    complexity: O(n \log n)
  *    metacognition: First just count normally if we don't reorder. The second count is reorder, best way to reorder is to sort the array to match min - min, mid - mid, max - max. If there's a < b, we'll never reach it => -1
  *    note: Count normally and then sort the array and count again to get the maximum ans
 **/

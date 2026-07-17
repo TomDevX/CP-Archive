@@ -10,7 +10,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Math
- *    complexity: O(n \log maxn)
+ *    complexity: O(n \log \max(n))
  *    note: Just draw out the gcd of all LCMs with small tests and we can see some math observations below
 **/
 

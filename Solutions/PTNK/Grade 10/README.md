@@ -2,7 +2,7 @@
 
 ### 📊 Grade 10 Stats
 
-![Progress](https://img.shields.io/badge/Progress-50/66-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_17%2C_2026_--_18%3A28_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-50/66-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_17%2C_2026_--_18%3A37_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 66
 - **Solved (AC):** 50
@@ -19,7 +19,7 @@
 ## 📂 Grade 10 (66)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | [ANCES - ANCES](LCA1.pdf) | `LCA` | ${\mathcal{O}(n \log 19 + (n-1) + \log 19)}$ | Feb&nbsp;24,&nbsp;2026 | [Code](ANCES.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 1 | [ANCES - ANCES](LCA1.pdf) | `LCA` | ${\mathcal{O}(n \log (19) + (n-1) + \log (19))}$ | Feb&nbsp;24,&nbsp;2026 | [Code](ANCES.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | ANDO | N/A | N/A | Jan&nbsp;12,&nbsp;2026 | [Code](ANDO.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 3 | ANIME_2 | N/A | N/A | N/A | [Code](ANIME_2.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 4 | [BASESTRING - Xâu cơ sở](BT_20260406.pdf) | `String` | ${\mathcal{O}(1)}$ | Apr&nbsp;06,&nbsp;2026 | [Code](BASESTRING.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -47,7 +47,7 @@
 | 26 | KRUSKAL | N/A | N/A | Dec&nbsp;01,&nbsp;2025 | [Code](KRUSKAL.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 27 | KRUSKAP.INP | N/A | N/A | N/A | [Code](KRUSKAP.INP.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 28 | [LCA2 - LCA2](LCA1.pdf) | `LCA` | N/A | Feb&nbsp;24,&nbsp;2026 | [Code](LCA2.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 29 | [LCA - LCA](LCA1.pdf) | `LCA` | ${\mathcal{O}(n \log 19 + (n-1) + q \log 19)}$ | Feb&nbsp;24,&nbsp;2026 | [Code](LCA.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 29 | [LCA - LCA](LCA1.pdf) | `LCA` | ${\mathcal{O}(n \log (19) + (n-1) + q \log (19))}$ | Feb&nbsp;24,&nbsp;2026 | [Code](LCA.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 30 | [LIKEPRIME - Các số “hơi nguyên tố”](DT%2001-06-2026.pdf) | `Digit`, `Implementation` | ${\mathcal{O}(n)}$ | Jun&nbsp;01,&nbsp;2026 | [Code](likeprime.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 31 | [MARATHON - MARATHON](LCA2.pdf) | `LCA` | ${\mathcal{O}(n \log n)}$ | Mar&nbsp;03,&nbsp;2026 | [Code](MARATHON.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 32 | [MATRIX - PHÂN CHIA MẢNG](DT%2013-07-2026.pdf) | `Math` | ${\mathcal{O}(n \log \log n)}$ | Jul&nbsp;13,&nbsp;2026 | [Code](matrix.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |

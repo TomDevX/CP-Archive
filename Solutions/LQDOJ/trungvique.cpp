@@ -9,7 +9,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: Mo's Algorithm, Sqrt Decomposition
- *    complexity: O(n \sqrt{q} + q \sqrt{MAX_VALUE})
+ *    complexity: O(n \sqrt{q} + q \sqrt{\text{MAX VALUE}})
  *    note: We use Mo for the query and O(1) update for each move l,r in query. cnt[i] = number of occurences of value i in a[l -> r], block[i] = sum(cnt[i*BLOCK_SIZE -> (i+1)*BLOCK_SIZE - 1]). After updating, we query by getting the value that is higher than (r-l+1)/2 values
 **/
 

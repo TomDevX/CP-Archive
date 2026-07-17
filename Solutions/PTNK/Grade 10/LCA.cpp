@@ -9,7 +9,7 @@
  *    status: AC
  * ----------------------------------------------------------
  *    tags: LCA
- *    complexity: O(n \log 19 + (n-1) + q \log 19)
+ *    complexity: O(n \log (19) + (n-1) + q \log (19))
  *    note: 
 **/
 
