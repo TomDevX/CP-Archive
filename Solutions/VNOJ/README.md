@@ -2,7 +2,7 @@
 
 ### 📊 VNOJ Stats
 
-![Progress](https://img.shields.io/badge/Progress-72/73-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_17%2C_2026_--_18%3A37_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-72/73-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_17%2C_2026_--_18%3A39_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 73
 - **Solved (AC):** 72
@@ -22,7 +22,7 @@
 | 2 | [ATCODER - Bài toán bông hoa](https://oj.vnoi.info/problem/atcoder_dp_q) | `DP`, `Segment Tree` | ${\mathcal{O}(n \log n)}$ | Apr&nbsp;11,&nbsp;2026 | [Code](atcoder_dp_q.cpp) \| [Sub](https://oj.vnoi.info/submission/12088968) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 3 | [BEDAO - Bedao Grand Contest 10 - PERFECT](https://oj.vnoi.info/problem/bedao_g10_perfect) | `Sparse Table`, `RMQ` | ${\mathcal{O}(n \log n)}$ | Mar&nbsp;19,&nbsp;2026 | [Code](bedao_g10_perfect.cpp) \| [Sub](https://oj.vnoi.info/submission/11912847) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 4 | [BEDAO - Bedao Mini Contest 16 - SHOOTING](https://oj.vnoi.info/problem/bedao_m16_shooting) | `Sweep Line`, `Segment Tree` | ${\mathcal{O}(n \log n)}$ | Apr&nbsp;22,&nbsp;2026 | [Code](bedao_m16_shooting.cpp) \| [Sub](https://oj.vnoi.info/submission/12166477) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 5 | [BEDAO - Bedao Mini Contest 27 - Mạng rễ cổ thụ](https://oj.vnoi.info/problem/bedao_m27_e) | `Tree`, `Math`, `Inclusion-Exclusion` | ${\mathcal{O}(m + \max(a[i]) \cdot \log \cdot \max(a[i]) \cdot \alpha(n))}$ | Jul&nbsp;17,&nbsp;2026 | [Code](bedao_m27_e.cpp) \| [Sub](https://oj.vnoi.info/submission/12757277) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 5 | [BEDAO - Bedao Mini Contest 27 - Mạng rễ cổ thụ](https://oj.vnoi.info/problem/bedao_m27_e) | `Tree`, `Math`, `Inclusion-Exclusion` | ${\mathcal{O}(m + \max(a[i]) \cdot \log \max(a[i]) \cdot \alpha(n))}$ | Jul&nbsp;17,&nbsp;2026 | [Code](bedao_m27_e.cpp) \| [Sub](https://oj.vnoi.info/submission/12757277) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 6 | [BRACKET - BRACKET](https://oj.vnoi.info/problem/bedao_r14_bracket) | `RMQ` | ${\mathcal{O}(n \log n + q)}$ | Mar&nbsp;18,&nbsp;2026 | [Code](BRACKET.cpp) \| [Sub](https://oj.vnoi.info/submission/11905547) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 7 | [C11PRIME1 - Số nguyên tố (#1 Approach)](https://oj.vnoi.info/problem/c11prime) | `Number Theory` | ${\mathcal{O}(n^{1/4})}$ | Feb&nbsp;09,&nbsp;2026 | [Code](c11prime1.cpp) \| [Sub](https://oj.vnoi.info/submission/11678299) | ![TLE](https://img.shields.io/static/v1?label=&message=%20%20%20TLE%20%20%20&color=dfb317&style=for-the-badge) |
 | 8 | [C11PRIME2 - Số nguyên tố (#2 Approach)](https://oj.vnoi.info/problem/c11prime) | `Number Theory` | ${\mathcal{O}(60 \cdot \log(10^9) \cdot 12 \cdot \log^3(n))}$ | Feb&nbsp;09,&nbsp;2026 | [Code](c11prime2.cpp) \| [Sub](https://oj.vnoi.info/submission/11679434) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
