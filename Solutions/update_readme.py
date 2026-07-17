@@ -137,7 +137,7 @@ def extract_metadata(file_path):
                         val = clean_line[11:].strip()
                         if val:
                             # CRITICAL FIX: Convert pipe '|' to LaTeX '\vert' to prevent breaking Markdown tables
-                            safe_val = val.replace('|', '\\vert')
+                            safe_val = val.replace('|', '\\vert ')
                             if any(p in safe_val for p in ["\\mathcal{O}", "\\Theta", "\\Omega"]):
                                 meta["complexity"] = f"${safe_val}$"
                             else:

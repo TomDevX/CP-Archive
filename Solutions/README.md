@@ -2,7 +2,7 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-426/475-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jul_17%2C_2026_--_18%3A15_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260717T1815&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-426/475-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Jul_17%2C_2026_--_18%3A18_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260717T1818&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 475
 - **Accepted:** 426
@@ -288,7 +288,7 @@
 | 19 | [GOGOVOI - Đế Chế](https://oj.vnoi.info/problem/gogovoi_seg1) | `Sweep Line`, `BIT` | $\mathcal{O}(n \log n)$ | Apr 21, 2026 | [Code](CPPros/gogovoi_seg1.cpp) \| [Sub](https://oj.vnoi.info/submission/12165705) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 20 | [GOGOVOI - Dư đoạn](https://oj.vnoi.info/problem/gogovoi_seg2) | `Sweep Line 1D` | $\mathcal{O}(n \log n)$ | Apr 21, 2026 | [Code](CPPros/gogovoi_seg2.cpp) \| [Sub](https://oj.vnoi.info/submission/12162887) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 21 | [GOGOVOI - Tổng XOR lớn nhất](https://oj.vnoi.info/problem/gogovoi_sumxor) | `Trie` | $\mathcal{O}(n \log maxn)$ | Jun 1, 2026 | [Code](CPPros/gogovoi_sumxor.cpp) \| [Sub](https://oj.vnoi.info/submission/12415495) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 22 | [GOGOVOI - Tạo xâu II](https://oj.vnoi.info/problem/gogovoi_tohopbai1) | `Math` | $\mathcal{O}(\vertS\vert)$ | Jun 26, 2026 | [Code](CPPros/gogovoi_tohopbai1.cpp) \| [Sub](https://oj.vnoi.info/submission/12578465) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 22 | [GOGOVOI - Tạo xâu II](https://oj.vnoi.info/problem/gogovoi_tohopbai1) | `Math` | $\mathcal{O}(\vert S\vert)$ | Jun 26, 2026 | [Code](CPPros/gogovoi_tohopbai1.cpp) \| [Sub](https://oj.vnoi.info/submission/12578465) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 23 | [PRODUCT - product](https://oj.vnoi.info/problem/product) | `Two Pointes` | $\mathcal{O}(n)$ | Feb 23, 2026 | [Code](CPPros/product.cpp) \| [Sub](https://oj.vnoi.info/submission/11801553) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ### 📁 Advanced Techniques (2)
@@ -648,7 +648,7 @@
 | 47 | [MTWALK - Mountain Walking](https://oj.vnoi.info/problem/mtwalk) | `Binary Search`, `Matrix` | $\mathcal{O}(n^2 \cdot \text{MAX_VAL} \log \text{MAX_VAL})$ | May 12, 2026 | [Code](VNOJ/mtwalk.cpp) \| [Sub](https://oj.vnoi.info/src/12290611) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 48 | [NKMOBILE - IOI01 Mobiles](https://oj.vnoi.info/problem/nkmobile) | `BIT 2D` | $\mathcal{O}(n^2 \log n^2)$ | Apr 10, 2026 | [Code](VNOJ/nkmobile.cpp) \| [Sub](https://oj.vnoi.info/submission/12088963) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 49 | [NKRACING - Vòng đua F1](https://oj.vnoi.info/problem/nkracing) | `MST` | $\mathcal{O}(n \log n)$ | May 6, 2026 | [Code](VNOJ/nkracing.cpp) \| [Sub](https://oj.vnoi.info/submission/12250760) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 50 | [NKSEV - Tách từ](https://oj.vnoi.info/problem/nksev) | `Trie` | $\mathcal{O}(\vertS\vert*100)$ | May 25, 2026 | [Code](VNOJ/nksev.cpp) \| [Sub](https://oj.vnoi.info/submission/12393469) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 50 | [NKSEV - Tách từ](https://oj.vnoi.info/problem/nksev) | `Trie` | $\mathcal{O}(\vert S\vert *100)$ | May 25, 2026 | [Code](VNOJ/nksev.cpp) \| [Sub](https://oj.vnoi.info/submission/12393469) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 51 | [ORDERSET - Order statistic set](https://oj.vnoi.info/problem/orderset) | `Trie` | $\mathcal{O}(n)$ | May 31, 2026 | [Code](VNOJ/orderset.cpp) \| [Sub](https://oj.vnoi.info/submission/12412425) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 52 | [PALINY - Palindrome dài nhất](https://oj.vnoi.info/problem/paliny) | `Hash` | $\mathcal{O}(n \log n)$ | May 19, 2026 | [Code](VNOJ/paliny.cpp) \| [Sub](https://oj.vnoi.info/submission/12338521) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 53 | [PWALK - PWALK](https://oj.vnoi.info/problem/pwalk) | `LCA` | $\mathcal{O}(n \log n)$ | Mar 3, 2026 | [Code](VNOJ/PWALK.cpp) \| [Sub](https://oj.vnoi.info/submission/11787434) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
