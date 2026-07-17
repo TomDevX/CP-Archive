@@ -42,6 +42,14 @@ def create_slug(text):
     slug = re.sub(r'[^\w\-]', '', slug)
     return slug
 
+def escape_markdown_table_cell(text):
+    """
+    Escapes the pipe symbol '|' to prevent breaking Markdown tables.
+    """
+    if not text: 
+        return ""
+    return text.replace('|', '\\|')
+
 def extract_metadata(file_path):
     meta = {"source": None, "submission": None, "tags": "N/A", "complexity": "N/A", "title": None, "date": "N/A", "status": "AC"}
     try:
@@ -60,7 +68,9 @@ def extract_metadata(file_path):
                     
                     if lower_line.startswith("title:"):
                         val = clean_line[6:].strip()
-                        if val: meta["title"] = val
+                        if val: 
+                            # Safe escape for titles containing '|'
+                            meta["title"] = escape_markdown_table_cell(val)
                     elif lower_line.startswith("status:"):
                         val = clean_line[7:].strip().upper()
                         if any(x in val for x in ["IN PROGRESS", "WIP"]): meta["status"] = "WIP"
@@ -87,15 +97,18 @@ def extract_metadata(file_path):
                     elif lower_line.startswith("tags:"):
                         val = clean_line[5:].strip()
                         if val:
-                            tags = [f"`{t.strip()}`" for t in val.split(',') if t.strip()]
+                            # Safe escape for tags containing '|'
+                            tags = [f"`{escape_markdown_table_cell(t.strip())}`" for t in val.split(',') if t.strip()]
                             meta["tags"] = ", ".join(tags)
                     elif lower_line.startswith("complexity:"):
                         val = clean_line[11:].strip()
                         if val:
-                            if any(p in val for p in ["\\mathcal{O}", "\\Theta", "\\Omega"]):
-                                meta["complexity"] = f"${val}$"
+                            # CRITICAL FIX: Convert pipe '|' to LaTeX '\vert' to prevent breaking Markdown tables
+                            safe_val = val.replace('|', '\\vert')
+                            if any(p in safe_val for p in ["\\mathcal{O}", "\\Theta", "\\Omega"]):
+                                meta["complexity"] = f"${safe_val}$"
                             else:
-                                inner = re.sub(r'^[Oo]\s*\((.*)\)$', r'\1', val).strip()
+                                inner = re.sub(r'^[Oo]\s*\((.*)\)$', r'\1', safe_val).strip()
                                 meta["complexity"] = f"$\\mathcal{{O}}({inner})$"
     except Exception: pass
     return meta
@@ -226,7 +239,14 @@ def generate_single_readme(target_dir):
             # 2. XỬ LÝ TÊN HIỂN THỊ
             filename_no_ext = re.sub(r'\.(cpp|c)$', '', file, flags=re.IGNORECASE)
             file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
-            prob_title = f"{file_id} - {meta['title']}" if meta["title"] else filename_no_ext
+            
+            if meta["title"]:
+                prob_title = f"{file_id} - {meta['title']}"
+            else:
+                prob_title = format_display_name(filename_no_ext)
+                
+            # Safe escape for problem titles containing '|' in cell
+            prob_title = escape_markdown_table_cell(prob_title)
             name_md = f"[{prob_title}]({prob_link})" if prob_link else prob_title
             
             # 3. XỬ LÝ LINK CODE (File .cpp hoặc .c)

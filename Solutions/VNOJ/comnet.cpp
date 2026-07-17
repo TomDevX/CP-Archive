@@ -73,23 +73,8 @@ const int N = 1e5+2, M = 1e6+2;
 int new_w[M], cur_w[M], par[N], sz[N];
 bitset<M> ischanged;
 int editedEdge[M], edges[M];
-int hisid = 0;
-
-// struct Edge{
-//     int u,v;
-    
-//     Edge(int _u = 0, int _v = 0) : u(_u), v(_v) {};
-// };
-
-// struct DSU_change{
-//     int u,v;
-//     bool sz_changed;
-
-//     DSU_change(int _u = 0, int _v = 0, bool _sz_changed = false) : u(_u), v(_v), sz_changed(_sz_changed) {};
-// };
 
 pii adj[M];
-// DSU_change his[M];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 void init(int n){
@@ -97,19 +82,8 @@ void init(int n){
     memset(sz,0,sizeof(sz[0])*(n+1));
 }
 
-// void rollback(int ver){
-//     while(hisid > ver){
-//         DSU_change last = his[hisid];
-//         hisid--;
-
-//         par[last.v] = last.v;
-//         if(last.sz_changed) sz[last.u]--;
-//     }
-// }
-
 void restQ(int n, int s){
     init(n);
-    // rollback(0);
     for(int i = 1; i <= s; i++){
         ischanged[editedEdge[i]] = 0;
     }
@@ -125,8 +99,6 @@ void union_set(int a, int b){
     if(a == b) return;
 
     if(sz[a] < sz[b]) swap(a,b);
-
-    // his[++hisid] = DSU_change(a,b,(sz[a]==sz[b]));
 
     if(sz[a] == sz[b]) sz[a]++;
     par[b] = a;
@@ -198,7 +170,6 @@ int main(){
         cin >> n >> m >> q;
 
         solve(n,m,q);
-        // restTC(n);
     }
     
     return NAH_I_WOULD_WIN;

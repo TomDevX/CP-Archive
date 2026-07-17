@@ -19,7 +19,6 @@ STATUS_MAP = {
     "WIP": {"full": "Work In Progress", "color": "007ec6", "prio": 1},     
 }
 
-# --- HELPERS ---
 def natural_sort_key(s):
     return [int(text) if text.isdigit() else text.lower()
             for text in re.split('([0-9]+)', s)]
@@ -27,6 +26,14 @@ def natural_sort_key(s):
 def get_last_commit_time():
     tz_hcm = timezone(timedelta(hours=7))
     return datetime.now(tz=tz_hcm)
+
+def escape_markdown_table_cell(text):
+    """
+    Escapes the pipe symbol '|' to prevent breaking Markdown tables.
+    """
+    if not text: 
+        return ""
+    return text.replace('|', '\\|')
 
 def get_oj_link_from_file(folder_path):
     link_files = ['link.txt', 'oj.txt', 'source.url']
@@ -87,7 +94,9 @@ def extract_metadata(file_path):
                     
                     if lower_line.startswith("title:"):
                         val = clean_line[6:].strip()
-                        if val: meta["title"] = val
+                        if val: 
+                            # Safe escape for titles containing '|'
+                            meta["title"] = escape_markdown_table_cell(val)
                     elif lower_line.startswith("status:"):
                         val = clean_line[7:].strip().upper()
                         if any(x in val for x in ["IN PROGRESS", "WIP"]): meta["status"] = "WIP"
@@ -121,15 +130,18 @@ def extract_metadata(file_path):
                     elif lower_line.startswith("tags:"):
                         val = clean_line[5:].strip()
                         if val:
-                            tags = [f"`{t.strip()}`" for t in val.split(',') if t.strip()]
+                            # Safe escape for tags containing '|'
+                            tags = [f"`{escape_markdown_table_cell(t.strip())}`" for t in val.split(',') if t.strip()]
                             meta["tags"] = ", ".join(tags)
                     elif lower_line.startswith("complexity:"):
                         val = clean_line[11:].strip()
                         if val:
-                            if any(p in val for p in ["\\mathcal{O}", "\\Theta", "\\Omega"]):
-                                meta["complexity"] = f"${val}$"
+                            # CRITICAL FIX: Convert pipe '|' to LaTeX '\vert' to prevent breaking Markdown tables
+                            safe_val = val.replace('|', '\\vert')
+                            if any(p in safe_val for p in ["\\mathcal{O}", "\\Theta", "\\Omega"]):
+                                meta["complexity"] = f"${safe_val}$"
                             else:
-                                inner = re.sub(r'^[Oo]\s*\((.*)\)$', r'\1', val).strip()
+                                inner = re.sub(r'^[Oo]\s*\((.*)\)$', r'\1', safe_val).strip()
                                 meta["complexity"] = f"$\\mathcal{{O}}({inner})$"
     except Exception: pass
     return meta
@@ -284,6 +296,8 @@ def generate_readme():
             else:
                 display_name = format_display_name(filename_no_ext) 
             
+            # Prevent pipe leakage from problem names
+            display_name = escape_markdown_table_cell(display_name)
             name_md = f"[{display_name}]({prob_link})" if prob_link else display_name
             
             rel_sol_path = os.path.relpath(full_path, BASE_DIR).replace('\\', '/').replace(' ', '%20')
