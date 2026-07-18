@@ -1,18 +1,18 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-07-17 22:43:20
+ *    created: 2026-07-18 20:36:57
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: TRIP
+ *    source: https://oj.vnoi.info/problem/lem3
+ *    submission: https://oj.vnoi.info/submission/12768469
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    metacognition: 
- *    note: 
+ *    tags: DP Bitmask
+ *    complexity: O(2 ^ n \cdot n^2)
+ *    metacognition: Let dp[mask][cur] = min cost to visit all nodes in mask and last stop is node cur. Transitions using dp[mask turn on unvisited bit][new cur node] = dp[mask][cur] + cost[cur][new cur]
+ *    note: Using dp bitmask with dp[mask][cur] as min cost to visit all nodes in mask with last stop as node cur. Turn on bits which are unvisited and get min cost
 **/
 
 #include <iostream>
@@ -21,12 +21,13 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <cstring>
 
 using namespace std;
 
 // --- [ DEBUGGING & LOCAL CONFIG ] ---
 #if __has_include("TomDev.h") && defined(LOCAL)
-  #include "TomDev.h"
+    #include "TomDev.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
 #else
     #define dbg(x,i)
@@ -63,30 +64,51 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("lem3.INP", "r")) return;
+    freopen("lem3.INP", "r", stdin);
+    freopen("lem3.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 16;
+ll INF;
 
+int cost[N][N];
+ll dp[1 << N][N];
 
-string s;
-int n;
 // ----------------------- [ FUNCTIONS ] -----------------------
-bool check(){
-    for(int i = 0; i < n; i++) if(s[i] == s[i+1]) return true;
-    return false;
-}
+
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
+    int n;
     cin >> n;
-    cin >> s;
-    int ans = 0;
-    do{
-        ans += check();
-    }while(next_permutation(all(s,0)));
+    
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++) cin >> cost[i][j];
+    }
+
+    memset(dp,0x3f, sizeof(dp));
+    INF = dp[0][0];
+
+    for(int i = 0; i < n; i++) dp[1 << i][i] = 0;
+
+    for(int mask = 0; mask < (1 << n); mask++){
+        for(int cur = 0; cur < n; cur++){
+            if(dp[mask][cur] == INF) continue;
+
+            for(int v = 0; v < n; v++){
+                if(mask >> v & 1) continue;
+                dp[mask | (1 << v)][v] = min(dp[mask | (1 << v)][v], dp[mask][cur] + cost[cur][v]);
+            }
+        }
+    }
+
+    ll ans = INF;
+    int final_mask = (1 << n) - 1;
+    for(int cur = 0; cur < n; cur++){
+        ans = min(ans, dp[final_mask][cur]);
+    }
 
     cout << ans;
 }
@@ -99,7 +121,7 @@ int main(){
     //cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
-      __TomDev();
+        __TomDev();
     }
     return NAH_I_WOULD_WIN;
 }

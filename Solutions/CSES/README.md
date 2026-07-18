@@ -2,16 +2,17 @@
 
 ### 📊 CSES Stats
 
-![Progress](https://img.shields.io/badge/Progress-59/61-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_17%2C_2026_--_22%3A21_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-60/62-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_18%2C_2026_--_20%3A55_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
-- **Total Unique Problems:** 61
-- **Solved (AC):** 59
+- **Total Unique Problems:** 62
+- **Solved (AC):** 60
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
 
 ---
 ## 📌 Table of Contents
 
+* [📁 CSES (62)](#-cses-62)
   * [📁 Advanced Techniques (2)](#-advanced-techniques-2)
   * [📁 Dynamic Programming (12)](#-dynamic-programming-12)
   * [📁 Geometry (6)](#-geometry-6)
@@ -23,6 +24,11 @@
   * [📁 String (6)](#-string-6)
 
 ---
+## 📂 CSES (62)
+| # | Problem Name | Tags | Complexity | Date | Solution | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1 | [2421 - Counting Reorders](https://cses.fi/problemset/task/2421) | `DP`, `Inclusion-Exclusion`, `Math` | ${\mathcal{O}(26 \cdot n^2)}$ | Jul&nbsp;18,&nbsp;2026 | [Code](2421.cpp) \| [Sub](https://cses.fi/problemset/result/17982326/) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+
 ### 📁 Advanced Techniques (2)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
