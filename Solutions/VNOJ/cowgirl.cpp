@@ -1,18 +1,18 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-07-18 20:36:57
+ *    created: 2026-07-18 21:13:26
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: TRIP
- *    source: https://oj.vnoi.info/problem/lem3
- *    submission: https://oj.vnoi.info/submission/12768469
+ *    title: Cô gái chăn bò
+ *    source: https://oj.vnoi.info/problem/cowgirl
+ *    submission: https://oj.vnoi.info/submission/12773363
  *    status: AC
  * ----------------------------------------------------------
  *    tags: DP Bitmask
- *    complexity: O(2 ^ n \cdot n^2)
- *    metacognition: Let dp[mask][cur] = min cost to visit all nodes in mask and last stop is node cur. Transitions using dp[mask turn on unvisited bit][new cur node] = dp[mask][cur] + cost[cur][new cur]
- *    note: Using dp bitmask with dp[mask][cur] as min cost to visit all nodes in mask with last stop as node cur. Turn on bits which are unvisited and get min cost
+ *    complexity: O((2^{\text{min}(n,m)})^2 * \text{max}(n,m))
+ *    metacognition: Use DP Bitmask on the min(n,m) (they'll be <= 5) and iterate through the max(n,m) side and make 2 bitmasks and check if they are valid for the problem's condition and accumulate the result. We need to choose the min(n,m) because 2^n can be very large so it can kill us on some test like (30,1)
+ *    note: Use DP Bitmask with the bitmask status of min(n,m). Iterate through max(n,m) and check the problem's condition
 **/
 
 #include <iostream>
@@ -21,7 +21,6 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <cstring>
 
 using namespace std;
 
@@ -64,53 +63,64 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("lem3.INP", "r")) return;
-    freopen("lem3.INP", "r", stdin);
-    freopen("lem3.OUT", "w", stdout);
+    if(!fopen("cowgirl.INP", "r")) return;
+    freopen("cowgirl.INP", "r", stdin);
+    freopen("cowgirl.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 16;
-ll INF;
+const int N = 10;
 
-int cost[N][N];
-ll dp[1 << N][N];
+ll dp[2][1 << N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
+void rest(int n, int id){
+    for(int mask = 0; mask < (1 << n); mask++){
+        dp[id][mask] = 0;
+    }
+}
 
+bool get_bit(int mask, int idx){
+    return mask >> idx & 1;
+}
+
+bool check(int n, int mask1, int mask2){
+    for(int i = 0; i < n-1; i++){
+        if((get_bit(mask1,i) & get_bit(mask1, i + 1) & get_bit(mask2,i) & get_bit(mask2,i+1)) || (!get_bit(mask1,i) & !get_bit(mask1, i + 1) & !get_bit(mask2,i) & !get_bit(mask2,i+1))) return false;
+    }
+    return true;
+}
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    int n;
-    cin >> n;
-    
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++) cin >> cost[i][j];
+    int n,m;
+    cin >> n >> m;
+    if(n > m) swap(n,m);
+
+    for(int mask = 0; mask < (1 << n); mask++){
+        dp[0][mask] = 1;
     }
+    
+    for(int i = 2; i <= m; i++){
+        rest(n,1);
+        for(int mask = 0; mask < (1 << n); mask++){
+            if(dp[0][mask] == 0) continue;
 
-    memset(dp,0x3f, sizeof(dp));
-    INF = dp[0][0];
-
-    for(int i = 0; i < n; i++) dp[1 << i][i] = 0;
-
-    for(int mask = 1; mask < (1 << n); mask++){
-        for(int cur = 0; cur < n; cur++){
-            if(dp[mask][cur] == INF) continue;
-
-            for(int v = 0; v < n; v++){
-                if(mask >> v & 1) continue;
-                dp[mask | (1 << v)][v] = min(dp[mask | (1 << v)][v], dp[mask][cur] + cost[cur][v]);
+            for(int mask_nxt = 0; mask_nxt < (1 << n); mask_nxt++){
+                if(check(n, mask, mask_nxt)) dp[1][mask_nxt] += dp[0][mask];
             }
         }
+        swap(dp[0], dp[1]);
     }
 
-    ll ans = INF;
-    int final_mask = (1 << n) - 1;
-    for(int cur = 0; cur < n; cur++){
-        ans = min(ans, dp[final_mask][cur]);
+    ll ans = 0;
+    for(int mask = 0; mask < (1 << n); mask++){
+        ans += dp[0][mask];
     }
+    cout << ans << '\n';
 
-    cout << ans;
+    rest(n,0);
+    rest(n,1);
 }
 
 int main(){
@@ -118,7 +128,7 @@ int main(){
     setup();
 
     int tc = 1;
-    //cin >> tc;
+    cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
         __TomDev();

@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-07-17 22:43:20
+ *    created: 2026-07-18 21:40:08
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
@@ -26,7 +26,7 @@ using namespace std;
 
 // --- [ DEBUGGING & LOCAL CONFIG ] ---
 #if __has_include("TomDev.h") && defined(LOCAL)
-  #include "TomDev.h"
+    #include "TomDev.h"
     #define dbg(x,i) cerr << "BreakPoint(" << i << ") -> " << #x << " = " << (x) << '\n'
 #else
     #define dbg(x,i)
@@ -71,24 +71,22 @@ void setup(){
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
 
 
-string s;
-int n;
 // ----------------------- [ FUNCTIONS ] -----------------------
-bool check(){
-    for(int i = 0; i < n; i++) if(s[i] == s[i+1]) return true;
-    return false;
-}
+
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
+    int n;
     cin >> n;
-    cin >> s;
-    int ans = 0;
-    do{
-        ans += check();
-    }while(next_permutation(all(s,0)));
+    
+    int cnt = 0;
+    for(int i = 1, x; i <= n; i++){
+        cin >> x;
+        if(x == 1) cnt++;
+    }
 
-    cout << ans;
+    if(n%2) cout << "NO\n";
+    else cout << (cnt%2 == (n>>1)%2 ? "YES\n" : "NO\n");
 }
 
 int main(){
@@ -96,10 +94,10 @@ int main(){
     setup();
 
     int tc = 1;
-    //cin >> tc;
+    cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
-      __TomDev();
+        __TomDev();
     }
     return NAH_I_WOULD_WIN;
 }
