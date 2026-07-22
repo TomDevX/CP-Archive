@@ -9,10 +9,10 @@
  *    submission: https://oj.vnoi.info/submission/12774354
  *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    metacognition: 
- *    note: 
+ *    tags: DP Bitmask
+ *    complexity: O(2^n \cdot n)
+ *    metacognition: Need to consider 2 state is that the current chosen status of cows and last chosen one -> dp[mask][cur]. And then just iterate through unchosen cows and check if they are eligible to add to the next mask (already know cur)
+ *    note: Use DP Bitmask with 2 states of dp[mask][cur_cow] and check unchosen ones to see if they are goodu
 **/
 
 #include <iostream>

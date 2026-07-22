@@ -12,7 +12,7 @@
  *    tags: DP, Inclusion-Exclusion, Math
  *    complexity: O(26 \cdot n^2)
  *    metacognition: 
- *    note: 
+ *    note: Combine DP with inclusion-exclusion + Stars and Bars (Euler)
 **/
 
 #include <iostream>
