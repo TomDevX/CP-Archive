@@ -1,13 +1,13 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-07-21 20:03:34
+ *    created: 2026-07-19 18:31:03
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Đàn bò hỗn loạn
+ *    source: https://oj.vnoi.info/problem/mixup2
+ *    submission: https://oj.vnoi.info/submission/12774354
+ *    status: AC
  * ----------------------------------------------------------
  *    tags: 
  *    complexity: 
@@ -21,6 +21,7 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <cmath>
 
 using namespace std;
 
@@ -63,42 +64,48 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("mixup2.INP", "r")) return;
+    freopen("mixup2.INP", "r", stdin);
+    freopen("mixup2.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 3e5+5;
+const int N = 16;
 
-pii edges[N];
-int need[N];
-int ans[N];
+ll dp[1 << N][N];
+int val[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    int n,m;
-    cin >> n >> m;
+    int n, K;
+    cin >> n >> K;
+    for(int i = 0; i < n; i++) cin >> val[i];
 
-    for(int i = 1; i <= m; i++){
-        cin >> edges[i].fi >> edges[i].se;
+    for(int i = 0; i < n; i++) dp[1 << i][i] = 1;
+
+    for(int mask = 1; mask < (1 << n); mask++){
+        for(int submask1 = mask; submask1; submask1 &= (submask1-1)){
+            int cur = __builtin_ctz(submask1);
+            if(dp[mask][cur] == 0) continue;
+
+            for(int submask0 = (~mask) & ((1 << n) - 1); submask0; submask0 &= (submask0 - 1)){
+                int nxt = __builtin_ctz(submask0);
+                if(abs(val[nxt] - val[cur]) <= K) continue;
+
+                dp[mask | (1 << nxt)][nxt] += dp[mask][cur];
+            }
+        }
     }
 
-    int cnt = 0;
-    for(int i = 1; i < n; i++){
-        int x;
-        cin >> x;
-        ans[x] = ++cnt;
+    ll ans = 0;
+    int final_mask = (1 << n) - 1;
+    for(int cur = 0; cur < n; cur++){
+        ans += dp[final_mask][cur];
     }
-
-    for(int i = 1; i <= m; i++){
-        if(ans[i] == 0) ans[i] = ++cnt;
-    }
-
-    for(int i = 1; i <= m; i++) cout << ans[i] << ' ';
+    cout << ans;
 }
 
 int main(){

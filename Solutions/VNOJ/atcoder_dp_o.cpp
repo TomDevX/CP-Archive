@@ -1,18 +1,18 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-07-21 20:03:34
+ *    created: 2026-07-22 15:41:16
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Atcoder Educational DP Contest O - Matching 
+ *    source: https://oj.vnoi.info/problem/atcoder_dp_o
+ *    submission: https://oj.vnoi.info/submission/12804971
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    metacognition: 
- *    note: 
+ *    tags: DP Bitmask
+ *    complexity: O(2^n \cdot n)
+ *    metacognition: Let dp[bitmask] as the status of women (who is already connected gets bit 1) -> means the bit 1 of the mask is the processed men ans women so we don't need a second dp status for that. So for each ith man just check if he's good with an unchosen woman and add the result to the next mask
+ *    note: DP Bitmask with dp[bitmask] as the status of paired women - we've already have turned on bit in bitmask = paired men number so we don't need a second status. Just check for each ith man and unpaired women states and add them to the next mask
 **/
 
 #include <iostream>
@@ -21,6 +21,7 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <bitset>
 
 using namespace std;
 
@@ -63,42 +64,47 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("atcoder_dp_o.INP", "r")) return;
+    freopen("atcoder_dp_o.INP", "r", stdin);
+    freopen("atcoder_dp_o.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 3e5+5;
+const int N = 21;
+const ll MOD = 1e9+7;
 
-pii edges[N];
-int need[N];
-int ans[N];
+bitset<N> is_good[N];
+ll dp[1 << N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    int n,m;
-    cin >> n >> m;
+    int n;
+    cin >> n;
 
-    for(int i = 1; i <= m; i++){
-        cin >> edges[i].fi >> edges[i].se;
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
+            int x;
+            cin >> x;
+            is_good[i][j] = x;
+        }
     }
 
-    int cnt = 0;
-    for(int i = 1; i < n; i++){
-        int x;
-        cin >> x;
-        ans[x] = ++cnt;
+    dp[0] = 1;
+
+    for(int mask = 0; mask < (1 << n); mask++){
+        int man = __builtin_popcount(mask);
+        for(int submask = (~mask) & ((1 << n) - 1); submask; submask &= (submask - 1)){
+            int woman = __builtin_ctz(submask);
+
+            ll &nxt_mask = dp[mask | (1 << woman)];
+            if(is_good[man][woman]) nxt_mask = (nxt_mask + dp[mask])%MOD;
+        }
     }
 
-    for(int i = 1; i <= m; i++){
-        if(ans[i] == 0) ans[i] = ++cnt;
-    }
-
-    for(int i = 1; i <= m; i++) cout << ans[i] << ' ';
+    cout << dp[(1 << n) - 1];
 }
 
 int main(){
