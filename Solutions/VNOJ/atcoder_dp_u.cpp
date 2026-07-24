@@ -11,8 +11,8 @@
  * ----------------------------------------------------------
  *    tags: DP Bitmask, Iterate Submask
  *    complexity: O(2^n \cdot n^2 + 3^n)
- *    metacognition: Use DP Bitmask with dp[mask] as best cost for chosen set of rabbits. So we need to iterate 2 mask, each dp[mask] = dp[submask] + dp[mask ^ submask]
- *    note: 
+ *    metacognition: Use DP Bitmask with dp[mask] as best cost for chosen set of rabbits. So we need to iterate 2 mask, consider submask as a whole new group => dp[mask] = best(dp[mask \ submask] + cost[submask]) = best(dp[mask \ submask] + dp[submask]) (if initialize all dp as its whole group cost). To calculate the cost quickly, we need to pre calculate it in O(2^n * n^2)
+ *    note: dp[mask] as best cost for chosen set of rabits. Use 2 iterations dp[mask] = best(dp[mask \ submask] + cost[submask]). Need to precalc cost for faster dp count
 **/
 
 #include <iostream>
@@ -73,7 +73,9 @@ void setup(){
 const int N = 16;
 
 int a[N][N];
+ll cost[1 << N];
 ll dp[1 << N];
+vi cur;
 int backtrack_mask = 0;
 
 int n;
@@ -83,7 +85,7 @@ void calculate_cost(int idx){
     if(idx == n){
         for(int i = 0; i < n; i++){
             for(int j = i + 1; j < n; j++){
-                if(backtrack_mask >> i & 1 && backtrack_mask >> j & 1) dp[backtrack_mask] += a[i][j];
+                if(backtrack_mask >> i & 1 && backtrack_mask >> j & 1) cost[backtrack_mask] += a[i][j];
             }
         }
         return;
@@ -103,10 +105,13 @@ void __TomDev(){
     }
 
     calculate_cost(0);
+    dp[0] = 0;
 
     for(int mask = 1; mask < (1 << n); mask++){
+        dp[mask] = cost[mask];
+
         for(int submask = mask; submask; submask = mask & (submask - 1)){
-            dp[mask] = max(dp[mask], dp[mask ^ submask] + dp[submask]);
+            dp[mask] = max(dp[mask], dp[mask ^ submask] + cost[submask]);
         }
     }
 
