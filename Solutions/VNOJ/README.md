@@ -2,20 +2,20 @@
 
 ### 📊 VNOJ Stats
 
-![Progress](https://img.shields.io/badge/Progress-77/78-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_24%2C_2026_--_19%3A23_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-79/80-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_27%2C_2026_--_17%3A15_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
-- **Total Unique Problems:** 78
-- **Solved (AC):** 77
+- **Total Unique Problems:** 80
+- **Solved (AC):** 79
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
 
 ---
 ## 📌 Table of Contents
 
-* [📁 VNOJ (78)](#-vnoj-78)
+* [📁 VNOJ (80)](#-vnoj-80)
 
 ---
-## 📂 VNOJ (78)
+## 📂 VNOJ (80)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [AREA - Diện tích hình chữ nhật](https://oj.vnoi.info/problem/area) | `Sweep Line 2D`, `Segment Tree` | ${\mathcal{O}(n \log n)}$ | Apr&nbsp;22,&nbsp;2026 | [Code](area.cpp) \| [Sub](https://oj.vnoi.info/submission/12168828) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -86,16 +86,18 @@
 | 66 | [SEGTREE - Educational Segment Tree Contest - ITEZ1](https://oj.vnoi.info/problem/segtree_itez1) | `Segment Tree` | ${\mathcal{O}(n \log n)}$ | Mar&nbsp;27,&nbsp;2026 | [Code](segtree_itez1.cpp) \| [Sub](https://oj.vnoi.info/submission/11967999) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 67 | [SEGTREE - Educational Segment Tree Contest - ITEZ2](https://oj.vnoi.info/problem/segtree_itez2) | `Segment Tree` | ${\mathcal{O}(n \log n)}$ | Mar&nbsp;30,&nbsp;2026 | [Code](segtree_itez2.cpp) \| [Sub](https://oj.vnoi.info/submission/11984622) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 68 | [SEGTREE - Educational Segment Tree Contest - ITLAZY](https://oj.vnoi.info/problem/segtree_itlazy) | `Segment Tree` | ${\mathcal{O}(n \log n)}$ | Mar&nbsp;28,&nbsp;2026 | [Code](segtree_itlazy.cpp) \| [Sub](https://oj.vnoi.info/submission/11975322) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 69 | [SUBSTR - Xâu con](https://oj.vnoi.info/problem/substr) | `Hash` | ${\mathcal{O}(n + m)}$ | May&nbsp;17,&nbsp;2026 | [Code](substr.cpp) \| [Sub](https://oj.vnoi.info/submission/12330557) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 70 | [THT21 - Hoán vị không bất động](https://oj.vnoi.info/problem/tht21_kvc_permu) | `Inclusion-Exclusion`, `Math` | ${\mathcal{O}(m + T)}$ | Jul&nbsp;15,&nbsp;2026 | [Code](tht21_kvc_permu.cpp) \| [Sub](https://oj.vnoi.info/submission/12735516) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 71 | [THT21 - Tin học trẻ 2021 TPHCM - Vòng Chung kết - Bảng C - Paths](https://oj.vnoi.info/problem/tht21_tphcm_ckc_paths) | `MST`, `LCA` | ${\mathcal{O}(m \log m + m \log n)}$ | May&nbsp;10,&nbsp;2026 | [Code](tht21_tphcm_ckc_paths.cpp) \| [Sub](https://oj.vnoi.info/submission/12278254) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 72 | [TRIE - Type Printer](https://oj.vnoi.info/problem/trie_tprinter) | `Trie` | ${\mathcal{O}(n)}$ | May&nbsp;29,&nbsp;2026 | [Code](trie_tprinter.cpp) \| [Sub](https://oj.vnoi.info/submission/12394968) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 73 | [TWOOPERS - VM 08 Bài 21 - Xử lý xâu](https://oj.vnoi.info/problem/twoopers) | `Hash` | ${\mathcal{O}(n \log n)}$ | May&nbsp;21,&nbsp;2026 | [Code](twoopers.cpp) \| [Sub](https://oj.vnoi.info/submission/12349987) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 74 | [V11STR - Tìm xâu](https://oj.vnoi.info/problem/v11str) | `Hash` | ${\mathcal{O}(n \log n)}$ | May&nbsp;21,&nbsp;2026 | [Code](v11str.cpp) \| [Sub](https://oj.vnoi.info/submission/12350481) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 75 | [VMSUDOKU - VM 14 Bài 19 - Sudoku](https://oj.vnoi.info/problem/vmsudoku) | `constructive` | ${\mathcal{O}(9^{21})}$ | Feb&nbsp;06,&nbsp;2026 | [Code](vmsudoku.cpp) \| [Sub](https://oj.vnoi.info/submission/11662085) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 76 | [VOI17 - VOI 17 Bài 3 - Trò chơi](https://oj.vnoi.info/problem/voi17_bgame) | `MST`, `LCA` | ${\mathcal{O}(m \log m + m \log n)}$ | May&nbsp;11,&nbsp;2026 | [Code](voi17_bgame.cpp) \| [Sub](https://oj.vnoi.info/submission/12281848) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 77 | [VOI22 - VOI 22 Bài 4 - Đoạn số](https://oj.vnoi.info/problem/voi22_sseq) | `Segment Tree Lazy`, `VOI` | ${\mathcal{O}(n \log n)}$ | Apr&nbsp;10,&nbsp;2026 | [Code](voi22_sseq.cpp) \| [Sub](https://oj.vnoi.info/submission/12080379) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 78 | [VOI25 - VOI 25 Bài 1 - Người giao hàng](https://oj.vnoi.info/problem/voi25_ship) | `LCA`, `Tree` | ${\mathcal{O}(n \log n)}$ | Apr&nbsp;14,&nbsp;2026 | [Code](voi25_ship.cpp) \| [Sub](https://oj.vnoi.info/submission/12115569) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 79 | [VOSTR - VOI 13 Bài 4 - Xử lý xâu](https://oj.vnoi.info/problem/vostr) | `Hash` | ${\mathcal{O}(n \log n)}$ | May&nbsp;19,&nbsp;2026 | [Code](vostr.cpp) \| [Sub](https://oj.vnoi.info/submission/12342748) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 80 | [VR-DST-LISPATH - Lis Path](https://oj.vnoi.info/problem/vr_dst_lispath) | `Dynamic Programming`, `Tree` | ${\mathcal{O}(n \log n)}$ | Feb&nbsp;08,&nbsp;2026 | [Code](vr-dst-lispath.cpp) \| [Sub](https://oj.vnoi.info/submission/11673982) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 69 | [SEQ198 - VOI 16 Bài 1 - SEQ198](https://oj.vnoi.info/problem/seq198) | `DP Bitmask` | ${\mathcal{O}(2^10 \cdot n)}$ | Jul&nbsp;25,&nbsp;2026 | [Code](seq198.cpp) \| [Sub](https://oj.vnoi.info/submission/12834930) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 70 | [SUBSTR - Xâu con](https://oj.vnoi.info/problem/substr) | `Hash` | ${\mathcal{O}(n + m)}$ | May&nbsp;17,&nbsp;2026 | [Code](substr.cpp) \| [Sub](https://oj.vnoi.info/submission/12330557) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 71 | [THT21 - Hoán vị không bất động](https://oj.vnoi.info/problem/tht21_kvc_permu) | `Inclusion-Exclusion`, `Math` | ${\mathcal{O}(m + T)}$ | Jul&nbsp;15,&nbsp;2026 | [Code](tht21_kvc_permu.cpp) \| [Sub](https://oj.vnoi.info/submission/12735516) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 72 | [THT21 - Tin học trẻ 2021 TPHCM - Vòng Chung kết - Bảng C - Paths](https://oj.vnoi.info/problem/tht21_tphcm_ckc_paths) | `MST`, `LCA` | ${\mathcal{O}(m \log m + m \log n)}$ | May&nbsp;10,&nbsp;2026 | [Code](tht21_tphcm_ckc_paths.cpp) \| [Sub](https://oj.vnoi.info/submission/12278254) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 73 | [TRIE - Type Printer](https://oj.vnoi.info/problem/trie_tprinter) | `Trie` | ${\mathcal{O}(n)}$ | May&nbsp;29,&nbsp;2026 | [Code](trie_tprinter.cpp) \| [Sub](https://oj.vnoi.info/submission/12394968) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 74 | [TWOOPERS - VM 08 Bài 21 - Xử lý xâu](https://oj.vnoi.info/problem/twoopers) | `Hash` | ${\mathcal{O}(n \log n)}$ | May&nbsp;21,&nbsp;2026 | [Code](twoopers.cpp) \| [Sub](https://oj.vnoi.info/submission/12349987) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 75 | [V11STR - Tìm xâu](https://oj.vnoi.info/problem/v11str) | `Hash` | ${\mathcal{O}(n \log n)}$ | May&nbsp;21,&nbsp;2026 | [Code](v11str.cpp) \| [Sub](https://oj.vnoi.info/submission/12350481) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 76 | [VMSUDOKU - VM 14 Bài 19 - Sudoku](https://oj.vnoi.info/problem/vmsudoku) | `constructive` | ${\mathcal{O}(9^{21})}$ | Feb&nbsp;06,&nbsp;2026 | [Code](vmsudoku.cpp) \| [Sub](https://oj.vnoi.info/submission/11662085) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 77 | [VOI17 - VOI 17 Bài 3 - Trò chơi](https://oj.vnoi.info/problem/voi17_bgame) | `MST`, `LCA` | ${\mathcal{O}(m \log m + m \log n)}$ | May&nbsp;11,&nbsp;2026 | [Code](voi17_bgame.cpp) \| [Sub](https://oj.vnoi.info/submission/12281848) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 78 | [VOI22 - VOI 22 Bài 4 - Đoạn số](https://oj.vnoi.info/problem/voi22_sseq) | `Segment Tree Lazy`, `VOI` | ${\mathcal{O}(n \log n)}$ | Apr&nbsp;10,&nbsp;2026 | [Code](voi22_sseq.cpp) \| [Sub](https://oj.vnoi.info/submission/12080379) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 79 | [VOI23 - VOI 23 Bài 4 - Nhà gỗ](https://oj.vnoi.info/problem/voi23_whome) | `DP Bitmask` | ${\mathcal{O}(2^m * n * m)}$ | Jul&nbsp;27,&nbsp;2026 | [Code](voi23_whome.cpp) \| [Sub](https://oj.vnoi.info/submission/12849648) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 80 | [VOI25 - VOI 25 Bài 1 - Người giao hàng](https://oj.vnoi.info/problem/voi25_ship) | `LCA`, `Tree` | ${\mathcal{O}(n \log n)}$ | Apr&nbsp;14,&nbsp;2026 | [Code](voi25_ship.cpp) \| [Sub](https://oj.vnoi.info/submission/12115569) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 81 | [VOSTR - VOI 13 Bài 4 - Xử lý xâu](https://oj.vnoi.info/problem/vostr) | `Hash` | ${\mathcal{O}(n \log n)}$ | May&nbsp;19,&nbsp;2026 | [Code](vostr.cpp) \| [Sub](https://oj.vnoi.info/submission/12342748) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 82 | [VR-DST-LISPATH - Lis Path](https://oj.vnoi.info/problem/vr_dst_lispath) | `Dynamic Programming`, `Tree` | ${\mathcal{O}(n \log n)}$ | Feb&nbsp;08,&nbsp;2026 | [Code](vr-dst-lispath.cpp) \| [Sub](https://oj.vnoi.info/submission/11673982) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 

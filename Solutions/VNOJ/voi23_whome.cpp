@@ -1,18 +1,18 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-07-24 18:08:16
+ *    created: 2026-07-27 14:23:27
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: Atcoder Educational DP Contest U - Grouping
- *    source: https://oj.vnoi.info/problem/atcoder_dp_u
- *    submission: https://oj.vnoi.info/submission/12827007
+ *    title: VOI 23 Bài 4 - Nhà gỗ
+ *    source: https://oj.vnoi.info/problem/voi23_whome
+ *    submission: https://oj.vnoi.info/submission/12849648
  *    status: AC
  * ----------------------------------------------------------
- *    tags: DP Bitmask, Iterate Submask
- *    complexity: O(2^n \cdot n^2 + 3^n)
- *    metacognition: Use DP Bitmask with dp[mask] as best cost for chosen set of rabbits. So we need to iterate 2 mask, consider submask as a whole new group => dp[mask] = best(dp[mask \ submask] + cost[submask]) = best(dp[mask \ submask] + dp[submask]) (if initialize all dp as its whole group cost). To calculate the cost quickly, we need to pre calculate it in O(2^n * n^2)
- *    note: dp[mask] as best cost for chosen set of rabits. Use 2 iterations dp[mask] = best(dp[mask \ submask] + cost[submask]). Need to precalc cost for faster dp count
+ *    tags: DP Bitmask
+ *    complexity: O(2^m * n * m)
+ *    metacognition: Such a DP Bitmask problem because M <= 6, so maybe it has the state of dp[n][mask]
+ *    note: 
 **/
 
 #include <iostream>
@@ -64,57 +64,61 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("atcoder_dp_u.INP", "r")) return;
-    freopen("atcoder_dp_u.INP", "r", stdin);
-    freopen("atcoder_dp_u.OUT", "w", stdout);
+    if(!fopen("WHOME.INP", "r")) return;
+    freopen("WHOME.INP", "r", stdin);
+    freopen("WHOME.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 16;
+const int N = 1e5+2, M = 6;
+ll INF;
 
-int a[N][N];
-ll cost[1 << N];
-ll dp[1 << N];
-int backtrack_mask = 0;
-
-int n;
+int a[N], b[M];
+ll dp[N][1 << M];
+int n,m;
+ll P,C;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void calculate_cost(int idx){
-    if(idx == n){
-        for(int i = 0; i < n; i++){
-            for(int j = i + 1; j < n; j++){
-                if(backtrack_mask >> i & 1 && backtrack_mask >> j & 1) cost[backtrack_mask] += a[i][j];
-            }
-        }
-        return;
-    }
-
-    calculate_cost(idx+1);
-    backtrack_mask |= (1 << idx);
-    calculate_cost(idx+1);  
-    backtrack_mask ^= (1 << idx);
+ll cost(int l, int r){
+    return P - C*(a[r] - a[l])*(a[r] - a[l]);
 }
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    cin >> n;
+    memset(dp,-0x3f,sizeof(dp));
+    INF = dp[0][0];
+
+    cin >> n >> m >> P >> C;
+    for(int i = 1; i <= n; i++) cin >> a[i];
+
+    sort(sub(a,1,n));
+
+    for(int j = 0; j < m; j++) cin >> b[j];
+
+    dp[0][0] = 0;
+
     for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++) cin >> a[i][j];
-    }
+        for(int mask = 0; mask < (1 << m); mask++){
+            if(dp[i][mask] == INF) continue;
 
-    calculate_cost(0);
-    dp[0] = 0;
+            dp[i+1][mask] = max(dp[i+1][mask], dp[i][mask]);
 
-    for(int mask = 1; mask < (1 << n); mask++){
-        dp[mask] = cost[mask];
+            for(int j = 0; j < m; j++){
+                if(i + b[j] > n) continue;
 
-        for(int submask = mask; submask; submask = mask & (submask - 1)){
-            dp[mask] = max(dp[mask], dp[mask ^ submask] + cost[submask]);
+                int new_mask = mask | (1 << j);
+
+                dp[i + b[j]][new_mask] = max(dp[i + b[j]][new_mask], dp[i][mask] + cost(i + 1,i + b[j]));
+            }
         }
     }
 
-    cout << dp[(1 << n) - 1];
+    ll ans = INF;
+    int final_mask = (1 << m) - 1;
+    for(int i = 1; i <= n; i++){
+        ans = max(ans, dp[i][final_mask]);
+    }
+    cout << ans;
 }
 
 int main(){

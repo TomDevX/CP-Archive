@@ -2,9 +2,9 @@
 
 ### 📊 Codeforces Stats
 
-![Progress](https://img.shields.io/badge/Progress-148/168-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_24%2C_2026_--_19%3A23_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-148/172-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Jul_27%2C_2026_--_17%3A15_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
-- **Total Unique Problems:** 168
+- **Total Unique Problems:** 172
 - **Solved (AC):** 148
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
@@ -12,10 +12,10 @@
 ---
 ## 📌 Table of Contents
 
-* [📁 Codeforces (168)](#-codeforces-168)
+* [📁 Codeforces (172)](#-codeforces-172)
 
 ---
-## 📂 Codeforces (168)
+## 📂 Codeforces (172)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1A](https://codeforces.com/contest/1/problem/A) | N/A | N/A | N/A | [Code](1A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -189,5 +189,9 @@
 | 169 | [2238A - Another Puzzle from Papyrus](https://codeforces.com/contest/2238/problem/A) | `Greedy` | ${\mathcal{O}(n \log n)}$ | Jul&nbsp;09,&nbsp;2026 | [Code](2238A.cpp) \| [Sub](https://codeforces.com/contest/2238/submission/381867579) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 170 | [2238B - Crimson Triples](https://codeforces.com/contest/2238/problem/B) | `Math` | ${\mathcal{O}(n)}$ | Jul&nbsp;09,&nbsp;2026 | [Code](2238B.cpp) \| [Sub](https://codeforces.com/contest/2238/submission/381872884) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 171 | [2240A - Another Popcount Problem](https://codeforces.com/contest/2240/problem/A) | `Math`, `Greedy`, `Bit` | ${\mathcal{O}(\log n)}$ | Jun&nbsp;27,&nbsp;2026 | [Code](2240A.cpp) \| [Sub](https://codeforces.com/contest/2240/submission/380379723) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 172 | [690281B - Tăng dãy](https://codeforces.com/gym/690281/problem/B) | `Segment Tree Beats` | ${\mathcal{O}((n \cdot k + q) \log n)}$ | May&nbsp;03,&nbsp;2026 | [Code](690281B.cpp) \| [Sub](https://codeforces.com/gym/690281/submission/373439975) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 172 | [2250A](https://codeforces.com/contest/2250/problem/A) | N/A | N/A | Jul&nbsp;26,&nbsp;2026 | [Code](2250A.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 173 | [2250B](https://codeforces.com/contest/2250/problem/B) | N/A | N/A | Jul&nbsp;26,&nbsp;2026 | [Code](2250B.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 174 | [2250C](https://codeforces.com/contest/2250/problem/C) | N/A | N/A | Jul&nbsp;26,&nbsp;2026 | [Code](2250C.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 175 | [2250D](https://codeforces.com/contest/2250/problem/D) | N/A | N/A | Jul&nbsp;26,&nbsp;2026 | [Code](2250D.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
+| 176 | [690281B - Tăng dãy](https://codeforces.com/gym/690281/problem/B) | `Segment Tree Beats` | ${\mathcal{O}((n \cdot k + q) \log n)}$ | May&nbsp;03,&nbsp;2026 | [Code](690281B.cpp) \| [Sub](https://codeforces.com/gym/690281/submission/373439975) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
