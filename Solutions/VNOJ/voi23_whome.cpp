@@ -11,8 +11,8 @@
  * ----------------------------------------------------------
  *    tags: DP Bitmask
  *    complexity: O(2^m * n * m)
- *    metacognition: Such a DP Bitmask problem because M <= 6, so maybe it has the state of dp[n][mask]
- *    note: 
+ *    metacognition: Such a DP Bitmask problem because M <= 6, so maybe it has the state of dp[i][mask]. The best strategy here is letting the max and min distance as min as possible => sort the array and only process subarrays => max - min = a[r] - a[l]. Also the smaller of M_i is, the better profit we recieve, so next strategy is to assign large M_i to their most optimal subarrays and spam the smallest M_i for the other positive subarrays >< we don't know where should we put those large M_i -> come back to dp[i][mask] = best profit processed from 1 -> i and mask represent for if M_i is used at least one
+ *    note: Sort the array for better max - min and optimal profit strategy. DP Bitmask with dp[i][mask] = best profit processed from 1 -> i with status of mask is if M_i is used. Then for each dp[i][mask], we iterate through all possible M_i and add up to the max value of the next status
 **/
 
 #include <iostream>
