@@ -6,12 +6,12 @@
  * ----------------------------------------------------------
  *    title: Bài 4: Hàng cây
  *    source: https://oj.vnoi.info/problem/gogovoi_nangcao_hangcay
- *    submission: 
- *    status: WIP
+ *    submission: https://oj.vnoi.info/submission/12854733
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    metacognition: 
+ *    tags: DP Bitmask, BIT
+ *    complexity: O(2^k \cdot n \cdot \log_2 H)
+ *    metacognition: Maybe we need a dp[N][H][MASK] = processed to pos N, last one has height of H, and MASK of types are kept. 
  *    note: 
 **/
 
@@ -69,17 +69,16 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e4+2, K = 8;
+const int N = 1e4+2, H = 1e4+2, K = 8;
 const ll MOD = 1e9+7;
 
+int n,k;
 
 struct box{
     int type, h;
     
     box(int _type = 0, int _h = 0) : type(_type), h(_h) {};
 };
-
-box a[N];
 
 struct modll{
     ll val = 0;
@@ -93,31 +92,43 @@ struct modll{
         return x;
     }
     
-    modll binpow(ll k) const noexcept {
+    modll binpow(ll exp) const noexcept {
         modll res = 1;
         modll x = *this;
-        while(k){
-            if(k & 1) res *= x;
+        while(exp){
+            if(exp & 1) res *= x;
             x *= x;
-            k >>= 1;
+            exp >>= 1;
         }
         return res;
     }
     
     // set operators
-    void operator +=(modll x) noexcept { val = (val+x.val)%MOD; }
-    void operator -=(modll x) noexcept { val = norm(val-x.val); }
+    void operator +=(modll x) noexcept {
+        val += x.val;
+        if(val >= MOD) val -= MOD;
+    }
+    void operator -=(modll x) noexcept { 
+        val -= x.val;
+        if(val < 0) val += MOD;
+    }
     void operator *=(modll x) noexcept { val = (1ULL*val*x.val)%MOD; }
     void operator /=(modll x) noexcept { *this *= x.binpow(MOD-2); }
     
     // operators
-    modll operator +(modll x) const noexcept { return  (val + x.val)%MOD; }
-    modll operator -(modll x) const noexcept { return norm(val - x.val); }
+    modll operator +(modll x) const noexcept { 
+        ll res = val + x.val;
+        return modll(res >= MOD ? res - MOD : res);
+    }
+    modll operator -(modll x) const noexcept { 
+        ll res = val - x.val;
+        return modll(res < 0 ? res + MOD : res);
+    }
     modll operator *(modll x) const noexcept { return (1ULL*val * x.val)%MOD; }
     modll operator /(modll x) const noexcept { return *this * x.binpow(MOD-2); }
     
     // input/output
-    friend std::ostream& operator <<(std::ostream& os, modll &x) noexcept { return os << x.val; }
+    friend std::ostream& operator <<(std::ostream& os, modll x) noexcept { return os << x.val; }
     friend std::istream& operator >>(std::istream& is, modll &x) noexcept {
         ll inp_val;
         is >> inp_val;
@@ -126,27 +137,60 @@ struct modll{
     }
 };
 
-modll dp[N][1 << K];
+struct BIT{
+    modll bit[N][1 << K];
+
+    modll get(int mask, int pos){
+        modll res = 0;
+        for(; pos; pos -= pos&-pos) res += bit[pos][mask];
+        return res;
+    }
+
+    modll query(int mask, int l, int r){
+        return get(mask,r) - (l-1 == 0 ? 0 : get(mask,l-1));
+    }
+
+    void update(int mask, int pos, modll val){
+        for(; pos < H; pos += pos&-pos){
+            bit[pos][mask] += val;
+        }
+    }
+}bit;
+
+box a[N];
+modll dp[H][1 << K];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    int n,k;
     cin >> n >> k;
 
     for(int i = 1; i <= n; i++){
         cin >> a[i].type >> a[i].h;
+        a[i].type--;
     }
 
     dp[0][0] = 1;
+    // bit.update(0,0,1); (this can help replacing mask == (1 << a[i].type) but BIT can't process 0 index)
 
-    for(int i = 0; i < n; i++){
+    for(int i = 1; i <= n; i++){
         for(int mask = 0; mask < (1 << k); mask++){
+            if(!(mask >> a[i].type & 1)) continue;
+
+            modll old_val = dp[a[i].h][mask];
+            dp[a[i].h][mask] += bit.query(mask, 1, a[i].h-1) + bit.query(mask ^ (1 << a[i].type), 1, a[i].h-1);
             
+            if(mask == (1 << a[i].type)){
+                dp[a[i].h][mask] += 1;
+            }
+
+            bit.update(mask, a[i].h, dp[a[i].h][mask] - old_val);
         }
     }
+
+    cout << bit.query((1 << k) - 1, 1, H-1);
 }
 
 int main(){
