@@ -11,8 +11,8 @@
  * ----------------------------------------------------------
  *    tags: DP Bitmask, BIT
  *    complexity: O(2^k \cdot n \cdot \log_2 H)
- *    metacognition: Maybe we need a dp[N][H][MASK] = processed to pos N, last one has height of H, and MASK of types are kept. 
- *    note: 
+ *    metacognition: Maybe we need a dp[N][H][MASK] = processed to pos N, last one has height of H, and MASK of types are kept >< that's too many arguments so we need to see which is useless and remove it. We can we can see that for each H at ith index, we can easily query the past states before ith index with BIT (query on the mask and index from 1 -> i - 1) -> dp turns into dp[H][mask] and query using BIT
+ *    note: dp[H][mask] = ways for current last height is H and chosen types is mask. Run through each i index, and query 1 -> i-1 states using BIT
 **/
 
 #include <iostream>
