@@ -1,17 +1,17 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-07-24 18:08:16
+ *    created: 2026-08-01 16:47:53
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: Atcoder Educational DP Contest U - Grouping
- *    source: https://oj.vnoi.info/problem/atcoder_dp_u
- *    submission: https://oj.vnoi.info/submission/12827007
- *    status: AC
+ *    title: 
+ *    source: 
+ *    submission: 
+ *    status: WIP
  * ----------------------------------------------------------
- *    tags: DP Bitmask, Iterate Submask
- *    complexity: O(2^n \cdot n^2 + 3^n)
- *    metacognition: Use DP Bitmask with dp[mask] as best cost for chosen set of rabbits. So we need to iterate 2 mask, each dp[mask] = dp[submask] + dp[mask ^ submask]
+ *    tags: 
+ *    complexity: 
+ *    metacognition: 
  *    note: 
 **/
 
@@ -64,53 +64,113 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("atcoder_dp_u.INP", "r")) return;
-    freopen("atcoder_dp_u.INP", "r", stdin);
-    freopen("atcoder_dp_u.OUT", "w", stdout);
+    if(!fopen("main.INP", "r")) return;
+    freopen("main.INP", "r", stdin);
+    freopen("main.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 16;
+const int N = 1 << 10;
+const ll MOD = 1e9+7;
 
-int a[N][N];
-ll dp[1 << N];
-int backtrack_mask = 0;
 
-int n;
+struct modll{
+    ll val = 0;
+    
+    modll() : val(0) {};
+    modll(ll x) : val(norm(x)) {};
+    
+    ll norm(ll x) const noexcept {
+        x %= MOD;
+        if(x < 0) x += MOD;
+        return x;
+    }
+    
+    modll binpow(ll exp) const noexcept {
+        modll res = 1;
+        modll x = *this;
+        while(exp){
+            if(exp & 1) res *= x;
+            x *= x;
+            exp >>= 1;
+        }
+        return res;
+    }
+    
+    // set operators
+    void operator +=(modll x) noexcept {
+        val += x.val;
+        if(val >= MOD) val -= MOD;
+    }
+    void operator -=(modll x) noexcept { 
+        val -= x.val;
+        if(val < 0) val += MOD;
+    }
+    void operator *=(modll x) noexcept { val = (1ULL*val*x.val)%MOD; }
+    void operator /=(modll x) noexcept { *this *= x.binpow(MOD-2); }
+    
+    // operators
+    modll operator +(modll x) const noexcept { 
+        ll res = val + x.val;
+        return modll(res >= MOD ? res - MOD : res);
+    }
+    modll operator -(modll x) const noexcept { 
+        ll res = val - x.val;
+        return modll(res < 0 ? res + MOD : res);
+    }
+    modll operator *(modll x) const noexcept { return (1ULL*val * x.val)%MOD; }
+    modll operator /(modll x) const noexcept { return *this * x.binpow(MOD-2); }
+    
+    // input/output
+    friend std::ostream& operator <<(std::ostream& os, modll x) noexcept { return os << x.val; }
+    friend std::istream& operator >>(std::istream& is, modll &x) noexcept {
+        ll inp_val;
+        is >> inp_val;
+        x = modll(inp_val);
+        return is;
+    }
+};
+
+modll dp[2][N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void calculate_cost(int idx){
-    if(idx == n){
-        for(int i = 0; i < n; i++){
-            for(int j = i + 1; j < n; j++){
-                if(backtrack_mask >> i & 1 && backtrack_mask >> j & 1) dp[backtrack_mask] += a[i][j];
-            }
-        }
-        return;
-    }
-
-    calculate_cost(idx+1);
-    backtrack_mask |= (1 << idx);
-    calculate_cost(idx+1);  
-    backtrack_mask ^= (1 << idx);
+void rest(int id){
+    memset(dp[id], 0, sizeof(dp[id]));
 }
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    cin >> n;
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++) cin >> a[i][j];
-    }
+    int n,m;
+    cin >> n >> m;
 
-    calculate_cost(0);
+    dp[0][0] = 1;
+    
+    for(int j = 0; j < m; j++){
+        for(int i = 0; i < n; i++){
+            rest(1);
+            for(int mask = 0; mask < (1 << n); mask++){
 
-    for(int mask = 1; mask < (1 << n); mask++){
-        for(int submask = mask; submask; submask = mask & (submask - 1)){
-            dp[mask] = max(dp[mask], dp[mask ^ submask] + dp[submask]);
+                // occupied
+                if(mask >> i & 1){
+                    dp[1][mask ^ (1 << i)] += dp[0][mask];
+                }
+
+                // not occupied
+                else{
+                    // vertical
+                    if(i + 1 < n && !(mask >> (i+1) & 1)){
+                        dp[1][mask | (1 << (i+1))] += dp[0][mask];
+                    }
+
+                    // horizontal
+                    dp[1][mask | (1 << i)] += dp[0][mask];
+                }
+            }
+            swap(dp[0], dp[1]);
         }
     }
 
-    cout << dp[(1 << n) - 1];
+    cout << dp[0][0];
 }
 
 int main(){
