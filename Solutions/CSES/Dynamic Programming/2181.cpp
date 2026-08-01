@@ -10,7 +10,7 @@
  * ----------------------------------------------------------
  *    tags: DP on Broken Profile
  *    complexity: O(n \cdot m \cdot 2^n)
- *    note: dp[pos][mask] represent the ways to reach that borderline shape (mask) at pos (it will iterate through all cells on table). Just like prefix sum after compressing pos in only 2 dimension instead of dp[i][j][mask]. So now we have dp[0/1][mask], the mask here is the status of occupied positions of the borderline, but this borderline is a "hybrid" of column j and j+1, for the positions of 0 -> processed cell, the status belongs to j+1, else it belongs to j
+ *    note: dp[pos][mask] represent the ways to reach that borderline shape (mask) at pos (it will iterate through all cells on table). Just like prefix sum after compressing pos in only 2 dimension instead of dp[i][j][mask]. So now we have dp[0/1][mask], the mask here is the status of occupied positions of the borderline, but this borderline is a "hybrid" of column j and j+1, for the positions of 0 -> processed cell, the status belongs to j+1, else it belongs to j. dp[0] and dp[1] means that status of borderline before/after processing (i,j)
 **/
 
 #include <iostream>

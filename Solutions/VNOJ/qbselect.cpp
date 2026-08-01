@@ -21,6 +21,7 @@
 #include <cstdio>
 #include <string>
 #include <utility>
+#include <cstring>
 
 using namespace std;
 
@@ -69,17 +70,43 @@ void setup(){
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
+const int N = 1 << 4, M = 1e4+5;
 
+ll dp[2][N];
+int a[4][M];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-
+void rest(int id){
+    memset(dp[id], 0, sizeof(dp[id]));
+}
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
     int n = 4,m;
     cin >> m;
 
-    
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++) cin >> a[i][j];
+    }
+
+    dp[0][0] = 1;
+
+    for(int j = 0; j < m; j++){
+        for(int i = 0; i < n; i++){
+            rest(1);
+            for(int mask = 0; mask < (1 << n); mask++){
+                if(!(mask >> i & 1) && (i - 1 >= 0 && !(mask >> (i-1) & 1)) && (i + 1 < n && !(mask >> (i+1) & 1))){
+                    dp[1][mask | (1 << i)] = max(dp[1][mask | (1 << i)], dp[0][mask] + a[i][j]);
+                }
+            }
+        }
+        swap(dp[0], dp[1]);
+    }
+
+    ll ans = 0;
+    for(int mask = 0; mask < (1 << n); mask++){
+        ans += dp[0][mask];
+    }
 }
 
 int main(){
