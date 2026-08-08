@@ -1,18 +1,18 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-08-08 15:13:33
+ *    created: 2026-08-08 14:24:21
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Riptide
+ *    source: https://codeforces.com/contest/2254/problem/A
+ *    submission: https://codeforces.com/submissions/TomDev#
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
+ *    tags: Implementation, Math
+ *    complexity: O(1)
  *    metacognition: 
- *    note: 
+ *    note: Just check all cases
 **/
 
 #include <iostream>
@@ -38,7 +38,7 @@ using namespace std;
 #define sub(x, st, ed) std::begin((x)) + (st), std::begin((x)) + (ed) + 1
 #define filter(x,bonus) (x).erase(unique(std::begin((x))+(bonus), std::end((x))), std::end((x)))
 #define rall(x,bonus) (x).rbegin(),(x).rend()-(bonus)
-#define fastio ios_base::sync_with_stdio(false), cin.tie(NULL);
+#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);
 #define fi first
 #define se second
 #define eb emplace_back
@@ -63,20 +63,28 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("2254A.INP", "r")) return;
+    freopen("2254A.INP", "r", stdin);
+    freopen("2254A.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-
+int a[3];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    
+    for(int i = 0; i < 3; i++) cin >> a[i];
+    sort(all(a,0));
+
+    if(a[0] == a[1] || a[1] == a[2]){
+        cout << 0 << '\n';
+        return;
+    }
+
+    cout << min(a[2] - a[1], a[1] - a[0]) << '\n';
 }
 
 int main(){
@@ -84,7 +92,7 @@ int main(){
     setup();
 
     int tc = 1;
-    //cin >> tc;
+    cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
         __TomDev();
