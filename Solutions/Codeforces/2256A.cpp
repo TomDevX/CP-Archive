@@ -1,18 +1,18 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-08-20 19:01:56
+ *    created: 2026-08-23 17:03:50
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Three Numbers on the Blackboard
+ *    source: https://codeforces.com/contest/2256/problem/A
+ *    submission: https://codeforces.com/contest/2256/submission/388124540
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
+ *    tags: Implementation
+ *    complexity: O(1)
  *    metacognition: 
- *    note: 
+ *    note: Do as the problem states
 **/
 
 #include <iostream>
@@ -21,8 +21,6 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <random>
-#include <chrono>
 
 using namespace std;
 
@@ -65,24 +63,26 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("2256A.INP", "r")) return;
+    freopen("2256A.INP", "r", stdin);
+    freopen("2256A.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-mt19937_64 gen(chrono::steady_clock::now().time_since_epoch().count());
+
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-ll ranL(ll l, ll r){
-    return uniform_int_distribution<ll>(l,r)(gen);
-}
+
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    for(int i = 1; i <= 100; i++){
-        cout << ranL(1,100) << '\n';
-    }
+    int a,b,c;
+    cin >> a >> b >> c;
+    if(a > b) swap(a,b);
+    if(b > c) swap(b,c);
+    if(a > b) swap(a,b);
+
+    cout << min(c - a, b) << '\n';
 }
 
 int main(){
@@ -90,7 +90,7 @@ int main(){
     setup();
 
     int tc = 1;
-    //cin >> tc;
+    cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
         __TomDev();

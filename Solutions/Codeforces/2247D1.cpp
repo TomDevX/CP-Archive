@@ -1,11 +1,11 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-08-20 19:01:56
+ *    created: 2026-08-10 14:45:07
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: XOR Sorting (Easy Version)
+ *    source: https://codeforces.com/contest/2247/problem/D1
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -21,8 +21,6 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <random>
-#include <chrono>
 
 using namespace std;
 
@@ -65,24 +63,22 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("2247D1.INP", "r")) return;
+    freopen("2247D1.INP", "r", stdin);
+    freopen("2247D1.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-mt19937_64 gen(chrono::steady_clock::now().time_since_epoch().count());
+
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-ll ranL(ll l, ll r){
-    return uniform_int_distribution<ll>(l,r)(gen);
-}
+
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    for(int i = 1; i <= 100; i++){
-        cout << ranL(1,100) << '\n';
-    }
+    int n,q;
+    cin >> n >> q;
+    
 }
 
 int main(){
@@ -90,7 +86,7 @@ int main(){
     setup();
 
     int tc = 1;
-    //cin >> tc;
+    cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
         __TomDev();

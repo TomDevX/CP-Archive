@@ -6,11 +6,11 @@
  * ----------------------------------------------------------
  *    title: VOI 06 Bài 1 - Chọn ô
  *    source: https://oj.vnoi.info/problem/qbselect
- *    submission: 
- *    status: WIP
+ *    submission: https://oj.vnoi.info/src/12905813
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
+ *    tags: DP Bitmask
+ *    complexity: O(m \cdot 2^n \cdot 2^n)
  *    metacognition: 
  *    note: 
 **/
@@ -73,40 +73,75 @@ void setup(){
 const int N = 1 << 4, M = 1e4+5;
 
 ll dp[2][N];
+ll sum[M][N];
 int a[4][M];
+int n = 4,m;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
 void rest(int id){
-    memset(dp[id], 0, sizeof(dp[id]));
+    memset(dp[id], -0x3f, sizeof(dp[id]));
+}
+
+bool check(int mask1, int mask2){
+    for(int i = 0; i < n; i++){
+        if(mask1 >> i & 1 && mask2 >> i & 1) return false;
+        if(mask1 >> i & 1 && (mask1 >> (i + 1) & 1 || (i - 1 >= 0 ? mask1 >> (i-1) & 1 : 0))) return false;
+        if(mask2 >> i & 1 && (mask2 >> (i + 1) & 1 || (i - 1 >= 0 ? mask2 >> (i-1) & 1 : 0))) return false;
+    }
+    return true;
+}
+
+ll get_sum(int mask, int col){
+    ll sum = 0;
+    for(int i = 0; i < n; i++){
+        if(mask >> i & 1) sum += a[i][col];
+    }
+    return sum;
+}
+
+void precalc(){
+    for(int j = 0; j < m; j++){
+        for(int mask = 1; mask < (1 << n); mask++){
+            sum[j][mask] = get_sum(mask, j);
+        }
+    }
 }
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    int n = 4,m;
     cin >> m;
 
+    int maxele = -1e9;
+    
     for(int i = 0; i < n; i++){
-        for(int j = 0; j < m; j++) cin >> a[i][j];
+        for(int j = 0; j < m; j++) cin >> a[i][j], maxele = max(maxele, a[i][j]);
+    }
+    precalc();
+    rest(0);
+    
+    for(int mask = 0; mask < (1 << n); mask++){
+        if(check(mask,0)){
+            dp[0][mask] = get_sum(mask, 0);
+        }
     }
 
-    dp[0][0] = 1;
+    for(int j = 1; j < m; j++){
+        rest(1);
+        for(int mask = 0; mask < (1 << n); mask++){
+            for(int nxt_mask = 0; nxt_mask < (1 << n); nxt_mask++){
+                if(!check(mask,nxt_mask)) continue;
 
-    for(int j = 0; j < m; j++){
-        for(int i = 0; i < n; i++){
-            rest(1);
-            for(int mask = 0; mask < (1 << n); mask++){
-                if(!(mask >> i & 1) && (i - 1 >= 0 && !(mask >> (i-1) & 1)) && (i + 1 < n && !(mask >> (i+1) & 1))){
-                    dp[1][mask | (1 << i)] = max(dp[1][mask | (1 << i)], dp[0][mask] + a[i][j]);
-                }
-            }
+                dp[1][nxt_mask] = max(dp[1][nxt_mask], dp[0][mask] + sum[j][nxt_mask]);
+            }  
         }
         swap(dp[0], dp[1]);
     }
 
     ll ans = 0;
     for(int mask = 0; mask < (1 << n); mask++){
-        ans += dp[0][mask];
+        ans = max(ans, dp[0][mask]);
     }
+    cout << (ans == 0 ? maxele : ans);
 }
 
 int main(){

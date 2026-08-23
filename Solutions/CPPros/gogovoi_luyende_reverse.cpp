@@ -1,18 +1,18 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-08-20 19:01:56
+ *    created: 2026-08-10 16:04:24
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Đảo ngược
+ *    source: https://oj.vnoi.info/problem/gogovoi_luyende_reverse
+ *    submission: https://oj.vnoi.info/submission/13000859
+ *    status: AC
  * ----------------------------------------------------------
  *    tags: 
  *    complexity: 
  *    metacognition: 
- *    note: 
+ *    note:     
 **/
 
 #include <iostream>
@@ -21,8 +21,6 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <random>
-#include <chrono>
 
 using namespace std;
 
@@ -65,24 +63,70 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("gogovoi_luyende_reverse.INP", "r")) return;
+    freopen("gogovoi_luyende_reverse.INP", "r", stdin);
+    freopen("gogovoi_luyende_reverse.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-mt19937_64 gen(chrono::steady_clock::now().time_since_epoch().count());
+const int N = 20;
+
+int dp[1 << N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-ll ranL(ll l, ll r){
-    return uniform_int_distribution<ll>(l,r)(gen);
+void turn_bit_on(int bit, int &mask){
+    mask |= (1 << bit);
+}
+
+void turn_bit_off(int bit, int &mask){
+    mask &= ~(1 << bit);
+}
+
+bool is_on(int bit, int mask){
+    return mask >> bit & 1;
 }
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    for(int i = 1; i <= 100; i++){
-        cout << ranL(1,100) << '\n';
+    string s;
+    cin >> s;
+    int n = sz(s);
+
+    int l = 0;
+    int avail = 0;
+
+    // initial value for DP
+    for(int i = 0; i < n; i++){
+        while(is_on(s[i] - 'a', avail)){
+            turn_bit_off(s[l] - 'a', avail);
+            l++;
+        }
+        turn_bit_on(s[i] - 'a', avail);
+        dp[avail] = __builtin_popcount(avail);
     }
+
+    // setup DP
+    // downwards
+    for(int i = 0; i < N; i++){
+        for(int mask = (1 << N) - 1; mask; mask--){
+            if(mask >> i & 1) dp[mask ^ (1 << i)] = max(dp[mask ^ (1 << i)], dp[mask] - 1);
+        }
+    }
+
+    // upwards
+    for(int i = 0; i < N; i++){
+        for(int mask = 0; mask < (1 << N); mask++){
+            if(mask >> i & 1) dp[mask] = max(dp[mask], dp[mask ^ (1 << i)]);
+        }
+    }
+
+    // get result
+    int ans = 0;
+    for(int mask = 0; mask < (1 << N); mask++){
+        ans = max(ans, dp[mask] + dp[((1 << N) - 1) ^ mask]);
+    }
+
+    cout << ans;
 }
 
 int main(){

@@ -1,16 +1,16 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-08-20 19:01:56
+ *    created: 2026-08-12 20:10:54
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: BerSU Ball
+ *    source: https://codeforces.com/contest/489/problem/B
+ *    submission: https://codeforces.com/contest/489/submission/386769329
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
+ *    tags: Greedy
+ *    complexity: O(n \log n + m \log m)
  *    metacognition: 
  *    note: 
 **/
@@ -21,8 +21,7 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <random>
-#include <chrono>
+#include <cmath>
 
 using namespace std;
 
@@ -65,24 +64,46 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("489B.INP", "r")) return;
+    freopen("489B.INP", "r", stdin);
+    freopen("489B.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-mt19937_64 gen(chrono::steady_clock::now().time_since_epoch().count());
+
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-ll ranL(ll l, ll r){
-    return uniform_int_distribution<ll>(l,r)(gen);
-}
+
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    for(int i = 1; i <= 100; i++){
-        cout << ranL(1,100) << '\n';
+    int n,m;
+    
+    
+    cin >> n;
+    vi a(n+1);
+    for(int i = 1; i <= n; i++) cin >> a[i];
+
+    cin >> m;
+    vi b(m+1);
+    for(int j = 1; j <= m; j++) cin >> b[j];
+
+    sort(all(a,1));
+    sort(all(b,1));
+
+    int ans = 0;
+
+    int i = 1, j = 1;
+    while(i <= n && j <= m){
+        if(abs(a[i] - b[j]) <= 1){
+            ans++;
+            i++;
+            j++;
+        }
+        else if(a[i] > b[j]) j++;
+        else i++;
     }
+    cout << ans;
 }
 
 int main(){
@@ -90,7 +111,7 @@ int main(){
     setup();
 
     int tc = 1;
-    //cin >> tc;
+    // cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
         __TomDev();

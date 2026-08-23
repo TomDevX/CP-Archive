@@ -1,6 +1,6 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-08-20 19:01:56
+ *    created: 2026-08-16 09:46:05
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
@@ -21,8 +21,6 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <random>
-#include <chrono>
 
 using namespace std;
 
@@ -65,24 +63,37 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("ctsqn80__Solution.INP", "r")) return;
+    freopen("ctsqn80__Solution.INP", "r", stdin);
+    freopen("ctsqn80__Solution.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-mt19937_64 gen(chrono::steady_clock::now().time_since_epoch().count());
+const int N = 1e6+2;
+
+int a[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-ll ranL(ll l, ll r){
-    return uniform_int_distribution<ll>(l,r)(gen);
-}
+
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    for(int i = 1; i <= 100; i++){
-        cout << ranL(1,100) << '\n';
+    int n;
+    cin >> n;
+    for(int i = 1; i <= n; i++) cin >> a[i];
+
+    int ans = 0;
+
+    for(int i = 1; i <= n; i++){
+        int maxn = 0;
+        int minn = 1e9;
+        for(int j = i; j <= n; j++){
+            maxn = max(maxn, a[j]);
+            minn = min(minn, a[j]);
+            if(maxn <= j  && minn >= i) ans++;
+        }
     }
+    cout << ans << '\n';
 }
 
 int main(){
@@ -90,7 +101,7 @@ int main(){
     setup();
 
     int tc = 1;
-    //cin >> tc;
+    cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
         __TomDev();

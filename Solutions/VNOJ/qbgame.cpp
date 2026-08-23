@@ -1,11 +1,11 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-08-20 19:01:56
+ *    created: 2026-08-17 07:33:30
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: Trò chơi trên ma trận 
+ *    source: https://oj.vnoi.info/problem/qbgame
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -21,8 +21,6 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <random>
-#include <chrono>
 
 using namespace std;
 
@@ -65,24 +63,41 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("qbgame.INP", "r")) return;
+    freopen("qbgame.INP", "r", stdin);
+    freopen("qbgame.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-mt19937_64 gen(chrono::steady_clock::now().time_since_epoch().count());
+const int n = 8, M = 1e4;
+int m;
+
+int a[n][M];
+ll sum[M][1 << n];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-ll ranL(ll l, ll r){
-    return uniform_int_distribution<ll>(l,r)(gen);
+void make_sum(){
+    for(int j = 0; j < m; j++){
+        for(int mask = 0; mask < (1 << n); mask++){
+            if(!is_valid(mask)) sum[j][mask] = -1e18;
+            else{
+                for(int i = 0; i < n; i++){
+                    if
+                }
+            }
+        }
+    }
 }
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    for(int i = 1; i <= 100; i++){
-        cout << ranL(1,100) << '\n';
+    cin >> m;
+
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++) cin >> a[i][j];
     }
+
+    make_sum();
 }
 
 int main(){

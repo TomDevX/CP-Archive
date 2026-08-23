@@ -1,11 +1,11 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-08-20 19:01:56
+ *    created: 2026-08-16 09:04:00
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: Bầy mèo nổi loạn
+ *    source: https://oj.iuhcoder.com/problem/khoidong1
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -21,8 +21,6 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <random>
-#include <chrono>
 
 using namespace std;
 
@@ -65,24 +63,37 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("khoidong1.INP", "r")) return;
+    freopen("khoidong1.INP", "r", stdin);
+    freopen("khoidong1.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-mt19937_64 gen(chrono::steady_clock::now().time_since_epoch().count());
+int a[7];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-ll ranL(ll l, ll r){
-    return uniform_int_distribution<ll>(l,r)(gen);
+ll binh(int x){
+    return 1LL*x*x;
+}
+
+bool check(){
+    return binh(a[1] + a[2]) + binh(a[3] + a[4]) == binh(a[5] + a[6]);
 }
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    for(int i = 1; i <= 100; i++){
-        cout << ranL(1,100) << '\n';
-    }
+    int n = 6;
+    for(int i = 1; i <= n; i++) cin >> a[i];
+
+    sort(all(a,1));
+
+    do{
+        if(check()){
+            cout << "YES\n";
+            return;
+        }
+    }while(next_permutation(all(a,1)));
+    cout << "NO\n";
 }
 
 int main(){
@@ -90,7 +101,7 @@ int main(){
     setup();
 
     int tc = 1;
-    //cin >> tc;
+    cin >> tc;  
     for(int t = 1; t <= tc; t++)
     {
         __TomDev();

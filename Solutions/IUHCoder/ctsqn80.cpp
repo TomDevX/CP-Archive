@@ -1,11 +1,11 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-08-20 19:01:56
+ *    created: 2026-08-16 09:39:53
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
+ *    title: Giàn Hoa Của Nhật Trường
+ *    source: https://oj.iuhcoder.com/problem/ctsqn80
  *    submission: 
  *    status: WIP
  * ----------------------------------------------------------
@@ -21,8 +21,6 @@
 #include <cstdio>
 #include <string>
 #include <utility>
-#include <random>
-#include <chrono>
 
 using namespace std;
 
@@ -65,24 +63,55 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("ctsqn80.INP", "r")) return;
+    freopen("ctsqn80.INP", "r", stdin);
+    freopen("ctsqn80.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-mt19937_64 gen(chrono::steady_clock::now().time_since_epoch().count());
+const int N = 1e6+2;
+
+int a[N];
+int suffmin[N];
+int bigger_than_R_idx[N];
+int n;
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-ll ranL(ll l, ll r){
-    return uniform_int_distribution<ll>(l,r)(gen);
+int get_min_idx(int l, int r, int val){
+    int res = n+1;
+    while(l <= r){
+        int mid = l + ((r-l)>>1);
+        if(suffmin[mid] > val){
+            r = mid-1;
+        }
+        else{
+            l = mid+1;
+            res = mid;
+        }
+    }
+    return res;
 }
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    for(int i = 1; i <= 100; i++){
-        cout << ranL(1,100) << '\n';
+    cin >> n;
+    for(int i = 1; i <= n; i++) cin >> a[i];
+
+    suffmin[n+1] = 1e9;
+    bigger_than_R_idx[n+1] = n+1;
+    for(int i = n; i >= 1; i--){
+        suffmin[i] = min(suffmin[i+1], a[i]);
+        bigger_than_R_idx[i] = (a[i] > i ? i : bigger_than_R_idx[i+1]);
     }
+
+    ll ans = 0;
+    for(int l = 1; l <= n; l++){
+        int L = get_min_idx(l, n+1, l);
+        int R = bigger_than_R_idx[l] - 1;
+        dbg(make_pair(L,R),l);
+        ans += max(0,min(L,R) - l +1);
+    }
+    cout << ans << '\n';
 }
 
 int main(){
@@ -90,7 +119,7 @@ int main(){
     setup();
 
     int tc = 1;
-    //cin >> tc;
+    cin >> tc;
     for(int t = 1; t <= tc; t++)
     {
         __TomDev();
