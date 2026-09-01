@@ -2,20 +2,20 @@
 
 ### 📊 Codeforces Stats
 
-![Progress](https://img.shields.io/badge/Progress-153/178-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Aug_23%2C_2026_--_17%3A10_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-154/179-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Sep_01%2C_2026_--_18%3A04_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
-- **Total Unique Problems:** 178
-- **Solved (AC):** 153
+- **Total Unique Problems:** 179
+- **Solved (AC):** 154
 
 > 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.
 
 ---
 ## 📌 Table of Contents
 
-* [📁 Codeforces (178)](#-codeforces-178)
+* [📁 Codeforces (179)](#-codeforces-179)
 
 ---
-## 📂 Codeforces (178)
+## 📂 Codeforces (179)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1A](https://codeforces.com/contest/1/problem/A) | N/A | N/A | N/A | [Code](1A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -196,8 +196,9 @@
 | 176 | [2250B](https://codeforces.com/contest/2250/problem/B) | N/A | N/A | Jul&nbsp;26,&nbsp;2026 | [Code](2250B.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 177 | [2250C](https://codeforces.com/contest/2250/problem/C) | N/A | N/A | Jul&nbsp;26,&nbsp;2026 | [Code](2250C.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
 | 178 | [2250D](https://codeforces.com/contest/2250/problem/D) | N/A | N/A | Jul&nbsp;26,&nbsp;2026 | [Code](2250D.cpp) | ![WIP](https://img.shields.io/static/v1?label=&message=%20%20%20WIP%20%20%20&color=007ec6&style=for-the-badge) |
-| 179 | [2254A - Riptide](https://codeforces.com/contest/2254/problem/A) | `Implementation`, `Math` | ${\mathcal{O}(1)}$ | Aug&nbsp;08,&nbsp;2026 | [Code](2254A.cpp) \| [Sub](https://codeforces.com/submissions/TomDev#) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 180 | [2254B - Evanescent](https://codeforces.com/contest/2254/problem/B) | `Implementation`, `Greedy` | ${\mathcal{O}(n)}$ | Aug&nbsp;08,&nbsp;2026 | [Code](2254B.cpp) \| [Sub](https://codeforces.com/contest/2254/submission/386216660) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 181 | [2256A - Three Numbers on the Blackboard](https://codeforces.com/contest/2256/problem/A) | `Implementation` | ${\mathcal{O}(1)}$ | Aug&nbsp;23,&nbsp;2026 | [Code](2256A.cpp) \| [Sub](https://codeforces.com/contest/2256/submission/388124540) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 182 | [690281B - Tăng dãy](https://codeforces.com/gym/690281/problem/B) | `Segment Tree Beats` | ${\mathcal{O}((n \cdot k + q) \log n)}$ | May&nbsp;03,&nbsp;2026 | [Code](690281B.cpp) \| [Sub](https://codeforces.com/gym/690281/submission/373439975) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 179 | [2252A - Boss Fight](https://codeforces.com/problemset/problem/2252/A) | `Greedy` | ${\mathcal{O}(n)}$ | Sep&nbsp;01,&nbsp;2026 | [Code](2252A.cpp) \| [Sub](https://codeforces.com/contest/2252/submission/389086520) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 180 | [2254A - Riptide](https://codeforces.com/contest/2254/problem/A) | `Implementation`, `Math` | ${\mathcal{O}(1)}$ | Aug&nbsp;08,&nbsp;2026 | [Code](2254A.cpp) \| [Sub](https://codeforces.com/submissions/TomDev#) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 181 | [2254B - Evanescent](https://codeforces.com/contest/2254/problem/B) | `Implementation`, `Greedy` | ${\mathcal{O}(n)}$ | Aug&nbsp;08,&nbsp;2026 | [Code](2254B.cpp) \| [Sub](https://codeforces.com/contest/2254/submission/386216660) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 182 | [2256A - Three Numbers on the Blackboard](https://codeforces.com/contest/2256/problem/A) | `Implementation` | ${\mathcal{O}(1)}$ | Aug&nbsp;23,&nbsp;2026 | [Code](2256A.cpp) \| [Sub](https://codeforces.com/contest/2256/submission/388124540) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 183 | [690281B - Tăng dãy](https://codeforces.com/gym/690281/problem/B) | `Segment Tree Beats` | ${\mathcal{O}((n \cdot k + q) \log n)}$ | May&nbsp;03,&nbsp;2026 | [Code](690281B.cpp) \| [Sub](https://codeforces.com/gym/690281/submission/373439975) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
