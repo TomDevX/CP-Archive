@@ -1,18 +1,18 @@
 /**
  *    author: TomDev - Tran Hoang Quan
- *    created: 2026-09-02 20:04:44
+ *    created: 2026-09-12 22:17:41
  *    country: Vietnam - VNM
  *    repo: github.com/TomDevX/CP-Archive
  * ----------------------------------------------------------
- *    title: 
- *    source: 
- *    submission: 
- *    status: WIP
+ *    title: Minus Two
+ *    source: https://codeforces.com/contest/2259/problem/B
+ *    submission: https://codeforces.com/contest/2259/submission/390457030
+ *    status: AC
  * ----------------------------------------------------------
- *    tags: 
- *    complexity: 
- *    metacognition: 
- *    note: 
+ *    tags: Greedy, Implementation, Math
+ *    complexity: O(n)
+ *    metacognition: Maybe we can divide them into 2 groups as "x % 2 == 1" and "x % 2 == 0" and they can be compared together? >< there's another group which is "x % 4 == 0" and it will never matches with the ones that are only "x % 2 == 0"
+ *    note: Divide numbers into 2 groups: "x % 2 == 1", only "x % 2 == 0", and "x % 4 == 0" and get the max out of them
 **/
 
 #include <iostream>
@@ -63,105 +63,40 @@ using vpill = vector<pair<int,long long>>;
 using vpll = vector<pair<long long,long long>>;
 
 void setup(){
-    if(!fopen("main.INP", "r")) return;
-    freopen("main.INP", "r", stdin);
-    freopen("main.OUT", "w", stdout);
+    if(!fopen("2259B.INP", "r")) return;
+    freopen("2259B.INP", "r", stdin);
+    freopen("2259B.OUT", "w", stdout);
 }
 
 // ----------------------- [ CONFIG & CONSTANTS ] -----------------------
-const int N = 1e6+2;
 
-int a[N];
-bool mark[N];
-bool sang[N];
 
 // ----------------------- [ FUNCTIONS ] -----------------------
-void sieve(){
-    sang[0] = sang[1] = 1;
-    for(int i = 2; i * i < N; i++){
-        if(!sang[i]){
-            for(int j = i*i; j < N; j += i) sang[j] = 1;
-        }
-    }
-}
 
-ull binpow(ull a, ull b, ull mod){
-    ull res = 1;
-    a %= mod;
-    while(b > 0){
-        if (b & 1) res = (unsigned __int128)res * a % mod;
-        a = (unsigned __int128)a * a % mod;
-        b >>= 1;
-    }
-    return res;
-}
-
-bool test(ull n, ull a, ull m, int k){
-    ull x = binpow(a, m, n);
-    if(x == 1 || x == n - 1) return false;
-    for(int r = 1; r < k; r++){
-        x = (unsigned __int128)x * x % n;
-        if(x == n - 1) return false;
-    }
-    return true;
-}
-
-bool is_snt(ull n){
-    if(n < 2) return false;
-    if(n == 2 || n == 3) return true;
-    if(n % 2 == 0 || n % 3 == 0) return false;
-
-    int k = 0;
-    ull m = n - 1;
-    while(!(m & 1)){
-        m >>= 1;
-        k++;
-    }
-
-    for(int val : {2, 7, 61}){
-        if(n == val) return true;
-        if(test(n, val, m, k)) return false;
-    }
-
-    return true;
-}
 
 // ----------------------- [ MAIN ] -----------------------
 void __TomDev(){
-    int n,k;
-    cin >> n >> k;
-
+    int n;
+    cin >> n;
+    vi a(n+1);
     for(int i = 1; i <= n; i++) cin >> a[i];
 
-    for(int i = 1; i <= n; i++){
-        if(a[i] < N) mark[i] = !sang[a[i]];
-        else mark[i] = is_snt(a[i]);
-    }
+    int cnt1 = 0;
+    for(int i = 1; i <= n; i++) cnt1 += (a[i] % 2);
 
-    int l = 1;
-    int ans = 1e9, cnt = 0;
-    for(int r = 1; r <= n; r++){
-        cnt += mark[r];
-        while(cnt >= k){
-            if(mark[l] && cnt == k) break;
-            cnt -= mark[l];
-            l++;
-        }
-        if(cnt == k){
-            // if(ans > r-l+1){
-            //     cerr << l << ' ' << r << '\n';
-            // }
-            ans = min(ans, r - l + 1);
-        }
-    }
+    int cnt4 = 0;
+    for(int i = 1; i <= n; i++) cnt4 += (a[i] % 4 == 0);
 
-    cout << (ans == 1e9 ? -1 : ans) << '\n';
+    int cnt2 = 0;
+    for(int i = 1; i <= n; i++) cnt2 += (a[i] % 2 == 0);
+    cnt2 -= cnt4;
+
+    cout << max({cnt1,cnt2,cnt4}) << '\n';
 }
 
 int main(){
     fastio;
     setup();
-    sieve();
 
     int tc = 1;
     cin >> tc;
