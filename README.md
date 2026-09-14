@@ -6,11 +6,11 @@ A dedicated repository for algorithmic research, optimized C++ templates, and pr
 
 ### 🔴 High-Level Goals (Long-term)
 
-- [ ] **Second Prize** - Vietnam National Olympiad in Informatics (VOI)
+~~- [ ] **Second Prize** - Vietnam National Olympiad in Informatics (VOI)~~ (Failed)\
 
 ### 🟡 Current Priority
 
-- [ ] **School Team Selection** - Earn a spot in the official school CP team.
+~~- [ ] **School Team Selection** - Earn a spot in the official school CP team.~~ (Failed)\
 
 ### 🔵 Side-Milestones
 
