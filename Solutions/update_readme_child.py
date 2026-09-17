@@ -13,7 +13,7 @@ SOURCE_EXTENSIONS = ('.cpp', '.c', '.go')
 EXT_TO_LANG = {
     '.cpp': 'C++',
     '.c': 'C',
-    '.go': 'Go'
+    '.go': 'Golang'
 }
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))

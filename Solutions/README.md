@@ -2,7 +2,7 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-444/499-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Sep_17%2C_2026_--_23%3A50_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260917T2350&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-444/499-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Sep_17%2C_2026_--_23%3A51_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260917T2351&p1=218 "🖱️ CLICK TO CONVERT")
 
 - **Total Problems:** 499
 - **Accepted:** 444
@@ -81,7 +81,7 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1A](https://codeforces.com/contest/1/problem/A) | N/A | N/A | N/A | [C++](Codeforces/1A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [4B - Before an Exam](https://codeforces.com/contest/4/problem/B) | `Implementation`, `Greedy` | ${\mathcal{O}(n)}$ | Sep&nbsp;17,&nbsp;2026 | [C++](Codeforces/4B.cpp) \| [Sub](https://codeforces.com/contest/4/submission/391051673) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 3 | [4B - Before an Exam](https://codeforces.com/contest/4/problem/B) | `Implementation`, `Greedy` | ${\mathcal{O}(n)}$ | Sep&nbsp;17,&nbsp;2026 | [Go](Codeforces/4B.go) \| [Sub](https://codeforces.com/contest/4/submission/391051673) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 3 | [4B - Before an Exam](https://codeforces.com/contest/4/problem/B) | `Implementation`, `Greedy` | ${\mathcal{O}(n)}$ | Sep&nbsp;17,&nbsp;2026 | [Golang](Codeforces/4B.go) \| [Sub](https://codeforces.com/contest/4/submission/391051673) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 4 | [32B](https://codeforces.com/contest/32/problem/B) | N/A | N/A | N/A | [C++](Codeforces/32B.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 5 | [41A](https://codeforces.com/contest/41/problem/A) | N/A | N/A | N/A | [C++](Codeforces/41A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 6 | [50A](https://codeforces.com/contest/50/problem/A) | N/A | N/A | N/A | [C++](Codeforces/50A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |

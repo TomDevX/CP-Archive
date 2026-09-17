@@ -2,7 +2,7 @@
 
 ### 📊 Codeforces Stats
 
-![Progress](https://img.shields.io/badge/Progress-156/181-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Sep_17%2C_2026_--_23%3A50_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-156/181-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Sep_17%2C_2026_--_23%3A51_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 181
 - **Solved (AC):** 156
@@ -20,7 +20,7 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1A](https://codeforces.com/contest/1/problem/A) | N/A | N/A | N/A | [C++](1A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [4B - Before an Exam](https://codeforces.com/contest/4/problem/B) | `Implementation`, `Greedy` | ${\mathcal{O}(n)}$ | Sep&nbsp;17,&nbsp;2026 | [C++](4B.cpp) \| [Sub](https://codeforces.com/contest/4/submission/391051673) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 3 | [4B - Before an Exam](https://codeforces.com/contest/4/problem/B) | `Implementation`, `Greedy` | ${\mathcal{O}(n)}$ | Sep&nbsp;17,&nbsp;2026 | [Go](4B.go) \| [Sub](https://codeforces.com/contest/4/submission/391051673) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 3 | [4B - Before an Exam](https://codeforces.com/contest/4/problem/B) | `Implementation`, `Greedy` | ${\mathcal{O}(n)}$ | Sep&nbsp;17,&nbsp;2026 | [Golang](4B.go) \| [Sub](https://codeforces.com/contest/4/submission/391051673) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 4 | [32B](https://codeforces.com/contest/32/problem/B) | N/A | N/A | N/A | [C++](32B.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 5 | [41A](https://codeforces.com/contest/41/problem/A) | N/A | N/A | N/A | [C++](41A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 6 | [50A](https://codeforces.com/contest/50/problem/A) | N/A | N/A | N/A | [C++](50A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
