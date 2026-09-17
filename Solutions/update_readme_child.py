@@ -3,21 +3,22 @@ import re
 from datetime import datetime, timedelta, timezone
 
 # --- CONFIGURATION ---
-# This script should be placed in the Solutions directory.
-# It scans every sub-folder and creates a README for each.
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 EXCLUDE_DIRS = {'.git', '.github', '.assets', 'venv', '__pycache__', '.cph'}
 CITY_ID = 218 # Ho Chi Minh City
 
-# Các đuôi file code hợp lệ
 SOURCE_EXTENSIONS = ('.cpp', '.c', '.go')
 
-# Vì script nằm trong folder 'Solutions', nên Gốc là thư mục cha của nó
+EXT_TO_LANG = {
+    '.cpp': 'C++',
+    '.c': 'C',
+    '.go': 'Go'
+}
+
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT = os.path.dirname(SCRIPT_DIR)
 README_FILE = os.path.join(REPO_ROOT, 'README.md')
-# Thư mục để quét vẫn là SCRIPT_DIR (vì script đang ở trong 'Solutions')
 root_dir = SCRIPT_DIR
 
 STATUS_MAP = {
@@ -37,7 +38,6 @@ def get_last_commit_time():
     return datetime.now(tz=tz_hcm)
 
 def format_display_name(name):
-    """Keep the exact folder name as requested."""
     return name
 
 def create_slug(text):
@@ -46,14 +46,10 @@ def create_slug(text):
     return slug
 
 def minify_latex(latex_str):
-    # Wrapping in ${{ ... }}$ prevents line breaks completely at the KaTeX/MathJax level.
     latex_str = re.sub(r'\s+', ' ', latex_str).strip()
     return latex_str
 
 def escape_markdown_table_cell(text):
-    """
-    Escapes the pipe symbol '|' to prevent breaking Markdown tables.
-    """
     if not text:
         return ""
     return text.replace('|', '\\|')
@@ -141,7 +137,6 @@ def auto_generate_link(file_path):
     return None
 
 def count_problems_in_subtree(directory):
-    """Count unique problems in a specific directory tree."""
     problem_statuses = {}
 
     for root, dirs, files in os.walk(directory):
@@ -162,7 +157,6 @@ def count_problems_in_subtree(directory):
     return total, ac
 
 def generate_single_readme(target_dir):
-    """Tạo README.md cho một thư mục cụ thể và đảm bảo link luôn đúng."""
     folder_name = os.path.basename(target_dir)
     if not folder_name or folder_name == "Solutions":
         folder_name = "Solutions"
@@ -175,7 +169,6 @@ def generate_single_readme(target_dir):
 
     content = f"# 📁 {folder_name} Solutions\n\n"
 
-    # --- PHẦN THỐNG KÊ (STATS) ---
     push_time = get_last_commit_time()
     time_str = push_time.strftime("%b %d, %Y - %H:%M (GMT+7)")
     badge_time = time_str.replace("-", "--").replace(" ", "_").replace(":", "%3A").replace(",", "%2C")
@@ -190,7 +183,6 @@ def generate_single_readme(target_dir):
     stats += f"> 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.\n\n"
     stats += "---\n"
 
-    # --- PHẦN MỤC LỤC (TOC) & NỘI DUNG CHÍNH ---
     toc_content = "## 📌 Table of Contents\n\n"
     main_tables = ""
     folder_data = []
@@ -225,25 +217,25 @@ def generate_single_readme(target_dir):
             full_path = os.path.join(path, file)
             meta = extract_metadata(full_path)
 
-            # 1. XỬ LÝ LINK BÀI TẬP (SOURCE)
             prob_link = meta["source"] or auto_generate_link(full_path)
             if prob_link:
                 if not str(prob_link).startswith("http"):
                     prob_link = os.path.relpath(prob_link, target_dir).replace('\\', '/')
                 prob_link = str(prob_link).replace(' ', '%20')
 
-            # 2. XỬ LÝ TÊN HIỂN THỊ
             filename_no_ext = re.sub(r'\.(cpp|c|go)$', '', file, flags=re.IGNORECASE)
             file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
 
             prob_title = f"{file_id} - {meta['title']}" if meta["title"] else filename_no_ext
             name_md = f"[{prob_title}]({prob_link})" if prob_link else prob_title
 
-            # 3. XỬ LÝ LINK CODE
-            rel_code_path = os.path.relpath(full_path, target_dir).replace('\\', '/').replace(' ', '%20')
-            sol_md = f"[Code]({rel_code_path})"
+            # Gán nhãn theo ngôn ngữ
+            _, ext = os.path.splitext(file)
+            lang_label = EXT_TO_LANG.get(ext.lower(), 'Code')
 
-            # 4. XỬ LÝ LINK SUBMISSION
+            rel_code_path = os.path.relpath(full_path, target_dir).replace('\\', '/').replace(' ', '%20')
+            sol_md = f"[{lang_label}]({rel_code_path})"
+
             if meta["submission"]:
                 sub_link = meta["submission"]
                 if not str(sub_link).startswith("http"):

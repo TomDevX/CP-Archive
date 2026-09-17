@@ -12,8 +12,13 @@ root_dir = os.path.join(BASE_DIR, 'Solutions') if os.path.isdir(os.path.join(BAS
 EXCLUDE_DIRS = {'.git', '.github', '.assets', 'venv', '__pycache__', '.cph'}
 CITY_ID = 218 # Ho Chi Minh City
 
-# Các đuôi file code hợp lệ
 SOURCE_EXTENSIONS = ('.cpp', '.c', '.go')
+
+EXT_TO_LANG = {
+    '.cpp': 'C++',
+    '.c': 'C',
+    '.go': 'Go'
+}
 
 STATUS_MAP = {
     "AC": {"full": "Accepted", "color": "4c1", "prio": 4},
@@ -32,18 +37,11 @@ def get_last_commit_time():
     return datetime.now(tz=tz_hcm)
 
 def escape_markdown_table_cell(text):
-    """
-    Escapes the pipe symbol '|' to prevent breaking Markdown tables.
-    """
     if not text:
         return ""
     return text.replace('|', '\\|')
 
 def minify_latex(latex_str):
-    """
-    Normalizes multiple spaces into a single space.
-    Wrapping in ${{ ... }}$ will guarantee the browser treats it as an unbreakable block.
-    """
     latex_str = re.sub(r'\s+', ' ', latex_str).strip()
     return latex_str
 
@@ -62,7 +60,6 @@ def get_oj_link_from_file(folder_path):
                         return content.split('\n')[0].strip().replace(' ', '%20')
             except Exception: pass
 
-    # Quét trực tiếp file source code
     try:
         for file_name in os.listdir(folder_path):
             if file_name.endswith(SOURCE_EXTENSIONS):
@@ -186,7 +183,6 @@ def count_problems_recursive(directory):
     for root, dirs, files in os.walk(directory):
         dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
 
-        # Bỏ qua hoàn toàn các tệp nằm trực tiếp tại thư mục gốc Solutions/
         if os.path.relpath(root, directory) == ".":
             continue
 
@@ -249,7 +245,6 @@ def generate_readme():
         dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
         rel_path = os.path.relpath(root, root_dir)
 
-        # Bỏ qua thư mục gốc để lọc bỏ toàn bộ file lẻ bên ngoài
         if rel_path != ".":
             parts = rel_path.split(os.sep)
             for i in range(len(parts)):
@@ -266,7 +261,6 @@ def generate_readme():
                     toc_content += f"{indent}* [📂 {title_with_count}](#-{create_slug(title_with_count)})\n"
                     added_to_toc.add(current_path)
 
-            # Thu thập file .cpp, .c, .go
             sol_files = [f for f in files if f.endswith(SOURCE_EXTENSIONS)]
             if sol_files:
                 folder_data.append((root, sol_files))
@@ -302,7 +296,6 @@ def generate_readme():
             if prob_id not in unique_problems or STATUS_MAP[current_status]['prio'] > STATUS_MAP[unique_problems[prob_id]]['prio']:
                 unique_problems[prob_id] = current_status
 
-            # Xóa đuôi file .cpp, .c, .go
             filename_no_ext = re.sub(r'\.(cpp|c|go)$', '', file, flags=re.IGNORECASE)
             file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
 
@@ -313,11 +306,14 @@ def generate_readme():
 
             name_md = f"[{display_name}]({prob_link})" if prob_link else display_name
 
+            # Gán nhãn theo ngôn ngữ
+            _, ext = os.path.splitext(file)
+            lang_label = EXT_TO_LANG.get(ext.lower(), 'Code')
+
             rel_sol_path = os.path.relpath(full_path, BASE_DIR).replace('\\', '/').replace(' ', '%20')
-            sol_md = f"[Code]({rel_sol_path})"
+            sol_md = f"[{lang_label}]({rel_sol_path})"
             if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
 
-            # Escape spaces in date for unbreakable rendering in GitHub tables
             safe_date = meta['date'].replace(' ', '&nbsp;')
 
             table += f"| {i} | {name_md} | {meta['tags']} | {meta['complexity']} | {safe_date} | {sol_md} | {get_status_badge(meta['status'])} |\n"

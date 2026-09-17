@@ -33,7 +33,7 @@ To maintain a scalable and organized repository, I utilize custom automation:
 
 ## 🛠️ Technical Stack
 
-- **Language:** C++14 (Standard for VOI)
+- **Language:** C++14 (Standard for VOI), C11, Golang
 - **Environment:** macOS (Darwin), Windows, Fedora Linux
 - **Compiler:** Clang / G++ (GCC)
 
