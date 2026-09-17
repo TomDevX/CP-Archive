@@ -2,7 +2,8 @@
 	"gopls": {
 		"build.env": {
 			"CGO_ENABLED": "0"
-		}
+		},
+		"build.standaloneTags": ["ignore"]
 	},
 	"[go]": {
 		"editor.formatOnSave": true,

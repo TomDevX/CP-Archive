@@ -1,3 +1,5 @@
+//go:build ignore
+
 /**
  *    author: TomDev - Tran Hoang Quan
  *    created: 2026-09-17 23:01:27
