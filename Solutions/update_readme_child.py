@@ -10,18 +10,21 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 EXCLUDE_DIRS = {'.git', '.github', '.assets', 'venv', '__pycache__', '.cph'}
 CITY_ID = 218 # Ho Chi Minh City
 
+# Các đuôi file code hợp lệ
+SOURCE_EXTENSIONS = ('.cpp', '.c', '.go')
+
 # Vì script nằm trong folder 'Solutions', nên Gốc là thư mục cha của nó
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-REPO_ROOT = os.path.dirname(SCRIPT_DIR) 
+REPO_ROOT = os.path.dirname(SCRIPT_DIR)
 README_FILE = os.path.join(REPO_ROOT, 'README.md')
 # Thư mục để quét vẫn là SCRIPT_DIR (vì script đang ở trong 'Solutions')
 root_dir = SCRIPT_DIR
 
 STATUS_MAP = {
-    "AC": {"full": "Accepted", "color": "4c1", "prio": 4},        
-    "WA": {"full": "Wrong Answer", "color": "e05d44", "prio": 2},  
-    "TLE": {"full": "Time Limit Exceeded", "color": "dfb317", "prio": 3}, 
-    "WIP": {"full": "Work In Progress", "color": "007ec6", "prio": 1},     
+    "AC": {"full": "Accepted", "color": "4c1", "prio": 4},
+    "WA": {"full": "Wrong Answer", "color": "e05d44", "prio": 2},
+    "TLE": {"full": "Time Limit Exceeded", "color": "dfb317", "prio": 3},
+    "WIP": {"full": "Work In Progress", "color": "007ec6", "prio": 1},
 }
 
 # --- HELPERS ---
@@ -43,8 +46,7 @@ def create_slug(text):
     return slug
 
 def minify_latex(latex_str):
-    # We no longer need to strip all spaces because wrapping in ${{ ... }}$
-    # prevents line breaks completely at the KaTeX/MathJax level.
+    # Wrapping in ${{ ... }}$ prevents line breaks completely at the KaTeX/MathJax level.
     latex_str = re.sub(r'\s+', ' ', latex_str).strip()
     return latex_str
 
@@ -52,7 +54,7 @@ def escape_markdown_table_cell(text):
     """
     Escapes the pipe symbol '|' to prevent breaking Markdown tables.
     """
-    if not text: 
+    if not text:
         return ""
     return text.replace('|', '\\|')
 
@@ -71,28 +73,26 @@ def extract_metadata(file_path):
                 if in_header:
                     clean_line = line_strip.lstrip('*').strip()
                     lower_line = clean_line.lower()
-                    
+
                     if lower_line.startswith("title:"):
                         val = clean_line[6:].strip()
-                        if val: 
-                            # Safe escape for titles containing '|'
+                        if val:
                             meta["title"] = escape_markdown_table_cell(val)
                     elif lower_line.startswith("status:"):
                         val = clean_line[7:].strip().upper()
                         if any(x in val for x in ["IN PROGRESS", "WIP"]): meta["status"] = "WIP"
                         elif val in STATUS_MAP: meta["status"] = val
                     elif lower_line.startswith("source:"):
-                        val = clean_line[7:].strip().replace('%20', ' ') # Chuyển %20 về dấu cách để Python đọc được
+                        val = clean_line[7:].strip().replace('%20', ' ')
                         if val:
                             if val.startswith("http"):
                                 meta["source"] = val
                             else:
-                                # Chuyển về tuyệt đối để tính toán chính xác sau này
                                 clean_val = val.lstrip('./')
                                 meta["source"] = os.path.abspath(os.path.join(os.path.dirname(file_path), clean_val))
                     elif lower_line.startswith("submission:"):
                         val = clean_line[11:].strip()
-                        if val: meta["submission"] = val # Giữ nguyên URL hoặc path
+                        if val: meta["submission"] = val
                     elif lower_line.startswith("created:"):
                         val = clean_line[8:].strip()
                         if val:
@@ -103,13 +103,11 @@ def extract_metadata(file_path):
                     elif lower_line.startswith("tags:"):
                         val = clean_line[5:].strip()
                         if val:
-                            # Safe escape for tags containing '|'
                             tags = [f"`{escape_markdown_table_cell(t.strip())}`" for t in val.split(',') if t.strip()]
                             meta["tags"] = ", ".join(tags)
                     elif lower_line.startswith("complexity:"):
                         val = clean_line[11:].strip()
                         if val:
-                            # CRITICAL FIX: Convert pipe '|' to LaTeX '\vert ' (with a trailing space) to prevent compiling errors in GitHub Markdown
                             safe_val = val.replace('|', '\\vert ')
                             if any(p in safe_val for p in ["\\mathcal{O}", "\\Theta", "\\Omega"]):
                                 raw_latex = f"${{{safe_val}}}$"
@@ -129,8 +127,8 @@ def get_status_badge(status_code):
 def auto_generate_link(file_path):
     path_parts = file_path.replace('\\', '/').split('/')
     filename = path_parts[-1]
-    filename = re.sub(r'\.(cpp|c)$', '', filename, flags=re.IGNORECASE).upper()
-    
+    filename = re.sub(r'\.(cpp|c|go)$', '', filename, flags=re.IGNORECASE).upper()
+
     for part in reversed(path_parts[:-1]):
         up = part.upper()
         if "CODEFORCES" in up or "CF" in up:
@@ -144,21 +142,21 @@ def auto_generate_link(file_path):
 
 def count_problems_in_subtree(directory):
     """Count unique problems in a specific directory tree."""
-    problem_statuses = {} # {id: status}
+    problem_statuses = {}
 
     for root, dirs, files in os.walk(directory):
         dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
         for file in files:
-            if file.endswith('.cpp') or file.endswith('.c'):
+            if file.endswith(SOURCE_EXTENSIONS):
                 full_path = os.path.join(root, file)
                 meta = extract_metadata(full_path)
                 prob_link = meta["source"] or auto_generate_link(full_path)
                 prob_id = prob_link if prob_link else full_path
-                
+
                 status = meta["status"]
                 if prob_id not in problem_statuses or STATUS_MAP[status]['prio'] > STATUS_MAP[problem_statuses[prob_id]]['prio']:
                     problem_statuses[prob_id] = status
-    
+
     total = len(problem_statuses)
     ac = list(problem_statuses.values()).count("AC")
     return total, ac
@@ -166,109 +164,98 @@ def count_problems_in_subtree(directory):
 def generate_single_readme(target_dir):
     """Tạo README.md cho một thư mục cụ thể và đảm bảo link luôn đúng."""
     folder_name = os.path.basename(target_dir)
-    # Nếu là thư mục gốc của script, đặt tên là Solutions
-    if not folder_name or folder_name == "Solutions": 
-        folder_name = "Solutions" 
-    
+    if not folder_name or folder_name == "Solutions":
+        folder_name = "Solutions"
+
     readme_path = os.path.join(target_dir, 'README.md')
     total_problems, total_ac = count_problems_in_subtree(target_dir)
-    
-    # Không tạo README nếu thư mục không chứa bài tập nào
-    if total_problems == 0: 
-        return 
+
+    if total_problems == 0:
+        return
 
     content = f"# 📁 {folder_name} Solutions\n\n"
-    
+
     # --- PHẦN THỐNG KÊ (STATS) ---
     push_time = get_last_commit_time()
     time_str = push_time.strftime("%b %d, %Y - %H:%M (GMT+7)")
-    # Encode thời gian cho Shield.io badge
     badge_time = time_str.replace("-", "--").replace(" ", "_").replace(":", "%3A").replace(",", "%2C")
-    
+
     badge_url = f"https://img.shields.io/badge/Last_Update-{badge_time}-0078d4?style=for-the-badge&logo=github"
     progress_badge = f"https://img.shields.io/badge/Progress-{total_ac}/{total_problems}-4c1?style=for-the-badge&logo=target"
-    
+
     stats = f"### 📊 {folder_name} Stats\n\n"
     stats += f"![Progress]({progress_badge}) ![Last Update]({badge_url})\n\n"
     stats += f"- **Total Unique Problems:** {total_problems}\n"
     stats += f"- **Solved (AC):** {total_ac}\n\n"
-    # Format Tips dưới dạng Blockquote cho chuyên nghiệp
     stats += f"> 💡 **Tips:** Press `ctrl + f` (Windows) or `cmd + f` (MacOS) to search problems by ID or Name.\n\n"
     stats += "---\n"
-    
+
     # --- PHẦN MỤC LỤC (TOC) & NỘI DUNG CHÍNH ---
     toc_content = "## 📌 Table of Contents\n\n"
     main_tables = ""
     folder_data = []
-    
-    # Quét các folder con để lấy dữ liệu bài tập
+
     for root, dirs, files in os.walk(target_dir):
         dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
-        sol_files = [f for f in files if f.endswith('.cpp') or f.endswith('.c')]
+        sol_files = [f for f in files if f.endswith(SOURCE_EXTENSIONS)]
         if sol_files:
             folder_data.append((root, sol_files))
-            
+
     folder_data.sort(key=lambda x: natural_sort_key(x[0]))
-    
+
     for path, files in folder_data:
         rel_path = os.path.relpath(path, target_dir)
         display_name = os.path.basename(path)
         this_folder_total, _ = count_problems_in_subtree(path)
         title_with_count = f"{display_name} ({this_folder_total})"
-        
-        # Xây dựng Mục lục (TOC) với độ thụt lề dựa trên độ sâu thư mục
+
         depth = 0 if rel_path == "." else rel_path.count(os.sep) + 1
         toc_content += f"{'  ' * depth}* [📁 {title_with_count}](#-{create_slug(title_with_count)})\n"
-        
-        # Tạo tiêu đề cho từng bảng bài tập
+
         if rel_path == ".":
             main_tables += f"## 📂 {title_with_count}\n"
         else:
             main_tables += f"{'#' * (depth + 2)} 📁 {title_with_count}\n"
-            
+
         table = "| # | Problem Name | Tags | Complexity | Date | Solution | Status |\n"
         table += "| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
-        
+
         files.sort(key=natural_sort_key)
         for idx, file in enumerate(files, 1):
             full_path = os.path.join(path, file)
             meta = extract_metadata(full_path)
-            
+
             # 1. XỬ LÝ LINK BÀI TẬP (SOURCE)
             prob_link = meta["source"] or auto_generate_link(full_path)
             if prob_link:
                 if not str(prob_link).startswith("http"):
-                    # Tính toán đường dẫn tương đối từ file README hiện tại đến file PDF
                     prob_link = os.path.relpath(prob_link, target_dir).replace('\\', '/')
-                # Encode khoảng trắng sau khi đã có đường dẫn tương đối chuẩn
                 prob_link = str(prob_link).replace(' ', '%20')
-            
+
             # 2. XỬ LÝ TÊN HIỂN THỊ
-            filename_no_ext = re.sub(r'\.(cpp|c)$', '', file, flags=re.IGNORECASE)
+            filename_no_ext = re.sub(r'\.(cpp|c|go)$', '', file, flags=re.IGNORECASE)
             file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
-            
+
             prob_title = f"{file_id} - {meta['title']}" if meta["title"] else filename_no_ext
             name_md = f"[{prob_title}]({prob_link})" if prob_link else prob_title
-            
-            # 3. XỬ LÝ LINK CODE (File .cpp hoặc .c)
+
+            # 3. XỬ LÝ LINK CODE
             rel_code_path = os.path.relpath(full_path, target_dir).replace('\\', '/').replace(' ', '%20')
             sol_md = f"[Code]({rel_code_path})"
-            
+
             # 4. XỬ LÝ LINK SUBMISSION
             if meta["submission"]:
                 sub_link = meta["submission"]
                 if not str(sub_link).startswith("http"):
                     sub_link = os.path.relpath(sub_link, target_dir).replace('\\', '/').replace(' ', '%20')
                 sol_md += f" \\| [Sub]({sub_link})"
-            
-            # Escape spaces in date for unbreakable rendering in GitHub tables
+
             safe_date = meta['date'].replace(' ', '&nbsp;')
-            
+
             table += f"| {idx} | {name_md} | {meta['tags']} | {meta['complexity']} | {safe_date} | {sol_md} | {get_status_badge(meta['status'])} |\n"
-        
+
         main_tables += table + "\n"
 
-    # Ghi toàn bộ nội dung vào file README.md
     with open(readme_path, 'w', encoding='utf-8') as f:
         f.write(content + stats + toc_content + "\n---\n" + main_tables)
     print(f"✅ Generated: {readme_path}")

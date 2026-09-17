@@ -12,11 +12,14 @@ root_dir = os.path.join(BASE_DIR, 'Solutions') if os.path.isdir(os.path.join(BAS
 EXCLUDE_DIRS = {'.git', '.github', '.assets', 'venv', '__pycache__', '.cph'}
 CITY_ID = 218 # Ho Chi Minh City
 
+# Các đuôi file code hợp lệ
+SOURCE_EXTENSIONS = ('.cpp', '.c', '.go')
+
 STATUS_MAP = {
-    "AC": {"full": "Accepted", "color": "4c1", "prio": 4},        
-    "WA": {"full": "Wrong Answer", "color": "e05d44", "prio": 2},  
-    "TLE": {"full": "Time Limit Exceeded", "color": "dfb317", "prio": 3}, 
-    "WIP": {"full": "Work In Progress", "color": "007ec6", "prio": 1},     
+    "AC": {"full": "Accepted", "color": "4c1", "prio": 4},
+    "WA": {"full": "Wrong Answer", "color": "e05d44", "prio": 2},
+    "TLE": {"full": "Time Limit Exceeded", "color": "dfb317", "prio": 3},
+    "WIP": {"full": "Work In Progress", "color": "007ec6", "prio": 1},
 }
 
 # --- HELPERS ---
@@ -32,13 +35,13 @@ def escape_markdown_table_cell(text):
     """
     Escapes the pipe symbol '|' to prevent breaking Markdown tables.
     """
-    if not text: 
+    if not text:
         return ""
     return text.replace('|', '\\|')
 
 def minify_latex(latex_str):
     """
-    Normalizes multiple spaces into a single space. 
+    Normalizes multiple spaces into a single space.
     Wrapping in ${{ ... }}$ will guarantee the browser treats it as an unbreakable block.
     """
     latex_str = re.sub(r'\s+', ' ', latex_str).strip()
@@ -59,10 +62,10 @@ def get_oj_link_from_file(folder_path):
                         return content.split('\n')[0].strip().replace(' ', '%20')
             except Exception: pass
 
-    # Quét trực tiếp file .cpp hoặc .c
+    # Quét trực tiếp file source code
     try:
         for file_name in os.listdir(folder_path):
-            if file_name.endswith('.cpp') or file_name.endswith('.c'):
+            if file_name.endswith(SOURCE_EXTENSIONS):
                 file_path = os.path.join(folder_path, file_name)
                 with open(file_path, 'r', encoding='utf-8') as f:
                     header_content = "".join([next(f) for _ in range(20) if f])
@@ -100,16 +103,16 @@ def extract_metadata(file_path):
                 if in_header:
                     clean_line = line_strip.lstrip('*').strip()
                     lower_line = clean_line.lower()
-                    
+
                     if lower_line.startswith("title:"):
                         val = clean_line[6:].strip()
-                        if val: 
+                        if val:
                             meta["title"] = escape_markdown_table_cell(val)
                     elif lower_line.startswith("status:"):
                         val = clean_line[7:].strip().upper()
                         if any(x in val for x in ["IN PROGRESS", "WIP"]): meta["status"] = "WIP"
                         elif val in STATUS_MAP: meta["status"] = val
-                    
+
                     elif lower_line.startswith("source:"):
                         val = clean_line[7:].strip()
                         if val:
@@ -120,7 +123,7 @@ def extract_metadata(file_path):
                                 abs_source = os.path.abspath(os.path.join(os.path.dirname(file_path), clean_val))
                                 rel_to_root = os.path.relpath(abs_source, BASE_DIR).replace('\\', '/')
                                 meta["source"] = rel_to_root.replace(' ', '%20')
-                    
+
                     elif lower_line.startswith("submission:"):
                         val = clean_line[11:].strip()
                         if val:
@@ -143,7 +146,6 @@ def extract_metadata(file_path):
                     elif lower_line.startswith("complexity:"):
                         val = clean_line[11:].strip()
                         if val:
-                            # CRITICAL FIX: Convert pipe '|' to LaTeX '\vert ' (with a trailing space) to prevent compiling errors in GitHub Markdown
                             safe_val = val.replace('|', '\\vert ')
                             if any(p in safe_val for p in ["\\mathcal{O}", "\\Theta", "\\Omega"]):
                                 raw_latex = f"${{{safe_val}}}$"
@@ -163,8 +165,8 @@ def get_status_badge(status_code):
 def auto_generate_link(file_path):
     path_parts = file_path.replace('\\', '/').split('/')
     filename = path_parts[-1]
-    filename = re.sub(r'\.(cpp|c)$', '', filename, flags=re.IGNORECASE).upper()
-    
+    filename = re.sub(r'\.(cpp|c|go)$', '', filename, flags=re.IGNORECASE).upper()
+
     for part in reversed(path_parts[:-1]):
         up = part.upper()
         if "CODEFORCES" in up or "CF" in up:
@@ -180,38 +182,38 @@ def auto_generate_link(file_path):
 
 def count_problems_recursive(directory):
     folder_unique_ids = {}
-    
+
     for root, dirs, files in os.walk(directory):
         dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
-        
+
         # Bỏ qua hoàn toàn các tệp nằm trực tiếp tại thư mục gốc Solutions/
         if os.path.relpath(root, directory) == ".":
             continue
-            
+
         for file in files:
-            if file.endswith('.cpp') or file.endswith('.c'):
+            if file.endswith(SOURCE_EXTENSIONS):
                 full_path = os.path.join(root, file)
                 meta = extract_metadata(full_path)
-                
+
                 prob_link = meta["source"] or auto_generate_link(full_path)
                 prob_id = prob_link if prob_link else full_path
-                
+
                 curr = root
                 while True:
                     if curr not in folder_unique_ids:
                         folder_unique_ids[curr] = set()
                     folder_unique_ids[curr].add(prob_id)
-                    
+
                     if curr == directory:
                         break
                     curr = os.path.dirname(curr)
-                    
+
     return {path: len(s) for path, s in folder_unique_ids.items()}
 
 def run_sub_scripts():
     target_script = "update_readme_child.py"
     script_path = os.path.join(root_dir, target_script)
-    
+
     if os.path.exists(script_path):
         print(f"🚀 [SUB-SCRIPT] Child script detected at: {script_path}")
         try:
@@ -226,14 +228,14 @@ def run_sub_scripts():
 
 def generate_readme():
     run_sub_scripts()
-    
+
     print("\n📝 Aggregating main README content...")
     content = "# 🏆 Competitive Programming Solutions\n\n"
-    
+
     unique_problems = {}
     main_content = ""
     toc_content = "## 📌 Table of Contents\n\n"
-    
+
     if not os.path.isdir(root_dir):
         print(f"❌ Source directory {root_dir} does not exist.")
         return
@@ -246,7 +248,7 @@ def generate_readme():
     for root, dirs, files in os.walk(root_dir):
         dirs[:] = sorted([d for d in dirs if d not in EXCLUDE_DIRS], key=natural_sort_key)
         rel_path = os.path.relpath(root, root_dir)
-        
+
         # Bỏ qua thư mục gốc để lọc bỏ toàn bộ file lẻ bên ngoài
         if rel_path != ".":
             parts = rel_path.split(os.sep)
@@ -257,15 +259,15 @@ def generate_readme():
                     indent = "  " * depth
                     raw_title = parts[i]
                     display_title = format_display_name(raw_title, is_oj=(i == 0))
-                    
+
                     count = folder_counts.get(current_path, 0)
                     title_with_count = f"{display_title} ({count})"
-                    
+
                     toc_content += f"{indent}* [📂 {title_with_count}](#-{create_slug(title_with_count)})\n"
                     added_to_toc.add(current_path)
 
-            # Lọc cả file .cpp và .c (Chỉ thu thập khi nằm trong các thư mục con của OJ)
-            sol_files = [f for f in files if f.endswith('.cpp') or f.endswith('.c')]
+            # Thu thập file .cpp, .c, .go
+            sol_files = [f for f in files if f.endswith(SOURCE_EXTENSIONS)]
             if sol_files:
                 folder_data.append((root, sol_files))
 
@@ -276,73 +278,73 @@ def generate_readme():
         base_name = os.path.basename(path)
         is_oj_folder = (os.path.dirname(rel_path_from_sol) == "")
         title = format_display_name(base_name, is_oj=is_oj_folder)
-        
+
         count = folder_counts.get(path, 0)
         title_with_count = f"{title} ({count})"
-        
+
         if is_oj_folder:
             oj_url = get_oj_link_from_file(path)
             main_content += f"## 📂 [{title_with_count}]({oj_url})\n" if oj_url else f"## 📂 {title_with_count}\n"
         else:
             main_content += f"### 📁 {title_with_count}\n"
-        
+
         files.sort(key=natural_sort_key)
         table = "| # | Problem Name | Tags | Complexity | Date | Solution | Status |\n| :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n"
-        
+
         for i, file in enumerate(files, 1):
             full_path = os.path.join(path, file)
             meta = extract_metadata(full_path)
-            
+
             prob_link = meta["source"] or auto_generate_link(full_path)
             prob_id = prob_link if prob_link else full_path
-            
+
             current_status = meta["status"]
             if prob_id not in unique_problems or STATUS_MAP[current_status]['prio'] > STATUS_MAP[unique_problems[prob_id]]['prio']:
                 unique_problems[prob_id] = current_status
-            
-            # Xóa cả đuôi .cpp và .c khi lấy tên gốc
-            filename_no_ext = re.sub(r'\.(cpp|c)$', '', file, flags=re.IGNORECASE)
+
+            # Xóa đuôi file .cpp, .c, .go
+            filename_no_ext = re.sub(r'\.(cpp|c|go)$', '', file, flags=re.IGNORECASE)
             file_id = filename_no_ext.split('_')[0].upper() if '_' in filename_no_ext else filename_no_ext.upper()
-            
+
             if meta["title"]:
                 display_name = f"{file_id} - {meta['title']}"
             else:
-                display_name = format_display_name(filename_no_ext) 
-            
+                display_name = format_display_name(filename_no_ext)
+
             name_md = f"[{display_name}]({prob_link})" if prob_link else display_name
-            
+
             rel_sol_path = os.path.relpath(full_path, BASE_DIR).replace('\\', '/').replace(' ', '%20')
             sol_md = f"[Code]({rel_sol_path})"
             if meta["submission"]: sol_md += f" \\| [Sub]({meta['submission']})"
-            
+
             # Escape spaces in date for unbreakable rendering in GitHub tables
             safe_date = meta['date'].replace(' ', '&nbsp;')
-            
+
             table += f"| {i} | {name_md} | {meta['tags']} | {meta['complexity']} | {safe_date} | {sol_md} | {get_status_badge(meta['status'])} |\n"
-                
+
         main_content += table + "\n"
-        
+
     # --- STATS SECTION ---
     total_problems_count = len(unique_problems)
     total_ac = list(unique_problems.values()).count("AC")
-    
+
     push_time = get_last_commit_time()
     iso_string = push_time.strftime("%Y%m%dT%H%M")
     time_str = push_time.strftime("%b %d, %Y - %H:%M (GMT+7)")
     badge_time = (time_str.replace("-", "--").replace(" ", "_").replace(":", "%3A")
                           .replace(",", "%2C").replace("(", "%28").replace(")", "%29"))
-    
+
     badge_url = f"https://img.shields.io/badge/Last_Update-{badge_time}-0078d4?style=for-the-badge&logo=github"
     time_link = f"https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso={iso_string}&p1={CITY_ID}"
     progress_badge = f"https://img.shields.io/badge/Progress-{total_ac}/{total_problems_count}-4c1?style=for-the-badge&logo=target"
-    
+
     stats = f"### 📊 Repository Stats\n\n"
     stats += f"![Progress]({progress_badge}) [![Last Update]({badge_url})]({time_link} \"🖱️ CLICK TO CONVERT\")\n\n"
     stats += f"- **Total Problems:** {total_problems_count}\n"
     stats += f"- **Accepted:** {total_ac}\n"
     stats += f"- **Origin Timezone:** Ho Chi Minh City (GMT+7)\n\n"
     stats += f"> *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*\n---\n"
-    
+
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content + stats + toc_content + "\n---\n" + main_content)
     print("\n✅ README system update complete!")

@@ -2,7 +2,7 @@
 
 ### 📊 CPPros Stats
 
-![Progress](https://img.shields.io/badge/Progress-27/27-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Sep_12%2C_2026_--_22%3A39_(GMT+7)-0078d4?style=for-the-badge&logo=github)
+![Progress](https://img.shields.io/badge/Progress-27/27-4c1?style=for-the-badge&logo=target) ![Last Update](https://img.shields.io/badge/Last_Update-Sep_17%2C_2026_--_23%3A36_(GMT+7)-0078d4?style=for-the-badge&logo=github)
 
 - **Total Unique Problems:** 27
 - **Solved (AC):** 27

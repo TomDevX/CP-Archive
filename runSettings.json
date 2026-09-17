@@ -1,0 +1,23 @@
+{
+	".go": {
+		"compileCommand": [
+			"go",
+			"build",
+			"-ldflags=-s -w",
+			"-o",
+			"${fileDirname}/${fileBasenameNoExtension}",
+			"${file}"
+		],
+		"runCommand": ["${fileDirname}/${fileBasenameNoExtension}"],
+		"debugCommand": [
+			"dlv",
+			"debug",
+			"--headless",
+			"--listen=localhost:${debugPort}",
+			"--api-version=2",
+			"--accept-multiclient",
+			"${file}"
+		],
+		"debugAttachConfig": "Go: Attach"
+	}
+}

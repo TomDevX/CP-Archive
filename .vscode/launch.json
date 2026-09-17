@@ -29,6 +29,14 @@
                 }
             ],
             "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "Go: Attach",
+            "type": "go",
+            "request": "attach",
+            "mode": "remote",
+            "port": "${debugPort}",
+            "host": "localhost"
         }
     ]
 }
