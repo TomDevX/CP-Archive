@@ -1,3 +1,5 @@
+//go:build ignore
+
 /**
  *    author: TomDev - Tran Hoang Quan
  *    created: 2026-09-17 23:56:08
@@ -14,7 +16,6 @@
  *    metacognition:
  *    note: Just need to consider the case of n = 2, else check even/odd
  **/
-//go:build ignore
 
 package main
 
