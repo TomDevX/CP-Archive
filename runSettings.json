@@ -19,5 +19,30 @@
 			"${file}"
 		],
 		"debugAttachConfig": "Go: Attach"
+	},
+	".cpp": {
+		"compileCommand": [
+			"g++",
+			"-std=c++14",
+			"-O2",
+			"-Wall",
+			"-pipe",
+			"-Wno-unused-result",
+			"-Wno-unused-parameter",
+			"-DONLINE_JUDGE",
+			"-Wl,-z,stack-size=66060288",
+			"/home/tomdev/Documents/Projects/CP-Archive/Solutions/Codeforces/4B.cpp",
+			"-o",
+			"/home/tomdev/Documents/Projects/CP-Archive/Solutions/Codeforces/4B"
+		],
+		"runCommand": [
+			"/home/tomdev/Documents/Projects/CP-Archive/Solutions/Codeforces/4B"
+		],
+		"debugCommand": [
+			"lldb",
+			"--",
+			"/home/tomdev/Documents/Projects/CP-Archive/Solutions/Codeforces/4B"
+		],
+		"debugAttachConfig": "GDB: Attach"
 	}
 }
