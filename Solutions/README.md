@@ -2,10 +2,10 @@
 
 ### 📊 Repository Stats
 
-![Progress](https://img.shields.io/badge/Progress-445/500-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Sep_18%2C_2026_--_00%3A03_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260918T0003&p1=218 "🖱️ CLICK TO CONVERT")
+![Progress](https://img.shields.io/badge/Progress-446/501-4c1?style=for-the-badge&logo=target) [![Last Update](https://img.shields.io/badge/Last_Update-Sep_19%2C_2026_--_22%3A56_%28GMT+7%29-0078d4?style=for-the-badge&logo=github)](https://www.timeanddate.com/worldclock/fixedtime.html?msg=Convert+to+your+timezone&iso=20260919T2256&p1=218 "🖱️ CLICK TO CONVERT")
 
-- **Total Problems:** 500
-- **Accepted:** 445
+- **Total Problems:** 501
+- **Accepted:** 446
 - **Origin Timezone:** Ho Chi Minh City (GMT+7)
 
 > *Tips: Press `ctrl + f` on Windows or `cmd + f` on MacOS to search problem by ID or Name*
@@ -15,7 +15,7 @@
 * [📂 ACMICPC (4)](#-acmicpc-4)
 * [📂 AtCoder (11)](#-atcoder-11)
 * [📂 CodeChef (2)](#-codechef-2)
-* [📂 Codeforces (182)](#-codeforces-182)
+* [📂 Codeforces (183)](#-codeforces-183)
 * [📂 CPPros (27)](#-cppros-27)
 * [📂 CSES (62)](#-cses-62)
   * [📂 Advanced Techniques (2)](#-advanced-techniques-2)
@@ -76,7 +76,7 @@
 | 1 | [KSIZEGCD - Maximum of GCDs](https://www.codechef.com/problems/KSIZEGCD) | `Math` | ${\mathcal{O}(n \log n)}$ | Jun&nbsp;11,&nbsp;2026 | [C++](CodeChef/ksizegcd.cpp) \| [Sub](https://www.codechef.com/viewsolution/1288288964) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 2 | [UPDTREE - Updating Edges on Trees](https://www.codechef.com/problems/UPDTREE) | `LCA`, `Different array on tree` | ${\mathcal{O}(n \log n)}$ | Mar&nbsp;25,&nbsp;2026 | [C++](CodeChef/UPDTREE.cpp) \| [Sub](https://www.codechef.com/viewsolution/1252458834) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
-## 📂 [Codeforces (182)](https://codeforces.com/)
+## 📂 [Codeforces (183)](https://codeforces.com/)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1 | [1A](https://codeforces.com/contest/1/problem/A) | N/A | N/A | N/A | [C++](Codeforces/1A.cpp) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
@@ -265,7 +265,8 @@
 | 184 | [2254B - Evanescent](https://codeforces.com/contest/2254/problem/B) | `Implementation`, `Greedy` | ${\mathcal{O}(n)}$ | Aug&nbsp;8,&nbsp;2026 | [C++](Codeforces/2254B.cpp) \| [Sub](https://codeforces.com/contest/2254/submission/386216660) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 185 | [2256A - Three Numbers on the Blackboard](https://codeforces.com/contest/2256/problem/A) | `Implementation` | ${\mathcal{O}(1)}$ | Aug&nbsp;23,&nbsp;2026 | [C++](Codeforces/2256A.cpp) \| [Sub](https://codeforces.com/contest/2256/submission/388124540) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 | 186 | [2259B - Minus Two](https://codeforces.com/contest/2259/problem/B) | `Greedy`, `Implementation`, `Math` | ${\mathcal{O}(n)}$ | Sep&nbsp;12,&nbsp;2026 | [C++](Codeforces/2259B.cpp) \| [Sub](https://codeforces.com/contest/2259/submission/390457030) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
-| 187 | [690281B - Tăng dãy](https://codeforces.com/gym/690281/problem/B) | `Segment Tree Beats` | ${\mathcal{O}((n \cdot k + q) \log n)}$ | May&nbsp;3,&nbsp;2026 | [C++](Codeforces/690281B.cpp) \| [Sub](https://codeforces.com/gym/690281/submission/373439975) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 187 | [2260A - Monocarp's Contest](https://codeforces.com/contest/2260/problem/A) | `Implementation` | ${\mathcal{O}(n)}$ | Sep&nbsp;19,&nbsp;2026 | [Golang](Codeforces/2260A.go) \| [Sub](https://codeforces.com/contest/2260/submission/391247538) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
+| 188 | [690281B - Tăng dãy](https://codeforces.com/gym/690281/problem/B) | `Segment Tree Beats` | ${\mathcal{O}((n \cdot k + q) \log n)}$ | May&nbsp;3,&nbsp;2026 | [C++](Codeforces/690281B.cpp) \| [Sub](https://codeforces.com/gym/690281/submission/373439975) | ![AC](https://img.shields.io/static/v1?label=&message=%20%20%20AC%20%20%20&color=4c1&style=for-the-badge) |
 
 ## 📂 [CPPros (27)](https://oj.vnoi.info/organization/gogovoi)
 | # | Problem Name | Tags | Complexity | Date | Solution | Status |
