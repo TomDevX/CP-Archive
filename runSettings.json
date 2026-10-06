@@ -31,17 +31,17 @@
 			"-Wno-unused-parameter",
 			"-DONLINE_JUDGE",
 			"-Wl,-z,stack-size=66060288",
-			"/home/tomdev/Documents/Projects/CP-Archive/Solutions/Codeforces/4B.cpp",
+			"${fileDirname}/${fileBasename}",
 			"-o",
-			"/home/tomdev/Documents/Projects/CP-Archive/Solutions/Codeforces/4B"
+			"${fileDirname}/${fileBasenameNoExtension}"
 		],
 		"runCommand": [
-			"/home/tomdev/Documents/Projects/CP-Archive/Solutions/Codeforces/4B"
+			"${fileDirname}/${fileBasenameNoExtension}"
 		],
 		"debugCommand": [
 			"lldb",
 			"--",
-			"/home/tomdev/Documents/Projects/CP-Archive/Solutions/Codeforces/4B"
+			"${fileDirname}/${fileBasenameNoExtension}"
 		],
 		"debugAttachConfig": "GDB: Attach"
 	}
